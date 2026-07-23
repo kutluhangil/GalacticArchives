@@ -47,7 +47,7 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 **Yapılacak**
 - [x] **P1** `vercel.json` headers: sıkı CSP + `X-Content-Type-Options`/`Referrer-Policy`/`X-Frame-Options`/`Permissions-Policy`/HSTS. Tarayıcıda header enjekte edilerek doğrulandı — 0 ihlal, WebGL+font+inline-style çalışıyor.
 - [x] **P1** Tauri `csp` dolduruldu (self + `ipc:`/`asset:` protokolleri). ⚠️ Masaüstü build doğrulaması bekliyor (`.dmg` zaten imzalama bekliyor — CSP o build'de test edilecek). `capabilities` en-az-yetki denetimi P2'ye kaldı.
-- [ ] **P2** LICENSE ekle (kod MIT + içerik CC BY-SA notu). Dependabot aç.
+- [x] **P2** LICENSE eklendi (kod MIT + içerik CC BY-SA + Star Wars ticari-marka disclaimer). Dependabot açıldı (`app/` npm haftalık + github-actions).
 
 ## 3. Performans
 

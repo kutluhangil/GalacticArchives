@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # app is a nested package (the repo root holds docs + the Tauri wrapper)
+  - package-ecosystem: npm
+    directory: /app
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      # one PR for the routine minor/patch bumps to keep noise down
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
