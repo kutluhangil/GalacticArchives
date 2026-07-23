@@ -127,8 +127,12 @@ function nebulaTexture(): THREE.CanvasTexture {
 /** Faction halo drawn behind a node's globe: a soft glow plus a thin targeting
  *  ring, so allegiance reads at a glance without hiding the world itself. */
 const nodeTexCache = new Map<string, THREE.CanvasTexture>()
-function makeNodeTexture(color: string): THREE.CanvasTexture {
-  const hit = nodeTexCache.get(color)
+/** Legends-layer marker: worlds outside canon get a dashed gold outer ring so
+ *  the layer reads as a distinct overlay rather than blending into canon. */
+const LEGENDS_RING = '#e8c15a'
+function makeNodeTexture(color: string, legends = false): THREE.CanvasTexture {
+  const key = legends ? `${color}|legends` : color
+  const hit = nodeTexCache.get(key)
   if (hit) return hit
   const cv = document.createElement('canvas')
   cv.width = cv.height = 64
@@ -145,9 +149,19 @@ function makeNodeTexture(color: string): THREE.CanvasTexture {
   ctx.beginPath()
   ctx.arc(32, 32, 23, 0, Math.PI * 2)
   ctx.stroke()
+  if (legends) {
+    ctx.strokeStyle = LEGENDS_RING
+    ctx.lineWidth = 2
+    ctx.globalAlpha = 0.9
+    ctx.setLineDash([4, 4])
+    ctx.beginPath()
+    ctx.arc(32, 32, 29, 0, Math.PI * 2)
+    ctx.stroke()
+    ctx.setLineDash([])
+  }
   const tex = new THREE.CanvasTexture(cv)
   tex.colorSpace = THREE.SRGBColorSpace
-  nodeTexCache.set(color, tex)
+  nodeTexCache.set(key, tex)
   return tex
 }
 
@@ -248,7 +262,9 @@ export class GalaxyEngine extends EngineBase {
       node.color = s.color
       node.destroyed = s.destroyed
       const mat = sprite.material as THREE.SpriteMaterial
-      mat.map = s.destroyed ? this.brokenTex : makeNodeTexture(s.color)
+      mat.map = s.destroyed
+        ? this.brokenTex
+        : makeNodeTexture(s.color, node.body.continuity === 'legends')
       mat.blending = s.destroyed ? THREE.NormalBlending : THREE.AdditiveBlending
       mat.needsUpdate = true
       // a destroyed world loses its globe; era variants (Starkiller) switch in
@@ -600,7 +616,9 @@ export class GalaxyEngine extends EngineBase {
     for (const node of this.nodes) {
       const sprite = new THREE.Sprite(
         new THREE.SpriteMaterial({
-          map: node.destroyed ? this.brokenTex : makeNodeTexture(node.color),
+          map: node.destroyed
+            ? this.brokenTex
+            : makeNodeTexture(node.color, node.body.continuity === 'legends'),
           blending: node.destroyed ? THREE.NormalBlending : THREE.AdditiveBlending,
           transparent: true,
           depthWrite: false,

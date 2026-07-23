@@ -73,7 +73,7 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 - Era slider + Legends toggle keşfedilebilir değil.
 
 **Yapılacak**
-- [ ] **P1** Legends node'larına harita düzeyi ayrım (altın halka / kesikli çember).
+- [x] **P1** Legends node'larına harita düzeyi ayrım: dış **kesikli altın halka** (`continuity==='legends'`). Tarayıcıda doğrulandı — canon komşularından ayrık okunuyor.
 - [ ] **P1** Node'lara klavye erişimi + focus ring (en büyük a11y açığı).
 - [ ] **P2** Holocron view transitions — kart↔portre shared-element morph. **Karar: manuel
   `document.startViewTransition` browser API** (react stable kalır, canary'ye geçilmez, sıfır
