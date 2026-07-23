@@ -11,6 +11,8 @@ import TopBar from '../components/hud/TopBar'
 import PlanetPanel from '../components/hud/PlanetPanel'
 import TimeBar from '../components/hud/TimeBar'
 import { useFlyTo } from '../components/useFlyTo'
+import EraDissolve from '../components/EraDissolve'
+import { useEraDissolve } from '../components/useEraDissolve'
 import { KesselRun, Porg } from '../components/EasterEggs'
 
 export default function PlanetView() {
@@ -24,6 +26,7 @@ export default function PlanetView() {
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
   const [fps, setFps] = useState(0)
   const jump = useFlyTo()
+  const dissolve = useEraDissolve()
   // keyed by id, so a route change reads as "not loaded yet" without a reset
   const body = loaded?.id === id ? loaded.body : null
   const systemHost = loaded?.id === id ? loaded.systemHost : id
@@ -60,10 +63,15 @@ export default function PlanetView() {
     })
     engine.init(body, era)
     engineRef.current = engine
+    dissolve.onBuild(body.id)
     return () => {
+      dissolve.onTeardown(engine)
       engineRef.current = null
       engine.dispose()
     }
+    // dissolve helpers are stable refs; excluding them keeps the rebuild keyed
+    // strictly to body/era
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [body, era])
 
   // leaving a world is the dive in reverse: pull back, then swap views
@@ -74,6 +82,9 @@ export default function PlanetView() {
   return (
     <div className="relative h-full w-full overflow-hidden bg-space">
       <canvas ref={canvasRef} className="h-full w-full" />
+      {dissolve.snap && (
+        <EraDissolve key={dissolve.snap} src={dissolve.snap} onDone={dissolve.clear} />
+      )}
       <TopBar />
       {body && <PlanetPanel body={body} />}
       <TimeBar />

@@ -11,9 +11,12 @@ import { L, LL, loadAllPlanets, loadBody, regions } from '../lib/lore'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
+import EraDissolve from '../components/EraDissolve'
+import { useEraDissolve } from '../components/useEraDissolve'
 
 function GlobePane({ body, era }: { body: CelestialBody; era: EraId }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const dissolve = useEraDissolve()
 
   useEffect(() => {
     if (!canvasRef.current) return
@@ -21,10 +24,23 @@ function GlobePane({ body, era }: { body: CelestialBody; era: EraId }) {
       getSimTime: () => simClock.getTime(),
     })
     engine.init(body, era)
-    return () => engine.dispose()
+    dissolve.onBuild(body.id)
+    return () => {
+      dissolve.onTeardown(engine)
+      engine.dispose()
+    }
+    // dissolve helpers are stable refs; keep the rebuild keyed to body/era only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [body, era])
 
-  return <canvas ref={canvasRef} className="h-full w-full" />
+  return (
+    <div className="relative h-full w-full">
+      <canvas ref={canvasRef} className="h-full w-full" />
+      {dissolve.snap && (
+        <EraDissolve key={dissolve.snap} src={dissolve.snap} onDone={dissolve.clear} />
+      )}
+    </div>
+  )
 }
 
 function regionNameFor(body: CelestialBody | null, lang: 'en' | 'tr'): string | undefined {

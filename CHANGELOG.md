@@ -2,6 +2,7 @@
 
 ## 2026-07-23
 
+- Replaced the black era-change flash with a real cross-dissolve: the outgoing frame is frozen and faded out over the rebuilt scene in the planet, system and compare views (galaxy already recolours in place). Removed the old `EraFade` veil.
 - Added a Star Wars-style opening crawl to the landing page: blue prologue line, then the yellow title and lore text climbing into perspective, skippable by button or Escape and suppressed under reduced motion.
 - Enabled the Aurebesh decoration layer: shipped `public/fonts/aurebesh.woff2`, so planet names now carry their Aurebesh transliteration.
 - Pinned three.js to its own `three` vendor chunk (was mislabelled `TopBar`); the TopBar chunk now reflects its real 47 kB content.

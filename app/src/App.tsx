@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router'
 import TransitionVeil from './components/TransitionVeil'
 import TourPlayer from './components/TourPlayer'
 import CommandPaletteHost from './components/CommandPaletteHost'
-import EraFade from './components/EraFade'
 import { setQuality } from './lib/quality'
 import { t } from './lib/ui-strings'
 import { useApp } from './state/app'
@@ -61,7 +60,6 @@ export default function App() {
       <TourPlayer />
       <TransitionVeil />
       <CommandPaletteHost />
-      <EraFade />
     </>
   )
 }

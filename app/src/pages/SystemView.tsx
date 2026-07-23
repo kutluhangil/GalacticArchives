@@ -9,6 +9,8 @@ import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
 import TimeBar from '../components/hud/TimeBar'
 import { useFlyTo } from '../components/useFlyTo'
+import EraDissolve from '../components/EraDissolve'
+import { useEraDissolve } from '../components/useEraDissolve'
 
 interface Label {
   id: string
@@ -28,6 +30,7 @@ export default function SystemView() {
   const [labels, setLabels] = useState<Label[]>([])
   const engineRef = useRef<SystemEngine | null>(null)
   const flyTo = useFlyTo()
+  const dissolve = useEraDissolve()
   // stable across renders, so handing it to the engine does not rebuild the scene
   const dive = useCallback(
     (bodyId: string) => flyTo(`/planet/${bodyId}`, () => engineRef.current?.flyToBody(bodyId) ?? 0),
@@ -55,15 +58,23 @@ export default function SystemView() {
     })
     engine.init(body, era, lang)
     engineRef.current = engine
+    dissolve.onBuild(body.id)
     return () => {
+      dissolve.onTeardown(engine)
       engineRef.current = null
       engine.dispose()
     }
+    // dissolve helpers are stable refs; excluding them keeps the rebuild keyed
+    // strictly to body/era/lang
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [body, era, lang, dive])
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-space">
       <canvas ref={canvasRef} className="h-full w-full" />
+      {dissolve.snap && (
+        <EraDissolve key={dissolve.snap} src={dissolve.snap} onDone={dissolve.clear} />
+      )}
       <TopBar />
       <TimeBar />
 

@@ -230,6 +230,20 @@ export abstract class EngineBase {
 
   protected abstract update(simMs: number): void
 
+  /** A PNG data URL of the current frame. Rendering once more in the same
+   *  synchronous call means the drawing buffer still holds the pixels when we
+   *  read it, so this works without the perf cost of `preserveDrawingBuffer`.
+   *  Used by the era crossfade to freeze the outgoing scene before it rebuilds. */
+  snapshot(): string | null {
+    if (this.disposed) return null
+    try {
+      this.composer.render()
+      return this.renderer.domElement.toDataURL('image/png')
+    } catch {
+      return null
+    }
+  }
+
   private resize() {
     const el = this.canvas.parentElement ?? this.canvas
     const w = el.clientWidth
