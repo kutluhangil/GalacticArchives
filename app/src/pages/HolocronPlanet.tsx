@@ -32,25 +32,32 @@ function Row({ label, value }: { label: string; value?: string }) {
 export default function HolocronPlanet() {
   const { id = '' } = useParams()
   const { lang, era } = useApp()
-  const [body, setBody] = useState<CelestialBody | null>(null)
-  const [missing, setMissing] = useState(false)
-  const [residents, setResidents] = useState<Character[]>([])
+  // one id-keyed result: a route change reads as "not loaded" on its own, with
+  // no state reset inside the effect
+  const [loaded, setLoaded] = useState<{
+    id: string
+    body: CelestialBody | null
+    residents: Character[]
+  } | null>(null)
+  const current = loaded?.id === id ? loaded : null
+  const body = current?.body ?? null
+  const residents = current?.residents ?? []
+  const missing = current !== null && current.body === null
 
   useEffect(() => {
     let cancelled = false
-    setBody(null)
-    setMissing(false)
     loadBody(id)
-      .then((b) => {
+      .then(async (b) => {
+        const all = await loadCharacters()
         if (cancelled) return
-        setBody(b)
-        return loadCharacters().then((all) => {
-          if (cancelled) return
-          setResidents(all.filter((c) => (b.characters ?? []).includes(c.id)))
+        setLoaded({
+          id,
+          body: b,
+          residents: all.filter((c) => (b.characters ?? []).includes(c.id)),
         })
       })
       .catch(() => {
-        if (!cancelled) setMissing(true)
+        if (!cancelled) setLoaded({ id, body: null, residents: [] })
       })
     return () => {
       cancelled = true

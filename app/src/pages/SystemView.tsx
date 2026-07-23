@@ -24,7 +24,7 @@ export default function SystemView() {
   const lang = useApp((s) => s.lang)
   const era = useApp((s) => s.era)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [body, setBody] = useState<CelestialBody | null>(null)
+  const [loaded, setLoaded] = useState<{ id: string; body: CelestialBody } | null>(null)
   const [labels, setLabels] = useState<Label[]>([])
   const engineRef = useRef<SystemEngine | null>(null)
   const flyTo = useFlyTo()
@@ -34,11 +34,12 @@ export default function SystemView() {
     [flyTo],
   )
 
+  const body = loaded?.id === id ? loaded.body : null
+
   useEffect(() => {
     let cancelled = false
-    setBody(null)
     loadBody(id).then((b) => {
-      if (!cancelled) setBody(b)
+      if (!cancelled) setLoaded({ id, body: b })
     })
     return () => {
       cancelled = true

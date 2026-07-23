@@ -1,40 +1,48 @@
 // Two small rewards for visiting the right worlds: a Kessel Run stopwatch
 // timing a loop of the Maw, and a porg that chirps when poked on Ahch-To.
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
+
+/** how long one loop of the Maw takes */
+const RUN_MS = 6400
 
 /** Stopwatch framed in parsecs — the distance boast, not a duration. */
 export function KesselRun() {
   const lang = useApp((s) => s.lang)
   const [running, setRunning] = useState(false)
   const [parsecs, setParsecs] = useState<number | null>(null)
-  const startRef = useRef(0)
-  const rafRef = useRef(0)
   const [elapsed, setElapsed] = useState(0)
 
-  useEffect(() => () => cancelAnimationFrame(rafRef.current), [])
-
-  const tick = () => {
-    setElapsed((performance.now() - startRef.current) / 1000)
-    rafRef.current = requestAnimationFrame(tick)
-  }
+  // the stopwatch lives entirely in an effect: reading the clock while
+  // rendering would make the component impure
+  useEffect(() => {
+    if (!running) return
+    const startedAt = performance.now()
+    let raf = 0
+    const tick = () => {
+      setElapsed((performance.now() - startedAt) / 1000)
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    // the run itself: a fixed 6.4 s loop of the Maw, then the score lands
+    const done = window.setTimeout(() => {
+      setRunning(false)
+      const seconds = (performance.now() - startedAt) / 1000
+      // shave parsecs for a tighter line through the black holes
+      setParsecs(Math.max(11.2, 18 - seconds))
+    }, RUN_MS)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.clearTimeout(done)
+    }
+  }, [running])
 
   const start = () => {
     setParsecs(null)
-    setRunning(true)
-    startRef.current = performance.now()
     setElapsed(0)
-    rafRef.current = requestAnimationFrame(tick)
-    // the run itself: a fixed 6.4 s loop of the Maw, then the score lands
-    window.setTimeout(() => {
-      cancelAnimationFrame(rafRef.current)
-      setRunning(false)
-      const seconds = (performance.now() - startRef.current) / 1000
-      // shave parsecs for a tighter line through the black holes
-      setParsecs(Math.max(11.2, 18 - seconds))
-    }, 6400)
+    setRunning(true)
   }
 
   return (

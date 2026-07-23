@@ -23,32 +23,35 @@ function Row({ label, value }: { label: string; value?: string }) {
 export default function HolocronCharacter() {
   const { id = '' } = useParams()
   const { lang, era } = useApp()
-  const [character, setCharacter] = useState<Character | null>(null)
-  const [related, setRelated] = useState<Character[]>([])
-  const [homeworld, setHomeworld] = useState<CelestialBody | null>(null)
-  const [missing, setMissing] = useState(false)
+  // one id-keyed result, so switching characters is "not loaded" by derivation
+  const [loaded, setLoaded] = useState<{
+    id: string
+    character: Character | null
+    related: Character[]
+    homeworld: CelestialBody | null
+  } | null>(null)
+  const current = loaded?.id === id ? loaded : null
+  const character = current?.character ?? null
+  const related = current?.related ?? []
+  const homeworld = current?.homeworld ?? null
+  const missing = current !== null && current.character === null
 
   useEffect(() => {
     let cancelled = false
-    setCharacter(null)
-    setMissing(false)
-    loadCharacters().then((all) => {
-      if (cancelled) return
+    loadCharacters().then(async (all) => {
       const found = all.find((c) => c.id === id)
       if (!found) {
-        setMissing(true)
+        if (!cancelled) setLoaded({ id, character: null, related: [], homeworld: null })
         return
       }
-      setCharacter(found)
-      setRelated(all.filter((c) => (found.relatedCharacters ?? []).includes(c.id)))
-      if (found.homeworldId) {
-        loadAllPlanets().then((planets) => {
-          if (cancelled) return
-          setHomeworld(planets.find((p) => p.id === found.homeworldId) ?? null)
-        })
-      } else {
-        setHomeworld(null)
-      }
+      const planets = found.homeworldId ? await loadAllPlanets() : []
+      if (cancelled) return
+      setLoaded({
+        id,
+        character: found,
+        related: all.filter((c) => (found.relatedCharacters ?? []).includes(c.id)),
+        homeworld: planets.find((p) => p.id === found.homeworldId) ?? null,
+      })
     })
     return () => {
       cancelled = true

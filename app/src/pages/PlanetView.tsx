@@ -19,31 +19,32 @@ export default function PlanetView() {
   const era = useApp((s) => s.era)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const engineRef = useRef<PlanetEngine | null>(null)
-  const [body, setBody] = useState<CelestialBody | null>(null)
+  const [loaded, setLoaded] = useState<{ id: string; body: CelestialBody; systemHost: string } | null>(null)
   const [poiPos, setPoiPos] = useState<PoiScreenPos[]>([])
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
   const [fps, setFps] = useState(0)
-  const [systemHost, setSystemHost] = useState(id)
   const jump = useFlyTo()
+  // keyed by id, so a route change reads as "not loaded yet" without a reset
+  const body = loaded?.id === id ? loaded.body : null
+  const systemHost = loaded?.id === id ? loaded.systemHost : id
 
   useEffect(() => {
     let cancelled = false
-    setBody(null)
-    setSystemHost(id)
     loadBody(id).then(async (b) => {
       if (cancelled) return
-      setBody(b)
       pushRecent(b.id)
       // moons & stations belong to a parent system route
+      let host = id
       if (b.kind === 'moon' || b.kind === 'station') {
         if (b.orbitHost) {
-          setSystemHost(b.orbitHost)
+          host = b.orbitHost
         } else {
           const all = await loadAllPlanets()
           const parent = all.find((p) => (p.moonsDetail ?? []).some((m) => m.id === b.id))
-          if (!cancelled && parent) setSystemHost(parent.id)
+          if (parent) host = parent.id
         }
       }
+      if (!cancelled) setLoaded({ id, body: b, systemHost: host })
     })
     return () => {
       cancelled = true
