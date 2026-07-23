@@ -98,6 +98,15 @@ const PLANETS = {
   'hosnian-prime': 'Hosnian Prime',
   'at-attin': 'At Attin',
   'glavis-ringworld': 'Glavis Ringworld',
+  // Legends layer (PLAN 2.3) — sourced from the /Legends articles, gated
+  // behind the Legends toggle in the app and tagged continuity:"legends".
+  korriban: 'Korriban/Legends',
+  'dromund-kaas': 'Dromund Kaas/Legends',
+  taris: 'Taris/Legends',
+  manaan: 'Manaan/Legends',
+  csilla: 'Csilla/Legends',
+  lehon: 'Lehon/Legends',
+  ossus: 'Ossus/Legends',
 }
 
 const CHARACTERS = {

@@ -1,0 +1,48 @@
+{
+  "id": "csilla",
+  "kind": "planet",
+  "continuity": "legends",
+  "names": { "en": "Csilla", "tr": "Csilla" },
+  "desc": {
+    "en": "The frozen throneworld of the Chiss Ascendancy in the Unknown Regions — its people driven into vast underground cities beneath kilometres of glacial ice.",
+    "tr": "Bilinmeyen Bölgeler'de Chiss Ascendancy'nin donmuş taht dünyası — halkı kilometrelerce buzulun altındaki devasa yeraltı şehirlerine çekilmiş."
+  },
+  "region": "unknown-regions",
+  "regionTags": ["Chiss Space"],
+  "sector": "Chiss Space",
+  "system": "Csilla system",
+  "coordinates": "F-8",
+  "stats": {
+    "diameterKm": 11080,
+    "moonCount": 3,
+    "population": {
+      "en": "~8 billion, roughly 99% Chiss.",
+      "tr": "~8 milyar, kabaca %99 Chiss."
+    },
+    "government": { "en": "Chiss Ascendancy (oligarchy)", "tr": "Chiss Ascendancy (oligarşi)" }
+  },
+  "suns": [{ "name": "Csilla", "color": "#CFE0FF" }],
+  "moons": [],
+  "climate": { "en": ["Frigid"], "tr": ["Dondurucu"] },
+  "terrain": {
+    "en": ["Glaciers", "Caves"],
+    "tr": ["Buzullar", "Mağaralar"]
+  },
+  "affiliationsByEra": { "clone-wars": "neutral", "empire": "neutral", "new-republic": "neutral" },
+  "appearances": [],
+  "funFacts": {
+    "en": [
+      "An ice age locked the surface under glaciers, pushing Chiss civilisation into cities carved deep below.",
+      "Csilla is the political and cultural heart of the Chiss Ascendancy."
+    ],
+    "tr": [
+      "Bir buzul çağı yüzeyi buzulların altına kilitledi ve Chiss uygarlığını derinlere oyulmuş şehirlere itti.",
+      "Csilla, Chiss Ascendancy'nin siyasi ve kültürel kalbidir."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ice",
+    "palette": { "primary": "#C7D6E6", "secondary": "#8FA6BE" },
+    "atmosphere": { "color": "#DCEBFF", "density": 0.4 }
+  }
+}

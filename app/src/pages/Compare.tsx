@@ -82,6 +82,7 @@ export default function Compare() {
   const lang = useApp((s) => s.lang)
   const era = useApp((s) => s.era)
   const [params, setParams] = useSearchParams()
+  const legends = useApp((s) => s.legends)
   const [planets, setPlanets] = useState<CelestialBody[]>([])
   const [left, setLeft] = useState<CelestialBody | null>(null)
   const [right, setRight] = useState<CelestialBody | null>(null)
@@ -92,6 +93,12 @@ export default function Compare() {
   useEffect(() => {
     loadAllPlanets().then(setPlanets)
   }, [])
+
+  // Legends worlds are selectable only when the layer is switched on
+  const selectable = useMemo(
+    () => planets.filter((p) => legends || p.continuity !== 'legends'),
+    [planets, legends],
+  )
 
   useEffect(() => {
     let cancelled = false
@@ -142,13 +149,13 @@ export default function Compare() {
           <Picker
             label="A"
             value={leftId}
-            planets={planets}
+            planets={selectable}
             onChange={(id) => setParams({ a: id, b: rightId })}
           />
           <Picker
             label="B"
             value={rightId}
-            planets={planets}
+            planets={selectable}
             onChange={(id) => setParams({ a: leftId, b: id })}
           />
         </div>

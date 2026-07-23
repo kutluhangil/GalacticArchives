@@ -1,0 +1,48 @@
+{
+  "id": "korriban",
+  "kind": "planet",
+  "continuity": "legends",
+  "names": { "en": "Korriban", "tr": "Korriban" },
+  "desc": {
+    "en": "The original homeworld of the Sith species and the red-stone cradle of the dark side — its Valley of the Dark Lords lined with the tombs of ancient Sith Lords.",
+    "tr": "Sith türünün asıl anavatanı ve karanlık tarafın kızıl taştan beşiği — Karanlık Lortlar Vadisi kadim Sith Lortlarının mezarlarıyla döşeli."
+  },
+  "region": "outer-rim",
+  "regionTags": ["Sith Worlds", "Trans-Hydian"],
+  "sector": "Esstran sector",
+  "system": "Horuset system",
+  "coordinates": "R-5",
+  "stats": {
+    "diameterKm": 16890,
+    "moonCount": 7,
+    "population": {
+      "en": "Historic: ~9.6 billion at its height; near-abandoned in later ages.",
+      "tr": "Tarihsel: zirvede ~9,6 milyar; sonraki çağlarda neredeyse terk edilmiş."
+    },
+    "government": { "en": "None (formerly the Sith Empire)", "tr": "Yok (eskiden Sith İmparatorluğu)" }
+  },
+  "suns": [{ "name": "Horuset", "color": "#FF6A4A" }],
+  "moons": [],
+  "climate": { "en": ["Cold", "Dry"], "tr": ["Soğuk", "Kurak"] },
+  "terrain": {
+    "en": ["Mountains", "Canyons", "Deserts", "Tombs"],
+    "tr": ["Dağlar", "Kanyonlar", "Çöller", "Mezarlar"]
+  },
+  "affiliationsByEra": { "clone-wars": "sith", "empire": "sith", "new-republic": "sith" },
+  "appearances": ["kotor", "kotor2", "swtor"],
+  "funFacts": {
+    "en": [
+      "The Valley of the Dark Lords holds the tombs of Naga Sadow, Ajunta Pall, Marka Ragnos and other ancient Sith.",
+      "In Disney canon the world is called Moraband; Korriban is its older Legends name."
+    ],
+    "tr": [
+      "Karanlık Lortlar Vadisi Naga Sadow, Ajunta Pall, Marka Ragnos ve diğer kadim Sith'lerin mezarlarını barındırır.",
+      "Disney kanonunda dünya Moraband adını taşır; Korriban onun daha eski Legends adıdır."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "barren",
+    "palette": { "primary": "#6E2B25", "secondary": "#3A1512" },
+    "atmosphere": { "color": "#C0563F", "density": 0.35 }
+  }
+}

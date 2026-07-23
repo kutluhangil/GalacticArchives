@@ -2,7 +2,7 @@
 // jumping straight to the matching world through hyperspace. Mounted only
 // while open — see CommandPaletteHost.
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Command } from 'cmdk'
 import type { CelestialBody, Character } from '../types/lore'
 import { L, loadAllPlanets, loadCharacters, regions } from '../lib/lore'
@@ -12,6 +12,7 @@ import { useFlyTo } from './useFlyTo'
 
 export default function CommandPalette({ onClose }: { onClose: () => void }) {
   const lang = useApp((s) => s.lang)
+  const legends = useApp((s) => s.legends)
   const [planets, setPlanets] = useState<CelestialBody[]>([])
   const [characters, setCharacters] = useState<Character[]>([])
   const jump = useFlyTo()
@@ -20,6 +21,12 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
     loadAllPlanets().then(setPlanets)
     loadCharacters().then(setCharacters)
   }, [])
+
+  // Legends worlds surface in search only when the layer is switched on
+  const visiblePlanets = useMemo(
+    () => planets.filter((p) => legends || p.continuity !== 'legends'),
+    [planets, legends],
+  )
 
   const go = (path: string) => {
     onClose()
@@ -49,7 +56,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
               heading={t('planets', lang)}
               className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-[10px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[0.25em] [&_[cmdk-group-heading]]:text-slate-500"
             >
-              {planets.map((p) => (
+              {visiblePlanets.map((p) => (
                 <Command.Item
                   key={p.id}
                   value={`${p.names.en} ${p.names.tr} ${p.id}`}

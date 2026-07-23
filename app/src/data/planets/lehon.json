@@ -1,0 +1,47 @@
+{
+  "id": "lehon",
+  "kind": "planet",
+  "continuity": "legends",
+  "names": { "en": "Lehon", "tr": "Lehon" },
+  "desc": {
+    "en": "A remote tropical ocean world in the Unknown Regions — cradle of the ancient Rakatan Infinite Empire and home to the Star Forge that once hung in its orbit.",
+    "tr": "Bilinmeyen Bölgeler'de uzak, tropik bir okyanus dünyası — kadim Rakata Sonsuz İmparatorluğu'nun beşiği ve bir zamanlar yörüngesinde asılı Yıldız Örsü'nün (Star Forge) evi."
+  },
+  "region": "unknown-regions",
+  "regionTags": ["Tempered Wastes"],
+  "system": "Lehon system",
+  "coordinates": "G-11",
+  "stats": {
+    "diameterKm": 9120,
+    "moonCount": 2,
+    "population": {
+      "en": "Historic: ~11 billion Rakata; only ruins in later ages.",
+      "tr": "Tarihsel: ~11 milyar Rakata; sonraki çağlarda yalnız kalıntılar."
+    },
+    "government": { "en": "None (formerly the Infinite Empire)", "tr": "Yok (eskiden Sonsuz İmparatorluk)" }
+  },
+  "suns": [{ "name": "Abo", "color": "#FFE6B0" }],
+  "moons": [],
+  "climate": { "en": ["Tropical"], "tr": ["Tropik"] },
+  "terrain": {
+    "en": ["Oceans", "Tropical islands", "Rocky outcroppings"],
+    "tr": ["Okyanuslar", "Tropik adalar", "Kayalık çıkıntılar"]
+  },
+  "affiliationsByEra": { "clone-wars": "neutral", "empire": "neutral", "new-republic": "neutral" },
+  "appearances": ["kotor"],
+  "funFacts": {
+    "en": [
+      "The Rakata built the Star Forge here, a space station that fed on the dark side and the system's star.",
+      "Also called Rakata Prime, the world fell to plague and rebellion after the Infinite Empire collapsed."
+    ],
+    "tr": [
+      "Rakata, Yıldız Örsü'nü burada inşa etti; karanlık taraftan ve sistemin yıldızından beslenen bir uzay istasyonu.",
+      "Rakata Prime olarak da anılan dünya, Sonsuz İmparatorluk çöktükten sonra veba ve isyana yenik düştü."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ocean-storm",
+    "palette": { "primary": "#1E7A6E", "secondary": "#12463F" },
+    "atmosphere": { "color": "#9FE0C8", "density": 0.5 }
+  }
+}

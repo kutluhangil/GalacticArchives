@@ -2,6 +2,7 @@
 
 ## 2026-07-23
 
+- Added the Legends layer (PLAN 2.3): seven Legends-continuity worlds (Korriban, Dromund Kaas, Taris, Manaan, Csilla, Lehon, Ossus) sourced from the `/Legends` Wookieepedia articles and validated for coordinates and diameters, tagged `continuity: "legends"` and gated behind a new "Legends worlds" toggle in the settings menu; when off they are hidden from the galaxy map, ⌘K search and Compare picker. Korriban/Dromund Kaas get hand-placed positions so they do not stack on canon Moraband at grid R-5, and Legends worlds carry a gold LEGENDS badge on their panel. Added the three source games (KotOR, KotOR II, The Old Republic) to the media list.
 - Mobile baseline pass: `touch-action: none` on the globe canvas so one-finger drag rotates (and pinch zooms) instead of scrolling the page; the top bar now wraps its nav and era controls instead of overflowing off-screen; the planet panel caps its height and scrolls internally so its lower content stays reachable on short viewports.
 - Replaced the black era-change flash with a real cross-dissolve: the outgoing frame is frozen and faded out over the rebuilt scene in the planet, system and compare views (galaxy already recolours in place). Removed the old `EraFade` veil.
 - Added a Star Wars-style opening crawl to the landing page: blue prologue line, then the yellow title and lore text climbing into perspective, skippable by button or Escape and suppressed under reduced motion.

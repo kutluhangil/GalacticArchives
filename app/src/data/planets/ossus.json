@@ -1,0 +1,52 @@
+{
+  "id": "ossus",
+  "kind": "planet",
+  "continuity": "legends",
+  "names": { "en": "Ossus", "tr": "Ossus" },
+  "desc": {
+    "en": "An ancient Outer Rim world that was one of the oldest Jedi strongholds, its great libraries and academies scorched when the nearby Cron Cluster went supernova.",
+    "tr": "En eski Jedi kalelerinden biri olan kadim bir Dış Halka dünyası; yakındaki Cron Kümesi süpernova olduğunda büyük kütüphaneleri ve akademileri kavruldu."
+  },
+  "region": "outer-rim",
+  "regionTags": ["The Slice"],
+  "sector": "Auril sector",
+  "system": "Adega system",
+  "coordinates": "R-6",
+  "stats": {
+    "diameterKm": 29000,
+    "moonCount": 2,
+    "population": {
+      "en": "Historic: ~250 million; later the tribal Ysanna.",
+      "tr": "Tarihsel: ~250 milyon; sonradan kabile halkı Ysanna."
+    },
+    "government": { "en": "Jedi hierarchy", "tr": "Jedi hiyerarşisi" }
+  },
+  "suns": [
+    { "name": "Adega Prime", "color": "#BFD4FF" },
+    { "name": "Adega Besh", "color": "#9FC0FF" }
+  ],
+  "moons": ["Mim", "Nerit"],
+  "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+  "terrain": {
+    "en": ["Forests", "Mountains", "Gorges", "Caves"],
+    "tr": ["Ormanlar", "Dağlar", "Geçitler", "Mağaralar"]
+  },
+  "affiliationsByEra": { "clone-wars": "jedi", "empire": "jedi", "new-republic": "jedi" },
+  "appearances": ["swtor"],
+  "funFacts": {
+    "en": [
+      "Ossus held one of the Jedi Order's greatest libraries before the Great Sith War.",
+      "Jedi raced to evacuate its archives ahead of the supernova shockwave from the Cron Cluster."
+    ],
+    "tr": [
+      "Ossus, Büyük Sith Savaşı'ndan önce Jedi Tarikatı'nın en büyük kütüphanelerinden birini barındırıyordu.",
+      "Jedi'lar, Cron Kümesi'nden gelen süpernova şok dalgasının önünde arşivlerini tahliye etmek için yarıştı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": { "primary": "#5E7A3E", "secondary": "#3E5A46" },
+    "atmosphere": { "color": "#C6E0A0", "density": 0.45 },
+    "dualSun": true
+  }
+}

@@ -21,5 +21,8 @@
   { "id": "ahsoka", "type": "series", "title": { "en": "Ahsoka", "tr": "Ahsoka" }, "year": "2023–" },
   { "id": "skeleton-crew", "type": "series", "title": { "en": "Skeleton Crew", "tr": "Skeleton Crew" }, "year": "2024–2025" },
   { "id": "maul-shadow-lord", "type": "series", "title": { "en": "Maul: Shadow Lord", "tr": "Maul: Shadow Lord" }, "year": "2026–" },
-  { "id": "jedi-fallen-order", "type": "game", "title": { "en": "Jedi: Fallen Order / Survivor", "tr": "Jedi: Fallen Order / Survivor" }, "year": "2019–2023" }
+  { "id": "jedi-fallen-order", "type": "game", "title": { "en": "Jedi: Fallen Order / Survivor", "tr": "Jedi: Fallen Order / Survivor" }, "year": "2019–2023" },
+  { "id": "kotor", "type": "game", "title": { "en": "Knights of the Old Republic", "tr": "Knights of the Old Republic" }, "year": "2003" },
+  { "id": "kotor2", "type": "game", "title": { "en": "KotOR II — The Sith Lords", "tr": "KotOR II — The Sith Lords" }, "year": "2004" },
+  { "id": "swtor", "type": "game", "title": { "en": "The Old Republic", "tr": "The Old Republic" }, "year": "2011" }
 ]

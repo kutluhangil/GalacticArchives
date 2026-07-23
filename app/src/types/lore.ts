@@ -107,6 +107,9 @@ export interface DestructionEvent {
 export interface CelestialBody {
   id: string
   kind: 'planet' | 'moon' | 'gas-giant' | 'station'
+  /** which continuity the body belongs to; absent = Disney canon. The galaxy
+   *  map hides `legends` bodies unless the Legends layer is switched on. */
+  continuity?: 'canon' | 'legends'
   names: Localized
   desc: Localized
   region: RegionId

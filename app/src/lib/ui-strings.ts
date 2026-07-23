@@ -112,6 +112,11 @@ const STRINGS = {
     en: 'Applies when a view is reopened.',
     tr: 'Bir görünüm yeniden açıldığında uygulanır.',
   },
+  legends: { en: 'Legends worlds', tr: 'Legends dünyaları' },
+  legendsHint: {
+    en: 'Adds non-canon Legends worlds (KotOR-era Sith and Jedi worlds) to the map.',
+    tr: "Haritaya kanon dışı Legends dünyalarını (KotOR dönemi Sith ve Jedi dünyaları) ekler.",
+  },
 
   // easter eggs
   kesselRun: { en: 'Kessel Run', tr: 'Kessel Koşusu' },

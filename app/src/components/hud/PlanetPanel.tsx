@@ -62,6 +62,14 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
         text={L(body.names, 'en')}
         className="mb-1 block text-[12px] tracking-[0.3em] text-holo-cyan/40"
       />
+      {body.continuity === 'legends' && (
+        <span
+          title={t('legendsHint', lang)}
+          className="mb-2 inline-block rounded border border-star-gold/40 px-1.5 py-0.5 font-hud text-[9px] uppercase tracking-[0.3em] text-star-gold/90"
+        >
+          {t('legends', lang)}
+        </span>
+      )}
       <p className="mb-3 text-[12.5px] leading-relaxed text-slate-400">{L(body.desc, lang)}</p>
 
       {faction && (

@@ -1,0 +1,48 @@
+{
+  "id": "taris",
+  "kind": "planet",
+  "continuity": "legends",
+  "names": { "en": "Taris", "tr": "Taris" },
+  "desc": {
+    "en": "A once-glittering ecumenopolis of the Outer Rim, bombed to rubble by the Sith during the Jedi Civil War and left a ruined shell that later generations struggled to rebuild.",
+    "tr": "Bir zamanlar ışıl ışıl bir Dış Halka ekümenopolisi; Jedi İç Savaşı sırasında Sith tarafından moloza dönene dek bombalandı ve sonraki nesillerin yeniden inşaya çabaladığı harap bir kabuk olarak kaldı."
+  },
+  "region": "outer-rim",
+  "regionTags": ["New Territories"],
+  "sector": "Ojoster sector",
+  "system": "Taris system",
+  "coordinates": "N-7",
+  "stats": {
+    "diameterKm": 12200,
+    "moonCount": 4,
+    "population": {
+      "en": "60 billion at its height; only a fraction survived the bombardment.",
+      "tr": "Zirvede 60 milyar; bombardımandan yalnız çok azı sağ kaldı."
+    },
+    "government": { "en": "Galactic Republic", "tr": "Galaktik Cumhuriyet" }
+  },
+  "suns": [{ "name": "Taris", "color": "#FFE0A0" }],
+  "moons": [],
+  "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+  "terrain": {
+    "en": ["Urban sprawl", "Oceans"],
+    "tr": ["Kentsel yayılım", "Okyanuslar"]
+  },
+  "affiliationsByEra": { "clone-wars": "republic", "empire": "republic", "new-republic": "republic" },
+  "appearances": ["kotor", "swtor"],
+  "funFacts": {
+    "en": [
+      "Darth Malak ordered the planet's orbital bombardment to kill a single hidden Jedi.",
+      "Its rigid class hierarchy stacked nobles in the towers above an Undercity of outcasts and rakghouls."
+    ],
+    "tr": [
+      "Darth Malak, saklı tek bir Jedi'ı öldürmek için gezegenin yörünge bombardımanını emretti.",
+      "Katı sınıf düzeni, dışlanmışlar ve rakghoul'ların Alt Şehri'nin üzerindeki kulelere soyluları yerleştirdi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ecumenopolis",
+    "palette": { "primary": "#7C8493", "secondary": "#4A515C" },
+    "atmosphere": { "color": "#AEB8C6", "density": 0.4 }
+  }
+}

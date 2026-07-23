@@ -64,6 +64,10 @@ export const MANUAL_POS: Record<string, { x: number; z: number }> = {
   kamino: { x: 0.78 * GALAXY_R, z: 0.58 * GALAXY_R }, // south-east Wild Space rim
   shakari: { x: -0.12 * GALAXY_R, z: 0.84 * GALAXY_R }, // southern Outer Rim
   peridea: { x: -0.95 * GALAXY_R, z: -0.85 * GALAXY_R }, // separate far-galaxy islet
+  // Legends Sith Worlds share grid R-5 with canon Moraband; nudge the two apart
+  // so the trio does not stack into a single node (MANUAL_POS wins over the grid).
+  korriban: { x: 0.5 * GALAXY_R, z: -0.63 * GALAXY_R },
+  'dromund-kaas': { x: 0.67 * GALAXY_R, z: -0.51 * GALAXY_R },
 }
 
 // radial region bands as fraction of GALAXY_R (order matters: inner -> outer)

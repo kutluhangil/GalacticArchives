@@ -68,6 +68,7 @@ function nodeStates(planets: CelestialBody[], era: ReturnType<typeof useApp.getS
 export default function GalaxyView() {
   const lang = useApp((s) => s.lang)
   const era = useApp((s) => s.era)
+  const legends = useApp((s) => s.legends)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const engineRef = useRef<GalaxyEngine | null>(null)
   const [planets, setPlanets] = useState<CelestialBody[]>([])
@@ -87,9 +88,12 @@ export default function GalaxyView() {
 
   const nodes = useMemo<GalaxyNode[]>(() => {
     if (!planets.length) return []
-    const states = nodeStates(planets, useApp.getState().era)
-    return planets.map((p, i) => {
-      const pos = p.coordinates ? gridToPos(p.coordinates) : MANUAL_POS[p.id] ?? { x: 0, z: 0 }
+    // canon is always shown; Legends worlds only when the layer is switched on
+    const visible = planets.filter((p) => legends || p.continuity !== 'legends')
+    const states = nodeStates(visible, useApp.getState().era)
+    return visible.map((p, i) => {
+      // MANUAL_POS wins over the grid so R-5 Sith Worlds do not stack
+      const pos = MANUAL_POS[p.id] ?? (p.coordinates ? gridToPos(p.coordinates) : { x: 0, z: 0 })
       return {
         id: p.id,
         name: p.names[lang],
@@ -101,7 +105,7 @@ export default function GalaxyView() {
       }
     })
     // era deliberately absent: era switches patch node states without a rebuild
-  }, [planets, lang])
+  }, [planets, lang, legends])
 
   useEffect(() => {
     if (!nodes.length || !canvasRef.current) return
