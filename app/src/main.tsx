@@ -18,7 +18,8 @@ createRoot(document.getElementById('root')!).render(
 )
 
 // PWA: registered after load so it never competes with the first paint
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
+const isTauri = '__TAURI_INTERNALS__' in window
+if ('serviceWorker' in navigator && import.meta.env.PROD && !isTauri) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch((err) => {
       console.error('service worker registration failed', err)

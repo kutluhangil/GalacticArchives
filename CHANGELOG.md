@@ -22,3 +22,5 @@
 - Galaxy labels declutter themselves: nearer worlds claim their box and colliding labels drop out.
 - Galaxy node globes skip relief shading (uRelief) and use a coarser sphere, keeping the 74-world map at 77 fps.
 - Reworked the route loaders to derive "loading" from an id-keyed result instead of resetting state inside effects; the Kessel Run stopwatch now runs in an effect. Lint is clean.
+- Added the macOS desktop build (Tauri v2): `npm run desktop` produces an unsigned 12 MB .dmg; the packaged app defaults to the high quality tier and skips service-worker registration.
+- Verified PLAN §8's leak budget: 50 planet transitions grow the JS heap 6.5% (target <10%).

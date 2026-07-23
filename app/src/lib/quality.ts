@@ -25,6 +25,8 @@ const TIERS: Record<ResolvedQuality, QualitySettings> = {
 let override: Quality = 'auto'
 
 function detect(): ResolvedQuality {
+  // the packaged desktop app ships to a Mac, never to a phone
+  if ('__TAURI_INTERNALS__' in window) return 'high'
   const cores = navigator.hardwareConcurrency ?? 4
   const coarse = window.matchMedia('(pointer: coarse)').matches
   // phones and low-core machines get the cheap tier; everything else is high
