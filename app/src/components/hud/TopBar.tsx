@@ -5,6 +5,7 @@ import { useApp } from '../../state/app'
 import { eras, L, loadAllPlanets, regions } from '../../lib/lore'
 import { ERA_SHORT, t } from '../../lib/ui-strings'
 import { OPEN_PALETTE_EVENT } from '../CommandPaletteHost'
+import SettingsMenu from '../SettingsMenu'
 import { useJump } from '../useJump'
 
 function PlanetsDropdown() {
@@ -77,7 +78,7 @@ function PlanetsDropdown() {
 }
 
 export default function TopBar() {
-  const { lang, setLang, era, setEra, muted, toggleMuted } = useApp()
+  const { lang, setLang, era, setEra } = useApp()
   const jump = useJump()
   const navigate = useNavigate()
 
@@ -122,13 +123,7 @@ export default function TopBar() {
             </button>
           ))}
         </div>
-        <button
-          onClick={toggleMuted}
-          title={muted ? 'Sound off' : 'Sound on'}
-          className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] text-slate-300 hover:text-holo-cyan"
-        >
-          {muted ? '🔇' : '🔊'}
-        </button>
+        <SettingsMenu />
         <button
           onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
           className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] font-semibold tracking-wider text-slate-200 hover:text-holo-cyan"

@@ -8,6 +8,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js'
+import { qualitySettings } from '../quality'
 import { STAR_FRAG, STAR_VERT } from './planet-shaders'
 
 export interface BaseCallbacks {
@@ -30,6 +31,7 @@ export abstract class EngineBase {
   /** materials whose uTime uniform should tick with wallSec */
   protected timedMats: THREE.ShaderMaterial[] = []
   protected reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  protected quality = qualitySettings()
   private raf = 0
   private disposed = false
   private startWall = 0
@@ -48,7 +50,8 @@ export abstract class EngineBase {
       antialias: true,
       powerPreference: 'high-performance',
     })
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    this.quality = qualitySettings()
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, this.quality.maxPixelRatio))
     this.renderer.outputColorSpace = THREE.SRGBColorSpace
 
     this.camera = new THREE.PerspectiveCamera(45, 1, 0.1, 4000)
@@ -63,10 +66,11 @@ export abstract class EngineBase {
     this.renderer.getSize(size)
     this.composer = new EffectComposer(this.renderer)
     this.composer.addPass(new RenderPass(this.scene, this.camera))
-    // tight radius: a wide bloom smears city lights into a visible rectangular
-    // halo from the pass's own downsample chain
-    const bloom = new UnrealBloomPass(size, bloomStrength, 0.32, 0.85)
-    this.composer.addPass(bloom)
+    if (this.quality.bloom) {
+      // tight radius: a wide bloom smears city lights into a visible
+      // rectangular halo from the pass's own downsample chain
+      this.composer.addPass(new UnrealBloomPass(size, bloomStrength, 0.32, 0.85))
+    }
     this.composer.addPass(new OutputPass())
 
     this.resizeObs = new ResizeObserver(() => this.resize())
@@ -75,7 +79,7 @@ export abstract class EngineBase {
   }
 
   protected addStarfield(radius: number) {
-    const N = 4200
+    const N = this.quality.starCount
     const pos = new Float32Array(N * 3)
     const col = new Float32Array(N * 3)
     const size = new Float32Array(N)

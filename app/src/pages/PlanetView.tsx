@@ -10,6 +10,7 @@ import TopBar from '../components/hud/TopBar'
 import PlanetPanel from '../components/hud/PlanetPanel'
 import TimeBar from '../components/hud/TimeBar'
 import { useJump } from '../components/useJump'
+import { KesselRun, Porg } from '../components/EasterEggs'
 
 export default function PlanetView() {
   const { id = 'tatooine' } = useParams()
@@ -110,6 +111,9 @@ export default function PlanetView() {
       >
         ◇ {t('enterSystem', lang)}
       </button>
+
+      {id === 'kessel' && <KesselRun />}
+      {id === 'ahch-to' && <Porg />}
 
       <div className="pointer-events-none absolute bottom-4 left-4 z-10 text-[10px] tracking-wider text-slate-600">
         {t('dragHint', lang)} · {Math.round(fps)} fps

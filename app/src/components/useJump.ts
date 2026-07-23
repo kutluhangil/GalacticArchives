@@ -2,6 +2,7 @@
 
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
+import { audio } from '../lib/audio'
 import { useApp } from '../state/app'
 
 const JUMP_NAVIGATE_AT = 620
@@ -18,6 +19,7 @@ export function useJump() {
         return
       }
       setJumping(true)
+      audio.play('jump')
       window.setTimeout(() => navigate(path), JUMP_NAVIGATE_AT)
       window.setTimeout(() => setJumping(false), JUMP_TOTAL)
     },

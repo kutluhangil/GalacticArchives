@@ -39,3 +39,16 @@ canvas {
   transform: translateY(-50%) rotate(-18deg);
   pointer-events: none;
 }
+
+/* Motion preference: the engines and the landing sequence check this in JS;
+   this covers every CSS transition and keyframe animation in one place. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

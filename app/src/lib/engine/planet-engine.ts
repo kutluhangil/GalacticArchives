@@ -179,7 +179,8 @@ export class PlanetEngine extends EngineBase {
     const seed = seedFrom(this.body.id)
     this.rotationHours = this.body.stats?.diameterKm ? 20 + (seedFrom(this.body.id) % 12) : 24
 
-    const geo = new THREE.SphereGeometry(1, 128, 128)
+    const segments = this.quality.planetSegments
+    const geo = new THREE.SphereGeometry(1, segments, segments)
     this.planetMesh = new THREE.Mesh(geo, this.makeBodyMaterial(this.body, seed))
     this.planetGroup.add(this.planetMesh)
     this.scene.add(this.planetGroup)

@@ -82,6 +82,28 @@ const STRINGS = {
     tr: 'Kaynaklar: Wookieepedia (CC BY-SA) · StarWars.com Databank',
   },
   notFound: { en: 'No such record in the archives.', tr: 'Arşivlerde böyle bir kayıt yok.' },
+
+  // settings
+  settings: { en: 'Settings', tr: 'Ayarlar' },
+  sound: { en: 'Sound', tr: 'Ses' },
+  mute: { en: 'Mute', tr: 'Sustur' },
+  unmute: { en: 'Unmute', tr: 'Sesi aç' },
+  volume: { en: 'Volume', tr: 'Ses düzeyi' },
+  quality: { en: 'Quality', tr: 'Kalite' },
+  qualityHint: {
+    en: 'Applies when a view is reopened.',
+    tr: 'Bir görünüm yeniden açıldığında uygulanır.',
+  },
+
+  // easter eggs
+  kesselRun: { en: 'Kessel Run', tr: 'Kessel Koşusu' },
+  kesselStart: { en: 'Start the run', tr: 'Koşuyu başlat' },
+  kesselAgain: { en: 'Run again', tr: 'Tekrar koş' },
+  kesselResult: { en: 'parsecs', tr: 'parsek' },
+  kesselBrag: {
+    en: 'Under twelve. Han would still round down.',
+    tr: "On ikinin altında. Han yine de aşağı yuvarlardı.",
+  },
 } as const
 
 export type UiKey = keyof typeof STRINGS
