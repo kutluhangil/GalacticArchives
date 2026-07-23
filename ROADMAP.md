@@ -95,8 +95,10 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 
 **Yapılacak**
 - [ ] **P2** Legends zaman ekseni: katman açıkken beliren "Old Republic" era chip'i (continuity ekseni hazır).
-- [~] **P2** Arama filtresi — Holocron sayfasında **bölge + medya (appearances) filtresi zaten
-  var** (fuse.js ile çift dilli). Eksik: ⌘K command palette'te filtre yok, ve faction/era ekseni.
+- [x] **P2** Arama filtresi — Holocron sayfasında bölge + medya filtresi zaten vardı; ⌘K
+  command palette'e **bölge filtresi chip satırı** eklendi (bölge seçilince gezegenler filtrelenir,
+  karakterler çekilir). Tarayıcıda doğrulandı (İç Halka → 3 dünya, karakterler gizli). Kalan
+  (opsiyonel): faction/era ekseni.
 - [ ] **P2** Gezegen başına `og:image` üretimini denetle (`build-static-meta` 166 URL üretiyor).
 - [ ] **P3** Compare'i ikiden fazlaya / sistem düzeyine çıkar.
 - [ ] **P3** Karakter↔gezegen çapraz-graf navigasyonunu derinleştir.
