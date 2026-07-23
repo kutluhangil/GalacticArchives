@@ -11,3 +11,7 @@
 - Planet surfaces gained relief shading: a per-archetype height field is sampled for its gradient and perturbs the normal, so dunes, ridges and crater rims catch the terminator.
 - Coruscant's day face now shows megablock canyons and plazas instead of flat grey.
 - Added the texture pipeline (`scripts/process-textures.mjs`) and the runtime loader that blends generated albedo/night maps over the procedural shader when a manifest exists.
+- Added favorites and recently-visited lists (localStorage) with a top-bar menu and a star on the planet panel.
+- Added guided tours (Skywalker Saga, Clone Wars, Way of the Mandalore) with a narrated player that drives the route itself.
+- Added `/compare`: two live globes, a to-scale diameter strip and a stat table, linkable through the query string.
+- Added the optional Aurebesh decoration layer; it turns on when an OFL-licensed `public/fonts/aurebesh.woff2` is present.

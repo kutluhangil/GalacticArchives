@@ -1,0 +1,165 @@
+[
+  {
+    "id": "skywalker",
+    "names": { "en": "The Skywalker Saga", "tr": "Skywalker Destanı" },
+    "blurb": {
+      "en": "Nine films, one bloodline, seven worlds that carried it.",
+      "tr": "Dokuz film, tek bir kan bağı ve onu taşıyan yedi dünya."
+    },
+    "stops": [
+      {
+        "bodyId": "tatooine",
+        "narration": {
+          "en": "It starts on a moisture farm under twin suns. Anakin is freed here; two generations later Luke looks at the same sunset and leaves.",
+          "tr": "Her şey ikiz güneşin altındaki bir nem çiftliğinde başlar. Anakin burada özgür kalır; iki kuşak sonra Luke aynı gün batımına bakıp gider."
+        }
+      },
+      {
+        "bodyId": "naboo",
+        "narration": {
+          "en": "Padmé's world: a queen's blockade, a secret marriage by the lake, and the funeral that closes the prequels.",
+          "tr": "Padmé'nin dünyası: bir kraliçenin ablukası, göl kıyısında gizli bir nikâh ve ön üçlemeyi kapatan cenaze."
+        }
+      },
+      {
+        "bodyId": "coruscant",
+        "narration": {
+          "en": "The Republic's heart and the place it stops beating — the Senate applauds its own empire from these towers.",
+          "tr": "Cumhuriyet'in kalbi ve atışının durduğu yer — Senato bu kulelerden kendi imparatorluğunu alkışlar."
+        }
+      },
+      {
+        "bodyId": "mustafar",
+        "narration": {
+          "en": "The lava world where a Jedi burns and Darth Vader walks out of the ash.",
+          "tr": "Bir Jedi'ın yandığı, Darth Vader'ın küllerden çıktığı lav dünyası."
+        }
+      },
+      {
+        "bodyId": "alderaan",
+        "narration": {
+          "en": "Leia's home, and the Empire's first sentence spoken in superlaser. Two billion voices, then a debris field.",
+          "tr": "Leia'nın evi ve İmparatorluğun süperlazerle kurduğu ilk cümle. İki milyar ses, ardından bir enkaz tarlası."
+        }
+      },
+      {
+        "bodyId": "hoth",
+        "narration": {
+          "en": "Echo Base in the ice: the Rebellion's high-water mark and the walkers that ended it.",
+          "tr": "Buzdaki Echo Üssü: İsyan'ın zirvesi ve onu bitiren yürüyücüler."
+        }
+      },
+      {
+        "bodyId": "endor",
+        "narration": {
+          "en": "A forest moon, a shield generator, and a father who chooses his son over his Emperor.",
+          "tr": "Bir orman ayı, bir kalkan jeneratörü ve İmparator'u yerine oğlunu seçen bir baba."
+        }
+      },
+      {
+        "bodyId": "exegol",
+        "narration": {
+          "en": "The hidden Sith world where the last Skywalker takes a name that was never hers by blood.",
+          "tr": "Son Skywalker'ın, kan bağıyla hiç sahip olmadığı bir adı üstlendiği gizli Sith dünyası."
+        }
+      }
+    ]
+  },
+  {
+    "id": "clone-wars",
+    "names": { "en": "The Clone Wars", "tr": "Klon Savaşları" },
+    "blurb": {
+      "en": "Three years of war, from the factory floors to the last order.",
+      "tr": "Döküm atölyelerinden son emre: üç yıllık savaş."
+    },
+    "stops": [
+      {
+        "bodyId": "kamino",
+        "narration": {
+          "en": "Rain, stilts and cloning vats: an army ordered by a dead Jedi and delivered on schedule.",
+          "tr": "Yağmur, ayaklar üzerindeki şehirler ve klon tankları: ölü bir Jedi'ın sipariş ettiği, zamanında teslim edilen ordu."
+        }
+      },
+      {
+        "bodyId": "geonosis",
+        "narration": {
+          "en": "The arena where the war opens — and the droid foundries that keep it fed.",
+          "tr": "Savaşın açıldığı arena ve onu besleyen droid dökümhaneleri."
+        }
+      },
+      {
+        "bodyId": "kashyyyk",
+        "narration": {
+          "en": "Wroshyr forests defended by Wookiees, where Yoda hears Order 66 a heartbeat before it reaches him.",
+          "tr": "Wookiee'lerin savunduğu Wroshyr ormanları — Yoda, Emir 66'yı kendisine ulaşmadan bir an önce duyar."
+        }
+      },
+      {
+        "bodyId": "utapau",
+        "narration": {
+          "en": "Sinkhole cities where Obi-Wan drops on a varactyl and Grievous finally runs out of lungs.",
+          "tr": "Obi-Wan'ın varactyl sırtında indiği, Grievous'un ciğerlerinin nihayet tükendiği obruk şehirleri."
+        }
+      },
+      {
+        "bodyId": "mandalore",
+        "narration": {
+          "en": "The siege that Ahsoka leads while the Republic dies elsewhere, and Maul is finally taken.",
+          "tr": "Cumhuriyet başka yerde ölürken Ahsoka'nın yönettiği kuşatma; Maul sonunda ele geçirilir."
+        }
+      },
+      {
+        "bodyId": "mustafar",
+        "narration": {
+          "en": "The Separatist Council is called to a safe meeting. It is not a meeting.",
+          "tr": "Ayrılıkçı Konsey güvenli bir toplantıya çağrılır. O bir toplantı değildir."
+        }
+      }
+    ]
+  },
+  {
+    "id": "mando",
+    "names": { "en": "The Way of the Mandalore", "tr": "Mandalorlunun Yolu" },
+    "blurb": {
+      "en": "A bounty hunter, a foundling, and the road back to a poisoned home.",
+      "tr": "Bir ödül avcısı, bir bulunmuş çocuk ve zehirlenmiş bir eve dönüş yolu."
+    },
+    "stops": [
+      {
+        "bodyId": "nevarro",
+        "narration": {
+          "en": "The covert under the streets, the cantina above it, and the job that changes everything.",
+          "tr": "Sokakların altındaki sığınak, üstündeki meyhane ve her şeyi değiştiren iş."
+        }
+      },
+      {
+        "bodyId": "tatooine",
+        "narration": {
+          "en": "Mos Eisley again, because in this galaxy every road eventually crosses this dust.",
+          "tr": "Yine Mos Eisley — bu galakside her yol er ya da geç bu tozdan geçer."
+        }
+      },
+      {
+        "bodyId": "corellia",
+        "narration": {
+          "en": "Shipyards that built half the fleet, and the pipeline where a clone-turned-mechanic is hunted.",
+          "tr": "Filonun yarısını inşa eden tersaneler ve klon kökenli bir tamircinin avlandığı boru hattı."
+        }
+      },
+      {
+        "bodyId": "kessel",
+        "narration": {
+          "en": "Spice mines beyond the Maelstrom — the run every smuggler measures themselves against.",
+          "tr": "Girdap'ın ötesindeki baharat madenleri — her kaçakçının kendini ölçtüğü rota."
+        }
+      },
+      {
+        "bodyId": "mandalore",
+        "narration": {
+          "en": "Glassed by the Purge, its Living Waters still under the ruin. This is where the creed is redeemed.",
+          "tr": "Tasfiye'de camlaştı; Yaşayan Sular hâlâ yıkıntının altında. İnancın bağışlandığı yer burası."
+        }
+      }
+    ]
+  }
+]

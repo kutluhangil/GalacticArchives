@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router'
 import TransitionVeil from './components/TransitionVeil'
+import TourPlayer from './components/TourPlayer'
 import CommandPaletteHost from './components/CommandPaletteHost'
 import EraFade from './components/EraFade'
 import { setQuality } from './lib/quality'
@@ -12,6 +13,7 @@ const Landing = lazy(() => import('./pages/Landing'))
 const GalaxyView = lazy(() => import('./pages/GalaxyView'))
 const PlanetView = lazy(() => import('./pages/PlanetView'))
 const SystemView = lazy(() => import('./pages/SystemView'))
+const Compare = lazy(() => import('./pages/Compare'))
 const Holocron = lazy(() => import('./pages/Holocron'))
 const HolocronPlanet = lazy(() => import('./pages/HolocronPlanet'))
 const HolocronCharacter = lazy(() => import('./pages/HolocronCharacter'))
@@ -49,12 +51,14 @@ export default function App() {
           <Route path="/galaxy" element={<GalaxyView />} />
           <Route path="/planet/:id" element={<PlanetView />} />
           <Route path="/system/:id" element={<SystemView />} />
+          <Route path="/compare" element={<Compare />} />
           <Route path="/holocron" element={<Holocron />} />
           <Route path="/holocron/planet/:id" element={<HolocronPlanet />} />
           <Route path="/holocron/character/:id" element={<HolocronCharacter />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
+      <TourPlayer />
       <TransitionVeil />
       <CommandPaletteHost />
       <EraFade />

@@ -9,17 +9,29 @@ export type Quality = 'auto' | 'low' | 'high'
 /** open -> closing -> closed -> opening -> open, driven by useFlyTo */
 export type VeilPhase = 'open' | 'closing' | 'closed' | 'opening'
 
+/** an active guided tour: which one, and how far along */
+export interface TourState {
+  id: string
+  step: number
+  playing: boolean
+}
+
 interface AppState {
   lang: Lang
   era: EraId
   quality: Quality
   veil: VeilPhase
+  tour: TourState | null
   clockSpeed: number
   clockPlaying: boolean
   setLang: (l: Lang) => void
   setEra: (e: EraId) => void
   setQuality: (q: Quality) => void
   setVeil: (v: VeilPhase) => void
+  startTour: (id: string) => void
+  setTourStep: (step: number) => void
+  toggleTourPlaying: () => void
+  endTour: () => void
   setClockSpeed: (s: number) => void
   toggleClockPlaying: () => void
 }
@@ -33,6 +45,7 @@ export const useApp = create<AppState>((set, get) => ({
   era: storedEra,
   quality: storedQuality,
   veil: 'open',
+  tour: null,
   clockSpeed: 1,
   clockPlaying: true,
   setLang: (lang) => {
@@ -48,6 +61,16 @@ export const useApp = create<AppState>((set, get) => ({
     set({ quality })
   },
   setVeil: (veil) => set({ veil }),
+  startTour: (id) => set({ tour: { id, step: 0, playing: true } }),
+  setTourStep: (step) => {
+    const tour = get().tour
+    if (tour) set({ tour: { ...tour, step } })
+  },
+  toggleTourPlaying: () => {
+    const tour = get().tour
+    if (tour) set({ tour: { ...tour, playing: !tour.playing } })
+  },
+  endTour: () => set({ tour: null }),
   setClockSpeed: (s) => {
     simClock.setSpeed(s)
     set({ clockSpeed: s, clockPlaying: true })

@@ -1,5 +1,8 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import Aurebesh from '../Aurebesh'
+import { toggleFavorite } from '../../lib/collections'
+import { useFavorites } from '../../hooks/useCollections'
 import type { CelestialBody } from '../../types/lore'
 import { useApp } from '../../state/app'
 import { destroyedInEra, L, LL, factionById, mediaById, regions } from '../../lib/lore'
@@ -17,6 +20,7 @@ function Row({ label, value }: { label: string; value: string | undefined }) {
 
 export default function PlanetPanel({ body }: { body: CelestialBody }) {
   const { lang, era } = useApp()
+  const starred = useFavorites().includes(body.id)
   const [factIdx, setFactIdx] = useState(0)
   const facts = LL(body.funFacts, lang)
   const faction = factionById(body.affiliationsByEra?.[era])
@@ -33,14 +37,31 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
 
   return (
     <aside className="pointer-events-auto absolute left-4 top-24 z-10 w-[340px] max-w-[calc(100vw-2rem)] rounded-lg border border-holo-cyan/15 bg-panel/80 p-4 backdrop-blur-md">
-      <div className="mb-1 flex items-baseline justify-between">
+      <div className="mb-1 flex items-baseline justify-between gap-2">
         <h1 className="font-display text-2xl tracking-[0.2em] text-slate-100">
           {L(body.names, lang).toUpperCase()}
         </h1>
-        {body.coordinates && (
-          <span className="text-[11px] tracking-widest text-holo-cyan/80">{body.coordinates}</span>
-        )}
+        <div className="flex shrink-0 items-baseline gap-2">
+          {body.coordinates && (
+            <span className="text-[11px] tracking-widest text-holo-cyan/80">{body.coordinates}</span>
+          )}
+          <button
+            onClick={() => toggleFavorite(body.id)}
+            aria-pressed={starred}
+            aria-label={t(starred ? 'removeFavorite' : 'addFavorite', lang)}
+            title={t(starred ? 'removeFavorite' : 'addFavorite', lang)}
+            className={`text-[14px] leading-none transition-colors ${
+              starred ? 'text-star-gold' : 'text-slate-600 hover:text-star-gold/70'
+            }`}
+          >
+            {starred ? '★' : '☆'}
+          </button>
+        </div>
       </div>
+      <Aurebesh
+        text={L(body.names, 'en')}
+        className="mb-1 block text-[12px] tracking-[0.3em] text-holo-cyan/40"
+      />
       <p className="mb-3 text-[12.5px] leading-relaxed text-slate-400">{L(body.desc, lang)}</p>
 
       {faction && (
@@ -104,12 +125,20 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
         </div>
       </div>
 
-      <Link
-        to={`/holocron/planet/${body.id}`}
-        className="mb-3 block rounded border border-holo-cyan/25 bg-holo-cyan/5 px-2.5 py-1.5 text-center text-[11px] tracking-wide text-holo-cyan transition-colors hover:bg-holo-cyan/15"
-      >
-        ◈ {t('openHolocron', lang)}
-      </Link>
+      <div className="mb-3 flex gap-2">
+        <Link
+          to={`/holocron/planet/${body.id}`}
+          className="flex-1 rounded border border-holo-cyan/25 bg-holo-cyan/5 px-2.5 py-1.5 text-center text-[11px] tracking-wide text-holo-cyan transition-colors hover:bg-holo-cyan/15"
+        >
+          ◈ {t('openHolocron', lang)}
+        </Link>
+        <Link
+          to={`/compare?a=${body.id}&b=${body.id === 'coruscant' ? 'tatooine' : 'coruscant'}`}
+          className="rounded border border-white/10 px-2.5 py-1.5 text-center text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+        >
+          ⇔ {t('compare', lang)}
+        </Link>
+      </div>
 
       {facts.length > 0 && (
         <button

@@ -7,6 +7,7 @@ module.exports = {
       fontFamily: {
         display: ['"Libre Franklin"', 'system-ui', 'sans-serif'],
         hud: ['"Barlow Condensed"', 'system-ui', 'sans-serif'],
+        aurebesh: ['Aurebesh', '"Barlow Condensed"', 'sans-serif'],
       },
       colors: {
         space: "#030509",

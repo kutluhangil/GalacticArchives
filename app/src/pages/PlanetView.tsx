@@ -4,6 +4,7 @@ import type { CelestialBody, Poi } from '../types/lore'
 import { PlanetEngine, type PoiScreenPos } from '../lib/engine/planet-engine'
 import { simClock } from '../lib/sim-clock'
 import { loadAllPlanets, loadBody, L } from '../lib/lore'
+import { pushRecent } from '../lib/collections'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
@@ -32,6 +33,7 @@ export default function PlanetView() {
     loadBody(id).then(async (b) => {
       if (cancelled) return
       setBody(b)
+      pushRecent(b.id)
       // moons & stations belong to a parent system route
       if (b.kind === 'moon' || b.kind === 'station') {
         if (b.orbitHost) {

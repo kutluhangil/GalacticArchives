@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optional in-universe face. The file is not bundled — drop an OFL-licensed
+   aurebesh.woff2 into public/fonts/ and the <Aurebesh> decoration turns on by
+   itself. Until then the load fails silently and nothing renders. */
+@font-face {
+  font-family: 'Aurebesh';
+  src: url('/fonts/aurebesh.woff2') format('woff2');
+  font-display: swap;
+}
+
 html,
 body,
 #root {
