@@ -137,7 +137,7 @@ export default function Compare() {
   ]
 
   return (
-    <div className="relative h-full w-full overflow-y-auto bg-space">
+    <div className="relative h-full w-full overflow-y-auto overflow-x-hidden bg-space">
       <TopBar />
 
       <div className="mx-auto max-w-6xl px-4 pb-16 pt-24">

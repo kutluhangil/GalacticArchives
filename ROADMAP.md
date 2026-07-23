@@ -87,6 +87,9 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
   (tarayıcıda doğrulandı: `vtFired: true`). `HoloPortrait.vtName` ile kart↔hero `holo-<id>`
   eşleşir, `index.css`'te reduced-motion guard'lı. Regresyon yok: tüm rotalar + flyTo/veil
   kamera nav (galaxy→planet) doğrulandı. WebGL rotaları veil+cross-dissolve kullanmaya devam.
+- [x] **P2** Mobile-first sertleştirme: 4-chip'li era selector'ı (Old Republic dahil) mobilde
+  yatay-scroll'a aldı (sayfayı genişletmez), Compare + Holocron root'larına `overflow-x-hidden`.
+  Galaxy'de yatay taşma 0px doğrulandı. Panel/palette/overlay'ler zaten `max-w` korumalı.
 - [x] **P2** İlk ziyaret onboarding: `OnboardingHint` — era slider + Legends toggle'ı işaret eden, bir kez gösterilen (localStorage `ga-onboarded`), dismiss-edilebilir çift dilli kart.
 - [ ] **P2** POI kapsamını 81'e yaklaştır; tur sayısını artır (içerik işi).
 

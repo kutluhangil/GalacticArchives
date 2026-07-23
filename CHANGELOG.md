@@ -2,6 +2,8 @@
 
 ## 2026-07-24
 
+- Mobile-first hardening: the era selector (now up to four chips with Old Republic) scrolls horizontally instead of pushing the page wide on narrow screens, and the Compare and Holocron views clamp horizontal overflow. Verified the galaxy has zero horizontal page overflow.
+- Performance: split KTX2Loader into its own on-demand chunk (three chunk 634 → 622 kB) and prefetch the galaxy route during the idle landing crawl so entering the atlas is instant.
 - Added an `old-republic` era for the Legends layer: the era selector shows an "Old Republic" chip only while Legends is on, giving the KotOR-era worlds a home on the timeline; canon worlds read neutral there, and the timeline falls back to Empire if Legends is switched off while it is selected.
 - Migrated routing to react-router's data router (`createBrowserRouter`), which enables real view transitions on the Holocron: character card → detail portrait now shares a `holo-<id>` morph and pages cross-fade, with a reduced-motion guard. The galaxy/planet camera-flight navigation is unchanged.
 - Made the galaxy map keyboard- and screen-reader-accessible: a stable, sorted `<nav>` mirrors every visible world (visually hidden until focused), while the on-canvas labels became mouse-only.

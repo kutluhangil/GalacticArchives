@@ -9,7 +9,7 @@ import { useApp } from '../state/app'
 export default function HolocronChrome({ children }: { children: ReactNode }) {
   const { lang, setLang } = useApp()
   return (
-    <div className="h-full w-full overflow-y-auto bg-space">
+    <div className="h-full w-full overflow-y-auto overflow-x-hidden bg-space">
       <header className="sticky top-0 z-20 border-b border-white/5 bg-space/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
           <Link

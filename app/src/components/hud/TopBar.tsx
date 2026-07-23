@@ -240,13 +240,13 @@ export default function TopBar() {
       </div>
 
       <div className="pointer-events-auto flex flex-wrap items-center justify-end gap-2">
-        <div className="flex rounded border border-white/10 bg-black/30 p-0.5">
+        <div className="flex max-w-full shrink overflow-x-auto rounded border border-white/10 bg-black/30 p-0.5">
           {shownEras.map((e) => (
             <button
               key={e.id}
               title={`${L(e.names, lang)} · ${e.range}`}
               onClick={() => setEra(e.id)}
-              className={`rounded px-2 py-0.5 text-[11px] transition-colors ${
+              className={`shrink-0 whitespace-nowrap rounded px-2 py-0.5 text-[11px] transition-colors ${
                 era === e.id ? 'bg-star-gold/20 text-star-gold' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
