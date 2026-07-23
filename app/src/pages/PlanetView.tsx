@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import type { CelestialBody, Poi } from '../types/lore'
 import { PlanetEngine, type PoiScreenPos } from '../lib/engine/planet-engine'
 import { simClock } from '../lib/sim-clock'
-import { loadBody, L } from '../lib/lore'
+import { loadAllPlanets, loadBody, L } from '../lib/lore'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
@@ -14,18 +14,33 @@ import { useJump } from '../components/useJump'
 export default function PlanetView() {
   const { id = 'tatooine' } = useParams()
   const lang = useApp((s) => s.lang)
+  const era = useApp((s) => s.era)
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const engineRef = useRef<PlanetEngine | null>(null)
   const [body, setBody] = useState<CelestialBody | null>(null)
   const [poiPos, setPoiPos] = useState<PoiScreenPos[]>([])
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
   const [fps, setFps] = useState(0)
+  const [systemHost, setSystemHost] = useState(id)
   const jump = useJump()
 
   useEffect(() => {
     let cancelled = false
     setBody(null)
-    loadBody(id).then((b) => {
-      if (!cancelled) setBody(b)
+    setSystemHost(id)
+    loadBody(id).then(async (b) => {
+      if (cancelled) return
+      setBody(b)
+      // moons & stations belong to a parent system route
+      if (b.kind === 'moon' || b.kind === 'station') {
+        if (b.orbitHost) {
+          setSystemHost(b.orbitHost)
+        } else {
+          const all = await loadAllPlanets()
+          const parent = all.find((p) => (p.moonsDetail ?? []).some((m) => m.id === b.id))
+          if (!cancelled && parent) setSystemHost(parent.id)
+        }
+      }
     })
     return () => {
       cancelled = true
@@ -39,9 +54,19 @@ export default function PlanetView() {
       onFps: setFps,
       onPoiPositions: setPoiPos,
     })
-    engine.init(body)
-    return () => engine.dispose()
-  }, [body])
+    engine.init(body, era)
+    engineRef.current = engine
+    return () => {
+      engineRef.current = null
+      engine.dispose()
+    }
+  }, [body, era])
+
+  // pull the camera back before the hyperspace flash (the dive-out half)
+  const departJump = (path: string) => {
+    engineRef.current?.depart()
+    jump(path)
+  }
 
   const pois = body?.poi ?? []
 
@@ -80,7 +105,7 @@ export default function PlanetView() {
       })}
 
       <button
-        onClick={() => jump(`/system/${id}`)}
+        onClick={() => departJump(`/system/${systemHost}`)}
         className="pointer-events-auto absolute bottom-4 right-4 z-20 rounded border border-white/10 bg-panel/80 px-3 py-1.5 text-[12px] tracking-wide text-slate-200 backdrop-blur-md transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan"
       >
         ◇ {t('enterSystem', lang)}

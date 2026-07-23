@@ -132,6 +132,10 @@ export interface CelestialBody {
   destruction?: DestructionEvent
   /** fully renderable companions (own recipe), e.g. Yavin 4, Nar Shaddaa */
   moonsDetail?: CelestialBody[]
+  /** stations only: eras in which the structure exists (Death Stars) */
+  existsInEras?: EraId[]
+  /** stations only: id of the body this structure orbits */
+  orbitHost?: string
   renderRecipe: RenderRecipe
 }
 

@@ -79,4 +79,12 @@ float ridged(vec3 p) {
   }
   return f;
 }
+
+float hash11(float x) { return fract(sin(x * 127.1) * 43758.5453); }
+float hash31(vec3 p) { return fract(sin(dot(p, vec3(127.1, 311.7, 74.7))) * 43758.5453); }
+
+vec3 rotY(vec3 p, float a) {
+  float c = cos(a), s = sin(a);
+  return vec3(c * p.x + s * p.z, p.y, -s * p.x + c * p.z);
+}
 `

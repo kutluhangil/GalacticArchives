@@ -16,11 +16,13 @@ interface Label {
   x: number
   y: number
   visible: boolean
+  minor?: boolean
 }
 
 export default function SystemView() {
   const { id = 'tatooine' } = useParams()
   const lang = useApp((s) => s.lang)
+  const era = useApp((s) => s.era)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [body, setBody] = useState<CelestialBody | null>(null)
   const [labels, setLabels] = useState<Label[]>([])
@@ -46,9 +48,9 @@ export default function SystemView() {
       onSelectBody: (bodyId) => jumpRef.current(`/planet/${bodyId}`),
       onLabelPositions: setLabels,
     })
-    engine.init(body, lang)
+    engine.init(body, era, lang)
     return () => engine.dispose()
-  }, [body, lang])
+  }, [body, era, lang])
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-space">
@@ -78,7 +80,11 @@ export default function SystemView() {
               key={label.id}
               style={{ left: label.x, top: label.y }}
               onClick={() => jump(`/planet/${label.id}`)}
-              className="absolute z-10 -translate-x-1/2 rounded border border-white/10 bg-black/50 px-1.5 py-0.5 text-[10px] tracking-[0.2em] text-slate-200 backdrop-blur-sm transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan"
+              className={`absolute z-10 -translate-x-1/2 rounded border backdrop-blur-sm transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan ${
+                label.minor
+                  ? 'border-white/5 bg-black/40 px-1 py-px text-[8.5px] tracking-[0.16em] text-slate-400'
+                  : 'border-white/10 bg-black/50 px-1.5 py-0.5 text-[10px] tracking-[0.2em] text-slate-200'
+              }`}
             >
               {label.name.toUpperCase()}
             </button>

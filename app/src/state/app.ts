@@ -22,10 +22,11 @@ interface AppState {
 }
 
 const storedLang = (localStorage.getItem('ga-lang') as Lang | null) ?? 'tr'
+const storedEra = (localStorage.getItem('ga-era') as EraId | null) ?? 'empire'
 
 export const useApp = create<AppState>((set, get) => ({
   lang: storedLang,
-  era: 'empire',
+  era: storedEra,
   jumping: false,
   clockSpeed: 1,
   clockPlaying: true,
@@ -34,7 +35,10 @@ export const useApp = create<AppState>((set, get) => ({
     localStorage.setItem('ga-lang', lang)
     set({ lang })
   },
-  setEra: (era) => set({ era }),
+  setEra: (era) => {
+    localStorage.setItem('ga-era', era)
+    set({ era })
+  },
   setJumping: (jumping) => set({ jumping }),
   setClockSpeed: (s) => {
     simClock.setSpeed(s)

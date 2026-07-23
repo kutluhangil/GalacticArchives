@@ -24,8 +24,15 @@ export abstract class EngineBase {
   protected controls!: OrbitControls
   protected canvas: HTMLCanvasElement
   protected cb: BaseCallbacks
+  /** wall-clock seconds since start — drives effect shaders at constant rate
+   *  regardless of sim-time speed (no strobing at 1h/s) */
+  protected wallSec = 0
+  /** materials whose uTime uniform should tick with wallSec */
+  protected timedMats: THREE.ShaderMaterial[] = []
+  protected reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   private raf = 0
   private disposed = false
+  private startWall = 0
   private fpsCount = 0
   private fpsLast = 0
   private resizeObs?: ResizeObserver
@@ -70,6 +77,7 @@ export abstract class EngineBase {
     const pos = new Float32Array(N * 3)
     const col = new Float32Array(N * 3)
     const size = new Float32Array(N)
+    const phase = new Float32Array(N)
     const c = new THREE.Color()
     for (let i = 0; i < N; i++) {
       // 25% of stars biased toward a galactic band for depth
@@ -86,21 +94,25 @@ export abstract class EngineBase {
       c.setHSL(warm > 0.85 ? 0.08 : 0.58 + Math.random() * 0.06, 0.4, 0.62 + Math.random() * 0.3)
       col.set([c.r, c.g, c.b], i * 3)
       size[i] = 0.6 + Math.random() * 2.4
+      // ~1 in 3 stars twinkles; the rest hold steady (phase 0 -> constant term)
+      phase[i] = Math.random() < 0.34 ? Math.random() : 0
     }
     const geo = new THREE.BufferGeometry()
     geo.setAttribute('position', new THREE.BufferAttribute(pos, 3))
     geo.setAttribute('aColor', new THREE.BufferAttribute(col, 3))
     geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1))
+    geo.setAttribute('aPhase', new THREE.BufferAttribute(phase, 1))
     const mat = new THREE.ShaderMaterial({
       vertexShader: STAR_VERT,
       fragmentShader: STAR_FRAG,
-      uniforms: { uPixelRatio: { value: this.renderer.getPixelRatio() } },
+      uniforms: { uPixelRatio: { value: this.renderer.getPixelRatio() }, uTime: { value: 0 } },
       transparent: true,
       depthWrite: false,
     })
     const stars = new THREE.Points(geo, mat)
     stars.frustumCulled = false
     this.scene.add(stars)
+    this.timedMats.push(mat)
   }
 
   /** Soft additive sun glow sprite (canvas radial gradient). */
@@ -129,9 +141,12 @@ export abstract class EngineBase {
 
   start() {
     this.fpsLast = performance.now()
+    this.startWall = performance.now()
     const loop = () => {
       if (this.disposed) return
       this.raf = requestAnimationFrame(loop)
+      this.wallSec = (performance.now() - this.startWall) / 1000
+      for (const mat of this.timedMats) mat.uniforms.uTime.value = this.wallSec
       this.controls.update()
       this.update(this.cb.getSimTime())
       this.composer.render()

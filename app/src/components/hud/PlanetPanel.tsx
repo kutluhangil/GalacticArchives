@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { CelestialBody } from '../../types/lore'
 import { useApp } from '../../state/app'
-import { L, LL, factionById, mediaById, regions } from '../../lib/lore'
+import { destroyedInEra, L, LL, factionById, mediaById, regions } from '../../lib/lore'
 import { t } from '../../lib/ui-strings'
 
 function Row({ label, value }: { label: string; value: string | undefined }) {
@@ -19,9 +19,7 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
   const [factIdx, setFactIdx] = useState(0)
   const facts = LL(body.funFacts, lang)
   const faction = factionById(body.affiliationsByEra?.[era])
-  const destroyed =
-    body.destruction &&
-    (era === body.destruction.destroyedFromEra || era === 'new-republic')
+  const destroyed = destroyedInEra(body, era)
 
   const appearanceTitles = useMemo(
     () =>

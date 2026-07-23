@@ -1,30 +1,43 @@
 // SystemEngine: star-system overview — sun(s) at center, the planet on its
-// orbit with moons, clickable to dive into the PlanetView.
+// orbit with real-recipe moons, era-gated Death Stars, ambient ship traffic
+// and a soft camera follow. Everything with a name is clickable.
 
 import * as THREE from 'three'
-import type { CelestialBody } from '../../types/lore'
+import type { CelestialBody, EraId } from '../../types/lore'
+import { rendersAsRubble, stationsForHost } from '../lore'
 import { EngineBase, type BaseCallbacks } from './engine-base'
+import { buildAsteroidField, buildDeathStar, buildTraffic, type TrafficSystem } from './effects'
 import { ARCHETYPE_IDS, PLANET_FRAG, PLANET_VERT } from './planet-shaders'
 
 export interface SystemCallbacks extends BaseCallbacks {
   onSelectBody?: (id: string) => void
-  onLabelPositions?: (labels: { id: string; name: string; x: number; y: number; visible: boolean }[]) => void
+  onLabelPositions?: (labels: { id: string; name: string; x: number; y: number; visible: boolean; minor?: boolean }[]) => void
 }
 
 interface OrbitingBody {
   id: string
   name: string
-  mesh: THREE.Mesh
+  anchor: THREE.Object3D
+  spin?: THREE.Object3D
   orbitRadius: number
   periodDays: number
   phase: number
   parent?: OrbitingBody
+  minor?: boolean
 }
 
 function seedFrom(id: string): number {
   let h = 0
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 1000
   return h / 100
+}
+
+const TRAFFIC_BY_ARCHETYPE: Record<string, number> = {
+  ecumenopolis: 14,
+  verdant: 5,
+  desert: 3,
+  barren: 2,
+  'gas-giant': 6,
 }
 
 export class SystemEngine extends EngineBase {
@@ -34,7 +47,13 @@ export class SystemEngine extends EngineBase {
   private selectCb?: (id: string) => void
   private labelCb?: SystemCallbacks['onLabelPositions']
   private sunAnchors: { mesh: THREE.Object3D; radius: number; phase: number }[] = []
-  private clickable: THREE.Mesh[] = []
+  private clickable: THREE.Object3D[] = []
+  private asteroidUpdate?: (dt: number) => void
+  private traffic?: TrafficSystem
+  private planetBody?: OrbitingBody
+  private lastWall = 0
+  private lastTarget = new THREE.Vector3()
+  private followInitialized = false
 
   constructor(canvas: HTMLCanvasElement, cb: SystemCallbacks) {
     super(canvas, cb)
@@ -42,13 +61,13 @@ export class SystemEngine extends EngineBase {
     this.labelCb = cb.onLabelPositions
   }
 
-  init(primary: CelestialBody, lang: 'en' | 'tr') {
+  init(primary: CelestialBody, era: EraId, lang: 'en' | 'tr') {
     this.initGL(new THREE.Vector3(0, 14, 26), 0.7)
     this.controls.minDistance = 6
     this.controls.maxDistance = 90
     this.addStarfield(1400)
     this.buildSuns(primary)
-    this.buildPlanet(primary, lang)
+    this.buildPlanet(primary, era, lang)
     this.canvas.addEventListener('pointerdown', this.onPointerDown)
     this.canvas.addEventListener('pointermove', this.onPointerMove)
     this.start()
@@ -75,8 +94,7 @@ export class SystemEngine extends EngineBase {
     })
   }
 
-  private buildPlanet(body: CelestialBody, lang: 'en' | 'tr') {
-    const orbitRadius = 16
+  private makeBodyMaterial(body: CelestialBody, era: EraId, suns: CelestialBody['suns']): THREE.ShaderMaterial {
     const recipe = body.renderRecipe
     const mat = new THREE.ShaderMaterial({
       vertexShader: PLANET_VERT,
@@ -89,35 +107,89 @@ export class SystemEngine extends EngineBase {
         uSecondary: { value: new THREE.Color(recipe.palette.secondary ?? recipe.palette.primary) },
         uAtmoColor: { value: new THREE.Color(recipe.atmosphere?.color ?? '#88aaff') },
         uSun1Dir: { value: new THREE.Vector3(1, 0, 0) },
-        uSun1Color: { value: new THREE.Color(body.suns?.[0]?.color ?? '#FFEFD0') },
+        uSun1Color: { value: new THREE.Color(suns?.[0]?.color ?? '#FFEFD0') },
         uSun2Dir: { value: new THREE.Vector3(1, 0, 0) },
-        uSun2Color: { value: new THREE.Color(body.suns?.[1]?.color ?? '#FFEFD0') },
-        uHasSun2: { value: (body.suns?.length ?? 0) > 1 ? 1 : 0 },
+        uSun2Color: { value: new THREE.Color(suns?.[1]?.color ?? '#FFEFD0') },
+        uHasSun2: { value: (suns?.length ?? 0) > 1 ? 1 : 0 },
+        uVariant: { value: recipe.variantsByEra?.[era] ? 1 : 0 },
         uAlbedo: { value: null },
         uUseAlbedo: { value: 0 },
         uNight: { value: null },
         uUseNight: { value: 0 },
       },
     })
-    const mesh = new THREE.Mesh(new THREE.SphereGeometry(1.1, 64, 64), mat)
-    mesh.userData.bodyId = body.id
-    this.scene.add(mesh)
-    this.clickable.push(mesh)
+    this.timedMats.push(mat)
+    return mat
+  }
+
+  private buildPlanet(body: CelestialBody, era: EraId, lang: 'en' | 'tr') {
+    const orbitRadius = 16
+    const anchor = new THREE.Group()
+    this.scene.add(anchor)
     this.addOrbitLine(orbitRadius, 0x2a3648, 0.5)
 
     const planet: OrbitingBody = {
       id: body.id,
       name: body.names[lang],
-      mesh,
+      anchor,
       orbitRadius,
       periodDays: 300,
       phase: seedFrom(body.id),
     }
     this.bodies.push(planet)
+    this.planetBody = planet
 
-    const moonNames = body.moons ?? []
-    const moonCount = Math.min(moonNames.length || (body.stats?.moonCount ?? 0), 4)
-    for (let i = 0; i < moonCount; i++) {
+    if (rendersAsRubble(body, era)) {
+      // the graveyard: a slow asteroid disk where the world used to hang
+      const s1Color = new THREE.Color(body.suns?.[0]?.color ?? '#FFEFD0')
+      const field = buildAsteroidField(240, 0.5, 1.9, new THREE.Vector3(1, 0.2, 0), s1Color)
+      anchor.add(field.object)
+      this.asteroidUpdate = field.update
+      const hit = new THREE.Mesh(
+        new THREE.SphereGeometry(1.6, 12, 12),
+        new THREE.MeshBasicMaterial({ visible: false }),
+      )
+      hit.userData.bodyId = body.id
+      anchor.add(hit)
+      this.clickable.push(hit)
+      return
+    }
+
+    const spin = new THREE.Mesh(
+      new THREE.SphereGeometry(1.1, 64, 64),
+      this.makeBodyMaterial(body, era, body.suns),
+    )
+    spin.userData.bodyId = body.id
+    anchor.add(spin)
+    planet.spin = spin
+    this.clickable.push(spin)
+
+    // detailed moons orbit the planet with their true recipes, clickable
+    const detail = body.moonsDetail ?? []
+    const plainCount = detail.length
+      ? 0
+      : Math.min((body.moons ?? []).length || (body.stats?.moonCount ?? 0), 4)
+    detail.slice(0, 4).forEach((moon, i) => {
+      const mesh = new THREE.Mesh(
+        new THREE.SphereGeometry(0.34, 40, 40),
+        this.makeBodyMaterial(moon, era, body.suns),
+      )
+      mesh.userData.bodyId = moon.id
+      this.scene.add(mesh)
+      this.clickable.push(mesh)
+      this.bodies.push({
+        id: moon.id,
+        name: moon.names[lang],
+        anchor: mesh,
+        spin: mesh,
+        orbitRadius: 2.4 + i * 1.0,
+        periodDays: 5 + i * 8,
+        phase: (i / Math.max(detail.length, 1)) * Math.PI * 2,
+        parent: planet,
+        minor: true,
+      })
+    })
+    for (let i = 0; i < plainCount; i++) {
       const moon = new THREE.Mesh(
         new THREE.SphereGeometry(0.16 + (i % 2) * 0.05, 20, 20),
         new THREE.MeshBasicMaterial({ color: 0x9a938c }),
@@ -125,14 +197,42 @@ export class SystemEngine extends EngineBase {
       this.scene.add(moon)
       this.bodies.push({
         id: `${body.id}-moon-${i}`,
-        name: moonNames[i] ?? '',
-        mesh: moon,
+        name: (body.moons ?? [])[i] ?? '',
+        anchor: moon,
         orbitRadius: 2.2 + i * 0.8,
         periodDays: 5 + i * 8,
-        phase: (i / Math.max(moonCount, 1)) * Math.PI * 2,
+        phase: (i / Math.max(plainCount, 1)) * Math.PI * 2,
         parent: planet,
+        minor: true,
       })
     }
+
+    // era-gated stations (Death Stars), clickable like moons
+    stationsForHost(body.id, era).forEach((station, i) => {
+      const half = (station.renderRecipe.effects ?? []).includes('half-built-scaffold')
+      const ds = buildDeathStar(0.42, half, seedFrom(station.id))
+      this.timedMats.push(...ds.materials)
+      ds.object.traverse((o) => {
+        o.userData.bodyId = station.id
+      })
+      this.scene.add(ds.object)
+      this.clickable.push(ds.object)
+      this.bodies.push({
+        id: station.id,
+        name: station.names[lang],
+        anchor: ds.object,
+        orbitRadius: 4.4 + i * 1.2,
+        periodDays: 14 + i * 6,
+        phase: 2.2 + i,
+        parent: planet,
+        minor: true,
+      })
+    })
+
+    // ambient traffic scaled to how busy the world is
+    const density = TRAFFIC_BY_ARCHETYPE[body.renderRecipe.archetype] ?? 6
+    this.traffic = buildTraffic(density, 1.5)
+    this.scene.add(this.traffic.group)
   }
 
   private addOrbitLine(radius: number, color: number, opacity: number) {
@@ -156,7 +256,7 @@ export class SystemEngine extends EngineBase {
       -((e.clientY - rect.top) / rect.height) * 2 + 1,
     )
     this.raycaster.setFromCamera(this.pointer, this.camera)
-    const hit = this.raycaster.intersectObjects(this.clickable, false)
+    const hit = this.raycaster.intersectObjects(this.clickable, true)
     this.canvas.style.cursor = hit.length ? 'pointer' : 'grab'
   }
 
@@ -168,7 +268,7 @@ export class SystemEngine extends EngineBase {
       -((e.clientY - rect.top) / rect.height) * 2 + 1,
     )
     this.raycaster.setFromCamera(this.pointer, this.camera)
-    const hit = this.raycaster.intersectObjects(this.clickable, false)
+    const hit = this.raycaster.intersectObjects(this.clickable, true)
     const id = hit[0]?.object.userData.bodyId as string | undefined
     if (id) this.selectCb?.(id)
   }
@@ -176,6 +276,8 @@ export class SystemEngine extends EngineBase {
   protected update(simMs: number) {
     const simSec = simMs / 1000
     const simDays = simSec / 86400
+    const dt = Math.min(this.wallSec - this.lastWall, 0.1)
+    this.lastWall = this.wallSec
 
     for (const sun of this.sunAnchors) {
       if (sun.radius > 0) {
@@ -186,38 +288,59 @@ export class SystemEngine extends EngineBase {
 
     for (const b of this.bodies) {
       const ang = b.phase + (simDays / b.periodDays) * Math.PI * 2
-      const center = b.parent ? b.parent.mesh.position : new THREE.Vector3()
-      b.mesh.position.set(
+      const center = b.parent ? b.parent.anchor.position : ZERO
+      b.anchor.position.set(
         center.x + Math.cos(ang) * b.orbitRadius,
         0,
         center.z + Math.sin(ang) * b.orbitRadius,
       )
-      const mat = b.mesh.material as THREE.ShaderMaterial
-      if (mat.uniforms?.uSun1Dir) {
-        mat.uniforms.uTime.value = simSec % 100000
-        const dir = b.mesh.position.clone().negate().normalize()
+      const spinObj = b.spin ?? b.anchor
+      const mesh = spinObj as THREE.Mesh
+      const mat = mesh.material as THREE.ShaderMaterial | undefined
+      // station materials carry uSun1Dir only — uSun2Dir is planet-shader specific
+      if (mat?.uniforms?.uSun1Dir) {
+        const dir = this.sunAnchors[0].mesh.position.clone().sub(b.anchor.position).normalize()
         ;(mat.uniforms.uSun1Dir.value as THREE.Vector3).copy(dir)
-        if (this.sunAnchors[1]) {
-          const dir2 = this.sunAnchors[1].mesh.position.clone().sub(b.mesh.position).normalize()
+        if (this.sunAnchors[1] && mat.uniforms.uSun2Dir) {
+          const dir2 = this.sunAnchors[1].mesh.position.clone().sub(b.anchor.position).normalize()
           ;(mat.uniforms.uSun2Dir.value as THREE.Vector3).copy(dir2)
         }
       }
-      b.mesh.rotation.y = simSec / 5000
+      spinObj.rotation.y = simSec / 5000
+    }
+
+    this.asteroidUpdate?.(dt)
+
+    // soft camera follow: keep the orbiting planet framed without fighting input
+    if (this.planetBody) {
+      const target = this.planetBody.anchor.position
+      if (!this.followInitialized) {
+        this.followInitialized = true
+        this.lastTarget.copy(target)
+        this.controls.target.copy(target)
+      } else {
+        const delta = target.clone().sub(this.lastTarget)
+        this.camera.position.add(delta)
+        this.controls.target.add(delta)
+        this.lastTarget.copy(target)
+      }
+      this.traffic?.update(this.wallSec, target)
     }
 
     if (this.labelCb) {
       const half = { w: this.canvas.clientWidth / 2, h: this.canvas.clientHeight / 2 }
       this.labelCb(
         this.bodies
-          .filter((b) => !b.parent && b.name)
+          .filter((b) => b.name)
           .map((b) => {
-            const proj = b.mesh.position.clone().project(this.camera)
+            const proj = b.anchor.position.clone().project(this.camera)
             return {
               id: b.id,
               name: b.name,
               x: proj.x * half.w + half.w,
               y: -proj.y * half.h + half.h - 26,
               visible: proj.z < 1,
+              minor: b.minor,
             }
           }),
       )
@@ -230,3 +353,5 @@ export class SystemEngine extends EngineBase {
     super.dispose()
   }
 }
+
+const ZERO = new THREE.Vector3()
