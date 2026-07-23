@@ -1,0 +1,78 @@
+{
+  "id": "christophsis",
+  "kind": "planet",
+  "names": {
+    "en": "Christophsis",
+    "tr": "Christophsis"
+  },
+  "desc": {
+    "en": "A world grown from blue crystal, its cities cut straight out of the towers. Anakin met his Padawan here while the shields were still up.",
+    "tr": "Mavi kristalden büyümüş bir dünya; şehirleri doğrudan kulelerin içine oyulmuş. Anakin, kalkanlar hâlâ açıkken Padawan'ıyla burada tanıştı."
+  },
+  "region": "outer-rim",
+  "sector": "Savareen sector",
+  "system": "Christoph system",
+  "coordinates": "Q-16",
+  "stats": {
+    "moonCount": 1
+  },
+  "suns": [
+    {
+      "name": "Christophsis' sun",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Crystalline formations",
+      "Crystal cities"
+    ],
+    "tr": [
+      "Kristal oluşumlar",
+      "Kristal şehirler"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "republic",
+    "empire": "empire"
+  },
+  "appearances": [
+    "tcw",
+    "bad-batch"
+  ],
+  "characters": [
+    "anakin-skywalker",
+    "obi-wan-kenobi",
+    "ahsoka-tano"
+  ],
+  "funFacts": {
+    "en": [
+      "Ahsoka Tano was delivered to Anakin on this battlefield — the beginning of everything they became.",
+      "The crystal towers are so dense that ground fire refracts through whole blocks."
+    ],
+    "tr": [
+      "Ahsoka Tano bu savaş alanında Anakin'e teslim edildi — oldukları her şeyin başlangıcı.",
+      "Kristal kuleler o kadar yoğun ki yer ateşi bütün blokların içinden kırılarak geçer."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "crystal-red",
+    "palette": {
+      "primary": "#7FB6D9",
+      "secondary": "#2F5D80"
+    },
+    "atmosphere": {
+      "color": "#A8D4F0",
+      "density": 0.5
+    }
+  }
+}

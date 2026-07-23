@@ -1,0 +1,87 @@
+{
+  "id": "sorgan",
+  "kind": "planet",
+  "names": {
+    "en": "Sorgan",
+    "tr": "Sorgan"
+  },
+  "desc": {
+    "en": "Krill ponds, common houses and no starport: a backwater so quiet that hiding a child here almost worked.",
+    "tr": "Krill havuzları, ortak evler ve hiç uzay limanı yok: bir çocuğu saklamanın neredeyse işe yaradığı, sessiz bir taşra."
+  },
+  "region": "outer-rim",
+  "sector": "Karthakk sector",
+  "system": "Sorgan system",
+  "coordinates": "Q-17",
+  "stats": {
+    "diameterKm": 8742,
+    "moonCount": 2,
+    "population": {
+      "en": "Fewer than 10,000",
+      "tr": "10.000'den az"
+    }
+  },
+  "suns": [
+    {
+      "name": "Sorgan",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Coniferous forests",
+      "Meadows",
+      "Swamps",
+      "Krill ponds"
+    ],
+    "tr": [
+      "İğne yapraklı ormanlar",
+      "Çayırlar",
+      "Bataklıklar",
+      "Krill havuzları"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "neutral"
+  },
+  "appearances": [
+    "mandalorian"
+  ],
+  "characters": [
+    "din-djarin",
+    "grogu"
+  ],
+  "funFacts": {
+    "en": [
+      "Din Djarin and Cara Dune trained farmers here to hold off raiders with an AT-ST.",
+      "Krill spawn is the whole local economy — the ponds are the village's bank."
+    ],
+    "tr": [
+      "Din Djarin ve Cara Dune, çiftçilere burada bir AT-ST'ye karşı direnmeyi öğretti.",
+      "Krill üretimi tüm yerel ekonomidir — havuzlar köyün bankasıdır."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#46704A",
+      "secondary": "#2F5240"
+    },
+    "atmosphere": {
+      "color": "#A6D8B0",
+      "density": 0.55
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

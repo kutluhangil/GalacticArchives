@@ -18,3 +18,6 @@
 - Added the static SEO surface: per-world OG cards drawn from each planet's palette, per-route meta pages, sitemap.xml and robots.txt, all generated post-build.
 - Added PWA support: web manifest, generated icons and an app-shell service worker (network-first navigations, cache-first hashed assets).
 - Removed the orphaned satellite propagator worker left over from LEO LIVE.
+- Added the Tier A expansion: 40 more worlds (Ghorman, Aldhani, Narkina 5, Chandrila, Malachor, Tython, Trask, Batuu, Kijimi, Hosnian Prime, At Attin, Glavis Ringworld and the rest), all cross-checked against the Wookieepedia digest — 74 bodies total, 0 validation errors.
+- Galaxy labels declutter themselves: nearer worlds claim their box and colliding labels drop out.
+- Galaxy node globes skip relief shading (uRelief) and use a coarser sphere, keeping the 74-world map at 77 fps.

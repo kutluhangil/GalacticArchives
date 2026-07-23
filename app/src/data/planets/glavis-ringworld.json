@@ -1,0 +1,76 @@
+{
+  "id": "glavis-ringworld",
+  "kind": "station",
+  "names": {
+    "en": "Glavis Ringworld",
+    "tr": "Glavis Ringworld"
+  },
+  "desc": {
+    "en": "A Core Worlds ring station spun for gravity, layered from boulevards down to sublevels where the crime syndicates actually run the place.",
+    "tr": "Yerçekimi için döndürülen bir Çekirdek Dünyalar halka istasyonu; bulvarlardan, suç örgütlerinin işleri gerçekten yürüttüğü alt katmanlara iner."
+  },
+  "region": "core-worlds",
+  "sector": "Caisra sector",
+  "system": "Glavis system",
+  "coordinates": "M-11",
+  "stats": {
+    "diameterKm": 158,
+    "population": {
+      "en": "About 1.63 million",
+      "tr": "Yaklaşık 1,63 milyon"
+    }
+  },
+  "suns": [
+    {
+      "name": "Glavis Ringworld",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Controlled"
+    ],
+    "tr": [
+      "Denetimli"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Ring habitat",
+      "Boulevards",
+      "Sublevels"
+    ],
+    "tr": [
+      "Halka yaşam alanı",
+      "Bulvarlar",
+      "Alt katmanlar"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire"
+  },
+  "appearances": [
+    "maul-shadow-lord"
+  ],
+  "characters": [
+    "darth-maul"
+  ],
+  "funFacts": {
+    "en": [
+      "Maul moved on Glavis to take its underworld out from under the Crimson Dawn's rivals.",
+      "The ring's gravity comes entirely from its spin — a failure in the drive is a failure of the ground."
+    ],
+    "tr": [
+      "Maul, Glavis'in yeraltını Kızıl Şafak'ın rakiplerinin elinden almak için harekete geçti.",
+      "Halkanın yerçekimi tamamen dönüşünden gelir — tahrikteki arıza, zeminin arızasıdır."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "station",
+    "palette": {
+      "primary": "#8A8F98",
+      "secondary": "#4A4F58"
+    }
+  }
+}

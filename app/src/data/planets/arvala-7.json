@@ -1,0 +1,81 @@
+{
+  "id": "arvala-7",
+  "kind": "planet",
+  "names": {
+    "en": "Arvala-7",
+    "tr": "Arvala-7"
+  },
+  "desc": {
+    "en": "Hardened mud and dust, worked by a vapor farmer who fixed a droid everyone else would have scrapped.",
+    "tr": "Sertleşmiş çamur ve toz; herkesin hurdaya ayıracağı bir droidi tamir eden bir buhar çiftçisi tarafından işlenir."
+  },
+  "region": "outer-rim",
+  "sector": "Sevetta sector",
+  "system": "Arvala system",
+  "coordinates": "S-15",
+  "stats": {
+    "diameterKm": 2375,
+    "population": {
+      "en": "Fewer than 1 million",
+      "tr": "1 milyondan az"
+    }
+  },
+  "suns": [
+    {
+      "name": "Arvala-7",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Arid"
+    ],
+    "tr": [
+      "Kurak"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Hardened mud",
+      "Canyons",
+      "Desert"
+    ],
+    "tr": [
+      "Sertleşmiş çamur",
+      "Kanyonlar",
+      "Çöl"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "neutral"
+  },
+  "appearances": [
+    "mandalorian"
+  ],
+  "characters": [
+    "din-djarin",
+    "grogu"
+  ],
+  "funFacts": {
+    "en": [
+      "Kuiil rebuilt IG-11 from a bounty droid into a nurse — \"I have spoken.\"",
+      "This is where Din Djarin took the bounty that broke his creed and kept the Child."
+    ],
+    "tr": [
+      "Kuiil, IG-11'i ödül droidinden bir bakıcıya dönüştürdü — \"Söyledim.\"",
+      "Din Djarin, inancını kıran ve Çocuğu yanında tutmasına yol açan işi burada aldı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": {
+      "primary": "#A98C6B",
+      "secondary": "#6E5A45"
+    },
+    "atmosphere": {
+      "color": "#D2BC96",
+      "density": 0.35
+    }
+  }
+}

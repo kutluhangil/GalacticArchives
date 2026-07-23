@@ -1,0 +1,86 @@
+{
+  "id": "trask",
+  "kind": "moon",
+  "names": {
+    "en": "Trask",
+    "tr": "Trask"
+  },
+  "desc": {
+    "en": "An estuary moon of one ocean and one port, where everything is fished, sold or smuggled off the same dock.",
+    "tr": "Tek okyanuslu, tek limanlı bir haliç ayı: her şey aynı iskeleden avlanır, satılır ya da kaçırılır."
+  },
+  "region": "outer-rim",
+  "sector": "Arkanis sector",
+  "system": "Kol Iben system",
+  "coordinates": "R-16",
+  "stats": {
+    "diameterKm": 9720,
+    "moonCount": 1,
+    "population": {
+      "en": "About 35.8 million",
+      "tr": "Yaklaşık 35,8 milyon"
+    }
+  },
+  "suns": [
+    {
+      "name": "Trask",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Cold",
+      "Wet"
+    ],
+    "tr": [
+      "Soğuk",
+      "Yağışlı"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Oceans",
+      "Harbour city"
+    ],
+    "tr": [
+      "Okyanuslar",
+      "Liman şehri"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "mandalorian"
+  },
+  "appearances": [
+    "mandalorian"
+  ],
+  "characters": [
+    "din-djarin",
+    "grogu",
+    "bo-katan"
+  ],
+  "funFacts": {
+    "en": [
+      "Bo-Katan Kryze and the Nite Owls took an Imperial freighter out of Trask's skies.",
+      "Din Djarin learned here that the Mandalorians he grew up with were a splinter sect."
+    ],
+    "tr": [
+      "Bo-Katan Kryze ve Nite Owls, Trask'ın göklerinden bir İmparatorluk yük gemisi ele geçirdi.",
+      "Din Djarin, birlikte büyüdüğü Mandalorluların ayrılıkçı bir mezhep olduğunu burada öğrendi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ocean-storm",
+    "palette": {
+      "primary": "#3E5A6E",
+      "secondary": "#7E96A6"
+    },
+    "atmosphere": {
+      "color": "#9FC0D8",
+      "density": 0.7
+    },
+    "textures": {
+      "clouds": "storm"
+    }
+  }
+}

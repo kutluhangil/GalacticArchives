@@ -1,0 +1,80 @@
+{
+  "id": "umbara",
+  "kind": "planet",
+  "names": {
+    "en": "Umbara",
+    "tr": "Umbara"
+  },
+  "desc": {
+    "en": "The Shadow World: a planet under permanent twilight where the plants glow, the wildlife hunts by heat, and a Jedi general marched clones into their own guns.",
+    "tr": "Gölge Dünya: bitkilerin parladığı, hayvanların ısıyla avlandığı sürekli alacakaranlıktaki gezegen — bir Jedi general klonları kendi silahlarının önüne sürdü."
+  },
+  "region": "expansion-region",
+  "sector": "Ghost Nebula sector",
+  "system": "Umbara system",
+  "coordinates": "P-10",
+  "suns": [
+    {
+      "name": "Umbara",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Moist",
+      "Sunless"
+    ],
+    "tr": [
+      "Nemli",
+      "Güneşsiz"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Bioluminescent plains",
+      "Jungle",
+      "Urban"
+    ],
+    "tr": [
+      "Biyolüminesan ovalar",
+      "Orman",
+      "Şehir"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "separatist",
+    "empire": "empire"
+  },
+  "appearances": [
+    "tcw"
+  ],
+  "characters": [
+    "captain-rex",
+    "anakin-skywalker"
+  ],
+  "funFacts": {
+    "en": [
+      "Pong Krell's campaign here ended with clones executing their own general for treason.",
+      "Umbaran vehicles are steered by touch plates — no clone could fly a captured one at first."
+    ],
+    "tr": [
+      "Pong Krell'in buradaki harekâtı, klonların kendi generallerini ihanetten infaz etmesiyle bitti.",
+      "Umbaran araçları dokunmatik plakalarla sürülür — ele geçirilen araçları klonlar başta uçuramadı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "dark-storm",
+    "palette": {
+      "primary": "#2A2F3E",
+      "secondary": "#5F7FA8"
+    },
+    "atmosphere": {
+      "color": "#5C74A8",
+      "density": 0.7
+    },
+    "effects": [
+      "lightning"
+    ]
+  }
+}

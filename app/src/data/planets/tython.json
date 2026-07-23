@@ -1,0 +1,86 @@
+{
+  "id": "tython",
+  "kind": "planet",
+  "names": {
+    "en": "Tython",
+    "tr": "Tython"
+  },
+  "desc": {
+    "en": "An empty Deep Core world of grass and stone, holding a seeing stone on a mountain — the oldest Jedi ground still standing.",
+    "tr": "Çimen ve taştan, boş bir Derin Çekirdek dünyası; bir dağın üzerinde görü taşı taşır — ayakta kalan en eski Jedi toprağı."
+  },
+  "region": "deep-core",
+  "sector": "None",
+  "system": "Tython system",
+  "coordinates": "K-10",
+  "stats": {
+    "diameterKm": 12396,
+    "moonCount": 2,
+    "population": {
+      "en": "Uninhabited",
+      "tr": "Yerleşim yok"
+    }
+  },
+  "suns": [
+    {
+      "name": "Tython",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Forest",
+      "Grasslands",
+      "Mountains"
+    ],
+    "tr": [
+      "Orman",
+      "Çayırlar",
+      "Dağlar"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "jedi"
+  },
+  "appearances": [
+    "mandalorian"
+  ],
+  "characters": [
+    "din-djarin",
+    "grogu",
+    "luke-skywalker"
+  ],
+  "funFacts": {
+    "en": [
+      "Grogu reached out from the seeing stone and Luke Skywalker answered the call.",
+      "The Razor Crest was destroyed in orbit while the beacon was still transmitting."
+    ],
+    "tr": [
+      "Grogu görü taşından uzandı ve çağrıya Luke Skywalker yanıt verdi.",
+      "İşaret hâlâ yayın yaparken Razor Crest yörüngede yok edildi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#6E8A4E",
+      "secondary": "#4A6A5A"
+    },
+    "atmosphere": {
+      "color": "#B8DCA8",
+      "density": 0.5
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

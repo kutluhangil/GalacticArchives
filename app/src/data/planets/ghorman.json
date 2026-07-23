@@ -1,0 +1,86 @@
+{
+  "id": "ghorman",
+  "kind": "planet",
+  "names": {
+    "en": "Ghorman",
+    "tr": "Ghorman"
+  },
+  "desc": {
+    "en": "A textile world of spider silk and steep valleys, mined out from under its own people — and then shot down in its own plaza.",
+    "tr": "Örümcek ipeğinin ve dik vadilerin dokuma dünyası; halkının ayağının altından madenle boşaltıldı — sonra kendi meydanında kurşuna dizildi."
+  },
+  "region": "colonies",
+  "sector": "Sern sector",
+  "system": "Ghorman system",
+  "coordinates": "L-13",
+  "stats": {
+    "population": {
+      "en": "About 800,000 (by 5 BBY)",
+      "tr": "Yaklaşık 800.000 (5 BBY itibarıyla)"
+    }
+  },
+  "suns": [
+    {
+      "name": "Ghorman sun",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Mountains",
+      "Valleys",
+      "Plains",
+      "Forests"
+    ],
+    "tr": [
+      "Dağlar",
+      "Vadiler",
+      "Ovalar",
+      "Ormanlar"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "republic",
+    "empire": "empire"
+  },
+  "appearances": [
+    "andor"
+  ],
+  "characters": [
+    "cassian-andor",
+    "mon-mothma"
+  ],
+  "funFacts": {
+    "en": [
+      "The Ghorman Massacre was staged by the Empire to justify stripping the planet for its ore.",
+      "Mon Mothma named it genocide on the Senate floor and could not go home afterwards."
+    ],
+    "tr": [
+      "Ghorman Katliamı, gezegenin cevheri için soyulmasını meşrulaştırmak üzere İmparatorlukça sahnelendi.",
+      "Mon Mothma bunu Senato kürsüsünde soykırım diye adlandırdı ve bir daha evine dönemedi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#6F8A5A",
+      "secondary": "#8A7550"
+    },
+    "atmosphere": {
+      "color": "#C4D8B0",
+      "density": 0.55
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

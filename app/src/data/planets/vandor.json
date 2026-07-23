@@ -1,0 +1,83 @@
+{
+  "id": "vandor",
+  "kind": "planet",
+  "names": {
+    "en": "Vandor",
+    "tr": "Vandor"
+  },
+  "desc": {
+    "en": "Snow mountains and a single rail line: the conveyex ran coaxium through the passes until a crew tried to take it off the track.",
+    "tr": "Karlı dağlar ve tek bir demiryolu hattı: konveyeks, bir ekip onu raydan indirmeye çalışana dek geçitlerden coaxium taşıdı."
+  },
+  "region": "mid-rim",
+  "sector": "Sloo sector",
+  "system": "Vandor system",
+  "coordinates": "P-14",
+  "stats": {
+    "diameterKm": 12500,
+    "moonCount": 2,
+    "population": {
+      "en": "About 25,000",
+      "tr": "Yaklaşık 25.000"
+    }
+  },
+  "suns": [
+    {
+      "name": "Vandor",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Frigid"
+    ],
+    "tr": [
+      "Dondurucu"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Mountains",
+      "Plains",
+      "Fast rivers"
+    ],
+    "tr": [
+      "Dağlar",
+      "Ovalar",
+      "Hızlı akan nehirler"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire"
+  },
+  "appearances": [
+    "solo"
+  ],
+  "characters": [
+    "han-solo",
+    "chewbacca",
+    "lando-calrissian"
+  ],
+  "funFacts": {
+    "en": [
+      "The Fort Ypso lodge is where Han first saw the Millennium Falcon across a sabacc table.",
+      "Conveyex trains are locked to their track — which is why robbing one means arriving from above."
+    ],
+    "tr": [
+      "Han, Milenyum Şahini'ni ilk kez Fort Ypso'daki lokalde sabacc masasının karşısında gördü.",
+      "Konveyeks trenleri raya kilitlidir — bu yüzden birini soymak yukarıdan inmek demektir."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ice",
+    "palette": {
+      "primary": "#DCE6EE",
+      "secondary": "#7C8B9C"
+    },
+    "atmosphere": {
+      "color": "#CBDCF0",
+      "density": 0.5
+    }
+  }
+}

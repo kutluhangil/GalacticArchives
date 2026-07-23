@@ -1,0 +1,84 @@
+{
+  "id": "plazir-15",
+  "kind": "planet",
+  "names": {
+    "en": "Plazir-15",
+    "tr": "Plazir-15"
+  },
+  "desc": {
+    "en": "A domed democracy on marshland, run by droids under a treaty — until someone started reprogramming them one at a time.",
+    "tr": "Bataklık üzerinde kubbeli bir demokrasi; bir antlaşma uyarınca droidlerce işletilir — ta ki biri onları teker teker yeniden programlamaya başlayana dek."
+  },
+  "region": "outer-rim",
+  "sector": "N/A",
+  "system": "Plazir system",
+  "coordinates": "N-2",
+  "stats": {
+    "government": {
+      "en": "Elective monarchy",
+      "tr": "Seçimli monarşi"
+    }
+  },
+  "suns": [
+    {
+      "name": "Plazir-15",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Freshwater marshes",
+      "Grass plains",
+      "Domed city"
+    ],
+    "tr": [
+      "Tatlı su bataklıkları",
+      "Çayır ovaları",
+      "Kubbeli şehir"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "new-republic"
+  },
+  "appearances": [
+    "mandalorian"
+  ],
+  "characters": [
+    "din-djarin",
+    "bo-katan",
+    "grogu"
+  ],
+  "funFacts": {
+    "en": [
+      "Plazir-15 is the only New Republic world to elect its rulers and keep its droid workforce.",
+      "Bo-Katan and Din Djarin were deputised as detectives before they were allowed to leave."
+    ],
+    "tr": [
+      "Plazir-15, yöneticilerini seçen ve droid iş gücünü koruyan tek Yeni Cumhuriyet dünyasıdır.",
+      "Bo-Katan ve Din Djarin, ayrılmalarına izin verilmeden önce dedektif olarak görevlendirildi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#5C7F5E",
+      "secondary": "#7E8C6A"
+    },
+    "atmosphere": {
+      "color": "#B4D8C0",
+      "density": 0.55
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

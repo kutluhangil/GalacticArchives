@@ -1,0 +1,84 @@
+{
+  "id": "onderon",
+  "kind": "planet",
+  "names": {
+    "en": "Onderon",
+    "tr": "Onderon"
+  },
+  "desc": {
+    "en": "A jungle world walled into one great city, orbited by the beast-moon Dxun. Its rebellion was the Republic's first lesson in arming insurgents.",
+    "tr": "Tek bir büyük şehrin surlarına kapanmış orman dünyası; yörüngesinde canavar ayı Dxun. İsyanı, Cumhuriyet'in isyancıları silahlandırma konusundaki ilk dersiydi."
+  },
+  "region": "inner-rim",
+  "sector": "Japrael sector",
+  "system": "Japrael system",
+  "coordinates": "O-9",
+  "stats": {
+    "diameterKm": 15190,
+    "government": {
+      "en": "Monarchy under the Royal Court",
+      "tr": "Kraliyet Divanı altında monarşi"
+    }
+  },
+  "suns": [
+    {
+      "name": "Prael",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Jungle",
+      "Walled city"
+    ],
+    "tr": [
+      "Orman",
+      "Surlu şehir"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "separatist",
+    "empire": "empire",
+    "new-republic": "new-republic"
+  },
+  "appearances": [
+    "tcw"
+  ],
+  "characters": [
+    "ahsoka-tano",
+    "obi-wan-kenobi"
+  ],
+  "funFacts": {
+    "en": [
+      "Saw Gerrera learned insurgency here, trained by Jedi who would later regret it.",
+      "Its moon Dxun is close enough that predators cross between the two worlds."
+    ],
+    "tr": [
+      "Saw Gerrera isyanı burada, sonradan pişman olacak Jedi'lardan öğrendi.",
+      "Ayı Dxun o kadar yakın ki yırtıcılar iki dünya arasında geçiş yapar."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#4E7A45",
+      "secondary": "#2E5C6E"
+    },
+    "atmosphere": {
+      "color": "#9FD5A8",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

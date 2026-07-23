@@ -1,0 +1,81 @@
+{
+  "id": "eriadu",
+  "kind": "planet",
+  "names": {
+    "en": "Eriadu",
+    "tr": "Eriadu"
+  },
+  "desc": {
+    "en": "An industrial Outer Rim capital under a scorched sky, and the family seat of the Tarkins — where doctrine came before mercy.",
+    "tr": "Kavrulmuş gökyüzü altında sanayileşmiş bir Dış Halka başkenti; Tarkin ailesinin ocağı — doktrinin merhametten önce geldiği yer."
+  },
+  "region": "outer-rim",
+  "sector": "Seswenna sector",
+  "system": "Eriadu system",
+  "coordinates": "M-18",
+  "stats": {
+    "government": {
+      "en": "The Quintad",
+      "tr": "Quintad"
+    }
+  },
+  "suns": [
+    {
+      "name": "Eriadu",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate",
+      "Polluted"
+    ],
+    "tr": [
+      "Ilıman",
+      "Kirli"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Jungles",
+      "Mountains",
+      "Industrial sprawl"
+    ],
+    "tr": [
+      "Ormanlar",
+      "Dağlar",
+      "Sanayi yayılımı"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "republic",
+    "empire": "empire"
+  },
+  "appearances": [],
+  "characters": [],
+  "funFacts": {
+    "en": [
+      "Wilhuff Tarkin grew up hunting in Eriadu's wilds under a family code of survival.",
+      "The planet's factories made it the Outer Rim's unofficial capital long before the Empire."
+    ],
+    "tr": [
+      "Wilhuff Tarkin, Eriadu'nun vahşi doğasında bir aile hayatta kalma kuralıyla avlanarak büyüdü.",
+      "Fabrikaları, gezegeni İmparatorluk'tan çok önce Dış Halka'nın gayriresmî başkenti yaptı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#6B7A55",
+      "secondary": "#4A4438"
+    },
+    "atmosphere": {
+      "color": "#B0A98C",
+      "density": 0.65
+    },
+    "textures": {
+      "clouds": "storm"
+    }
+  }
+}

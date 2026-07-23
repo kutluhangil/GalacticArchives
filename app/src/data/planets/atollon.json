@@ -1,0 +1,86 @@
+{
+  "id": "atollon",
+  "kind": "planet",
+  "names": {
+    "en": "Atollon",
+    "tr": "Atollon"
+  },
+  "desc": {
+    "en": "A dry world of coral mesas and krykna nests that hid a rebel fleet — until an Imperial grand admiral worked out the pattern.",
+    "tr": "Mercan mesaları ve krykna yuvalarıyla dolu kurak dünya; bir isyancı filoyu sakladı — ta ki bir İmparatorluk Baş Amirali örüntüyü çözene dek."
+  },
+  "region": "outer-rim",
+  "sector": "Lothal sector",
+  "system": "Atollon system",
+  "coordinates": "T-7",
+  "stats": {
+    "moonCount": 1,
+    "population": {
+      "en": "438 at the height of Chopper Base",
+      "tr": "Chopper Üssü doruğundayken 438"
+    }
+  },
+  "suns": [
+    {
+      "name": "Ashbo",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Arid"
+    ],
+    "tr": [
+      "Kurak"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Coral formations",
+      "Caverns",
+      "Deserts",
+      "Mesas"
+    ],
+    "tr": [
+      "Mercan oluşumları",
+      "Mağaralar",
+      "Çöller",
+      "Mesalar"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "rebel"
+  },
+  "appearances": [
+    "rebels"
+  ],
+  "characters": [
+    "ezra-bridger",
+    "kanan-jarrus",
+    "hera-syndulla",
+    "sabine-wren",
+    "thrawn"
+  ],
+  "funFacts": {
+    "en": [
+      "Chopper Base was abandoned after Thrawn's blockade broke the Phoenix Cell.",
+      "The Bendu lived here — neither light nor dark, and furious at being made to choose."
+    ],
+    "tr": [
+      "Chopper Üssü, Thrawn'ın ablukası Phoenix Hücresi'ni kırdıktan sonra terk edildi.",
+      "Bendu burada yaşıyordu — ne ışık ne karanlık; seçmeye zorlanmaya öfkeliydi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": {
+      "primary": "#C09A6E",
+      "secondary": "#7A6248"
+    },
+    "atmosphere": {
+      "color": "#DCC49A",
+      "density": 0.35
+    }
+  }
+}

@@ -22,6 +22,8 @@ export function makeBodyMaterial(
   body: CelestialBody,
   era: EraId,
   suns: SunLight[],
+  /** 0 turns off relief shading — worth it for bodies only a few pixels wide */
+  relief = 1,
 ): THREE.ShaderMaterial {
   const recipe = body.renderRecipe
   const s1 = suns[0]
@@ -42,6 +44,7 @@ export function makeBodyMaterial(
       uSun2Color: { value: s2.color.clone() },
       uHasSun2: { value: suns.length > 1 ? 1 : 0 },
       uVariant: { value: recipe.variantsByEra?.[era] ? 1 : 0 },
+      uRelief: { value: relief },
       uAlbedo: { value: null },
       uUseAlbedo: { value: 0 },
       uNight: { value: null },

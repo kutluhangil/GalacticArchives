@@ -1,0 +1,77 @@
+{
+  "id": "polis-massa",
+  "kind": "planet",
+  "names": {
+    "en": "Polis Massa",
+    "tr": "Polis Massa"
+  },
+  "desc": {
+    "en": "A shattered planetoid in a dense asteroid field, dug through by archaeologists — and the place where the twins were born and separated the same hour.",
+    "tr": "Yoğun bir asteroit alanında parçalanmış bir gezegenimsi; arkeologlarca oyuldu — ve ikizlerin doğduğu, aynı saatte ayrıldığı yer."
+  },
+  "region": "outer-rim",
+  "sector": "Subterrel sector",
+  "system": "Polis Massa system",
+  "coordinates": "K-20",
+  "stats": {
+    "population": {
+      "en": "Archaeological research colony",
+      "tr": "Arkeolojik araştırma kolonisi"
+    }
+  },
+  "suns": [
+    {
+      "name": "Polis Massa",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "None"
+    ],
+    "tr": [
+      "Yok"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Asteroid rock",
+      "Sealed research colony"
+    ],
+    "tr": [
+      "Asteroit kayası",
+      "Kapalı araştırma kolonisi"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "rebel"
+  },
+  "appearances": [
+    "rots"
+  ],
+  "characters": [
+    "padme-amidala",
+    "obi-wan-kenobi",
+    "yoda",
+    "luke-skywalker",
+    "leia-organa"
+  ],
+  "funFacts": {
+    "en": [
+      "Luke and Leia were born in the medical wing here, minutes before their mother died.",
+      "Yoda began his exile planning in these corridors — and Bail Organa left with a daughter."
+    ],
+    "tr": [
+      "Luke ve Leia burada, annelerinin ölümünden dakikalar önce doğdu.",
+      "Yoda sürgün planını bu koridorlarda kurdu — Bail Organa ise bir kızla ayrıldı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "barren",
+    "palette": {
+      "primary": "#6E6A66",
+      "secondary": "#3A3835"
+    }
+  }
+}

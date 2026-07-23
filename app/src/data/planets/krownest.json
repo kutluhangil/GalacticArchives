@@ -1,0 +1,75 @@
+{
+  "id": "krownest",
+  "kind": "planet",
+  "names": {
+    "en": "Krownest",
+    "tr": "Krownest"
+  },
+  "desc": {
+    "en": "Frozen forests and a lake stronghold: the seat of Clan Wren, where family arguments are settled with blasters on the table.",
+    "tr": "Donmuş ormanlar ve göl kıyısında bir kale: Wren Klanı'nın ocağı; aile tartışmaları masada blaster'larla çözülür."
+  },
+  "region": "outer-rim",
+  "sector": "Mandalore sector",
+  "system": "New Kleyman system",
+  "coordinates": "O-7",
+  "suns": [
+    {
+      "name": "Krownest",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Frigid"
+    ],
+    "tr": [
+      "Dondurucu"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Forests",
+      "Mountains",
+      "Frozen lakes"
+    ],
+    "tr": [
+      "Ormanlar",
+      "Dağlar",
+      "Donmuş göller"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "mandalorian"
+  },
+  "appearances": [
+    "rebels"
+  ],
+  "characters": [
+    "sabine-wren",
+    "ezra-bridger",
+    "kanan-jarrus"
+  ],
+  "funFacts": {
+    "en": [
+      "Sabine Wren returned home here to ask her mother to choose a side.",
+      "Clan Wren held the stronghold against Imperial-aligned Mandalorians through the whole occupation."
+    ],
+    "tr": [
+      "Sabine Wren, annesinden taraf seçmesini istemek için buraya döndü.",
+      "Wren Klanı, işgal boyunca kaleyi İmparatorluk yanlısı Mandalorlulara karşı elinde tuttu."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ice",
+    "palette": {
+      "primary": "#D2E2EE",
+      "secondary": "#5E7A6E"
+    },
+    "atmosphere": {
+      "color": "#BCD8EC",
+      "density": 0.5
+    }
+  }
+}

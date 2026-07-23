@@ -1,0 +1,78 @@
+{
+  "id": "seatos",
+  "kind": "planet",
+  "names": {
+    "en": "Seatos",
+    "tr": "Seatos"
+  },
+  "desc": {
+    "en": "A forest world above a drowned coastline, where a star map pointed at a galaxy nobody was supposed to reach.",
+    "tr": "Sular altında kalmış bir kıyının üzerindeki orman dünyası; bir yıldız haritası, kimsenin ulaşmaması gereken bir galaksiyi işaret ediyordu."
+  },
+  "region": "outer-rim",
+  "sector": "Sluis sector",
+  "system": "Denab system",
+  "coordinates": "M-19",
+  "suns": [
+    {
+      "name": "Seatos",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Forests",
+      "Oceans",
+      "Ruins"
+    ],
+    "tr": [
+      "Ormanlar",
+      "Okyanuslar",
+      "Harabeler"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "empire"
+  },
+  "appearances": [
+    "ahsoka"
+  ],
+  "characters": [
+    "ahsoka-tano",
+    "sabine-wren",
+    "thrawn"
+  ],
+  "funFacts": {
+    "en": [
+      "The Pathway to Peridea was read off a Nightsister star map assembled here.",
+      "Morgan Elsbeth built the Eye of Sion in orbit above these forests."
+    ],
+    "tr": [
+      "Peridea'ya Giden Yol, burada birleştirilen bir Gece Kızkardeşleri yıldız haritasından okundu.",
+      "Morgan Elsbeth, Sion'un Gözü'nü bu ormanların üzerindeki yörüngede inşa etti."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#3E6A55",
+      "secondary": "#2D4F62"
+    },
+    "atmosphere": {
+      "color": "#9CCFC0",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

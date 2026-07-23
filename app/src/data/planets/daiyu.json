@@ -1,0 +1,80 @@
+{
+  "id": "daiyu",
+  "kind": "planet",
+  "names": {
+    "en": "Daiyu",
+    "tr": "Daiyu"
+  },
+  "desc": {
+    "en": "A rainy neon port city where spice is sold openly and children are traded quietly — the worst possible place to lose a princess.",
+    "tr": "Baharatın açıkça satıldığı, çocukların sessizce takas edildiği yağmurlu neon liman şehri — bir prensesi kaybetmek için mümkün olan en kötü yer."
+  },
+  "region": "expansion-region",
+  "sector": "Hocatar sector",
+  "system": "Daiyu system",
+  "coordinates": "P-12",
+  "suns": [
+    {
+      "name": "Daiyu",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate",
+      "Rainy"
+    ],
+    "tr": [
+      "Ilıman",
+      "Yağışlı"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Cityscape",
+      "Harbour districts"
+    ],
+    "tr": [
+      "Şehir dokusu",
+      "Liman semtleri"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire"
+  },
+  "appearances": [
+    "kenobi"
+  ],
+  "characters": [
+    "obi-wan-kenobi",
+    "leia-organa"
+  ],
+  "funFacts": {
+    "en": [
+      "Obi-Wan came out of hiding for the first time in ten years to find Leia in these streets.",
+      "The spice trade here is open enough that the Empire treats it as a revenue stream."
+    ],
+    "tr": [
+      "Obi-Wan, Leia'yı bu sokaklarda bulmak için on yıl sonra ilk kez saklandığı yerden çıktı.",
+      "Buradaki baharat ticareti o kadar açıktır ki İmparatorluk onu bir gelir kalemi sayar."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ecumenopolis",
+    "palette": {
+      "primary": "#4A4E62",
+      "secondary": "#8E6FA8"
+    },
+    "atmosphere": {
+      "color": "#8A7FB0",
+      "density": 0.7
+    },
+    "textures": {
+      "clouds": "storm"
+    },
+    "effects": [
+      "traffic"
+    ]
+  }
+}

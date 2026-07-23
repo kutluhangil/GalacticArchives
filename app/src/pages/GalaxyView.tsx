@@ -18,8 +18,41 @@ interface NodeLabel {
   name: string
   x: number
   y: number
+  depth: number
   visible: boolean
   destroyed: boolean
+}
+
+/** rough glyph metrics for the label chip, in CSS pixels */
+const CHAR_W = 6.9
+const ROW_H = 15
+/** breathing room so two kept labels never read as one run of text */
+const GUTTER = 6
+
+/**
+ * Greedy declutter: with 70+ worlds the labels overlap into unreadable runs, so
+ * nearer worlds claim their box first and anything colliding with an already
+ * placed label is dropped for that frame.
+ */
+function declutter(labels: NodeLabel[]): NodeLabel[] {
+  const placed: { x0: number; x1: number; y0: number; y1: number }[] = []
+  const kept: NodeLabel[] = []
+  for (const label of [...labels].filter((l) => l.visible).sort((a, b) => a.depth - b.depth)) {
+    const halfW = (label.name.length * CHAR_W) / 2 + GUTTER
+    const box = {
+      x0: label.x - halfW,
+      x1: label.x + halfW,
+      y0: label.y - ROW_H / 2,
+      y1: label.y + ROW_H / 2,
+    }
+    const clash = placed.some(
+      (p) => box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0,
+    )
+    if (clash) continue
+    placed.push(box)
+    kept.push(label)
+  }
+  return kept
 }
 
 const NEUTRAL = '#8B94A7'
@@ -108,9 +141,8 @@ export default function GalaxyView() {
         </div>
       )}
 
-      {labels.map(
-        (label) =>
-          label.visible && (
+      {declutter(labels).map(
+        (label) => (
             <button
               key={label.id}
               style={{ left: label.x, top: label.y }}

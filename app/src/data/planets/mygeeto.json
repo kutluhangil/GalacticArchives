@@ -1,0 +1,78 @@
+{
+  "id": "mygeeto",
+  "kind": "planet",
+  "names": {
+    "en": "Mygeeto",
+    "tr": "Mygeeto"
+  },
+  "desc": {
+    "en": "A frigid crystalline world of Banking Clan spires, fought over street by street in the last days of the Clone Wars.",
+    "tr": "Bankacılık Klanı kulelerinin yükseldiği donmuş kristal dünya; Klon Savaşları'nın son günlerinde sokak sokak çarpışıldı."
+  },
+  "region": "outer-rim",
+  "sector": "Albarrio sector",
+  "system": "Mygeeto system",
+  "coordinates": "K-5",
+  "stats": {
+    "diameterKm": 10088,
+    "moonCount": 2
+  },
+  "suns": [
+    {
+      "name": "Malola",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Frigid"
+    ],
+    "tr": [
+      "Dondurucu"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Crystalline formations",
+      "Frozen cityscape"
+    ],
+    "tr": [
+      "Kristal oluşumlar",
+      "Donmuş şehir dokusu"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "separatist",
+    "empire": "empire"
+  },
+  "appearances": [
+    "rots",
+    "tcw"
+  ],
+  "characters": [],
+  "funFacts": {
+    "en": [
+      "Ki-Adi-Mundi died here, cut down by his own clone troopers mid-advance.",
+      "The InterGalactic Banking Clan ran the planet as a fortified vault."
+    ],
+    "tr": [
+      "Ki-Adi-Mundi burada, ilerleyiş sırasında kendi klon askerleri tarafından öldürüldü.",
+      "Galaksilerarası Bankacılık Klanı gezegeni tahkim edilmiş bir kasa gibi işletirdi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ice",
+    "palette": {
+      "primary": "#D7E6F2",
+      "secondary": "#8FA9C4"
+    },
+    "atmosphere": {
+      "color": "#CFE0FF",
+      "density": 0.45
+    },
+    "effects": [
+      "kyber-glint"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "hosnian-prime",
+  "kind": "planet",
+  "names": {
+    "en": "Hosnian Prime",
+    "tr": "Hosnian Prime"
+  },
+  "desc": {
+    "en": "The New Republic's seated capital, a city world of senate halls — vaporised in a single shot to announce that the First Order had a weapon nobody had counted.",
+    "tr": "Yeni Cumhuriyet'in oturan başkenti; senato salonlarının şehir dünyası — İlk Düzen'in kimsenin hesaba katmadığı bir silahı olduğunu duyurmak için tek atışta buharlaştırıldı."
+  },
+  "region": "core-worlds",
+  "sector": "Hosnian sector",
+  "system": "Hosnian system",
+  "coordinates": "M-12",
+  "stats": {
+    "moonCount": 1,
+    "government": {
+      "en": "Galactic Senate of the New Republic",
+      "tr": "Yeni Cumhuriyet Galaktik Senatosu"
+    }
+  },
+  "suns": [
+    {
+      "name": "Hosnian Prime",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Urban"
+    ],
+    "tr": [
+      "Şehir"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "republic",
+    "empire": "empire",
+    "new-republic": "new-republic"
+  },
+  "appearances": [
+    "tfa"
+  ],
+  "characters": [],
+  "funFacts": {
+    "en": [
+      "The Hosnian system was destroyed with the Republic fleet still docked around it.",
+      "Starkiller's beam was visible in daylight from systems away — including Takodana."
+    ],
+    "tr": [
+      "Hosnian sistemi, Cumhuriyet filosu hâlâ çevresinde bağlıyken yok edildi.",
+      "Starkiller'ın ışını sistemler ötesinden gündüz gözüyle görüldü — Takodana dahil."
+    ]
+  },
+  "destruction": {
+    "destroyedFromEra": "new-republic",
+    "yearLabel": "34 ABY",
+    "by": {
+      "en": "Destroyed by Starkiller Base",
+      "tr": "Starkiller Üssü tarafından yok edildi"
+    }
+  },
+  "renderRecipe": {
+    "archetype": "ecumenopolis",
+    "palette": {
+      "primary": "#8E96A8",
+      "secondary": "#5A6478"
+    },
+    "atmosphere": {
+      "color": "#A8C0E0",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "temperate"
+    },
+    "effects": [
+      "traffic"
+    ]
+  }
+}

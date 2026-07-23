@@ -1,0 +1,82 @@
+{
+  "id": "at-attin",
+  "kind": "planet",
+  "names": {
+    "en": "At Attin",
+    "tr": "At Attin"
+  },
+  "desc": {
+    "en": "A hidden world behind a barrier, minting credits for a Republic that fell long ago — its children had no idea the galaxy had moved on.",
+    "tr": "Bir bariyerin ardında gizlenmiş dünya; çoktan yıkılmış bir Cumhuriyet için kredi basar — çocukları, galaksinin çoktan yoluna devam ettiğini bilmiyordu."
+  },
+  "region": "outer-rim",
+  "sector": "Quelii sector",
+  "system": "At Attin system",
+  "coordinates": "N-6",
+  "stats": {
+    "government": {
+      "en": "At Attin's Supervisor droids",
+      "tr": "At Attin Gözetmen droidleri"
+    }
+  },
+  "suns": [
+    {
+      "name": "At Attin",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Forests",
+      "Hills",
+      "Suburbs",
+      "The Great Work"
+    ],
+    "tr": [
+      "Ormanlar",
+      "Tepeler",
+      "Banliyöler",
+      "Büyük İş"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "neutral"
+  },
+  "appearances": [
+    "skeleton-crew"
+  ],
+  "characters": [],
+  "funFacts": {
+    "en": [
+      "The Great Work is a mint: At Attin made the Old Republic's currency and never stopped.",
+      "Four kids found a buried ship in the woods and accidentally opened the barrier to pirates."
+    ],
+    "tr": [
+      "Büyük İş bir darphanedir: At Attin, Eski Cumhuriyet'in parasını bastı ve hiç durmadı.",
+      "Dört çocuk ormanda gömülü bir gemi buldu ve bariyeri kazara korsanlara açtı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#5C8A4E",
+      "secondary": "#3E6E72"
+    },
+    "atmosphere": {
+      "color": "#AEDCC0",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

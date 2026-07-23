@@ -1,0 +1,84 @@
+{
+  "id": "lahmu",
+  "kind": "planet",
+  "names": {
+    "en": "Lah'mu",
+    "tr": "Lah'mu"
+  },
+  "desc": {
+    "en": "Black volcanic sand and a farm at the edge of nowhere — the hiding place that lasted until the Empire came for the man who designed its weapon.",
+    "tr": "Siyah volkanik kum ve hiçliğin kıyısında bir çiftlik — İmparatorluk, silahını tasarlayan adamı almaya gelene dek süren saklanma yeri."
+  },
+  "region": "outer-rim",
+  "sector": "Raioballo sector",
+  "system": "Lah'mu system",
+  "coordinates": "L-3",
+  "stats": {
+    "diameterKm": 12618,
+    "moonCount": 1,
+    "population": {
+      "en": "Fewer than 500 settlers",
+      "tr": "500'den az yerleşimci"
+    }
+  },
+  "suns": [
+    {
+      "name": "Lah'mu",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Black sand beaches",
+      "Fertile lowlands",
+      "Plateaus"
+    ],
+    "tr": [
+      "Siyah kumsallar",
+      "Verimli ovalar",
+      "Platolar"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "neutral"
+  },
+  "appearances": [
+    "rogue-one"
+  ],
+  "characters": [
+    "jyn-erso"
+  ],
+  "funFacts": {
+    "en": [
+      "Jyn Erso hid in a bunker in the fields while her mother was shot in the open.",
+      "The Ersos chose Lah'mu because it had no garrison, no traffic and almost no neighbours."
+    ],
+    "tr": [
+      "Jyn Erso, annesi açık alanda vurulurken tarlalardaki bir sığınakta saklandı.",
+      "Erso'lar Lah'mu'yu garnizonu, trafiği ve neredeyse hiç komşusu olmadığı için seçti."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#3F4A44",
+      "secondary": "#6E7A5E"
+    },
+    "atmosphere": {
+      "color": "#9FB4C0",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "storm"
+    }
+  }
+}

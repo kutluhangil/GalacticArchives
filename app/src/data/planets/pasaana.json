@@ -1,0 +1,86 @@
+{
+  "id": "pasaana",
+  "kind": "planet",
+  "names": {
+    "en": "Pasaana",
+    "tr": "Pasaana"
+  },
+  "desc": {
+    "en": "A desert of shifting sand pits where the Aki-Aki hold a festival once every forty-two years — and where a Sith wayfinder waited under the dunes.",
+    "tr": "Aki-Aki'lerin kırk iki yılda bir şenlik düzenlediği, kayan kum çukurlarıyla dolu çöl — kumların altında bir Sith yol göstericisi bekliyordu."
+  },
+  "region": "expansion-region",
+  "sector": "Ombakond sector",
+  "system": "Middian system",
+  "coordinates": "O-13",
+  "stats": {
+    "diameterKm": 11135,
+    "moonCount": 1,
+    "population": {
+      "en": "About 500,000",
+      "tr": "Yaklaşık 500.000"
+    }
+  },
+  "suns": [
+    {
+      "name": "Pasaana",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Arid"
+    ],
+    "tr": [
+      "Kurak"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Desert",
+      "Dunes",
+      "Sinking fields",
+      "Mountains"
+    ],
+    "tr": [
+      "Çöl",
+      "Kumullar",
+      "Batak alanlar",
+      "Dağlar"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "first-order"
+  },
+  "appearances": [
+    "tros"
+  ],
+  "characters": [
+    "rey",
+    "poe-dameron",
+    "finn",
+    "chewbacca"
+  ],
+  "funFacts": {
+    "en": [
+      "The Festival of the Ancestors runs for days and happens once in a generation.",
+      "Ochi of Bestoon died in the sinking fields; his ship sat there for decades with the dagger aboard."
+    ],
+    "tr": [
+      "Ataların Şenliği günlerce sürer ve bir kuşakta yalnızca bir kez yaşanır.",
+      "Bestoonlu Ochi batak alanlarda öldü; gemisi hançerle birlikte onlarca yıl orada kaldı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": {
+      "primary": "#E0C07E",
+      "secondary": "#A9814D"
+    },
+    "atmosphere": {
+      "color": "#F0D9A8",
+      "density": 0.35
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "serenno",
+  "kind": "planet",
+  "names": {
+    "en": "Serenno",
+    "tr": "Serenno"
+  },
+  "desc": {
+    "en": "A world of forested estates and old money, ruled by counts. One of them gave up his Jedi seat and took a Sith name instead.",
+    "tr": "Ormanlık malikâneler ve eski servet dünyası; kontlar tarafından yönetilir. İçlerinden biri Jedi koltuğunu bırakıp Sith adını aldı."
+  },
+  "region": "outer-rim",
+  "sector": "D'Astan sector",
+  "system": "Serenno system",
+  "coordinates": "P-5",
+  "stats": {
+    "moonCount": 2
+  },
+  "suns": [
+    {
+      "name": "Serenno's sun",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Forests",
+      "Mountains",
+      "Savannah",
+      "Estates"
+    ],
+    "tr": [
+      "Ormanlar",
+      "Dağlar",
+      "Savan",
+      "Malikâneler"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "separatist",
+    "empire": "empire"
+  },
+  "appearances": [
+    "tcw",
+    "bad-batch"
+  ],
+  "characters": [
+    "count-dooku"
+  ],
+  "funFacts": {
+    "en": [
+      "Dooku was born to the House of Serenno and returned as its Count to fund a war.",
+      "The Separatist war chest was moved through Serenno's vaults — and looted after Dooku's death."
+    ],
+    "tr": [
+      "Dooku, Serenno Hanedanı'nda doğdu ve bir savaşı finanse etmek için Kont olarak döndü.",
+      "Ayrılıkçı savaş hazinesi Serenno'nun kasalarından geçti — Dooku'nun ölümünden sonra yağmalandı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#5B7A4A",
+      "secondary": "#8A7B4F"
+    },
+    "atmosphere": {
+      "color": "#B6D6A8",
+      "density": 0.55
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

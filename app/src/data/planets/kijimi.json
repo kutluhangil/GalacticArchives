@@ -1,0 +1,89 @@
+{
+  "id": "kijimi",
+  "kind": "planet",
+  "names": {
+    "en": "Kijimi",
+    "tr": "Kijimi"
+  },
+  "desc": {
+    "en": "A frozen mountain city of thieves and spice runners, hard to police and easy to hide in — until the Final Order fired on it from orbit to prove a point.",
+    "tr": "Hırsızların ve baharat kaçakçılarının donmuş dağ şehri; denetlenmesi zor, saklanması kolaydı — Son Düzen bir mesaj vermek için yörüngeden ateş açana dek."
+  },
+  "region": "mid-rim",
+  "sector": "Bryx sector",
+  "system": "Kijimi system",
+  "coordinates": "R-8",
+  "stats": {
+    "diameterKm": 9874,
+    "moonCount": 0,
+    "population": {
+      "en": "Estimated 310 million",
+      "tr": "Tahminen 310 milyon"
+    }
+  },
+  "suns": [
+    {
+      "name": "Kijimi",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Frigid"
+    ],
+    "tr": [
+      "Dondurucu"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Mountains",
+      "Terraced city"
+    ],
+    "tr": [
+      "Dağlar",
+      "Teraslı şehir"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire",
+    "new-republic": "first-order"
+  },
+  "appearances": [
+    "tros"
+  ],
+  "characters": [
+    "poe-dameron",
+    "rey"
+  ],
+  "funFacts": {
+    "en": [
+      "Zorii Bliss ran the Spice Runners of Kijimi from these streets.",
+      "The planet was destroyed as a demonstration of the Sith fleet's planet-killing guns."
+    ],
+    "tr": [
+      "Zorii Bliss, Kijimi Baharat Kaçakçıları'nı bu sokaklardan yönetti.",
+      "Gezegen, Sith filosunun gezegen katili toplarının gösterisi olarak yok edildi."
+    ]
+  },
+  "destruction": {
+    "destroyedFromEra": "new-republic",
+    "yearLabel": "35 ABY",
+    "by": {
+      "en": "Destroyed by the Final Order flagship Steadfast",
+      "tr": "Son Düzen amiral gemisi Steadfast tarafından yok edildi"
+    }
+  },
+  "renderRecipe": {
+    "archetype": "ice",
+    "palette": {
+      "primary": "#C9D6E2",
+      "secondary": "#7E8CA0"
+    },
+    "atmosphere": {
+      "color": "#BFD4EC",
+      "density": 0.45
+    }
+  }
+}

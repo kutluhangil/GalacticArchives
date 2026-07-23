@@ -1,0 +1,80 @@
+{
+  "id": "moraband",
+  "kind": "planet",
+  "names": {
+    "en": "Moraband",
+    "tr": "Moraband"
+  },
+  "desc": {
+    "en": "Once Korriban, the Sith homeworld: a red desert of tombs where the dark side never finished speaking.",
+    "tr": "Bir zamanlar Korriban olan Sith anavatanı: karanlık tarafın sözünü hiç bitirmediği, mezarlarla dolu kızıl çöl."
+  },
+  "region": "outer-rim",
+  "sector": "Esstran sector",
+  "system": "Moraband system",
+  "coordinates": "R-5",
+  "suns": [
+    {
+      "name": "Moraband",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Hot",
+      "Arid"
+    ],
+    "tr": [
+      "Sıcak",
+      "Kurak"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Desolate valleys",
+      "Mountains",
+      "Tombs"
+    ],
+    "tr": [
+      "Issız vadiler",
+      "Dağlar",
+      "Mezarlar"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "sith"
+  },
+  "appearances": [
+    "tcw"
+  ],
+  "characters": [
+    "yoda",
+    "palpatine",
+    "darth-maul"
+  ],
+  "funFacts": {
+    "en": [
+      "Yoda came here to face Sidious in vision and learn how to survive as a ghost.",
+      "The Valley of the Dark Lords holds the tombs of Sith who ruled millennia before the Empire."
+    ],
+    "tr": [
+      "Yoda buraya Sidious'la imgede yüzleşmeye ve hayalet olarak var olmayı öğrenmeye geldi.",
+      "Karanlık Lordlar Vadisi, İmparatorluk'tan binyıllar önce hüküm sürmüş Sith'lerin mezarlarını barındırır."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "crystal-red",
+    "palette": {
+      "primary": "#8C3A2A",
+      "secondary": "#3A1A16"
+    },
+    "atmosphere": {
+      "color": "#C25A3C",
+      "density": 0.35
+    },
+    "effects": [
+      "red-mist"
+    ]
+  }
+}

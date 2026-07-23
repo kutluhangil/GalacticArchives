@@ -1,0 +1,76 @@
+{
+  "id": "aldhani",
+  "kind": "planet",
+  "names": {
+    "en": "Aldhani",
+    "tr": "Aldhani"
+  },
+  "desc": {
+    "en": "Highland valleys emptied of their people for an Imperial garrison, where a meteor shower called the Eye lit the sky over a payroll robbery.",
+    "tr": "Bir İmparatorluk garnizonu için halkından boşaltılmış yayla vadileri; Göz denen meteor yağmuru, bir maaş soygununun üzerinde gökyüzünü aydınlattı."
+  },
+  "region": "outer-rim",
+  "sector": "Cademimu sector",
+  "system": "Aldhani system",
+  "coordinates": "M-6",
+  "suns": [
+    {
+      "name": "Aldhani",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Grassy highlands",
+      "Mountains",
+      "Valleys"
+    ],
+    "tr": [
+      "Çimenli yaylalar",
+      "Dağlar",
+      "Vadiler"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire"
+  },
+  "appearances": [
+    "andor"
+  ],
+  "characters": [
+    "cassian-andor"
+  ],
+  "funFacts": {
+    "en": [
+      "The Eye of Aldhani is a debris field the planet passes through once every three years.",
+      "Eighty million credits left the garrison vault while the sky was still burning."
+    ],
+    "tr": [
+      "Aldhani'nin Gözü, gezegenin üç yılda bir içinden geçtiği bir enkaz kuşağıdır.",
+      "Gökyüzü hâlâ yanarken garnizon kasasından seksen milyon kredi çıktı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#6E8456",
+      "secondary": "#4A5C4A"
+    },
+    "atmosphere": {
+      "color": "#BCD4A8",
+      "density": 0.5
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

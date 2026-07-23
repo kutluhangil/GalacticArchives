@@ -1,0 +1,82 @@
+{
+  "id": "morak",
+  "kind": "planet",
+  "names": {
+    "en": "Morak",
+    "tr": "Morak"
+  },
+  "desc": {
+    "en": "Rainforest ridges hiding an Imperial rhydonium refinery — the kind of quiet installation that outlived the Empire that built it.",
+    "tr": "Bir İmparatorluk rhydonium rafinerisini gizleyen yağmur ormanı sırtları — kendisini kuran İmparatorluktan uzun yaşayan türden sessiz bir tesis."
+  },
+  "region": "wild-space",
+  "sector": "None",
+  "system": "Morak system",
+  "coordinates": "H-18",
+  "stats": {
+    "diameterKm": 11421,
+    "moonCount": 0,
+    "population": {
+      "en": "Fewer than 5 million",
+      "tr": "5 milyondan az"
+    }
+  },
+  "suns": [
+    {
+      "name": "Morak",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Humid"
+    ],
+    "tr": [
+      "Nemli"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Mountains",
+      "Rainforests"
+    ],
+    "tr": [
+      "Dağlar",
+      "Yağmur ormanları"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "empire"
+  },
+  "appearances": [
+    "mandalorian"
+  ],
+  "characters": [
+    "din-djarin"
+  ],
+  "funFacts": {
+    "en": [
+      "Din Djarin wore stormtrooper armour here for the only time — and hated every minute.",
+      "Rhydonium is unstable enough that the transport convoy was a rolling bomb."
+    ],
+    "tr": [
+      "Din Djarin fırtına askeri zırhını tek bir kez burada giydi — her dakikasından nefret etti.",
+      "Rhydonium o kadar kararsızdır ki nakliye konvoyu yürüyen bir bombaydı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#3E6B3F",
+      "secondary": "#5E5A3A"
+    },
+    "atmosphere": {
+      "color": "#A0D0A0",
+      "density": 0.65
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

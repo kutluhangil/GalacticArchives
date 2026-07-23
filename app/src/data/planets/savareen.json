@@ -1,0 +1,75 @@
+{
+  "id": "savareen",
+  "kind": "planet",
+  "names": {
+    "en": "Savareen",
+    "tr": "Savareen"
+  },
+  "desc": {
+    "en": "A coastal desert of refineries and salt wind, where raw coaxium is made safe to carry — and where a crew learned who among them was working for whom.",
+    "tr": "Rafinerilerin ve tuzlu rüzgârın kıyı çölü: ham coaxium burada taşınabilir hale getirilir — ve bir ekip, aralarından kimin kime çalıştığını burada öğrendi."
+  },
+  "region": "outer-rim",
+  "sector": "Savareen sector",
+  "system": "Savareen system",
+  "coordinates": "Q-16",
+  "suns": [
+    {
+      "name": "Savareen",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Arid"
+    ],
+    "tr": [
+      "Kurak"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Deserts",
+      "Oceans",
+      "Refinery coast"
+    ],
+    "tr": [
+      "Çöller",
+      "Okyanuslar",
+      "Rafineri kıyısı"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "neutral"
+  },
+  "appearances": [
+    "solo"
+  ],
+  "characters": [
+    "han-solo",
+    "chewbacca",
+    "lando-calrissian"
+  ],
+  "funFacts": {
+    "en": [
+      "Unrefined coaxium detonates if it is not processed quickly — Savareen was the closest refinery to Kessel.",
+      "Enfys Nest revealed herself here: the marauders were a rebel cell all along."
+    ],
+    "tr": [
+      "İşlenmemiş coaxium hızla arıtılmazsa patlar — Savareen, Kessel'e en yakın rafineriydi.",
+      "Enfys Nest kimliğini burada açıkladı: yağmacılar baştan beri bir isyancı hücresiydi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": {
+      "primary": "#CDAE84",
+      "secondary": "#5E7C86"
+    },
+    "atmosphere": {
+      "color": "#E4D2AC",
+      "density": 0.4
+    }
+  }
+}

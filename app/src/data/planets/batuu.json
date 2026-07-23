@@ -1,0 +1,90 @@
+{
+  "id": "batuu",
+  "kind": "planet",
+  "names": {
+    "en": "Batuu",
+    "tr": "Batuu"
+  },
+  "desc": {
+    "en": "A frontier world of petrified tree spires, once a hyperspace waypoint and now a smugglers' stop where the First Order asks too many questions.",
+    "tr": "Taşlaşmış ağaç kulelerinden oluşan bir sınır dünyası: eskiden hipersürat durağı, şimdi İlk Düzen'in fazla soru sorduğu bir kaçakçı limanı."
+  },
+  "region": "outer-rim",
+  "sector": "Trilon sector",
+  "system": "Batuu system",
+  "coordinates": "G-15",
+  "stats": {
+    "diameterKm": 12750,
+    "moonCount": 2,
+    "population": {
+      "en": "About 200,000",
+      "tr": "Yaklaşık 200.000"
+    }
+  },
+  "suns": [
+    {
+      "name": "Ubaat I",
+      "color": "#FFEFD0"
+    },
+    {
+      "name": "Ubaat II",
+      "color": "#FFEFD0"
+    },
+    {
+      "name": "Ubaat III",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Petrified spires",
+      "Forests",
+      "Cenotes",
+      "Mountains"
+    ],
+    "tr": [
+      "Taşlaşmış kuleler",
+      "Ormanlar",
+      "Cenoteler",
+      "Dağlar"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "first-order"
+  },
+  "appearances": [],
+  "characters": [],
+  "funFacts": {
+    "en": [
+      "Black Spire Outpost is named for the petrified trees that ring it.",
+      "Before the hyperspace lanes moved, Batuu was the last stop before Wild Space."
+    ],
+    "tr": [
+      "Black Spire Outpost, çevresini saran taşlaşmış ağaçlardan adını alır.",
+      "Hipersürat rotaları kaymadan önce Batuu, Vahşi Uzay'dan önceki son duraktı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#8A9464",
+      "secondary": "#6B5A44"
+    },
+    "atmosphere": {
+      "color": "#CBD8A8",
+      "density": 0.5
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

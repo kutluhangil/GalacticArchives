@@ -1,0 +1,87 @@
+{
+  "id": "dqar",
+  "kind": "planet",
+  "names": {
+    "en": "D'Qar",
+    "tr": "D'Qar"
+  },
+  "desc": {
+    "en": "A green world with no people on it, chosen for exactly that: the Resistance built its base under the canopy and left when the fleet found them.",
+    "tr": "Üzerinde kimse yaşamayan yeşil bir dünya; tam da bu yüzden seçildi: Direniş üssünü ağaç örtüsünün altına kurdu ve filo onları bulunca terk etti."
+  },
+  "region": "outer-rim",
+  "sector": "Sanbra sector",
+  "system": "Ileenium system",
+  "coordinates": "O-17",
+  "stats": {
+    "diameterKm": 10400,
+    "moonCount": 2,
+    "population": {
+      "en": "None (Resistance garrison only)",
+      "tr": "Yok (yalnızca Direniş garnizonu)"
+    }
+  },
+  "suns": [
+    {
+      "name": "Ileenium",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Jungle",
+      "Plains",
+      "Forest canopies"
+    ],
+    "tr": [
+      "Orman",
+      "Ovalar",
+      "Ağaç örtüsü"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "resistance"
+  },
+  "appearances": [
+    "tfa",
+    "tlj"
+  ],
+  "characters": [
+    "leia-organa",
+    "poe-dameron",
+    "finn"
+  ],
+  "funFacts": {
+    "en": [
+      "The evacuation of D'Qar cost the Resistance its entire bomber wing.",
+      "Its Ileenium system sun is the reason the base could hide from orbital scans at all."
+    ],
+    "tr": [
+      "D'Qar tahliyesi Direniş'e bütün bombardıman filosuna mal oldu.",
+      "Ileenium sistemindeki güneşi, üssün yörünge taramalarından saklanabilmesinin tek nedeniydi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#4A7C3F",
+      "secondary": "#2F5A4E"
+    },
+    "atmosphere": {
+      "color": "#A6E0B0",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

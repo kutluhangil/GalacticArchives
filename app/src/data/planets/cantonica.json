@@ -1,0 +1,81 @@
+{
+  "id": "cantonica",
+  "kind": "planet",
+  "names": {
+    "en": "Cantonica",
+    "tr": "Cantonica"
+  },
+  "desc": {
+    "en": "A desert world with a manufactured sea, built so Canto Bight could sell luxury on a coastline that was never there. The money comes from selling weapons to both sides.",
+    "tr": "Yapay bir denizle donatılmış çöl dünyası; Canto Bight, hiç var olmamış bir kıyıda lüks satabilsin diye kuruldu. Para, her iki tarafa da silah satmaktan gelir."
+  },
+  "region": "outer-rim",
+  "sector": "Corporate Sector",
+  "system": "Cantonica system",
+  "coordinates": "S-4",
+  "stats": {
+    "diameterKm": 11440,
+    "moonCount": 2,
+    "population": {
+      "en": "About 850,000",
+      "tr": "Yaklaşık 850.000"
+    }
+  },
+  "suns": [
+    {
+      "name": "Cantonica",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Arid"
+    ],
+    "tr": [
+      "Kurak"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Desert",
+      "Mountains",
+      "Artificial coastline"
+    ],
+    "tr": [
+      "Çöl",
+      "Dağlar",
+      "Yapay kıyı şeridi"
+    ]
+  },
+  "affiliationsByEra": {
+    "new-republic": "neutral"
+  },
+  "appearances": [
+    "tlj"
+  ],
+  "characters": [
+    "finn"
+  ],
+  "funFacts": {
+    "en": [
+      "Canto Bight's fathier stables and its casino floor are run by the same fortunes.",
+      "Rose Tico's answer to the city was to free the animals and wreck the lawn on the way out."
+    ],
+    "tr": [
+      "Canto Bight'ın fathier ahırlarını ve kumarhane salonunu aynı servetler işletir.",
+      "Rose Tico'nun şehre yanıtı, hayvanları salıp çıkarken çimenliği harap etmek oldu."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": {
+      "primary": "#D9C08A",
+      "secondary": "#8FA6B8"
+    },
+    "atmosphere": {
+      "color": "#E8D9B0",
+      "density": 0.4
+    }
+  }
+}

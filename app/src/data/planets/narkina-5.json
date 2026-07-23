@@ -1,0 +1,79 @@
+{
+  "id": "narkina-5",
+  "kind": "planet",
+  "names": {
+    "en": "Narkina 5",
+    "tr": "Narkina 5"
+  },
+  "desc": {
+    "en": "A factory moon of water and rock where the Empire kept prisoners standing on electrified floors, assembling parts for a machine they were never told about.",
+    "tr": "Su ve kayadan bir fabrika ayı: İmparatorluk, mahkûmları elektrikli zeminlerde ayakta tutup kendilerine hiç anlatılmayan bir makinenin parçalarını monte ettirdi."
+  },
+  "region": "outer-rim",
+  "sector": "Abrion sector",
+  "system": "Narkina system",
+  "coordinates": "S-15",
+  "stats": {
+    "diameterKm": 988
+  },
+  "suns": [
+    {
+      "name": "Narkina 5",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Ocean",
+      "Rocky islands",
+      "Prison factories"
+    ],
+    "tr": [
+      "Okyanus",
+      "Kayalık adalar",
+      "Hapishane fabrikaları"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire"
+  },
+  "appearances": [
+    "andor"
+  ],
+  "characters": [
+    "cassian-andor"
+  ],
+  "funFacts": {
+    "en": [
+      "The Narkina prison complex ran on shifts, tables and the constant threat of the floor.",
+      "\"One way out\" started as a whisper on level five and ended as a breakout."
+    ],
+    "tr": [
+      "Narkina hapishane kompleksi vardiyalarla, masalarla ve zeminin sürekli tehdidiyle işlerdi.",
+      "\"Tek çıkış\" beşinci katta bir fısıltı olarak başladı, bir firarla bitti."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ocean-storm",
+    "palette": {
+      "primary": "#3C5666",
+      "secondary": "#8FA6B4"
+    },
+    "atmosphere": {
+      "color": "#A8C4D8",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "storm"
+    }
+  }
+}

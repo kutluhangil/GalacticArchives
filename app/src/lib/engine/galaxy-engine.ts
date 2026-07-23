@@ -28,7 +28,18 @@ export interface GalaxyNode {
 
 export interface GalaxyCallbacks extends BaseCallbacks {
   onSelect?: (id: string) => void
-  onLabelPositions?: (labels: { id: string; name: string; x: number; y: number; visible: boolean; destroyed: boolean }[]) => void
+  onLabelPositions?: (
+    labels: {
+      id: string
+      name: string
+      x: number
+      y: number
+      /** normalised device depth — nearer worlds win a contested label slot */
+      depth: number
+      visible: boolean
+      destroyed: boolean
+    }[],
+  ) => void
   onRegionHover?: (region: RegionId | null) => void
 }
 
@@ -600,11 +611,14 @@ export class GalaxyEngine extends EngineBase {
       // overview scale, so approaching it resolves rather than swaps
       const toCore = new THREE.Vector3(-node.x, 0.35, -node.z)
       if (toCore.lengthSq() < 1e-6) toCore.set(0, 1, 0)
-      const globeMat = makeBodyMaterial(node.body, this.era, [
-        { dir: toCore.normalize(), color: new THREE.Color(node.body.suns?.[0]?.color ?? '#FFEFD0') },
-      ])
+      const globeMat = makeBodyMaterial(
+        node.body,
+        this.era,
+        [{ dir: toCore.normalize(), color: new THREE.Color(node.body.suns?.[0]?.color ?? '#FFEFD0') }],
+        0,
+      )
       this.timedMats.push(globeMat)
-      const globe = new THREE.Mesh(new THREE.SphereGeometry(NODE_R, 40, 28), globeMat)
+      const globe = new THREE.Mesh(new THREE.SphereGeometry(NODE_R, 24, 16), globeMat)
       globe.position.copy(sprite.position)
       globe.visible = !node.destroyed
       this.scene.add(globe)
@@ -730,6 +744,7 @@ export class GalaxyEngine extends EngineBase {
             name: n.name,
             x: proj.x * half.w + half.w,
             y: -proj.y * half.h + half.h - 16,
+            depth: proj.z,
             visible: proj.z < 1 && camDist < 56 && !this.diving,
             destroyed: n.destroyed,
           }

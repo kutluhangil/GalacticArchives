@@ -49,6 +49,7 @@ uniform vec3 uSun2Dir;
 uniform vec3 uSun2Color;
 uniform float uHasSun2;
 uniform float uVariant; // ice: 1 = Starkiller trench-and-weapon state
+uniform float uRelief;  // 0 disables normal perturbation (distant thumbnails)
 uniform sampler2D uAlbedo;
 uniform float uUseAlbedo;
 uniform sampler2D uNight;
@@ -233,7 +234,7 @@ void main() {
   float rim = pow(1.0 - max(dot(n, v), 0.0), 3.2);
 
   // perturb the normal along the surface gradient (two tangent samples)
-  float relief = reliefStrength();
+  float relief = reliefStrength() * uRelief;
   if (relief > 0.0) {
     vec3 tangent = normalize(cross(vec3(0.0, 1.0, 0.0), vPosObj) + vec3(1e-4));
     vec3 bitangent = cross(vPosObj, tangent);

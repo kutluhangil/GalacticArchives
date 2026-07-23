@@ -1,0 +1,85 @@
+{
+  "id": "saleucami",
+  "kind": "planet",
+  "names": {
+    "en": "Saleucami",
+    "tr": "Saleucami"
+  },
+  "desc": {
+    "en": "An arid world whose name means \"oasis\": deserts and volcanoes broken by green pockets, and a deserter's farm that asked a clone captain what loyalty was worth.",
+    "tr": "Adı \"vaha\" anlamına gelen kurak bir dünya: çöller ve volkanlar arasında yeşil cepler; bir asker kaçağının çiftliği, klon yüzbaşısına sadakatin bedelini sordu."
+  },
+  "region": "outer-rim",
+  "sector": "Suolriep sector",
+  "system": "Saleucami system",
+  "coordinates": "S-8",
+  "stats": {
+    "diameterKm": 14920,
+    "moonCount": 3
+  },
+  "suns": [
+    {
+      "name": "Stisste",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Arid",
+      "Temperate"
+    ],
+    "tr": [
+      "Kurak",
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Deserts",
+      "Mountains",
+      "Swamps",
+      "Volcanoes",
+      "Oases"
+    ],
+    "tr": [
+      "Çöller",
+      "Dağlar",
+      "Bataklıklar",
+      "Volkanlar",
+      "Vahalar"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "separatist",
+    "empire": "empire"
+  },
+  "appearances": [
+    "rots",
+    "tcw"
+  ],
+  "characters": [
+    "captain-rex"
+  ],
+  "funFacts": {
+    "en": [
+      "Cut Lawquane deserted the Grand Army here and raised a family; Rex let him keep it.",
+      "Stass Allie was killed on Saleucami by her own escort when Order 66 was issued."
+    ],
+    "tr": [
+      "Cut Lawquane burada Büyük Ordu'dan kaçtı ve bir aile kurdu; Rex buna göz yumdu.",
+      "Emir 66 verildiğinde Stass Allie, Saleucami'de kendi muhafızları tarafından öldürüldü."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": {
+      "primary": "#C8A87A",
+      "secondary": "#7E6A4B"
+    },
+    "atmosphere": {
+      "color": "#E0C9A0",
+      "density": 0.4
+    }
+  }
+}

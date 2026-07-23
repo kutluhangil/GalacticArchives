@@ -1,0 +1,77 @@
+{
+  "id": "wobani",
+  "kind": "planet",
+  "names": {
+    "en": "Wobani",
+    "tr": "Wobani"
+  },
+  "desc": {
+    "en": "Mud plains and a labour camp: the Empire's answer to people it had no charge for and no intention of releasing.",
+    "tr": "Çamur ovaları ve bir çalışma kampı: İmparatorluğun, suçlayamadığı ama salmaya da niyeti olmadığı insanlara verdiği yanıt."
+  },
+  "region": "mid-rim",
+  "sector": "Bryx sector",
+  "system": "Wobani system",
+  "coordinates": "R-8",
+  "suns": [
+    {
+      "name": "Wobani",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Mud plains",
+      "Hills",
+      "Rock formations"
+    ],
+    "tr": [
+      "Çamur ovaları",
+      "Tepeler",
+      "Kaya oluşumları"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire",
+    "new-republic": "new-republic"
+  },
+  "appearances": [
+    "rogue-one"
+  ],
+  "characters": [
+    "jyn-erso"
+  ],
+  "funFacts": {
+    "en": [
+      "Jyn Erso was serving twenty years in Imperial Labor Camp LEG-817 when the Alliance broke her out.",
+      "Prisoners were shipped in by cargo hauler and worked until the sentence outlived them."
+    ],
+    "tr": [
+      "İttifak onu kaçırdığında Jyn Erso, LEG-817 İmparatorluk Çalışma Kampı'nda yirmi yılını çekiyordu.",
+      "Mahkûmlar kargo gemileriyle getirilir ve ceza onlardan uzun ömürlü olana dek çalıştırılırdı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "swamp-fog",
+    "palette": {
+      "primary": "#5A5344",
+      "secondary": "#3B382E"
+    },
+    "atmosphere": {
+      "color": "#8C8676",
+      "density": 0.7
+    },
+    "textures": {
+      "clouds": "storm"
+    }
+  }
+}

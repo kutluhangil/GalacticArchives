@@ -1,0 +1,86 @@
+{
+  "id": "eadu",
+  "kind": "planet",
+  "names": {
+    "en": "Eadu",
+    "tr": "Eadu"
+  },
+  "desc": {
+    "en": "A permanent storm over black rock, hiding the research complex where Galen Erso built the weapon he intended to sabotage.",
+    "tr": "Kara kayanın üzerinde hiç dinmeyen bir fırtına; Galen Erso'nun sabote etmeyi planladığı silahı inşa ettiği araştırma tesisini gizler."
+  },
+  "region": "outer-rim",
+  "sector": "Bheriz sector",
+  "system": "Eadu system",
+  "coordinates": "U-10",
+  "stats": {
+    "diameterKm": 14121,
+    "moonCount": 1,
+    "population": {
+      "en": "About 2.5 million",
+      "tr": "Yaklaşık 2,5 milyon"
+    }
+  },
+  "suns": [
+    {
+      "name": "Eadu",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Stormy"
+    ],
+    "tr": [
+      "Fırtınalı"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Rocky cliffs",
+      "Ravines"
+    ],
+    "tr": [
+      "Kayalık uçurumlar",
+      "Yarıklar"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire"
+  },
+  "appearances": [
+    "rogue-one"
+  ],
+  "characters": [
+    "jyn-erso",
+    "cassian-andor"
+  ],
+  "funFacts": {
+    "en": [
+      "Jyn watched her father die on this landing platform, minutes after finding him.",
+      "The kyber research done here is what made a planet-killing beam possible."
+    ],
+    "tr": [
+      "Jyn, babasını bulduktan dakikalar sonra bu iniş platformunda ölürken izledi.",
+      "Burada yürütülen kyber araştırması, gezegen katili ışını mümkün kılan şeydi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "dark-storm",
+    "palette": {
+      "primary": "#3A4048",
+      "secondary": "#6C7480"
+    },
+    "atmosphere": {
+      "color": "#7A8798",
+      "density": 0.8
+    },
+    "textures": {
+      "clouds": "storm"
+    },
+    "effects": [
+      "lightning"
+    ]
+  }
+}

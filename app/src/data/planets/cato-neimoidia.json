@@ -1,0 +1,78 @@
+{
+  "id": "cato-neimoidia",
+  "kind": "planet",
+  "names": {
+    "en": "Cato Neimoidia",
+    "tr": "Cato Neimoidia"
+  },
+  "desc": {
+    "en": "A Neimoidian purse world of bridge cities strung between rock arches, its vaults heavy with Trade Federation credits and its skies heavy with Separatist fighters.",
+    "tr": "Kaya kemerleri arasına gerilmiş köprü şehirlerden oluşan bir Neimoidian kasa dünyası: kasaları Ticaret Federasyonu kredileriyle, gökleri Ayrılıkçı avcılarıyla dolu."
+  },
+  "region": "colonies",
+  "sector": "Quellor sector",
+  "system": "Cato Neimoidia system",
+  "coordinates": "N-11",
+  "suns": [
+    {
+      "name": "Neri",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Rock arches",
+      "Bridge cities",
+      "Canyons",
+      "Acidic oceans"
+    ],
+    "tr": [
+      "Kaya kemerleri",
+      "Köprü şehirler",
+      "Kanyonlar",
+      "Asidik okyanuslar"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "separatist",
+    "empire": "empire"
+  },
+  "appearances": [
+    "rots",
+    "tcw"
+  ],
+  "characters": [],
+  "funFacts": {
+    "en": [
+      "Plo Koon was shot down over these bridges when Order 66 came through.",
+      "Neimoidian purse worlds held the Trade Federation's wealth — Cato Neimoidia was the richest of them."
+    ],
+    "tr": [
+      "Emir 66 geldiğinde Plo Koon bu köprülerin üzerinde düşürüldü.",
+      "Neimoidian kasa dünyaları Ticaret Federasyonu'nun servetini tutardı — Cato Neimoidia en zenginiydi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#B9A46A",
+      "secondary": "#6F7F5A"
+    },
+    "atmosphere": {
+      "color": "#D8CFA0",
+      "density": 0.5
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "numidian-prime",
+  "kind": "planet",
+  "names": {
+    "en": "Numidian Prime",
+    "tr": "Numidian Prime"
+  },
+  "desc": {
+    "en": "A warm jungle world of rivers and card tables, where a sabacc game finally changed hands the right way.",
+    "tr": "Nehirlerin ve kâğıt masalarının ılık orman dünyası; bir sabacc oyunu sonunda doğru şekilde el değiştirdi."
+  },
+  "region": "mid-rim",
+  "sector": "Bright Jewel sector",
+  "system": "Numidian system",
+  "coordinates": "L-7",
+  "suns": [
+    {
+      "name": "Numidian Prime",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Warm"
+    ],
+    "tr": [
+      "Ilık"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Jungles",
+      "Rivers",
+      "Seas",
+      "Swamps"
+    ],
+    "tr": [
+      "Ormanlar",
+      "Nehirler",
+      "Denizler",
+      "Bataklıklar"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "neutral"
+  },
+  "appearances": [
+    "solo"
+  ],
+  "characters": [
+    "han-solo",
+    "chewbacca",
+    "lando-calrissian"
+  ],
+  "funFacts": {
+    "en": [
+      "Han won the Millennium Falcon from Lando here — with the green sylop Lando had palmed away.",
+      "The planet's jungles hide enough smuggler strips that no authority tracks the traffic."
+    ],
+    "tr": [
+      "Han, Milenyum Şahini'ni burada Lando'dan kazandı — Lando'nun sakladığı yeşil sylop'la.",
+      "Ormanları o kadar çok kaçakçı pistini gizler ki hiçbir otorite trafiği takip edemez."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#3F7A48",
+      "secondary": "#2B5C55"
+    },
+    "atmosphere": {
+      "color": "#A8E0B4",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}

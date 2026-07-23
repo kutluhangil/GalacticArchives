@@ -1,0 +1,86 @@
+{
+  "id": "malachor",
+  "kind": "planet",
+  "names": {
+    "en": "Malachor",
+    "tr": "Malachor"
+  },
+  "desc": {
+    "en": "A dead world of black rock over a buried Sith temple, where a battle ended so badly that the ground itself was left petrified.",
+    "tr": "Gömülü bir Sith tapınağının üzerinde kara kayadan ölü bir dünya; bir savaş öyle kötü bitti ki zeminin kendisi taşlaştı."
+  },
+  "region": "outer-rim",
+  "sector": "Chorlian sector",
+  "system": "Malachor system",
+  "coordinates": "S-4",
+  "stats": {
+    "moonCount": 2
+  },
+  "suns": [
+    {
+      "name": "Malachor",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Arid",
+      "Lifeless"
+    ],
+    "tr": [
+      "Kurak",
+      "Cansız"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Barren wastelands",
+      "Mountains",
+      "Caverns",
+      "Sith temple"
+    ],
+    "tr": [
+      "Çorak bozkırlar",
+      "Dağlar",
+      "Mağaralar",
+      "Sith tapınağı"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "sith"
+  },
+  "appearances": [
+    "rebels"
+  ],
+  "characters": [
+    "ahsoka-tano",
+    "darth-maul",
+    "ezra-bridger",
+    "kanan-jarrus"
+  ],
+  "funFacts": {
+    "en": [
+      "Kanan Jarrus was blinded here and Ahsoka walked into the temple with Vader.",
+      "The petrified figures on the surface are the dead of a battle fought millennia earlier."
+    ],
+    "tr": [
+      "Kanan Jarrus burada kör edildi; Ahsoka, Vader'la birlikte tapınağa girdi.",
+      "Yüzeydeki taşlaşmış figürler, binyıllar önce yapılmış bir savaşın ölüleridir."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "crystal-red",
+    "palette": {
+      "primary": "#4A3A3A",
+      "secondary": "#8C2E28"
+    },
+    "atmosphere": {
+      "color": "#9E4038",
+      "density": 0.3
+    },
+    "effects": [
+      "red-mist"
+    ]
+  }
+}

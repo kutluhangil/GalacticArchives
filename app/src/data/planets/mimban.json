@@ -1,0 +1,77 @@
+{
+  "id": "mimban",
+  "kind": "planet",
+  "names": {
+    "en": "Mimban",
+    "tr": "Mimban"
+  },
+  "desc": {
+    "en": "A trench war fought in warm mud, where the Empire called conquest \"pacification\" and a deserting flight cadet met a very large Wookiee.",
+    "tr": "Ilık çamurda sürdürülen bir siper savaşı: İmparatorluk işgale \"huzur getirme\" dedi ve firari bir uçuş öğrencisi çok iri bir Wookiee ile tanıştı."
+  },
+  "region": "expansion-region",
+  "sector": "Circarpous sector",
+  "system": "Circarpous system",
+  "coordinates": "O-12",
+  "suns": [
+    {
+      "name": "Mimban",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Humid"
+    ],
+    "tr": [
+      "Nemli"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Mud fields",
+      "Rainforests",
+      "Swamps"
+    ],
+    "tr": [
+      "Çamur tarlaları",
+      "Yağmur ormanları",
+      "Bataklıklar"
+    ]
+  },
+  "affiliationsByEra": {
+    "empire": "empire"
+  },
+  "appearances": [
+    "solo"
+  ],
+  "characters": [
+    "han-solo",
+    "chewbacca"
+  ],
+  "funFacts": {
+    "en": [
+      "Han Solo met Chewbacca in a pit on Mimban, where the Empire kept a \"beast\" to eat deserters.",
+      "The Mimbanese were fighting an invasion the Empire's own broadcasts called a peacekeeping operation."
+    ],
+    "tr": [
+      "Han Solo, Chewbacca ile Mimban'da, İmparatorluğun kaçakları yemesi için \"canavar\" beslediği bir çukurda tanıştı.",
+      "Mimbanlılar, İmparatorluk yayınlarının barışı koruma harekâtı dediği bir işgale karşı savaşıyordu."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "swamp-fog",
+    "palette": {
+      "primary": "#4E4A38",
+      "secondary": "#6E6B4E"
+    },
+    "atmosphere": {
+      "color": "#8E8C6C",
+      "density": 0.85
+    },
+    "textures": {
+      "clouds": "storm"
+    }
+  }
+}

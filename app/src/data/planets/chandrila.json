@@ -1,0 +1,83 @@
+{
+  "id": "chandrila",
+  "kind": "planet",
+  "names": {
+    "en": "Chandrila",
+    "tr": "Chandrila"
+  },
+  "desc": {
+    "en": "Rolling hills, white civic architecture and old political money — the world that gave the Rebellion its most careful voice and the New Republic its first capital.",
+    "tr": "Yumuşak tepeler, beyaz kamu mimarisi ve köklü siyasi servet — İsyan'a en temkinli sesini, Yeni Cumhuriyet'e ilk başkentini veren dünya."
+  },
+  "region": "core-worlds",
+  "sector": "Bormea sector",
+  "system": "Chandrila system",
+  "coordinates": "L-9",
+  "stats": {
+    "government": {
+      "en": "Chandrilan planetary government",
+      "tr": "Chandrila gezegen yönetimi"
+    }
+  },
+  "suns": [
+    {
+      "name": "Chandrila",
+      "color": "#FFEFD0"
+    }
+  ],
+  "moons": [],
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
+  },
+  "terrain": {
+    "en": [
+      "Rolling hills",
+      "Coastal cities"
+    ],
+    "tr": [
+      "Yumuşak tepeler",
+      "Kıyı şehirleri"
+    ]
+  },
+  "affiliationsByEra": {
+    "clone-wars": "republic",
+    "empire": "empire",
+    "new-republic": "new-republic"
+  },
+  "appearances": [
+    "andor"
+  ],
+  "characters": [
+    "mon-mothma",
+    "leia-organa"
+  ],
+  "funFacts": {
+    "en": [
+      "Mon Mothma's Chandrilan marriage customs were used as cover for funding a rebellion.",
+      "After Endor the New Republic Senate first convened here before moving to Hosnian Prime."
+    ],
+    "tr": [
+      "Mon Mothma'nın Chandrila evlilik gelenekleri, bir isyanı finanse etmenin örtüsü oldu.",
+      "Endor'dan sonra Yeni Cumhuriyet Senatosu, Hosnian Prime'a taşınmadan önce ilk kez burada toplandı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": {
+      "primary": "#7FA35E",
+      "secondary": "#3F6F86"
+    },
+    "atmosphere": {
+      "color": "#B8DCF0",
+      "density": 0.6
+    },
+    "textures": {
+      "clouds": "temperate"
+    }
+  }
+}
