@@ -64,3 +64,18 @@ canvas {
     scroll-behavior: auto !important;
   }
 }
+
+/* View transitions (react-router `viewTransition`): the Holocron card->detail
+   portrait morph and the page cross-fade. Subtle by default, fully disabled
+   under reduced motion — the `*` rule above does not reach these pseudo-
+   elements, so they need their own guard. */
+::view-transition-group(*) {
+  animation-duration: 280ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

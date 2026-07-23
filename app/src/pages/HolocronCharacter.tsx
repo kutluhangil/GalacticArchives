@@ -95,7 +95,11 @@ export default function HolocronCharacter() {
       <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
         <div>
           <div className="overflow-hidden rounded-lg border border-holo-cyan/20">
-            <HoloPortrait id={character.id} name={L(character.names, lang)} />
+            <HoloPortrait
+              id={character.id}
+              name={L(character.names, lang)}
+              vtName={`holo-${character.id}`}
+            />
           </div>
           <dl className="mt-5">
             <Row label={t('species', lang)} value={L(character.species, lang)} />

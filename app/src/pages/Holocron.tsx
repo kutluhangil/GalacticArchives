@@ -155,6 +155,7 @@ export default function Holocron() {
                 <Link
                   key={body.id}
                   to={`/holocron/planet/${body.id}`}
+                  viewTransition
                   className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
                 >
                   <div
@@ -188,9 +189,15 @@ export default function Holocron() {
               <Link
                 key={character.id}
                 to={`/holocron/character/${character.id}`}
+                viewTransition
                 className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
               >
-                <HoloPortrait id={character.id} name={L(character.names, lang)} size="sm" />
+                <HoloPortrait
+                  id={character.id}
+                  name={L(character.names, lang)}
+                  size="sm"
+                  vtName={`holo-${character.id}`}
+                />
                 <div className="bg-panel/90 px-2.5 py-2">
                   <div className="font-display text-[12px] tracking-[0.14em] text-slate-100">
                     {L(character.names, lang)}

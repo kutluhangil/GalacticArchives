@@ -79,15 +79,12 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 **Yapılacak**
 - [x] **P1** Legends node'larına harita düzeyi ayrım: dış **kesikli altın halka** (`continuity==='legends'`). Tarayıcıda doğrulandı — canon komşularından ayrık okunuyor.
 - [x] **P1** Klavye/screen-reader erişimi: stabil sr-only `<nav>` tüm görünür gezegenleri sıralı yansıtır, Tab'da chip belirir, Enter dive eder; görsel label'lar mouse-only (`tabIndex=-1`, `aria-hidden`). Tarayıcıda doğrulandı (81 buton, focus→görünür chip). WebGL node churn'ü tab-order'dan çıkarıldı.
-- [ ] **P3 (bloklu)** Holocron view transitions — kart↔portre shared-element morph. **Bulgu
-  (tarayıcıda test edildi):** `view-transition-name` her iki tarafta doğru eşleşiyor ama
-  react-router 7'nin `<Link viewTransition>` prop'u app'in **declarative `<BrowserRouter>`/
-  `<Routes>`** API'siyle no-op — `startViewTransition` çağrılmıyor (sadece **data router**
-  `createBrowserRouter` ile çalışır). Manuel `startViewTransition`+`flushSync` de temiz morph
-  vermez: detay sayfası lazy chunk + async `loadBody` ile geç render olur, snapshot anında hero
-  DOM'da yok. **Önkoşul: data-router migration (`createBrowserRouter`)** — bu ayrıca proper
-  route `errorElement`'i de açar. Wiring geri alındı (no-op prop göndermemek için). WebGL
-  rotaları zaten veil + cross-dissolve kullanıyor; oraya VT uymaz.
+- [x] **P2** Holocron view transitions — kart↔portre shared-element morph + sayfa cross-fade.
+  **Data-router migration yapıldı** (`createBrowserRouter` + `router.tsx` + `App` layout +
+  `<Outlet/>`), böylece `<Link viewTransition>` artık `startViewTransition`'ı tetikliyor
+  (tarayıcıda doğrulandı: `vtFired: true`). `HoloPortrait.vtName` ile kart↔hero `holo-<id>`
+  eşleşir, `index.css`'te reduced-motion guard'lı. Regresyon yok: tüm rotalar + flyTo/veil
+  kamera nav (galaxy→planet) doğrulandı. WebGL rotaları veil+cross-dissolve kullanmaya devam.
 - [x] **P2** İlk ziyaret onboarding: `OnboardingHint` — era slider + Legends toggle'ı işaret eden, bir kez gösterilen (localStorage `ga-onboarded`), dismiss-edilebilir çift dilli kart.
 - [ ] **P2** POI kapsamını 81'e yaklaştır; tur sayısını artır (içerik işi).
 

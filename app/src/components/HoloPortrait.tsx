@@ -25,10 +25,13 @@ export default function HoloPortrait({
   id,
   name,
   size = 'md',
+  vtName,
 }: {
   id: string
   name: string
   size?: 'sm' | 'md'
+  /** view-transition-name for the card->detail shared-element morph */
+  vtName?: string
 }) {
   const path = SILHOUETTES[hashIndex(id, SILHOUETTES.length)]
   // a small hue spread keeps a wall of portraits from reading as one repeated
@@ -43,6 +46,7 @@ export default function HoloPortrait({
       viewBox="0 0 100 82"
       role="img"
       aria-label={name}
+      style={vtName ? { viewTransitionName: vtName } : undefined}
       className={`w-full ${size === 'sm' ? 'h-24' : 'h-44'} bg-[#060B14]`}
     >
       <defs>
