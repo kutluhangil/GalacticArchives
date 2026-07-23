@@ -31,7 +31,7 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 **Yapılacak**
 - [x] **P0** GitHub Actions: PR + main push'ta `tsc -b` + `eslint` + `validate-lore` + `build`.
 - [x] **P0** `validate-lore` için sabit digest snapshot commit'le; CI koordinat/çap regresyonu yakalar.
-- [ ] **P1** Ölü ~40 bağımlılığı sök (`depcheck` ile doğrula). Supply-chain + lockfile + install küçülür.
+- [x] **P1** Ölü ~40 bağımlılığı sök (`depcheck` ile doğrula). Supply-chain + lockfile + install küçülür. (44 paket söküldü; dependencies 50→9.)
 - [ ] **P1** Kök `ErrorBoundary` + router `errorElement` — hata panel gösterir, beyaz ekran değil.
 - [ ] **P2** Smoke test (Playwright): her rota açılıyor mu, galaxy 81 node, toggle 7 dünya.
 
