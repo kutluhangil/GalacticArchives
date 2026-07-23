@@ -74,7 +74,7 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 
 **Yapılacak**
 - [x] **P1** Legends node'larına harita düzeyi ayrım: dış **kesikli altın halka** (`continuity==='legends'`). Tarayıcıda doğrulandı — canon komşularından ayrık okunuyor.
-- [ ] **P1** Node'lara klavye erişimi + focus ring (en büyük a11y açığı).
+- [x] **P1** Klavye/screen-reader erişimi: stabil sr-only `<nav>` tüm görünür gezegenleri sıralı yansıtır, Tab'da chip belirir, Enter dive eder; görsel label'lar mouse-only (`tabIndex=-1`, `aria-hidden`). Tarayıcıda doğrulandı (81 buton, focus→görünür chip). WebGL node churn'ü tab-order'dan çıkarıldı.
 - [ ] **P2** Holocron view transitions — kart↔portre shared-element morph. **Karar: manuel
   `document.startViewTransition` browser API** (react stable kalır, canary'ye geçilmez, sıfır
   bağımlılık riski; desteklemeyen tarayıcıda graceful cut). WebGL rotaları mevcut veil +

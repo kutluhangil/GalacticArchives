@@ -86,12 +86,17 @@ export default function GalaxyView() {
     loadAllPlanets().then(setPlanets)
   }, [])
 
+  // canon is always shown; Legends worlds only when the layer is switched on.
+  // Shared by the WebGL nodes and the keyboard-accessible planet list.
+  const visiblePlanets = useMemo(
+    () => planets.filter((p) => legends || p.continuity !== 'legends'),
+    [planets, legends],
+  )
+
   const nodes = useMemo<GalaxyNode[]>(() => {
-    if (!planets.length) return []
-    // canon is always shown; Legends worlds only when the layer is switched on
-    const visible = planets.filter((p) => legends || p.continuity !== 'legends')
-    const states = nodeStates(visible, useApp.getState().era)
-    return visible.map((p, i) => {
+    if (!visiblePlanets.length) return []
+    const states = nodeStates(visiblePlanets, useApp.getState().era)
+    return visiblePlanets.map((p, i) => {
       // MANUAL_POS wins over the grid so R-5 Sith Worlds do not stack
       const pos = MANUAL_POS[p.id] ?? (p.coordinates ? gridToPos(p.coordinates) : { x: 0, z: 0 })
       return {
@@ -105,7 +110,7 @@ export default function GalaxyView() {
       }
     })
     // era deliberately absent: era switches patch node states without a rebuild
-  }, [planets, lang, legends])
+  }, [visiblePlanets, lang])
 
   useEffect(() => {
     if (!nodes.length || !canvasRef.current) return
@@ -139,6 +144,26 @@ export default function GalaxyView() {
       <canvas ref={canvasRef} className="h-full w-full" />
       <TopBar />
 
+      {/* Keyboard/screen-reader access to the map: the WebGL nodes cannot take
+          focus, so this stable, sorted list mirrors every visible world. Each
+          entry is visually hidden until focused, then shows as a chip. */}
+      <nav aria-label={t('planets', lang)}>
+        <ul>
+          {[...visiblePlanets]
+            .sort((a, b) => L(a.names, lang).localeCompare(L(b.names, lang), lang))
+            .map((p) => (
+              <li key={p.id}>
+                <button
+                  onClick={() => dive(p.id)}
+                  className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-16 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-none focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
+                >
+                  {L(p.names, lang)}
+                </button>
+              </li>
+            ))}
+        </ul>
+      </nav>
+
       {regionName && (
         <div className="pointer-events-none absolute bottom-16 left-1/2 z-10 -translate-x-1/2 rounded border border-holo-cyan/20 bg-panel/80 px-3 py-1 text-[11px] uppercase tracking-[0.3em] text-holo-cyan backdrop-blur-sm">
           {regionName}
@@ -149,6 +174,10 @@ export default function GalaxyView() {
         (label) => (
             <button
               key={label.id}
+              // mouse-only: labels churn every frame as the map rotates, so
+              // keyboard focus lives on the stable planet nav below instead
+              tabIndex={-1}
+              aria-hidden
               style={{ left: label.x, top: label.y }}
               onClick={() => dive(label.id)}
               className={`absolute z-10 -translate-x-1/2 rounded px-1 py-0.5 text-[9.5px] tracking-[0.18em] backdrop-blur-[2px] transition-colors ${
