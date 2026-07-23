@@ -75,10 +75,15 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 **Yapılacak**
 - [x] **P1** Legends node'larına harita düzeyi ayrım: dış **kesikli altın halka** (`continuity==='legends'`). Tarayıcıda doğrulandı — canon komşularından ayrık okunuyor.
 - [x] **P1** Klavye/screen-reader erişimi: stabil sr-only `<nav>` tüm görünür gezegenleri sıralı yansıtır, Tab'da chip belirir, Enter dive eder; görsel label'lar mouse-only (`tabIndex=-1`, `aria-hidden`). Tarayıcıda doğrulandı (81 buton, focus→görünür chip). WebGL node churn'ü tab-order'dan çıkarıldı.
-- [ ] **P2** Holocron view transitions — kart↔portre shared-element morph. **Karar: manuel
-  `document.startViewTransition` browser API** (react stable kalır, canary'ye geçilmez, sıfır
-  bağımlılık riski; desteklemeyen tarayıcıda graceful cut). WebGL rotaları mevcut veil +
-  cross-dissolve sistemini korur — VT canlı kamera uçuşunu animasyon yapamaz, oraya uymaz.
+- [ ] **P3 (bloklu)** Holocron view transitions — kart↔portre shared-element morph. **Bulgu
+  (tarayıcıda test edildi):** `view-transition-name` her iki tarafta doğru eşleşiyor ama
+  react-router 7'nin `<Link viewTransition>` prop'u app'in **declarative `<BrowserRouter>`/
+  `<Routes>`** API'siyle no-op — `startViewTransition` çağrılmıyor (sadece **data router**
+  `createBrowserRouter` ile çalışır). Manuel `startViewTransition`+`flushSync` de temiz morph
+  vermez: detay sayfası lazy chunk + async `loadBody` ile geç render olur, snapshot anında hero
+  DOM'da yok. **Önkoşul: data-router migration (`createBrowserRouter`)** — bu ayrıca proper
+  route `errorElement`'i de açar. Wiring geri alındı (no-op prop göndermemek için). WebGL
+  rotaları zaten veil + cross-dissolve kullanıyor; oraya VT uymaz.
 - [ ] **P2** İlk ziyaret onboarding (era slider + Legends toggle ipucu).
 - [ ] **P2** POI kapsamını 81'e yaklaştır; tur sayısını artır (içerik işi).
 
@@ -86,7 +91,8 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 
 **Yapılacak**
 - [ ] **P2** Legends zaman ekseni: katman açıkken beliren "Old Republic" era chip'i (continuity ekseni hazır).
-- [ ] **P2** Arama filtresi (bölge / faction / era) — `fuse.js` kurulu, sadece isim araması var.
+- [~] **P2** Arama filtresi — Holocron sayfasında **bölge + medya (appearances) filtresi zaten
+  var** (fuse.js ile çift dilli). Eksik: ⌘K command palette'te filtre yok, ve faction/era ekseni.
 - [ ] **P2** Gezegen başına `og:image` üretimini denetle (`build-static-meta` 166 URL üretiyor).
 - [ ] **P3** Compare'i ikiden fazlaya / sistem düzeyine çıkar.
 - [ ] **P3** Karakter↔gezegen çapraz-graf navigasyonunu derinleştir.
@@ -103,6 +109,8 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 4. **CSP** (web `vercel.json` + Tauri) (P1).
 5. **Legends node'una harita-düzeyi görsel ayrım** (P1) — yarım kalan iş.
 6. **Node klavye erişimi + focus ring** (P1).
-7. P2 blok: Holocron VT (manuel API), Old Republic era chip, arama filtresi, three/font
-   incelt, declutter throttle, onboarding, LICENSE + Dependabot.
-8. P3 blok ve kullanıcı verisine bağlı işler (dokular, POI, .dmg imzalama) sona.
+7. P2 blok: LICENSE + Dependabot, Old Republic era chip, three/font incelt, declutter
+   throttle, onboarding, ⌘K filtre. (Holocron VT bloklu — bkz. §4, data-router önkoşulu.)
+8. **Data-router migration** (`createBrowserRouter`) — Holocron VT + route `errorElement`'i
+   birlikte açar. Mimari karar; kullanıcı onayı bekliyor.
+9. P3 blok ve kullanıcı verisine bağlı işler (dokular, POI, .dmg imzalama) sona.
