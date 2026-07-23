@@ -2,13 +2,18 @@
   "id": "manaan",
   "kind": "planet",
   "continuity": "legends",
-  "names": { "en": "Manaan", "tr": "Manaan" },
+  "names": {
+    "en": "Manaan",
+    "tr": "Manaan"
+  },
   "desc": {
     "en": "A tranquil ocean world of the Selkath, its single floating city of Ahto built above the deep — neutral ground that sold healing kolto to both the Republic and the Sith.",
     "tr": "Selkath'ların dingin bir okyanus dünyası; tek yüzen şehri Ahto derinliğin üzerine kurulu — hem Cumhuriyet'e hem Sith'e şifalı kolto satan tarafsız topraklar."
   },
   "region": "inner-rim",
-  "regionTags": ["The Slice"],
+  "regionTags": [
+    "The Slice"
+  ],
   "system": "Pyrshak system",
   "coordinates": "O-11",
   "stats": {
@@ -18,17 +23,45 @@
       "en": "Historic: ~0.5–1.8 million, overwhelmingly Selkath.",
       "tr": "Tarihsel: ~0,5–1,8 milyon, ezici çoğunluğu Selkath."
     },
-    "government": { "en": "Ahto High Court", "tr": "Ahto Yüksek Mahkemesi" }
+    "government": {
+      "en": "Ahto High Court",
+      "tr": "Ahto Yüksek Mahkemesi"
+    }
   },
-  "suns": [{ "name": "Pyrshak", "color": "#FFEFC0" }],
+  "suns": [
+    {
+      "name": "Pyrshak",
+      "color": "#FFEFC0"
+    }
+  ],
   "moons": [],
-  "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
-  "terrain": {
-    "en": ["Planet-wide ocean", "Islands"],
-    "tr": ["Gezegen çapında okyanus", "Adalar"]
+  "climate": {
+    "en": [
+      "Temperate"
+    ],
+    "tr": [
+      "Ilıman"
+    ]
   },
-  "affiliationsByEra": { "clone-wars": "neutral", "empire": "neutral", "new-republic": "neutral" },
-  "appearances": ["kotor"],
+  "terrain": {
+    "en": [
+      "Planet-wide ocean",
+      "Islands"
+    ],
+    "tr": [
+      "Gezegen çapında okyanus",
+      "Adalar"
+    ]
+  },
+  "affiliationsByEra": {
+    "old-republic": "neutral",
+    "clone-wars": "neutral",
+    "empire": "neutral",
+    "new-republic": "neutral"
+  },
+  "appearances": [
+    "kotor"
+  ],
   "funFacts": {
     "en": [
       "Manaan was the galaxy's only source of kolto, a healing agent it guarded through strict neutrality.",
@@ -41,7 +74,13 @@
   },
   "renderRecipe": {
     "archetype": "ocean-storm",
-    "palette": { "primary": "#2E6E8C", "secondary": "#1B4358" },
-    "atmosphere": { "color": "#8FD0E0", "density": 0.5 }
+    "palette": {
+      "primary": "#2E6E8C",
+      "secondary": "#1B4358"
+    },
+    "atmosphere": {
+      "color": "#8FD0E0",
+      "density": 0.5
+    }
   }
 }

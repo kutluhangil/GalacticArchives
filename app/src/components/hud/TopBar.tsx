@@ -204,9 +204,12 @@ function PlanetsDropdown() {
 }
 
 export default function TopBar() {
-  const { lang, setLang, era, setEra } = useApp()
+  const { lang, setLang, era, setEra, legends } = useApp()
   const jump = useFlyTo()
   const navigate = useNavigate()
+
+  // the Old Republic era belongs to the Legends layer; hide it otherwise
+  const shownEras = eras.filter((e) => e.id !== 'old-republic' || legends)
 
   return (
     <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-start justify-between gap-2 p-4">
@@ -238,7 +241,7 @@ export default function TopBar() {
 
       <div className="pointer-events-auto flex flex-wrap items-center justify-end gap-2">
         <div className="flex rounded border border-white/10 bg-black/30 p-0.5">
-          {eras.map((e) => (
+          {shownEras.map((e) => (
             <button
               key={e.id}
               title={`${L(e.names, lang)} · ${e.range}`}

@@ -2,13 +2,19 @@
   "id": "dromund-kaas",
   "kind": "planet",
   "continuity": "legends",
-  "names": { "en": "Dromund Kaas", "tr": "Dromund Kaas" },
+  "names": {
+    "en": "Dromund Kaas",
+    "tr": "Dromund Kaas"
+  },
   "desc": {
     "en": "A dark, storm-wracked jungle world in the Sith Worlds — capital of the reconstituted Sith Empire, its sky split by near-constant lightning above the fortress of Kaas City.",
     "tr": "Sith Dünyaları'nda karanlık, fırtınalarla dövülen bir orman gezegeni — yeniden kurulan Sith İmparatorluğu'nun başkenti; göğü Kaas City kalesinin üzerinde neredeyse sürekli şimşeklerle yarılır."
   },
   "region": "outer-rim",
-  "regionTags": ["Sith Worlds", "Trans-Hydian"],
+  "regionTags": [
+    "Sith Worlds",
+    "Trans-Hydian"
+  ],
   "sector": "Esstran sector",
   "system": "Dromund system",
   "coordinates": "R-5",
@@ -19,17 +25,49 @@
       "en": "Pre–Cold War: millions; a few thousand remained by 10 ABY.",
       "tr": "Cold War öncesi: milyonlarca; 10 ABY'ye dek birkaç bin kaldı."
     },
-    "government": { "en": "Sith Empire", "tr": "Sith İmparatorluğu" }
+    "government": {
+      "en": "Sith Empire",
+      "tr": "Sith İmparatorluğu"
+    }
   },
-  "suns": [{ "name": "Dromund", "color": "#9AA0B5" }],
+  "suns": [
+    {
+      "name": "Dromund",
+      "color": "#9AA0B5"
+    }
+  ],
   "moons": [],
-  "climate": { "en": ["Wet", "Heavily electrified"], "tr": ["Nemli", "Yoğun elektrik yüklü"] },
-  "terrain": {
-    "en": ["Jungle", "Swamp", "Oceans"],
-    "tr": ["Orman", "Bataklık", "Okyanuslar"]
+  "climate": {
+    "en": [
+      "Wet",
+      "Heavily electrified"
+    ],
+    "tr": [
+      "Nemli",
+      "Yoğun elektrik yüklü"
+    ]
   },
-  "affiliationsByEra": { "clone-wars": "sith", "empire": "sith", "new-republic": "sith" },
-  "appearances": ["swtor"],
+  "terrain": {
+    "en": [
+      "Jungle",
+      "Swamp",
+      "Oceans"
+    ],
+    "tr": [
+      "Orman",
+      "Bataklık",
+      "Okyanuslar"
+    ]
+  },
+  "affiliationsByEra": {
+    "old-republic": "sith",
+    "clone-wars": "sith",
+    "empire": "sith",
+    "new-republic": "sith"
+  },
+  "appearances": [
+    "swtor"
+  ],
   "funFacts": {
     "en": [
       "Kaas City was raised as the Sith Empire's capital after its retreat into the Unknown Regions.",
@@ -42,8 +80,16 @@
   },
   "renderRecipe": {
     "archetype": "dark-storm",
-    "palette": { "primary": "#26313A", "secondary": "#141C24" },
-    "atmosphere": { "color": "#3E5566", "density": 0.6 },
-    "effects": ["lightning"]
+    "palette": {
+      "primary": "#26313A",
+      "secondary": "#141C24"
+    },
+    "atmosphere": {
+      "color": "#3E5566",
+      "density": 0.6
+    },
+    "effects": [
+      "lightning"
+    ]
   }
 }

@@ -2,13 +2,18 @@
   "id": "csilla",
   "kind": "planet",
   "continuity": "legends",
-  "names": { "en": "Csilla", "tr": "Csilla" },
+  "names": {
+    "en": "Csilla",
+    "tr": "Csilla"
+  },
   "desc": {
     "en": "The frozen throneworld of the Chiss Ascendancy in the Unknown Regions — its people driven into vast underground cities beneath kilometres of glacial ice.",
     "tr": "Bilinmeyen Bölgeler'de Chiss Ascendancy'nin donmuş taht dünyası — halkı kilometrelerce buzulun altındaki devasa yeraltı şehirlerine çekilmiş."
   },
   "region": "unknown-regions",
-  "regionTags": ["Chiss Space"],
+  "regionTags": [
+    "Chiss Space"
+  ],
   "sector": "Chiss Space",
   "system": "Csilla system",
   "coordinates": "F-8",
@@ -19,16 +24,42 @@
       "en": "~8 billion, roughly 99% Chiss.",
       "tr": "~8 milyar, kabaca %99 Chiss."
     },
-    "government": { "en": "Chiss Ascendancy (oligarchy)", "tr": "Chiss Ascendancy (oligarşi)" }
+    "government": {
+      "en": "Chiss Ascendancy (oligarchy)",
+      "tr": "Chiss Ascendancy (oligarşi)"
+    }
   },
-  "suns": [{ "name": "Csilla", "color": "#CFE0FF" }],
+  "suns": [
+    {
+      "name": "Csilla",
+      "color": "#CFE0FF"
+    }
+  ],
   "moons": [],
-  "climate": { "en": ["Frigid"], "tr": ["Dondurucu"] },
-  "terrain": {
-    "en": ["Glaciers", "Caves"],
-    "tr": ["Buzullar", "Mağaralar"]
+  "climate": {
+    "en": [
+      "Frigid"
+    ],
+    "tr": [
+      "Dondurucu"
+    ]
   },
-  "affiliationsByEra": { "clone-wars": "neutral", "empire": "neutral", "new-republic": "neutral" },
+  "terrain": {
+    "en": [
+      "Glaciers",
+      "Caves"
+    ],
+    "tr": [
+      "Buzullar",
+      "Mağaralar"
+    ]
+  },
+  "affiliationsByEra": {
+    "old-republic": "neutral",
+    "clone-wars": "neutral",
+    "empire": "neutral",
+    "new-republic": "neutral"
+  },
   "appearances": [],
   "funFacts": {
     "en": [
@@ -42,7 +73,13 @@
   },
   "renderRecipe": {
     "archetype": "ice",
-    "palette": { "primary": "#C7D6E6", "secondary": "#8FA6BE" },
-    "atmosphere": { "color": "#DCEBFF", "density": 0.4 }
+    "palette": {
+      "primary": "#C7D6E6",
+      "secondary": "#8FA6BE"
+    },
+    "atmosphere": {
+      "color": "#DCEBFF",
+      "density": 0.4
+    }
   }
 }

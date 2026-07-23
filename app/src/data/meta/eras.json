@@ -1,5 +1,14 @@
 [
   {
+    "id": "old-republic",
+    "names": { "en": "The Old Republic", "tr": "Eski Cumhuriyet" },
+    "range": "~5000–1000 BBY",
+    "blurb": {
+      "en": "The Legends age of the Old Republic: Jedi and Sith wage their ancient wars across Korriban, Taris and Manaan, millennia before the films. Shown only with the Legends layer on.",
+      "tr": "Eski Cumhuriyet'in Legends çağı: Jedi ve Sith, filmlerden binlerce yıl önce Korriban, Taris ve Manaan'da kadim savaşlarını verir. Yalnızca Legends katmanı açıkken görünür."
+    }
+  },
+  {
     "id": "clone-wars",
     "names": { "en": "The Clone Wars", "tr": "Klon Savaşları" },
     "range": "32–19 BBY",

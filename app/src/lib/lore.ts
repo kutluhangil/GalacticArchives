@@ -21,7 +21,7 @@ export const factions = factionsJson as Faction[]
 export const media = mediaJson as MediaEntry[]
 export const stations = stationsJson as CelestialBody[]
 
-export const ERA_ORDER: EraId[] = ['clone-wars', 'empire', 'new-republic']
+export const ERA_ORDER: EraId[] = ['old-republic', 'clone-wars', 'empire', 'new-republic']
 
 /** true when `era` is at or past the body's destruction era */
 export function destroyedInEra(body: CelestialBody, era: EraId): boolean {

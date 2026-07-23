@@ -156,6 +156,7 @@ export const t = (key: UiKey, lang: Lang): string => STRINGS[key][lang]
 
 /** short era chip labels (the range strings read as noise in the UI) */
 export const ERA_SHORT: Record<EraId, { en: string; tr: string }> = {
+  'old-republic': { en: 'Old Republic', tr: 'Eski Cumhuriyet' },
   'clone-wars': { en: 'Clone Wars', tr: 'Klon Savaşları' },
   empire: { en: 'Empire', tr: 'İmparatorluk' },
   'new-republic': { en: 'New Republic', tr: 'Yeni Cumhuriyet' },

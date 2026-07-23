@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-07-24
+
+- Added an `old-republic` era for the Legends layer: the era selector shows an "Old Republic" chip only while Legends is on, giving the KotOR-era worlds a home on the timeline; canon worlds read neutral there, and the timeline falls back to Empire if Legends is switched off while it is selected.
+- Migrated routing to react-router's data router (`createBrowserRouter`), which enables real view transitions on the Holocron: character card → detail portrait now shares a `holo-<id>` morph and pages cross-fade, with a reduced-motion guard. The galaxy/planet camera-flight navigation is unchanged.
+- Made the galaxy map keyboard- and screen-reader-accessible: a stable, sorted `<nav>` mirrors every visible world (visually hidden until focused), while the on-canvas labels became mouse-only.
+- Legends worlds now carry a dashed gold ring on the galaxy map so the layer reads as a distinct overlay.
+- Added a one-time onboarding hint pointing at the era selector and the Legends toggle, and a region filter to the ⌘K command palette.
+- Added a top-level ErrorBoundary (themed fallback instead of a white screen), a strict Content-Security-Policy and hardening headers (web + Tauri), a LICENSE and Dependabot config.
+- Added a CI pipeline (typecheck, lint, offline lore validation, build) and removed 44 unused template dependencies (runtime deps 50 → 9).
+
 ## 2026-07-23
 
 - Added the Legends layer (PLAN 2.3): seven Legends-continuity worlds (Korriban, Dromund Kaas, Taris, Manaan, Csilla, Lehon, Ossus) sourced from the `/Legends` Wookieepedia articles and validated for coordinates and diameters, tagged `continuity: "legends"` and gated behind a new "Legends worlds" toggle in the settings menu; when off they are hidden from the galaxy map, ⌘K search and Compare picker. Korriban/Dromund Kaas get hand-placed positions so they do not stack on canon Moraband at grid R-5, and Legends worlds carry a gold LEGENDS badge on their panel. Added the three source games (KotOR, KotOR II, The Old Republic) to the media list.

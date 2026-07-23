@@ -2,7 +2,10 @@
 // Every user-facing string is bilingual (en/tr). Facts are verified against
 // Wookieepedia/Databank during P0 — see src/data/sources.json.
 
-export type EraId = 'clone-wars' | 'empire' | 'new-republic'
+// 'old-republic' is a Legends-only era: it only appears in the era selector
+// when the Legends layer is on, and gives the KotOR-era worlds a home on the
+// timeline. Canon worlds simply carry no affiliation for it.
+export type EraId = 'old-republic' | 'clone-wars' | 'empire' | 'new-republic'
 
 export type FactionId =
   | 'republic'

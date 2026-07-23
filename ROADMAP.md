@@ -91,7 +91,10 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 ## 5. Özellik — PLAN boşlukları
 
 **Yapılacak**
-- [ ] **P2** Legends zaman ekseni: katman açıkken beliren "Old Republic" era chip'i (continuity ekseni hazır).
+- [x] **P2** Legends zaman ekseni: `old-republic` era eklendi (`EraId` + `eras.json` + `ERA_ORDER`
+  + `ERA_SHORT`), era seçicide **yalnız Legends açıkken** görünür. 7 Legends dünyası old-republic
+  affiliation'ı taşır; canon dünyalar o era'da nötr. Stranding-önleme: Legends kapanınca /
+  boot'ta era old-republic'teyse `empire`'e düşer. Tarayıcıda uçtan uca doğrulandı.
 - [x] **P2** Arama filtresi — Holocron sayfasında bölge + medya filtresi zaten vardı; ⌘K
   command palette'e **bölge filtresi chip satırı** eklendi (bölge seçilince gezegenler filtrelenir,
   karakterler çekilir). Tarayıcıda doğrulandı (İç Halka → 3 dünya, karakterler gizli). Kalan

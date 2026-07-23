@@ -2,13 +2,19 @@
   "id": "korriban",
   "kind": "planet",
   "continuity": "legends",
-  "names": { "en": "Korriban", "tr": "Korriban" },
+  "names": {
+    "en": "Korriban",
+    "tr": "Korriban"
+  },
   "desc": {
     "en": "The original homeworld of the Sith species and the red-stone cradle of the dark side — its Valley of the Dark Lords lined with the tombs of ancient Sith Lords.",
     "tr": "Sith türünün asıl anavatanı ve karanlık tarafın kızıl taştan beşiği — Karanlık Lortlar Vadisi kadim Sith Lortlarının mezarlarıyla döşeli."
   },
   "region": "outer-rim",
-  "regionTags": ["Sith Worlds", "Trans-Hydian"],
+  "regionTags": [
+    "Sith Worlds",
+    "Trans-Hydian"
+  ],
   "sector": "Esstran sector",
   "system": "Horuset system",
   "coordinates": "R-5",
@@ -19,17 +25,53 @@
       "en": "Historic: ~9.6 billion at its height; near-abandoned in later ages.",
       "tr": "Tarihsel: zirvede ~9,6 milyar; sonraki çağlarda neredeyse terk edilmiş."
     },
-    "government": { "en": "None (formerly the Sith Empire)", "tr": "Yok (eskiden Sith İmparatorluğu)" }
+    "government": {
+      "en": "None (formerly the Sith Empire)",
+      "tr": "Yok (eskiden Sith İmparatorluğu)"
+    }
   },
-  "suns": [{ "name": "Horuset", "color": "#FF6A4A" }],
+  "suns": [
+    {
+      "name": "Horuset",
+      "color": "#FF6A4A"
+    }
+  ],
   "moons": [],
-  "climate": { "en": ["Cold", "Dry"], "tr": ["Soğuk", "Kurak"] },
-  "terrain": {
-    "en": ["Mountains", "Canyons", "Deserts", "Tombs"],
-    "tr": ["Dağlar", "Kanyonlar", "Çöller", "Mezarlar"]
+  "climate": {
+    "en": [
+      "Cold",
+      "Dry"
+    ],
+    "tr": [
+      "Soğuk",
+      "Kurak"
+    ]
   },
-  "affiliationsByEra": { "clone-wars": "sith", "empire": "sith", "new-republic": "sith" },
-  "appearances": ["kotor", "kotor2", "swtor"],
+  "terrain": {
+    "en": [
+      "Mountains",
+      "Canyons",
+      "Deserts",
+      "Tombs"
+    ],
+    "tr": [
+      "Dağlar",
+      "Kanyonlar",
+      "Çöller",
+      "Mezarlar"
+    ]
+  },
+  "affiliationsByEra": {
+    "old-republic": "sith",
+    "clone-wars": "sith",
+    "empire": "sith",
+    "new-republic": "sith"
+  },
+  "appearances": [
+    "kotor",
+    "kotor2",
+    "swtor"
+  ],
   "funFacts": {
     "en": [
       "The Valley of the Dark Lords holds the tombs of Naga Sadow, Ajunta Pall, Marka Ragnos and other ancient Sith.",
@@ -42,7 +84,13 @@
   },
   "renderRecipe": {
     "archetype": "barren",
-    "palette": { "primary": "#6E2B25", "secondary": "#3A1512" },
-    "atmosphere": { "color": "#C0563F", "density": 0.35 }
+    "palette": {
+      "primary": "#6E2B25",
+      "secondary": "#3A1512"
+    },
+    "atmosphere": {
+      "color": "#C0563F",
+      "density": 0.35
+    }
   }
 }

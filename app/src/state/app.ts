@@ -43,10 +43,12 @@ const storedLang = (localStorage.getItem('ga-lang') as Lang | null) ?? 'tr'
 const storedEra = (localStorage.getItem('ga-era') as EraId | null) ?? 'empire'
 const storedQuality = (localStorage.getItem('ga-quality') as Quality | null) ?? 'auto'
 const storedLegends = localStorage.getItem('ga-legends') === '1'
+// never boot into the Legends-only era with the layer off
+const bootEra: EraId = storedEra === 'old-republic' && !storedLegends ? 'empire' : storedEra
 
 export const useApp = create<AppState>((set, get) => ({
   lang: storedLang,
-  era: storedEra,
+  era: bootEra,
   quality: storedQuality,
   legends: storedLegends,
   veil: 'open',
@@ -67,6 +69,13 @@ export const useApp = create<AppState>((set, get) => ({
   },
   setLegends: (legends) => {
     localStorage.setItem('ga-legends', legends ? '1' : '0')
+    // the Old Republic era only exists with the layer on; leaving it selected
+    // when the layer is switched off would strand the timeline on a hidden era
+    if (!legends && get().era === 'old-republic') {
+      localStorage.setItem('ga-era', 'empire')
+      set({ legends, era: 'empire' })
+      return
+    }
     set({ legends })
   },
   setVeil: (veil) => set({ veil }),
