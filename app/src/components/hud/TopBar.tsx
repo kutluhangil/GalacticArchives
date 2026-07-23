@@ -209,7 +209,7 @@ export default function TopBar() {
   const navigate = useNavigate()
 
   return (
-    <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between p-4">
+    <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-start justify-between gap-2 p-4">
       <div className="pointer-events-auto">
         <button
           onClick={() => navigate('/galaxy')}
@@ -217,7 +217,7 @@ export default function TopBar() {
         >
           {t('brand', lang)}
         </button>
-        <nav className="mt-2 flex gap-1">
+        <nav className="mt-2 flex flex-wrap gap-1">
           <button
             onClick={() => jump('/galaxy')}
             className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
@@ -236,7 +236,7 @@ export default function TopBar() {
         </nav>
       </div>
 
-      <div className="pointer-events-auto flex items-center gap-2">
+      <div className="pointer-events-auto flex flex-wrap items-center justify-end gap-2">
         <div className="flex rounded border border-white/10 bg-black/30 p-0.5">
           {eras.map((e) => (
             <button

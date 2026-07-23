@@ -36,7 +36,7 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
   )
 
   return (
-    <aside className="pointer-events-auto absolute left-4 top-24 z-10 w-[340px] max-w-[calc(100vw-2rem)] rounded-lg border border-holo-cyan/15 bg-panel/80 p-4 backdrop-blur-md">
+    <aside className="pointer-events-auto absolute left-4 top-24 z-10 max-h-[calc(100dvh-8rem)] w-[340px] max-w-[calc(100vw-2rem)] overflow-y-auto overscroll-contain rounded-lg border border-holo-cyan/15 bg-panel/80 p-4 backdrop-blur-md">
       <div className="mb-1 flex items-baseline justify-between gap-2">
         <h1 className="font-display text-2xl tracking-[0.2em] text-slate-100">
           {L(body.names, lang).toUpperCase()}

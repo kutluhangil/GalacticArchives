@@ -28,6 +28,9 @@ body {
 
 canvas {
   display: block;
+  /* let one-finger drag rotate the globe instead of scrolling the page, and
+     pinch zoom the camera instead of the document (OrbitControls handles both) */
+  touch-action: none;
 }
 
 /* orbit-ring O logo accent */
