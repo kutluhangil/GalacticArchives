@@ -104,10 +104,18 @@ export abstract class EngineBase {
       if (banded) p.applyAxisAngle(new THREE.Vector3(1, 0, 0), 0.5)
       p.multiplyScalar(radius * (0.9 + Math.random() * 0.1))
       pos.set([p.x, p.y, p.z], i * 3)
-      const warm = Math.random()
-      c.setHSL(warm > 0.85 ? 0.08 : 0.58 + Math.random() * 0.06, 0.4, 0.62 + Math.random() * 0.3)
+      // real skies are mostly faint stars with a handful of bright ones; a flat
+      // random spread is what makes a starfield read as scattered confetti
+      const rank = Math.pow(Math.random(), 2.6)
+      const hue = Math.random()
+      c.setHSL(
+        hue > 0.93 ? 0.06 : hue > 0.84 ? 0.11 : 0.58 + Math.random() * 0.07,
+        hue > 0.84 ? 0.55 : 0.28,
+        0.55 + rank * 0.4,
+      )
+      c.multiplyScalar(0.35 + rank * 0.65)
       col.set([c.r, c.g, c.b], i * 3)
-      size[i] = 0.6 + Math.random() * 2.4
+      size[i] = 0.5 + rank * 2.3
       // ~1 in 3 stars twinkles; the rest hold steady (phase 0 -> constant term)
       phase[i] = Math.random() < 0.34 ? Math.random() : 0
     }

@@ -13,11 +13,13 @@ export interface QualitySettings {
   starCount: number
   /** sphere segment count for the main body */
   planetSegments: number
+  /** resolved stars drawn in the galaxy disk */
+  galaxyStars: number
 }
 
 const TIERS: Record<ResolvedQuality, QualitySettings> = {
-  low: { maxPixelRatio: 1, bloom: false, starCount: 1800, planetSegments: 64 },
-  high: { maxPixelRatio: 2, bloom: true, starCount: 4200, planetSegments: 128 },
+  low: { maxPixelRatio: 1, bloom: false, starCount: 1800, planetSegments: 64, galaxyStars: 16000 },
+  high: { maxPixelRatio: 2, bloom: true, starCount: 4200, planetSegments: 128, galaxyStars: 46000 },
 }
 
 let override: Quality = 'auto'

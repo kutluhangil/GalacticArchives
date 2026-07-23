@@ -380,7 +380,9 @@ void main() {
   vPhase = aPhase;
   vec4 mv = modelViewMatrix * vec4(position, 1.0);
   gl_Position = projectionMatrix * mv;
-  gl_PointSize = clamp(aSize * uPixelRatio * (140.0 / -mv.z), 0.6, 4.0);
+  // the sprite carries a soft halo, so it needs a few pixels of room to fall
+  // off in; brightness rather than size is what separates faint from bright
+  gl_PointSize = clamp(aSize * uPixelRatio * (150.0 / -mv.z), 1.0, 7.0);
 }
 `
 
@@ -393,7 +395,11 @@ void main() {
   vec2 c = gl_PointCoord - 0.5;
   float d = length(c);
   if (d > 0.5) discard;
-  float a = smoothstep(0.5, 0.05, d) * uOpacity;
+  // gaussian core plus a wide faint skirt: a hard-edged disc reads as a
+  // painted dot, this reads as a point source seen through an atmosphere
+  float core = exp(-d * d * 42.0);
+  float halo = exp(-d * d * 7.0) * 0.22;
+  float a = (core + halo) * uOpacity;
   // gentle twinkle — a subset of stars breathes, never strobing
   float tw = 0.82 + 0.18 * sin(uTime * (0.6 + vPhase * 2.4) + vPhase * 40.0);
   gl_FragColor = vec4(vColor, a * tw);
@@ -403,6 +409,39 @@ void main() {
 // --- liveliness-pass effect shaders -----------------------------------------
 
 /** Aurora curtain over a pole: an open cylinder strip, additive, waving. */
+// Nebula haze and dust lanes: one draw call each. Every point is a wide soft
+// gaussian puff; hundreds of overlapping puffs at mixed scales merge into
+// continuous unresolved light, which is what separates a photographed galaxy
+// from a field of dots.
+export const HAZE_VERT = /* glsl */ `
+attribute float aSize;
+attribute vec3 aColor;
+attribute float aAlpha;
+varying vec3 vColor;
+varying float vAlpha;
+uniform float uPixelRatio;
+void main() {
+  vColor = aColor;
+  vAlpha = aAlpha;
+  vec4 mv = modelViewMatrix * vec4(position, 1.0);
+  gl_Position = projectionMatrix * mv;
+  gl_PointSize = clamp(aSize * uPixelRatio * (150.0 / -mv.z), 2.0, 620.0);
+}
+`
+
+export const HAZE_FRAG = /* glsl */ `
+uniform float uOpacity;
+varying vec3 vColor;
+varying float vAlpha;
+void main() {
+  vec2 c = gl_PointCoord - 0.5;
+  float d = length(c);
+  if (d > 0.5) discard;
+  float a = exp(-d * d * 11.0) - 0.063; // subtract the value at the cut edge
+  gl_FragColor = vec4(vColor, max(a, 0.0) * vAlpha * uOpacity);
+}
+`
+
 export const AURORA_VERT = /* glsl */ `
 varying vec2 vUv;
 uniform float uTime;

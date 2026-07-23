@@ -7,7 +7,7 @@ import type { CelestialBody, EraId, RegionId } from '../../types/lore'
 import { EngineBase, type BaseCallbacks } from './engine-base'
 import { makeBodyMaterial } from './body-material'
 import { makeGlowTexture } from './effects'
-import { STAR_FRAG, STAR_VERT } from './planet-shaders'
+import { HAZE_FRAG, HAZE_VERT, STAR_FRAG, STAR_VERT } from './planet-shaders'
 
 export const GALAXY_R = 20
 
@@ -66,6 +66,48 @@ const REGION_BANDS: { id: RegionId; r: number }[] = [
   { id: 'outer-rim', r: 0.76 },
   { id: 'wild-space', r: 0.9 },
 ]
+
+/** tan(pitch angle) for the log spiral: ~24°, giving the disk a little under
+ *  one full turn end to end. Tighter winds it into a whirlpool of rings. */
+const SPIRAL_R0 = 2.0
+const SPIRAL_B = 0.45
+
+/** Box-Muller: clustered scatter, unlike the flat spread of Math.random() */
+function gaussian(): number {
+  const u = Math.max(Math.random(), 1e-6)
+  return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * Math.random()) * 0.5
+}
+
+/** Soft irregular cloud used for nebula glow and dust. One shared texture: the
+ *  per-sprite rotation and scale supply the variety. */
+let nebulaTex: THREE.CanvasTexture | null = null
+function nebulaTexture(): THREE.CanvasTexture {
+  if (nebulaTex) return nebulaTex
+  const cv = document.createElement('canvas')
+  cv.width = cv.height = 128
+  const ctx = cv.getContext('2d')!
+  for (let i = 0; i < 9; i++) {
+    const x = 40 + Math.random() * 48
+    const y = 40 + Math.random() * 48
+    const r = 18 + Math.random() * 34
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r)
+    g.addColorStop(0, 'rgba(255,255,255,0.42)')
+    g.addColorStop(0.5, 'rgba(255,255,255,0.14)')
+    g.addColorStop(1, 'rgba(255,255,255,0)')
+    ctx.fillStyle = g
+    ctx.fillRect(0, 0, 128, 128)
+  }
+  // trim the square edges so the billboard never shows its own corners
+  const mask = ctx.createRadialGradient(64, 64, 20, 64, 64, 64)
+  mask.addColorStop(0, 'rgba(0,0,0,1)')
+  mask.addColorStop(1, 'rgba(0,0,0,0)')
+  ctx.globalCompositeOperation = 'destination-in'
+  ctx.fillStyle = mask
+  ctx.fillRect(0, 0, 128, 128)
+  nebulaTex = new THREE.CanvasTexture(cv)
+  nebulaTex.colorSpace = THREE.SRGBColorSpace
+  return nebulaTex
+}
 
 /** Faction halo drawn behind a node's globe: a soft glow plus a thin targeting
  *  ring, so allegiance reads at a glance without hiding the world itself. */
@@ -137,9 +179,15 @@ export class GalaxyEngine extends EngineBase {
   private regionCb?: GalaxyCallbacks['onRegionHover']
   private lastRegion: RegionId | null = null
   private brokenTex = makeBrokenRingTexture()
+  /** everything that turns with the disk: stars, haze, dust, bulge */
+  private diskGroup = new THREE.Group()
   private spiral?: THREE.Points
   private spiralMat?: THREE.ShaderMaterial
-  private dustMat?: THREE.PointsMaterial
+  private coreMat?: THREE.ShaderMaterial
+  private hazePoints?: THREE.Points
+  private dustPoints?: THREE.Points
+  private hazeMats: THREE.ShaderMaterial[] = []
+  private coreGlows: THREE.Sprite[] = []
   /** 1 in the overview, eased to 0 while diving at a world so the disk's own
    *  point sprites do not blow up into blobs at close range */
   private diskFade = 1
@@ -159,7 +207,7 @@ export class GalaxyEngine extends EngineBase {
   init(nodes: GalaxyNode[], era: EraId) {
     this.nodes = nodes
     this.era = era
-    this.initGL(new THREE.Vector3(0, 26, 31), 0.75)
+    this.initGL(new THREE.Vector3(0, 26, 31), 0.45)
     this.controls.minDistance = 2
     this.controls.maxDistance = 62
     this.controls.maxPolarAngle = 1.32
@@ -169,6 +217,7 @@ export class GalaxyEngine extends EngineBase {
     this.buildRegionRings()
     this.buildNodes()
     this.buildComet()
+    this.stampBaseOpacity()
     this.canvas.addEventListener('pointerdown', this.onPointerDown)
     this.canvas.addEventListener('pointermove', this.onPointerMove)
     this.start()
@@ -211,35 +260,79 @@ export class GalaxyEngine extends EngineBase {
     return this.flyTo(() => pos, NODE_R * 5.4, 1250)
   }
 
+  private stampBaseOpacity() {
+    const sprites = [...this.coreGlows, ...this.nodeSprites.values()] as THREE.Sprite[]
+    for (const sprite of sprites) {
+      const mat = sprite.material as THREE.SpriteMaterial
+      mat.userData.baseOpacity = mat.opacity
+    }
+  }
+
+  /** every disk material keeps its authored opacity in userData.baseOpacity, so
+   *  the dive fade scales them all without flattening the layering */
+  private applyDiskFade() {
+    if (this.spiralMat) this.spiralMat.uniforms.uOpacity.value = this.diskFade
+    if (this.coreMat) this.coreMat.uniforms.uOpacity.value = this.diskFade
+    for (const mat of this.hazeMats) mat.uniforms.uOpacity.value = this.diskFade
+    const sprites = [...this.coreGlows, ...this.nodeSprites.values()] as THREE.Sprite[]
+    for (const sprite of sprites) {
+      const mat = sprite.material as THREE.SpriteMaterial
+      mat.opacity = (mat.userData.baseOpacity as number) * this.diskFade
+    }
+  }
+
   private buildDisk() {
-    // spiral arm starfield
-    const N = 9500
+    this.scene.add(this.diskGroup)
+    this.buildArmStars()
+    this.buildNebulaHaze()
+    this.buildDustLanes()
+    this.buildCore()
+    this.buildLandmarks()
+  }
+
+  /** Resolved stars. Arms follow a logarithmic spiral (r = r0·e^(bθ)) at a
+   *  ~12° pitch, with a field-star population filling the space between them —
+   *  isolated ribbons of dots are what made the disk read as confetti. */
+  private buildArmStars() {
+    const N = this.quality.galaxyStars
     const pos = new Float32Array(N * 3)
     const col = new Float32Array(N * 3)
     const size = new Float32Array(N)
     const phase = new Float32Array(N)
     const c = new THREE.Color()
-    const inner = new THREE.Color('#ffdfae')
-    const mid = new THREE.Color('#cdd8ff')
-    const outer = new THREE.Color('#8fb0ff')
+    const warm = new THREE.Color('#ffd5a4')
+    const mid = new THREE.Color('#f4f2ff')
+    const cool = new THREE.Color('#a9c4ff')
+    const giant = new THREE.Color('#ff9a6b')
+    const hii = new THREE.Color('#ff86a8')
+
     for (let i = 0; i < N; i++) {
-      const arm = i % 4
-      const t = Math.pow(Math.random(), 0.62)
-      const spread = 0.38 * (1 - t * 0.5)
-      const theta =
-        arm * (Math.PI / 2) +
-        t * 5.4 +
-        (Math.random() - 0.5) * spread * 4 +
-        Math.random() * 0.12
-      const r = t * GALAXY_R * 0.97
-      const y = (Math.random() - 0.5) * (1 - t) * GALAXY_R * 0.045
+      // 22% sit outside the arms entirely: an inter-arm haze of older stars
+      const field = i % 9 === 0 || i % 9 === 1
+      const t = Math.pow(Math.random(), field ? 0.5 : 0.62)
+      const r = GALAXY_R * (0.06 + t * 0.92)
+      let theta: number
+      if (field) {
+        theta = Math.random() * Math.PI * 2
+      } else {
+        // two major arms plus two shorter spurs, as the canon disk is drawn
+        theta = this.armAngle(i % 4, r, 0.14 + t * 0.3)
+      }
+      // the disk is thin and flares gently outward
+      const y = gaussian() * GALAXY_R * 0.012 * (1 + t * 1.6)
       pos.set([Math.cos(theta) * r, y, Math.sin(theta) * r], i * 3)
-      c.copy(inner).lerp(mid, Math.min(t * 1.8, 1)).lerp(outer, Math.max(0, t - 0.45) * 1.8)
-      c.multiplyScalar(0.75 + Math.random() * 0.45)
+
+      const rank = Math.pow(Math.random(), 2.4) // few bright, many faint
+      const roll = Math.random()
+      if (roll > 0.972) c.copy(giant)
+      else if (!field && roll > 0.955) c.copy(hii)
+      else c.copy(warm).lerp(mid, Math.min(t * 2.1, 1)).lerp(cool, Math.max(0, t - 0.5) * 1.7)
+      c.multiplyScalar(0.18 + rank * 0.62)
       col.set([c.r, c.g, c.b], i * 3)
-      size[i] = 0.5 + Math.random() * 1.9
-      phase[i] = Math.random() < 0.22 ? Math.random() : 0
+      size[i] = (0.2 + rank * 0.95) * (roll > 0.972 ? 1.7 : 1)
+      phase[i] = Math.random() < 0.12 ? Math.random() : 0
     }
+
     const geo = new THREE.BufferGeometry()
     geo.setAttribute('position', new THREE.BufferAttribute(pos, 3))
     geo.setAttribute('aColor', new THREE.BufferAttribute(col, 3))
@@ -261,84 +354,201 @@ export class GalaxyEngine extends EngineBase {
     this.spiralMat = mat
     this.spiral = new THREE.Points(geo, mat)
     this.spiral.frustumCulled = false
-    this.scene.add(this.spiral)
+    this.diskGroup.add(this.spiral)
+  }
 
-    // dust lanes: dark points hugging the arms, drawn over the glow
-    const D = 1700
-    const dpos = new Float32Array(D * 3)
-    for (let i = 0; i < D; i++) {
-      const arm = i % 4
-      const t = 0.15 + Math.pow(Math.random(), 0.8) * 0.8
-      const theta = arm * (Math.PI / 2) + t * 5.4 + 0.18 + (Math.random() - 0.5) * 0.5
-      const r = t * GALAXY_R * 0.95
-      dpos.set([Math.cos(theta) * r, 0.06, Math.sin(theta) * r], i * 3)
+  /** Unresolved light. A real galaxy is mostly glow the eye cannot separate
+   *  into stars; these soft billboards supply it and carry the arm color. */
+  private buildNebulaHaze() {
+    const N = this.quality.galaxyStars > 20000 ? 1800 : 600
+    const warm = new THREE.Color('#ffc48c')
+    const pale = new THREE.Color('#cdd8ff')
+    const cool = new THREE.Color('#7fa4f0')
+    const hii = new THREE.Color('#ff6f96')
+    const c = new THREE.Color()
+    const pos = new Float32Array(N * 3)
+    const col = new Float32Array(N * 3)
+    const size = new Float32Array(N)
+    const alpha = new Float32Array(N)
+    for (let i = 0; i < N; i++) {
+      const t = Math.pow(Math.random(), 0.55)
+      const r = GALAXY_R * (0.08 + t * 0.78)
+      const theta = this.armAngle(i % 4, r, 0.16 + t * 0.22)
+      pos.set([Math.cos(theta) * r, gaussian() * 0.12, Math.sin(theta) * r], i * 3)
+      if (Math.random() > 0.94) c.copy(hii)
+      else c.copy(warm).lerp(pale, Math.min(t * 2.4, 1)).lerp(cool, Math.max(0, t - 0.55) * 1.2)
+      col.set([c.r, c.g, c.b], i * 3)
+      // a wide spread of puff sizes is what stops them reading as blobs, and
+      // the outer disk gets smaller ones so the haze does not spill off the rim
+      size[i] = (7 + Math.pow(Math.random(), 2.2) * 34) * (1 - t * 0.45)
+      alpha[i] = (0.006 + Math.random() * 0.013) * (1 - Math.pow(t, 3) * 0.75)
     }
-    const dgeo = new THREE.BufferGeometry()
-    dgeo.setAttribute('position', new THREE.BufferAttribute(dpos, 3))
-    const dmat = new THREE.PointsMaterial({
-      color: new THREE.Color('#05070d'),
-      size: 0.85,
-      sizeAttenuation: true,
-      map: makeGlowTexture('#ffffff'), // radial alpha: soft round motes, not squares
+    this.hazePoints = this.makeHazePoints(pos, col, size, alpha, THREE.AdditiveBlending)
+    this.diskGroup.add(this.hazePoints)
+  }
+
+  /** Dark lanes on the inner edge of each arm, drawn after the glow so they
+   *  actually subtract from it. */
+  private buildDustLanes() {
+    const N = this.quality.galaxyStars > 20000 ? 1200 : 400
+    const pos = new Float32Array(N * 3)
+    const col = new Float32Array(N * 3)
+    const size = new Float32Array(N)
+    const alpha = new Float32Array(N)
+    const lane = new THREE.Color('#04060b')
+    for (let i = 0; i < N; i++) {
+      const t = 0.16 + Math.pow(Math.random(), 0.8) * 0.78
+      const r = GALAXY_R * t * 0.95
+      const theta = this.armAngle(i % 4, r, 0.06) - 0.13
+      pos.set([Math.cos(theta) * r, 0.05, Math.sin(theta) * r], i * 3)
+      col.set([lane.r, lane.g, lane.b], i * 3)
+      size[i] = 4 + Math.pow(Math.random(), 1.9) * 15
+      alpha[i] = 0.06 + Math.random() * 0.12
+    }
+    this.dustPoints = this.makeHazePoints(pos, col, size, alpha, THREE.NormalBlending)
+    this.dustPoints.renderOrder = 2
+    this.diskGroup.add(this.dustPoints)
+  }
+
+  /** Log-spiral angle for an arm at radius r, with gaussian cross-arm scatter. */
+  private armAngle(arm: number, r: number, spread: number): number {
+    return (
+      arm * (Math.PI / 2) +
+      (arm % 2 === 1 ? 0.3 : 0) +
+      Math.log(Math.max(r, SPIRAL_R0) / SPIRAL_R0) / SPIRAL_B +
+      gaussian() * spread
+    )
+  }
+
+  private makeHazePoints(
+    pos: Float32Array,
+    col: Float32Array,
+    size: Float32Array,
+    alpha: Float32Array,
+    blending: THREE.Blending,
+  ): THREE.Points {
+    const geo = new THREE.BufferGeometry()
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3))
+    geo.setAttribute('aColor', new THREE.BufferAttribute(col, 3))
+    geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1))
+    geo.setAttribute('aAlpha', new THREE.BufferAttribute(alpha, 1))
+    const mat = new THREE.ShaderMaterial({
+      vertexShader: HAZE_VERT,
+      fragmentShader: HAZE_FRAG,
+      uniforms: {
+        uPixelRatio: { value: this.renderer.getPixelRatio() },
+        uOpacity: { value: 1 },
+      },
       transparent: true,
-      opacity: 0.5,
       depthWrite: false,
+      blending,
     })
-    const dust = new THREE.Points(dgeo, dmat)
-    dust.frustumCulled = false
-    this.dustMat = dmat
-    this.scene.add(dust)
+    this.hazeMats.push(mat)
+    const points = new THREE.Points(geo, mat)
+    points.frustumCulled = false
+    return points
+  }
 
-    // galactic core glow
-    const core = new THREE.Sprite(
-      new THREE.SpriteMaterial({
-        map: makeGlowTexture('#ffd9a0'),
-        blending: THREE.AdditiveBlending,
-        transparent: true,
-        depthWrite: false,
-        opacity: 0.95,
-      }),
-    )
-    core.scale.setScalar(GALAXY_R * 0.42)
-    ;(core.material as THREE.SpriteMaterial).opacity = 0.6
-    this.scene.add(core)
-    const coreInner = new THREE.Sprite(
-      new THREE.SpriteMaterial({
-        map: makeGlowTexture('#ffffff'),
-        blending: THREE.AdditiveBlending,
-        transparent: true,
-        depthWrite: false,
-      }),
-    )
-    coreInner.scale.setScalar(GALAXY_R * 0.16)
-    this.scene.add(coreInner)
+  /** Barred bulge: a dense triaxial swarm plus two restrained glows. A single
+   *  bright sprite here just blows out to a white ball under bloom. */
+  private buildCore() {
+    const N = this.quality.galaxyStars > 20000 ? 4200 : 1600
+    const pos = new Float32Array(N * 3)
+    const col = new Float32Array(N * 3)
+    const size = new Float32Array(N)
+    const phase = new Float32Array(N)
+    const c = new THREE.Color()
+    const bar = 0.42 // bar tilt in radians
+    for (let i = 0; i < N; i++) {
+      const rr = Math.pow(Math.random(), 1.9) * GALAXY_R * 0.19
+      const a = Math.random() * Math.PI * 2
+      const x0 = Math.cos(a) * rr
+      const z0 = Math.sin(a) * rr * 0.42
+      pos.set(
+        [
+          x0 * Math.cos(bar) - z0 * Math.sin(bar),
+          gaussian() * GALAXY_R * 0.012,
+          x0 * Math.sin(bar) + z0 * Math.cos(bar),
+        ],
+        i * 3,
+      )
+      const rank = Math.pow(Math.random(), 2.2)
+      c.setHSL(0.09 - Math.random() * 0.03, 0.45, 0.6 + rank * 0.35)
+      c.multiplyScalar(0.26 + rank * 0.5)
+      col.set([c.r, c.g, c.b], i * 3)
+      size[i] = 0.22 + rank * 0.8
+      phase[i] = 0
+    }
+    const geo = new THREE.BufferGeometry()
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3))
+    geo.setAttribute('aColor', new THREE.BufferAttribute(col, 3))
+    geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1))
+    geo.setAttribute('aPhase', new THREE.BufferAttribute(phase, 1))
+    const mat = new THREE.ShaderMaterial({
+      vertexShader: STAR_VERT,
+      fragmentShader: STAR_FRAG,
+      uniforms: {
+        uPixelRatio: { value: this.renderer.getPixelRatio() },
+        uTime: { value: 0 },
+        uOpacity: { value: 1 },
+      },
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    })
+    this.timedMats.push(mat)
+    this.coreMat = mat
+    const bulge = new THREE.Points(geo, mat)
+    bulge.frustumCulled = false
+    this.diskGroup.add(bulge)
 
-    // Peridea islet: a small far-galaxy blob in the top-left corner
+    for (const [scale, opacity, tint] of [
+      [0.3, 0.17, '#ffbe78'],
+      [0.11, 0.2, '#ffe0b0'],
+    ] as [number, number, string][]) {
+      const glow = new THREE.Sprite(
+        new THREE.SpriteMaterial({
+          map: makeGlowTexture(tint),
+          blending: THREE.AdditiveBlending,
+          transparent: true,
+          depthWrite: false,
+          opacity,
+        }),
+      )
+      glow.scale.setScalar(GALAXY_R * scale)
+      this.coreGlows.push(glow)
+      this.diskGroup.add(glow)
+    }
+  }
+
+  /** Two named oddities that are not part of the disk itself. */
+  private buildLandmarks() {
     const islet = new THREE.Sprite(
       new THREE.SpriteMaterial({
-        map: makeGlowTexture('#b49ac8'),
-        blending: THREE.AdditiveBlending,
-        transparent: true,
-        depthWrite: false,
-        opacity: 0.55,
-      }),
-    )
-    islet.scale.setScalar(GALAXY_R * 0.22)
-    islet.position.set(MANUAL_POS.peridea.x, -0.2, MANUAL_POS.peridea.z)
-    this.scene.add(islet)
-
-    // Kessel Maelstrom haze (T-10 neighborhood)
-    const maelstrom = new THREE.Sprite(
-      new THREE.SpriteMaterial({
-        map: makeGlowTexture('#5a6f8a'),
+        map: nebulaTexture(),
+        color: new THREE.Color('#b49ac8'),
         blending: THREE.AdditiveBlending,
         transparent: true,
         depthWrite: false,
         opacity: 0.4,
       }),
     )
+    islet.scale.setScalar(GALAXY_R * 0.2)
+    islet.position.set(MANUAL_POS.peridea.x, -0.2, MANUAL_POS.peridea.z)
+    this.scene.add(islet)
+
+    const maelstrom = new THREE.Sprite(
+      new THREE.SpriteMaterial({
+        map: nebulaTexture(),
+        color: new THREE.Color('#6d84a4'),
+        blending: THREE.AdditiveBlending,
+        transparent: true,
+        depthWrite: false,
+        opacity: 0.3,
+      }),
+    )
     const kesselPos = gridToPos('T-10')
-    maelstrom.scale.setScalar(GALAXY_R * 0.17)
+    maelstrom.scale.setScalar(GALAXY_R * 0.16)
     maelstrom.position.set(kesselPos.x + 0.6, 0.1, kesselPos.z)
     this.scene.add(maelstrom)
   }
@@ -473,8 +683,8 @@ export class GalaxyEngine extends EngineBase {
   }
 
   protected update() {
-    // near-imperceptible background rotation keeps the disk alive
-    if (this.spiral) this.spiral.rotation.y = this.wallSec * 0.004
+    // near-imperceptible rotation keeps the whole disk alive as one body
+    this.diskGroup.rotation.y = this.wallSec * 0.004
 
     // worlds turn on their own axes even at overview scale
     for (const globe of this.nodeGlobes.values()) globe.rotation.y = this.wallSec * 0.05
@@ -484,11 +694,7 @@ export class GalaxyEngine extends EngineBase {
     if (this.diskFade !== wanted) {
       this.diskFade += Math.sign(wanted - this.diskFade) * 0.045
       this.diskFade = THREE.MathUtils.clamp(this.diskFade, 0, 1)
-      if (this.spiralMat) this.spiralMat.uniforms.uOpacity.value = this.diskFade
-      if (this.dustMat) this.dustMat.opacity = 0.5 * this.diskFade
-      for (const sprite of this.nodeSprites.values()) {
-        ;(sprite.material as THREE.SpriteMaterial).opacity = this.diskFade
-      }
+      this.applyDiskFade()
     }
 
     // stray comet: a rare streak crossing the outer disk
