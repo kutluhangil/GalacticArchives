@@ -1,0 +1,778 @@
+{
+ "note": "Slim fact snapshot for validate-lore CI regression (coordinates/diameter/birth only). Facts are not copyrightable; source Wookieepedia CC BY-SA.",
+ "planets": {
+  "tatooine": {
+   "title": "Tatooine",
+   "infobox": {
+    "coordinates": "R-16",
+    "diameter": "10,465 km"
+   }
+  },
+  "coruscant": {
+   "title": "Coruscant",
+   "infobox": {
+    "coordinates": "L-9",
+    "diameter": "12,240 kilometers (7,606 miles)"
+   }
+  },
+  "naboo": {
+   "title": "Naboo",
+   "infobox": {
+    "coordinates": "O-17",
+    "diameter": "12,120 kilometers (7,531 miles)"
+   }
+  },
+  "alderaan": {
+   "title": "Alderaan",
+   "infobox": {
+    "coordinates": "M-10",
+    "diameter": "12,500 kilometers"
+   }
+  },
+  "hoth": {
+   "title": "Hoth",
+   "infobox": {
+    "coordinates": "K-18",
+    "diameter": "7,200 kilometers (4,474 miles)"
+   }
+  },
+  "dagobah": {
+   "title": "Dagobah",
+   "infobox": {
+    "coordinates": "M-19",
+    "diameter": "14,410 kilometers (8,954 miles)"
+   }
+  },
+  "bespin": {
+   "title": "Bespin",
+   "infobox": {
+    "coordinates": "K-18",
+    "diameter": "118,000 kilometers (73,322 miles)"
+   }
+  },
+  "endor-prime": {
+   "title": "Endor (planet)",
+   "infobox": {
+    "coordinates": "H-16",
+    "diameter": "48,951 kilometers"
+   }
+  },
+  "endor-moon": {
+   "title": "Endor",
+   "infobox": {
+    "coordinates": "H-16",
+    "diameter": "4,900 km"
+   }
+  },
+  "kef-bir": {
+   "title": "Kef Bir",
+   "infobox": {
+    "coordinates": "H-16",
+    "diameter": "3,725 km (2,315 miles)"
+   }
+  },
+  "yavin": {
+   "title": "Yavin",
+   "infobox": {
+    "coordinates": "P-6"
+   }
+  },
+  "yavin-4": {
+   "title": "Yavin 4",
+   "infobox": {
+    "coordinates": "P-6",
+    "diameter": "10,200 kilometers (6,338 miles)"
+   }
+  },
+  "mustafar": {
+   "title": "Mustafar",
+   "infobox": {
+    "coordinates": "L-19",
+    "diameter": "4,200 kilometers (2,610 miles)"
+   }
+  },
+  "kamino": {
+   "title": "Kamino",
+   "infobox": {
+    "diameter": "19,270 kilometers"
+   }
+  },
+  "geonosis": {
+   "title": "Geonosis",
+   "infobox": {
+    "coordinates": "R-16",
+    "diameter": "11,370 kilometers"
+   }
+  },
+  "kashyyyk": {
+   "title": "Kashyyyk",
+   "infobox": {
+    "coordinates": "P-9",
+    "diameter": "12,765 kilometers"
+   }
+  },
+  "utapau": {
+   "title": "Utapau",
+   "infobox": {
+    "coordinates": "N-19",
+    "diameter": "12,900 kilometers"
+   }
+  },
+  "felucia": {
+   "title": "Felucia",
+   "infobox": {
+    "coordinates": "R-6",
+    "diameter": "9,100 kilometers"
+   }
+  },
+  "jakku": {
+   "title": "Jakku",
+   "infobox": {
+    "coordinates": "I-13",
+    "diameter": "6,400 kilometers"
+   }
+  },
+  "takodana": {
+   "title": "Takodana",
+   "infobox": {
+    "coordinates": "J-16",
+    "diameter": "12,100 kilometers"
+   }
+  },
+  "ahch-to": {
+   "title": "Ahch-To",
+   "infobox": {
+    "coordinates": "F-13",
+    "diameter": "7,212 km (4,481 miles)"
+   }
+  },
+  "crait": {
+   "title": "Crait",
+   "infobox": {
+    "coordinates": "N-17",
+    "diameter": "7,400 kilometers"
+   }
+  },
+  "exegol": {
+   "title": "Exegol",
+   "infobox": {
+    "coordinates": "F-7",
+    "diameter": "13,649 km"
+   }
+  },
+  "ilum": {
+   "title": "Ilum",
+   "infobox": {
+    "coordinates": "G-7 (original location)",
+    "diameter": "660 kilometers"
+   }
+  },
+  "starkiller-base": {
+   "title": "Starkiller Base",
+   "infobox": {}
+  },
+  "scarif": {
+   "title": "Scarif",
+   "infobox": {
+    "coordinates": "S-15",
+    "diameter": "9,112 kilometers (5,662 miles)"
+   }
+  },
+  "jedha": {
+   "title": "Jedha",
+   "infobox": {
+    "coordinates": "H-10",
+    "diameter": "11,263 kilometers"
+   }
+  },
+  "corellia": {
+   "title": "Corellia",
+   "infobox": {
+    "coordinates": "M-11",
+    "diameter": "11,000 kilometers (6,835 miles)"
+   }
+  },
+  "kessel": {
+   "title": "Kessel",
+   "infobox": {
+    "coordinates": "T-10",
+    "diameter": "7,200 kilometers"
+   }
+  },
+  "mandalore": {
+   "title": "Mandalore",
+   "infobox": {
+    "coordinates": "O-7",
+    "diameter": "9,200 km (5,716 miles)"
+   }
+  },
+  "nevarro": {
+   "title": "Nevarro",
+   "infobox": {
+    "coordinates": "K-20",
+    "diameter": "8,006 km (4,975 miles)"
+   }
+  },
+  "lothal": {
+   "title": "Lothal",
+   "infobox": {
+    "coordinates": "U-7",
+    "diameter": "11,345 km (7,169 miles)"
+   }
+  },
+  "dathomir": {
+   "title": "Dathomir",
+   "infobox": {
+    "coordinates": "O-6",
+    "diameter": "10,460 kilometers"
+   }
+  },
+  "ryloth": {
+   "title": "Ryloth",
+   "infobox": {
+    "coordinates": "R-17",
+    "diameter": "10,600 km (6,587 miles)"
+   }
+  },
+  "peridea": {
+   "title": "Peridea",
+   "infobox": {}
+  },
+  "ferrix": {
+   "title": "Ferrix",
+   "infobox": {
+    "coordinates": "Q-3",
+    "diameter": "7,914 kilometers (4,917 miles)"
+   }
+  },
+  "nal-hutta": {
+   "title": "Nal Hutta",
+   "infobox": {
+    "coordinates": "S-12"
+   }
+  },
+  "shakari": {
+   "title": "Shakari",
+   "infobox": {}
+  },
+  "nar-shaddaa": {
+   "title": "Nar Shaddaa",
+   "infobox": {
+    "coordinates": "S-12"
+   }
+  },
+  "concordia": {
+   "title": "Concordia",
+   "infobox": {
+    "coordinates": "O-7"
+   }
+  },
+  "death-star": {
+   "title": "Death Star",
+   "infobox": {}
+  },
+  "death-star-2": {
+   "title": "DS-2 Death Star II Mobile Battle Station",
+   "infobox": {
+    "coordinates": "H-16"
+   }
+  },
+  "cato-neimoidia": {
+   "title": "Cato Neimoidia",
+   "infobox": {
+    "coordinates": "N-11"
+   }
+  },
+  "mygeeto": {
+   "title": "Mygeeto",
+   "infobox": {
+    "coordinates": "K-5",
+    "diameter": "10,088 kilometers"
+   }
+  },
+  "saleucami": {
+   "title": "Saleucami",
+   "infobox": {
+    "coordinates": "S-8",
+    "diameter": "14,920 kilometers"
+   }
+  },
+  "polis-massa": {
+   "title": "Polis Massa",
+   "infobox": {
+    "coordinates": "K-20"
+   }
+  },
+  "christophsis": {
+   "title": "Christophsis",
+   "infobox": {
+    "coordinates": "Q-16"
+   }
+  },
+  "umbara": {
+   "title": "Umbara",
+   "infobox": {
+    "coordinates": "P-10"
+   }
+  },
+  "onderon": {
+   "title": "Onderon",
+   "infobox": {
+    "coordinates": "O-9",
+    "diameter": "15,190 kilometers"
+   }
+  },
+  "moraband": {
+   "title": "Moraband",
+   "infobox": {
+    "coordinates": "R-5"
+   }
+  },
+  "serenno": {
+   "title": "Serenno",
+   "infobox": {
+    "coordinates": "P-5"
+   }
+  },
+  "eriadu": {
+   "title": "Eriadu",
+   "infobox": {
+    "coordinates": "M-18"
+   }
+  },
+  "batuu": {
+   "title": "Batuu",
+   "infobox": {
+    "coordinates": "G-15",
+    "diameter": "12,750 kilometers"
+   }
+  },
+  "dqar": {
+   "title": "D'Qar",
+   "infobox": {
+    "coordinates": "O-17",
+    "diameter": "10,400 kilometers"
+   }
+  },
+  "cantonica": {
+   "title": "Cantonica",
+   "infobox": {
+    "coordinates": "S-4",
+    "diameter": "11,440 km (7,108 miles)"
+   }
+  },
+  "pasaana": {
+   "title": "Pasaana",
+   "infobox": {
+    "coordinates": "O-13",
+    "diameter": "11,135 km"
+   }
+  },
+  "kijimi": {
+   "title": "Kijimi",
+   "infobox": {
+    "coordinates": "R-8",
+    "diameter": "9,874 km"
+   }
+  },
+  "eadu": {
+   "title": "Eadu",
+   "infobox": {
+    "coordinates": "U-10",
+    "diameter": "14,121 kilometers"
+   }
+  },
+  "lahmu": {
+   "title": "Lah'mu",
+   "infobox": {
+    "coordinates": "L-3",
+    "diameter": "12,618 km"
+   }
+  },
+  "wobani": {
+   "title": "Wobani",
+   "infobox": {
+    "coordinates": "R-8"
+   }
+  },
+  "mimban": {
+   "title": "Mimban",
+   "infobox": {
+    "coordinates": "O-12"
+   }
+  },
+  "vandor": {
+   "title": "Vandor",
+   "infobox": {
+    "coordinates": "P-14",
+    "diameter": "12,500 km (7,767 miles)"
+   }
+  },
+  "savareen": {
+   "title": "Savareen",
+   "infobox": {
+    "coordinates": "Q-16"
+   }
+  },
+  "numidian-prime": {
+   "title": "Numidian Prime",
+   "infobox": {
+    "coordinates": "L-7"
+   }
+  },
+  "sorgan": {
+   "title": "Sorgan",
+   "infobox": {
+    "coordinates": "Q-17",
+    "diameter": "8,742 km (5,432 miles)"
+   }
+  },
+  "arvala-7": {
+   "title": "Arvala-7",
+   "infobox": {
+    "coordinates": "S-15",
+    "diameter": "2,375 km (1,475 miles)"
+   }
+  },
+  "tython": {
+   "title": "Tython",
+   "infobox": {
+    "coordinates": "K-10",
+    "diameter": "12,396 km (7,703 miles)"
+   }
+  },
+  "trask": {
+   "title": "Trask",
+   "infobox": {
+    "coordinates": "R-16",
+    "diameter": "9,720 km (6,040 miles)"
+   }
+  },
+  "morak": {
+   "title": "Morak",
+   "infobox": {
+    "coordinates": "H-18",
+    "diameter": "11,421 km (7,097 miles)"
+   }
+  },
+  "plazir-15": {
+   "title": "Plazir-15",
+   "infobox": {
+    "coordinates": "N-2"
+   }
+  },
+  "seatos": {
+   "title": "Seatos",
+   "infobox": {
+    "coordinates": "M-19"
+   }
+  },
+  "atollon": {
+   "title": "Atollon",
+   "infobox": {
+    "coordinates": "T-7"
+   }
+  },
+  "malachor": {
+   "title": "Malachor",
+   "infobox": {
+    "coordinates": "S-4"
+   }
+  },
+  "krownest": {
+   "title": "Krownest",
+   "infobox": {
+    "coordinates": "O-7"
+   }
+  },
+  "chandrila": {
+   "title": "Chandrila",
+   "infobox": {
+    "coordinates": "L-9"
+   }
+  },
+  "ghorman": {
+   "title": "Ghorman",
+   "infobox": {
+    "coordinates": "L-13"
+   }
+  },
+  "aldhani": {
+   "title": "Aldhani",
+   "infobox": {
+    "coordinates": "M-6"
+   }
+  },
+  "narkina-5": {
+   "title": "Narkina 5",
+   "infobox": {
+    "coordinates": "S-15",
+    "diameter": "988 km (614 miles)"
+   }
+  },
+  "daiyu": {
+   "title": "Daiyu",
+   "infobox": {
+    "coordinates": "P-12"
+   }
+  },
+  "hosnian-prime": {
+   "title": "Hosnian Prime",
+   "infobox": {
+    "coordinates": "M-12"
+   }
+  },
+  "at-attin": {
+   "title": "At Attin",
+   "infobox": {
+    "coordinates": "N-6"
+   }
+  },
+  "glavis-ringworld": {
+   "title": "Glavis Ringworld",
+   "infobox": {
+    "coordinates": "M-11",
+    "diameter": "158 km (98 miles)"
+   }
+  },
+  "korriban": {
+   "title": "Korriban/Legends",
+   "infobox": {
+    "coordinates": "R-5",
+    "diameter": "16,890 km"
+   }
+  },
+  "dromund-kaas": {
+   "title": "Dromund Kaas/Legends",
+   "infobox": {
+    "coordinates": "R-5",
+    "diameter": "22,450 kilometers"
+   }
+  },
+  "taris": {
+   "title": "Taris/Legends",
+   "infobox": {
+    "coordinates": "N-7",
+    "diameter": "12,200 km"
+   }
+  },
+  "manaan": {
+   "title": "Manaan/Legends",
+   "infobox": {
+    "coordinates": "O-11",
+    "diameter": "14,211 km"
+   }
+  },
+  "csilla": {
+   "title": "Csilla/Legends",
+   "infobox": {
+    "coordinates": "F-8",
+    "diameter": "11,080 km"
+   }
+  },
+  "lehon": {
+   "title": "Lehon/Legends",
+   "infobox": {
+    "coordinates": "G-11",
+    "diameter": "9,120 km"
+   }
+  },
+  "ossus": {
+   "title": "Ossus/Legends",
+   "infobox": {
+    "coordinates": "R-6",
+    "diameter": "29,000 kilometers"
+   }
+  }
+ },
+ "characters": {
+  "luke-skywalker": {
+   "title": "Luke Skywalker",
+   "infobox": {
+    "birth": "(2 days after Empire Day), 19 BBY, Polis Massa"
+   }
+  },
+  "leia-organa": {
+   "title": "Leia Skywalker Organa Solo",
+   "infobox": {
+    "birth": "(2 days after Empire Day), 19 BBY, Polis Massa"
+   }
+  },
+  "han-solo": {
+   "title": "Han Solo",
+   "infobox": {
+    "birth": "32 BBY, Corellia"
+   }
+  },
+  "chewbacca": {
+   "title": "Chewbacca",
+   "infobox": {
+    "birth": "200 BBY, Kashyyyk"
+   }
+  },
+  "anakin-skywalker": {
+   "title": "Anakin Skywalker",
+   "infobox": {
+    "birth": "41 BBY, Tatooine (disputed)"
+   }
+  },
+  "obi-wan-kenobi": {
+   "title": "Obi-Wan Kenobi",
+   "infobox": {
+    "birth": "57 BBY, Stewjon"
+   }
+  },
+  "yoda": {
+   "title": "Yoda",
+   "infobox": {
+    "birth": "896 BBY"
+   }
+  },
+  "palpatine": {
+   "title": "Darth Sidious",
+   "infobox": {
+    "birth": "84 BBY, Naboo"
+   }
+  },
+  "padme-amidala": {
+   "title": "Padmé Amidala Naberrie",
+   "infobox": {
+    "birth": "46 BBY, Naboo"
+   }
+  },
+  "qui-gon-jinn": {
+   "title": "Qui-Gon Jinn",
+   "infobox": {
+    "birth": "c. 80 BBY, Coruscant"
+   }
+  },
+  "darth-maul": {
+   "title": "Maul",
+   "infobox": {
+    "birth": "54 BBY, Dathomir"
+   }
+  },
+  "count-dooku": {
+   "title": "Dooku",
+   "infobox": {
+    "birth": "102 BBY, Serenno"
+   }
+  },
+  "grievous": {
+   "title": "Grievous",
+   "infobox": {}
+  },
+  "ahsoka-tano": {
+   "title": "Ahsoka Tano",
+   "infobox": {
+    "birth": "36 BBY, Shili"
+   }
+  },
+  "captain-rex": {
+   "title": "Rex",
+   "infobox": {
+    "birth": "32 BBY, Kamino"
+   }
+  },
+  "thrawn": {
+   "title": "Mitth'raw'nuruodo",
+   "infobox": {
+    "birth": "c. 59 BBY, Rentor"
+   }
+  },
+  "ezra-bridger": {
+   "title": "Ezra Bridger",
+   "infobox": {
+    "birth": "Empire Day, 19 BBY, Lothal"
+   }
+  },
+  "kanan-jarrus": {
+   "title": "Kanan Jarrus",
+   "infobox": {
+    "birth": "33 BBY"
+   }
+  },
+  "hera-syndulla": {
+   "title": "Hera Syndulla",
+   "infobox": {
+    "birth": "29 BBY"
+   }
+  },
+  "sabine-wren": {
+   "title": "Sabine Wren",
+   "infobox": {
+    "birth": "21 BBY, Mandalore"
+   }
+  },
+  "din-djarin": {
+   "title": "Din Djarin",
+   "infobox": {
+    "birth": "Prior to 19 BBY"
+   }
+  },
+  "grogu": {
+   "title": "Din Grogu",
+   "infobox": {
+    "birth": "c. 41 BBY"
+   }
+  },
+  "boba-fett": {
+   "title": "Boba Fett",
+   "infobox": {
+    "birth": "32 BBY, Kamino"
+   }
+  },
+  "bo-katan": {
+   "title": "Bo-Katan Kryze",
+   "infobox": {}
+  },
+  "cassian-andor": {
+   "title": "Cassian Jeron Andor",
+   "infobox": {
+    "birth": "33 BBY, Kenari"
+   }
+  },
+  "jyn-erso": {
+   "title": "Jyn Erso",
+   "infobox": {
+    "birth": "21 BBY, Vallt"
+   }
+  },
+  "mon-mothma": {
+   "title": "Mon Mothma",
+   "infobox": {
+    "birth": "c. 48 BBY"
+   }
+  },
+  "rey": {
+   "title": "Rey Skywalker",
+   "infobox": {
+    "birth": "15 ABY, Hyperkarn"
+   }
+  },
+  "kylo-ren": {
+   "title": "Ben Solo",
+   "infobox": {
+    "birth": "5 ABY, Chandrila"
+   }
+  },
+  "poe-dameron": {
+   "title": "Poe Dameron",
+   "infobox": {
+    "birth": "2 ABY, Yavin 4"
+   }
+  },
+  "finn": {
+   "title": "Finn",
+   "infobox": {
+    "birth": "11 ABY"
+   }
+  },
+  "lando-calrissian": {
+   "title": "Landonis Balthazar Calrissian",
+   "infobox": {
+    "birth": "c. 43 BBY, Socorro"
+   }
+  }
+ }
+}

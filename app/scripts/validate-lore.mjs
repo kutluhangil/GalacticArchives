@@ -11,11 +11,10 @@ import { fileURLToPath } from 'node:url'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const DATA = join(ROOT, 'src/data')
 
-const digestPath = process.argv[2]
-if (!digestPath) {
-  console.error('Usage: node scripts/validate-lore.mjs <lore-digest.json>')
-  process.exit(1)
-}
+// Defaults to the committed slim fact snapshot so `npm run validate` and CI run
+// with no network. Pass a freshly fetched digest to cross-check against live
+// Wookieepedia instead: node scripts/validate-lore.mjs <lore-digest.json>
+const digestPath = process.argv[2] ?? join(ROOT, 'test/fixtures/lore-digest.json')
 const digest = JSON.parse(readFileSync(digestPath, 'utf8'))
 
 const errors = []
