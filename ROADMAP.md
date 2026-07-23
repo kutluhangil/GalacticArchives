@@ -99,7 +99,10 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
   command palette'e **bölge filtresi chip satırı** eklendi (bölge seçilince gezegenler filtrelenir,
   karakterler çekilir). Tarayıcıda doğrulandı (İç Halka → 3 dünya, karakterler gizli). Kalan
   (opsiyonel): faction/era ekseni.
-- [ ] **P2** Gezegen başına `og:image` üretimini denetle (`build-static-meta` 166 URL üretiyor).
+- [x] **P2** `og:image` denetlendi — **sorun yok**: `build-static-meta` her gezegen için `sharp`
+  ile paletinden social card çiziyor (`dist/og/<id>.png`, 82 kart), ayrıca `sitemap.xml` (166 URL)
+  + `robots.txt` üretiyor. **Düzeltme:** ilk analizdeki "sitemap/robots yok" iddiası yanlıştı —
+  `public/` yerine build çıktısı `dist/`'e üretiliyorlar. SEO/social altyapısı tam.
 - [ ] **P3** Compare'i ikiden fazlaya / sistem düzeyine çıkar.
 - [ ] **P3** Karakter↔gezegen çapraz-graf navigasyonunu derinleştir.
 - [ ] **P3** Megayapıları tamamla (Starkiller vb.).
