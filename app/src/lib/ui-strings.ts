@@ -61,6 +61,13 @@ const STRINGS = {
     en: 'A long time ago in a galaxy far, far away....',
     tr: 'Çok uzun zaman önce, çok çok uzak bir galakside....',
   },
+  // Opening crawl body. Paragraphs are split on the blank line. Original prose —
+  // it evokes the films' cadence without reproducing their text.
+  crawlBody: {
+    en: 'The galaxy turns, and its worlds turn with it — desert wastes and drowned moons, throne-worlds and forge-planets, each one a record waiting to be read.\n\nFrom the ashes of fallen empires, an archive endures. Within it lie every charted system, every star route, every name the war remembered.\n\nNow its vaults stand open. Set a course, traveller, and let the stars tell you where you have always been going....',
+    tr: 'Galaksi döner, dünyaları da onunla döner — çöl çorakları ve boğulmuş aylar, taht-dünyaları ve demirci-gezegenler; her biri okunmayı bekleyen bir kayıt.\n\nDüşmüş imparatorlukların küllerinden bir arşiv ayakta kaldı. İçinde haritalanmış her sistem, her yıldız rotası, savaşın hatırladığı her isim yatıyor.\n\nŞimdi mahzenleri açık. Bir rota çiz yolcu — ve bırak yıldızlar sana hep nereye gitmekte olduğunu söylesin....',
+  },
+  skipIntro: { en: 'Skip intro', tr: 'Girişi geç' },
   exploreCta: { en: 'EXPLORE THE GALAXY', tr: 'GALAKSİYİ KEŞFET' },
   holocronCta: { en: 'OPEN THE HOLOCRON', tr: "HOLOCRON'U AÇ" },
   featuredWorlds: { en: 'Featured worlds', tr: 'Öne çıkan dünyalar' },

@@ -2,6 +2,10 @@
 
 ## 2026-07-23
 
+- Added a Star Wars-style opening crawl to the landing page: blue prologue line, then the yellow title and lore text climbing into perspective, skippable by button or Escape and suppressed under reduced motion.
+- Enabled the Aurebesh decoration layer: shipped `public/fonts/aurebesh.woff2`, so planet names now carry their Aurebesh transliteration.
+- Pinned three.js to its own `three` vendor chunk (was mislabelled `TopBar`); the TopBar chunk now reflects its real 47 kB content.
+- Removed stray root files `leo-live.zip` and `bIDpBkG.png` (5 MB of unrelated leftovers) from the repo.
 - Added `docs/gemini-image-prompts.md`: Gemini prompts for planet texture maps, Holocron card art and hologram portraits.
 - Fixed the black screen after flying to a world from the galaxy map: the transition veil now lifts itself instead of relying on timers owned by the view that unmounts on the route swap.
 - Removed all audio: synthesized SFX, the music slot system and the sound settings are gone.

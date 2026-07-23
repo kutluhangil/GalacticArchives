@@ -89,12 +89,20 @@ module.exports = {
           "18%": { opacity: "1" },
           to: { transform: "translateY(115%)", opacity: "0" },
         },
+        // Star Wars opening crawl: text climbs from the foreground and recedes
+        // toward the vanishing point. Perspective + tilt live on the wrappers;
+        // this only drives the vertical travel of the tilted plane.
+        crawl: {
+          from: { top: "100%" },
+          to: { top: "-160%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
         scan: "scan 1.3s ease-out 1",
+        crawl: "crawl 22s linear forwards",
       },
     },
   },

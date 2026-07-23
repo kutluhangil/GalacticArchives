@@ -101,6 +101,79 @@ function WorldCard({ body, lang }: { body: CelestialBody; lang: 'en' | 'tr' }) {
   )
 }
 
+/** The film-style opening: a blue prologue line, then the yellow crawl that
+ *  climbs into the distance. Perspective and tilt live on the wrappers; the
+ *  keyframe only drives the vertical travel. Skippable by button or Escape,
+ *  and never shown at all under reduced motion (the caller settles instead). */
+function OpeningCrawl({ lang, onDone }: { lang: 'en' | 'tr'; onDone: () => void }) {
+  const [step, setStep] = useState<'intro' | 'scroll'>('intro')
+  const paragraphs = t('crawlBody', lang).split('\n\n')
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setStep('scroll'), 3200)
+    return () => window.clearTimeout(id)
+  }, [])
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onDone()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onDone])
+
+  return (
+    <div className="fixed inset-0 z-40 flex flex-col items-center justify-center overflow-hidden bg-space">
+      <p
+        className={`max-w-xl px-6 text-center font-display text-[17px] leading-relaxed tracking-[0.12em] text-[#4B77D6] transition-opacity duration-1000 sm:text-[19px] ${
+          step === 'intro' ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        {t('crawlIntro', lang)}
+      </p>
+
+      {step === 'scroll' && (
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 top-[8%] [perspective:320px]"
+          style={{
+            maskImage: 'linear-gradient(to top, black 46%, transparent 92%)',
+            WebkitMaskImage: 'linear-gradient(to top, black 46%, transparent 92%)',
+          }}
+        >
+          <div className="relative h-full w-full [transform:rotateX(24deg)] [transform-origin:50%_100%]">
+            <div
+              onAnimationEnd={onDone}
+              className="absolute left-1/2 w-[min(760px,86vw)] -translate-x-1/2 animate-[crawl_22s_linear_forwards] text-center text-star-gold"
+            >
+              <h2 className="mb-10 font-display text-[clamp(2.4rem,7vw,4rem)] font-black leading-[0.95] tracking-[0.14em] drop-shadow-[0_0_24px_rgba(255,232,31,0.25)]">
+                GALACTIC
+                <br />
+                ARCHIVES
+              </h2>
+              {paragraphs.map((para, i) => (
+                <p
+                  key={i}
+                  className="mb-8 text-justify font-display text-[clamp(1.05rem,2.6vw,1.7rem)] font-semibold leading-[1.5] tracking-[0.02em]"
+                >
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <button
+        onClick={onDone}
+        className="absolute bottom-6 right-6 z-10 rounded border border-white/15 bg-black/40 px-3 py-1.5 font-hud text-[12px] uppercase tracking-[0.28em] text-slate-300 transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
+      >
+        {t('skipIntro', lang)} ↵
+      </button>
+    </div>
+  )
+}
+
 export default function Landing() {
   const lang = useApp((s) => s.lang)
   const setLang = useApp((s) => s.setLang)
@@ -108,8 +181,10 @@ export default function Landing() {
   const reduced =
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  // phase 0: crawl line · 1: wordmark scan · 2: settled
-  const [phase, setPhase] = useState(reduced ? 2 : 0)
+  // 'crawl': film intro playing · 'wordmark': scan reveal · 'settled': done
+  const [phase, setPhase] = useState<'crawl' | 'wordmark' | 'settled'>(
+    reduced ? 'settled' : 'crawl',
+  )
 
   useEffect(() => {
     loadAllPlanets().then((all) =>
@@ -117,15 +192,12 @@ export default function Landing() {
     )
   }, [])
 
+  // the scan reveal runs once the crawl hands off; the crawl owns its own timing
   useEffect(() => {
-    if (reduced) return
-    const toWordmark = window.setTimeout(() => setPhase(1), 2100)
-    const toSettled = window.setTimeout(() => setPhase(2), 3400)
-    return () => {
-      window.clearTimeout(toWordmark)
-      window.clearTimeout(toSettled)
-    }
-  }, [reduced])
+    if (phase !== 'wordmark') return
+    const id = window.setTimeout(() => setPhase('settled'), 1500)
+    return () => window.clearTimeout(id)
+  }, [phase])
 
   return (
     <div className="h-full w-full overflow-y-auto overflow-x-hidden bg-space">
@@ -152,17 +224,9 @@ export default function Landing() {
         </button>
 
         <div className="relative z-10 flex flex-col items-center text-center">
-          <p
-            className={`max-w-xl font-display text-[15px] leading-relaxed tracking-[0.12em] text-[#4B77D6] transition-opacity duration-700 sm:text-[17px] ${
-              phase === 0 ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            {t('crawlIntro', lang)}
-          </p>
-
           <div
             className={`transition-all duration-700 ${
-              phase === 0 ? '-mt-10 opacity-0' : 'mt-6 opacity-100'
+              phase === 'crawl' ? '-mt-10 opacity-0' : 'mt-6 opacity-100'
             }`}
           >
             <h1 className="relative font-display text-[clamp(2rem,8.5vw,4.6rem)] font-black leading-[0.95] tracking-[0.16em] text-star-gold drop-shadow-[0_0_28px_rgba(255,232,31,0.28)]">
@@ -170,7 +234,7 @@ export default function Landing() {
               <br />
               ARCHIVES
               {/* holo scan sweep: one pass as the wordmark resolves */}
-              {phase === 1 && (
+              {phase === 'wordmark' && (
                 <span
                   aria-hidden
                   className="absolute inset-x-[-8%] top-0 h-full animate-[scan_1.3s_ease-out_1]"
@@ -189,7 +253,7 @@ export default function Landing() {
 
           <div
             className={`mt-10 flex flex-col gap-3 transition-opacity duration-700 sm:flex-row ${
-              phase === 2 ? 'opacity-100' : 'opacity-0'
+              phase === 'settled' ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <Link
@@ -209,12 +273,16 @@ export default function Landing() {
 
         <div
           className={`absolute bottom-8 font-hud text-[11px] uppercase tracking-[0.4em] text-slate-400 transition-opacity duration-700 ${
-            phase === 2 ? 'opacity-100' : 'opacity-0'
+            phase === 'settled' ? 'opacity-100' : 'opacity-0'
           }`}
         >
           {t('scrollHint', lang)} ↓
         </div>
       </section>
+
+      {phase === 'crawl' && (
+        <OpeningCrawl lang={lang} onDone={() => setPhase('wordmark')} />
+      )}
 
       <section className="mx-auto w-full max-w-5xl px-6 pb-20">
         <h2 className="mb-5 font-hud text-[12px] uppercase tracking-[0.4em] text-slate-400">

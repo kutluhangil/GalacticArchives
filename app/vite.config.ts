@@ -20,4 +20,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // three.js is the heavy shared dependency of the engine routes. Left
+        // alone Rollup names the shared chunk after whichever module happened
+        // to pull it first (it surfaced as "TopBar"), which is misleading. Pin
+        // it to its own stable, correctly-named vendor chunk.
+        manualChunks(id) {
+          if (id.includes('node_modules/three')) return 'three'
+        },
+      },
+    },
+  },
 });
