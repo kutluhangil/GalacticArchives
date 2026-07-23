@@ -98,7 +98,7 @@ export abstract class EngineBase {
       const banded = i % 4 === 0
       const u = Math.random() * 2 - 1
       const theta = Math.random() * Math.PI * 2
-      let y = banded ? u * 0.18 : u
+      const y = banded ? u * 0.18 : u
       const r = Math.sqrt(Math.max(0, 1 - y * y))
       const p = new THREE.Vector3(r * Math.cos(theta), y, r * Math.sin(theta))
       if (banded) p.applyAxisAngle(new THREE.Vector3(1, 0, 0), 0.5)

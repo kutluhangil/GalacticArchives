@@ -80,6 +80,18 @@ float ridged(vec3 p) {
   return f;
 }
 
+/** two-octave ridged noise: enough shape for relief gradients at a third of
+ *  the cost of the full ridged() stack */
+float ridged2(vec3 p) {
+  float f = 0.0, a = 0.5;
+  for (int i = 0; i < 2; i++) {
+    f += a * (1.0 - abs(snoise(p)));
+    p *= 2.1;
+    a *= 0.5;
+  }
+  return f;
+}
+
 float hash11(float x) { return fract(sin(x * 127.1) * 43758.5453); }
 float hash31(vec3 p) { return fract(sin(dot(p, vec3(127.1, 311.7, 74.7))) * 43758.5453); }
 

@@ -85,10 +85,15 @@ vec3 surfaceColor(vec3 p, float rim, out float emissiveMask, out vec3 emissiveCo
     col = mix(col, col * vec3(0.86, 0.74, 0.58), storm * 0.4);
   } else if (uArchetype == 1) { // ecumenopolis: continental districts, calm day side
     float districts = fbm(p * 2.2);
-    float blocks = snoise(p * 26.0) * 0.5 + snoise(p * 90.0) * 0.2;
-    col = mix(uPrimary, uSecondary, 0.5 + districts * 0.3);
-    col *= 0.93 + blocks * 0.07;
-    specMask = 0.12;
+    float blocks = snoise(p * 26.0) * 0.5 + snoise(p * 90.0) * 0.25;
+    // canyons between the megablocks: without them the day face is a grey ball
+    float canyons = smoothstep(0.55, 0.95, ridged(p * 16.0));
+    float plazas = smoothstep(0.72, 0.95, fbm3(p * 6.0) * 0.5 + 0.5);
+    col = mix(uPrimary, uSecondary, 0.5 + districts * 0.32);
+    col *= 0.74 + blocks * 0.34;
+    col = mix(col, col * vec3(0.46, 0.5, 0.58), canyons * 0.55);
+    col = mix(col, vec3(0.78, 0.76, 0.7), plazas * 0.3);
+    specMask = 0.2;
   } else if (uArchetype == 2) { // lava: black rock + flowing glowing channels
     float rock = fbm(p * 4.0);
     float channels = ridged(p * 3.2 + vec3(uTime * 0.022, 0.0, uTime * 0.014));
@@ -194,11 +199,54 @@ vec3 surfaceColor(vec3 p, float rim, out float emissiveMask, out vec3 emissiveCo
   return col;
 }
 
+// --- relief ---
+// Height field mirroring each archetype's dominant landform. Shading the
+// gradient of this is what turns a painted sphere into terrain: dunes, ridges
+// and crater rims pick up the terminator instead of reading as flat colour.
+float surfaceHeight(vec3 q) {
+  if (uArchetype == 0) return fbm3(q * 5.0) * 0.7 + ridged2(q * 15.0) * 0.3;      // dunes
+  if (uArchetype == 1) return fbm3(q * 2.2) * 0.35 + snoise(q * 26.0) * 0.12;     // city blocks
+  if (uArchetype == 2) return fbm3(q * 4.0) * 0.8 + ridged2(q * 9.0) * 0.35;      // lava rock
+  if (uArchetype == 3) return fbm3(q * 3.5) * 0.6 + ridged2(q * 12.0) * 0.45;     // sastrugi
+  if (uArchetype == 4) return fbm3(q * 9.0) * 0.25;                               // swell
+  if (uArchetype == 6) return fbm3(q * 3.2) * 0.9 + ridged2(q * 11.0) * 0.4;      // mountains
+  if (uArchetype == 7) return fbm3(q * 4.5) * 0.4;                                // wetland
+  if (uArchetype == 8) return ridged2(q * 7.0) * 0.9 + ridged2(q * 22.0) * 0.35;  // crystal
+  if (uArchetype == 9) return fbm3(q * 3.0) * 0.5;                                // dark rock
+  if (uArchetype == 10) return fbm3(q * 3.6) * 0.75 + ridged2(q * 13.0) * 0.5;    // craters
+  return 0.0; // gas giants and stations have no solid relief
+}
+
+/** how hard the relief bites, per archetype */
+float reliefStrength() {
+  if (uArchetype == 5 || uArchetype == 11) return 0.0;
+  if (uArchetype == 1) return 0.5;
+  if (uArchetype == 4) return 0.35;
+  if (uArchetype == 7 || uArchetype == 9) return 0.6;
+  return 1.0;
+}
+
 void main() {
   vec3 n = normalize(vNormalW);
   vec3 v = normalize(cameraPosition - vPosW);
   vec3 p = vPosObj + vec3(uSeed * 0.37);
   float rim = pow(1.0 - max(dot(n, v), 0.0), 3.2);
+
+  // perturb the normal along the surface gradient (two tangent samples)
+  float relief = reliefStrength();
+  if (relief > 0.0) {
+    vec3 tangent = normalize(cross(vec3(0.0, 1.0, 0.0), vPosObj) + vec3(1e-4));
+    vec3 bitangent = cross(vPosObj, tangent);
+    float eps = 0.014;
+    float h0 = surfaceHeight(p);
+    float ht = surfaceHeight(p + tangent * eps);
+    float hb = surfaceHeight(p + bitangent * eps);
+    vec3 grad = ((ht - h0) * tangent + (hb - h0) * bitangent) / eps;
+    // clamped: an unbounded gradient tips normals past the terminator and the
+    // surface breaks into hard black speckle
+    grad = clamp(grad, vec3(-8.0), vec3(8.0));
+    n = normalize(n - grad * relief * 0.012);
+  }
 
   float em;
   vec3 emColor;

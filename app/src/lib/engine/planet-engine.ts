@@ -19,6 +19,7 @@ import {
   type TrafficSystem,
 } from './effects'
 import { makeBodyMaterial, seedFrom } from './body-material'
+import { applySurfaceTextures } from './planet-textures'
 import {
   ATMO_FRAG,
   ATMO_VERT,
@@ -144,6 +145,8 @@ export class PlanetEngine extends EngineBase {
   private bodyMaterial(body: CelestialBody): THREE.ShaderMaterial {
     const mat = makeBodyMaterial(body, this.era, this.sunDirs)
     this.timedMats.push(mat)
+    // generated maps, when the pipeline has produced any for this world
+    void applySurfaceTextures(body.id, mat, this.renderer)
     return mat
   }
 

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CelestialBody, RegionId } from '../types/lore'
 import {
   GalaxyEngine,
@@ -42,11 +42,11 @@ export default function GalaxyView() {
   const [hoverRegion, setHoverRegion] = useState<RegionId | null>(null)
   const [fps, setFps] = useState(0)
   const flyTo = useFlyTo()
-  // the engine outlives each render, so route it through a ref instead of
-  // rebuilding the scene whenever the callback identity changes
-  const diveRef = useRef<(id: string) => void>(() => {})
-  diveRef.current = (id: string) =>
-    flyTo(`/planet/${id}`, () => engineRef.current?.flyToNode(id) ?? 0)
+  // stable across renders, so handing it to the engine does not rebuild the scene
+  const dive = useCallback(
+    (id: string) => flyTo(`/planet/${id}`, () => engineRef.current?.flyToNode(id) ?? 0),
+    [flyTo],
+  )
 
   useEffect(() => {
     loadAllPlanets().then(setPlanets)
@@ -68,7 +68,6 @@ export default function GalaxyView() {
       }
     })
     // era deliberately absent: era switches patch node states without a rebuild
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [planets, lang])
 
   useEffect(() => {
@@ -76,7 +75,7 @@ export default function GalaxyView() {
     const engine = new GalaxyEngine(canvasRef.current, {
       getSimTime: () => simClock.getTime(),
       onFps: setFps,
-      onSelect: (id) => diveRef.current(id),
+      onSelect: dive,
       onLabelPositions: setLabels,
       onRegionHover: setHoverRegion,
     })
@@ -86,7 +85,7 @@ export default function GalaxyView() {
       engineRef.current = null
       engine.dispose()
     }
-  }, [nodes])
+  }, [nodes, dive])
 
   // era switch: recolor nodes in place (no scene rebuild)
   useEffect(() => {
@@ -115,7 +114,7 @@ export default function GalaxyView() {
             <button
               key={label.id}
               style={{ left: label.x, top: label.y }}
-              onClick={() => diveRef.current(label.id)}
+              onClick={() => dive(label.id)}
               className={`absolute z-10 -translate-x-1/2 rounded px-1 py-0.5 text-[9.5px] tracking-[0.18em] backdrop-blur-[2px] transition-colors ${
                 label.destroyed
                   ? 'text-red-400/80 hover:text-red-300'
