@@ -61,8 +61,10 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 
 **Yapılacak**
 - [ ] **P1** Gemini dokuları gelince KTX2 zorunlu + hero lazy. VRAM en büyük gerçek kazanç (kullanıcı verisine bağlı, bekliyor).
-- [~] **P2** three import'larını dar tut — **ertelendi (riskli, düşük kesinlik)**. Kullanılan her
-  three sınıfı elle doğrulanmadan narrowing regresyon riski; ölçülmüş darboğaz değil.
+- [x] **P2** Perf: **KTX2Loader lazy + three chunk'tan ayrıldı** (dynamic import + manualChunks
+  istisnası) → three 634→622 kB, KTX2 kendi 14.5 kB async chunk'ında (dokular gelene dek hiç
+  yüklenmez). **Landing'de galaxy route idle-prefetch** → atlas'a giriş anlık. three narrowing
+  ise ertelendi (riskli, `import * as THREE` namespace zaten Rollup tree-shake ediliyor).
 - [~] **P2** Font subset — **gereksiz**: `@fontsource` `unicode-range`'li `@font-face` üretir,
   tarayıcı zaten yalnız kullanılan alt kümeyi (latin + latin-ext) indirir. Kazanç minimal.
 - [~] **P2** `declutter` throttle — **gereksiz**: ~40 görünür label, 72–175 fps ölçüldü; O(n²)

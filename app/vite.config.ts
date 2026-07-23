@@ -28,6 +28,10 @@ export default defineConfig({
         // to pull it first (it surfaced as "TopBar"), which is misleading. Pin
         // it to its own stable, correctly-named vendor chunk.
         manualChunks(id) {
+          // KTX2Loader + its basis transcoder glue are only needed once a
+          // world ships .ktx2 maps; keep them out of the always-loaded three
+          // chunk so they split into a dynamic chunk (see planet-textures.ts).
+          if (id.includes('node_modules/three/examples/jsm/loaders/KTX2Loader')) return
           if (id.includes('node_modules/three')) return 'three'
         },
       },

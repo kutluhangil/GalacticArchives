@@ -4,7 +4,9 @@
 // Everything not listed stays fully procedural.
 
 import * as THREE from 'three'
-import { KTX2Loader } from 'three/examples/jsm/loaders/KTX2Loader.js'
+// type-only: the transcoder machinery is heavy and only needed once a world
+// actually ships .ktx2 maps, so the loader is dynamically imported below.
+import type { KTX2Loader } from 'three/examples/jsm/loaders/KTX2Loader.js'
 import { resolvedQuality } from '../quality'
 
 type Kind = 'albedo' | 'night' | 'clouds'
@@ -34,9 +36,10 @@ function tierFor(available: Record<string, string>): string | null {
   return order.find((tier) => available[tier]) ?? null
 }
 
-function loaderFor(file: string, renderer: THREE.WebGLRenderer) {
+async function loaderFor(file: string, renderer: THREE.WebGLRenderer) {
   if (!file.endsWith('.ktx2')) return new THREE.TextureLoader()
   if (!ktx2Loader) {
+    const { KTX2Loader } = await import('three/examples/jsm/loaders/KTX2Loader.js')
     ktx2Loader = new KTX2Loader().setTranscoderPath('/basis/').detectSupport(renderer)
   }
   return ktx2Loader
@@ -72,7 +75,8 @@ async function loadMap(
   }
 
   const url = `${BASE}/${id}/${available[tier]}`
-  const texture = await loaderFor(available[tier], renderer).loadAsync(url)
+  const loader = await loaderFor(available[tier], renderer)
+  const texture = await loader.loadAsync(url)
   texture.colorSpace = THREE.SRGBColorSpace
   texture.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8)
   texture.wrapS = THREE.RepeatWrapping

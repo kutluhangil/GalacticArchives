@@ -192,6 +192,18 @@ export default function Landing() {
     )
   }, [])
 
+  // Warm the galaxy route (and its ~160 kB three.js chunk) during the idle
+  // landing crawl, so entering the atlas is instant instead of a cold download.
+  useEffect(() => {
+    const warm = () => void import('./GalaxyView')
+    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void) => number })
+      .requestIdleCallback
+    const id = ric ? ric(warm) : window.setTimeout(warm, 1200)
+    return () => {
+      if (!ric) window.clearTimeout(id as number)
+    }
+  }, [])
+
   // the scan reveal runs once the crawl hands off; the crawl owns its own timing
   useEffect(() => {
     if (phase !== 'wordmark') return
