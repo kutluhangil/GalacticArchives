@@ -15,3 +15,6 @@
 - Added guided tours (Skywalker Saga, Clone Wars, Way of the Mandalore) with a narrated player that drives the route itself.
 - Added `/compare`: two live globes, a to-scale diameter strip and a stat table, linkable through the query string.
 - Added the optional Aurebesh decoration layer; it turns on when an OFL-licensed `public/fonts/aurebesh.woff2` is present.
+- Added the static SEO surface: per-world OG cards drawn from each planet's palette, per-route meta pages, sitemap.xml and robots.txt, all generated post-build.
+- Added PWA support: web manifest, generated icons and an app-shell service worker (network-first navigations, cache-first hashed assets).
+- Removed the orphaned satellite propagator worker left over from LEO LIVE.
