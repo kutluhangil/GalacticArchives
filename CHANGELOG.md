@@ -2,6 +2,8 @@
 
 ## 2026-07-23
 
+- Added `docs/gemini-image-prompts.md`: Gemini prompts for planet texture maps, Holocron card art and hologram portraits.
+- Fixed the black screen after flying to a world from the galaxy map: the transition veil now lifts itself instead of relying on timers owned by the view that unmounts on the route swap.
 - Removed all audio: synthesized SFX, the music slot system and the sound settings are gone.
 - Replaced the hyperspace flash between views with a continuous camera approach (galaxy and system engines fly to the clicked body, the arriving view continues the dive).
 - Galaxy map nodes now render as real archetype-shaded worlds with a faction halo instead of flat sprites.
@@ -24,3 +26,5 @@
 - Reworked the route loaders to derive "loading" from an id-keyed result instead of resetting state inside effects; the Kessel Run stopwatch now runs in an effect. Lint is clean.
 - Added the macOS desktop build (Tauri v2): `npm run desktop` produces an unsigned 12 MB .dmg; the packaged app defaults to the high quality tier and skips service-worker registration.
 - Verified PLAN §8's leak budget: 50 planet transitions grow the JS heap 6.5% (target <10%).
+- Shipped v1.1 to production and added `SENDEN-GEREKENLER.md`, listing the assets, accounts and decisions still needed from the owner alongside the known gaps.
+- Added the project README with fresh production screenshots under `docs/screenshots/`; the old `screenshots/` shots predate the galaxy rewrite.
