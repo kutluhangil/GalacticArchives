@@ -1,0 +1,51 @@
+{
+  "id": "utapau",
+  "kind": "planet",
+  "names": { "en": "Utapau", "tr": "Utapau" },
+  "desc": {
+    "en": "A windswept world whose civilization lives inside enormous sinkholes — vertical cities carved into crater walls. Obi-Wan hunted General Grievous down ten levels of Pau City.",
+    "tr": "Medeniyeti dev obrukların içinde yaşayan rüzgârlı bir dünya — krater duvarlarına oyulmuş dikey şehirler. Obi-Wan, General Grievous'u Pau City'nin on katı boyunca avladı."
+  },
+  "region": "outer-rim",
+  "sector": "Tarabba sector",
+  "system": "Utapau system",
+  "coordinates": "N-19",
+  "stats": {
+    "diameterKm": 12900,
+    "moonCount": 9,
+    "population": { "en": "95 million (65% Utai, 30% Pau'an)", "tr": "95 milyon (%65 Utai, %30 Pau'an)" },
+    "government": { "en": "Utapaun Committee", "tr": "Utapau Komitesi" }
+  },
+  "suns": [{ "name": "Utapau", "color": "#F5E6C8" }],
+  "moons": [],
+  "climate": { "en": ["Temperate", "Windy"], "tr": ["Ilıman", "Rüzgârlı"] },
+  "terrain": { "en": ["Sinkholes", "Rocky plains", "Dry seabeds"], "tr": ["Obruklar", "Kayalık ovalar", "Kuru deniz yatakları"] },
+  "affiliationsByEra": { "clone-wars": "separatist", "empire": "empire" },
+  "appearances": ["rots"],
+  "characters": ["grievous", "obi-wan-kenobi"],
+  "poi": [
+    { "id": "pau-city", "names": { "en": "Pau City", "tr": "Pau City" }, "lat": 5, "lon": -60,
+      "blurb": { "en": "An eleven-level sinkhole metropolis; the Separatist Council's last refuge.", "tr": "On bir katlı obruk metropolü; Ayrılıkçı Konsey'in son sığınağı." } },
+    { "id": "grievous-platform", "names": { "en": "Grievous's Landing", "tr": "Grievous'un Platformu" }, "lat": 5, "lon": -59,
+      "blurb": { "en": "\"Hello there.\" — the most polite ambush in the war.", "tr": "\"Hello there.\" — savaşın en kibar pususu." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Obi-Wan rode the varactyl Boga down the sinkhole walls during the chase.",
+      "Utapau's winds are so fierce that surface life retreated underground ages ago.",
+      "Order 66 caught Obi-Wan here — cannon fire into the sinkhole wall."
+    ],
+    "tr": [
+      "Obi-Wan kovalamaca sırasında varaktil Boga'yla obruk duvarlarından aşağı indi.",
+      "Utapau rüzgârları o kadar serttir ki yüzey yaşamı çağlar önce yeraltına çekildi.",
+      "Order 66 Obi-Wan'ı burada yakaladı — obruk duvarına top ateşi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": { "primary": "#C8B896", "secondary": "#8E7E62" },
+    "atmosphere": { "color": "#E5D9BC", "density": 0.6 },
+    "textures": { "albedo": "planets/utapau/albedo" },
+    "effects": ["sinkhole-shadows"]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "scarif",
+  "kind": "planet",
+  "names": { "en": "Scarif", "tr": "Scarif" },
+  "desc": {
+    "en": "A tropical paradise turned Imperial vault: the Citadel archives on Scarif held the Empire's blackest secrets behind an orbital shield gate. Rogue One broke in — and never left.",
+    "tr": "İmparatorluk kasasına dönüşen tropik cennet: Scarif'teki Citadel arşivleri, İmparatorluğun en karanlık sırlarını yörüngesel bir kalkan kapısının ardında sakladı. Rogue One içeri girdi — ve bir daha hiç çıkmadı."
+  },
+  "region": "outer-rim",
+  "sector": "Abrion sector",
+  "system": "Scarif system",
+  "coordinates": "S-15",
+  "stats": {
+    "diameterKm": 9112,
+    "moonCount": 0,
+    "population": { "en": "≈475,000 (Imperial personnel)", "tr": "≈475.000 (İmparatorluk personeli)" },
+    "government": { "en": "Imperial military exclusion zone", "tr": "İmparatorluk askeri yasak bölgesi" }
+  },
+  "suns": [{ "name": "Scarif's sun", "color": "#FFF2CE" }],
+  "moons": [],
+  "climate": { "en": ["Tropical", "Temperate"], "tr": ["Tropikal", "Ilıman"] },
+  "terrain": { "en": ["Shallow seas", "Atolls", "Beaches", "Jungle islands"], "tr": ["Sığ denizler", "Atoller", "Plajlar", "Cangıl adaları"] },
+  "affiliationsByEra": { "empire": "empire" },
+  "appearances": ["rogue-one"],
+  "characters": ["jyn-erso", "cassian-andor"],
+  "poi": [
+    { "id": "citadel-tower", "names": { "en": "The Citadel", "tr": "Citadel Kulesi" }, "lat": -6, "lon": 18,
+      "blurb": { "en": "Data vault of the Tarkin Initiative; the Death Star plans slept here.", "tr": "Tarkin İnisiyatifi'nin veri kasası; Ölüm Yıldızı planları burada uyudu." } },
+    { "id": "shield-gate", "names": { "en": "Shield Gate (orbital)", "tr": "Kalkan Kapısı (yörünge)" }, "lat": 0, "lon": 18,
+      "blurb": { "en": "The single orbital door through Scarif's planetary shield.", "tr": "Scarif'in gezegensel kalkanındaki tek yörünge kapısı." } },
+    { "id": "beach-landing", "names": { "en": "Landing Zone Beaches", "tr": "Çıkarma Plajları" }, "lat": -7, "lon": 20,
+      "blurb": { "en": "Where hope was born, at the cost of everyone who carried it.", "tr": "Umudun, onu taşıyan herkesin canı pahasına doğduğu yer." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Tarkin's 'single reactor ignition' on Scarif killed the base — and Krennic with it.",
+      "The stolen plans passed hand to hand to a certain blockade runner: the literal opening of A New Hope.",
+      "Scarif's shield gate wreck later rained debris across the atolls."
+    ],
+    "tr": [
+      "Tarkin'in Scarif'e 'tek reaktörlü ateşlemesi' üssü — ve onunla birlikte Krennic'i — yok etti.",
+      "Çalınan planlar elden ele belirli bir abluka koşucusuna geçti: Yeni Bir Umut'un birebir açılışı.",
+      "Kalkan kapısının enkazı sonradan atollere moloz yağdırdı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": { "primary": "#3FA8A0", "secondary": "#2E7E5E" },
+    "atmosphere": { "color": "#B0E8E0", "density": 0.75 },
+    "textures": { "albedo": "planets/scarif/albedo", "clouds": "temperate" },
+    "effects": ["shield-gate-orbiter"]
+  }
+}

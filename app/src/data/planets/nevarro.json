@@ -1,0 +1,52 @@
+{
+  "id": "nevarro",
+  "kind": "planet",
+  "names": { "en": "Nevarro", "tr": "Nevarro" },
+  "desc": {
+    "en": "A volcanic frontier world of black basalt plains and lava rivers. Once a Guild rough town and Imperial remnant base, now a thriving trade stop — and, since the events of 2026's film, home to Din Djarin and Grogu's ranch.",
+    "tr": "Siyah bazalt ovaları ve lav nehirleriyle volkanik bir sınır dünyası. Bir zamanlar Lonca kasabası ve İmparatorluk kalıntısı üssü; şimdi gelişen bir ticaret durağı — ve 2026 filminden beri Din Djarin ile Grogu'nun çiftliğinin adresi."
+  },
+  "region": "outer-rim",
+  "sector": "Dalicron sector",
+  "system": "Nevarro system",
+  "coordinates": "K-20",
+  "stats": {
+    "diameterKm": 8006,
+    "population": { "en": "4 million", "tr": "4 milyon" },
+    "government": { "en": "High Magistrate Greef Karga", "tr": "Yüksek Yargıç Greef Karga" }
+  },
+  "suns": [{ "name": "Nevarro's sun", "color": "#FFDFB8" }],
+  "moons": [],
+  "climate": { "en": ["Arid", "Volcanic"], "tr": ["Kurak", "Volkanik"] },
+  "terrain": { "en": ["Ash flats", "Lava fields", "Rocky ridges", "Green river valleys"], "tr": ["Kül düzlükleri", "Lav tarlaları", "Kayalık sırtlar", "Yeşil nehir vadileri"] },
+  "affiliationsByEra": { "empire": "empire", "new-republic": "new-republic" },
+  "appearances": ["mandalorian", "bobf", "mando-grogu"],
+  "characters": ["din-djarin", "grogu", "boba-fett"],
+  "poi": [
+    { "id": "nevarro-city", "names": { "en": "Nevarro City", "tr": "Nevarro Şehri" }, "lat": 6, "lon": -20,
+      "blurb": { "en": "From Guild cantina town to respectable trade capital — statue of IG-11 included.", "tr": "Lonca kantini kasabasından saygın ticaret başkentine — IG-11 heykeli dahil." } },
+    { "id": "lava-flats", "names": { "en": "Lava Flats", "tr": "Lav Düzlükleri" }, "lat": 4, "lon": -16,
+      "blurb": { "en": "Ferry routes over molten rock, piloted by lava meerkats. Really.", "tr": "Erimiş kaya üzerinde feribot hatları; kaptanlar lav mirketleri. Gerçekten." } },
+    { "id": "djarin-homestead", "names": { "en": "Din & Grogu's Homestead", "tr": "Din ile Grogu'nun Çiftliği" }, "lat": 8, "lon": -24,
+      "blurb": { "en": "A plot of land from a grateful Magistrate: cabin, ship pad, one small green gremlin.", "tr": "Minnettar bir Yargıç'tan arsa: kulübe, gemi pisti, bir küçük yeşil afacan." } }
+  ],
+  "funFacts": {
+    "en": [
+      "The Mandalorian covert's forge hid in Nevarro's sewers during the Imperial era.",
+      "Moff Gideon's forces leveled half the city before the New Republic era calm.",
+      "The 2026 film opens after Din accepts New Republic contract work from here."
+    ],
+    "tr": [
+      "Mandalorlu yeraltı topluluğunun demirhanesi, İmparatorluk döneminde Nevarro lağımlarında saklandı.",
+      "Moff Gideon'un güçleri, Yeni Cumhuriyet sükûnetinden önce şehrin yarısını yerle bir etti.",
+      "2026 filmi, Din'in buradan Yeni Cumhuriyet kontrat işlerini kabul etmesiyle açılır."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "lava",
+    "palette": { "primary": "#2E2A28", "secondary": "#E86A2C" },
+    "atmosphere": { "color": "#D8A888", "density": 0.55 },
+    "textures": { "albedo": "planets/nevarro/albedo" },
+    "effects": ["lava-glow"]
+  }
+}

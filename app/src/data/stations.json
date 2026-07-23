@@ -1,0 +1,79 @@
+[
+  {
+    "id": "death-star",
+    "kind": "station",
+    "names": { "en": "Death Star (DS-1)", "tr": "Ölüm Yıldızı (DS-1)" },
+    "desc": {
+      "en": "The DS-1 Orbital Battle Station: a moon-sized superweapon twenty years in the making, powered by kyber, capable of erasing a planet per shot. It killed Alderaan — and died nineteen days later over Yavin.",
+      "tr": "DS-1 Yörünge Savaş İstasyonu: yapımı yirmi yıl süren, kyber ile çalışan, atış başına bir gezegen silebilen ay boyutunda süper silah. Alderaan'ı öldürdü — ve on dokuz gün sonra Yavin üzerinde öldü."
+    },
+    "region": "outer-rim",
+    "system": "Yavin system (final position)",
+    "stats": {
+      "diameterKm": 120,
+      "population": { "en": "≈1.7 million military and crew (canon estimates vary)", "tr": "≈1,7 milyon asker ve mürettebat (kanon tahminleri değişir)" },
+      "government": { "en": "Imperial military (Grand Moff Tarkin)", "tr": "İmparatorluk ordusu (Grand Moff Tarkin)" }
+    },
+    "appearances": ["rogue-one", "anh"],
+    "characters": ["palpatine", "obi-wan-kenobi", "luke-skywalker", "leia-organa"],
+    "existsInEras": ["empire"],
+    "orbitHost": "yavin",
+    "funFacts": {
+      "en": [
+        "Galen Erso hid the thermal exhaust flaw on purpose — the Rebellion just had to find it.",
+        "Its superlaser test shots hit Jedha's Holy City and Scarif before Alderaan.",
+        "Destroyed at the Battle of Yavin, 0 BBY, by a proton torpedo and the Force."
+      ],
+      "tr": [
+        "Galen Erso termal egzoz kusurunu bilerek sakladı — İsyan'ın tek işi onu bulmaktı.",
+        "Süperlazer test atışları Alderaan'dan önce Jedha'nın Kutsal Şehri'ni ve Scarif'i vurdu.",
+        "0 BBY'de Yavin Muharebesi'nde bir proton torpidosu ve Güç'le yok edildi."
+      ]
+    },
+    "renderRecipe": {
+      "archetype": "station",
+      "palette": { "primary": "#9AA0A8", "secondary": "#5E646C" },
+      "textures": { "albedo": "stations/greeble" },
+      "effects": ["superlaser-dish", "equator-trench"]
+    }
+  },
+  {
+    "id": "death-star-2",
+    "kind": "station",
+    "names": { "en": "Death Star II (DS-2)", "tr": "Ölüm Yıldızı II (DS-2)" },
+    "desc": {
+      "en": "The DS-2 Mobile Battle Station over Endor: bigger, half-built and fully operational — a deliberate trap baited with the Emperor himself. Its wreck now rusts in Kef Bir's ocean.",
+      "tr": "Endor üzerindeki DS-2 Mobil Savaş İstasyonu: daha büyük, yarım inşa ve tamamen faal — bizzat İmparator'la yemlenmiş bilinçli bir tuzak. Enkazı şimdi Kef Bir okyanusunda paslanıyor."
+    },
+    "region": "outer-rim",
+    "sector": "Moddell sector",
+    "system": "Endor system",
+    "coordinates": "H-16",
+    "stats": {
+      "population": { "en": "2,471,647 aboard at destruction", "tr": "Yıkım anında gemide 2.471.647 kişi" },
+      "government": { "en": "Imperial military (Emperor Palpatine aboard)", "tr": "İmparatorluk ordusu (İmparator Palpatine gemide)" }
+    },
+    "appearances": ["rotj", "tros"],
+    "characters": ["palpatine", "luke-skywalker", "anakin-skywalker", "lando-calrissian"],
+    "existsInEras": ["empire"],
+    "orbitHost": "endor",
+    "funFacts": {
+      "en": [
+        "'It's a trap!' — Admiral Ackbar, upon meeting its fully operational superlaser.",
+        "Vader carried the dying Emperor to the reactor shaft here — and turned back to the light.",
+        "Rey found the Sith wayfinder in its drowned throne room, 35 ABY."
+      ],
+      "tr": [
+        "'Bu bir tuzak!' — Amiral Ackbar, tamamen faal süperlazerle tanışınca.",
+        "Vader ölmekte olan İmparator'u burada reaktör bacasına taşıdı — ve ışığa döndü.",
+        "Rey, Sith yolbulucusunu 35 ABY'de sulara gömülü taht odasında buldu."
+      ]
+    },
+    "renderRecipe": {
+      "archetype": "station",
+      "palette": { "primary": "#9AA0A8", "secondary": "#5E646C" },
+      "textures": { "albedo": "stations/greeble" },
+      "effects": ["half-built-scaffold", "superlaser-dish"]
+    }
+  }
+]

@@ -1,0 +1,22 @@
+[
+  { "id": "deep-core", "names": { "en": "Deep Core", "tr": "Derin Çekirdek" },
+    "blurb": { "en": "The dense, hazardous heart of the galaxy — few safe hyperlanes lead in.", "tr": "Galaksinin yoğun ve tehlikeli kalbi — içeri çok az güvenli hiperyol uzanır." } },
+  { "id": "core-worlds", "names": { "en": "Core Worlds", "tr": "Çekirdek Dünyalar" },
+    "blurb": { "en": "The cradle of galactic civilization: Coruscant, Alderaan, Corellia.", "tr": "Galaktik medeniyetin beşiği: Coruscant, Alderaan, Corellia." } },
+  { "id": "colonies", "names": { "en": "The Colonies", "tr": "Koloniler" },
+    "blurb": { "en": "The first ring of expansion beyond the Core, wealthy and industrialized.", "tr": "Çekirdeğin ötesindeki ilk genişleme halkası; zengin ve sanayileşmiş." } },
+  { "id": "inner-rim", "names": { "en": "Inner Rim", "tr": "İç Halka" },
+    "blurb": { "en": "Old, settled space — though its Western Reaches hide backwaters like Jakku.", "tr": "Eski, yerleşik uzay — gerçi Batı Uçları, Jakku gibi unutulmuş köşeler saklar." } },
+  { "id": "expansion-region", "names": { "en": "Expansion Region", "tr": "Genişleme Bölgesi" },
+    "blurb": { "en": "A belt of resource worlds strip-mined by the galaxy's industries.", "tr": "Galaksi sanayilerinin sömürdüğü kaynak dünyaları kuşağı." } },
+  { "id": "mid-rim", "names": { "en": "Mid Rim Territories", "tr": "Orta Halka Bölgeleri" },
+    "blurb": { "en": "Between civilization and frontier: Naboo, Kashyyyk, Takodana.", "tr": "Medeniyetle sınır arasında: Naboo, Kashyyyk, Takodana." } },
+  { "id": "outer-rim", "names": { "en": "Outer Rim Territories", "tr": "Dış Halka Bölgeleri" },
+    "blurb": { "en": "The lawless frontier where most of the saga happens — deserts, ice fields, crime lords.", "tr": "Destanın çoğunun geçtiği kanunsuz sınır — çöller, buz tarlaları, suç baronları." } },
+  { "id": "wild-space", "names": { "en": "Wild Space", "tr": "Vahşi Uzay" },
+    "blurb": { "en": "Charted but untamed space at the galaxy's edge — Kamino lies beyond its veil.", "tr": "Haritalanmış ama evcilleşmemiş uzay — Kamino bu perdenin ötesindedir." } },
+  { "id": "unknown-regions", "names": { "en": "Unknown Regions", "tr": "Bilinmeyen Bölgeler" },
+    "blurb": { "en": "The uncharted western third: Ahch-To, Exegol, Ilum — secrets old and new.", "tr": "Haritasız batı üçte-bir: Ahch-To, Exegol, Ilum — eski ve yeni sırlar." } },
+  { "id": "far-galaxy", "names": { "en": "Far Galaxy", "tr": "Uzak Galaksi" },
+    "blurb": { "en": "Another galaxy entirely, reached only along the purrgil star-whale roads: Peridea.", "tr": "Bambaşka bir galaksi; yalnızca purrgil yıldız balinalarının yollarıyla ulaşılır: Peridea." } }
+]

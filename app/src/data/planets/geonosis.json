@@ -1,0 +1,53 @@
+{
+  "id": "geonosis",
+  "kind": "planet",
+  "names": { "en": "Geonosis", "tr": "Geonosis" },
+  "desc": {
+    "en": "A ringed red-rock hive world less than a parsec from Tatooine. Its droid foundries armed the Separatists, its arena hosted the first battle of the Clone Wars — and the Empire later sterilized it to keep the Death Star secret.",
+    "tr": "Tatooine'e bir parsekten yakın, halkalı, kızıl kayalık bir kovan dünyası. Droid dökümhaneleri Ayrılıkçıları silahlandırdı, arenası Klon Savaşları'nın ilk muharebesine sahne oldu — İmparatorluk ise Ölüm Yıldızı sırrını korumak için sonradan gezegeni sterilize etti."
+  },
+  "region": "outer-rim",
+  "sector": "Arkanis sector",
+  "system": "Geonosis system",
+  "coordinates": "R-16",
+  "stats": {
+    "diameterKm": 11370,
+    "moonCount": 15,
+    "population": { "en": "100 billion Geonosians — later a single known survivor", "tr": "100 milyar Geonosisli — sonradan bilinen tek bir hayatta kalan" },
+    "government": { "en": "Hive monarchy under Archduke Poggle", "tr": "Arşidük Poggle yönetiminde kovan monarşisi" }
+  },
+  "suns": [{ "name": "Ea", "color": "#FFD9A8" }],
+  "moons": ["Bahryn"],
+  "climate": { "en": ["Hot", "Arid"], "tr": ["Sıcak", "Kurak"] },
+  "terrain": { "en": ["Deserts", "Mesas", "Mountains", "Hive spires"], "tr": ["Çöller", "Yassı tepeler", "Dağlar", "Kovan kuleleri"] },
+  "affiliationsByEra": { "clone-wars": "separatist", "empire": "empire" },
+  "appearances": ["aotc", "tcw", "rebels"],
+  "characters": ["count-dooku", "obi-wan-kenobi", "anakin-skywalker", "padme-amidala"],
+  "poi": [
+    { "id": "petranaki-arena", "names": { "en": "Petranaki Arena", "tr": "Petranaki Arenası" }, "lat": 4, "lon": 12,
+      "blurb": { "en": "Execution arena where 200 Jedi ignited the Clone Wars.", "tr": "200 Jedi'ın Klon Savaşları'nı ateşlediği infaz arenası." } },
+    { "id": "droid-foundries", "names": { "en": "Droid Foundries", "tr": "Droid Dökümhaneleri" }, "lat": 1, "lon": 16,
+      "blurb": { "en": "Subterranean assembly lines pouring out battle droids by the billion.", "tr": "Milyarlarca savaş droidini döken yeraltı montaj hatları." } },
+    { "id": "stalgasin-hive", "names": { "en": "Stalgasin Hive", "tr": "Stalgasin Kovanı" }, "lat": 8, "lon": 9,
+      "blurb": { "en": "Seat of Poggle the Lesser and the great hive queens.", "tr": "Küçük Poggle'ın ve büyük kovan kraliçelerinin makamı." } }
+  ],
+  "funFacts": {
+    "en": [
+      "The Death Star's earliest construction began in orbit of Geonosis.",
+      "Star Wars Rebels revealed the Empire sterilized the Geonosians with poison gas to bury the project's secret.",
+      "Its moon Bahryn is where Zeb and Agent Kallus froze together — and thawed a strange respect."
+    ],
+    "tr": [
+      "Ölüm Yıldızı'nın en erken inşası Geonosis yörüngesinde başladı.",
+      "Rebels, İmparatorluğun Geonosislileri zehirli gazla yok ettiğini ortaya çıkardı.",
+      "Ayı Bahryn, Zeb ile Ajan Kallus'un birlikte donduğu — ve tuhaf bir saygının çözüldüğü yerdir."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": { "primary": "#B5654A", "secondary": "#7E3E2E" },
+    "atmosphere": { "color": "#E09A72", "density": 0.6 },
+    "textures": { "albedo": "planets/geonosis/albedo" },
+    "rings": { "texture": "planets/geonosis/ring", "innerRadius": 1.6, "outerRadius": 2.4, "tilt": 12, "kind": "rock" }
+  }
+}

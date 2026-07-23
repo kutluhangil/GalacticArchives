@@ -1,0 +1,53 @@
+{
+  "id": "ferrix",
+  "kind": "planet",
+  "names": { "en": "Ferrix", "tr": "Ferrix" },
+  "desc": {
+    "en": "A cold, rust-red salvage world in the Free Trade sector where work starts when the anvil rings. Cassian Andor grew up in its brick streets — and its funeral for Maarva became the first riot of a revolution.",
+    "tr": "Serbest Ticaret sektöründe soğuk, pas kızılı bir hurda dünyası; iş, örs çaldığında başlar. Cassian Andor bu tuğla sokaklarda büyüdü — ve Maarva'nın cenazesi bir devrimin ilk isyanına dönüştü."
+  },
+  "region": "outer-rim",
+  "regionTags": ["Free Trade sector", "New Territories"],
+  "sector": "Xappyh sector",
+  "system": "Morlani system",
+  "coordinates": "Q-3",
+  "stats": {
+    "diameterKm": 7914,
+    "moonCount": 1,
+    "population": { "en": "1.5 million", "tr": "1,5 milyon" },
+    "government": { "en": "Corporate zone (Preox-Morlana), then Imperial occupation", "tr": "Şirket bölgesi (Preox-Morlana), sonra İmparatorluk işgali" }
+  },
+  "suns": [{ "name": "Morlani star", "color": "#F0DCC0" }],
+  "moons": [],
+  "climate": { "en": ["Cold"], "tr": ["Soğuk"] },
+  "terrain": { "en": ["Brick cities", "Junkyards", "Mesas", "Farmlands"], "tr": ["Tuğla şehirler", "Hurdalıklar", "Yassı tepeler", "Tarım arazileri"] },
+  "affiliationsByEra": { "empire": "rebel" },
+  "appearances": ["andor"],
+  "characters": ["cassian-andor"],
+  "poi": [
+    { "id": "rix-road", "names": { "en": "Rix Road", "tr": "Rix Yolu" }, "lat": 18, "lon": 40,
+      "blurb": { "en": "'The Empire has been choking us so slowly, we're starting not to notice.' — Maarva's last speech rang here.", "tr": "'İmparatorluk bizi o kadar yavaş boğuyor ki fark etmemeye başladık.' — Maarva'nın son konuşması burada yankılandı." } },
+    { "id": "bell-tower", "names": { "en": "The Anvil Tower", "tr": "Örs Kulesi" }, "lat": 18, "lon": 41,
+      "blurb": { "en": "Ferrix keeps time by a man hammering brick-forged bells.", "tr": "Ferrix zamanı, tuğladan dövülmüş çanları çekiçleyen bir adamla tutar." } },
+    { "id": "scrapfields", "names": { "en": "Salvage Fields", "tr": "Hurda Tarlaları" }, "lat": 16, "lon": 38,
+      "blurb": { "en": "Ship graveyards that taught Cassian everything worth stealing.", "tr": "Cassian'a çalınmaya değer her şeyi öğreten gemi mezarlıkları." } }
+  ],
+  "funFacts": {
+    "en": [
+      "The dead of Ferrix are fired into bricks and set into its walls — Maarva is literally part of the town.",
+      "Ferrix's uprising (1 BBY... per current dating) previewed the cost of rebellion a year before Yavin.",
+      "B2EMO, the town's saddest and bravest droid, still lives here."
+    ],
+    "tr": [
+      "Ferrix'in ölüleri tuğlaya dönüştürülüp duvarlara örülür — Maarva kelimenin tam anlamıyla kasabanın parçasıdır.",
+      "Ferrix ayaklanması, Yavin'den bir yıl önce isyanın bedelinin fragmanıydı.",
+      "Kasabanın en hüzünlü ve en cesur droidi B2EMO hâlâ burada yaşar."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "barren",
+    "palette": { "primary": "#A8624E", "secondary": "#6E4438" },
+    "atmosphere": { "color": "#C89078", "density": 0.6 },
+    "textures": { "albedo": "planets/ferrix/albedo" }
+  }
+}

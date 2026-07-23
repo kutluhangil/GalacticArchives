@@ -1,0 +1,51 @@
+{
+  "id": "kamino",
+  "kind": "planet",
+  "names": { "en": "Kamino", "tr": "Kamino" },
+  "desc": {
+    "en": "A storm-wracked ocean world beyond the Rishi Maze, erased from the Jedi Archives. On stilt-cities above the endless sea, the Kaminoans grew the Republic's clone army — and with it, Order 66.",
+    "tr": "Rishi Maze'in ötesinde, Jedi Arşivleri'nden silinmiş, fırtınaların dövdüğü bir okyanus dünyası. Sonsuz denizin üzerindeki ayaklı şehirlerde Kaminolular Cumhuriyet'in klon ordusunu — ve onunla birlikte Order 66'yı — büyüttü."
+  },
+  "region": "wild-space",
+  "regionTags": ["Extragalactic (beyond the Rishi Maze)"],
+  "sector": "Abrion sector",
+  "system": "Kamino system",
+  "stats": {
+    "diameterKm": 19270,
+    "moonCount": 3,
+    "population": { "en": "1 billion — reduced to zero after the Imperial bombardment", "tr": "1 milyar — İmparatorluk bombardımanından sonra sıfıra indi" },
+    "government": { "en": "Ruling Council of Kaminoan society", "tr": "Kaminolu Yönetim Konseyi" }
+  },
+  "suns": [{ "name": "Kamino's sun", "color": "#DDE8F5" }],
+  "moons": [],
+  "climate": { "en": ["Perpetual storms", "Rain"], "tr": ["Sürekli fırtına", "Yağmur"] },
+  "terrain": { "en": ["Planet-wide ocean"], "tr": ["Gezegen çapında okyanus"] },
+  "affiliationsByEra": { "clone-wars": "republic", "empire": "empire" },
+  "appearances": ["aotc", "tcw", "bad-batch"],
+  "characters": ["boba-fett", "captain-rex", "obi-wan-kenobi"],
+  "poi": [
+    { "id": "tipoca-city", "names": { "en": "Tipoca City", "tr": "Tipoca City" }, "lat": -12, "lon": 40,
+      "blurb": { "en": "Capital of the cloners; every clone trooper's first home. Razed by the Empire in 19 BBY.", "tr": "Klonlayıcıların başkenti; her klon askerin ilk evi. 19 BBY'de İmparatorluk tarafından yerle bir edildi." } },
+    { "id": "drowned-facilities", "names": { "en": "Drowned Cloning Facilities", "tr": "Sulara Gömülü Klonlama Tesisleri" }, "lat": -14, "lon": 44,
+      "blurb": { "en": "The Bad Batch watched Kamino's spires slip beneath the waves.", "tr": "Bad Batch, Kamino kulelerinin dalgaların altına kayışını izledi." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Obi-Wan found Kamino only because someone had deleted it from the Jedi Archives — proof someone wanted it hidden.",
+      "Jango Fett's unaltered clone grew up here as his son: Boba.",
+      "Kaminoans judge beauty by pure function — they found humans rather ugly."
+    ],
+    "tr": [
+      "Obi-Wan Kamino'yu, birisi onu Jedi Arşivleri'nden sildiği için buldu — birinin onu saklamak istediğinin kanıtı.",
+      "Jango Fett'in değiştirilmemiş klonu burada onun oğlu olarak büyüdü: Boba.",
+      "Kaminolular güzelliği saf işlevle ölçer — insanları epey çirkin bulurlardı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ocean-storm",
+    "palette": { "primary": "#33506B", "secondary": "#1E3348" },
+    "atmosphere": { "color": "#9FB8D8", "density": 0.85 },
+    "textures": { "albedo": "planets/kamino/albedo", "clouds": "storm" },
+    "effects": ["lightning", "stilt-cities"]
+  }
+}

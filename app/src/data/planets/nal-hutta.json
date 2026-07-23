@@ -1,0 +1,81 @@
+{
+  "id": "nal-hutta",
+  "kind": "planet",
+  "names": { "en": "Nal Hutta", "tr": "Nal Hutta" },
+  "desc": {
+    "en": "'The Glorious Jewel' in Huttese — a stew of bogs, strip mines and palace-fortresses that the Hutt clans call paradise. The 2026 film finally dragged it into live action, Hutt twins and all.",
+    "tr": "Hutt dilinde 'Görkemli Mücevher' — Hutt klanlarının cennet dediği bataklık, açık maden ve saray-kalelerden bir çorba. 2026 filmi onu sonunda live-action'a taşıdı; Hutt ikizleri dahil."
+  },
+  "region": "outer-rim",
+  "regionTags": ["Hutt Space", "The Slice"],
+  "system": "Y'Toub system",
+  "coordinates": "S-12",
+  "stats": {
+    "population": { "en": "Hutt clans and their countless vassals", "tr": "Hutt klanları ve sayısız tebaası" },
+    "government": { "en": "Grand Hutt Council", "tr": "Büyük Hutt Konseyi" }
+  },
+  "suns": [{ "name": "Y'Toub", "color": "#F5E4B0" }],
+  "moons": [],
+  "climate": { "en": ["Hot", "Humid"], "tr": ["Sıcak", "Nemli"] },
+  "terrain": { "en": ["Swamps", "Bogs", "Industrial sprawl"], "tr": ["Bataklıklar", "Çamurluklar", "Sanayi yayılımı"] },
+  "affiliationsByEra": { "clone-wars": "hutt", "empire": "hutt", "new-republic": "hutt" },
+  "appearances": ["mando-grogu", "tcw"],
+  "characters": ["jabba-the-hutt", "din-djarin", "grogu"],
+  "poi": [
+    { "id": "bilbousa", "names": { "en": "Bilbousa", "tr": "Bilbousa" }, "lat": 4, "lon": 30,
+      "blurb": { "en": "Bazaar capital where Ziro the Hutt once kept court (The Clone Wars).", "tr": "Ziro the Hutt'ın bir zamanlar hüküm sürdüğü pazar başkenti (Klon Savaşları)." } },
+    { "id": "hutt-palaces", "names": { "en": "Clan Palace-Fortresses", "tr": "Klan Saray-Kaleleri" }, "lat": 7, "lon": 34,
+      "blurb": { "en": "Where the Hutt twins received Din Djarin — and removed his helmet by force (2026).", "tr": "Hutt ikizlerinin Din Djarin'i ağırladığı — ve kaskını zorla çıkardığı yer (2026)." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Evocar natives were bought out of their own planet by the Hutts millennia ago.",
+      "Rotta, Jabba's son from the Clone Wars film, returns as a player in the 2026 movie.",
+      "Its moon Nar Shaddaa out-glows the planet: the Smuggler's Moon never sleeps."
+    ],
+    "tr": [
+      "Yerli Evocarlar, binyıllar önce kendi gezegenlerinden Huttlarca satın alındı.",
+      "Klon Savaşları filminin bebeği Rotta, 2026 filminde oyuncu olarak döner.",
+      "Ayı Nar Shaddaa gezegenden parlak ışıldar: Kaçakçı Ayı asla uyumaz."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "swamp-fog",
+    "palette": { "primary": "#7E7E3E", "secondary": "#4E5228" },
+    "atmosphere": { "color": "#B8B878", "density": 0.85 },
+    "textures": { "albedo": "planets/nal-hutta/albedo", "clouds": "sickly" }
+  },
+  "moonsDetail": [
+    {
+      "id": "nar-shaddaa",
+      "kind": "moon",
+      "names": { "en": "Nar Shaddaa", "tr": "Nar Shaddaa" },
+      "desc": {
+        "en": "The Smuggler's Moon: a vertical neon slum-city wrapped around Nal Hutta's moon, where everything is for sale and most of it is stolen.",
+        "tr": "Kaçakçı Ayı: Nal Hutta'nın ayını saran dikey neon varoş-şehir; her şeyin satılık ve çoğunun çalıntı olduğu yer."
+      },
+      "region": "outer-rim",
+      "regionTags": ["Hutt Space"],
+      "system": "Y'Toub system",
+      "coordinates": "S-12",
+      "stats": {
+        "population": { "en": "Uncounted billions", "tr": "Sayılamayan milyarlar" },
+        "government": { "en": "Hutt syndicates", "tr": "Hutt sendikaları" }
+      },
+      "terrain": { "en": ["Ecumenopolis"], "tr": ["Ekumenopolis"] },
+      "appearances": ["tcw"],
+      "characters": ["jabba-the-hutt"],
+      "funFacts": {
+        "en": ["Nicknamed 'Little Coruscant' — if Coruscant were run entirely by criminals."],
+        "tr": ["Lakabı 'Küçük Coruscant' — tabii Coruscant'ı baştan sona suçlular yönetseydi."]
+      },
+      "renderRecipe": {
+        "archetype": "ecumenopolis",
+        "palette": { "primary": "#6E6458", "secondary": "#3E3830" },
+        "atmosphere": { "color": "#B8A878", "density": 0.7 },
+        "textures": { "albedo": "planets/nar-shaddaa/albedo", "night": "planets/nar-shaddaa/night" },
+        "effects": ["city-glow", "traffic"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "felucia",
+  "kind": "planet",
+  "names": { "en": "Felucia", "tr": "Felucia" },
+  "desc": {
+    "en": "A humid fungal wilderness glowing in translucent teals and magentas — the galaxy's most alien battlefield. Aayla Secura fell here among the giant spores when Order 66 sounded.",
+    "tr": "Yarı saydam turkuazlar ve macentalarla parlayan nemli bir mantar yabanı — galaksinin en 'uzaylı' savaş alanı. Order 66 çaldığında Aayla Secura burada, dev sporların arasında düştü."
+  },
+  "region": "outer-rim",
+  "sector": "Thanium sector",
+  "system": "Felucia system",
+  "coordinates": "R-6",
+  "stats": {
+    "diameterKm": 9100,
+    "moonCount": 8,
+    "population": { "en": "425 million", "tr": "425 milyon" },
+    "government": { "en": "Local Felucian communities; contested in war", "tr": "Yerel Felucia toplulukları; savaşta el değiştirdi" }
+  },
+  "suns": [{ "name": "Felix", "color": "#F0E4B8" }],
+  "moons": [],
+  "climate": { "en": ["Hot", "Humid"], "tr": ["Sıcak", "Nemli"] },
+  "terrain": { "en": ["Fungal jungles", "Swamps"], "tr": ["Mantar ormanları", "Bataklıklar"] },
+  "affiliationsByEra": { "clone-wars": "separatist", "empire": "empire" },
+  "appearances": ["rots", "tcw"],
+  "characters": ["ahsoka-tano", "anakin-skywalker"],
+  "poi": [
+    { "id": "fungal-plains", "names": { "en": "Fungal Plains", "tr": "Mantar Ovaları" }, "lat": 0, "lon": 25,
+      "blurb": { "en": "Bioluminescent groves where gunships vanish under the canopy.", "tr": "Gemilerin kanopi altında kaybolduğu biyolüminesan korular." } },
+    { "id": "nysillin-farms", "names": { "en": "Nysillin Farms", "tr": "Nysillin Çiftlikleri" }, "lat": 6, "lon": 30,
+      "blurb": { "en": "Healing-herb fields defended by four Jedi and a band of bounty hunters.", "tr": "Dört Jedi ve bir grup ödül avcısının savunduğu şifalı bitki tarlaları." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Felucia changed hands so many times that clones called the campaign 'the meat grinder'.",
+      "Its wildlife includes the rancor-sized sarlacc's cousins and acid-spitting flora.",
+      "The planet's eternal glow comes from bioluminescent spores in the air itself."
+    ],
+    "tr": [
+      "Felucia o kadar çok el değiştirdi ki klonlar bu cepheye 'kıyma makinesi' derdi.",
+      "Faunası rancor boyutlu yaratıklar, florası asit tüküren bitkiler içerir.",
+      "Gezegenin bitmeyen parıltısı, havadaki biyolüminesan sporlardan gelir."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": { "primary": "#3E8E7E", "secondary": "#A84E8E" },
+    "atmosphere": { "color": "#8EE8D0", "density": 0.8 },
+    "textures": { "albedo": "planets/felucia/albedo", "clouds": "temperate" },
+    "effects": ["bioluminescence"]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "kashyyyk",
+  "kind": "planet",
+  "names": { "en": "Kashyyyk", "tr": "Kashyyyk" },
+  "desc": {
+    "en": "The Wookiee homeworld: continent-wide forests of kilometer-tall wroshyr trees rising in layered canopies. Yoda fought here beside Chewbacca on the day the clones turned.",
+    "tr": "Wookiee anavatanı: kilometrelerce yükselen wroshyr ağaçlarının katmanlı kanopiler halinde kıtaları kapladığı dünya. Klonların ihanet ettiği gün Yoda burada, Chewbacca'nın yanında savaştı."
+  },
+  "region": "mid-rim",
+  "sector": "Mytaranor sector",
+  "system": "Kashyyyk system",
+  "coordinates": "P-9",
+  "stats": {
+    "diameterKm": 12765,
+    "moonCount": 3,
+    "population": { "en": "56 million", "tr": "56 milyon" },
+    "government": { "en": "Wookiee Council of chieftains", "tr": "Wookiee Şefler Konseyi" }
+  },
+  "suns": [{ "name": "Kashyyyk", "color": "#FFEFC2" }],
+  "moons": [],
+  "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+  "terrain": { "en": ["Wroshyr forests", "Jungles", "Oceans", "Swamps", "Mountains"], "tr": ["Wroshyr ormanları", "Cangıllar", "Okyanuslar", "Bataklıklar", "Dağlar"] },
+  "affiliationsByEra": { "clone-wars": "republic", "empire": "empire" },
+  "appearances": ["rots", "tcw"],
+  "characters": ["chewbacca", "yoda"],
+  "poi": [
+    { "id": "kachirho", "names": { "en": "Kachirho", "tr": "Kachirho" }, "lat": -2, "lon": 48,
+      "blurb": { "en": "Coastal tree-city where the Battle of Kashyyyk raged in 19 BBY.", "tr": "19 BBY'de Kashyyyk Muharebesi'nin yaşandığı kıyı ağaç-şehri." } },
+    { "id": "wawaatt-archipelago", "names": { "en": "Wawaatt Archipelago", "tr": "Wawaatt Takımadaları" }, "lat": -5, "lon": 44,
+      "blurb": { "en": "Island chains under the great canopy's edge.", "tr": "Büyük kanopinin kıyısındaki ada zincirleri." } },
+    { "id": "shadowlands", "names": { "en": "The Shadowlands", "tr": "Gölge Diyarı" }, "lat": 3, "lon": 52,
+      "blurb": { "en": "The lightless forest floor where even Wookiees walk armed.", "tr": "Wookieelerin bile silahlı yürüdüğü ışıksız orman tabanı." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Wroshyr trees grow so tall that Wookiee cities occupy their middle heights, never the ground.",
+      "The Empire enslaved the Wookiees for Death Star labor after Order 66.",
+      "Life Day, the Wookiee homecoming festival, centers on the sacred Tree of Life."
+    ],
+    "tr": [
+      "Wroshyr ağaçları o kadar uzundur ki Wookiee şehirleri asla zemine değil, orta yüksekliklere kurulur.",
+      "İmparatorluk, Order 66'dan sonra Wookieeleri Ölüm Yıldızı inşaatında köleleştirdi.",
+      "Wookiee bayramı Yaşam Günü, kutsal Yaşam Ağacı çevresinde kutlanır."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": { "primary": "#356B38", "secondary": "#1F4A28" },
+    "atmosphere": { "color": "#B8DDB0", "density": 0.75 },
+    "textures": { "albedo": "planets/kashyyyk/albedo", "clouds": "temperate" }
+  }
+}

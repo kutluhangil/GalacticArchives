@@ -1,0 +1,52 @@
+{
+  "id": "lothal",
+  "kind": "planet",
+  "names": { "en": "Lothal", "tr": "Lothal" },
+  "desc": {
+    "en": "Golden prairies, stone spires, loth-cats in the grass. The Empire strip-mined it for its TIE factories; a crew of misfits aboard the Ghost lit the spark that freed it — and Ezra Bridger vanished saving it.",
+    "tr": "Altın çayırlar, taş kuleler, otların arasında loth-kedileri. İmparatorluk gezegeni TIE fabrikaları için sömürdü; Ghost mürettebatındaki uyumsuzlar onu özgürleştiren kıvılcımı çaktı — ve Ezra Bridger onu kurtarırken kayboldu."
+  },
+  "region": "outer-rim",
+  "sector": "Lothal sector",
+  "system": "Lothal system",
+  "coordinates": "U-7",
+  "stats": {
+    "diameterKm": 11345,
+    "moonCount": 2,
+    "population": { "en": "285 million", "tr": "285 milyon" },
+    "government": { "en": "Imperial governorship; free after 1 BBY", "tr": "İmparatorluk valiliği; 1 BBY'den sonra özgür" }
+  },
+  "suns": [{ "name": "Lothal", "color": "#FFEFC8" }],
+  "moons": [],
+  "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+  "terrain": { "en": ["Prairies", "Savannas", "Rock spires", "Marshes"], "tr": ["Çayırlar", "Savanlar", "Kaya kuleleri", "Sazlıklar"] },
+  "affiliationsByEra": { "empire": "rebel", "new-republic": "new-republic" },
+  "appearances": ["rebels", "ahsoka"],
+  "characters": ["ezra-bridger", "kanan-jarrus", "hera-syndulla", "sabine-wren", "thrawn", "ahsoka-tano"],
+  "poi": [
+    { "id": "capital-city", "names": { "en": "Capital City", "tr": "Başkent" }, "lat": 10, "lon": 5,
+      "blurb": { "en": "Site of Ezra's last broadcast and the liberation of 1 BBY.", "tr": "Ezra'nın son yayınının ve 1 BBY kurtuluşunun sahnesi." } },
+    { "id": "lothal-temple", "names": { "en": "Lothal Jedi Temple", "tr": "Lothal Jedi Tapınağı" }, "lat": 16, "lon": -8,
+      "blurb": { "en": "A door between worlds: paintings that move, and a realm between time.", "tr": "Dünyalar arasında bir kapı: kıpırdayan resimler ve zamanlar arası bir âlem." } },
+    { "id": "ezras-tower", "names": { "en": "Ezra's Tower", "tr": "Ezra'nın Kulesi" }, "lat": 12, "lon": 2,
+      "blurb": { "en": "An abandoned comm spire a street kid called home.", "tr": "Bir sokak çocuğunun ev dediği terk edilmiş iletişim kulesi." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Sabine's mural of the Ghost crew still watches over the plains — the epilogue of Rebels.",
+      "Purrgil — hyperspace whales — dragged Thrawn's flagship from Lothal's sky to another galaxy.",
+      "Loth-wolves walk the world's Force-paths; one of them said 'Dume.'"
+    ],
+    "tr": [
+      "Sabine'in Ghost mürettebatı duvar resmi hâlâ ovaları izler — Rebels'ın epilogu.",
+      "Purrgil'ler — hiperuzay balinaları — Thrawn'un amiral gemisini Lothal göğünden başka bir galaksiye sürükledi.",
+      "Loth-kurtları dünyanın Güç patikalarında yürür; biri 'Dume' dedi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": { "primary": "#C8A855", "secondary": "#6E8E5E" },
+    "atmosphere": { "color": "#E8D8A8", "density": 0.7 },
+    "textures": { "albedo": "planets/lothal/albedo", "clouds": "temperate" }
+  }
+}

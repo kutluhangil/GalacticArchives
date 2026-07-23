@@ -1,0 +1,51 @@
+{
+  "id": "takodana",
+  "kind": "planet",
+  "names": { "en": "Takodana", "tr": "Takodana" },
+  "desc": {
+    "en": "A green crossroads world of lakes and old forests on the Mid Rim's western edge. For a thousand years Maz Kanata's castle offered neutral ground to smugglers, pilgrims and worse.",
+    "tr": "Orta Halka'nın batı kıyısında göller ve yaşlı ormanlarla kaplı yeşil bir kavşak dünyası. Maz Kanata'nın kalesi bin yıl boyunca kaçakçılara, hacılara ve daha beterlerine tarafsız zemin sundu."
+  },
+  "region": "mid-rim",
+  "regionTags": ["Western Reaches"],
+  "sector": "Tashtor sector",
+  "system": "Takodana system",
+  "coordinates": "J-16",
+  "stats": {
+    "diameterKm": 12100,
+    "moonCount": 0,
+    "population": { "en": "Under 1 million", "tr": "1 milyonun altında" },
+    "government": { "en": "None — Maz's castle keeps its own peace", "tr": "Yok — Maz'ın kalesi kendi barışını korur" }
+  },
+  "suns": [{ "name": "Takodana's sun", "color": "#FFF0CC" }],
+  "moons": [],
+  "climate": { "en": ["Hot", "Humid"], "tr": ["Sıcak", "Nemli"] },
+  "terrain": { "en": ["Forests", "Lakes", "Plains"], "tr": ["Ormanlar", "Göller", "Ovalar"] },
+  "affiliationsByEra": { "new-republic": "neutral" },
+  "appearances": ["tfa"],
+  "characters": ["rey", "finn", "han-solo", "kylo-ren"],
+  "poi": [
+    { "id": "maz-castle", "names": { "en": "Maz Kanata's Castle", "tr": "Maz Kanata'nın Kalesi" }, "lat": 4, "lon": 22,
+      "blurb": { "en": "A thousand-year-old freeport of flags and secrets; leveled by the First Order in 34 ABY.", "tr": "Bayraklar ve sırlarla dolu bin yıllık serbest liman; 34 ABY'de First Order tarafından yerle bir edildi." } },
+    { "id": "nymeve-lake", "names": { "en": "Nymeve Lake", "tr": "Nymeve Gölü" }, "lat": 3, "lon": 21,
+      "blurb": { "en": "Still waters where Rey first saw 'so much green' in her life.", "tr": "Rey'in hayatında ilk kez 'bu kadar çok yeşili' gördüğü durgun sular." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Anakin's blue lightsaber waited in Maz's cellar — and called out to Rey here.",
+      "Maz never explains how she got it: 'A good question, for another time.'",
+      "The castle's flags collected a millennium of pirate and clan banners."
+    ],
+    "tr": [
+      "Anakin'in mavi ışın kılıcı Maz'ın mahzeninde bekliyordu — ve Rey'e burada seslendi.",
+      "Maz onu nasıl edindiğini asla açıklamaz: 'Güzel soru; başka zamana.'",
+      "Kalenin bayrakları, bin yıllık korsan ve klan sancaklarının koleksiyonuydu."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": { "primary": "#4E7E4A", "secondary": "#356E8E" },
+    "atmosphere": { "color": "#B8DCC8", "density": 0.75 },
+    "textures": { "albedo": "planets/takodana/albedo", "clouds": "temperate" }
+  }
+}

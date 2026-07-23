@@ -1,0 +1,14 @@
+[
+  { "id": "republic", "names": { "en": "Galactic Republic", "tr": "Galaktik Cumhuriyet" }, "color": "#B8302F" },
+  { "id": "separatist", "names": { "en": "Separatist Alliance", "tr": "Ayrılıkçı İttifak" }, "color": "#7E8CA0" },
+  { "id": "empire", "names": { "en": "Galactic Empire", "tr": "Galaktik İmparatorluk" }, "color": "#7A8494" },
+  { "id": "rebel", "names": { "en": "Rebel Alliance", "tr": "İsyan İttifakı" }, "color": "#E8632C" },
+  { "id": "new-republic", "names": { "en": "New Republic", "tr": "Yeni Cumhuriyet" }, "color": "#CBA135" },
+  { "id": "first-order", "names": { "en": "First Order", "tr": "First Order" }, "color": "#C00000" },
+  { "id": "resistance", "names": { "en": "The Resistance", "tr": "Direniş" }, "color": "#F07830" },
+  { "id": "hutt", "names": { "en": "Hutt Clans", "tr": "Hutt Klanları" }, "color": "#7A6E2F" },
+  { "id": "mandalorian", "names": { "en": "Mandalorians", "tr": "Mandalorlular" }, "color": "#5B6770" },
+  { "id": "jedi", "names": { "en": "Jedi Order", "tr": "Jedi Düzeni" }, "color": "#66D9FF" },
+  { "id": "sith", "names": { "en": "The Sith", "tr": "Sith" }, "color": "#E0312E" },
+  { "id": "neutral", "names": { "en": "Independent", "tr": "Bağımsız" }, "color": "#8B94A7" }
+]

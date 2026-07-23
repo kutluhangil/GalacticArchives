@@ -1,0 +1,51 @@
+{
+  "id": "corellia",
+  "kind": "planet",
+  "names": { "en": "Corellia", "tr": "Corellia" },
+  "desc": {
+    "en": "Core World of shipwrights: the yards of Corellia launched everything from CR90 corvettes to Imperial Star Destroyers. Han Solo scrumrat-ed his way out of its gutters with a golden dice and a dream.",
+    "tr": "Gemi ustalarının Çekirdek Dünyası: Corellia tersaneleri CR90 korvetlerinden İmparatorluk Yıldız Destroyerlerine kadar her şeyi denize — daha doğrusu uzaya — indirdi. Han Solo, altın zarları ve bir hayalle bu sokaklardan kendini söküp attı."
+  },
+  "region": "core-worlds",
+  "sector": "Corellian sector",
+  "system": "Corellian system",
+  "coordinates": "M-11",
+  "stats": {
+    "diameterKm": 11000,
+    "moonCount": 3,
+    "population": { "en": "3 billion", "tr": "3 milyar" },
+    "government": { "en": "Corellian civil government under heavy Imperial industry", "tr": "Yoğun İmparatorluk sanayisi altında Corellia sivil yönetimi" }
+  },
+  "suns": [{ "name": "Corell", "color": "#FFEDC4" }],
+  "moons": ["Gus Talon", "Gus Treta"],
+  "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+  "terrain": { "en": ["Industrial cities", "Coasts", "Forests", "Polluted deltas"], "tr": ["Sanayi şehirleri", "Kıyılar", "Ormanlar", "Kirlenmiş deltalar"] },
+  "affiliationsByEra": { "clone-wars": "republic", "empire": "empire", "new-republic": "new-republic" },
+  "appearances": ["solo", "ahsoka"],
+  "characters": ["han-solo"],
+  "poi": [
+    { "id": "coronet-city", "names": { "en": "Coronet City", "tr": "Coronet City" }, "lat": 12, "lon": -32,
+      "blurb": { "en": "Shipyard capital; White Worms in the sewers, Star Destroyers overhead.", "tr": "Tersane başkenti; lağımlarda Beyaz Kurtlar, tepede Yıldız Destroyerleri." } },
+    { "id": "santhe-yards", "names": { "en": "Corellian Shipyards", "tr": "Corellia Tersaneleri" }, "lat": 14, "lon": -28,
+      "blurb": { "en": "Where hyperdrive cores 'went missing' into New Republic ledgers — and Thrawn's cause (Ahsoka).", "tr": "Hipersürücü çekirdeklerinin Yeni Cumhuriyet kayıtlarından Thrawn davasına 'kaybolduğu' yer (Ahsoka)." } }
+  ],
+  "funFacts": {
+    "en": [
+      "'I've got a really good feeling about this' — Han's first onscreen heist began here.",
+      "Corellian engineering pride: if it flies fast and looks like a saucer of trouble, it's probably local.",
+      "In 9 ABY its yards were quietly feeding parts to Imperial remnants (Ahsoka, 'Toil and Trouble')."
+    ],
+    "tr": [
+      "'Bu konuda gerçekten iyi bir his var içimde' — Han'ın ekrandaki ilk vurgunu burada başladı.",
+      "Corellia mühendislik gururu: hızlı uçan ve bela tabağına benzeyen şey büyük ihtimalle yerlidir.",
+      "9 ABY'de tersaneleri, İmparatorluk kalıntılarına sessizce parça aktarıyordu (Ahsoka)."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": { "primary": "#5E7E62", "secondary": "#7E8898" },
+    "atmosphere": { "color": "#B8CCD8", "density": 0.7 },
+    "textures": { "albedo": "planets/corellia/albedo", "night": "planets/corellia/night", "clouds": "temperate" },
+    "effects": ["city-glow", "shipyard-orbiters"]
+  }
+}

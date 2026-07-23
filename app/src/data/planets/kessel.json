@@ -1,0 +1,52 @@
+{
+  "id": "kessel",
+  "kind": "planet",
+  "names": { "en": "Kessel", "tr": "Kessel" },
+  "desc": {
+    "en": "A two-faced world inside the Akkadese Maelstrom: lush royal sanctuaries in the south, brutal spice mines in the north. Every smuggler alive measures themselves against its Run.",
+    "tr": "Akkadese Maelstrom'un içinde iki yüzlü bir dünya: güneyde yemyeşil kraliyet koruları, kuzeyde acımasız baharat madenleri. Yaşayan her kaçakçı kendini onun Koşusu'yla ölçer."
+  },
+  "region": "outer-rim",
+  "regionTags": ["The Slice", "Akkadese Maelstrom"],
+  "sector": "Kessel sector",
+  "system": "Kessel system",
+  "coordinates": "T-10",
+  "stats": {
+    "diameterKm": 7200,
+    "moonCount": 3,
+    "population": { "en": "≈10,000 (plus uncounted enslaved miners)", "tr": "≈10.000 (artı sayılmayan köle madenciler)" },
+    "government": { "en": "Kessel monarchy; mines run by Pyke Syndicate", "tr": "Kessel monarşisi; madenler Pyke Sendikası'nda" }
+  },
+  "suns": [{ "name": "Kessa", "color": "#F5E0B8" }],
+  "moons": [],
+  "climate": { "en": ["Hot", "Humid"], "tr": ["Sıcak", "Nemli"] },
+  "terrain": { "en": ["Northern spice mines", "Southern sanctuaries"], "tr": ["Kuzey baharat madenleri", "Güney koruları"] },
+  "affiliationsByEra": { "clone-wars": "hutt", "empire": "hutt" },
+  "appearances": ["solo", "tcw"],
+  "characters": ["han-solo", "chewbacca", "lando-calrissian"],
+  "poi": [
+    { "id": "spice-mines", "names": { "en": "Spice Mines of Kessel", "tr": "Kessel Baharat Madenleri" }, "lat": 35, "lon": 10,
+      "blurb": { "en": "Coaxium and spice dug by enslaved hands — until a droid uprising, L3-37's finest hour.", "tr": "Köle ellerin kazdığı coaxium ve baharat — L3-37'nin en parlak anı olan droid ayaklanmasına dek." } },
+    { "id": "the-maw-approach", "names": { "en": "The Maw Approach", "tr": "Maw Yaklaşması" }, "lat": 0, "lon": 0,
+      "blurb": { "en": "The cluster of gravity wells guarding the only fast way out.", "tr": "Tek hızlı çıkışı koruyan kütleçekim kuyuları kümesi." } }
+  ],
+  "funFacts": {
+    "en": [
+      "The Kessel Run: Han did it in 'twelve parsecs' by cutting through the Maw — distance, not time, and the Falcon bled for it.",
+      "Kessel spice funds half the Outer Rim's crime; its coaxium funds the other half.",
+      "TCW's Jedi once escorted medical spice from Kessel — legality on Kessel is a spectrum."
+    ],
+    "tr": [
+      "Kessel Koşusu: Han onu Maw'ın içinden keserek 'on iki parsekte' yaptı — mesafe, zaman değil; ve Şahin bunun bedelini ödedi.",
+      "Kessel baharatı Dış Halka suçunun yarısını, coaxium'u diğer yarısını finanse eder.",
+      "TCW'de Jedi'lar Kessel'den tıbbi baharat konvoyu korumuştu — Kessel'de yasallık bir spektrumdur."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "barren",
+    "palette": { "primary": "#C8BC9E", "secondary": "#5E7E4E" },
+    "atmosphere": { "color": "#E0D8B8", "density": 0.6 },
+    "textures": { "albedo": "planets/kessel/albedo" },
+    "effects": ["maelstrom-nebula", "maw-cluster"]
+  }
+}

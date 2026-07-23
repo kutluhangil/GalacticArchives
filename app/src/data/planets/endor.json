@@ -1,0 +1,125 @@
+{
+  "id": "endor",
+  "kind": "gas-giant",
+  "names": { "en": "Endor", "tr": "Endor" },
+  "desc": {
+    "en": "A silvery gas giant in the Moddell sector orbited by nine moons — among them the Forest Moon of the Ewoks, where the Empire fell, and the ocean moon Kef Bir, where its second Death Star came to rest.",
+    "tr": "Moddell sektöründe dokuz ayın çevrelediği gümüşi bir gaz devi — aralarında İmparatorluğun devrildiği Ewokların Orman Ayı ve ikinci Ölüm Yıldızı'nın enkazının dinlendiği okyanus ayı Kef Bir var."
+  },
+  "region": "outer-rim",
+  "sector": "Zuma sector (Moddell)",
+  "system": "Endor system",
+  "coordinates": "H-16",
+  "stats": {
+    "diameterKm": 0,
+    "moonCount": 9,
+    "population": { "en": "—", "tr": "—" },
+    "government": { "en": "—", "tr": "—" }
+  },
+  "suns": [
+    { "name": "Endor I", "color": "#FFF0CC" },
+    { "name": "Endor II", "color": "#FFDDA8" }
+  ],
+  "moons": [],
+  "climate": { "en": ["Gaseous"], "tr": ["Gaz kütlesi"] },
+  "terrain": { "en": ["Gas giant"], "tr": ["Gaz devi"] },
+  "appearances": ["rotj", "tros"],
+  "renderRecipe": {
+    "archetype": "gas-giant",
+    "palette": { "primary": "#AEC4B4", "secondary": "#7E958C" },
+    "atmosphere": { "color": "#C8DCCF", "density": 0.85 },
+    "textures": { "albedo": "planets/endor-prime/albedo" }
+  },
+  "moonsDetail": [
+    {
+      "id": "endor-moon",
+      "kind": "moon",
+      "names": { "en": "Endor (Forest Moon)", "tr": "Endor (Orman Ayı)" },
+      "desc": {
+        "en": "The Sanctuary Moon: unbroken forests of giant trees, home to the Ewoks. Here a tribe of stone-age teddy bears helped topple a galactic superpower.",
+        "tr": "Sığınak Ayı: dev ağaçlardan kesintisiz ormanlar, Ewokların yuvası. Taş devri ayıcıklarından bir kabile, burada bir galaktik süper gücün devrilmesine yardım etti."
+      },
+      "region": "outer-rim",
+      "sector": "Zuma sector (Moddell)",
+      "system": "Endor system",
+      "coordinates": "H-16",
+      "stats": {
+        "diameterKm": 4900,
+        "population": { "en": "30+ million Ewoks", "tr": "30+ milyon Ewok" },
+        "government": { "en": "Tribal councils", "tr": "Kabile konseyleri" }
+      },
+      "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+      "terrain": { "en": ["Forests", "Savannas", "Mountains", "Plains"], "tr": ["Ormanlar", "Savanlar", "Dağlar", "Ovalar"] },
+      "affiliationsByEra": { "empire": "empire" },
+      "appearances": ["rotj"],
+      "characters": ["luke-skywalker", "leia-organa", "han-solo", "chewbacca"],
+      "poi": [
+        { "id": "bright-tree-village", "names": { "en": "Bright Tree Village", "tr": "Parlak Ağaç Köyü" }, "lat": 18, "lon": 30,
+          "blurb": { "en": "Ewok treetop village; briefly worshipped a golden protocol droid.", "tr": "Ewokların ağaç tepesi köyü; bir süreliğine altın bir protokol droidine tapıldı." } },
+        { "id": "shield-bunker", "names": { "en": "Shield Generator Bunker", "tr": "Kalkan Jeneratörü Sığınağı" }, "lat": 15, "lon": 26,
+          "blurb": { "en": "The back door the Empire never expected to matter.", "tr": "İmparatorluğun asla önemseneceğini düşünmediği arka kapı." } }
+      ],
+      "funFacts": {
+        "en": [
+          "The Death Star II exploded in this moon's sky in 4 ABY.",
+          "Ewoks fight with rocks, logs and gliders — and win.",
+          "Vader's pyre burned on Endor the night the Empire died."
+        ],
+        "tr": [
+          "Ölüm Yıldızı II, 4 ABY'de bu ayın göğünde patladı.",
+          "Ewoklar taşlarla, kütüklerle ve planörlerle savaşır — ve kazanır.",
+          "İmparatorluğun öldüğü gece Vader'ın cenaze ateşi Endor'da yandı."
+        ]
+      },
+      "renderRecipe": {
+        "archetype": "verdant",
+        "palette": { "primary": "#3F6B45", "secondary": "#2C4A32" },
+        "atmosphere": { "color": "#BFE3C8", "density": 0.7 },
+        "textures": { "albedo": "planets/endor-moon/albedo", "clouds": "temperate" }
+      }
+    },
+    {
+      "id": "kef-bir",
+      "kind": "moon",
+      "names": { "en": "Kef Bir", "tr": "Kef Bir" },
+      "desc": {
+        "en": "An ocean moon of Endor with grassy islets, patrolled by Jannah's company of ex-stormtroopers. The wreck of the second Death Star looms in its crashing waves.",
+        "tr": "Endor'un çayırlı adacıklarla dolu okyanus ayı; Jannah'ın eski stormtrooper birliği burada yaşar. İkinci Ölüm Yıldızı'nın enkazı, çarpan dalgaların içinde yükselir."
+      },
+      "region": "outer-rim",
+      "sector": "Zuma sector (Moddell)",
+      "system": "Endor system",
+      "coordinates": "H-16",
+      "stats": {
+        "diameterKm": 3725,
+        "population": { "en": "≈40 (Company 77)", "tr": "≈40 (77. Bölük)" },
+        "government": { "en": "None", "tr": "Yok" }
+      },
+      "climate": { "en": ["Stormy", "Temperate"], "tr": ["Fırtınalı", "Ilıman"] },
+      "terrain": { "en": ["Ocean", "Grassland islands"], "tr": ["Okyanus", "Çayır adaları"] },
+      "appearances": ["tros"],
+      "characters": ["rey", "finn", "poe-dameron", "kylo-ren"],
+      "poi": [
+        { "id": "ds2-wreck", "names": { "en": "Death Star II Wreckage", "tr": "Ölüm Yıldızı II Enkazı" }, "lat": -8, "lon": 12,
+          "blurb": { "en": "A broken throne room above the waves — and a wayfinder within.", "tr": "Dalgaların üzerinde kırık bir taht odası — ve içinde bir yolbulucu." } }
+      ],
+      "funFacts": {
+        "en": [
+          "Rey and Kylo Ren dueled across its drowned Death Star ruins in 35 ABY.",
+          "Its riders tame orbaks — shaggy horse-like beasts fit for a hull charge."
+        ],
+        "tr": [
+          "Rey ile Kylo Ren, 35 ABY'de sulara gömülü Ölüm Yıldızı kalıntıları üzerinde düello yaptı.",
+          "Binicileri, gövde hücumuna uygun tüylü at benzeri orbakları evcilleştirir."
+        ]
+      },
+      "renderRecipe": {
+        "archetype": "ocean-storm",
+        "palette": { "primary": "#2E5E5A", "secondary": "#1E3E42" },
+        "atmosphere": { "color": "#9FCBD0", "density": 0.8 },
+        "textures": { "albedo": "planets/kef-bir/albedo", "clouds": "storm" },
+        "effects": ["ds2-wreck-marker"]
+      }
+    }
+  ]
+}

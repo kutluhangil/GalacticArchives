@@ -1,0 +1,43 @@
+{
+  "id": "shakari",
+  "kind": "moon",
+  "names": { "en": "Shakari", "tr": "Shakari" },
+  "desc": {
+    "en": "The Moon of Shakari, newest world on this map (The Mandalorian and Grogu, 2026): a smog-veiled underworld metropolis of fluorescent-lit streets — one part prohibition-era gangland, one hundred percent trouble.",
+    "tr": "Shakari Ayı, bu haritanın en yeni dünyası (The Mandalorian and Grogu, 2026): floresan ışıklı sokaklarıyla smog örtülü bir yeraltı metropolü — bir parça 'yasak dönemi' gangsterliği, yüzde yüz bela."
+  },
+  "region": "outer-rim",
+  "system": "Shakari system",
+  "stats": {
+    "population": { "en": "Not yet established in canon sources", "tr": "Kanon kaynaklarda henüz belirtilmedi" },
+    "government": { "en": "Shakari government (underworld-entangled)", "tr": "Shakari yönetimi (yeraltıyla iç içe)" }
+  },
+  "suns": [{ "name": "Shakari primary", "color": "#E8D8B8" }],
+  "moons": [],
+  "climate": { "en": ["Smog-shrouded"], "tr": ["Smog örtülü"] },
+  "terrain": { "en": ["Dense city", "Industrial districts"], "tr": ["Yoğun şehir", "Sanayi bölgeleri"] },
+  "affiliationsByEra": { "new-republic": "neutral" },
+  "appearances": ["mando-grogu"],
+  "characters": ["din-djarin", "grogu"],
+  "poi": [
+    { "id": "underworld-streets", "names": { "en": "The Fluorescent Quarter", "tr": "Floresan Mahallesi" }, "lat": 8, "lon": 0,
+      "blurb": { "en": "Neon-dark streets where Din walked into a blaster fight beside a very unexpected face.", "tr": "Din'in hiç beklenmedik bir yüzün yanında blaster kavgasına daldığı neon-karanlık sokaklar." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Designed as 'prohibition-era Chicago' in space — fedoras with blasters.",
+      "One of several moons in its system; canon details are still being published, and this entry will grow with them."
+    ],
+    "tr": [
+      "Uzayda 'yasak dönemi Chicago'su' olarak tasarlandı — fötr şapkalar, blasterlar.",
+      "Sistemindeki birkaç aydan biri; kanon detaylar hâlâ yayımlanıyor ve bu kayıt onlarla birlikte büyüyecek."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ecumenopolis",
+    "palette": { "primary": "#4E4A50", "secondary": "#2A282E" },
+    "atmosphere": { "color": "#9088A0", "density": 0.8 },
+    "textures": { "albedo": "planets/shakari/albedo", "night": "planets/shakari/night", "clouds": "sickly" },
+    "effects": ["city-glow", "neon-flicker"]
+  }
+}

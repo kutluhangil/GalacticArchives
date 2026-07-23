@@ -1,0 +1,50 @@
+{
+  "id": "crait",
+  "kind": "planet",
+  "names": { "en": "Crait", "tr": "Crait" },
+  "desc": {
+    "en": "An uninhabited mineral world sheathed in white salt over blood-red crystal soil. An old Rebellion refuge here became the Resistance's last redoubt — and the stage for Luke Skywalker's final lesson.",
+    "tr": "Kan kırmızısı kristal toprağın üzerini beyaz tuzun kapladığı ıssız bir mineral dünyası. Buradaki eski İsyan sığınağı, Direniş'in son siperi — ve Luke Skywalker'ın son dersinin sahnesi oldu."
+  },
+  "region": "outer-rim",
+  "sector": "Bon'nyuw-Luq sector",
+  "system": "Crait system",
+  "coordinates": "N-17",
+  "stats": {
+    "diameterKm": 7400,
+    "moonCount": 0,
+    "population": { "en": "Uninhabited (vulptices excepted)", "tr": "Issız (vulptexler hariç)" },
+    "government": { "en": "None", "tr": "Yok" }
+  },
+  "suns": [{ "name": "Crait", "color": "#FFF0D8" }],
+  "moons": [],
+  "climate": { "en": ["Temperate", "Dry"], "tr": ["Ilıman", "Kuru"] },
+  "terrain": { "en": ["Salt flats", "Canyons", "Briny seas", "Mountains"], "tr": ["Tuz düzlükleri", "Kanyonlar", "Tuzlu denizler", "Dağlar"] },
+  "affiliationsByEra": { "new-republic": "resistance" },
+  "appearances": ["tlj"],
+  "characters": ["luke-skywalker", "leia-organa", "rey", "kylo-ren", "finn", "poe-dameron"],
+  "poi": [
+    { "id": "rebel-outpost", "names": { "en": "Old Rebel Outpost", "tr": "Eski İsyancı Karakolu" }, "lat": -6, "lon": 33,
+      "blurb": { "en": "A mine-turned-fortress with one very heavy door.", "tr": "Madenden kaleye dönmüş, çok ağır tek kapılı sığınak." } },
+    { "id": "salt-plain", "names": { "en": "The Salt Plain", "tr": "Tuz Ovası" }, "lat": -5, "lon": 31,
+      "blurb": { "en": "Where speeders cut red wakes into white salt before the walkers.", "tr": "Yürüyücülerin karşısında motorların beyaz tuza kızıl izler çizdiği ova." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Luke's projection duel with Kylo Ren left no footprints in the salt — the first clue.",
+      "Crystalline vulptex foxes showed the survivors the way out.",
+      "Crait's red-under-white look is one of the most striking images in the saga."
+    ],
+    "tr": [
+      "Luke'un Kylo Ren'le yansıtma düellosu tuzda ayak izi bırakmadı — ilk ipucu buydu.",
+      "Kristal tilkiler vulptexler, hayatta kalanlara çıkış yolunu gösterdi.",
+      "Crait'in beyaz-altında-kızıl görünümü destanın en çarpıcı görüntülerindendir."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "crystal-red",
+    "palette": { "primary": "#EDEAE4", "secondary": "#C23B2E" },
+    "atmosphere": { "color": "#F2E8E0", "density": 0.55 },
+    "textures": { "albedo": "planets/crait/albedo" }
+  }
+}

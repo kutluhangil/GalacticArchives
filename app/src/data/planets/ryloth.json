@@ -1,0 +1,54 @@
+{
+  "id": "ryloth",
+  "kind": "planet",
+  "names": { "en": "Ryloth", "tr": "Ryloth" },
+  "desc": {
+    "en": "Homeworld of the Twi'leks: canyon mazes, jungles and scorched badlands under a harsh sun. Occupied by Separatists, 'liberated' by the Republic, garrisoned by the Empire — Ryloth's history is one long fight for its own soil.",
+    "tr": "Twi'leklerin anavatanı: sert bir güneşin altında kanyon labirentleri, cangıllar ve kavrulmuş çorak topraklar. Ayrılıkçılar işgal etti, Cumhuriyet 'özgürleştirdi', İmparatorluk garnizon kurdu — Ryloth tarihi, kendi toprağı için tek uzun bir kavgadır."
+  },
+  "region": "outer-rim",
+  "regionTags": ["The Slice"],
+  "sector": "Gaulus sector (Ryloth sector)",
+  "system": "Ryloth system",
+  "coordinates": "R-17",
+  "stats": {
+    "diameterKm": 10600,
+    "moonCount": 3,
+    "population": { "en": "1.5 billion", "tr": "1,5 milyar" },
+    "government": { "en": "Clan Assembly", "tr": "Klan Meclisi" }
+  },
+  "suns": [{ "name": "Ryloth", "color": "#FFE0A8" }],
+  "moons": [],
+  "climate": { "en": ["Hot", "Humid lowlands", "Scorched wastes"], "tr": ["Sıcak", "Nemli alçak araziler", "Kavrulmuş çoraklar"] },
+  "terrain": { "en": ["Canyons", "Mesas", "Jungles", "Deserts", "Volcanoes"], "tr": ["Kanyonlar", "Yassı tepeler", "Cangıllar", "Çöller", "Volkanlar"] },
+  "affiliationsByEra": { "clone-wars": "republic", "empire": "empire", "new-republic": "new-republic" },
+  "appearances": ["tcw", "rebels", "bad-batch"],
+  "characters": ["hera-syndulla", "ahsoka-tano"],
+  "poi": [
+    { "id": "lessu", "names": { "en": "Lessu", "tr": "Lessu" }, "lat": 6, "lon": -30,
+      "blurb": { "en": "The plasma-bridge capital, taken bloodlessly thanks to Cham Syndulla's resistance.", "tr": "Plazma köprülü başkent; Cham Syndulla'nın direnişi sayesinde kansız alındı." } },
+    { "id": "syndulla-estate", "names": { "en": "Syndulla Homestead", "tr": "Syndulla Yurdu" }, "lat": 8, "lon": -26,
+      "blurb": { "en": "Where a girl who loved flying grew into the Ghost's captain.", "tr": "Uçmayı seven bir kızın Ghost'un kaptanına dönüştüğü yer." } },
+    { "id": "gutkurr-caves", "names": { "en": "Canyon Caves", "tr": "Kanyon Mağaraları" }, "lat": 3, "lon": -34,
+      "blurb": { "en": "Twi'lek shelters through every occupation, patrolled by gutkurrs.", "tr": "Her işgalde Twi'lek sığınağı olmuş, gutkurrların dolaştığı mağaralar." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Hera's father Cham led the Free Ryloth Movement across three eras of war.",
+      "The Bad Batch's Crosshair drew a line here — refusing one order too many.",
+      "Twi'lek head-tails (lekku) hold memory and emotion; cutting one is unforgivable."
+    ],
+    "tr": [
+      "Hera'nın babası Cham, üç savaş dönemi boyunca Özgür Ryloth Hareketi'ni yönetti.",
+      "Bad Batch'ten Crosshair çizgiyi burada çekti — bir emri fazladan reddederek.",
+      "Twi'lek baş kuyrukları (lekku) hafıza ve duygu taşır; birini kesmek affedilmezdir."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": { "primary": "#B87E4E", "secondary": "#6E4E38" },
+    "atmosphere": { "color": "#E0B080", "density": 0.65 },
+    "textures": { "albedo": "planets/ryloth/albedo" },
+    "effects": ["canyon-shadows"]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "ilum",
+  "kind": "planet",
+  "names": { "en": "Ilum / Starkiller Base", "tr": "Ilum / Starkiller Üssü" },
+  "desc": {
+    "en": "For millennia, the sacred kyber world where younglings harvested their first lightsaber crystals. The First Order hollowed it into Starkiller Base — a weapon that drank suns and killed systems, until it died like its predecessors.",
+    "tr": "Binyıllar boyunca Jedi çıraklarının ilk ışın kılıcı kristallerini topladığı kutsal kyber dünyası. First Order onu Starkiller Üssü'ne oydu — güneşleri içip sistemleri öldüren bir silah; ta ki seleflerinin kaderini paylaşana dek."
+  },
+  "region": "unknown-regions",
+  "sector": "7G sector",
+  "system": "Ilum system (later relocated)",
+  "coordinates": "G-7",
+  "stats": {
+    "diameterKm": 660,
+    "moonCount": 2,
+    "population": { "en": "≈5,200 nonpermanent (First Order garrison era)", "tr": "≈5.200 geçici (First Order garnizonu dönemi)" },
+    "government": { "en": "Jedi Order stewardship; later First Order", "tr": "Jedi Düzeni vesayeti; sonra First Order" }
+  },
+  "suns": [{ "name": "Asar (original)", "color": "#E8F0FF" }],
+  "moons": [],
+  "climate": { "en": ["Frigid"], "tr": ["Dondurucu"] },
+  "terrain": { "en": ["Crystallized glaciers", "Ice plains", "Mountains", "Forests"], "tr": ["Kristalleşmiş buzullar", "Buz ovaları", "Dağlar", "Ormanlar"] },
+  "affiliationsByEra": { "clone-wars": "jedi", "empire": "empire", "new-republic": "first-order" },
+  "appearances": ["tfa", "tcw", "jedi-fallen-order"],
+  "characters": ["kylo-ren", "rey", "finn", "han-solo"],
+  "poi": [
+    { "id": "jedi-crucible", "names": { "en": "Jedi Temple of Ilum", "tr": "Ilum Jedi Tapınağı" }, "lat": 30, "lon": 10,
+      "blurb": { "en": "Gateway to the crystal caves of the Gathering — 'the ice speaks to you.'", "tr": "Toplanma'nın kristal mağaralarına açılan kapı — 'buz seninle konuşur.'" } },
+    { "id": "thermal-oscillator", "names": { "en": "Thermal Oscillator", "tr": "Termal Osilatör" }, "lat": -5, "lon": -20,
+      "blurb": { "en": "The containment heart of Starkiller — and its fatal weakness.", "tr": "Starkiller'ın muhafaza kalbi — ve ölümcül zayıflığı." } },
+    { "id": "weapon-trench", "names": { "en": "Equatorial Weapon Trench", "tr": "Ekvator Silah Hendeği" }, "lat": 0, "lon": 40,
+      "blurb": { "en": "A machined canyon that swallowed a star's fire before firing it back.", "tr": "Bir yıldızın ateşini yutup geri püskürten makine yapımı kanyon." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Starkiller's beam split across hyperspace to erase the entire Hosnian system in one shot.",
+      "The Empire strip-mined Ilum's kyber for the Death Star project first — the First Order merely finished the desecration.",
+      "Han Solo died here in 34 ABY, on the bridge over the oscillator abyss."
+    ],
+    "tr": [
+      "Starkiller'ın ışını hiperuzayda bölünerek tüm Hosnian sistemini tek atışta sildi.",
+      "Ilum'un kyber'ini önce İmparatorluk Ölüm Yıldızı projesi için söktü — First Order yağmayı yalnızca tamamladı.",
+      "Han Solo 34 ABY'de burada, osilatör uçurumunun üzerindeki köprüde öldü."
+    ]
+  },
+  "destruction": {
+    "year": 34,
+    "yearLabel": "34 ABY",
+    "by": { "en": "Resistance assault; the planet collapsed into a star", "tr": "Direniş saldırısı; gezegen bir yıldıza çöktü" },
+    "destroyedFromEra": "new-republic",
+    "resultState": "gone"
+  },
+  "renderRecipe": {
+    "archetype": "ice",
+    "palette": { "primary": "#DCEBFA", "secondary": "#7FA8D0" },
+    "atmosphere": { "color": "#CFE6FF", "density": 0.7 },
+    "textures": { "albedo": "planets/ilum/albedo" },
+    "effects": ["kyber-glint"],
+    "variantsByEra": {
+      "new-republic": { "albedo": "planets/ilum/starkiller-variant", "effects": ["weapon-charge"] }
+    }
+  }
+}

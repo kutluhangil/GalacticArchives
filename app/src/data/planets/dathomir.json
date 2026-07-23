@@ -1,0 +1,54 @@
+{
+  "id": "dathomir",
+  "kind": "planet",
+  "names": { "en": "Dathomir", "tr": "Dathomir" },
+  "desc": {
+    "en": "The blood-lit world of the Nightsisters, where magick is real and the mists whisper. Birthplace of Maul; graveyard of his coven, massacred by General Grievous at Dooku's command.",
+    "tr": "Cadılığın gerçek, sislerin fısıltılı olduğu, kan kızılı ışıklı Nightsister dünyası. Maul'un doğum yeri; Dooku'nun emriyle General Grievous'un katlettiği meclisinin mezarlığı."
+  },
+  "region": "outer-rim",
+  "regionTags": ["New Territories"],
+  "sector": "Quelii sector",
+  "system": "Dathomir system",
+  "coordinates": "O-6",
+  "stats": {
+    "diameterKm": 10460,
+    "moonCount": 4,
+    "population": { "en": "Roughly 600 after the massacre", "tr": "Katliamdan sonra yaklaşık 600" },
+    "government": { "en": "Nightsister clans (tribal)", "tr": "Nightsister klanları (kabile)" }
+  },
+  "suns": [{ "name": "Domir", "color": "#FF8A5C" }],
+  "moons": [],
+  "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+  "terrain": { "en": ["Red forests", "Canyons", "Bogs", "Caves", "Ice caps"], "tr": ["Kızıl ormanlar", "Kanyonlar", "Bataklıklar", "Mağaralar", "Buz örtüleri"] },
+  "affiliationsByEra": { "clone-wars": "neutral", "empire": "neutral" },
+  "appearances": ["tcw", "rebels", "jedi-fallen-order"],
+  "characters": ["darth-maul", "ahsoka-tano", "sabine-wren"],
+  "poi": [
+    { "id": "nightsister-lair", "names": { "en": "Nightsister Fortress", "tr": "Nightsister Kalesi" }, "lat": 14, "lon": 20,
+      "blurb": { "en": "Mother Talzin's stronghold of green ichor and resurrection pools.", "tr": "Talzin Ana'nın yeşil öz ve diriliş havuzlarıyla dolu kalesi." } },
+    { "id": "nightbrother-village", "names": { "en": "Nightbrother Village", "tr": "Nightbrother Köyü" }, "lat": 10, "lon": 26,
+      "blurb": { "en": "Where Savage Opress was chosen — and unmade into a weapon.", "tr": "Savage Opress'in seçildiği — ve bir silaha dönüştürüldüğü yer." } },
+    { "id": "chill-caves", "names": { "en": "The Stranglecliffs", "tr": "Boğum Yarları" }, "lat": 8, "lon": 16,
+      "blurb": { "en": "Cliff paths above the mists, stalked by rancors and worse.", "tr": "Sislerin üzerinde, rancorların ve beterlerinin kol gezdiği yar patikaları." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Nightsister magick animates the dead — Grievous learned this mid-battle.",
+      "Ahsoka (2023) revealed the Nightsisters' origin: they came from Peridea, the far galaxy.",
+      "Maul, Savage and Feral were all Nightbrothers of this soil."
+    ],
+    "tr": [
+      "Nightsister cadılığı ölüleri canlandırır — Grievous bunu muharebenin ortasında öğrendi.",
+      "Ahsoka (2023), Nightsisterların kökenini açıkladı: uzak galaksi Peridea'dan geldiler.",
+      "Maul, Savage ve Feral, hepsi bu toprağın Nightbrother'larıydı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "crystal-red",
+    "palette": { "primary": "#7E2E28", "secondary": "#3E1A18" },
+    "atmosphere": { "color": "#C8503C", "density": 0.85 },
+    "textures": { "albedo": "planets/dathomir/albedo" },
+    "effects": ["red-mist"]
+  }
+}

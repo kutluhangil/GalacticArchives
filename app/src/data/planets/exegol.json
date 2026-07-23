@@ -1,0 +1,50 @@
+{
+  "id": "exegol",
+  "kind": "planet",
+  "names": { "en": "Exegol", "tr": "Exegol" },
+  "desc": {
+    "en": "The hidden Sith world of the Unknown Regions, wrapped in perpetual dry lightning. Beneath its cracked plain the Sith Eternal rebuilt Palpatine — and a fleet meant to end all freedom.",
+    "tr": "Bilinmeyen Bölgeler'in gizli Sith dünyası; sürekli kuru şimşeklerle sarılı. Çatlamış ovasının altında Sith Eternal, Palpatine'i — ve tüm özgürlüğü bitirecek bir filoyu — yeniden inşa etti."
+  },
+  "region": "unknown-regions",
+  "system": "Exegol system",
+  "coordinates": "F-7",
+  "stats": {
+    "diameterKm": 13649,
+    "moonCount": 0,
+    "population": { "en": "Sith Eternal cultists and their shipyards", "tr": "Sith Eternal tarikatçıları ve tersaneleri" },
+    "government": { "en": "Sith Eternal", "tr": "Sith Eternal" }
+  },
+  "suns": [{ "name": "Exegol", "color": "#CFC8E8" }],
+  "moons": [],
+  "climate": { "en": ["Dry", "Ceaseless storms"], "tr": ["Kuru", "Dinmeyen fırtınalar"] },
+  "terrain": { "en": ["Cracked desert plain", "Rock"], "tr": ["Çatlamış çöl ovası", "Kaya"] },
+  "affiliationsByEra": { "new-republic": "sith" },
+  "appearances": ["tros"],
+  "characters": ["palpatine", "rey", "kylo-ren"],
+  "poi": [
+    { "id": "sith-citadel", "names": { "en": "Sith Citadel", "tr": "Sith Hisarı" }, "lat": 8, "lon": 0,
+      "blurb": { "en": "A monolith over an abyss of cultists, clones and one waiting throne.", "tr": "Tarikatçılar, klonlar ve bekleyen tek bir tahtın uçurumu üzerinde bir monolit." } },
+    { "id": "fleet-yards", "names": { "en": "Final Order Shipyards", "tr": "Final Order Tersaneleri" }, "lat": 5, "lon": 6,
+      "blurb": { "en": "Thousands of Xyston Star Destroyers rose from this ground.", "tr": "Binlerce Xyston Yıldız Destroyeri bu zeminden yükseldi." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Only a Sith wayfinder — one of two — could chart the route through the Red Honeycomb Zone.",
+      "\"I have been every voice you have ever heard inside your head.\"",
+      "The Battle of Exegol (35 ABY) ended the Sith's thousand-year revenge."
+    ],
+    "tr": [
+      "Rotayı yalnızca iki Sith yolbulucusundan biri çizebilirdi.",
+      "\"Kafanın içinde duyduğun her ses bendim.\"",
+      "Exegol Muharebesi (35 ABY), Sith'in bin yıllık intikamını bitirdi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "dark-storm",
+    "palette": { "primary": "#3A3A44", "secondary": "#23232B" },
+    "atmosphere": { "color": "#8A84B8", "density": 0.85 },
+    "textures": { "albedo": "planets/exegol/albedo" },
+    "effects": ["lightning", "storm-cap"]
+  }
+}

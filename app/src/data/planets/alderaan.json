@@ -1,0 +1,57 @@
+{
+  "id": "alderaan",
+  "kind": "planet",
+  "names": { "en": "Alderaan", "tr": "Alderaan" },
+  "desc": {
+    "en": "A peaceful, weaponless Core World of mountains and meadows, adoptive home of Leia Organa. In 0 BBY the Death Star erased it in a single shot — leaving only a graveyard of stone.",
+    "tr": "Dağları ve çayırlarıyla barışçıl, silahsız bir Çekirdek Dünyası; Leia Organa'nın evi. 0 BBY'de Ölüm Yıldızı onu tek atışta sildi — geriye yalnızca taştan bir mezarlık kaldı."
+  },
+  "region": "core-worlds",
+  "sector": "Alderaan sector",
+  "system": "Alderaan system",
+  "coordinates": "M-10",
+  "stats": {
+    "diameterKm": 12500,
+    "moonCount": 0,
+    "population": { "en": "2 billion (95% Human) — before its destruction", "tr": "2 milyar (%95 İnsan) — yok edilmeden önce" },
+    "government": { "en": "Constitutional monarchy (House of Organa)", "tr": "Anayasal monarşi (Organa Hanedanı)" }
+  },
+  "suns": [{ "name": "Alderaan's sun", "color": "#FFF2D5" }],
+  "moons": [],
+  "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+  "terrain": { "en": ["Mountains", "Plains", "Forests"], "tr": ["Dağlar", "Ovalar", "Ormanlar"] },
+  "affiliationsByEra": { "clone-wars": "republic", "empire": "rebel" },
+  "appearances": ["rots", "anh", "kenobi"],
+  "characters": ["leia-organa", "obi-wan-kenobi"],
+  "poi": [
+    { "id": "aldera", "names": { "en": "Aldera", "tr": "Aldera" }, "lat": 22, "lon": -8,
+      "blurb": { "en": "The lakeside capital and royal palace where Leia was raised.", "tr": "Leia'nın büyüdüğü göl kıyısındaki başkent ve kraliyet sarayı." } },
+    { "id": "castle-lands", "names": { "en": "Castle Lands", "tr": "Kale Diyarı" }, "lat": 35, "lon": 14,
+      "blurb": { "en": "Ancient Killik mound-castles standing silent in the mist.", "tr": "Siste sessizce duran kadim Killik höyük-kaleleri." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Alderaan famously kept no weapons — a fact Grand Moff Tarkin exploited without mercy.",
+      "Its destruction created the asteroid field smugglers call 'the Graveyard'.",
+      "Survivors offworld became a diaspora; Leia carried the crown in exile."
+    ],
+    "tr": [
+      "Alderaan silah bulundurmamasıyla ünlüydü — Grand Moff Tarkin bunu acımasızca kullandı.",
+      "Yıkımı, kaçakçıların 'Mezarlık' dediği asteroit alanını yarattı.",
+      "Gezegen dışındaki hayatta kalanlar bir diasporaya dönüştü; Leia tacı sürgünde taşıdı."
+    ]
+  },
+  "destruction": {
+    "year": 0,
+    "yearLabel": "0 BBY",
+    "by": { "en": "Death Star superlaser, on Tarkin's order", "tr": "Tarkin'in emriyle Ölüm Yıldızı süperlazeri" },
+    "destroyedFromEra": "empire",
+    "resultState": "asteroid-field"
+  },
+  "renderRecipe": {
+    "archetype": "verdant",
+    "palette": { "primary": "#6E9E6A", "secondary": "#B9CFE0" },
+    "atmosphere": { "color": "#BFD8EE", "density": 0.8 },
+    "textures": { "albedo": "planets/alderaan/albedo", "clouds": "temperate" }
+  }
+}

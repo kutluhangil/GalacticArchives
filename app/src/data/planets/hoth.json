@@ -1,0 +1,53 @@
+{
+  "id": "hoth",
+  "kind": "planet",
+  "names": { "en": "Hoth", "tr": "Hoth" },
+  "desc": {
+    "en": "The sixth planet of a remote Outer Rim system: a world of ice plains, wampas and tauntauns. Echo Base sheltered the Rebellion here — until Imperial walkers came over the ridge.",
+    "tr": "Ücra bir Dış Halka sisteminin altıncı gezegeni: buz ovalarının, wampaların ve tauntaunların dünyası. Echo Base burada İsyan'ı barındırdı — ta ki İmparatorluk yürüyücüleri sırtı aşana dek."
+  },
+  "region": "outer-rim",
+  "sector": "Anoat sector",
+  "system": "Hoth system",
+  "coordinates": "K-18",
+  "stats": {
+    "diameterKm": 7200,
+    "moonCount": 3,
+    "population": { "en": "Fewer than 10 (during the Rebel occupation)", "tr": "10'dan az (İsyancı üssü döneminde)" },
+    "government": { "en": "None", "tr": "Yok" }
+  },
+  "suns": [{ "name": "Hoth", "color": "#DDEBFF" }],
+  "moons": [],
+  "climate": { "en": ["Frigid"], "tr": ["Dondurucu"] },
+  "terrain": { "en": ["Frozen ice plains", "Glaciers", "Mountains"], "tr": ["Donmuş buz ovaları", "Buzullar", "Dağlar"] },
+  "affiliationsByEra": { "empire": "rebel" },
+  "appearances": ["esb", "mando-grogu"],
+  "characters": ["luke-skywalker", "han-solo", "leia-organa", "din-djarin", "grogu"],
+  "poi": [
+    { "id": "echo-base", "names": { "en": "Echo Base", "tr": "Echo Üssü" }, "lat": 38, "lon": -12,
+      "blurb": { "en": "The Rebellion's hidden ice fortress, evacuated under AT-AT fire in 3 ABY.", "tr": "İsyan'ın gizli buz kalesi; 3 ABY'de AT-AT ateşi altında boşaltıldı." } },
+    { "id": "north-ridge", "names": { "en": "AT-AT Battlefield", "tr": "AT-AT Savaş Alanı" }, "lat": 42, "lon": -6,
+      "blurb": { "en": "Where snowspeeders learned that tow cables beat armor.", "tr": "Kar motorlarının çekme halatının zırhı yendiğini öğrendiği yer." } },
+    { "id": "wampa-caves", "names": { "en": "Wampa Caves", "tr": "Wampa Mağaraları" }, "lat": 45, "lon": -20,
+      "blurb": { "en": "Luke hung here, upside down, about one arm's reach from his lightsaber.", "tr": "Luke burada baş aşağı, ışın kılıcına bir kol boyu mesafede asılı kaldı." } }
+  ],
+  "funFacts": {
+    "en": [
+      "The Mandalorian and Grogu (2026) opens with an AT-AT hunt on Hoth, decades after the battle.",
+      "A dense asteroid field near the system swallowed the Millennium Falcon — and hid it.",
+      "Nights drop so cold that tauntauns die of exposure — and make emergency sleeping bags."
+    ],
+    "tr": [
+      "The Mandalorian and Grogu (2026), savaştan onyıllar sonra Hoth'ta bir AT-AT aksiyonuyla açılır.",
+      "Sisteme yakın yoğun bir asteroit alanı Milenyum Şahini'ni yuttu — ve sakladı.",
+      "Geceler o kadar soğur ki tauntaunlar donarak ölür — ve acil durum uyku tulumu olur."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ice",
+    "palette": { "primary": "#DCE9F5", "secondary": "#9FC0DE" },
+    "atmosphere": { "color": "#CFE4FF", "density": 0.65 },
+    "textures": { "albedo": "planets/hoth/albedo" },
+    "effects": ["aurora"]
+  }
+}

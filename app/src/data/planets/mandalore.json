@@ -1,0 +1,87 @@
+{
+  "id": "mandalore",
+  "kind": "planet",
+  "names": { "en": "Mandalore", "tr": "Mandalore" },
+  "desc": {
+    "en": "Cradle of the warrior creed. Ancient wars glassed its surface into white crystalline deserts, forcing its people into domed cities like Sundari. Purged by the Empire, reclaimed in 9 ABY — this is the Way.",
+    "tr": "Savaşçı inancının beşiği. Kadim savaşlar yüzeyini camlaştırıp beyaz kristal çöllere çevirdi, halkını Sundari gibi kubbeli şehirlere sürdü. İmparatorluk'ça temizlendi, 9 ABY'de geri alındı — Yol budur."
+  },
+  "region": "outer-rim",
+  "regionTags": ["New Territories"],
+  "sector": "Mandalore sector",
+  "system": "Mandalore system",
+  "coordinates": "O-7",
+  "stats": {
+    "diameterKm": 9200,
+    "moonCount": 2,
+    "population": { "en": "4 million before the Purge; scattered survivors after", "tr": "Temizlik'ten önce 4 milyon; sonrasında dağınık hayatta kalanlar" },
+    "government": { "en": "Clans under the Mand'alor", "tr": "Mand'alor'a bağlı klanlar" }
+  },
+  "suns": [{ "name": "Mandalore", "color": "#FFF0D0" }],
+  "moons": ["Concordia", "Mesumika"],
+  "climate": { "en": ["Hot and dry (pre-Purge)", "Storm-scoured (post-Purge)"], "tr": ["Sıcak ve kuru (Temizlik öncesi)", "Fırtına süpürmüş (Temizlik sonrası)"] },
+  "terrain": { "en": ["Glassed deserts", "Beskar mines", "Domed cities", "Historic forests"], "tr": ["Camlaşmış çöller", "Beskar madenleri", "Kubbeli şehirler", "Tarihî ormanlar"] },
+  "affiliationsByEra": { "clone-wars": "mandalorian", "empire": "empire", "new-republic": "mandalorian" },
+  "appearances": ["tcw", "rebels", "mandalorian"],
+  "characters": ["bo-katan", "sabine-wren", "din-djarin", "darth-maul", "boba-fett"],
+  "poi": [
+    { "id": "sundari", "names": { "en": "Sundari", "tr": "Sundari" }, "lat": 8, "lon": 15,
+      "blurb": { "en": "The great bio-dome capital: Satine's pacifist court, Maul's throne, the Night of a Thousand Tears.", "tr": "Büyük biyo-kubbe başkent: Satine'in pasifist sarayı, Maul'un tahtı, Bin Gözyaşı Gecesi." } },
+    { "id": "living-waters", "names": { "en": "The Living Waters", "tr": "Yaşayan Sular" }, "lat": 4, "lon": 18,
+      "blurb": { "en": "Sacred mines beneath the Civic Center — where Din Djarin bathed, and a mythosaur opened one eye.", "tr": "Şehir merkezinin altındaki kutsal madenler — Din Djarin'in yıkandığı ve bir mythosaur'un tek gözünü açtığı yer." } },
+    { "id": "great-forge", "names": { "en": "The Great Forge", "tr": "Büyük Demirhane" }, "lat": 6, "lon": 16,
+      "blurb": { "en": "Heart of beskar-craft, relit when the clans retook the surface.", "tr": "Beskar işçiliğinin kalbi; klanlar yüzeyi geri aldığında yeniden yakıldı." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Beskar, the only metal that shrugs off lightsabers, is mined nowhere else.",
+      "The Darksaber — one blade to rule all clans — was forged by Tarre Vizsla, the first Mandalorian Jedi.",
+      "The Empire's Night of a Thousand Tears bombed Mandalore into near-extinction."
+    ],
+    "tr": [
+      "Işın kılıcını umursamayan tek metal olan beskar, başka hiçbir yerde çıkarılmaz.",
+      "Darksaber — tüm klanlara hükmeden tek kılıç — ilk Mandalorlu Jedi Tarre Vizsla tarafından dövüldü.",
+      "İmparatorluğun Bin Gözyaşı Gecesi, Mandalore'u neredeyse tükenişe bombaladı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "crystal-red",
+    "palette": { "primary": "#D8D4C8", "secondary": "#8E9498" },
+    "atmosphere": { "color": "#D8E0DC", "density": 0.6 },
+    "textures": { "albedo": "planets/mandalore/albedo" },
+    "effects": ["glass-iridescence", "dome-cities"]
+  },
+  "moonsDetail": [
+    {
+      "id": "concordia",
+      "kind": "moon",
+      "names": { "en": "Concordia", "tr": "Concordia" },
+      "desc": {
+        "en": "Mandalore's forested mining moon, once an exile colony for warriors. Under Governor Pre Vizsla it secretly hosted the Death Watch.",
+        "tr": "Mandalore'un ormanlık maden ayı; bir zamanlar savaşçılar için sürgün kolonisi. Vali Pre Vizsla döneminde Death Watch'u gizlice barındırdı."
+      },
+      "region": "outer-rim",
+      "sector": "Mandalore sector",
+      "system": "Mandalore system",
+      "coordinates": "O-7",
+      "stats": {
+        "population": { "en": "412,000", "tr": "412.000" },
+        "government": { "en": "Governorship", "tr": "Valilik" }
+      },
+      "climate": { "en": ["Temperate"], "tr": ["Ilıman"] },
+      "terrain": { "en": ["Forests", "Mountains", "Mines"], "tr": ["Ormanlar", "Dağlar", "Madenler"] },
+      "appearances": ["tcw"],
+      "characters": ["obi-wan-kenobi", "bo-katan"],
+      "funFacts": {
+        "en": ["Din Djarin was raised in a Children of the Watch covert tied to this moon's creed."],
+        "tr": ["Din Djarin, bu ayın inancına bağlı Children of the Watch yeraltı topluluğunda yetiştirildi."]
+      },
+      "renderRecipe": {
+        "archetype": "verdant",
+        "palette": { "primary": "#55704E", "secondary": "#3A4E38" },
+        "atmosphere": { "color": "#C0D4BC", "density": 0.6 },
+        "textures": { "albedo": "planets/concordia/albedo", "clouds": "temperate" }
+      }
+    }
+  ]
+}

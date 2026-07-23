@@ -1,0 +1,552 @@
+[
+  {
+    "id": "luke-skywalker",
+    "names": { "en": "Luke Skywalker", "tr": "Luke Skywalker" },
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldId": "tatooine",
+    "birth": "19 BBY, Polis Massa",
+    "death": "34 ABY, Ahch-To",
+    "affiliationsByEra": { "empire": "rebel", "new-republic": "jedi" },
+    "bio": {
+      "en": "Farm boy, X-wing pilot, last Jedi of his age. He redeemed his father when the whole galaxy had given up on Anakin Skywalker, rebuilt the Jedi, failed, and in his final hour taught the galaxy that legends never really die.",
+      "tr": "Çiftlik çocuğu, X-wing pilotu, çağının son Jedi'ı. Bütün galaksi Anakin Skywalker'dan umudu kesmişken babasını kurtardı; Jedi'ları yeniden kurdu, başarısız oldu ve son saatinde galaksiye efsanelerin asla gerçekten ölmediğini öğretti."
+    },
+    "quote": { "text": { "en": "I am a Jedi, like my father before me.", "tr": "Ben bir Jedi'ım; tıpkı benden önce babam gibi." } },
+    "appearances": ["anh", "esb", "rotj", "tfa", "tlj", "tros", "mandalorian", "bobf"],
+    "relatedCharacters": ["leia-organa", "anakin-skywalker", "han-solo", "yoda", "obi-wan-kenobi", "grogu"],
+    "portrait": "holo/luke-skywalker"
+  },
+  {
+    "id": "leia-organa",
+    "names": { "en": "Leia Organa", "tr": "Leia Organa" },
+    "aka": ["Leia Skywalker Organa Solo"],
+    "species": { "en": "Human (Alderaanian)", "tr": "İnsan (Alderaanlı)" },
+    "homeworldId": "alderaan",
+    "birth": "19 BBY, Polis Massa",
+    "death": "35 ABY, Ajan Kloss",
+    "affiliationsByEra": { "empire": "rebel", "new-republic": "resistance" },
+    "bio": {
+      "en": "Princess of a murdered planet, senator, spymaster, general — and a Jedi who set aside the blade. She watched Alderaan die and answered with forty years of war against tyranny in every uniform it wore.",
+      "tr": "Öldürülmüş bir gezegenin prensesi, senatör, istihbarat ustası, general — ve kılıcı kenara koymuş bir Jedi. Alderaan'ın ölümünü izledi ve cevabını, zorbalığın giydiği her üniformaya karşı kırk yıllık savaşla verdi."
+    },
+    "quote": { "text": { "en": "Help me, Obi-Wan Kenobi. You're my only hope.", "tr": "Yardım et bana, Obi-Wan Kenobi. Tek umudum sensin." } },
+    "appearances": ["rots", "kenobi", "rogue-one", "anh", "esb", "rotj", "tfa", "tlj", "tros"],
+    "relatedCharacters": ["luke-skywalker", "han-solo", "kylo-ren", "anakin-skywalker", "mon-mothma"],
+    "portrait": "holo/leia-organa"
+  },
+  {
+    "id": "han-solo",
+    "names": { "en": "Han Solo", "tr": "Han Solo" },
+    "species": { "en": "Human (Corellian)", "tr": "İnsan (Corellialı)" },
+    "homeworldId": "corellia",
+    "birth": "32 BBY, Corellia",
+    "death": "34 ABY, Starkiller Base",
+    "affiliationsByEra": { "empire": "rebel", "new-republic": "neutral" },
+    "bio": {
+      "en": "Corellian street kid turned smuggler turned reluctant hero of the Rebellion. Captain of the Millennium Falcon, record-holder of the Kessel Run, husband of Leia, father of Ben — and he shot first.",
+      "tr": "Corellia sokak çocuğundan kaçakçıya, oradan İsyan'ın gönülsüz kahramanına. Milenyum Şahini'nin kaptanı, Kessel Koşusu'nun rekortmeni, Leia'nın eşi, Ben'in babası — ve önce o ateş etti."
+    },
+    "quote": { "text": { "en": "Never tell me the odds.", "tr": "Bana asla ihtimalleri söyleme." } },
+    "appearances": ["solo", "anh", "esb", "rotj", "tfa", "tros"],
+    "relatedCharacters": ["chewbacca", "leia-organa", "lando-calrissian", "kylo-ren", "luke-skywalker"],
+    "portrait": "holo/han-solo"
+  },
+  {
+    "id": "chewbacca",
+    "names": { "en": "Chewbacca", "tr": "Chewbacca" },
+    "species": { "en": "Wookiee", "tr": "Wookiee" },
+    "homeworldId": "kashyyyk",
+    "birth": "200 BBY, Kashyyyk",
+    "affiliationsByEra": { "clone-wars": "republic", "empire": "rebel", "new-republic": "resistance" },
+    "bio": {
+      "en": "Two-hundred-year-old Wookiee warrior, co-pilot of the Falcon, walking carpet, loyal to a fault. He fought beside Yoda at Kashyyyk and beside Rey at Exegol — the entire saga fits inside one Wookiee lifetime.",
+      "tr": "İki yüz yaşında Wookiee savaşçısı, Şahin'in yardımcı pilotu, yürüyen halı, sadakati kusur seviyesinde. Kashyyyk'te Yoda'nın, Exegol'de Rey'in yanında savaştı — bütün destan tek bir Wookiee ömrüne sığar."
+    },
+    "appearances": ["rots", "solo", "anh", "esb", "rotj", "tfa", "tlj", "tros"],
+    "relatedCharacters": ["han-solo", "yoda", "rey"],
+    "portrait": "holo/chewbacca"
+  },
+  {
+    "id": "anakin-skywalker",
+    "names": { "en": "Anakin Skywalker", "tr": "Anakin Skywalker" },
+    "aka": ["Darth Vader"],
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldId": "tatooine",
+    "birth": "41 BBY, Tatooine (disputed)",
+    "death": "4 ABY, Death Star II",
+    "affiliationsByEra": { "clone-wars": "jedi", "empire": "sith" },
+    "bio": {
+      "en": "The Chosen One: slave, podracer, war hero, then the black-armored fist of the Empire. Twenty-three years after burning on Mustafar, his son's stubborn love pulled him back — and he destroyed the Sith as prophesied, one throw too late for everyone else.",
+      "tr": "Seçilmiş Kişi: köle, podyarışçısı, savaş kahramanı, sonra İmparatorluğun kara zırhlı yumruğu. Mustafar'da yanışından yirmi üç yıl sonra oğlunun inatçı sevgisi onu geri çekti — ve kehanetteki gibi Sith'i yok etti; herkes için bir fırlatma kadar geç."
+    },
+    "quote": { "text": { "en": "No. I am your father.", "tr": "Hayır. Ben senin babanım." } },
+    "appearances": ["tpm", "aotc", "rots", "tcw", "rebels", "rogue-one", "anh", "esb", "rotj", "kenobi", "ahsoka"],
+    "relatedCharacters": ["obi-wan-kenobi", "padme-amidala", "luke-skywalker", "leia-organa", "ahsoka-tano", "palpatine"],
+    "portrait": "holo/darth-vader"
+  },
+  {
+    "id": "obi-wan-kenobi",
+    "names": { "en": "Obi-Wan Kenobi", "tr": "Obi-Wan Kenobi" },
+    "aka": ["Ben Kenobi"],
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldName": { "en": "Stewjon", "tr": "Stewjon" },
+    "birth": "57 BBY, Stewjon",
+    "death": "1 BBY, Death Star",
+    "affiliationsByEra": { "clone-wars": "jedi", "empire": "jedi" },
+    "bio": {
+      "en": "Jedi Master, general, master of Soresu and of the high ground. He trained the man who broke the galaxy and the boy who mended it, then guarded that boy from a desert hermitage for nineteen years. Struck down, he became more powerful than anyone could imagine.",
+      "tr": "Jedi Ustası, general, Soresu'nun ve yüksek zeminin efendisi. Galaksiyi kıran adamı da onaran çocuğu da o eğitti; sonra o çocuğu on dokuz yıl bir çöl inzivasından korudu. Devrildiğinde, kimsenin hayal edemeyeceği kadar güçlendi."
+    },
+    "quote": { "text": { "en": "Hello there.", "tr": "Hello there." } },
+    "appearances": ["tpm", "aotc", "rots", "tcw", "kenobi", "anh", "esb", "rotj", "rebels"],
+    "relatedCharacters": ["anakin-skywalker", "qui-gon-jinn", "luke-skywalker", "yoda", "darth-maul"],
+    "portrait": "holo/obi-wan-kenobi"
+  },
+  {
+    "id": "yoda",
+    "names": { "en": "Yoda", "tr": "Yoda" },
+    "species": { "en": "Unknown (Yoda's species)", "tr": "Bilinmiyor (Yoda'nın türü)" },
+    "homeworldName": { "en": "Unknown", "tr": "Bilinmiyor" },
+    "birth": "896 BBY",
+    "death": "4 ABY, Dagobah",
+    "affiliationsByEra": { "clone-wars": "jedi", "empire": "jedi" },
+    "bio": {
+      "en": "Grand Master of the Jedi Order for centuries, teacher of eight hundred years of students, nine hundred when he died in a swamp he chose over every temple. Size mattered not; his failures did, and he owned them with more grace than the Order he outlived.",
+      "tr": "Yüzyıllar boyunca Jedi Düzeni'nin Büyük Ustası, sekiz yüz yıllık öğrencilerin öğretmeni; her tapınağa yeğ tuttuğu bir bataklıkta öldüğünde dokuz yüz yaşındaydı. Boyut önemli değildi; hataları önemliydi ve onları, ardında bıraktığı Düzen'den daha zarifçe üstlendi."
+    },
+    "quote": { "text": { "en": "Do. Or do not. There is no try.", "tr": "Yap. Ya da yapma. Denemek yok." } },
+    "appearances": ["tpm", "aotc", "rots", "tcw", "esb", "rotj", "tlj"],
+    "relatedCharacters": ["luke-skywalker", "obi-wan-kenobi", "count-dooku", "grogu"],
+    "portrait": "holo/yoda"
+  },
+  {
+    "id": "palpatine",
+    "names": { "en": "Sheev Palpatine", "tr": "Sheev Palpatine" },
+    "aka": ["Darth Sidious", "The Emperor"],
+    "species": { "en": "Human (Naboo)", "tr": "İnsan (Naboolu)" },
+    "homeworldId": "naboo",
+    "birth": "84 BBY, Naboo",
+    "death": "4 ABY, Death Star II — finally 35 ABY, Exegol",
+    "affiliationsByEra": { "clone-wars": "sith", "empire": "sith", "new-republic": "sith" },
+    "bio": {
+      "en": "Senator, Chancellor, Emperor, corpse, and then Emperor again: the Sith Lord who engineered a galactic war from both sides, dissolved democracy to thunderous applause, and refused to stay dead until his own granddaughter ended the line on Exegol.",
+      "tr": "Senatör, Şansölye, İmparator, ceset ve sonra yeniden İmparator: galaktik savaşı iki taraftan da kurgulayan, demokrasiyi gümbür gümbür alkışlar arasında fesheden ve torunu Exegol'de soyu bitirene dek ölü kalmayı reddeden Sith Lordu."
+    },
+    "quote": { "text": { "en": "I am the Senate.", "tr": "Senato benim." } },
+    "appearances": ["tpm", "aotc", "rots", "tcw", "rebels", "esb", "rotj", "tros", "bad-batch"],
+    "relatedCharacters": ["anakin-skywalker", "darth-maul", "count-dooku", "rey"],
+    "portrait": "holo/palpatine"
+  },
+  {
+    "id": "padme-amidala",
+    "names": { "en": "Padmé Amidala", "tr": "Padmé Amidala" },
+    "species": { "en": "Human (Naboo)", "tr": "İnsan (Naboolu)" },
+    "homeworldId": "naboo",
+    "birth": "46 BBY, Naboo",
+    "death": "19 BBY, Polis Massa",
+    "affiliationsByEra": { "clone-wars": "republic" },
+    "bio": {
+      "en": "Queen of Naboo at fourteen, senator through a galactic war, secret wife of a Jedi. She fought for a Republic rotting from within, and her last breath insisted there was still good in the man who had just broken the galaxy — she was right.",
+      "tr": "On dördünde Naboo Kraliçesi, bir galaktik savaş boyunca senatör, bir Jedi'ın gizli eşi. İçten çürüyen bir Cumhuriyet için savaştı ve son nefesi, galaksiyi az önce kırmış adamda hâlâ iyilik olduğunda ısrar etti — haklıydı."
+    },
+    "quote": { "text": { "en": "So this is how liberty dies... with thunderous applause.", "tr": "Demek özgürlük böyle ölüyor... gümbür gümbür alkışlarla." } },
+    "appearances": ["tpm", "aotc", "rots", "tcw"],
+    "relatedCharacters": ["anakin-skywalker", "leia-organa", "luke-skywalker", "palpatine"],
+    "portrait": "holo/padme-amidala"
+  },
+  {
+    "id": "qui-gon-jinn",
+    "names": { "en": "Qui-Gon Jinn", "tr": "Qui-Gon Jinn" },
+    "species": { "en": "Human (Coruscanti)", "tr": "İnsan (Coruscantlı)" },
+    "homeworldId": "coruscant",
+    "birth": "c. 80 BBY, Coruscant",
+    "death": "32 BBY, Naboo",
+    "affiliationsByEra": { "clone-wars": "jedi" },
+    "bio": {
+      "en": "Maverick Jedi Master who followed the living Force over the Council's rules. He found the Chosen One in a Tatooine junk shop, died insisting the boy be trained — and became the first Jedi in ages to learn how not to die at all.",
+      "tr": "Konsey kurallarından çok yaşayan Güç'ü izleyen aykırı Jedi Ustası. Seçilmiş Kişi'yi bir Tatooine hurda dükkânında buldu, çocuğun eğitilmesinde ısrar ederek öldü — ve çağlardır ilk kez hiç ölmemenin yolunu öğrenen Jedi oldu."
+    },
+    "appearances": ["tpm", "kenobi"],
+    "relatedCharacters": ["obi-wan-kenobi", "anakin-skywalker", "count-dooku", "darth-maul"],
+    "portrait": "holo/qui-gon-jinn"
+  },
+  {
+    "id": "darth-maul",
+    "names": { "en": "Maul", "tr": "Maul" },
+    "aka": ["Darth Maul"],
+    "species": { "en": "Zabrak (Dathomirian)", "tr": "Zabrak (Dathomirli)" },
+    "homeworldId": "dathomir",
+    "birth": "54 BBY, Dathomir",
+    "death": "2 BBY, Tatooine",
+    "affiliationsByEra": { "clone-wars": "sith", "empire": "neutral" },
+    "bio": {
+      "en": "Sidious's discarded blade: bisected on Naboo, resurrected by hate, twice a crime lord — running Mandalore in the Clone Wars and the Janix underworld in Maul: Shadow Lord (2026). He died in the desert asking Kenobi one question, and the answer let him rest.",
+      "tr": "Sidious'un ıskartaya çıkarılmış kılıcı: Naboo'da ikiye bölündü, nefretle dirildi, iki kez suç lordu oldu — Klon Savaşları'nda Mandalore'u, Maul: Shadow Lord'da (2026) Janix yeraltını yönetti. Çölde Kenobi'ye tek bir soru sorarak öldü ve cevap onu huzura kavuşturdu."
+    },
+    "quote": { "text": { "en": "He will avenge us.", "tr": "O, intikamımızı alacak." } },
+    "appearances": ["tpm", "tcw", "rebels", "solo", "maul-shadow-lord"],
+    "relatedCharacters": ["obi-wan-kenobi", "palpatine", "ahsoka-tano", "bo-katan"],
+    "portrait": "holo/darth-maul"
+  },
+  {
+    "id": "count-dooku",
+    "names": { "en": "Count Dooku", "tr": "Kont Dooku" },
+    "aka": ["Darth Tyranus"],
+    "species": { "en": "Human (Serennian)", "tr": "İnsan (Serennolu)" },
+    "homeworldName": { "en": "Serenno", "tr": "Serenno" },
+    "birth": "102 BBY, Serenno",
+    "death": "19 BBY, aboard the Invisible Hand",
+    "affiliationsByEra": { "clone-wars": "separatist" },
+    "bio": {
+      "en": "Yoda's student, Qui-Gon's master, count of Serenno: an idealist who saw the Republic's rot clearly and chose the worst possible surgeon. He led the Separatists as Darth Tyranus until his own replacement was ordered to take a seat — and his head.",
+      "tr": "Yoda'nın öğrencisi, Qui-Gon'un ustası, Serenno kontu: Cumhuriyet'in çürüğünü net gören ama olabilecek en kötü cerrahı seçen bir idealist. Ayrılıkçıları Darth Tyranus olarak yönetti; ta ki kendi halefine oturması — ve kellesini alması — emredilene dek."
+    },
+    "appearances": ["aotc", "rots", "tcw", "bad-batch"],
+    "relatedCharacters": ["palpatine", "qui-gon-jinn", "yoda", "grievous", "anakin-skywalker"],
+    "portrait": "holo/count-dooku"
+  },
+  {
+    "id": "grievous",
+    "names": { "en": "General Grievous", "tr": "General Grievous" },
+    "species": { "en": "Kaleesh (cyborg)", "tr": "Kaleesh (siborg)" },
+    "homeworldName": { "en": "Kalee", "tr": "Kalee" },
+    "death": "19 BBY, Utapau",
+    "affiliationsByEra": { "clone-wars": "separatist" },
+    "bio": {
+      "en": "Supreme Commander of the Droid Army: a Kaleesh warlord rebuilt into a wheezing four-armed machine that collected Jedi lightsabers as trophies. Kenobi ended the collection at Pau City with five uncivilized blaster shots.",
+      "tr": "Droid Ordusu Yüksek Komutanı: hırıltılı, dört kollu bir makineye dönüştürülmüş, Jedi ışın kılıçlarını ganimet olarak biriktiren bir Kaleesh savaş lordu. Kenobi koleksiyonu Pau City'de beş 'medeniyetsiz' blaster atışıyla kapattı."
+    },
+    "quote": { "text": { "en": "General Kenobi. You are a bold one.", "tr": "General Kenobi. Cesurmuşsun." } },
+    "appearances": ["rots", "tcw"],
+    "relatedCharacters": ["obi-wan-kenobi", "count-dooku"],
+    "portrait": "holo/general-grievous"
+  },
+  {
+    "id": "ahsoka-tano",
+    "names": { "en": "Ahsoka Tano", "tr": "Ahsoka Tano" },
+    "species": { "en": "Togruta", "tr": "Togruta" },
+    "homeworldName": { "en": "Shili", "tr": "Shili" },
+    "birth": "36 BBY, Shili",
+    "affiliationsByEra": { "clone-wars": "jedi", "empire": "rebel", "new-republic": "jedi" },
+    "bio": {
+      "en": "Anakin's padawan, the Jedi who walked away. She survived Order 66, became the rebel agent 'Fulcrum', dueled her fallen master, and now hunts Thrawn's shadow across two galaxies. Once died on Mortis; the Daughter had other plans.",
+      "tr": "Anakin'in padawanı, çekip giden Jedi. Order 66'dan sağ çıktı, isyan ajanı 'Fulcrum' oldu, düşmüş ustasıyla düello etti ve şimdi Thrawn'un gölgesini iki galakside kovalıyor. Mortis'te bir kez öldü; Kız'ın başka planları vardı."
+    },
+    "quote": { "text": { "en": "I am no Jedi.", "tr": "Ben Jedi değilim." } },
+    "appearances": ["tcw", "rebels", "mandalorian", "bobf", "ahsoka"],
+    "relatedCharacters": ["anakin-skywalker", "captain-rex", "sabine-wren", "ezra-bridger", "thrawn"],
+    "portrait": "holo/ahsoka-tano"
+  },
+  {
+    "id": "captain-rex",
+    "names": { "en": "Captain Rex", "tr": "Kaptan Rex" },
+    "aka": ["CT-7567"],
+    "species": { "en": "Human (clone)", "tr": "İnsan (klon)" },
+    "homeworldId": "kamino",
+    "birth": "32 BBY, Kamino",
+    "affiliationsByEra": { "clone-wars": "republic", "empire": "rebel" },
+    "bio": {
+      "en": "Captain of the 501st, Anakin's right hand through a hundred battles. He cut out his inhibitor chip, refused Order 66, buried his brothers with their helmets on pikes, and was still fighting the Empire decades later at Endor.",
+      "tr": "501'incinin kaptanı, yüz muharebede Anakin'in sağ kolu. Denetim çipini söktürdü, Order 66'yı reddetti, kardeşlerini kaskları kazıklarda gömdü ve onyıllar sonra Endor'da hâlâ İmparatorluk'la savaşıyordu."
+    },
+    "quote": { "text": { "en": "In my book, experience outranks everything.", "tr": "Benim kitabımda tecrübe her rütbeden üstündür." } },
+    "appearances": ["tcw", "rebels", "bad-batch"],
+    "relatedCharacters": ["ahsoka-tano", "anakin-skywalker"],
+    "portrait": "holo/captain-rex"
+  },
+  {
+    "id": "thrawn",
+    "names": { "en": "Grand Admiral Thrawn", "tr": "Büyük Amiral Thrawn" },
+    "aka": ["Mitth'raw'nuruodo"],
+    "species": { "en": "Chiss", "tr": "Chiss" },
+    "homeworldName": { "en": "Rentor", "tr": "Rentor" },
+    "birth": "c. 59 BBY, Rentor",
+    "affiliationsByEra": { "empire": "empire", "new-republic": "empire" },
+    "bio": {
+      "en": "The Empire's only artist-strategist: a Chiss exile who reads a culture's paintings and then dismantles its fleets. Dragged to Peridea by purrgil in 1 BBY, he returned in 9 ABY as heir to the Empire — patient, polite, terrifying.",
+      "tr": "İmparatorluğun tek sanatçı-stratejisti: bir kültürün resimlerini okuyup filolarını söken Chiss sürgünü. 1 BBY'de purrgil'lerce Peridea'ya sürüklendi; 9 ABY'de İmparatorluğun vârisi olarak döndü — sabırlı, kibar, dehşet verici."
+    },
+    "quote": { "text": { "en": "To defeat an enemy, you must know them.", "tr": "Bir düşmanı yenmek için onu tanımalısın." } },
+    "appearances": ["rebels", "ahsoka"],
+    "relatedCharacters": ["ezra-bridger", "ahsoka-tano", "hera-syndulla"],
+    "portrait": "holo/thrawn"
+  },
+  {
+    "id": "ezra-bridger",
+    "names": { "en": "Ezra Bridger", "tr": "Ezra Bridger" },
+    "species": { "en": "Human (Lothalite)", "tr": "İnsan (Lothallı)" },
+    "homeworldId": "lothal",
+    "birth": "19 BBY (Empire Day), Lothal",
+    "affiliationsByEra": { "empire": "rebel", "new-republic": "jedi" },
+    "bio": {
+      "en": "Street orphan of Lothal, last padawan of the old age. He freed his world by calling star-whales down on Thrawn's fleet and vanished with it into another galaxy — found again, ten years later, smiling like it was all part of the plan.",
+      "tr": "Lothal'ın sokak yetimi, eski çağın son padawanı. Yıldız balinalarını Thrawn'un filosunun üzerine çağırarak dünyasını özgürleştirdi ve onunla birlikte başka bir galaksiye kayboldu — on yıl sonra, sanki her şey planın parçasıymış gibi gülümserken bulundu."
+    },
+    "appearances": ["rebels", "ahsoka"],
+    "relatedCharacters": ["kanan-jarrus", "hera-syndulla", "sabine-wren", "thrawn", "ahsoka-tano"],
+    "portrait": "holo/ezra-bridger"
+  },
+  {
+    "id": "kanan-jarrus",
+    "names": { "en": "Kanan Jarrus", "tr": "Kanan Jarrus" },
+    "aka": ["Caleb Dume"],
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldId": "coruscant",
+    "birth": "33 BBY, Coruscant",
+    "death": "1 BBY, Lothal",
+    "affiliationsByEra": { "empire": "rebel" },
+    "bio": {
+      "en": "Padawan survivor of Order 66 who hid as a gunslinger until a Twi'lek pilot and a Force-strong street kid gave him reasons to ignite the blade again. Blinded by Maul, he saw more clearly than ever — and held back the fire long enough to save his family.",
+      "tr": "Order 66'dan sağ çıkıp silahşor kimliğinde saklanan padawan; ta ki bir Twi'lek pilot ve Güç'e güçlü bir sokak çocuğu ona kılıcı yeniden yakma sebebi verene dek. Maul'un kör ettiği gözleri her zamankinden net gördü — ve ateşi, ailesini kurtaracak kadar uzun tuttu."
+    },
+    "appearances": ["rebels", "bad-batch"],
+    "relatedCharacters": ["ezra-bridger", "hera-syndulla", "sabine-wren", "darth-maul"],
+    "portrait": "holo/kanan-jarrus"
+  },
+  {
+    "id": "hera-syndulla",
+    "names": { "en": "Hera Syndulla", "tr": "Hera Syndulla" },
+    "species": { "en": "Twi'lek", "tr": "Twi'lek" },
+    "homeworldId": "ryloth",
+    "birth": "29 BBY, Ryloth",
+    "affiliationsByEra": { "empire": "rebel", "new-republic": "new-republic" },
+    "bio": {
+      "en": "Daughter of Ryloth's resistance, pilot of the Ghost, mother of the Spectres in every sense. She flew the crew that lit the rebellion's first fires and rose to general of the New Republic — still cutting through red tape like flak.",
+      "tr": "Ryloth direnişinin kızı, Ghost'un pilotu, her anlamda Spectre'ların annesi. İsyanın ilk ateşlerini yakan mürettebatı uçurdu ve Yeni Cumhuriyet generalliğine yükseldi — bürokrasiyi hâlâ uçaksavar ateşi gibi yarıyor."
+    },
+    "appearances": ["rebels", "ahsoka"],
+    "relatedCharacters": ["kanan-jarrus", "ezra-bridger", "sabine-wren", "thrawn"],
+    "portrait": "holo/hera-syndulla"
+  },
+  {
+    "id": "sabine-wren",
+    "names": { "en": "Sabine Wren", "tr": "Sabine Wren" },
+    "species": { "en": "Human (Mandalorian)", "tr": "İnsan (Mandalorlu)" },
+    "homeworldId": "mandalore",
+    "birth": "21 BBY, Mandalore",
+    "affiliationsByEra": { "empire": "rebel", "new-republic": "jedi" },
+    "bio": {
+      "en": "Mandalorian artist, weapons genius, Imperial Academy dropout with a conscience. She bore the Darksaber and gave it away, painted rebellion onto Imperial walls, and became the first Mandalorian Jedi apprentice since Tarre Vizsla — now stranded on Peridea, unbothered.",
+      "tr": "Mandalorlu sanatçı, silah dehası, vicdanlı İmparatorluk Akademisi kaçağı. Darksaber'ı taşıdı ve devretti, İmparatorluk duvarlarına isyanı boyadı ve Tarre Vizsla'dan beri ilk Mandalorlu Jedi çırağı oldu — şimdi Peridea'da mahsur, gayet keyfi yerinde."
+    },
+    "appearances": ["rebels", "ahsoka"],
+    "relatedCharacters": ["ezra-bridger", "ahsoka-tano", "bo-katan", "hera-syndulla"],
+    "portrait": "holo/sabine-wren"
+  },
+  {
+    "id": "din-djarin",
+    "names": { "en": "Din Djarin", "tr": "Din Djarin" },
+    "aka": ["The Mandalorian", "Mando"],
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldName": { "en": "Aq Vetina", "tr": "Aq Vetina" },
+    "birth": "Prior to 19 BBY, Aq Vetina",
+    "affiliationsByEra": { "new-republic": "mandalorian" },
+    "bio": {
+      "en": "Foundling of the Children of the Watch, bounty hunter of the Guild, reluctant father of one small green menace. He took the helmet off for a child, bathed in the Living Waters, and as of 2026's film raises Grogu on Nevarro between New Republic jobs. This is the Way.",
+      "tr": "Children of the Watch'un buluntusu, Lonca'nın ödül avcısı, küçük yeşil bir afacanın gönülsüz babası. Kaskı bir çocuk için çıkardı, Yaşayan Sular'da yıkandı ve 2026 filmi itibarıyla Grogu'yu Yeni Cumhuriyet işleri arasında Nevarro'da büyütüyor. Yol budur."
+    },
+    "quote": { "text": { "en": "This is the Way.", "tr": "Yol budur." } },
+    "appearances": ["mandalorian", "bobf", "mando-grogu"],
+    "relatedCharacters": ["grogu", "bo-katan", "boba-fett", "luke-skywalker"],
+    "portrait": "holo/din-djarin"
+  },
+  {
+    "id": "grogu",
+    "names": { "en": "Grogu", "tr": "Grogu" },
+    "aka": ["Din Grogu", "The Child", "Baby Yoda"],
+    "species": { "en": "Unknown (Yoda's species)", "tr": "Bilinmiyor (Yoda'nın türü)" },
+    "homeworldName": { "en": "Unknown", "tr": "Bilinmiyor" },
+    "birth": "c. 41 BBY",
+    "affiliationsByEra": { "new-republic": "mandalorian" },
+    "bio": {
+      "en": "Jedi youngling, Order 66 survivor, fifty years old and still a toddler. He chose beskar over the lightsaber, gained a surname, and now trains as a Mandalorian foundling — force-pulling frogs when nobody's watching.",
+      "tr": "Jedi yavrusu, Order 66'dan kurtulan, elli yaşında ve hâlâ bebek. Işın kılıcı yerine beskar'ı seçti, bir soyadı kazandı ve şimdi Mandalorlu buluntu olarak eğitiliyor — kimse bakmıyorken kurbağaları Güç'le çekiyor."
+    },
+    "appearances": ["mandalorian", "bobf", "mando-grogu"],
+    "relatedCharacters": ["din-djarin", "luke-skywalker", "yoda"],
+    "portrait": "holo/grogu"
+  },
+  {
+    "id": "boba-fett",
+    "names": { "en": "Boba Fett", "tr": "Boba Fett" },
+    "species": { "en": "Human (unaltered clone)", "tr": "İnsan (değiştirilmemiş klon)" },
+    "homeworldId": "kamino",
+    "birth": "32 BBY, Kamino",
+    "affiliationsByEra": { "clone-wars": "neutral", "empire": "hutt", "new-republic": "hutt" },
+    "bio": {
+      "en": "Jango's son-clone, the galaxy's most feared bounty hunter, sarlacc leftovers. He crawled out of the Great Pit, lived with Tuskens, reclaimed his armor and took Jabba's throne — trading disintegrations for daimyo diplomacy.",
+      "tr": "Jango'nun oğul-klonu, galaksinin en korkulan ödül avcısı, sarlacc artığı. Büyük Çukur'dan sürünerek çıktı, Tuskenlarla yaşadı, zırhını geri aldı ve Jabba'nın tahtına oturdu — buharlaştırmaları daimyo diplomasisiyle takas etti."
+    },
+    "quote": { "text": { "en": "He's no good to me dead.", "tr": "Ölüsü bana bir işe yaramaz." } },
+    "appearances": ["aotc", "tcw", "esb", "rotj", "mandalorian", "bobf"],
+    "relatedCharacters": ["din-djarin", "han-solo", "jabba-the-hutt"],
+    "portrait": "holo/boba-fett"
+  },
+  {
+    "id": "bo-katan",
+    "names": { "en": "Bo-Katan Kryze", "tr": "Bo-Katan Kryze" },
+    "species": { "en": "Human (Mandalorian)", "tr": "İnsan (Mandalorlu)" },
+    "homeworldName": { "en": "Kalevala (Mandalore system)", "tr": "Kalevala (Mandalore sistemi)" },
+    "affiliationsByEra": { "clone-wars": "mandalorian", "empire": "mandalorian", "new-republic": "mandalorian" },
+    "bio": {
+      "en": "Death Watch lieutenant, Nite Owl, regent, exile — and finally the leader who reunited the tribes without the Darksaber's permission. She led the retaking of Mandalore beside Din Djarin and rekindled the Great Forge.",
+      "tr": "Death Watch teğmeni, Nite Owl, naip, sürgün — ve sonunda kabileleri Darksaber'ın iznine ihtiyaç duymadan birleştiren lider. Mandalore'un geri alınışını Din Djarin'in yanında yönetti ve Büyük Demirhane'yi yeniden yaktı."
+    },
+    "appearances": ["tcw", "rebels", "mandalorian"],
+    "relatedCharacters": ["din-djarin", "sabine-wren", "darth-maul", "ahsoka-tano"],
+    "portrait": "holo/bo-katan"
+  },
+  {
+    "id": "cassian-andor",
+    "names": { "en": "Cassian Andor", "tr": "Cassian Andor" },
+    "aka": ["Cassian Jeron Andor"],
+    "species": { "en": "Human (Kenari)", "tr": "İnsan (Kenarili)" },
+    "homeworldId": "ferrix",
+    "homeworldName": { "en": "Kenari (born); Ferrix (raised)", "tr": "Kenari (doğum); Ferrix (büyüdüğü yer)" },
+    "birth": "33 BBY, Kenari",
+    "death": "1 BBY, Scarif",
+    "affiliationsByEra": { "empire": "rebel" },
+    "bio": {
+      "en": "Thief, deserter, assassin, spy: the rebellion's dirty hands. Five years of radicalization from Ferrix to a prison break to Luthen's network ended on a beach at Scarif, holding the plans that killed a Death Star. Welcome to the rebellion, Cassian.",
+      "tr": "Hırsız, asker kaçağı, suikastçı, casus: isyanın kirli elleri. Ferrix'ten hapishane firarına, oradan Luthen'in ağına uzanan beş yıllık radikalleşme, Scarif'te bir plajda, bir Ölüm Yıldızı'nı öldüren planları tutarken bitti. İsyana hoş geldin, Cassian."
+    },
+    "quote": { "text": { "en": "Rebellions are built on hope.", "tr": "İsyanlar umut üzerine kurulur." } },
+    "appearances": ["andor", "rogue-one"],
+    "relatedCharacters": ["jyn-erso", "mon-mothma"],
+    "portrait": "holo/cassian-andor"
+  },
+  {
+    "id": "jyn-erso",
+    "names": { "en": "Jyn Erso", "tr": "Jyn Erso" },
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldName": { "en": "Vallt (born); Lah'mu (raised)", "tr": "Vallt (doğum); Lah'mu (büyüdüğü yer)" },
+    "birth": "21 BBY, Vallt",
+    "death": "1 BBY, Scarif",
+    "affiliationsByEra": { "empire": "rebel" },
+    "bio": {
+      "en": "Daughter of the Death Star's reluctant architect. Raised by a partisan, abandoned by everyone, she chose one impossible mission and gave the Rebellion its hope — transmitted at the cost of everything, into a princess's waiting hands.",
+      "tr": "Ölüm Yıldızı'nın gönülsüz mimarının kızı. Bir partizanın büyüttüğü, herkesin terk ettiği Jyn, tek bir imkânsız görevi seçti ve İsyan'a umudunu verdi — her şey pahasına, bekleyen bir prensesin ellerine iletildi."
+    },
+    "quote": { "text": { "en": "We'll take the next chance. And the next. Until we win, or the chances are spent.", "tr": "Bir sonraki şansı kullanacağız. Ve sonrakini. Kazanana ya da şanslar tükenene dek." } },
+    "appearances": ["rogue-one"],
+    "relatedCharacters": ["cassian-andor"],
+    "portrait": "holo/jyn-erso"
+  },
+  {
+    "id": "mon-mothma",
+    "names": { "en": "Mon Mothma", "tr": "Mon Mothma" },
+    "species": { "en": "Human (Chandrilan)", "tr": "İnsan (Chandrilalı)" },
+    "homeworldName": { "en": "Chandrila", "tr": "Chandrila" },
+    "birth": "c. 48 BBY, Chandrila",
+    "affiliationsByEra": { "clone-wars": "republic", "empire": "rebel", "new-republic": "new-republic" },
+    "bio": {
+      "en": "Senator who financed sedition from inside the Emperor's own chamber, laundering hope through banquets and family scandals (Andor). She founded the Alliance, spoke its first public truth, and became the New Republic's first Chancellor.",
+      "tr": "İmparator'un kendi meclisinin içinden isyanı finanse eden senatör; umudu ziyafetler ve aile skandalları arasında akladı (Andor). İttifak'ı kurdu, ilk kamusal doğrusunu o söyledi ve Yeni Cumhuriyet'in ilk Şansölyesi oldu."
+    },
+    "appearances": ["rots", "rebels", "andor", "rogue-one", "ahsoka"],
+    "relatedCharacters": ["cassian-andor", "leia-organa", "hera-syndulla"],
+    "portrait": "holo/mon-mothma"
+  },
+  {
+    "id": "rey",
+    "names": { "en": "Rey", "tr": "Rey" },
+    "aka": ["Rey Skywalker"],
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldId": "jakku",
+    "homeworldName": { "en": "Hyperkarn (born); Jakku (raised)", "tr": "Hyperkarn (doğum); Jakku (büyüdüğü yer)" },
+    "birth": "15 ABY, Hyperkarn",
+    "affiliationsByEra": { "new-republic": "jedi" },
+    "bio": {
+      "en": "A scavenger who waited years for a family that sold her — and found one in a droid, a deserter, a Wookiee and two dead legends. Granddaughter of Palpatine, student of Luke and Leia, she ended the Sith and chose her own name in the Tatooine dust.",
+      "tr": "Kendisini satan bir aileyi yıllarca bekleyen eskici — ve ailesini bir droidde, bir kaçakta, bir Wookiee'de ve iki ölü efsanede buldu. Palpatine'in torunu, Luke ile Leia'nın öğrencisi; Sith'i bitirdi ve kendi adını Tatooine tozunda kendisi seçti."
+    },
+    "quote": { "text": { "en": "Rey. Rey Skywalker.", "tr": "Rey. Rey Skywalker." } },
+    "appearances": ["tfa", "tlj", "tros"],
+    "relatedCharacters": ["kylo-ren", "finn", "luke-skywalker", "leia-organa", "palpatine"],
+    "portrait": "holo/rey"
+  },
+  {
+    "id": "kylo-ren",
+    "names": { "en": "Kylo Ren", "tr": "Kylo Ren" },
+    "aka": ["Ben Solo"],
+    "species": { "en": "Human (Chandrilan)", "tr": "İnsan (Chandrilalı)" },
+    "homeworldName": { "en": "Chandrila", "tr": "Chandrila" },
+    "birth": "5 ABY, Chandrila",
+    "death": "35 ABY, Exegol",
+    "affiliationsByEra": { "new-republic": "first-order" },
+    "bio": {
+      "en": "Son of Han and Leia, nephew and near-victim of Luke, apprentice of Snoke, Supreme Leader of the First Order. He killed his father and his master, broke his mask twice, and spent his last strength giving Rey back her life — Ben Solo, at the end.",
+      "tr": "Han ile Leia'nın oğlu, Luke'un yeğeni ve az kalsın kurbanı, Snoke'un çırağı, First Order'ın Yüce Lideri. Babasını ve ustasını öldürdü, maskesini iki kez kırdı ve son gücünü Rey'e hayatını geri vermek için harcadı — sonunda, Ben Solo olarak."
+    },
+    "quote": { "text": { "en": "Let the past die. Kill it, if you have to.", "tr": "Bırak geçmiş ölsün. Gerekiyorsa öldür onu." } },
+    "appearances": ["tfa", "tlj", "tros"],
+    "relatedCharacters": ["rey", "han-solo", "leia-organa", "luke-skywalker", "palpatine"],
+    "portrait": "holo/kylo-ren"
+  },
+  {
+    "id": "poe-dameron",
+    "names": { "en": "Poe Dameron", "tr": "Poe Dameron" },
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldId": "yavin-4",
+    "birth": "2 ABY, Yavin 4",
+    "affiliationsByEra": { "new-republic": "resistance" },
+    "bio": {
+      "en": "Best pilot in the Resistance, son of Rebellion veterans, raised under a Force-sensitive tree on Yavin 4. Hot-headed enough to mutiny, humble enough to learn, he flew the fleet at Exegol as acting general — with a spice-runner past he'd rather not discuss.",
+      "tr": "Direniş'in en iyi pilotu, İsyan gazilerinin oğlu, Yavin 4'te Güç'e duyarlı bir ağacın altında büyüdü. İsyan çıkaracak kadar deli kanlı, ders alacak kadar alçakgönüllü; Exegol'de filoyu vekil general olarak uçurdu — konuşmamayı tercih ettiği bir baharat kaçakçılığı geçmişiyle."
+    },
+    "appearances": ["tfa", "tlj", "tros"],
+    "relatedCharacters": ["finn", "rey", "leia-organa"],
+    "portrait": "holo/poe-dameron"
+  },
+  {
+    "id": "finn",
+    "names": { "en": "Finn", "tr": "Finn" },
+    "aka": ["FN-2187"],
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldName": { "en": "Unknown (taken as a child)", "tr": "Bilinmiyor (çocukken alındı)" },
+    "birth": "11 ABY",
+    "affiliationsByEra": { "new-republic": "resistance" },
+    "bio": {
+      "en": "Stormtrooper FN-2187 refused to fire on villagers at Tuanul — the first domino of the First Order's fall. Sanitation-worker-turned-hero, he found a name, a family, and late in the war, the truth: the Force had been calling him all along.",
+      "tr": "Stormtrooper FN-2187, Tuanul'da köylülere ateş açmayı reddetti — First Order'ın çöküşünün ilk taşı. Hijyen görevlisinden kahramana; bir isim, bir aile ve savaşın sonlarında gerçeği buldu: Güç onu başından beri çağırıyordu."
+    },
+    "quote": { "text": { "en": "I was raised to do one thing. But I've got nothing to fight for.", "tr": "Tek bir şey için yetiştirildim. Ama uğruna savaşacağım hiçbir şey yoktu." } },
+    "appearances": ["tfa", "tlj", "tros"],
+    "relatedCharacters": ["rey", "poe-dameron"],
+    "portrait": "holo/finn"
+  },
+  {
+    "id": "lando-calrissian",
+    "names": { "en": "Lando Calrissian", "tr": "Lando Calrissian" },
+    "aka": ["Landonis Balthazar Calrissian"],
+    "species": { "en": "Human", "tr": "İnsan" },
+    "homeworldName": { "en": "Socorro", "tr": "Socorro" },
+    "birth": "c. 43 BBY, Socorro",
+    "affiliationsByEra": { "empire": "rebel", "new-republic": "resistance" },
+    "bio": {
+      "en": "Gambler, cape connoisseur, original owner of the Falcon (lost fair and square). Baron Administrator of Cloud City who made a deal with the devil, regretted it by dinner, and flew into the second Death Star's guts to blow it up personally.",
+      "tr": "Kumarbaz, pelerin uzmanı, Şahin'in ilk sahibi (adil biçimde kaybetti). Şeytanla anlaşma yapıp yemek vaktine kalmadan pişman olan ve ikinci Ölüm Yıldızı'nın bağırsaklarına bizzat dalıp onu patlatan Cloud City Baron Yöneticisi."
+    },
+    "quote": { "text": { "en": "This deal is getting worse all the time.", "tr": "Bu anlaşma her geçen dakika kötüleşiyor." } },
+    "appearances": ["solo", "esb", "rotj", "tros"],
+    "relatedCharacters": ["han-solo", "chewbacca", "leia-organa"],
+    "portrait": "holo/lando-calrissian"
+  },
+  {
+    "id": "jabba-the-hutt",
+    "names": { "en": "Jabba the Hutt", "tr": "Jabba the Hutt" },
+    "aka": ["Jabba Desilijic Tiure"],
+    "species": { "en": "Hutt", "tr": "Hutt" },
+    "homeworldId": "nal-hutta",
+    "birth": "600 BBY, Nal Hutta",
+    "death": "4 ABY, aboard the Khetanna, Tatooine",
+    "affiliationsByEra": { "clone-wars": "hutt", "empire": "hutt" },
+    "bio": {
+      "en": "Six hundred years of appetite: crime lord of Tatooine, kingpin of the Desilijic clan, collector of debts and frozen smugglers. Strangled by the princess he chained — proof that some fashion choices are fatal.",
+      "tr": "Altı yüz yıllık iştah: Tatooine'in suç lordu, Desilijic klanının reisi, borçların ve donmuş kaçakçıların koleksiyoncusu. Zincirlediği prensesçe boğuldu — bazı moda tercihlerinin ölümcül olduğunun kanıtı."
+    },
+    "appearances": ["tpm", "tcw", "anh", "rotj", "bobf"],
+    "relatedCharacters": ["han-solo", "leia-organa", "boba-fett"],
+    "portrait": "holo/jabba-the-hutt"
+  }
+]

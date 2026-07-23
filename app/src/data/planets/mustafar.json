@@ -1,0 +1,54 @@
+{
+  "id": "mustafar",
+  "kind": "planet",
+  "names": { "en": "Mustafar", "tr": "Mustafar" },
+  "desc": {
+    "en": "A small volcanic world of lava rivers and mining rigs where Anakin Skywalker died and Darth Vader was born. The dark lord later raised his obsidian fortress over the very ground of his defeat.",
+    "tr": "Lav nehirleri ve maden platformlarıyla kaplı küçük bir volkanik dünya; Anakin Skywalker burada öldü ve Darth Vader burada doğdu. Karanlık lord, sonradan obsidiyen kalesini tam da yenilgisinin toprağına dikti."
+  },
+  "region": "outer-rim",
+  "regionTags": ["Western Reaches"],
+  "sector": "Atravis sector",
+  "system": "Mustafar system",
+  "coordinates": "L-19",
+  "stats": {
+    "diameterKm": 4200,
+    "moonCount": 1,
+    "population": { "en": "≈15,000–20,000", "tr": "≈15.000–20.000" },
+    "government": { "en": "Mining guilds; later Imperial dominion", "tr": "Maden loncaları; sonra İmparatorluk egemenliği" }
+  },
+  "suns": [{ "name": "Priate", "color": "#FF9A66" }],
+  "moons": ["Nordir"],
+  "climate": { "en": ["Hot", "Ash-laden", "Stormy"], "tr": ["Sıcak", "Kül yüklü", "Fırtınalı"] },
+  "terrain": { "en": ["Lava seas and rivers", "Obsidian ranges", "Ash plains", "Caves"], "tr": ["Lav denizleri ve nehirleri", "Obsidiyen sıradağları", "Kül ovaları", "Mağaralar"] },
+  "affiliationsByEra": { "clone-wars": "separatist", "empire": "empire" },
+  "appearances": ["rots", "rogue-one"],
+  "characters": ["anakin-skywalker", "obi-wan-kenobi", "padme-amidala"],
+  "poi": [
+    { "id": "fortress-vader", "names": { "en": "Fortress Vader", "tr": "Vader Kalesi" }, "lat": 10, "lon": -30,
+      "blurb": { "en": "A black tuning-fork tower channeling the dark side over a lava lake.", "tr": "Bir lav gölü üzerinde karanlık tarafı odaklayan siyah diyapazon kule." } },
+    { "id": "duel-site", "names": { "en": "Klegger Corp Mining Facility", "tr": "Klegger Corp Maden Tesisi" }, "lat": 6, "lon": -24,
+      "blurb": { "en": "\"You were the chosen one!\" — the high ground was here.", "tr": "\"Seçilmiş kişi sendin!\" — o yüksek zemin buradaydı." } },
+    { "id": "corvax-fen", "names": { "en": "Corvax Fen", "tr": "Corvax Bataklığı" }, "lat": 2, "lon": -18,
+      "blurb": { "en": "A rare green scar on the burnt world, tied to old Lady Corvax legends.", "tr": "Yanık dünyada ender bir yeşil iz; eski Leydi Corvax efsanelerine bağlı." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Canon says Mustafar was once green and temperate — the wound is not natural.",
+      "The Sith artifact drawing Vader here appears again in Rogue One's opening moves.",
+      "Mustafarian lava fleas carry miners across rivers of fire."
+    ],
+    "tr": [
+      "Kanona göre Mustafar bir zamanlar yeşil ve ılımandı — bu yara doğal değil.",
+      "Vader'ı buraya çeken Sith kalıntısı, Rogue One'ın açılışında yeniden görünür.",
+      "Mustafarlı lav pireleri, madencileri ateş nehirlerinin üzerinden taşır."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "lava",
+    "palette": { "primary": "#1A1210", "secondary": "#FF5A1F" },
+    "atmosphere": { "color": "#FF7A3C", "density": 0.6 },
+    "textures": { "albedo": "planets/mustafar/albedo", "emissive": "planets/mustafar/emissive" },
+    "effects": ["ash-particles", "lava-glow"]
+  }
+}

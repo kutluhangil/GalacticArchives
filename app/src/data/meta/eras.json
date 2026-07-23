@@ -1,0 +1,29 @@
+[
+  {
+    "id": "clone-wars",
+    "names": { "en": "The Clone Wars", "tr": "Klon Savaşları" },
+    "range": "32–19 BBY",
+    "blurb": {
+      "en": "From the Battle of Naboo's aftermath to Order 66: the Republic and the Separatists tear the galaxy apart while the Sith quietly win.",
+      "tr": "Naboo Muharebesi'nin ardından Order 66'ya: Cumhuriyet ile Ayrılıkçılar galaksiyi parçalarken Sith sessizce kazanır."
+    }
+  },
+  {
+    "id": "empire",
+    "names": { "en": "Empire & Rebellion", "tr": "İmparatorluk ve İsyan" },
+    "range": "19 BBY–4 ABY",
+    "blurb": {
+      "en": "The Galactic Empire rules through fear — two Death Stars, one destroyed planet — until the Rebel Alliance brings it down at Endor.",
+      "tr": "Galaktik İmparatorluk korkuyla hükmeder — iki Ölüm Yıldızı, yok edilen bir gezegen — ta ki İsyan İttifakı Endor'da onu devirene dek."
+    }
+  },
+  {
+    "id": "new-republic",
+    "names": { "en": "New Republic & First Order", "tr": "Yeni Cumhuriyet ve First Order" },
+    "range": "4–35 ABY",
+    "blurb": {
+      "en": "A fragile peace, Mandalorian bounty hunters on the frontier, and the First Order rising from the Unknown Regions to burn it all down.",
+      "tr": "Kırılgan bir barış, sınır boylarında Mandalorlu ödül avcıları ve her şeyi yakmak için Bilinmeyen Bölgeler'den yükselen First Order."
+    }
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "id": "tatooine",
+  "kind": "planet",
+  "names": { "en": "Tatooine", "tr": "Tatooine" },
+  "desc": {
+    "en": "A harsh desert world orbiting twin suns in the Outer Rim, home of moisture farmers, Jawas, Tusken Raiders — and both Skywalkers. If a bright center to the universe exists, this is the planet it's farthest from.",
+    "tr": "Dış Halka'da ikiz güneşin etrafında dönen sert bir çöl dünyası; nem çiftçilerinin, Jawaların, Tusken Akıncılarının — ve her iki Skywalker'ın — evi. Evrenin parlak bir merkezi varsa, orası buraya en uzak noktadır."
+  },
+  "region": "outer-rim",
+  "sector": "Arkanis sector",
+  "system": "Tatoo system",
+  "coordinates": "R-16",
+  "stats": {
+    "diameterKm": 10465,
+    "moonCount": 3,
+    "population": { "en": "200,000 licensed settlers (Imperial era); ~1.1 million by the New Republic era", "tr": "200.000 kayıtlı yerleşimci (İmparatorluk dönemi); Yeni Cumhuriyet döneminde ~1,1 milyon" },
+    "government": { "en": "Fringe world under Hutt influence", "tr": "Hutt nüfuzu altındaki sınır dünyası" }
+  },
+  "suns": [
+    { "name": "Tatoo I", "color": "#FFD9A0" },
+    { "name": "Tatoo II", "color": "#FFB36B" }
+  ],
+  "moons": ["Ghomrassen", "Guermessa", "Chenini"],
+  "climate": { "en": ["Hot", "Arid"], "tr": ["Sıcak", "Kurak"] },
+  "terrain": { "en": ["Dune seas", "Canyons", "Rocky bluffs", "Mountains"], "tr": ["Kumul denizleri", "Kanyonlar", "Kayalık yarlar", "Dağlar"] },
+  "affiliationsByEra": { "clone-wars": "hutt", "empire": "hutt", "new-republic": "hutt" },
+  "appearances": ["tpm", "aotc", "rots", "tcw", "anh", "esb", "rotj", "mandalorian", "bobf", "kenobi"],
+  "characters": ["luke-skywalker", "anakin-skywalker", "boba-fett", "din-djarin", "jabba-the-hutt", "obi-wan-kenobi"],
+  "poi": [
+    { "id": "mos-eisley", "names": { "en": "Mos Eisley", "tr": "Mos Eisley" }, "lat": 8, "lon": 42,
+      "blurb": { "en": "\"You will never find a more wretched hive of scum and villainy.\" Spaceport where Luke met Han and Chewie.", "tr": "\"Daha sefil bir pislik ve alçaklık yuvası bulamazsın.\" Luke'un Han ve Chewie ile tanıştığı uzay limanı." } },
+    { "id": "mos-espa", "names": { "en": "Mos Espa", "tr": "Mos Espa" }, "lat": 12, "lon": 28,
+      "blurb": { "en": "Anakin's childhood home and podracing hub; later the seat of Boba Fett's rule.", "tr": "Anakin'in çocukluk evi ve podyarışı merkezi; sonradan Boba Fett'in tahtının şehri." } },
+    { "id": "lars-homestead", "names": { "en": "Lars Homestead", "tr": "Lars Çiftliği" }, "lat": -4, "lon": 35,
+      "blurb": { "en": "The moisture farm where Luke grew up watching twin sunsets.", "tr": "Luke'un ikiz gün batımlarını izleyerek büyüdüğü nem çiftliği." } },
+    { "id": "jabbas-palace", "names": { "en": "Jabba's Palace", "tr": "Jabba'nın Sarayı" }, "lat": -18, "lon": 55,
+      "blurb": { "en": "Fortress-monastery turned crime court of Jabba the Hutt.", "tr": "Manastırdan Jabba the Hutt'ın suç sarayına dönüşen kale." } },
+    { "id": "great-pit-of-carkoon", "names": { "en": "Great Pit of Carkoon", "tr": "Büyük Carkoon Çukuru" }, "lat": -22, "lon": 61,
+      "blurb": { "en": "Nesting place of the sarlacc; where Boba Fett famously did not die.", "tr": "Sarlacc'ın yuvası; Boba Fett'in meşhur şekilde ölmediği yer." } }
+  ],
+  "funFacts": {
+    "en": [
+      "The binary sunset over the Lars homestead is the saga's single most iconic shot.",
+      "Podracing at the Boonta Eve Classic was the galaxy's deadliest legal sport.",
+      "Krayt dragons roam the Jundland Wastes — a pearl from one is priceless."
+    ],
+    "tr": [
+      "Lars çiftliği üzerindeki ikiz gün batımı, destanın en ikonik sahnesidir.",
+      "Boonta Eve Klasiği'ndeki podyarışı, galaksinin en ölümcül yasal sporuydu.",
+      "Jundland Çorak Toprakları'nda krayt ejderleri dolaşır — incisi paha biçilmezdir."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": { "primary": "#C9A36B", "secondary": "#8F6B45" },
+    "atmosphere": { "color": "#E8B27A", "density": 0.7 },
+    "textures": { "albedo": "planets/tatooine/albedo" },
+    "dualSun": true,
+    "effects": ["heat-shimmer"]
+  }
+}

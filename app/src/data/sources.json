@@ -1,0 +1,1084 @@
+{
+ "generatedAt": "2026-07-23T09:00:48.596Z",
+ "method": "Wookieepedia MediaWiki API (starwars.fandom.com/api.php) infobox extraction, license CC-BY-SA; cross-validated by scripts/validate-lore.mjs",
+ "notes": {
+  "global-poi": "POI lat/lon values are artistic placements for the 3D globe — canon does not define planetary coordinates.",
+  "global-dates": "Character birth/death years follow current Wookieepedia dating (Star Wars: Timelines convention; e.g. Scarif deaths listed 1 BBY).",
+  "global-render": "renderRecipe palettes/atmosphere colors are artistic direction, not canon data.",
+  "global-tr": "Turkish text is original translation work, not sourced; EN media titles pending official Disney+ TR title check in P3."
+ },
+ "entities": {
+  "tatooine": {
+   "source": "wookieepedia:Tatooine",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ]
+  },
+  "coruscant": {
+   "source": "wookieepedia:Coruscant",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "naboo": {
+   "source": "wookieepedia:Naboo",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "alderaan": {
+   "source": "wookieepedia:Alderaan",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "hoth": {
+   "source": "wookieepedia:Hoth",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ]
+  },
+  "dagobah": {
+   "source": "wookieepedia:Dagobah",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population"
+   ]
+  },
+  "bespin": {
+   "source": "wookieepedia:Bespin",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "population",
+    "affiliation"
+   ]
+  },
+  "endor-prime": {
+   "source": "wookieepedia:Endor (planet)",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons"
+   ]
+  },
+  "endor-moon": {
+   "source": "wookieepedia:Endor",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "atmosphere",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ]
+  },
+  "kef-bir": {
+   "source": "wookieepedia:Kef Bir",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "terrain",
+    "population"
+   ]
+  },
+  "yavin": {
+   "source": "wookieepedia:Yavin",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class"
+   ],
+   "note": "Gas giant; diameter not stated in canon infobox (0 = unknown placeholder). Moon count 26 per canon sources."
+  },
+  "yavin-4": {
+   "source": "wookieepedia:Yavin 4",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ]
+  },
+  "mustafar": {
+   "source": "wookieepedia:Mustafar",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ]
+  },
+  "kamino": {
+   "source": "wookieepedia:Kamino",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "note": "No Standard Galactic Grid coordinates in canon infobox — coordinates intentionally omitted."
+  },
+  "geonosis": {
+   "source": "wookieepedia:Geonosis",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "kashyyyk": {
+   "source": "wookieepedia:Kashyyyk",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "utapau": {
+   "source": "wookieepedia:Utapau",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "felucia": {
+   "source": "wookieepedia:Felucia",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ]
+  },
+  "jakku": {
+   "source": "wookieepedia:Jakku",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ]
+  },
+  "takodana": {
+   "source": "wookieepedia:Takodana",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ]
+  },
+  "ahch-to": {
+   "source": "wookieepedia:Ahch-To",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "affiliation"
+   ]
+  },
+  "crait": {
+   "source": "wookieepedia:Crait",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ]
+  },
+  "exegol": {
+   "source": "wookieepedia:Exegol",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ]
+  },
+  "ilum": {
+   "source": "wookieepedia:Ilum",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "note": "Diameter 660 km reflects post-Starkiller-conversion figure quoted by Wookieepedia. System relocated per canon."
+  },
+  "starkiller-base": {
+   "source": "wookieepedia:Starkiller Base",
+   "fields": [
+    "affiliation"
+   ]
+  },
+  "scarif": {
+   "source": "wookieepedia:Scarif",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ]
+  },
+  "jedha": {
+   "source": "wookieepedia:Jedha",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "note": "Moon (parent planet NaJedha). Post-blast terrain from Rogue One."
+  },
+  "corellia": {
+   "source": "wookieepedia:Corellia",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ]
+  },
+  "kessel": {
+   "source": "wookieepedia:Kessel",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "note": "Sun name Kessa per Solo canon sources."
+  },
+  "mandalore": {
+   "source": "wookieepedia:Mandalore",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "nevarro": {
+   "source": "wookieepedia:Nevarro",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "atmosphere",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "lothal": {
+   "source": "wookieepedia:Lothal",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "dathomir": {
+   "source": "wookieepedia:Dathomir",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "ryloth": {
+   "source": "wookieepedia:Ryloth",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ]
+  },
+  "peridea": {
+   "source": "wookieepedia:Peridea",
+   "fields": [
+    "region",
+    "class",
+    "atmosphere",
+    "terrain",
+    "water",
+    "affiliation"
+   ],
+   "note": "Far-galaxy world; no grid/sector/system data exists. Bone ring per Ahsoka (2023) on-screen depiction."
+  },
+  "ferrix": {
+   "source": "wookieepedia:Ferrix",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ]
+  },
+  "nal-hutta": {
+   "source": "wookieepedia:Nal Hutta",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "government",
+    "affiliation"
+   ],
+   "note": "Diameter not stated in canon infobox."
+  },
+  "shakari": {
+   "source": "wookieepedia:Shakari",
+   "fields": [
+    "region",
+    "system",
+    "government",
+    "affiliation"
+   ],
+   "note": "New world from The Mandalorian and Grogu (2026). Infobox sparse at fetch time; entry marked for growth."
+  },
+  "nar-shaddaa": {
+   "source": "wookieepedia:Nar Shaddaa",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "atmosphere",
+    "terrain",
+    "affiliation"
+   ],
+   "note": "Diameter not stated in canon infobox."
+  },
+  "concordia": {
+   "source": "wookieepedia:Concordia",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "note": "Diameter not stated in canon infobox."
+  },
+  "death-star": {
+   "source": "wookieepedia:Death Star",
+   "fields": [
+    "affiliation"
+   ],
+   "note": "DS-1 crew figures vary across canon sources; population phrased as estimate."
+  },
+  "death-star-2": {
+   "source": "wookieepedia:DS-2 Death Star II Mobile Battle Station",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "population",
+    "affiliation"
+   ],
+   "note": "Official page title: DS-2 Death Star II Mobile Battle Station. Population 2,471,647 per infobox."
+  },
+  "luke-skywalker": {
+   "source": "wookieepedia:Luke Skywalker",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "leia-organa": {
+   "source": "wookieepedia:Leia Skywalker Organa Solo",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "han-solo": {
+   "source": "wookieepedia:Han Solo",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "chewbacca": {
+   "source": "wookieepedia:Chewbacca",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation"
+   ]
+  },
+  "anakin-skywalker": {
+   "source": "wookieepedia:Anakin Skywalker",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "obi-wan-kenobi": {
+   "source": "wookieepedia:Obi-Wan Kenobi",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "yoda": {
+   "source": "wookieepedia:Yoda",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "palpatine": {
+   "source": "wookieepedia:Darth Sidious",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "padme-amidala": {
+   "source": "wookieepedia:Padmé Amidala Naberrie",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters"
+   ]
+  },
+  "qui-gon-jinn": {
+   "source": "wookieepedia:Qui-Gon Jinn",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "darth-maul": {
+   "source": "wookieepedia:Maul",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "count-dooku": {
+   "source": "wookieepedia:Dooku",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "grievous": {
+   "source": "wookieepedia:Grievous",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "ahsoka-tano": {
+   "source": "wookieepedia:Ahsoka Tano",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "captain-rex": {
+   "source": "wookieepedia:Rex",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "apprentices"
+   ]
+  },
+  "thrawn": {
+   "source": "wookieepedia:Mitth'raw'nuruodo",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "apprentices"
+   ]
+  },
+  "ezra-bridger": {
+   "source": "wookieepedia:Ezra Bridger",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "masters"
+   ]
+  },
+  "kanan-jarrus": {
+   "source": "wookieepedia:Kanan Jarrus",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "hera-syndulla": {
+   "source": "wookieepedia:Hera Syndulla",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "apprentices"
+   ]
+  },
+  "sabine-wren": {
+   "source": "wookieepedia:Sabine Wren",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "masters"
+   ]
+  },
+  "din-djarin": {
+   "source": "wookieepedia:Din Djarin",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "grogu": {
+   "source": "wookieepedia:Din Grogu",
+   "fields": [
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "masters"
+   ]
+  },
+  "boba-fett": {
+   "source": "wookieepedia:Boba Fett",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "bo-katan": {
+   "source": "wookieepedia:Bo-Katan Kryze",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "affiliation"
+   ]
+  },
+  "cassian-andor": {
+   "source": "wookieepedia:Cassian Jeron Andor",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation"
+   ]
+  },
+  "jyn-erso": {
+   "source": "wookieepedia:Jyn Erso",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation"
+   ]
+  },
+  "mon-mothma": {
+   "source": "wookieepedia:Mon Mothma",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "apprentices"
+   ]
+  },
+  "rey": {
+   "source": "wookieepedia:Rey Skywalker",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters"
+   ]
+  },
+  "kylo-ren": {
+   "source": "wookieepedia:Ben Solo",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "death",
+    "affiliation",
+    "masters",
+    "apprentices"
+   ]
+  },
+  "poe-dameron": {
+   "source": "wookieepedia:Poe Dameron",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "masters"
+   ]
+  },
+  "finn": {
+   "source": "wookieepedia:Finn",
+   "fields": [
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "masters"
+   ]
+  },
+  "lando-calrissian": {
+   "source": "wookieepedia:Landonis Balthazar Calrissian",
+   "fields": [
+    "homeworld",
+    "species",
+    "gender",
+    "birth",
+    "affiliation",
+    "apprentices"
+   ]
+  },
+  "endor": {
+   "source": "wookieepedia:Endor (planet)",
+   "fields": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons"
+   ],
+   "note": "Gas giant page: Endor (planet). Diameter not stated in canon infobox (0 = unknown placeholder)."
+  }
+ }
+}

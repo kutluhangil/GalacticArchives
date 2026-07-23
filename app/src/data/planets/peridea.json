@@ -1,0 +1,49 @@
+{
+  "id": "peridea",
+  "kind": "planet",
+  "names": { "en": "Peridea", "tr": "Peridea" },
+  "desc": {
+    "en": "A world in another galaxy entirely — end of the purrgil migration road, ancient home of the Dathmiri witches. Ringed by the bones of dead star-whales, it held Thrawn in exile until the Eye of Sion came for him.",
+    "tr": "Bambaşka bir galakside bir dünya — purrgil göç yolunun sonu, Dathomir cadılarının kadim yurdu. Ölü yıldız balinalarının kemiklerinden bir halkayla çevrili; Göz of Sion gelene dek Thrawn'u sürgünde tuttu."
+  },
+  "region": "far-galaxy",
+  "system": "Unknown (far galaxy)",
+  "stats": {
+    "population": { "en": "Great Mothers' followers, Noti nomads, bandit clans", "tr": "Büyük Analar'ın takipçileri, Noti göçebeleri, haydut klanları" },
+    "government": { "en": "The Great Mothers (Nightsister triumvirate)", "tr": "Büyük Analar (Nightsister üçlüsü)" }
+  },
+  "suns": [{ "name": "Peridea's sun", "color": "#E8D8C8" }],
+  "moons": [],
+  "climate": { "en": ["Cold", "Ashen"], "tr": ["Soğuk", "Küllü"] },
+  "terrain": { "en": ["Barren wastelands", "Grass plains", "Meadows", "Mountains"], "tr": ["Çorak araziler", "Çayır ovaları", "Kırlar", "Dağlar"] },
+  "affiliationsByEra": { "new-republic": "empire" },
+  "appearances": ["ahsoka"],
+  "characters": ["thrawn", "ezra-bridger", "ahsoka-tano", "sabine-wren"],
+  "poi": [
+    { "id": "nightsister-fortress", "names": { "en": "Fortress of the Great Mothers", "tr": "Büyük Analar Kalesi" }, "lat": 12, "lon": -20,
+      "blurb": { "en": "A witch-citadel where the Chimaera waited, wrapped in scaffolds of bone.", "tr": "Chimaera'nın kemik iskeleler içinde beklediği cadı hisarı." } },
+    { "id": "noti-caravan", "names": { "en": "Noti Caravan Routes", "tr": "Noti Kervan Yolları" }, "lat": 6, "lon": -10,
+      "blurb": { "en": "Shell-backed nomads who sheltered a stranded Jedi with a smile.", "tr": "Mahsur kalmış bir Jedi'ı gülümseyerek barındıran kabuklu göçebeler." } },
+    { "id": "bone-ring", "names": { "en": "The Purrgil Graveyard Ring", "tr": "Purrgil Mezarlığı Halkası" }, "lat": 0, "lon": 0,
+      "blurb": { "en": "Peridea's ring is not rock — it is the bones of the whales that carried travelers here to die.", "tr": "Peridea'nın halkası kaya değildir — yolcuları buraya ölmeye taşıyan balinaların kemikleridir." } }
+  ],
+  "funFacts": {
+    "en": [
+      "First canon location ever shown outside the Star Wars galaxy on screen.",
+      "The Nightsisters of Dathomir originally migrated FROM Peridea, ages ago.",
+      "Ahsoka and Sabine remain here as of the season one finale — 'part of a story that will continue.'"
+    ],
+    "tr": [
+      "Ekranda Star Wars galaksisinin dışında gösterilen ilk kanon mekân.",
+      "Dathomir Nightsisterları çağlar önce Peridea'DAN göç etmişti.",
+      "Sezon 1 finali itibarıyla Ahsoka ile Sabine hâlâ burada — 'devam edecek bir hikâyenin parçası.'"
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "barren",
+    "palette": { "primary": "#B0A8B0", "secondary": "#7E6E68" },
+    "atmosphere": { "color": "#C8B8B0", "density": 0.6 },
+    "textures": { "albedo": "planets/peridea/albedo" },
+    "rings": { "texture": "planets/peridea/bone-ring", "innerRadius": 1.5, "outerRadius": 2.6, "tilt": 8, "kind": "bone" }
+  }
+}

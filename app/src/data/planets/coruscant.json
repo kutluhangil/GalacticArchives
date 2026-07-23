@@ -1,0 +1,55 @@
+{
+  "id": "coruscant",
+  "kind": "planet",
+  "names": { "en": "Coruscant", "tr": "Coruscant" },
+  "desc": {
+    "en": "The galactic capital: one unbroken city wrapped around an entire planet, seat of the Senate and the Jedi Temple. Its levels descend from gleaming spires to the sunless underworld of 1313.",
+    "tr": "Galaktik başkent: bütün bir gezegeni saran kesintisiz tek şehir; Senato'nun ve Jedi Tapınağı'nın merkezi. Katmanları ışıltılı kulelerden 1313'ün güneşsiz yeraltına iner."
+  },
+  "region": "core-worlds",
+  "sector": "Corusca sector",
+  "system": "Coruscant system",
+  "coordinates": "L-9",
+  "stats": {
+    "diameterKm": 12240,
+    "moonCount": 4,
+    "population": { "en": "≈3 trillion (est. 132 BBY)", "tr": "≈3 trilyon (132 BBY tahmini)" },
+    "government": { "en": "Galactic Senate — capital of Republic, then Empire", "tr": "Galaktik Senato — önce Cumhuriyet, sonra İmparatorluk başkenti" }
+  },
+  "suns": [{ "name": "Coruscant Prime", "color": "#FFEFC9" }],
+  "moons": ["Centax-1", "Centax-2", "Centax-3", "Hesperidium"],
+  "climate": { "en": ["Temperate (artificial)"], "tr": ["Ilıman (yapay)"] },
+  "terrain": { "en": ["Ecumenopolis", "City megastructure"], "tr": ["Ekumenopolis", "Şehir megayapısı"] },
+  "affiliationsByEra": { "clone-wars": "republic", "empire": "empire", "new-republic": "new-republic" },
+  "appearances": ["tpm", "aotc", "rots", "tcw", "andor"],
+  "characters": ["palpatine", "padme-amidala", "qui-gon-jinn", "kanan-jarrus", "anakin-skywalker", "mon-mothma"],
+  "poi": [
+    { "id": "jedi-temple", "names": { "en": "Jedi Temple", "tr": "Jedi Tapınağı" }, "lat": 14, "lon": -20,
+      "blurb": { "en": "Five-spired heart of the Jedi Order — later the Imperial Palace.", "tr": "Jedi Düzeni'nin beş kuleli kalbi — sonradan İmparatorluk Sarayı." } },
+    { "id": "galactic-senate", "names": { "en": "Galactic Senate", "tr": "Galaktik Senato" }, "lat": 12, "lon": -14,
+      "blurb": { "en": "The mushroom-domed chamber where the Republic argued itself to death.", "tr": "Cumhuriyet'in kendini ölümüne tartıştığı mantar kubbeli meclis." } },
+    { "id": "level-1313", "names": { "en": "Level 1313", "tr": "Katman 1313" }, "lat": -6, "lon": 8,
+      "blurb": { "en": "A lawless underworld level deep beneath the surface lights.", "tr": "Yüzey ışıklarının çok altında kanunsuz bir yeraltı katmanı." } },
+    { "id": "monument-plaza", "names": { "en": "Monument Plaza", "tr": "Anıt Meydanı" }, "lat": 20, "lon": -35,
+      "blurb": { "en": "Crowds gather around the one bare peak of Umate — the only exposed rock on the planet.", "tr": "Kalabalıklar Umate'nin çıplak zirvesinde toplanır — gezegendeki tek açık kaya." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Air traffic flows in strict skylanes thousands of levels above the crust.",
+      "Level 1 sits at the planet's surface; level 5127 at the top of the tallest towers.",
+      "Under the Empire it was renamed 'Imperial Center'."
+    ],
+    "tr": [
+      "Hava trafiği, kabuğun binlerce katman üzerindeki sıkı gök şeritlerinde akar.",
+      "Katman 1 gezegen yüzeyinde, katman 5127 en yüksek kulelerin tepesindedir.",
+      "İmparatorluk döneminde adı 'Imperial Center' olarak değiştirildi."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ecumenopolis",
+    "palette": { "primary": "#8A93A6", "secondary": "#4A5568" },
+    "atmosphere": { "color": "#9FB4D8", "density": 0.6 },
+    "textures": { "albedo": "planets/coruscant/albedo", "night": "planets/coruscant/night" },
+    "effects": ["traffic", "city-glow"]
+  }
+}

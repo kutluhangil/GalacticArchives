@@ -1,0 +1,52 @@
+{
+  "id": "jedha",
+  "kind": "moon",
+  "names": { "en": "Jedha", "tr": "Jedha" },
+  "desc": {
+    "en": "A cold desert moon and ancient pilgrimage site rich in kyber — some say the first home of the Jedi faith. The Death Star's first test shot tore its Holy City out of the ground.",
+    "tr": "Kyber açısından zengin, soğuk bir çöl ayı ve kadim hac merkezi — kimine göre Jedi inancının ilk yurdu. Ölüm Yıldızı'nın ilk test atışı, Kutsal Şehri'ni yerinden söküp attı."
+  },
+  "region": "mid-rim",
+  "sector": "Terrabe sector",
+  "system": "Jedha system",
+  "coordinates": "H-10",
+  "stats": {
+    "diameterKm": 11263,
+    "population": { "en": "11.3 million (before the Empire's strip-mining and the blast)", "tr": "11,3 milyon (İmparatorluk yağması ve patlamadan önce)" },
+    "government": { "en": "Church of the Force communities under Imperial occupation", "tr": "İmparatorluk işgali altındaki Güç Kilisesi cemaatleri" }
+  },
+  "suns": [{ "name": "Jedha's sun", "color": "#F5E8D0" }],
+  "moons": [],
+  "climate": { "en": ["Cold", "Arid"], "tr": ["Soğuk", "Kurak"] },
+  "terrain": { "en": ["Deserts", "Mesas", "Ruptured mantle (post-blast)"], "tr": ["Çöller", "Yassı tepeler", "Yarılmış manto (patlama sonrası)"] },
+  "affiliationsByEra": { "empire": "empire" },
+  "appearances": ["rogue-one"],
+  "characters": ["jyn-erso", "cassian-andor"],
+  "poi": [
+    { "id": "nijedha", "names": { "en": "NiJedha (Holy City)", "tr": "NiJedha (Kutsal Şehir)" }, "lat": 20, "lon": -12,
+      "blurb": { "en": "Walled mesa city of pilgrims — vaporized in the Death Star's first test.", "tr": "Hacıların surlu yayla şehri — Ölüm Yıldızı'nın ilk testinde buharlaştı." } },
+    { "id": "temple-of-the-kyber", "names": { "en": "Temple of the Kyber", "tr": "Kyber Tapınağı" }, "lat": 20, "lon": -13,
+      "blurb": { "en": "Chirrut Îmwe's shrine: 'I am one with the Force and the Force is with me.'", "tr": "Chirrut Îmwe'nin mabedi: 'Güç'le birim ve Güç benimledir.'" } },
+    { "id": "catacombs", "names": { "en": "Catacombs of Cadera", "tr": "Cadera Yeraltı Mezarları" }, "lat": 18, "lon": -10,
+      "blurb": { "en": "Saw Gerrera's partisan hideout in the tombs outside the city.", "tr": "Saw Gerrera'nın şehir dışındaki mezarlardaki partizan sığınağı." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Jedha's kyber fed the Death Star's superlaser — the Empire mined a holy site to build a horror.",
+      "The blast crater and 'ruptured mantle' are still visible from orbit in our era view.",
+      "Guardians of the Whills protected the temple long after the Jedi were gone."
+    ],
+    "tr": [
+      "Jedha'nın kyber'i Ölüm Yıldızı'nın süperlazerini besledi — İmparatorluk dehşeti inşa etmek için kutsal bir alanı madene çevirdi.",
+      "Patlama krateri ve 'yarılmış manto' bizim dönem görünümünde yörüngeden hâlâ görülür.",
+      "Whills Muhafızları, Jedi'lar gittikten çok sonra bile tapınağı korudu."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "desert",
+    "palette": { "primary": "#B8A488", "secondary": "#6E5E4C" },
+    "atmosphere": { "color": "#D8C8A8", "density": 0.55 },
+    "textures": { "albedo": "planets/jedha/albedo" },
+    "effects": ["blast-crater"]
+  }
+}

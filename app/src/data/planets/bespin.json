@@ -1,0 +1,52 @@
+{
+  "id": "bespin",
+  "kind": "gas-giant",
+  "names": { "en": "Bespin", "tr": "Bespin" },
+  "desc": {
+    "en": "A vast Outer Rim gas giant whose upper atmosphere holds a habitable 'Life Zone' — and Cloud City, the elegant tibanna-gas colony where Lando governed, Han was frozen, and Vader said four famous words.",
+    "tr": "Üst atmosferi yaşanabilir bir 'Yaşam Kuşağı' barındıran devasa bir Dış Halka gaz devi — ve Lando'nun yönettiği, Han'ın dondurulduğu, Vader'ın o meşhur cümleyi söylediği zarif tibanna gazı kolonisi Cloud City."
+  },
+  "region": "outer-rim",
+  "regionTags": ["Western Reaches"],
+  "sector": "Anoat sector",
+  "system": "Bespin system",
+  "coordinates": "K-18",
+  "stats": {
+    "diameterKm": 118000,
+    "moonCount": 2,
+    "population": { "en": "≈6 million (Cloud City and mining posts)", "tr": "≈6 milyon (Cloud City ve maden istasyonları)" },
+    "government": { "en": "Baron Administrator of Cloud City", "tr": "Cloud City Baron Yöneticisi" }
+  },
+  "suns": [{ "name": "Bespin's sun", "color": "#FFDFB0" }],
+  "moons": ["H'gaard", "Drudonna"],
+  "climate": { "en": ["Temperate in the Life Zone"], "tr": ["Yaşam Kuşağı'nda ılıman"] },
+  "terrain": { "en": ["Gaseous"], "tr": ["Gaz kütlesi"] },
+  "affiliationsByEra": { "empire": "neutral" },
+  "appearances": ["esb"],
+  "characters": ["lando-calrissian", "han-solo", "leia-organa", "luke-skywalker"],
+  "poi": [
+    { "id": "cloud-city", "names": { "en": "Cloud City", "tr": "Cloud City" }, "lat": 12, "lon": 0,
+      "blurb": { "en": "A floating dream of white towers — carbonite chamber included.", "tr": "Beyaz kulelerden yüzen bir düş — karbonit odası dahil." } },
+    { "id": "duel-gantry", "names": { "en": "The Gantry", "tr": "İskele" }, "lat": 11, "lon": 2,
+      "blurb": { "en": "\"No. I am your father.\" The most famous platform in cinema.", "tr": "\"Hayır. Ben senin babanım.\" Sinemanın en ünlü platformu." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Tibanna gas mined here supercharges blasters and hyperdrives.",
+      "Cloud City floats 59,000 km above the core, held by repulsorlifts.",
+      "Luke lost a hand here and gained an unbearable truth."
+    ],
+    "tr": [
+      "Burada çıkarılan tibanna gazı blasterları ve hipersürücüleri güçlendirir.",
+      "Cloud City, çekirdeğin 59.000 km üzerinde repulsor kaldırıcılarla süzülür.",
+      "Luke burada bir elini kaybetti, dayanılmaz bir gerçek kazandı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "gas-giant",
+    "palette": { "primary": "#E8B48A", "secondary": "#C97F5A" },
+    "atmosphere": { "color": "#FFD9B0", "density": 0.9 },
+    "textures": { "albedo": "planets/bespin/albedo" },
+    "effects": ["cloud-city-orbiter"]
+  }
+}

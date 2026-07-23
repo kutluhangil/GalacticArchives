@@ -1,0 +1,79 @@
+{
+  "id": "yavin",
+  "kind": "gas-giant",
+  "names": { "en": "Yavin", "tr": "Yavin" },
+  "desc": {
+    "en": "A crimson gas giant in the Gordian Reach. Its fourth moon hid the Rebel base that launched the attack on the Death Star — the battle that named an entire galactic calendar.",
+    "tr": "Gordian Reach'te kızıl bir gaz devi. Dördüncü ayı, Ölüm Yıldızı'na saldırıyı başlatan İsyancı üssünü sakladı — bütün bir galaktik takvime adını veren muharebe."
+  },
+  "region": "outer-rim",
+  "sector": "Gordian Reach",
+  "system": "Yavin system",
+  "coordinates": "P-6",
+  "stats": {
+    "diameterKm": 0,
+    "moonCount": 26,
+    "population": { "en": "—", "tr": "—" },
+    "government": { "en": "—", "tr": "—" }
+  },
+  "suns": [{ "name": "Yavin", "color": "#FFE2B8" }],
+  "moons": [],
+  "climate": { "en": ["Gaseous"], "tr": ["Gaz kütlesi"] },
+  "terrain": { "en": ["Gas giant"], "tr": ["Gaz devi"] },
+  "appearances": ["anh", "rogue-one", "andor"],
+  "renderRecipe": {
+    "archetype": "gas-giant",
+    "palette": { "primary": "#C24E3A", "secondary": "#8E2F26" },
+    "atmosphere": { "color": "#E8785C", "density": 0.9 },
+    "textures": { "albedo": "planets/yavin-prime/albedo" }
+  },
+  "moonsDetail": [
+    {
+      "id": "yavin-4",
+      "kind": "moon",
+      "names": { "en": "Yavin 4", "tr": "Yavin 4" },
+      "desc": {
+        "en": "A jungle moon of ancient Massassi temples. From its Great Temple, thirty starfighters flew against a battle station the size of a small moon — and one farm boy made the shot.",
+        "tr": "Kadim Massassi tapınaklarıyla kaplı bir cangıl ayı. Büyük Tapınak'tan otuz yıldız avcısı, küçük bir ay boyutundaki savaş istasyonuna karşı uçtu — ve bir çiftlik çocuğu o atışı yaptı."
+      },
+      "region": "outer-rim",
+      "sector": "Gordian Reach",
+      "system": "Yavin system",
+      "coordinates": "P-6",
+      "stats": {
+        "diameterKm": 10200,
+        "population": { "en": "≈1,000 (Rebel garrison era)", "tr": "≈1.000 (İsyancı garnizonu dönemi)" },
+        "government": { "en": "Rebel Alliance high command (0 BBY)", "tr": "İsyan İttifakı yüksek komutanlığı (0 BBY)" }
+      },
+      "climate": { "en": ["Temperate", "Tropical"], "tr": ["Ilıman", "Tropikal"] },
+      "terrain": { "en": ["Jungles", "Rainforests", "Rivers"], "tr": ["Cangıllar", "Yağmur ormanları", "Nehirler"] },
+      "affiliationsByEra": { "empire": "rebel" },
+      "appearances": ["anh", "rogue-one", "andor"],
+      "characters": ["poe-dameron", "luke-skywalker", "leia-organa", "mon-mothma"],
+      "poi": [
+        { "id": "great-temple", "names": { "en": "Great Temple (Massassi Base)", "tr": "Büyük Tapınak (Massassi Üssü)" }, "lat": 6, "lon": -15,
+          "blurb": { "en": "Ancient stone pyramid turned starfighter hangar and war room.", "tr": "Yıldız avcısı hangarına ve harekât odasına dönüşen kadim taş piramit." } },
+        { "id": "massassi-ruins", "names": { "en": "Massassi Ruins", "tr": "Massassi Kalıntıları" }, "lat": 9, "lon": -11,
+          "blurb": { "en": "Temples raised millennia ago by an enslaved warrior species.", "tr": "Binyıllar önce köleleştirilmiş bir savaşçı türün diktiği tapınaklar." } }
+      ],
+      "funFacts": {
+        "en": [
+          "The galactic calendar pivots on the battle fought here: BBY/ABY — Before/After the Battle of Yavin.",
+          "Poe Dameron was born on Yavin 4 to a Rebel pilot and a Pathfinder.",
+          "The medal ceremony hall still echoes — no medal for Chewbacca, a scandal to this day."
+        ],
+        "tr": [
+          "Galaktik takvim burada verilen muharebeye göre döner: BBY/ABY — Yavin Muharebesi'nden Önce/Sonra.",
+          "Poe Dameron, Yavin 4'te bir İsyancı pilot ile bir Pathfinder'ın oğlu olarak doğdu.",
+          "Madalya töreni salonu hâlâ yankılanır — Chewbacca'ya madalya yok; bugün bile skandal."
+        ]
+      },
+      "renderRecipe": {
+        "archetype": "verdant",
+        "palette": { "primary": "#2F6B3C", "secondary": "#1E4A2A" },
+        "atmosphere": { "color": "#A8D8B0", "density": 0.75 },
+        "textures": { "albedo": "planets/yavin-4/albedo", "clouds": "temperate" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "ahch-to",
+  "kind": "planet",
+  "names": { "en": "Ahch-To", "tr": "Ahch-To" },
+  "desc": {
+    "en": "A cold ocean world in the Unknown Regions, its rocky islands crowned by the first Jedi Temple. Luke Skywalker chose it as the place where the Jedi — and he — would end. The Force disagreed.",
+    "tr": "Bilinmeyen Bölgeler'de soğuk bir okyanus dünyası; kayalık adalarından birinde ilk Jedi Tapınağı yükselir. Luke Skywalker burayı Jedi'ların — ve kendisinin — sona ereceği yer olarak seçti. Güç aynı fikirde değildi."
+  },
+  "region": "unknown-regions",
+  "system": "Ahch-To system",
+  "coordinates": "F-13",
+  "stats": {
+    "diameterKm": 7212,
+    "moonCount": 1,
+    "population": { "en": "Lanai caretakers, porgs, thala-sirens — and one hermit", "tr": "Lanai bakıcılar, porglar, thala-sirenler — ve bir münzevi" },
+    "government": { "en": "None", "tr": "Yok" }
+  },
+  "suns": [
+    { "name": "Ahch-To's primary", "color": "#FFF4D8" },
+    { "name": "Second sun", "color": "#FFE0B0" }
+  ],
+  "moons": [],
+  "climate": { "en": ["Temperate", "Stormy seas"], "tr": ["Ilıman", "Fırtınalı denizler"] },
+  "terrain": { "en": ["Ocean", "Volcanic islands"], "tr": ["Okyanus", "Volkanik adalar"] },
+  "affiliationsByEra": {},
+  "appearances": ["tfa", "tlj"],
+  "characters": ["luke-skywalker", "rey"],
+  "poi": [
+    { "id": "temple-island", "names": { "en": "Temple Island", "tr": "Tapınak Adası" }, "lat": 24, "lon": -40,
+      "blurb": { "en": "The first Jedi Temple and the ancient texts — 'page-turners they were not.'", "tr": "İlk Jedi Tapınağı ve kadim metinler — 'pek sürükleyici sayılmazlardı.'" } },
+    { "id": "mirror-cave", "names": { "en": "Mirror Cave", "tr": "Ayna Mağarası" }, "lat": 23, "lon": -41,
+      "blurb": { "en": "A dark-side hollow beneath the island that showed Rey only herself.", "tr": "Adanın altında Rey'e yalnızca kendisini gösteren karanlık taraf oyuğu." } },
+    { "id": "lanai-village", "names": { "en": "Lanai Village", "tr": "Lanai Köyü" }, "lat": 25, "lon": -39,
+      "blurb": { "en": "Home of the caretaker nuns who tolerated exactly one Jedi's mess.", "tr": "Tam olarak bir Jedi'ın dağınıklığına katlanan bakıcı rahibelerin köyü." } }
+  ],
+  "funFacts": {
+    "en": [
+      "Luke became one with the Force here in 34 ABY, at the twin sunset — mirroring Tatooine.",
+      "Porgs nested in the Millennium Falcon and never really left.",
+      "R2-D2's 'cheap move' — Leia's old hologram — happened in the Falcon's hold here."
+    ],
+    "tr": [
+      "Luke 34 ABY'de burada, ikiz gün batımında Güç'le bir oldu — Tatooine'in aynası.",
+      "Porglar Milenyum Şahini'ne yuva yaptı ve bir daha gerçekten hiç gitmedi.",
+      "R2-D2'nun 'ucuz numarası' — Leia'nın eski hologramı — Şahin'in ambarında burada oynatıldı."
+    ]
+  },
+  "renderRecipe": {
+    "archetype": "ocean-storm",
+    "palette": { "primary": "#41616E", "secondary": "#2A4450" },
+    "atmosphere": { "color": "#B8D4DE", "density": 0.8 },
+    "textures": { "albedo": "planets/ahch-to/albedo", "clouds": "storm" },
+    "dualSun": true
+  }
+}
