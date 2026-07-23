@@ -32,6 +32,14 @@ export abstract class EngineBase {
   protected timedMats: THREE.ShaderMaterial[] = []
   protected reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   protected quality = qualitySettings()
+  private flight?: {
+    getTarget: () => THREE.Vector3
+    from: THREE.Vector3
+    fromTarget: THREE.Vector3
+    endDist: number
+    start: number
+    ms: number
+  }
   private raf = 0
   private disposed = false
   private startWall = 0
@@ -111,7 +119,11 @@ export abstract class EngineBase {
     const mat = new THREE.ShaderMaterial({
       vertexShader: STAR_VERT,
       fragmentShader: STAR_FRAG,
-      uniforms: { uPixelRatio: { value: this.renderer.getPixelRatio() }, uTime: { value: 0 } },
+      uniforms: {
+        uPixelRatio: { value: this.renderer.getPixelRatio() },
+        uTime: { value: 0 },
+        uOpacity: { value: 1 },
+      },
       transparent: true,
       depthWrite: false,
     })
@@ -119,6 +131,46 @@ export abstract class EngineBase {
     stars.frustumCulled = false
     this.scene.add(stars)
     this.timedMats.push(mat)
+  }
+
+  /** Camera approach: ease from wherever the viewer is to `endDist` away from
+   *  a (possibly moving) target. Returns the flight duration in ms — 0 when
+   *  reduced motion is on, so the caller navigates immediately instead.
+   *  Orbit input is suspended for the duration. */
+  flyTo(getTarget: () => THREE.Vector3, endDist: number, ms = 1250): number {
+    if (this.reducedMotion) return 0
+    this.flight = {
+      getTarget,
+      from: this.camera.position.clone(),
+      fromTarget: this.controls.target.clone(),
+      endDist,
+      start: performance.now(),
+      ms,
+    }
+    this.controls.enabled = false
+    return ms
+  }
+
+  protected get flying(): boolean {
+    return this.flight !== undefined
+  }
+
+  /** Runs after update() so a subclass's own camera work (system follow) does
+   *  not fight the flight for the same frame. */
+  private tickFlight() {
+    const f = this.flight
+    if (!f) return
+    const target = f.getTarget()
+    const k = Math.min((performance.now() - f.start) / f.ms, 1)
+    // ease-in-out: leaves the overview gently, settles without overshoot
+    const e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2
+    const dir = f.from.clone().sub(target)
+    if (dir.lengthSq() < 1e-8) dir.set(0, 0.4, 1)
+    const arrival = target.clone().add(dir.normalize().multiplyScalar(f.endDist))
+    this.camera.position.lerpVectors(f.from, arrival, e)
+    this.controls.target.lerpVectors(f.fromTarget, target, e)
+    this.camera.lookAt(this.controls.target)
+    if (k >= 1) this.flight = undefined
   }
 
   /** Soft additive sun glow sprite (canvas radial gradient). */
@@ -155,6 +207,7 @@ export abstract class EngineBase {
       for (const mat of this.timedMats) mat.uniforms.uTime.value = this.wallSec
       this.controls.update()
       this.update(this.cb.getSimTime())
+      this.tickFlight()
       this.composer.render()
       this.fpsCount++
       const now = performance.now()

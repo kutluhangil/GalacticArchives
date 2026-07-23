@@ -8,13 +8,13 @@ import type { CelestialBody, Character } from '../types/lore'
 import { L, loadAllPlanets, loadCharacters, regions } from '../lib/lore'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
-import { useJump } from './useJump'
+import { useFlyTo } from './useFlyTo'
 
 export default function CommandPalette({ onClose }: { onClose: () => void }) {
   const lang = useApp((s) => s.lang)
   const [planets, setPlanets] = useState<CelestialBody[]>([])
   const [characters, setCharacters] = useState<Character[]>([])
-  const jump = useJump()
+  const jump = useFlyTo()
 
   useEffect(() => {
     loadAllPlanets().then(setPlanets)

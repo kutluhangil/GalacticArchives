@@ -7,7 +7,7 @@ import type { CelestialBody, EraId } from '../../types/lore'
 import { rendersAsRubble, stationsForHost } from '../lore'
 import { EngineBase, type BaseCallbacks } from './engine-base'
 import { buildAsteroidField, buildDeathStar, buildTraffic, type TrafficSystem } from './effects'
-import { ARCHETYPE_IDS, PLANET_FRAG, PLANET_VERT } from './planet-shaders'
+import { makeBodyMaterial, seedFrom, type SunLight } from './body-material'
 
 export interface SystemCallbacks extends BaseCallbacks {
   onSelectBody?: (id: string) => void
@@ -24,12 +24,8 @@ interface OrbitingBody {
   phase: number
   parent?: OrbitingBody
   minor?: boolean
-}
-
-function seedFrom(id: string): number {
-  let h = 0
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 1000
-  return h / 100
+  /** world-space radius of the drawn body — sets the fly-to arrival distance */
+  bodyRadius: number
 }
 
 const TRAFFIC_BY_ARCHETYPE: Record<string, number> = {
@@ -73,6 +69,14 @@ export class SystemEngine extends EngineBase {
     this.start()
   }
 
+  /** Close on one orbiting body; the planet view picks the camera up from the
+   *  same framing so the approach reads as one continuous move. */
+  flyToBody(id: string): number {
+    const body = this.bodies.find((b) => b.id === id)
+    if (!body) return 0
+    return this.flyTo(() => body.anchor.position, body.bodyRadius * 5.4, 1250)
+  }
+
   private buildSuns(primary: CelestialBody) {
     const suns = primary.suns?.length ? primary.suns : [{ name: 'Sun', color: '#FFEFD0' }]
     const twin = suns.length > 1
@@ -94,30 +98,13 @@ export class SystemEngine extends EngineBase {
     })
   }
 
-  private makeBodyMaterial(body: CelestialBody, era: EraId, suns: CelestialBody['suns']): THREE.ShaderMaterial {
-    const recipe = body.renderRecipe
-    const mat = new THREE.ShaderMaterial({
-      vertexShader: PLANET_VERT,
-      fragmentShader: PLANET_FRAG,
-      uniforms: {
-        uArchetype: { value: ARCHETYPE_IDS[recipe.archetype] ?? 10 },
-        uSeed: { value: seedFrom(body.id) },
-        uTime: { value: 0 },
-        uPrimary: { value: new THREE.Color(recipe.palette.primary) },
-        uSecondary: { value: new THREE.Color(recipe.palette.secondary ?? recipe.palette.primary) },
-        uAtmoColor: { value: new THREE.Color(recipe.atmosphere?.color ?? '#88aaff') },
-        uSun1Dir: { value: new THREE.Vector3(1, 0, 0) },
-        uSun1Color: { value: new THREE.Color(suns?.[0]?.color ?? '#FFEFD0') },
-        uSun2Dir: { value: new THREE.Vector3(1, 0, 0) },
-        uSun2Color: { value: new THREE.Color(suns?.[1]?.color ?? '#FFEFD0') },
-        uHasSun2: { value: (suns?.length ?? 0) > 1 ? 1 : 0 },
-        uVariant: { value: recipe.variantsByEra?.[era] ? 1 : 0 },
-        uAlbedo: { value: null },
-        uUseAlbedo: { value: 0 },
-        uNight: { value: null },
-        uUseNight: { value: 0 },
-      },
-    })
+  /** the per-frame loop rewrites uSun*Dir from the live star positions, so the
+   *  factory's placeholder directions only matter for the very first frame */
+  private bodyMaterial(body: CelestialBody, era: EraId, suns: CelestialBody['suns']): THREE.ShaderMaterial {
+    const lights: SunLight[] = (suns?.length ? suns : [{ name: 'Sun', color: '#FFEFD0' }])
+      .slice(0, 2)
+      .map((sun) => ({ dir: new THREE.Vector3(1, 0, 0), color: new THREE.Color(sun.color) }))
+    const mat = makeBodyMaterial(body, era, lights)
     this.timedMats.push(mat)
     return mat
   }
@@ -135,6 +122,7 @@ export class SystemEngine extends EngineBase {
       orbitRadius,
       periodDays: 300,
       phase: seedFrom(body.id),
+      bodyRadius: 1.1,
     }
     this.bodies.push(planet)
     this.planetBody = planet
@@ -157,7 +145,7 @@ export class SystemEngine extends EngineBase {
 
     const spin = new THREE.Mesh(
       new THREE.SphereGeometry(1.1, 64, 64),
-      this.makeBodyMaterial(body, era, body.suns),
+      this.bodyMaterial(body, era, body.suns),
     )
     spin.userData.bodyId = body.id
     anchor.add(spin)
@@ -172,7 +160,7 @@ export class SystemEngine extends EngineBase {
     detail.slice(0, 4).forEach((moon, i) => {
       const mesh = new THREE.Mesh(
         new THREE.SphereGeometry(0.34, 40, 40),
-        this.makeBodyMaterial(moon, era, body.suns),
+        this.bodyMaterial(moon, era, body.suns),
       )
       mesh.userData.bodyId = moon.id
       this.scene.add(mesh)
@@ -187,6 +175,7 @@ export class SystemEngine extends EngineBase {
         phase: (i / Math.max(detail.length, 1)) * Math.PI * 2,
         parent: planet,
         minor: true,
+        bodyRadius: 0.34,
       })
     })
     for (let i = 0; i < plainCount; i++) {
@@ -204,6 +193,7 @@ export class SystemEngine extends EngineBase {
         phase: (i / Math.max(plainCount, 1)) * Math.PI * 2,
         parent: planet,
         minor: true,
+        bodyRadius: 0.16 + (i % 2) * 0.05,
       })
     }
 
@@ -226,6 +216,7 @@ export class SystemEngine extends EngineBase {
         phase: 2.2 + i,
         parent: planet,
         minor: true,
+        bodyRadius: 0.42,
       })
     })
 
@@ -318,14 +309,18 @@ export class SystemEngine extends EngineBase {
         this.followInitialized = true
         this.lastTarget.copy(target)
         this.controls.target.copy(target)
+      } else if (this.flying) {
+        // the flight owns the camera; only keep the reference in sync so the
+        // follow does not jump by the whole flight's worth of orbit afterwards
+        this.lastTarget.copy(target)
       } else {
         const delta = target.clone().sub(this.lastTarget)
         this.camera.position.add(delta)
         this.controls.target.add(delta)
         this.lastTarget.copy(target)
       }
-      this.traffic?.update(this.wallSec, target)
     }
+    if (this.planetBody) this.traffic?.update(this.wallSec, this.planetBody.anchor.position)
 
     if (this.labelCb) {
       const half = { w: this.canvas.clientWidth / 2, h: this.canvas.clientHeight / 2 }

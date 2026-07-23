@@ -18,14 +18,12 @@ import {
   buildTraffic,
   type TrafficSystem,
 } from './effects'
+import { makeBodyMaterial, seedFrom } from './body-material'
 import {
-  ARCHETYPE_IDS,
   ATMO_FRAG,
   ATMO_VERT,
   CLOUD_FRAG,
   CLOUD_VERT,
-  PLANET_FRAG,
-  PLANET_VERT,
   RING_FRAG,
   RING_VERT,
 } from './planet-shaders'
@@ -51,15 +49,11 @@ const CLOUD_SPEED: Record<string, number> = { temperate: 0.0045, storm: 0.011, s
 
 const CAM_DIR = new THREE.Vector3(0, 0.55, 3.1).normalize()
 const CAM_NEAR = 3.15
-const CAM_FAR = 8.2
-const INTRO_MS = 1200
+/** arrival distance: the galaxy/system flight hands the camera over here, so
+ *  the dive-in continues that approach instead of restarting from far away */
+const CAM_FAR = 5.4
+const INTRO_MS = 1000
 const DEPART_MS = 620
-
-function seedFrom(id: string): number {
-  let h = 0
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 1000
-  return h / 100
-}
 
 function latLonToVec3(lat: number, lon: number, r: number): THREE.Vector3 {
   const phi = THREE.MathUtils.degToRad(90 - lat)
@@ -121,12 +115,14 @@ export class PlanetEngine extends EngineBase {
     this.start()
   }
 
-  /** camera pull-back before a hyperspace jump; call right before navigating */
-  depart() {
-    if (this.reducedMotion) return
+  /** Camera pull-back away from the world; returns its duration so the caller
+   *  can time the route swap to the end of the move. */
+  depart(): number {
+    if (this.reducedMotion) return 0
     this.departFromDist = this.camera.position.length()
     this.departStart = performance.now()
     this.introStart = -1
+    return DEPART_MS
   }
 
   private buildSuns() {
@@ -145,31 +141,8 @@ export class PlanetEngine extends EngineBase {
     })
   }
 
-  private makeBodyMaterial(body: CelestialBody, seed: number): THREE.ShaderMaterial {
-    const recipe = body.renderRecipe
-    const [s1, s2] = [this.sunDirs[0], this.sunDirs[1] ?? this.sunDirs[0]]
-    const mat = new THREE.ShaderMaterial({
-      vertexShader: PLANET_VERT,
-      fragmentShader: PLANET_FRAG,
-      uniforms: {
-        uArchetype: { value: ARCHETYPE_IDS[recipe.archetype] ?? 10 },
-        uSeed: { value: seed },
-        uTime: { value: 0 },
-        uPrimary: { value: new THREE.Color(recipe.palette.primary) },
-        uSecondary: { value: new THREE.Color(recipe.palette.secondary ?? recipe.palette.primary) },
-        uAtmoColor: { value: new THREE.Color(recipe.atmosphere?.color ?? '#88aaff') },
-        uSun1Dir: { value: s1.dir },
-        uSun1Color: { value: s1.color },
-        uSun2Dir: { value: s2.dir },
-        uSun2Color: { value: s2.color },
-        uHasSun2: { value: this.sunDirs.length > 1 ? 1 : 0 },
-        uVariant: { value: recipe.variantsByEra?.[this.era] ? 1 : 0 },
-        uAlbedo: { value: null },
-        uUseAlbedo: { value: 0 },
-        uNight: { value: null },
-        uUseNight: { value: 0 },
-      },
-    })
+  private bodyMaterial(body: CelestialBody): THREE.ShaderMaterial {
+    const mat = makeBodyMaterial(body, this.era, this.sunDirs)
     this.timedMats.push(mat)
     return mat
   }
@@ -181,7 +154,7 @@ export class PlanetEngine extends EngineBase {
 
     const segments = this.quality.planetSegments
     const geo = new THREE.SphereGeometry(1, segments, segments)
-    this.planetMesh = new THREE.Mesh(geo, this.makeBodyMaterial(this.body, seed))
+    this.planetMesh = new THREE.Mesh(geo, this.bodyMaterial(this.body))
     this.planetGroup.add(this.planetMesh)
     this.scene.add(this.planetGroup)
     const [s1, s2] = [this.sunDirs[0], this.sunDirs[1] ?? this.sunDirs[0]]
@@ -308,7 +281,7 @@ export class PlanetEngine extends EngineBase {
       if (det) {
         mesh = new THREE.Mesh(
           new THREE.SphereGeometry(size, 48, 48),
-          this.makeBodyMaterial(det, seedFrom(det.id)),
+          this.bodyMaterial(det),
         )
       } else {
         mesh = new THREE.Mesh(

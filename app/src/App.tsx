@@ -1,9 +1,8 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router'
-import HyperspaceOverlay from './components/HyperspaceOverlay'
+import TransitionVeil from './components/TransitionVeil'
 import CommandPaletteHost from './components/CommandPaletteHost'
 import EraFade from './components/EraFade'
-import { audio } from './lib/audio'
 import { setQuality } from './lib/quality'
 import { t } from './lib/ui-strings'
 import { useApp } from './state/app'
@@ -16,7 +15,6 @@ const SystemView = lazy(() => import('./pages/SystemView'))
 const Holocron = lazy(() => import('./pages/Holocron'))
 const HolocronPlanet = lazy(() => import('./pages/HolocronPlanet'))
 const HolocronCharacter = lazy(() => import('./pages/HolocronCharacter'))
-const Home = lazy(() => import('./pages/Home'))
 
 function RouteFallback() {
   const lang = useApp((s) => s.lang)
@@ -43,17 +41,6 @@ export default function App() {
     setQuality(quality)
   }, [quality])
 
-  // browsers only allow audio to start from a gesture
-  useEffect(() => {
-    const unlock = () => audio.unlock()
-    window.addEventListener('pointerdown', unlock, { once: true })
-    window.addEventListener('keydown', unlock, { once: true })
-    return () => {
-      window.removeEventListener('pointerdown', unlock)
-      window.removeEventListener('keydown', unlock)
-    }
-  }, [])
-
   return (
     <>
       <Suspense fallback={<RouteFallback />}>
@@ -65,12 +52,10 @@ export default function App() {
           <Route path="/holocron" element={<Holocron />} />
           <Route path="/holocron/planet/:id" element={<HolocronPlanet />} />
           <Route path="/holocron/character/:id" element={<HolocronCharacter />} />
-          {/* original LEO LIVE satellite demo, kept as an engineering reference */}
-          <Route path="/legacy" element={<Home />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
-      <HyperspaceOverlay />
+      <TransitionVeil />
       <CommandPaletteHost />
       <EraFade />
     </>

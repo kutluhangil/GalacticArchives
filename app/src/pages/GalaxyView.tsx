@@ -11,7 +11,7 @@ import { factionById, L, loadAllPlanets, regions, rendersAsRubble } from '../lib
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
-import { useJump } from '../components/useJump'
+import { useFlyTo } from '../components/useFlyTo'
 
 interface NodeLabel {
   id: string
@@ -41,9 +41,12 @@ export default function GalaxyView() {
   const [labels, setLabels] = useState<NodeLabel[]>([])
   const [hoverRegion, setHoverRegion] = useState<RegionId | null>(null)
   const [fps, setFps] = useState(0)
-  const jump = useJump()
-  const jumpRef = useRef(jump)
-  jumpRef.current = jump
+  const flyTo = useFlyTo()
+  // the engine outlives each render, so route it through a ref instead of
+  // rebuilding the scene whenever the callback identity changes
+  const diveRef = useRef<(id: string) => void>(() => {})
+  diveRef.current = (id: string) =>
+    flyTo(`/planet/${id}`, () => engineRef.current?.flyToNode(id) ?? 0)
 
   useEffect(() => {
     loadAllPlanets().then(setPlanets)
@@ -61,6 +64,7 @@ export default function GalaxyView() {
         z: pos.z,
         color: states[i].color,
         destroyed: states[i].destroyed,
+        body: p,
       }
     })
     // era deliberately absent: era switches patch node states without a rebuild
@@ -72,11 +76,11 @@ export default function GalaxyView() {
     const engine = new GalaxyEngine(canvasRef.current, {
       getSimTime: () => simClock.getTime(),
       onFps: setFps,
-      onSelect: (id) => jumpRef.current(`/system/${id}`),
+      onSelect: (id) => diveRef.current(id),
       onLabelPositions: setLabels,
       onRegionHover: setHoverRegion,
     })
-    engine.init(nodes)
+    engine.init(nodes, useApp.getState().era)
     engineRef.current = engine
     return () => {
       engineRef.current = null
@@ -87,7 +91,7 @@ export default function GalaxyView() {
   // era switch: recolor nodes in place (no scene rebuild)
   useEffect(() => {
     if (!planets.length || !engineRef.current) return
-    engineRef.current.applyNodeStates(nodeStates(planets, era))
+    engineRef.current.applyNodeStates(nodeStates(planets, era), era)
   }, [era, planets])
 
   const regionName = hoverRegion
@@ -111,7 +115,7 @@ export default function GalaxyView() {
             <button
               key={label.id}
               style={{ left: label.x, top: label.y }}
-              onClick={() => jump(`/system/${label.id}`)}
+              onClick={() => diveRef.current(label.id)}
               className={`absolute z-10 -translate-x-1/2 rounded px-1 py-0.5 text-[9.5px] tracking-[0.18em] backdrop-blur-[2px] transition-colors ${
                 label.destroyed
                   ? 'text-red-400/80 hover:text-red-300'

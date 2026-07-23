@@ -85,10 +85,6 @@ const STRINGS = {
 
   // settings
   settings: { en: 'Settings', tr: 'Ayarlar' },
-  sound: { en: 'Sound', tr: 'Ses' },
-  mute: { en: 'Mute', tr: 'Sustur' },
-  unmute: { en: 'Unmute', tr: 'Sesi aç' },
-  volume: { en: 'Volume', tr: 'Ses düzeyi' },
   quality: { en: 'Quality', tr: 'Kalite' },
   qualityHint: {
     en: 'Applies when a view is reopened.',

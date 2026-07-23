@@ -9,7 +9,7 @@ import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
 import PlanetPanel from '../components/hud/PlanetPanel'
 import TimeBar from '../components/hud/TimeBar'
-import { useJump } from '../components/useJump'
+import { useFlyTo } from '../components/useFlyTo'
 import { KesselRun, Porg } from '../components/EasterEggs'
 
 export default function PlanetView() {
@@ -23,7 +23,7 @@ export default function PlanetView() {
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
   const [fps, setFps] = useState(0)
   const [systemHost, setSystemHost] = useState(id)
-  const jump = useJump()
+  const jump = useFlyTo()
 
   useEffect(() => {
     let cancelled = false
@@ -63,11 +63,8 @@ export default function PlanetView() {
     }
   }, [body, era])
 
-  // pull the camera back before the hyperspace flash (the dive-out half)
-  const departJump = (path: string) => {
-    engineRef.current?.depart()
-    jump(path)
-  }
+  // leaving a world is the dive in reverse: pull back, then swap views
+  const departTo = (path: string) => jump(path, () => engineRef.current?.depart() ?? 0)
 
   const pois = body?.poi ?? []
 
@@ -106,7 +103,7 @@ export default function PlanetView() {
       })}
 
       <button
-        onClick={() => departJump(`/system/${systemHost}`)}
+        onClick={() => departTo(`/system/${systemHost}`)}
         className="pointer-events-auto absolute bottom-4 right-4 z-20 rounded border border-white/10 bg-panel/80 px-3 py-1.5 text-[12px] tracking-wide text-slate-200 backdrop-blur-md transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan"
       >
         ◇ {t('enterSystem', lang)}

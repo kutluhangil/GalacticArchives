@@ -8,7 +8,7 @@ import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
 import TimeBar from '../components/hud/TimeBar'
-import { useJump } from '../components/useJump'
+import { useFlyTo } from '../components/useFlyTo'
 
 interface Label {
   id: string
@@ -26,9 +26,11 @@ export default function SystemView() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [body, setBody] = useState<CelestialBody | null>(null)
   const [labels, setLabels] = useState<Label[]>([])
-  const jump = useJump()
-  const jumpRef = useRef(jump)
-  jumpRef.current = jump
+  const engineRef = useRef<SystemEngine | null>(null)
+  const flyTo = useFlyTo()
+  const diveRef = useRef<(id: string) => void>(() => {})
+  diveRef.current = (bodyId: string) =>
+    flyTo(`/planet/${bodyId}`, () => engineRef.current?.flyToBody(bodyId) ?? 0)
 
   useEffect(() => {
     let cancelled = false
@@ -45,11 +47,15 @@ export default function SystemView() {
     if (!body || !canvasRef.current) return
     const engine = new SystemEngine(canvasRef.current, {
       getSimTime: () => simClock.getTime(),
-      onSelectBody: (bodyId) => jumpRef.current(`/planet/${bodyId}`),
+      onSelectBody: (bodyId) => diveRef.current(bodyId),
       onLabelPositions: setLabels,
     })
     engine.init(body, era, lang)
-    return () => engine.dispose()
+    engineRef.current = engine
+    return () => {
+      engineRef.current = null
+      engine.dispose()
+    }
   }, [body, era, lang])
 
   return (
@@ -79,7 +85,7 @@ export default function SystemView() {
             <button
               key={label.id}
               style={{ left: label.x, top: label.y }}
-              onClick={() => jump(`/planet/${label.id}`)}
+              onClick={() => diveRef.current(label.id)}
               className={`absolute z-10 -translate-x-1/2 rounded border backdrop-blur-sm transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan ${
                 label.minor
                   ? 'border-white/5 bg-black/40 px-1 py-px text-[8.5px] tracking-[0.16em] text-slate-400'
@@ -93,7 +99,7 @@ export default function SystemView() {
 
       {body && (
         <button
-          onClick={() => jump(`/planet/${body.id}`)}
+          onClick={() => diveRef.current(body.id)}
           className="pointer-events-auto absolute bottom-4 right-4 z-20 rounded border border-white/10 bg-panel/80 px-3 py-1.5 text-[12px] tracking-wide text-slate-200 backdrop-blur-md transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan"
         >
           ◈ {t('enterPlanet', lang)}

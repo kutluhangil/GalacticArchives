@@ -6,12 +6,12 @@ import { eras, L, loadAllPlanets, regions } from '../../lib/lore'
 import { ERA_SHORT, t } from '../../lib/ui-strings'
 import { OPEN_PALETTE_EVENT } from '../CommandPaletteHost'
 import SettingsMenu from '../SettingsMenu'
-import { useJump } from '../useJump'
+import { useFlyTo } from '../useFlyTo'
 
 function PlanetsDropdown() {
   const { lang } = useApp()
   const { id } = useParams()
-  const jump = useJump()
+  const jump = useFlyTo()
   const [open, setOpen] = useState(false)
   const [planets, setPlanets] = useState<CelestialBody[]>([])
   const ref = useRef<HTMLDivElement>(null)
@@ -79,7 +79,7 @@ function PlanetsDropdown() {
 
 export default function TopBar() {
   const { lang, setLang, era, setEra } = useApp()
-  const jump = useJump()
+  const jump = useFlyTo()
   const navigate = useNavigate()
 
   return (

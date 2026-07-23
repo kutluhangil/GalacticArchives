@@ -2,7 +2,6 @@
 // timing a loop of the Maw, and a porg that chirps when poked on Ahch-To.
 
 import { useEffect, useRef, useState } from 'react'
-import { audio } from '../lib/audio'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 
@@ -23,8 +22,6 @@ export function KesselRun() {
   }
 
   const start = () => {
-    audio.unlock()
-    audio.play('select')
     setParsecs(null)
     setRunning(true)
     startRef.current = performance.now()
@@ -37,7 +34,6 @@ export function KesselRun() {
       const seconds = (performance.now() - startRef.current) / 1000
       // shave parsecs for a tighter line through the black holes
       setParsecs(Math.max(11.2, 18 - seconds))
-      audio.play('panel')
     }, 6400)
   }
 
@@ -72,8 +68,6 @@ export function Porg() {
     <button
       aria-label="porg"
       onClick={() => {
-        audio.unlock()
-        audio.play('porg')
         setStartled(true)
         window.setTimeout(() => setStartled(false), 420)
       }}

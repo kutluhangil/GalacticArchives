@@ -3,12 +3,17 @@
 // grid. Clicking a node hyperjumps to its star system.
 
 import * as THREE from 'three'
-import type { RegionId } from '../../types/lore'
+import type { CelestialBody, EraId, RegionId } from '../../types/lore'
 import { EngineBase, type BaseCallbacks } from './engine-base'
+import { makeBodyMaterial } from './body-material'
 import { makeGlowTexture } from './effects'
 import { STAR_FRAG, STAR_VERT } from './planet-shaders'
 
 export const GALAXY_R = 20
+
+/** node globe radius in disk units — small enough to read as a point from the
+ *  overview, large enough to resolve into a real world on approach */
+const NODE_R = 0.17
 
 export interface GalaxyNode {
   id: string
@@ -18,6 +23,7 @@ export interface GalaxyNode {
   z: number
   color: string
   destroyed: boolean
+  body: CelestialBody
 }
 
 export interface GalaxyCallbacks extends BaseCallbacks {
@@ -61,8 +67,8 @@ const REGION_BANDS: { id: RegionId; r: number }[] = [
   { id: 'wild-space', r: 0.9 },
 ]
 
-/** System node marker: bright core + faction-colored targeting ring, so nodes
- *  stay legible against the spiral's own starfield. Cached per color. */
+/** Faction halo drawn behind a node's globe: a soft glow plus a thin targeting
+ *  ring, so allegiance reads at a glance without hiding the world itself. */
 const nodeTexCache = new Map<string, THREE.CanvasTexture>()
 function makeNodeTexture(color: string): THREE.CanvasTexture {
   const hit = nodeTexCache.get(color)
@@ -70,17 +76,17 @@ function makeNodeTexture(color: string): THREE.CanvasTexture {
   const cv = document.createElement('canvas')
   cv.width = cv.height = 64
   const ctx = cv.getContext('2d')!
-  const g = ctx.createRadialGradient(32, 32, 0, 32, 32, 16)
-  g.addColorStop(0, '#ffffff')
-  g.addColorStop(0.35, color)
+  const g = ctx.createRadialGradient(32, 32, 6, 32, 32, 30)
+  g.addColorStop(0, color)
+  g.addColorStop(0.45, `${color}55`)
   g.addColorStop(1, 'rgba(0,0,0,0)')
   ctx.fillStyle = g
   ctx.fillRect(0, 0, 64, 64)
   ctx.strokeStyle = color
-  ctx.lineWidth = 2
-  ctx.globalAlpha = 0.85
+  ctx.lineWidth = 1.6
+  ctx.globalAlpha = 0.7
   ctx.beginPath()
-  ctx.arc(32, 32, 21, 0, Math.PI * 2)
+  ctx.arc(32, 32, 23, 0, Math.PI * 2)
   ctx.stroke()
   const tex = new THREE.CanvasTexture(cv)
   tex.colorSpace = THREE.SRGBColorSpace
@@ -120,6 +126,8 @@ function makeBrokenRingTexture(): THREE.CanvasTexture {
 export class GalaxyEngine extends EngineBase {
   private nodes: GalaxyNode[] = []
   private nodeSprites = new Map<string, THREE.Sprite>()
+  private nodeGlobes = new Map<string, THREE.Mesh>()
+  private era: EraId = 'empire'
   private hitTargets: THREE.Mesh[] = []
   private raycaster = new THREE.Raycaster()
   private pointer = new THREE.Vector2()
@@ -130,6 +138,12 @@ export class GalaxyEngine extends EngineBase {
   private lastRegion: RegionId | null = null
   private brokenTex = makeBrokenRingTexture()
   private spiral?: THREE.Points
+  private spiralMat?: THREE.ShaderMaterial
+  private dustMat?: THREE.PointsMaterial
+  /** 1 in the overview, eased to 0 while diving at a world so the disk's own
+   *  point sprites do not blow up into blobs at close range */
+  private diskFade = 1
+  private diving = false
   private comet?: THREE.Sprite
   private cometStart = 6
   private cometFrom = new THREE.Vector3()
@@ -142,10 +156,11 @@ export class GalaxyEngine extends EngineBase {
     this.regionCb = cb.onRegionHover
   }
 
-  init(nodes: GalaxyNode[]) {
+  init(nodes: GalaxyNode[], era: EraId) {
     this.nodes = nodes
+    this.era = era
     this.initGL(new THREE.Vector3(0, 26, 31), 0.75)
-    this.controls.minDistance = 8
+    this.controls.minDistance = 2
     this.controls.maxDistance = 62
     this.controls.maxPolarAngle = 1.32
     this.controls.target.set(0, 0, 1.5)
@@ -160,7 +175,8 @@ export class GalaxyEngine extends EngineBase {
   }
 
   /** re-tint nodes when the era changes (no rebuild) */
-  applyNodeStates(states: { id: string; color: string; destroyed: boolean }[]) {
+  applyNodeStates(states: { id: string; color: string; destroyed: boolean }[], era: EraId) {
+    this.era = era
     for (const s of states) {
       const sprite = this.nodeSprites.get(s.id)
       const node = this.nodes.find((n) => n.id === s.id)
@@ -171,7 +187,28 @@ export class GalaxyEngine extends EngineBase {
       mat.map = s.destroyed ? this.brokenTex : makeNodeTexture(s.color)
       mat.blending = s.destroyed ? THREE.NormalBlending : THREE.AdditiveBlending
       mat.needsUpdate = true
+      // a destroyed world loses its globe; era variants (Starkiller) switch in
+      const globe = this.nodeGlobes.get(s.id)
+      if (globe) {
+        globe.visible = !s.destroyed
+        const gm = globe.material as THREE.ShaderMaterial
+        gm.uniforms.uVariant.value = node.body.renderRecipe.variantsByEra?.[era] ? 1 : 0
+      }
     }
+  }
+
+  /** Dive at one world: the camera closes on its globe while the disk's own
+   *  starfield fades out, so the arrival framing matches the planet view. */
+  flyToNode(id: string): number {
+    const globe = this.nodeGlobes.get(id)
+    const node = this.nodes.find((n) => n.id === id)
+    if (!node) return 0
+    const pos = globe
+      ? globe.position.clone()
+      : new THREE.Vector3(node.x, 0.12, node.z)
+    this.diving = true
+    // planet view frames a unit sphere from 5.4 units out; match that ratio
+    return this.flyTo(() => pos, NODE_R * 5.4, 1250)
   }
 
   private buildDisk() {
@@ -211,12 +248,17 @@ export class GalaxyEngine extends EngineBase {
     const mat = new THREE.ShaderMaterial({
       vertexShader: STAR_VERT,
       fragmentShader: STAR_FRAG,
-      uniforms: { uPixelRatio: { value: this.renderer.getPixelRatio() }, uTime: { value: 0 } },
+      uniforms: {
+        uPixelRatio: { value: this.renderer.getPixelRatio() },
+        uTime: { value: 0 },
+        uOpacity: { value: 1 },
+      },
       transparent: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
     })
     this.timedMats.push(mat)
+    this.spiralMat = mat
     this.spiral = new THREE.Points(geo, mat)
     this.spiral.frustumCulled = false
     this.scene.add(this.spiral)
@@ -244,6 +286,7 @@ export class GalaxyEngine extends EngineBase {
     })
     const dust = new THREE.Points(dgeo, dmat)
     dust.frustumCulled = false
+    this.dustMat = dmat
     this.scene.add(dust)
 
     // galactic core glow
@@ -338,10 +381,24 @@ export class GalaxyEngine extends EngineBase {
           depthWrite: false,
         }),
       )
-      sprite.scale.setScalar(1.15)
+      sprite.scale.setScalar(0.82)
       sprite.position.set(node.x, 0.12, node.z)
       this.scene.add(sprite)
       this.nodeSprites.set(node.id, sprite)
+
+      // the world itself, lit from the galactic core — a real surface even at
+      // overview scale, so approaching it resolves rather than swaps
+      const toCore = new THREE.Vector3(-node.x, 0.35, -node.z)
+      if (toCore.lengthSq() < 1e-6) toCore.set(0, 1, 0)
+      const globeMat = makeBodyMaterial(node.body, this.era, [
+        { dir: toCore.normalize(), color: new THREE.Color(node.body.suns?.[0]?.color ?? '#FFEFD0') },
+      ])
+      this.timedMats.push(globeMat)
+      const globe = new THREE.Mesh(new THREE.SphereGeometry(NODE_R, 40, 28), globeMat)
+      globe.position.copy(sprite.position)
+      globe.visible = !node.destroyed
+      this.scene.add(globe)
+      this.nodeGlobes.set(node.id, globe)
 
       const hit = new THREE.Mesh(
         new THREE.SphereGeometry(0.55, 8, 8),
@@ -419,6 +476,21 @@ export class GalaxyEngine extends EngineBase {
     // near-imperceptible background rotation keeps the disk alive
     if (this.spiral) this.spiral.rotation.y = this.wallSec * 0.004
 
+    // worlds turn on their own axes even at overview scale
+    for (const globe of this.nodeGlobes.values()) globe.rotation.y = this.wallSec * 0.05
+
+    // clear the disk out of the way once a dive starts
+    const wanted = this.diving ? 0 : 1
+    if (this.diskFade !== wanted) {
+      this.diskFade += Math.sign(wanted - this.diskFade) * 0.045
+      this.diskFade = THREE.MathUtils.clamp(this.diskFade, 0, 1)
+      if (this.spiralMat) this.spiralMat.uniforms.uOpacity.value = this.diskFade
+      if (this.dustMat) this.dustMat.opacity = 0.5 * this.diskFade
+      for (const sprite of this.nodeSprites.values()) {
+        ;(sprite.material as THREE.SpriteMaterial).opacity = this.diskFade
+      }
+    }
+
     // stray comet: a rare streak crossing the outer disk
     if (this.comet) {
       const t = this.wallSec - this.cometStart
@@ -452,7 +524,7 @@ export class GalaxyEngine extends EngineBase {
             name: n.name,
             x: proj.x * half.w + half.w,
             y: -proj.y * half.h + half.h - 16,
-            visible: proj.z < 1 && camDist < 56,
+            visible: proj.z < 1 && camDist < 56 && !this.diving,
             destroyed: n.destroyed,
           }
         }),
