@@ -4,7 +4,17 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"Libre Franklin"', 'system-ui', 'sans-serif'],
+        hud: ['"Barlow Condensed"', 'system-ui', 'sans-serif'],
+      },
       colors: {
+        space: "#030509",
+        panel: "#0B0F17",
+        "star-gold": "#FFE81F",
+        "holo-cyan": "#66D9FF",
+        "sith-red": "#E0312E",
+        "rebel-orange": "#E8632C",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

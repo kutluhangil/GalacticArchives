@@ -383,11 +383,15 @@ Kalite otomatiği: `detect-gpu` + ilk 3 saniye FPS örnekleme → katman seçimi
 - [x] Build doğrulandı (`tsc -b && vite build` ✓). Not: Kimi'nin package-lock'u özel mirror'a işaret ediyordu; public registry ile yeniden üretildi
 - Bilinen tarihleme notu: Wookieepedia güncel kanon tarihlemesi Scarif ölümlerini 1 BBY sayar (Star Wars: Timelines konvansiyonu) — veride bu esas alındı
 
-### P1 — Çekirdek motor (his burada kanıtlanır)
-- [ ] `planet-engine.ts`: arketip sistemi + 5 kahraman gezegen (Tatooine, Coruscant, Mustafar, Hoth, Bespin — 5 farklı arketip)
-- [ ] Sistem görünümü (Tatoo sistemi: ikiz güneş + 3 ay), zaman kontrolü, gezegen HUD paneli
-- [ ] Hipersıçrama geçiş shader'ı + wipe'lar
-- **Kabul:** M1 Air'de 60 FPS / 5 gezegen; "Tatooine'e bakınca ESB değil, sahiden Tatooine hissi" (senin onayın)
+### P1 — Çekirdek motor (his burada kanıtlanır) 🟡 KOD TAMAM (23 Tem 2026) — his onayı sende
+- [x] `engine-base.ts` + `planet-engine.ts` + `system-engine.ts`: 11 arketipli prosedürel uber-shader (Gemini dokusu gelince `uUseAlbedo` ile karışıma girer), atmosfer, bulut katmanı, halkalar, aylar, çift güneş ışıklandırması
+- [x] 5 kahraman gezegen canlı: Tatooine (çift güneş + 3 ay), Coruscant (gece şehir ışıkları), Mustafar (emissive lav + bloom), Hoth (buz + spekülr), Bespin (bant kontrastlı gaz devi)
+- [x] Sistem görünümü: Tatoo sistemi ikiz güneşleriyle; gezegene tıkla → hipersıçrama → gezegen görünümü
+- [x] HUD: TR/EN dil anahtarı, gezegen paneli (bölge/çap/nüfus/medya çipleri/fun fact), POI pinleri (hover açıklamalı), zaman kontrolü (1×–1h/s), era pilleri (v1 kaba)
+- [x] Hipersıçrama overlay (reduced-motion'da atlanır) + `/legacy`'de eski LEO LIVE korunuyor
+- [x] Tarayıcı doğrulaması: 160–175 fps @1360×904 (`screenshots/p1-*.jpg`)
+- Düzeltilen iki temel sorun: kök dizine kaçan `npm install` (vite zustand'ı çözemiyordu) ve `vite.config.ts base:'./'` (derin SPA rotalarında asset 404 → siyah ekran)
+- [ ] **Kabul bekliyor:** senin "his" onayın — `cd app && npm run dev` (Coruscant gece dokusu, Gemini Parti 1 gelene dek prosedürel placeholder)
 
 ### P2 — Galaksi + tam kadro
 - [ ] Galaksi haritası (bölgeler, grid, arama, filtreler)
