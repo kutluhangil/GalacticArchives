@@ -30,15 +30,14 @@ export function useFlyTo() {
         navigate(path)
         return
       }
+      // only the closing half lives here — this hook unmounts with the
+      // departing view, so TransitionVeil owns lifting the veil again
       timers.current.push(
         window.setTimeout(() => setVeil('closing'), Math.max(ms - VEIL_LEAD, 0)),
         window.setTimeout(() => {
           setVeil('closed')
           navigate(path)
         }, ms),
-        // one frame past the swap the new canvas has drawn, so lift the veil
-        window.setTimeout(() => setVeil('opening'), ms + 90),
-        window.setTimeout(() => setVeil('open'), ms + 520),
       )
     },
     [navigate, setVeil],
