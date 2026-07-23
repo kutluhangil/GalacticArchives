@@ -105,6 +105,18 @@ const STRINGS = {
   },
   notFound: { en: 'No such record in the archives.', tr: 'Arşivlerde böyle bir kayıt yok.' },
 
+  // first-visit onboarding
+  onboardTitle: { en: 'Explore the archive', tr: 'Arşivi keşfet' },
+  onboardEra: {
+    en: 'Switch eras above to watch worlds rise, fall and change hands.',
+    tr: 'Yukarıdan dönemleri değiştir; dünyaların doğuşunu, yıkımını ve el değiştirmesini izle.',
+  },
+  onboardLegends: {
+    en: 'Open ⚙ settings to add non-canon Legends worlds to the map.',
+    tr: 'Haritaya kanon dışı Legends dünyalarını eklemek için ⚙ ayarlarını aç.',
+  },
+  onboardDismiss: { en: 'Got it', tr: 'Anladım' },
+
   // error boundary
   errorTitle: { en: 'A disturbance in the archives', tr: 'Arşivlerde bir kesinti' },
   errorBody: {

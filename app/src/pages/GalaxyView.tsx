@@ -11,6 +11,7 @@ import { factionById, L, loadAllPlanets, regions, rendersAsRubble } from '../lib
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
+import OnboardingHint from '../components/OnboardingHint'
 import { useFlyTo } from '../components/useFlyTo'
 
 interface NodeLabel {
@@ -143,6 +144,7 @@ export default function GalaxyView() {
     <div className="relative h-full w-full overflow-hidden bg-space">
       <canvas ref={canvasRef} className="h-full w-full" />
       <TopBar />
+      <OnboardingHint />
 
       {/* Keyboard/screen-reader access to the map: the WebGL nodes cannot take
           focus, so this stable, sorted list mirrors every visible world. Each

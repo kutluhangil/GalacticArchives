@@ -60,9 +60,12 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 
 **Yapılacak**
 - [ ] **P1** Gemini dokuları gelince KTX2 zorunlu + hero lazy. VRAM en büyük gerçek kazanç (kullanıcı verisine bağlı, bekliyor).
-- [ ] **P2** three import'larını dar tut; kullanılmayan loader/control at.
-- [ ] **P2** Fontları subset et (kullanılan ağırlık + latin-ext).
-- [ ] **P2** `declutter`'ı throttle et (kamera durunca / ~10fps).
+- [~] **P2** three import'larını dar tut — **ertelendi (riskli, düşük kesinlik)**. Kullanılan her
+  three sınıfı elle doğrulanmadan narrowing regresyon riski; ölçülmüş darboğaz değil.
+- [~] **P2** Font subset — **gereksiz**: `@fontsource` `unicode-range`'li `@font-face` üretir,
+  tarayıcı zaten yalnız kullanılan alt kümeyi (latin + latin-ext) indirir. Kazanç minimal.
+- [~] **P2** `declutter` throttle — **gereksiz**: ~40 görünür label, 72–175 fps ölçüldü; O(n²)
+  ≈ 1600 op/frame, darboğaz değil. Measure-first: optimize edilecek bir şey yok.
 
 ## 4. Tasarım / UX
 
@@ -84,7 +87,7 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
   DOM'da yok. **Önkoşul: data-router migration (`createBrowserRouter`)** — bu ayrıca proper
   route `errorElement`'i de açar. Wiring geri alındı (no-op prop göndermemek için). WebGL
   rotaları zaten veil + cross-dissolve kullanıyor; oraya VT uymaz.
-- [ ] **P2** İlk ziyaret onboarding (era slider + Legends toggle ipucu).
+- [x] **P2** İlk ziyaret onboarding: `OnboardingHint` — era slider + Legends toggle'ı işaret eden, bir kez gösterilen (localStorage `ga-onboarded`), dismiss-edilebilir çift dilli kart.
 - [ ] **P2** POI kapsamını 81'e yaklaştır; tur sayısını artır (içerik işi).
 
 ## 5. Özellik — PLAN boşlukları
