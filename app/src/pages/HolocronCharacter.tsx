@@ -14,7 +14,7 @@ function Row({ label, value }: { label: string; value?: string }) {
   if (!value) return null
   return (
     <div className="flex justify-between gap-6 border-b border-white/5 py-2 text-[13px]">
-      <dt className="shrink-0 text-slate-500">{label}</dt>
+      <dt className="shrink-0 text-slate-400">{label}</dt>
       <dd className="text-right text-slate-200">{value}</dd>
     </div>
   )
@@ -58,7 +58,7 @@ export default function HolocronCharacter() {
   if (missing) {
     return (
       <HolocronChrome>
-        <p className="py-16 text-center text-[13px] text-slate-500">{t('notFound', lang)}</p>
+        <p className="py-16 text-center text-[13px] text-slate-400">{t('notFound', lang)}</p>
         <p className="text-center">
           <Link to="/holocron" className="text-[13px] text-holo-cyan hover:underline">
             ← {t('backToHolocron', lang)}
@@ -84,7 +84,7 @@ export default function HolocronCharacter() {
     <HolocronChrome>
       <Link
         to="/holocron"
-        className="mb-6 inline-block font-hud text-[12px] tracking-wide text-slate-500 transition-colors hover:text-holo-cyan"
+        className="mb-6 inline-block font-hud text-[12px] tracking-wide text-slate-400 transition-colors hover:text-holo-cyan"
       >
         ← {t('backToHolocron', lang)}
       </Link>
@@ -118,7 +118,7 @@ export default function HolocronCharacter() {
             {L(character.names, lang)}
           </h1>
           {character.aka?.length ? (
-            <p className="mt-1 font-hud text-[12px] tracking-[0.25em] text-slate-500">
+            <p className="mt-1 font-hud text-[12px] tracking-[0.25em] text-slate-400">
               {character.aka.join(' · ')}
             </p>
           ) : null}
@@ -136,7 +136,7 @@ export default function HolocronCharacter() {
                 “{L(character.quote.text, lang)}”
               </p>
               {character.quote.attribution && (
-                <cite className="mt-1 block font-hud text-[11px] not-italic tracking-wider text-slate-500">
+                <cite className="mt-1 block font-hud text-[11px] not-italic tracking-wider text-slate-400">
                   — {character.quote.attribution}
                 </cite>
               )}
@@ -144,7 +144,7 @@ export default function HolocronCharacter() {
           )}
 
           <section className="mt-6">
-            <h2 className="mb-2 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-500">
+            <h2 className="mb-2 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
               {t('biography', lang)}
             </h2>
             <p className="max-w-2xl text-[14px] leading-relaxed text-slate-300">
@@ -153,7 +153,7 @@ export default function HolocronCharacter() {
           </section>
 
           <section className="mt-6">
-            <h2 className="mb-2 font-hud text-[11px] uppercase tracking-[0.3em] text-slate-500">
+            <h2 className="mb-2 font-hud text-[11px] uppercase tracking-[0.3em] text-slate-400">
               {t('appearances', lang)}
             </h2>
             <div className="flex flex-wrap gap-1.5">
@@ -174,7 +174,7 @@ export default function HolocronCharacter() {
 
           {related.length > 0 && (
             <section className="mt-8">
-              <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-500">
+              <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
                 {t('relatedCharacters', lang)}
               </h2>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">

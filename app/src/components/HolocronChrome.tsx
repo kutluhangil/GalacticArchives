@@ -44,7 +44,7 @@ export default function HolocronChrome({ children }: { children: ReactNode }) {
       <main className="mx-auto w-full max-w-5xl px-6 py-10">{children}</main>
 
       <footer className="mx-auto w-full max-w-5xl px-6 pb-12">
-        <p className="border-t border-white/5 pt-5 font-hud text-[11px] leading-relaxed text-slate-600">
+        <p className="border-t border-white/5 pt-5 font-hud text-[11px] leading-relaxed text-slate-400">
           {t('sources', lang)}
           <br />
           {t('disclaimer', lang)}

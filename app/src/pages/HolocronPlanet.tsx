@@ -23,7 +23,7 @@ function Row({ label, value }: { label: string; value?: string }) {
   if (!value) return null
   return (
     <div className="flex justify-between gap-6 border-b border-white/5 py-2 text-[13px]">
-      <dt className="shrink-0 text-slate-500">{label}</dt>
+      <dt className="shrink-0 text-slate-400">{label}</dt>
       <dd className="text-right text-slate-200">{value}</dd>
     </div>
   )
@@ -60,7 +60,7 @@ export default function HolocronPlanet() {
   if (missing) {
     return (
       <HolocronChrome>
-        <p className="py-16 text-center text-[13px] text-slate-500">{t('notFound', lang)}</p>
+        <p className="py-16 text-center text-[13px] text-slate-400">{t('notFound', lang)}</p>
         <p className="text-center">
           <Link to="/holocron" className="text-[13px] text-holo-cyan hover:underline">
             ← {t('backToHolocron', lang)}
@@ -89,7 +89,7 @@ export default function HolocronPlanet() {
     <HolocronChrome>
       <Link
         to="/holocron"
-        className="mb-6 inline-block font-hud text-[12px] tracking-wide text-slate-500 transition-colors hover:text-holo-cyan"
+        className="mb-6 inline-block font-hud text-[12px] tracking-wide text-slate-400 transition-colors hover:text-holo-cyan"
       >
         ← {t('backToHolocron', lang)}
       </Link>
@@ -157,7 +157,7 @@ export default function HolocronPlanet() {
 
           {(body.poi ?? []).length > 0 && (
             <section className="mb-8">
-              <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-500">
+              <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
                 {t('pointsOfInterest', lang)}
               </h2>
               <ul className="space-y-2">
@@ -177,7 +177,7 @@ export default function HolocronPlanet() {
 
           {residents.length > 0 && (
             <section>
-              <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-500">
+              <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
                 {t('notableResidents', lang)}
               </h2>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -231,7 +231,7 @@ export default function HolocronPlanet() {
             />
           </dl>
 
-          <h2 className="mb-2 font-hud text-[11px] uppercase tracking-[0.3em] text-slate-500">
+          <h2 className="mb-2 font-hud text-[11px] uppercase tracking-[0.3em] text-slate-400">
             {t('appearances', lang)}
           </h2>
           <div className="flex flex-wrap gap-1.5">

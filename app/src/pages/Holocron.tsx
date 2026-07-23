@@ -105,7 +105,7 @@ export default function Holocron() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t('searchPlaceholder', lang)}
           aria-label={t('search', lang)}
-          className="min-w-[240px] flex-1 rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-100 outline-none transition-colors placeholder:text-slate-500 focus:border-holo-cyan/60"
+          className="min-w-[240px] flex-1 rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-100 outline-none transition-colors placeholder:text-slate-400 focus:border-holo-cyan/60"
         />
         <select
           value={region}
@@ -135,17 +135,17 @@ export default function Holocron() {
         </select>
       </div>
 
-      <p className="mb-4 font-hud text-[11px] uppercase tracking-[0.3em] text-slate-500">
+      <p className="mb-4 font-hud text-[11px] uppercase tracking-[0.3em] text-slate-400">
         {results.length} {t('resultCount', lang)}
       </p>
 
       {results.length === 0 && (
-        <p className="py-12 text-center text-[13px] text-slate-500">{t('noResults', lang)}</p>
+        <p className="py-12 text-center text-[13px] text-slate-400">{t('noResults', lang)}</p>
       )}
 
       {worlds.length > 0 && (
         <section className="mb-12">
-          <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-500">
+          <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
             {t('worlds', lang)}
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -167,7 +167,7 @@ export default function Holocron() {
                     <div className="font-display text-[12px] tracking-[0.16em] text-slate-100">
                       {L(body.names, lang).toUpperCase()}
                     </div>
-                    <div className="mt-0.5 font-hud text-[10px] tracking-[0.18em] text-slate-500">
+                    <div className="mt-0.5 font-hud text-[10px] tracking-[0.18em] text-slate-400">
                       {L(regions.find((r) => r.id === body.region)?.names, lang)}
                     </div>
                   </div>
@@ -180,7 +180,7 @@ export default function Holocron() {
 
       {figures.length > 0 && (
         <section>
-          <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-500">
+          <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
             {t('characters', lang)}
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
@@ -195,7 +195,7 @@ export default function Holocron() {
                   <div className="font-display text-[12px] tracking-[0.14em] text-slate-100">
                     {L(character.names, lang)}
                   </div>
-                  <div className="mt-0.5 font-hud text-[10px] tracking-[0.18em] text-slate-500">
+                  <div className="mt-0.5 font-hud text-[10px] tracking-[0.18em] text-slate-400">
                     {L(character.species, lang)}
                   </div>
                 </div>

@@ -208,7 +208,7 @@ export default function Landing() {
         </div>
 
         <div
-          className={`absolute bottom-8 font-hud text-[11px] uppercase tracking-[0.4em] text-slate-600 transition-opacity duration-700 ${
+          className={`absolute bottom-8 font-hud text-[11px] uppercase tracking-[0.4em] text-slate-400 transition-opacity duration-700 ${
             phase === 2 ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -217,7 +217,7 @@ export default function Landing() {
       </section>
 
       <section className="mx-auto w-full max-w-5xl px-6 pb-20">
-        <h2 className="mb-5 font-hud text-[12px] uppercase tracking-[0.4em] text-slate-500">
+        <h2 className="mb-5 font-hud text-[12px] uppercase tracking-[0.4em] text-slate-400">
           {t('featuredWorlds', lang)}
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -225,7 +225,7 @@ export default function Landing() {
             <WorldCard key={body.id} body={body} lang={lang} />
           ))}
         </div>
-        <p className="mt-14 max-w-2xl font-hud text-[11px] leading-relaxed text-slate-600">
+        <p className="mt-14 max-w-2xl font-hud text-[11px] leading-relaxed text-slate-400">
           {t('disclaimer', lang)}
         </p>
       </section>
