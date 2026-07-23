@@ -84,6 +84,7 @@ export class PlanetEngine extends EngineBase {
   private poiLocal: { id: string; pos: THREE.Vector3 }[] = []
   private poiCb?: (p: PoiScreenPos[]) => void
   private rotationHours = 24
+  private isStation = false
   private asteroidUpdate?: (dt: number) => void
   private traffic?: TrafficSystem
   private lastWall = 0
@@ -203,9 +204,14 @@ export class PlanetEngine extends EngineBase {
       this.planetGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.045, 64, 64), atmoMat))
     }
 
-    // cloud layer
+    // cloud layer — fog worlds tint their deck toward the atmosphere so the
+    // canopy reads as haze rather than bright terrestrial cloud
     const cloudsKind = recipe.textures?.clouds
     if (cloudsKind) {
+      const tint =
+        recipe.archetype === 'swamp-fog' && recipe.atmosphere
+          ? new THREE.Color(recipe.atmosphere.color).multiplyScalar(0.55)
+          : new THREE.Color(CLOUD_TINT[cloudsKind] ?? '#ffffff')
       const cloudMat = new THREE.ShaderMaterial({
         vertexShader: CLOUD_VERT,
         fragmentShader: CLOUD_FRAG,
@@ -214,7 +220,7 @@ export class PlanetEngine extends EngineBase {
           uSeed: { value: seed + 3.7 },
           uDensity: { value: CLOUD_DENSITY[cloudsKind] ?? 0.45 },
           uSpeed: { value: CLOUD_SPEED[cloudsKind] ?? 0.0045 },
-          uTint: { value: new THREE.Color(CLOUD_TINT[cloudsKind] ?? '#ffffff') },
+          uTint: { value: tint },
           uSun1Dir: { value: s1.dir },
           uSun1Color: { value: s1.color },
           uSun2Dir: { value: s2.dir },
@@ -278,7 +284,7 @@ export class PlanetEngine extends EngineBase {
     this.timedMats.push(...ds.materials)
     this.planetGroup.add(ds.object)
     this.scene.add(this.planetGroup)
-    this.rotationHours = 160 // stations barely rotate
+    this.isStation = true
   }
 
   /** destroyed world: asteroid graveyard instead of a globe */
@@ -406,8 +412,13 @@ export class PlanetEngine extends EngineBase {
     const dt = Math.min(this.wallSec - this.lastWall, 0.1)
     this.lastWall = this.wallSec
 
-    // planet spin: one revolution per rotationHours of sim time
-    this.planetGroup.rotation.y = ((simSec / 3600 / this.rotationHours) * Math.PI * 2) % (Math.PI * 2)
+    // Planets spin on sim time, so the terminator tracks the real clock.
+    // A station instead starts at a fixed heading — anchoring its spin to the
+    // wall clock keeps the superlaser dish facing the camera on arrival
+    // instead of landing on a random angle set by today's date.
+    this.planetGroup.rotation.y = this.isStation
+      ? this.wallSec * 0.03
+      : ((simSec / 3600 / this.rotationHours) * Math.PI * 2) % (Math.PI * 2)
 
     for (const m of this.moonOrbiters) {
       const ang = m.phase + ((simSec / 86400) / m.periodDays) * Math.PI * 2

@@ -147,11 +147,15 @@ export function buildDeathStar(radius: number, half: boolean, seed: number): Tim
     uniforms: {
       uSeed: { value: seed },
       uTime: { value: 0 },
-      uBuild: { value: half ? 0.62 : 1 },
+      uBuild: { value: half ? 0.6 : 1 },
       uSun1Dir: { value: new THREE.Vector3(1, 0.3, 0).normalize() },
       uSun1Color: { value: new THREE.Color('#FFEFD0') },
       uDishDir: { value: dishDir },
+      // unbuilt cap sits opposite the dish so both read in one view
+      uCapDir: { value: new THREE.Vector3(-0.75, -0.2, 0.63).normalize() },
     },
+    // the open scaffold lets you see the shell's far side from inside
+    side: half ? THREE.DoubleSide : THREE.FrontSide,
   })
   const mesh = new THREE.Mesh(new THREE.SphereGeometry(radius, 96, 96), mat)
   return { object: mesh, materials: [mat] }

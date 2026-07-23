@@ -63,7 +63,9 @@ export abstract class EngineBase {
     this.renderer.getSize(size)
     this.composer = new EffectComposer(this.renderer)
     this.composer.addPass(new RenderPass(this.scene, this.camera))
-    const bloom = new UnrealBloomPass(size, bloomStrength, 0.55, 0.82)
+    // tight radius: a wide bloom smears city lights into a visible rectangular
+    // halo from the pass's own downsample chain
+    const bloom = new UnrealBloomPass(size, bloomStrength, 0.32, 0.85)
     this.composer.addPass(bloom)
     this.composer.addPass(new OutputPass())
 

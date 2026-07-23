@@ -358,8 +358,10 @@ void main() {
   float density = smoothstep(0.12, 0.5, bands) * (0.55 + fine * 0.45);
   density *= smoothstep(0.0, 0.08, r) * smoothstep(1.0, 0.86, r); // soft edges
   if (uBone > 0.5) {
-    float chunks = smoothstep(0.5, 0.85, fbm3(vec3(r * 60.0, uSeed, 1.7)));
-    density = max(density * 0.6, chunks * 0.85);
+    // Peridea's ring is purrgil bone: coarse debris with real gaps, not dust
+    float chunks = smoothstep(0.45, 0.8, fbm3(vec3(r * 34.0, uSeed, 1.7)));
+    float gaps = smoothstep(0.35, 0.6, fbm3(vec3(r * 9.0, uSeed * 3.0, 5.1)) * 0.5 + 0.5);
+    density = chunks * gaps * 0.95;
   }
   vec3 col = uColor * (0.5 + bands * 0.6);
   gl_FragColor = vec4(col, density * 0.85);
@@ -518,10 +520,11 @@ void main() {
 export const DEATHSTAR_FRAG = /* glsl */ `
 uniform float uSeed;
 uniform float uTime;
-uniform float uBuild; // 1 = complete (DS-1), ~0.62 = DS-2 scaffold state
+uniform float uBuild; // 1 = complete (DS-1), < 1 = DS-2 scaffold state
 uniform vec3 uSun1Dir;
 uniform vec3 uSun1Color;
 uniform vec3 uDishDir;
+uniform vec3 uCapDir; // center of DS-2's unbuilt cap
 varying vec3 vNormalW;
 varying vec3 vPosW;
 varying vec3 vPosObj;
@@ -545,13 +548,23 @@ void main() {
     smoothstep(0.06, 0.0, min(panelUv.x, 1.0 - panelUv.x)),
     smoothstep(0.06, 0.0, min(panelUv.y, 1.0 - panelUv.y)));
 
-  // incomplete hemisphere: keep only girder skeleton
-  float doneMask = smoothstep(uBuild - 0.08, uBuild + 0.08, fbm(p * 1.7 + uSeed) * 0.5 + 0.5);
-  if (uBuild < 0.999 && doneMask > 0.5) {
-    if (edge < 0.55) discard;
-    vec3 girder = vec3(0.32, 0.36, 0.42) * (0.6 + 0.4 * clamp(dot(n, uSun1Dir), 0.0, 1.0));
-    gl_FragColor = vec4(girder + vec3(0.05, 0.08, 0.12), 1.0);
-    return;
+  // DS-2's unfinished cap: one contiguous region (its iconic silhouette), not
+  // scattered holes. Ragged border, and only structural girders remain inside.
+  if (uBuild < 0.999) {
+    float capAng = acos(clamp(dot(p, normalize(uCapDir)), -1.0, 1.0));
+    float ragged = fbm(p * 2.6 + uSeed) * 0.22;
+    float open = smoothstep(1.15 + ragged, 1.05 + ragged, capAng);
+    if (open > 0.5) {
+      // ribs run along the panel grid; everything between them is open space
+      float rib = max(
+        smoothstep(0.12, 0.0, min(panelUv.x, 1.0 - panelUv.x)),
+        smoothstep(0.12, 0.0, min(panelUv.y, 1.0 - panelUv.y)));
+      if (rib < 0.5) discard;
+      float lit = clamp(dot(n, uSun1Dir), 0.0, 1.0);
+      vec3 girder = vec3(0.4, 0.44, 0.5) * (0.35 + 0.75 * lit);
+      gl_FragColor = vec4(girder, 1.0);
+      return;
+    }
   }
 
   vec3 base = vec3(0.58, 0.61, 0.66) * shade + greeble;
@@ -560,16 +573,15 @@ void main() {
   float trench = smoothstep(0.05, 0.03, abs(lat));
   base = mix(base, base * 0.42, trench);
 
-  // superlaser dish: concave disc facing uDishDir
+  // superlaser dish: concave disc facing uDishDir, with concentric terracing
   float ang = acos(clamp(dot(p, normalize(uDishDir)), -1.0, 1.0));
-  float dish = smoothstep(0.40, 0.37, ang);
-  float dishRing = smoothstep(0.03, 0.0, abs(ang - 0.385));
-  float dishInner = smoothstep(0.10, 0.05, ang);
-  base = mix(base, base * 0.5, dish);
-  base = mix(base, base * 0.35, dishInner);
-  base += vec3(0.5, 0.55, 0.6) * dishRing * 0.4;
-  // dish focus lens: faint sinister green core
-  base += vec3(0.25, 0.6, 0.35) * smoothstep(0.035, 0.0, ang) * 0.7;
+  float dish = smoothstep(0.42, 0.39, ang);
+  float dishRing = smoothstep(0.035, 0.0, abs(ang - 0.405));
+  float terrace = 0.5 + 0.5 * sin(ang * 62.0);
+  base = mix(base, base * (0.28 + terrace * 0.16), dish);
+  base += vec3(0.55, 0.6, 0.68) * dishRing * 0.55;
+  // dish focus lens: sinister green core
+  base += vec3(0.25, 0.7, 0.38) * smoothstep(0.07, 0.0, ang) * 1.1;
 
   float lit = clamp(dot(n, uSun1Dir), 0.0, 1.0);
   vec3 col = base * (uSun1Color * (0.12 + lit * 0.95));
