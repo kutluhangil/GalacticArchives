@@ -82,11 +82,18 @@ module.exports = {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
         },
+        // holo scan sweep across the landing wordmark
+        scan: {
+          from: { transform: "translateY(-115%)", opacity: "0" },
+          "18%": { opacity: "1" },
+          to: { transform: "translateY(115%)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
+        scan: "scan 1.3s ease-out 1",
       },
     },
   },

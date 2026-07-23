@@ -1,10 +1,16 @@
-// Minimal UI chrome strings for P1/P2. Full i18next migration lands in P3.
+// UI chrome strings. Bilingual by construction: every key must carry both
+// languages or TypeScript rejects it, which is the property i18next would
+// otherwise be pulled in to provide. Data strings live in the lore JSON.
 
 import type { EraId } from '../types/lore'
 import type { Lang } from './lore'
 
 const STRINGS = {
   brand: { en: 'GALACTIC ARCHIVES', tr: 'GALACTIC ARCHIVES' },
+  tagline: {
+    en: 'An atlas of a galaxy far, far away',
+    tr: 'Çok uzak bir galaksinin atlası',
+  },
   region: { en: 'Region', tr: 'Bölge' },
   sector: { en: 'Sector', tr: 'Sektör' },
   system: { en: 'System', tr: 'Sistem' },
@@ -34,6 +40,48 @@ const STRINGS = {
   loading: { en: 'Accessing archives...', tr: 'Arşivlere erişiliyor...' },
   destroyedTag: { en: 'DESTROYED', tr: 'YOK EDİLDİ' },
   kmSuffix: { en: 'km', tr: 'km' },
+
+  // landing
+  crawlIntro: {
+    en: 'A long time ago in a galaxy far, far away....',
+    tr: 'Çok uzun zaman önce, çok çok uzak bir galakside....',
+  },
+  exploreCta: { en: 'EXPLORE THE GALAXY', tr: 'GALAKSİYİ KEŞFET' },
+  holocronCta: { en: 'OPEN THE HOLOCRON', tr: "HOLOCRON'U AÇ" },
+  featuredWorlds: { en: 'Featured worlds', tr: 'Öne çıkan dünyalar' },
+  scrollHint: { en: 'scroll', tr: 'kaydır' },
+  disclaimer: {
+    en: 'Unofficial fan project. Not affiliated with Lucasfilm or Disney. Lore sourced from Wookieepedia (CC BY-SA) and StarWars.com Databank.',
+    tr: 'Resmî olmayan hayran projesi. Lucasfilm veya Disney ile ilişkisi yoktur. Bilgiler Wookieepedia (CC BY-SA) ve StarWars.com Databank kaynaklıdır.',
+  },
+
+  // holocron
+  holocron: { en: 'Holocron', tr: 'Holocron' },
+  holocronIntro: {
+    en: 'Every world and figure in the archive, cross-linked.',
+    tr: 'Arşivdeki her dünya ve figür, birbirine bağlı.',
+  },
+  allRegions: { en: 'All regions', tr: 'Tüm bölgeler' },
+  allMedia: { en: 'All productions', tr: 'Tüm yapımlar' },
+  worlds: { en: 'Worlds', tr: 'Dünyalar' },
+  characters: { en: 'Characters', tr: 'Karakterler' },
+  resultCount: { en: 'records', tr: 'kayıt' },
+  viewIn3d: { en: 'View in 3D', tr: "3B'de görüntüle" },
+  openHolocron: { en: 'Open in Holocron', tr: "Holocron'da aç" },
+  backToHolocron: { en: 'Back to Holocron', tr: "Holocron'a dön" },
+  species: { en: 'Species', tr: 'Tür' },
+  homeworld: { en: 'Homeworld', tr: 'Anavatan' },
+  born: { en: 'Born', tr: 'Doğum' },
+  died: { en: 'Died', tr: 'Ölüm' },
+  notableResidents: { en: 'Notable figures', tr: 'Ünlü isimler' },
+  pointsOfInterest: { en: 'Points of interest', tr: 'Önemli yerler' },
+  relatedCharacters: { en: 'Connected figures', tr: 'Bağlantılı isimler' },
+  biography: { en: 'Biography', tr: 'Biyografi' },
+  sources: {
+    en: 'Sources: Wookieepedia (CC BY-SA) · StarWars.com Databank',
+    tr: 'Kaynaklar: Wookieepedia (CC BY-SA) · StarWars.com Databank',
+  },
+  notFound: { en: 'No such record in the archives.', tr: 'Arşivlerde böyle bir kayıt yok.' },
 } as const
 
 export type UiKey = keyof typeof STRINGS

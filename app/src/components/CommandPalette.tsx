@@ -1,5 +1,6 @@
 // ⌘K command palette: fuzzy search over planets (TR+EN names) and characters,
-// jumping straight to the matching world through hyperspace.
+// jumping straight to the matching world through hyperspace. Mounted only
+// while open — see CommandPaletteHost.
 
 import { useEffect, useState } from 'react'
 import { Command } from 'cmdk'
@@ -9,49 +10,26 @@ import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import { useJump } from './useJump'
 
-export const OPEN_PALETTE_EVENT = 'ga-open-palette'
-
-export default function CommandPalette() {
+export default function CommandPalette({ onClose }: { onClose: () => void }) {
   const lang = useApp((s) => s.lang)
-  const [open, setOpen] = useState(false)
   const [planets, setPlanets] = useState<CelestialBody[]>([])
   const [characters, setCharacters] = useState<Character[]>([])
   const jump = useJump()
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault()
-        setOpen((o) => !o)
-      }
-      if (e.key === 'Escape') setOpen(false)
-    }
-    const onOpen = () => setOpen(true)
-    window.addEventListener('keydown', onKey)
-    window.addEventListener(OPEN_PALETTE_EVENT, onOpen)
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      window.removeEventListener(OPEN_PALETTE_EVENT, onOpen)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!open || planets.length) return
     loadAllPlanets().then(setPlanets)
     loadCharacters().then(setCharacters)
-  }, [open, planets.length])
+  }, [])
 
   const go = (path: string) => {
-    setOpen(false)
+    onClose()
     jump(path)
   }
-
-  if (!open) return null
 
   return (
     <div
       className="fixed inset-0 z-[60] flex items-start justify-center bg-black/60 pt-[18vh] backdrop-blur-sm"
-      onClick={() => setOpen(false)}
+      onClick={onClose}
     >
       <div onClick={(e) => e.stopPropagation()} className="w-[560px] max-w-[calc(100vw-2rem)]">
         <Command
@@ -90,21 +68,19 @@ export default function CommandPalette() {
               heading={t('charactersGroup', lang)}
               className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-[10px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[0.25em] [&_[cmdk-group-heading]]:text-slate-500"
             >
-              {characters
-                .filter((c) => c.homeworldId)
-                .map((c) => (
-                  <Command.Item
-                    key={c.id}
-                    value={`${c.names.en} ${c.names.tr} ${c.id}`}
-                    onSelect={() => go(`/planet/${c.homeworldId}`)}
-                    className="flex cursor-pointer items-center justify-between rounded px-3 py-2 text-[13px] text-slate-200 aria-selected:bg-holo-cyan/15 aria-selected:text-holo-cyan"
-                  >
-                    <span>{L(c.names, lang)}</span>
-                    <span className="text-[10px] tracking-widest text-slate-500">
-                      → {c.homeworldId}
-                    </span>
-                  </Command.Item>
-                ))}
+              {characters.map((c) => (
+                <Command.Item
+                  key={c.id}
+                  value={`${c.names.en} ${c.names.tr} ${c.id}`}
+                  onSelect={() => go(`/holocron/character/${c.id}`)}
+                  className="flex cursor-pointer items-center justify-between rounded px-3 py-2 text-[13px] text-slate-200 aria-selected:bg-holo-cyan/15 aria-selected:text-holo-cyan"
+                >
+                  <span>{L(c.names, lang)}</span>
+                  <span className="text-[10px] tracking-widest text-slate-500">
+                    {L(c.species, lang)}
+                  </span>
+                </Command.Item>
+              ))}
             </Command.Group>
           </Command.List>
         </Command>

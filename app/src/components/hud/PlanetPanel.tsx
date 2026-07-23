@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router'
 import type { CelestialBody } from '../../types/lore'
 import { useApp } from '../../state/app'
 import { destroyedInEra, L, LL, factionById, mediaById, regions } from '../../lib/lore'
@@ -102,6 +103,13 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
           ))}
         </div>
       </div>
+
+      <Link
+        to={`/holocron/planet/${body.id}`}
+        className="mb-3 block rounded border border-holo-cyan/25 bg-holo-cyan/5 px-2.5 py-1.5 text-center text-[11px] tracking-wide text-holo-cyan transition-colors hover:bg-holo-cyan/15"
+      >
+        ◈ {t('openHolocron', lang)}
+      </Link>
 
       {facts.length > 0 && (
         <button

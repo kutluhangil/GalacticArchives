@@ -1,26 +1,58 @@
+import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router'
-import PlanetView from './pages/PlanetView'
-import SystemView from './pages/SystemView'
-import GalaxyView from './pages/GalaxyView'
-import Home from './pages/Home'
 import HyperspaceOverlay from './components/HyperspaceOverlay'
-import CommandPalette from './components/CommandPalette'
+import CommandPaletteHost from './components/CommandPaletteHost'
 import EraFade from './components/EraFade'
+import { t } from './lib/ui-strings'
+import { useApp } from './state/app'
+
+// Route-level splitting keeps three.js out of the landing and Holocron chunks.
+const Landing = lazy(() => import('./pages/Landing'))
+const GalaxyView = lazy(() => import('./pages/GalaxyView'))
+const PlanetView = lazy(() => import('./pages/PlanetView'))
+const SystemView = lazy(() => import('./pages/SystemView'))
+const Holocron = lazy(() => import('./pages/Holocron'))
+const HolocronPlanet = lazy(() => import('./pages/HolocronPlanet'))
+const HolocronCharacter = lazy(() => import('./pages/HolocronCharacter'))
+const Home = lazy(() => import('./pages/Home'))
+
+function RouteFallback() {
+  const lang = useApp((s) => s.lang)
+  return (
+    <div className="flex h-full w-full items-center justify-center bg-space">
+      <div className="animate-pulse text-[13px] tracking-[0.3em] text-holo-cyan">
+        {t('loading', lang)}
+      </div>
+    </div>
+  )
+}
 
 export default function App() {
+  const lang = useApp((s) => s.lang)
+
+  // keep the document language in sync for screen readers and hyphenation
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
+
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Navigate to="/galaxy" replace />} />
-        <Route path="/galaxy" element={<GalaxyView />} />
-        <Route path="/planet/:id" element={<PlanetView />} />
-        <Route path="/system/:id" element={<SystemView />} />
-        {/* original LEO LIVE satellite demo, kept as an engineering reference */}
-        <Route path="/legacy" element={<Home />} />
-        <Route path="*" element={<Navigate to="/galaxy" replace />} />
-      </Routes>
+      <Suspense fallback={<RouteFallback />}>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/galaxy" element={<GalaxyView />} />
+          <Route path="/planet/:id" element={<PlanetView />} />
+          <Route path="/system/:id" element={<SystemView />} />
+          <Route path="/holocron" element={<Holocron />} />
+          <Route path="/holocron/planet/:id" element={<HolocronPlanet />} />
+          <Route path="/holocron/character/:id" element={<HolocronCharacter />} />
+          {/* original LEO LIVE satellite demo, kept as an engineering reference */}
+          <Route path="/legacy" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
       <HyperspaceOverlay />
-      <CommandPalette />
+      <CommandPaletteHost />
       <EraFade />
     </>
   )

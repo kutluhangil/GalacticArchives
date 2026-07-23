@@ -4,7 +4,7 @@ import type { CelestialBody } from '../../types/lore'
 import { useApp } from '../../state/app'
 import { eras, L, loadAllPlanets, regions } from '../../lib/lore'
 import { ERA_SHORT, t } from '../../lib/ui-strings'
-import { OPEN_PALETTE_EVENT } from '../CommandPalette'
+import { OPEN_PALETTE_EVENT } from '../CommandPaletteHost'
 import { useJump } from '../useJump'
 
 function PlanetsDropdown() {
