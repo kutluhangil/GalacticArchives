@@ -22,6 +22,7 @@ export default function EraDissolve({
 
   return (
     <img
+      alt=""
       aria-hidden
       src={src}
       onTransitionEnd={onDone}
