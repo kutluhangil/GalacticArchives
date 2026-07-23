@@ -105,6 +105,15 @@ const STRINGS = {
   },
   notFound: { en: 'No such record in the archives.', tr: 'Arşivlerde böyle bir kayıt yok.' },
 
+  // error boundary
+  errorTitle: { en: 'A disturbance in the archives', tr: 'Arşivlerde bir kesinti' },
+  errorBody: {
+    en: 'This record could not be rendered. The rest of the archive is intact.',
+    tr: 'Bu kayıt görüntülenemedi. Arşivin geri kalanı sağlam.',
+  },
+  errorReload: { en: 'Reload', tr: 'Yeniden yükle' },
+  errorHome: { en: 'Back to the galaxy', tr: 'Galaksiye dön' },
+
   // settings
   settings: { en: 'Settings', tr: 'Ayarlar' },
   quality: { en: 'Quality', tr: 'Kalite' },

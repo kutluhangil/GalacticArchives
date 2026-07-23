@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router'
+import ErrorBoundary from './components/ErrorBoundary'
 import TransitionVeil from './components/TransitionVeil'
 import TourPlayer from './components/TourPlayer'
 import CommandPaletteHost from './components/CommandPaletteHost'
@@ -44,8 +45,9 @@ export default function App() {
 
   return (
     <>
-      <Suspense fallback={<RouteFallback />}>
-        <Routes>
+      <ErrorBoundary>
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/galaxy" element={<GalaxyView />} />
           <Route path="/planet/:id" element={<PlanetView />} />
@@ -56,7 +58,8 @@ export default function App() {
           <Route path="/holocron/character/:id" element={<HolocronCharacter />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </Suspense>
+        </Suspense>
+      </ErrorBoundary>
       <TourPlayer />
       <TransitionVeil />
       <CommandPaletteHost />
