@@ -2,6 +2,8 @@
 
 ## 2026-07-24
 
+- Fixed a crash opening any of eleven worlds without a stats block (Umbara, Moraband, Cato Neimoidia, Aldhani, Daiyu, Krownest, Mimban, Numidian Prime, Savareen, Seatos, Wobani): the panel read `stats.diameterKm` unguarded. `stats` is now optional in the type and every read is guarded, so those panels simply omit the missing rows; validate-lore warns on a missing stats block to track the content gap.
+- Added chunk-load resilience: a failed dynamic import (typically a new deploy replacing hashed chunks under an open tab) triggers a one-time auto-reload, guarded by a cooldown so a genuine failure still surfaces the error panel.
 - Mobile-first hardening: the era selector (now up to four chips with Old Republic) scrolls horizontally instead of pushing the page wide on narrow screens, and the Compare and Holocron views clamp horizontal overflow. Verified the galaxy has zero horizontal page overflow.
 - Performance: split KTX2Loader into its own on-demand chunk (three chunk 634 → 622 kB) and prefetch the galaxy route during the idle landing crawl so entering the atlas is instant.
 - Added an `old-republic` era for the Legends layer: the era selector shows an "Old Republic" chip only while Legends is on, giving the KotOR-era worlds a home on the timeline; canon worlds read neutral there, and the timeline falls back to Empire if Legends is switched off while it is selected.

@@ -216,13 +216,13 @@ export default function HolocronPlanet() {
             <Row
               label={t('diameter', lang)}
               value={
-                body.stats.diameterKm
-                  ? `${body.stats.diameterKm.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US')} ${t('kmSuffix', lang)}`
+                body.stats?.diameterKm
+                  ? `${body.stats?.diameterKm.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US')} ${t('kmSuffix', lang)}`
                   : undefined
               }
             />
-            <Row label={t('population', lang)} value={L(body.stats.population, lang)} />
-            <Row label={t('government', lang)} value={L(body.stats.government, lang)} />
+            <Row label={t('population', lang)} value={L(body.stats?.population, lang)} />
+            <Row label={t('government', lang)} value={L(body.stats?.government, lang)} />
             <Row label={t('climate', lang)} value={LL(body.climate, lang).join(' · ')} />
             <Row label={t('terrain', lang)} value={LL(body.terrain, lang).join(' · ')} />
             <Row label={t('suns', lang)} value={body.suns?.map((s) => s.name).join(' · ')} />
@@ -231,8 +231,8 @@ export default function HolocronPlanet() {
               value={
                 body.moons?.length
                   ? body.moons.join(' · ')
-                  : body.stats.moonCount
-                    ? String(body.stats.moonCount)
+                  : body.stats?.moonCount
+                    ? String(body.stats?.moonCount)
                     : undefined
               }
             />

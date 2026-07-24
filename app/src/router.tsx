@@ -2,19 +2,44 @@
 // react-router's transition machinery, which is what enables `viewTransition`
 // on <Link> (the declarative <Routes> API does not wire it up).
 
-import { lazy } from 'react'
+import { lazy, type ComponentType } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router'
 import App from './App'
 
+const RELOAD_KEY = 'ga-chunk-reload'
+/** don't auto-reload more than once inside this window (ms) */
+const RELOAD_COOLDOWN = 10_000
+
+/**
+ * A failed dynamic import almost always means a new deploy replaced the hashed
+ * chunks while this tab was open, so the old chunk URL now 404s. Reload once —
+ * the fresh index.html points at the current chunks. A timestamp guard caps it
+ * at one reload per cooldown, so a genuine, persistent failure (offline, real
+ * bug) falls through to the ErrorBoundary instead of looping.
+ */
+function lazyWithReload<T extends ComponentType<unknown>>(factory: () => Promise<{ default: T }>) {
+  return lazy(() =>
+    factory().catch((err: unknown) => {
+      const last = Number(sessionStorage.getItem(RELOAD_KEY) ?? '0')
+      if (Date.now() - last > RELOAD_COOLDOWN) {
+        sessionStorage.setItem(RELOAD_KEY, String(Date.now()))
+        window.location.reload()
+        return new Promise<{ default: T }>(() => {}) // never resolves; reload wins
+      }
+      throw err
+    }),
+  )
+}
+
 // Route-level splitting keeps three.js out of the landing and Holocron chunks.
-const Landing = lazy(() => import('./pages/Landing'))
-const GalaxyView = lazy(() => import('./pages/GalaxyView'))
-const PlanetView = lazy(() => import('./pages/PlanetView'))
-const SystemView = lazy(() => import('./pages/SystemView'))
-const Compare = lazy(() => import('./pages/Compare'))
-const Holocron = lazy(() => import('./pages/Holocron'))
-const HolocronPlanet = lazy(() => import('./pages/HolocronPlanet'))
-const HolocronCharacter = lazy(() => import('./pages/HolocronCharacter'))
+const Landing = lazyWithReload(() => import('./pages/Landing'))
+const GalaxyView = lazyWithReload(() => import('./pages/GalaxyView'))
+const PlanetView = lazyWithReload(() => import('./pages/PlanetView'))
+const SystemView = lazyWithReload(() => import('./pages/SystemView'))
+const Compare = lazyWithReload(() => import('./pages/Compare'))
+const Holocron = lazyWithReload(() => import('./pages/Holocron'))
+const HolocronPlanet = lazyWithReload(() => import('./pages/HolocronPlanet'))
+const HolocronCharacter = lazyWithReload(() => import('./pages/HolocronCharacter'))
 
 export const router = createBrowserRouter([
   {

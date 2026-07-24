@@ -95,10 +95,10 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
         <Row label={t('system', lang)} value={body.system} />
         <Row
           label={t('diameter', lang)}
-          value={body.stats.diameterKm ? `${body.stats.diameterKm.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US')} km` : undefined}
+          value={body.stats?.diameterKm ? `${body.stats?.diameterKm.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US')} km` : undefined}
         />
-        <Row label={t('population', lang)} value={L(body.stats.population, lang)} />
-        <Row label={t('government', lang)} value={L(body.stats.government, lang)} />
+        <Row label={t('population', lang)} value={L(body.stats?.population, lang)} />
+        <Row label={t('government', lang)} value={L(body.stats?.government, lang)} />
         <Row label={t('climate', lang)} value={LL(body.climate, lang).join(' · ')} />
         <Row label={t('terrain', lang)} value={LL(body.terrain, lang).join(' · ')} />
         <Row
@@ -110,8 +110,8 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
           value={
             body.moons?.length
               ? body.moons.join(' · ')
-              : body.stats.moonCount
-                ? String(body.stats.moonCount)
+              : body.stats?.moonCount
+                ? String(body.stats?.moonCount)
                 : undefined
           }
         />

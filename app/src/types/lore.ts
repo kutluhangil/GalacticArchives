@@ -120,7 +120,8 @@ export interface CelestialBody {
   sector?: string
   system: string
   coordinates?: string // Standard Galactic Grid, verified only
-  stats: {
+  /** some worlds have no verified figures yet, so this whole block is optional */
+  stats?: {
     diameterKm?: number
     moonCount?: number
     population?: Localized

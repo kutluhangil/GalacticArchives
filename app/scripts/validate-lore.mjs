@@ -64,6 +64,9 @@ for (const [id, { body, file }] of bodies) {
   checkLocalized(body.desc, `${id}.desc`, file)
   if (!regionIds.has(body.region)) err(`${file}: ${id}.region "${body.region}" not in regions.json`)
   if (!body.system) err(`${file}: ${id}.system missing`)
+  // stats is optional in the type, but a planet with none shows an empty panel —
+  // surface it so the content gap is visible (stations legitimately have none)
+  if (body.kind !== 'station' && !body.stats) warn(`${id}: no stats block (empty info panel)`)
   if (!body.renderRecipe) err(`${file}: ${id}.renderRecipe missing`)
   else {
     if (!ARCHETYPES.has(body.renderRecipe.archetype)) err(`${file}: ${id} archetype "${body.renderRecipe.archetype}" invalid`)
