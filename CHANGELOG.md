@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-07-31
+
+- Added a test shield: 116 Vitest unit/component tests (lore era gating and lazy body loading, galaxy grid placement, collections, sim clock, quality tiers, tours, app store, PlanetPanel/SettingsMenu/ErrorBoundary), 18 configuration-integrity assertions (Vite base, CSP and deploy headers, SPA rewrite, manifest, no third-party asset hosts) and 10 Playwright end-to-end tests against the production build.
+- Added a build-output budget (`npm run budget`): three, entry, stylesheet and KTX2 chunk sizes, the first-paint payload, and the guarantee that neither three nor the KTX2 transcoder loads on first paint.
+- Added `npm run verify` (typecheck → lint → lore validation → tests → build → budget → e2e) and wired the same chain into CI.
+
 ## 2026-07-24
 
 - Fixed a crash opening any of eleven worlds without a stats block (Umbara, Moraband, Cato Neimoidia, Aldhani, Daiyu, Krownest, Mimban, Numidian Prime, Savareen, Seatos, Wobani): the panel read `stats.diameterKm` unguarded. `stats` is now optional in the type and every read is guarded, so those panels simply omit the missing rows; validate-lore warns on a missing stats block to track the content gap.

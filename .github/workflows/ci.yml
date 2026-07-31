@@ -24,6 +24,9 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
       - name: Typecheck
         run: npx tsc -b
 
@@ -33,5 +36,22 @@ jobs:
       - name: Validate lore
         run: npm run validate
 
+      - name: Unit and component tests
+        run: npm run test
+
       - name: Build
         run: npm run build
+
+      - name: Bundle budget
+        run: npm run budget
+
+      - name: End-to-end tests
+        run: npm run e2e
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: app/playwright-report
+          retention-days: 7
