@@ -13,6 +13,12 @@
   "sector": "Quellor sector",
   "system": "Cato Neimoidia system",
   "coordinates": "N-11",
+  "stats": {
+    "government": {
+      "en": "Cato Neimoidian government; an Imperial protectorate after the Clone Wars",
+      "tr": "Cato Neimoidia yönetimi; Klon Savaşları'ndan sonra İmparatorluk himayesi"
+    }
+  },
   "suns": [
     {
       "name": "Neri",

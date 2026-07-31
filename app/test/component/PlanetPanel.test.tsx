@@ -45,6 +45,24 @@ describe('a world with no stats block', () => {
     expect(screen.queryByText(t('government', 'en'))).not.toBeInTheDocument()
   })
 
+  it('says so out loud when canon itself states nothing', () => {
+    // Moraband's article defines no diameter, population or government
+    renderPanel({ ...BASE, id: 'moraband' })
+    expect(screen.getByText(t('diameter', 'en'))).toBeInTheDocument()
+    expect(screen.getAllByText(t('unstated', 'en'))).toHaveLength(3)
+  })
+
+  it("stays silent when the gap is the archive's own", () => {
+    // Tatooine's article states a diameter and a population, so empty rows for
+    // those are our omission and stay hidden; it states no government, so that
+    // one row does speak up
+    renderPanel({ ...BASE, id: 'tatooine' })
+    expect(screen.queryByText(t('diameter', 'en'))).not.toBeInTheDocument()
+    expect(screen.queryByText(t('population', 'en'))).not.toBeInTheDocument()
+    expect(screen.getByText(t('government', 'en'))).toBeInTheDocument()
+    expect(screen.getAllByText(t('unstated', 'en'))).toHaveLength(1)
+  })
+
   it('still shows the rows it does have', () => {
     renderPanel(BASE)
     expect(screen.getByText(t('system', 'en'))).toBeInTheDocument()
@@ -73,6 +91,46 @@ describe('a world with stats', () => {
     useApp.setState({ lang: 'tr' })
     renderPanel(withStats)
     expect(screen.getByText('10.465 km')).toBeInTheDocument()
+  })
+})
+
+describe('provenance marks', () => {
+  const stats = {
+    diameterKm: 10465,
+    government: { en: 'Fringe world under Hutt influence', tr: 'Hutt nüfuzunda bir uç dünya' },
+  }
+
+  it('marks a value the archive summarised itself', () => {
+    renderPanel({ ...BASE, id: 'tatooine', stats })
+    const marker = screen.getByTitle(t('authoredHint', 'en'))
+    expect(marker).toBeInTheDocument()
+    expect(screen.getByText('Fringe world under Hutt influence')).toBeInTheDocument()
+  })
+
+  it('leaves a value straight from the source article unmarked', () => {
+    renderPanel({ ...BASE, id: 'tatooine', stats })
+    expect(screen.getByText('10,465 km')).toBeInTheDocument()
+    expect(screen.getAllByTitle(t('authoredHint', 'en'))).toHaveLength(1)
+  })
+
+  it('shows a value even for a body with no source entry at all', () => {
+    renderPanel({ ...BASE, stats })
+    expect(screen.getByText('10,465 km')).toBeInTheDocument()
+    expect(screen.queryByTitle(t('authoredHint', 'en'))).not.toBeInTheDocument()
+  })
+})
+
+describe('source link', () => {
+  it('links out to the article a world was sourced from', () => {
+    renderPanel({ ...BASE, id: 'hoth' })
+    const link = screen.getByRole('link', { name: /Wookieepedia/ })
+    expect(link).toHaveAttribute('href', 'https://starwars.fandom.com/wiki/Hoth')
+    expect(link).toHaveAttribute('rel', 'noreferrer')
+  })
+
+  it('shows no link for a body with no recorded source', () => {
+    renderPanel(BASE)
+    expect(screen.queryByRole('link', { name: /Wookieepedia/ })).not.toBeInTheDocument()
   })
 })
 

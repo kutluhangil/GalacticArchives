@@ -11,10 +11,8 @@
   "system": "Endor system",
   "coordinates": "H-16",
   "stats": {
-    "diameterKm": 0,
-    "moonCount": 9,
-    "population": { "en": "—", "tr": "—" },
-    "government": { "en": "—", "tr": "—" }
+    "diameterKm": 48951,
+    "moonCount": 9
   },
   "suns": [
     { "name": "Endor I", "color": "#FFF0CC" },

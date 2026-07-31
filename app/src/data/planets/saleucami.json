@@ -15,7 +15,11 @@
   "coordinates": "S-8",
   "stats": {
     "diameterKm": 14920,
-    "moonCount": 3
+    "moonCount": 3,
+    "population": {
+      "en": "1.4 billion",
+      "tr": "1,4 milyar"
+    }
   },
   "suns": [
     {

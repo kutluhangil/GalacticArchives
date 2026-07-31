@@ -30,6 +30,13 @@ const factions = load('meta/factions.json')
 const media = load('meta/media.json')
 const stations = load('stations.json')
 const characters = load('characters.json')
+const sources = load('sources.json')
+
+/** headline stat fields, as the Wookieepedia infobox names them -> our key */
+const TRACKED_FIELDS = { diameter: 'diameterKm', population: 'population', government: 'government' }
+/** values that pretend to be data; the panel has an explicit state for "no
+ *  canon value", so a placeholder in the data is always a lie */
+const PLACEHOLDERS = new Set(['—', '–', '-', '?', 'n/a', 'N/A', 'tbd', 'TBD', ''])
 
 const eraIds = new Set(eras.map((e) => e.id))
 const regionIds = new Set(regions.map((r) => r.id))
@@ -64,9 +71,20 @@ for (const [id, { body, file }] of bodies) {
   checkLocalized(body.desc, `${id}.desc`, file)
   if (!regionIds.has(body.region)) err(`${file}: ${id}.region "${body.region}" not in regions.json`)
   if (!body.system) err(`${file}: ${id}.system missing`)
-  // stats is optional in the type, but a planet with none shows an empty panel —
-  // surface it so the content gap is visible (stations legitimately have none)
-  if (body.kind !== 'station' && !body.stats) warn(`${id}: no stats block (empty info panel)`)
+  // A missing stats block is only a gap when canon actually states something;
+  // where it does not, the panel says so explicitly and there is nothing to
+  // author. The per-field check further down reports the real gaps.
+  for (const [key, value] of Object.entries(body.stats ?? {})) {
+    const texts = typeof value === 'object' && value ? Object.values(value) : [value]
+    for (const text of texts) {
+      if (typeof text === 'string' && PLACEHOLDERS.has(text.trim())) {
+        err(`${file}: ${id}.stats.${key} is the placeholder "${text}" — omit the field so the panel can say the value is unstated in canon`)
+      }
+    }
+    if (key === 'diameterKm' && value === 0) {
+      err(`${file}: ${id}.stats.diameterKm is 0 — omit the field instead of shipping a placeholder diameter`)
+    }
+  }
   if (!body.renderRecipe) err(`${file}: ${id}.renderRecipe missing`)
   else {
     if (!ARCHETYPES.has(body.renderRecipe.archetype)) err(`${file}: ${id} archetype "${body.renderRecipe.archetype}" invalid`)
@@ -122,6 +140,29 @@ for (const [id, { body, file }] of bodies) {
   } else if (!['death-star', 'death-star-2'].includes(id) && !dig) {
     warn(`${id}: no digest entry (not fetched) — verify manually`)
   }
+
+  // --- provenance: the panel's four states must rest on real evidence ---
+  const entry = sources.entities?.[id]
+  if (!entry) {
+    err(`sources.json: no entry for body "${id}" — every shipped body needs its source article`)
+  } else {
+    if (!entry.url) err(`sources.json: ${id} has no url`)
+    if (dig?.absent) {
+      const claimed = [...(entry.unverified ?? [])].sort().join(',')
+      const evidenced = [...dig.absent].sort().join(',')
+      if (claimed !== evidenced) {
+        err(`sources.json: ${id}.unverified [${claimed}] does not match the digest's absent fields [${evidenced}] — rerun scripts/sync-sources.mjs`)
+      }
+    }
+    if (!dig && body.kind !== 'station') {
+      warn(`${id}: no digest entry, so its empty fields cannot be told apart from canon gaps`)
+    }
+    for (const [wikiField, ourKey] of Object.entries(TRACKED_FIELDS)) {
+      const stated = dig?.infobox?.[wikiField] !== undefined
+      const have = body.stats?.[ourKey] !== undefined
+      if (stated && !have) warn(`${id}: canon states ${wikiField} but the archive has none — authoring gap`)
+    }
+  }
 }
 
 for (const c of characters) {
@@ -139,6 +180,9 @@ for (const c of characters) {
     if (!characterIds.has(r)) err(`characters.json: ${c.id} related "${r}" unknown`)
   }
   if (!c.portrait) err(`characters.json: ${c.id}.portrait missing`)
+  if (!sources.entities?.[c.id]) {
+    err(`sources.json: no entry for character "${c.id}" — every shipped character needs its source article`)
+  }
   for (const [eraKey, factionId] of Object.entries(c.affiliationsByEra ?? {})) {
     if (!eraIds.has(eraKey)) err(`characters.json: ${c.id} era "${eraKey}" invalid`)
     if (!factionIds.has(factionId)) err(`characters.json: ${c.id} faction "${factionId}" invalid`)

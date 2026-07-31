@@ -11,10 +11,7 @@
   "system": "Yavin system",
   "coordinates": "P-6",
   "stats": {
-    "diameterKm": 0,
-    "moonCount": 26,
-    "population": { "en": "—", "tr": "—" },
-    "government": { "en": "—", "tr": "—" }
+    "moonCount": 26
   },
   "suns": [{ "name": "Yavin", "color": "#FFE2B8" }],
   "moons": [],

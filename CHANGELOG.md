@@ -2,6 +2,9 @@
 
 ## 2026-07-31
 
+- Data honesty: an empty fact row now says which kind of empty it is. Every body and character carries the Wookieepedia article it was sourced from (all 88 bodies and 33 characters, up from 34 worlds), and the panel distinguishes four states — sourced value, value this archive summarised itself (marked), "not stated in canon" when the article defines none, and silence when the gap is ours. `unverified` is derived from the fetched infobox by `scripts/sync-sources.mjs`, never asserted by hand, and `validate-lore` fails if the two drift apart.
+- Removed em-dash placeholder stats (Endor, Yavin) and a zero diameter; Endor's canon diameter (48,951 km) was wrong as 0. Filled the eight fields canon states but the archive lacked (Atollon, Cantonica, Cato Neimoidia, Malachor, Saleucami, Serenno, Sorgan, Umbara). Lore validation now runs at zero warnings.
+- Fixed the stale "34 worlds" claim in the page description and share cards; it is 81, and an integrity test now ties the number to the file count.
 - Added a test shield: 116 Vitest unit/component tests (lore era gating and lazy body loading, galaxy grid placement, collections, sim clock, quality tiers, tours, app store, PlanetPanel/SettingsMenu/ErrorBoundary), 18 configuration-integrity assertions (Vite base, CSP and deploy headers, SPA rewrite, manifest, no third-party asset hosts) and 10 Playwright end-to-end tests against the production build.
 - Added a build-output budget (`npm run budget`): three, entry, stylesheet and KTX2 chunk sizes, the first-paint payload, and the guarantee that neither three nor the KTX2 transcoder loads on first paint.
 - Added `npm run verify` (typecheck → lint → lore validation → tests → build → budget → e2e) and wired the same chain into CI.

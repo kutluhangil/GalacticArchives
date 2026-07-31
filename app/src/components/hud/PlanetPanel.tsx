@@ -5,7 +5,8 @@ import { toggleFavorite } from '../../lib/collections'
 import { useFavorites } from '../../hooks/useCollections'
 import type { CelestialBody } from '../../types/lore'
 import { useApp } from '../../state/app'
-import { destroyedInEra, L, LL, factionById, mediaById, regions } from '../../lib/lore'
+import { destroyedInEra, L, LL, factionById, mediaById, regions, type Lang } from '../../lib/lore'
+import { provenance, sourceFor, type TrackedField } from '../../lib/sources'
 import { t } from '../../lib/ui-strings'
 
 function Row({ label, value }: { label: string; value: string | undefined }) {
@@ -18,6 +19,54 @@ function Row({ label, value }: { label: string; value: string | undefined }) {
   )
 }
 
+/** A headline fact, with where it came from. An empty row is only dropped when
+ *  the gap is ours; when canon itself states nothing, the row says so. */
+function FactRow({
+  bodyId,
+  field,
+  label,
+  value,
+  lang,
+}: {
+  bodyId: string
+  field: TrackedField
+  label: string
+  value: string | undefined
+  lang: Lang
+}) {
+  const state = provenance(bodyId, field, !!value)
+
+  if (!value) {
+    // an authoring gap stays silent; only canon's own silence is stated
+    if (state !== 'unstated') return null
+    return (
+      <div className="flex justify-between gap-4 border-b border-white/5 py-1.5 text-[12px]">
+        <span className="shrink-0 text-slate-500">{label}</span>
+        <span className="text-right italic text-slate-500" title={t('unstatedHint', lang)}>
+          {t('unstated', lang)}
+        </span>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex justify-between gap-4 border-b border-white/5 py-1.5 text-[12px]">
+      <span className="shrink-0 text-slate-500">{label}</span>
+      <span className="text-right text-slate-200">
+        {value}
+        {state === 'authored' && (
+          <span
+            title={t('authoredHint', lang)}
+            className="ml-1 cursor-help align-super text-[9px] text-slate-500"
+          >
+            ◦
+          </span>
+        )}
+      </span>
+    </div>
+  )
+}
+
 export default function PlanetPanel({ body }: { body: CelestialBody }) {
   const { lang, era } = useApp()
   const starred = useFavorites().includes(body.id)
@@ -25,6 +74,7 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
   const facts = LL(body.funFacts, lang)
   const faction = factionById(body.affiliationsByEra?.[era])
   const destroyed = destroyedInEra(body, era)
+  const source = sourceFor(body.id)
 
   const appearanceTitles = useMemo(
     () =>
@@ -93,12 +143,27 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
         />
         <Row label={t('sector', lang)} value={body.sector} />
         <Row label={t('system', lang)} value={body.system} />
-        <Row
+        <FactRow
+          bodyId={body.id}
+          field="diameter"
           label={t('diameter', lang)}
+          lang={lang}
           value={body.stats?.diameterKm ? `${body.stats?.diameterKm.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US')} km` : undefined}
         />
-        <Row label={t('population', lang)} value={L(body.stats?.population, lang)} />
-        <Row label={t('government', lang)} value={L(body.stats?.government, lang)} />
+        <FactRow
+          bodyId={body.id}
+          field="population"
+          label={t('population', lang)}
+          lang={lang}
+          value={L(body.stats?.population, lang)}
+        />
+        <FactRow
+          bodyId={body.id}
+          field="government"
+          label={t('government', lang)}
+          lang={lang}
+          value={L(body.stats?.government, lang)}
+        />
         <Row label={t('climate', lang)} value={LL(body.climate, lang).join(' · ')} />
         <Row label={t('terrain', lang)} value={LL(body.terrain, lang).join(' · ')} />
         <Row
@@ -158,6 +223,17 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
           </div>
           <p className="text-[12px] leading-relaxed text-slate-300">{facts[factIdx]}</p>
         </button>
+      )}
+
+      {source?.url && (
+        <a
+          href={source.url}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-3 block text-[10px] tracking-wide text-slate-600 transition-colors hover:text-holo-cyan"
+        >
+          {t('sourceLink', lang)}: {source.source.replace('wookieepedia:', 'Wookieepedia · ')} ↗
+        </a>
       )}
     </aside>
   )

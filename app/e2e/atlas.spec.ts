@@ -15,6 +15,18 @@ test('a world deep-links straight into its panel', async ({ page }) => {
   await expect(page.locator('canvas')).toBeVisible()
 })
 
+test('a world canon says little about states the gap instead of hiding it', async ({ page }) => {
+  await page.goto('/planet/moraband')
+  await expect(page.getByRole('heading', { name: 'MORABAND' })).toBeVisible()
+
+  // canon states no diameter, population or government for Moraband
+  await expect(page.getByText(/kanonda belirtilmemiş|not stated in canon/)).toHaveCount(3)
+  await expect(page.getByRole('link', { name: /Wookieepedia/ })).toHaveAttribute(
+    'href',
+    'https://starwars.fandom.com/wiki/Moraband',
+  )
+})
+
 test('the galaxy map boots its WebGL canvas', async ({ page }) => {
   await page.goto('/galaxy')
   await expect(page.locator('canvas')).toBeVisible()

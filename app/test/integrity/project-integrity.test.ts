@@ -8,7 +8,7 @@
 // deep route's assets, a missing SPA rewrite 404s the route itself, and a
 // loosened CSP is silent until it is exploited.
 
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
@@ -138,6 +138,55 @@ describe('package.json', () => {
       expect(Object.keys(pkg.devDependencies), tool).toContain(tool)
     }
     expect(Object.keys(pkg.dependencies)).not.toContain('vitest')
+  })
+})
+
+describe('provenance data', () => {
+  const sources = readJson('src/data/sources.json')
+  const digest = readJson('test/fixtures/lore-digest.json')
+  const DIGEST_TO_BODY: Record<string, string> = { 'endor-prime': 'endor' }
+
+  it('records when it was generated and how', () => {
+    expect(Date.parse(sources.generatedAt)).not.toBeNaN()
+    expect(sources.method).toContain('Wookieepedia')
+    expect(sources.notes['global-unverified']).toBeTruthy()
+  })
+
+  it('gives every entity an article and a url', () => {
+    for (const [id, entry] of Object.entries<{ source: string; url?: string }>(sources.entities)) {
+      expect(entry.source, `${id} source`).toMatch(/^wookieepedia:/)
+      expect(entry.url, `${id} url`).toMatch(/^https:\/\/starwars\.fandom\.com\/wiki\//)
+    }
+  })
+
+  it('backs every "unverified" claim with the digest snapshot', () => {
+    // an unverified field is a statement about canon; it has to come from the
+    // fetched article, not from an author's memory
+    for (const [digestId, entry] of Object.entries<{ absent?: string[] }>(digest.planets)) {
+      const id = DIGEST_TO_BODY[digestId] ?? digestId
+      const claimed = sources.entities[id]?.unverified
+      if (!claimed) continue
+      expect([...claimed].sort(), `${id}`).toEqual([...(entry.absent ?? [])].sort())
+    }
+  })
+
+  it('only ever marks the three headline fields as unverified', () => {
+    const tracked = new Set(['diameter', 'population', 'government'])
+    for (const [id, entry] of Object.entries<{ unverified?: string[] }>(sources.entities)) {
+      for (const field of entry.unverified ?? []) {
+        expect(tracked.has(field), `${id} unverified "${field}"`).toBe(true)
+      }
+    }
+  })
+})
+
+describe('index.html world count', () => {
+  it('matches the number of planet files actually shipped', () => {
+    const planetCount = readdirSync(join(ROOT, 'src/data/planets')).filter((f) =>
+      f.endsWith('.json'),
+    ).length
+    const claimed = read('index.html').match(/atlas of the Star Wars galaxy: (\d+) worlds/)?.[1]
+    expect(Number(claimed)).toBe(planetCount)
   })
 })
 

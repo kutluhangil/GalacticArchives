@@ -142,6 +142,7 @@ const CHARACTERS = {
   'poe-dameron': 'Poe Dameron',
   finn: 'Finn',
   'lando-calrissian': 'Lando Calrissian',
+  'jabba-the-hutt': 'Jabba Desilijic Tiure',
 }
 
 const PLANET_FIELDS = [

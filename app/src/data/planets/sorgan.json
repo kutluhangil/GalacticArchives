@@ -19,6 +19,10 @@
     "population": {
       "en": "Fewer than 10,000",
       "tr": "10.000'den az"
+    },
+    "government": {
+      "en": "Minimal",
+      "tr": "Asgari"
     }
   },
   "suns": [

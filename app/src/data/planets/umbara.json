@@ -13,6 +13,12 @@
   "sector": "Ghost Nebula sector",
   "system": "Umbara system",
   "coordinates": "P-10",
+  "stats": {
+    "government": {
+      "en": "Umbaran government",
+      "tr": "Umbara yönetimi"
+    }
+  },
   "suns": [
     {
       "name": "Umbara",

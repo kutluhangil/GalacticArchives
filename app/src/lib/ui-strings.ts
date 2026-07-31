@@ -105,6 +105,18 @@ const STRINGS = {
   },
   notFound: { en: 'No such record in the archives.', tr: 'Arşivlerde böyle bir kayıt yok.' },
 
+  // data provenance
+  unstated: { en: 'not stated in canon', tr: 'kanonda belirtilmemiş' },
+  unstatedHint: {
+    en: 'The sourced article states no value for this field. It is missing from canon, not from this archive.',
+    tr: 'Kaynak madde bu alan için bir değer belirtmiyor. Eksik olan kanon, bu arşiv değil.',
+  },
+  authoredHint: {
+    en: 'Summarised by this archive: the sourced article states no value for this field.',
+    tr: 'Bu arşivin özeti: kaynak madde bu alan için bir değer belirtmiyor.',
+  },
+  sourceLink: { en: 'Source', tr: 'Kaynak' },
+
   // first-visit onboarding
   onboardTitle: { en: 'Explore the archive', tr: 'Arşivi keşfet' },
   onboardEra: {

@@ -14,7 +14,11 @@
   "system": "Malachor system",
   "coordinates": "S-4",
   "stats": {
-    "moonCount": 2
+    "moonCount": 2,
+    "population": {
+      "en": "At least one: Maul, marooned here until 3 BBY",
+      "tr": "En az bir: 3 BBY'ye dek burada mahsur kalan Maul"
+    }
   },
   "suns": [
     {

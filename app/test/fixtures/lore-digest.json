@@ -1,588 +1,2100 @@
 {
- "note": "Slim fact snapshot for validate-lore CI regression (coordinates/diameter/birth only). Facts are not copyrightable; source Wookieepedia CC BY-SA.",
+ "note": "Slim fact snapshot for validate-lore CI regression. `absent` lists tracked infobox fields the canon article does not define — the evidence behind sources.json \"unverified\". Facts are not copyrightable; source Wookieepedia CC BY-SA. Rebuild: node scripts/fetch-lore.mjs <tmp> && node scripts/slim-digest.mjs <tmp>",
  "planets": {
   "tatooine": {
    "title": "Tatooine",
    "infobox": {
     "coordinates": "R-16",
-    "diameter": "10,465 km"
-   }
+    "diameter": "10,465 km",
+    "population": "200,000 (Republic Era/Imperial Era) | 1.1 million (New Republic Era)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "coruscant": {
    "title": "Coruscant",
    "infobox": {
     "coordinates": "L-9",
-    "diameter": "12,240 kilometers (7,606 miles)"
-   }
+    "diameter": "12,240 kilometers (7,606 miles)",
+    "population": "2,981,780,000,000 (132 BBY; estimated) | 78% humans | 22% other | Nearly 3 trillion, a third are permanent residents (9 ABY; estimated)",
+    "government": "Representative Republic | Galactic Senate | Coruscanti government | Coruscant's provisional government"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "naboo": {
    "title": "Naboo",
    "infobox": {
     "coordinates": "O-17",
-    "diameter": "12,120 kilometers (7,531 miles)"
-   }
+    "diameter": "12,120 kilometers (7,531 miles)",
+    "population": "4.5 billion: | 72% Gungan | 27% Human | 1% Other",
+    "government": "Elective monarchy"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "alderaan": {
    "title": "Alderaan",
    "infobox": {
     "coordinates": "M-10",
-    "diameter": "12,500 kilometers"
-   }
+    "diameter": "12,500 kilometers",
+    "population": "2 billion | 95% humans | 5% other",
+    "government": "Monarchy | Alderaanian government"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "hoth": {
    "title": "Hoth",
    "infobox": {
     "coordinates": "K-18",
-    "diameter": "7,200 kilometers (4,474 miles)"
-   }
+    "diameter": "7,200 kilometers (4,474 miles)",
+    "population": "Fewer than 10"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "dagobah": {
    "title": "Dagobah",
    "infobox": {
     "coordinates": "M-19",
-    "diameter": "14,410 kilometers (8,954 miles)"
-   }
+    "diameter": "14,410 kilometers (8,954 miles)",
+    "population": "At least 1: Yoda"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "bespin": {
    "title": "Bespin",
    "infobox": {
     "coordinates": "K-18",
-    "diameter": "118,000 kilometers (73,322 miles)"
-   }
+    "diameter": "118,000 kilometers (73,322 miles)",
+    "population": "6,000,000"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "endor-prime": {
    "title": "Endor (planet)",
    "infobox": {
     "coordinates": "H-16",
     "diameter": "48,951 kilometers"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons"
+   ],
+   "absent": [
+    "population",
+    "government"
+   ]
   },
   "endor-moon": {
    "title": "Endor",
    "infobox": {
     "coordinates": "H-16",
-    "diameter": "4,900 km"
-   }
+    "diameter": "4,900 km",
+    "population": "Over 30,000,000 Ewoks"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "atmosphere",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "kef-bir": {
    "title": "Kef Bir",
    "infobox": {
     "coordinates": "H-16",
-    "diameter": "3,725 km (2,315 miles)"
-   }
+    "diameter": "3,725 km (2,315 miles)",
+    "population": "40"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "terrain",
+    "population"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "yavin": {
    "title": "Yavin",
    "infobox": {
     "coordinates": "P-6"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "yavin-4": {
    "title": "Yavin 4",
    "infobox": {
     "coordinates": "P-6",
-    "diameter": "10,200 kilometers (6,338 miles)"
-   }
+    "diameter": "10,200 kilometers (6,338 miles)",
+    "population": "1,000 (estimated)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "mustafar": {
    "title": "Mustafar",
    "infobox": {
     "coordinates": "L-19",
-    "diameter": "4,200 kilometers (2,610 miles)"
-   }
+    "diameter": "4,200 kilometers (2,610 miles)",
+    "population": "Approximately 15,000&ndash;20,000"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "kamino": {
    "title": "Kamino",
    "infobox": {
-    "diameter": "19,270 kilometers"
-   }
+    "diameter": "19,270 kilometers",
+    "population": "1 billion | 0 (Imperial Era)",
+    "government": "Ruling Council"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "geonosis": {
    "title": "Geonosis",
    "infobox": {
     "coordinates": "R-16",
-    "diameter": "11,370 kilometers"
-   }
+    "diameter": "11,370 kilometers",
+    "population": "100 billion (99% Geonosians, 1% other) | 1 (Imperial Era) (believed)",
+    "government": "Monarchy | Geonosian hives"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "kashyyyk": {
    "title": "Kashyyyk",
    "infobox": {
     "coordinates": "P-9",
-    "diameter": "12,765 kilometers"
-   }
+    "diameter": "12,765 kilometers",
+    "population": "56,000,000",
+    "government": "Wookiee Council"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "utapau": {
    "title": "Utapau",
    "infobox": {
     "coordinates": "N-19",
-    "diameter": "12,900 kilometers"
-   }
+    "diameter": "12,900 kilometers",
+    "population": "95 million: | 65% Utai | 30% Pau'an | 5% other",
+    "government": "Utapaun Committee"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "felucia": {
    "title": "Felucia",
    "infobox": {
     "coordinates": "R-6",
-    "diameter": "9,100 kilometers"
-   }
+    "diameter": "9,100 kilometers",
+    "population": "425 million"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "jakku": {
    "title": "Jakku",
    "infobox": {
     "coordinates": "I-13",
-    "diameter": "6,400 kilometers"
-   }
+    "diameter": "6,400 kilometers",
+    "population": "Unknown (Less than 25,000)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "takodana": {
    "title": "Takodana",
    "infobox": {
     "coordinates": "J-16",
-    "diameter": "12,100 kilometers"
-   }
+    "diameter": "12,100 kilometers",
+    "population": "Less than 1 million"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "ahch-to": {
    "title": "Ahch-To",
    "infobox": {
     "coordinates": "F-13",
     "diameter": "7,212 km (4,481 miles)"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "affiliation"
+   ],
+   "absent": [
+    "population",
+    "government"
+   ]
   },
   "crait": {
    "title": "Crait",
    "infobox": {
     "coordinates": "N-17",
-    "diameter": "7,400 kilometers"
-   }
+    "diameter": "7,400 kilometers",
+    "population": "Uninhabited"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "exegol": {
    "title": "Exegol",
    "infobox": {
     "coordinates": "F-7",
     "diameter": "13,649 km"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "population",
+    "government"
+   ]
   },
   "ilum": {
    "title": "Ilum",
    "infobox": {
     "coordinates": "G-7 (original location)",
-    "diameter": "660 kilometers"
-   }
+    "diameter": "660 kilometers",
+    "population": "5,200 (nonpermanent residents)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "starkiller-base": {
    "title": "Starkiller Base",
-   "infobox": {}
+   "infobox": {},
+   "present": [
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "scarif": {
    "title": "Scarif",
    "infobox": {
     "coordinates": "S-15",
-    "diameter": "9,112 kilometers (5,662 miles)"
-   }
+    "diameter": "9,112 kilometers (5,662 miles)",
+    "population": "475,000"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "jedha": {
    "title": "Jedha",
    "infobox": {
     "coordinates": "H-10",
-    "diameter": "11,263 kilometers"
-   }
+    "diameter": "11,263 kilometers",
+    "population": "11.3 million (85% human, 15% other)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "corellia": {
    "title": "Corellia",
    "infobox": {
     "coordinates": "M-11",
-    "diameter": "11,000 kilometers (6,835 miles)"
-   }
+    "diameter": "11,000 kilometers (6,835 miles)",
+    "population": "3 billion"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "kessel": {
    "title": "Kessel",
    "infobox": {
     "coordinates": "T-10",
-    "diameter": "7,200 kilometers"
-   }
+    "diameter": "7,200 kilometers",
+    "population": "10,000",
+    "government": "Monarchy"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "mandalore": {
    "title": "Mandalore",
    "infobox": {
     "coordinates": "O-7",
-    "diameter": "9,200 km (5,716 miles)"
-   }
+    "diameter": "9,200 km (5,716 miles)",
+    "population": "4,000,000 (Pre-Purge) | 81% humans | 19% other | Unknown (9 ABY)",
+    "government": "Clans under the authority of the Mand'alor | Mandalorian Government Council (during the Republic Era) | Governorship (during the Imperial Era)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "nevarro": {
    "title": "Nevarro",
    "infobox": {
     "coordinates": "K-20",
-    "diameter": "8,006 km (4,975 miles)"
-   }
+    "diameter": "8,006 km (4,975 miles)",
+    "population": "4 million",
+    "government": "High Magistrate"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "atmosphere",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "lothal": {
    "title": "Lothal",
    "infobox": {
     "coordinates": "U-7",
-    "diameter": "11,345 km (7,169 miles)"
-   }
+    "diameter": "11,345 km (7,169 miles)",
+    "population": "285 million",
+    "government": "Lothal's government | Imperial governorship"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "dathomir": {
    "title": "Dathomir",
    "infobox": {
     "coordinates": "O-6",
-    "diameter": "10,460 kilometers"
-   }
+    "diameter": "10,460 kilometers",
+    "population": "Roughly 600 | 90% human | 7% Zabrak | 3% other | Roughly 8,000 | 80% human | 17% Zabrak | 3% other",
+    "government": "Tribal"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "ryloth": {
    "title": "Ryloth",
    "infobox": {
     "coordinates": "R-17",
-    "diameter": "10,600 km (6,587 miles)"
-   }
+    "diameter": "10,600 km (6,587 miles)",
+    "population": "1.5 billion",
+    "government": "Clan Assembly | Ryloth government"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "peridea": {
    "title": "Peridea",
-   "infobox": {}
+   "infobox": {},
+   "present": [
+    "region",
+    "class",
+    "atmosphere",
+    "terrain",
+    "water",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "ferrix": {
    "title": "Ferrix",
    "infobox": {
     "coordinates": "Q-3",
-    "diameter": "7,914 kilometers (4,917 miles)"
-   }
+    "diameter": "7,914 kilometers (4,917 miles)",
+    "population": "1.5 million"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "nal-hutta": {
    "title": "Nal Hutta",
    "infobox": {
-    "coordinates": "S-12"
-   }
+    "coordinates": "S-12",
+    "government": "Grand Hutt Council"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "shakari": {
    "title": "Shakari",
-   "infobox": {}
+   "infobox": {
+    "government": "Shakari government"
+   },
+   "present": [
+    "region",
+    "system",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "nar-shaddaa": {
    "title": "Nar Shaddaa",
    "infobox": {
     "coordinates": "S-12"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "atmosphere",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "concordia": {
    "title": "Concordia",
    "infobox": {
-    "coordinates": "O-7"
-   }
+    "coordinates": "O-7",
+    "population": "412,000",
+    "government": "Governorship"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter"
+   ]
   },
   "death-star": {
    "title": "Death Star",
-   "infobox": {}
+   "infobox": {},
+   "present": [
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "death-star-2": {
    "title": "DS-2 Death Star II Mobile Battle Station",
    "infobox": {
-    "coordinates": "H-16"
-   }
+    "coordinates": "H-16",
+    "population": "2,471,647"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "government"
+   ]
   },
   "cato-neimoidia": {
    "title": "Cato Neimoidia",
    "infobox": {
-    "coordinates": "N-11"
-   }
+    "coordinates": "N-11",
+    "government": "Cato Neimoidian government | Protectorate (Imperial Era)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "mygeeto": {
    "title": "Mygeeto",
    "infobox": {
     "coordinates": "K-5",
     "diameter": "10,088 kilometers"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "population",
+    "government"
+   ]
   },
   "saleucami": {
    "title": "Saleucami",
    "infobox": {
     "coordinates": "S-8",
-    "diameter": "14,920 kilometers"
-   }
+    "diameter": "14,920 kilometers",
+    "population": "1.4 billion"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "polis-massa": {
    "title": "Polis Massa",
    "infobox": {
     "coordinates": "K-20"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "christophsis": {
    "title": "Christophsis",
    "infobox": {
     "coordinates": "Q-16"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "umbara": {
    "title": "Umbara",
    "infobox": {
-    "coordinates": "P-10"
-   }
+    "coordinates": "P-10",
+    "government": "Umbaran government"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "onderon": {
    "title": "Onderon",
    "infobox": {
     "coordinates": "O-9",
-    "diameter": "15,190 kilometers"
-   }
+    "diameter": "15,190 kilometers",
+    "government": "Monarchy | Royal Court of Onderon"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "population"
+   ]
   },
   "moraband": {
    "title": "Moraband",
    "infobox": {
     "coordinates": "R-5"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "serenno": {
    "title": "Serenno",
    "infobox": {
-    "coordinates": "P-5"
-   }
+    "coordinates": "P-5",
+    "government": "Serenno government"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "water",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "eriadu": {
    "title": "Eriadu",
    "infobox": {
-    "coordinates": "M-18"
-   }
+    "coordinates": "M-18",
+    "government": "Quintad"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "batuu": {
    "title": "Batuu",
    "infobox": {
     "coordinates": "G-15",
-    "diameter": "12,750 kilometers"
-   }
+    "diameter": "12,750 kilometers",
+    "population": "200,000"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "dqar": {
    "title": "D'Qar",
    "infobox": {
     "coordinates": "O-17",
-    "diameter": "10,400 kilometers"
-   }
+    "diameter": "10,400 kilometers",
+    "population": "None"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "cantonica": {
    "title": "Cantonica",
    "infobox": {
     "coordinates": "S-4",
-    "diameter": "11,440 km (7,108 miles)"
-   }
+    "diameter": "11,440 km (7,108 miles)",
+    "population": "850,000",
+    "government": "Canto Bight legislative body"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "pasaana": {
    "title": "Pasaana",
    "infobox": {
     "coordinates": "O-13",
-    "diameter": "11,135 km"
-   }
+    "diameter": "11,135 km",
+    "population": "500,000 (approx.)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "kijimi": {
    "title": "Kijimi",
    "infobox": {
     "coordinates": "R-8",
-    "diameter": "9,874 km"
-   }
+    "diameter": "9,874 km",
+    "population": "310,000,000 (estimated)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "eadu": {
    "title": "Eadu",
    "infobox": {
     "coordinates": "U-10",
-    "diameter": "14,121 kilometers"
-   }
+    "diameter": "14,121 kilometers",
+    "population": "2.5 million"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "moons",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "lahmu": {
    "title": "Lah'mu",
    "infobox": {
     "coordinates": "L-3",
-    "diameter": "12,618 km"
-   }
+    "diameter": "12,618 km",
+    "population": "Estimated: less than 500"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "population"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "wobani": {
    "title": "Wobani",
    "infobox": {
     "coordinates": "R-8"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "mimban": {
    "title": "Mimban",
    "infobox": {
     "coordinates": "O-12"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "vandor": {
    "title": "Vandor",
    "infobox": {
     "coordinates": "P-14",
-    "diameter": "12,500 km (7,767 miles)"
-   }
+    "diameter": "12,500 km (7,767 miles)",
+    "population": "25,000"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "savareen": {
    "title": "Savareen",
    "infobox": {
     "coordinates": "Q-16"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "atmosphere",
+    "terrain"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "numidian-prime": {
    "title": "Numidian Prime",
    "infobox": {
     "coordinates": "L-7"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "atmosphere",
+    "climate",
+    "terrain"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "sorgan": {
    "title": "Sorgan",
    "infobox": {
     "coordinates": "Q-17",
-    "diameter": "8,742 km (5,432 miles)"
-   }
+    "diameter": "8,742 km (5,432 miles)",
+    "population": "Less than 10,000 (estimated)",
+    "government": "Minimal"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "water",
+    "population",
+    "government"
+   ],
+   "absent": []
   },
   "arvala-7": {
    "title": "Arvala-7",
    "infobox": {
     "coordinates": "S-15",
-    "diameter": "2,375 km (1,475 miles)"
-   }
+    "diameter": "2,375 km (1,475 miles)",
+    "population": "Less than 1 million"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "terrain",
+    "population"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "tython": {
    "title": "Tython",
    "infobox": {
     "coordinates": "K-10",
-    "diameter": "12,396 km (7,703 miles)"
-   }
+    "diameter": "12,396 km (7,703 miles)",
+    "population": "Uninhabited"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "trask": {
    "title": "Trask",
    "infobox": {
     "coordinates": "R-16",
-    "diameter": "9,720 km (6,040 miles)"
-   }
+    "diameter": "9,720 km (6,040 miles)",
+    "population": "35.8 million"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "moons",
+    "terrain",
+    "water",
+    "population"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "morak": {
    "title": "Morak",
    "infobox": {
     "coordinates": "H-18",
-    "diameter": "11,421 km (7,097 miles)"
-   }
+    "diameter": "11,421 km (7,097 miles)",
+    "population": "Less than 5 million"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "plazir-15": {
    "title": "Plazir-15",
    "infobox": {
-    "coordinates": "N-2"
-   }
+    "coordinates": "N-2",
+    "government": "Elective monarchy"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "atmosphere",
+    "terrain",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "seatos": {
    "title": "Seatos",
    "infobox": {
     "coordinates": "M-19"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "suns",
+    "atmosphere",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "atollon": {
    "title": "Atollon",
    "infobox": {
-    "coordinates": "T-7"
-   }
+    "coordinates": "T-7",
+    "population": "438 | 77% human | 19% Twi'lek | 4% other",
+    "government": "None"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter"
+   ]
   },
   "malachor": {
    "title": "Malachor",
    "infobox": {
-    "coordinates": "S-4"
-   }
+    "coordinates": "S-4",
+    "population": "At least 1: Maul (until 3 BBY)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "government"
+   ]
   },
   "krownest": {
    "title": "Krownest",
    "infobox": {
     "coordinates": "O-7"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "chandrila": {
    "title": "Chandrila",
    "infobox": {
-    "coordinates": "L-9"
-   }
+    "coordinates": "L-9",
+    "government": "Chandrila planetary government"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "suns",
+    "moons",
+    "climate",
+    "terrain",
+    "water",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "ghorman": {
    "title": "Ghorman",
    "infobox": {
-    "coordinates": "L-13"
-   }
+    "coordinates": "L-13",
+    "population": "800,000 (by 5 BBY)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "suns",
+    "atmosphere",
+    "terrain",
+    "water",
+    "population",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "government"
+   ]
   },
   "aldhani": {
    "title": "Aldhani",
    "infobox": {
     "coordinates": "M-6"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "narkina-5": {
    "title": "Narkina 5",
    "infobox": {
     "coordinates": "S-15",
     "diameter": "988 km (614 miles)"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "atmosphere",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "population",
+    "government"
+   ]
   },
   "daiyu": {
    "title": "Daiyu",
    "infobox": {
     "coordinates": "P-12"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "hosnian-prime": {
    "title": "Hosnian Prime",
    "infobox": {
     "coordinates": "M-12"
-   }
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "suns",
+    "moons",
+    "atmosphere",
+    "terrain",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population",
+    "government"
+   ]
   },
   "at-attin": {
    "title": "At Attin",
    "infobox": {
-    "coordinates": "N-6"
-   }
+    "coordinates": "N-6",
+    "government": "At Attin's government"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "atmosphere",
+    "terrain",
+    "government",
+    "affiliation"
+   ],
+   "absent": [
+    "diameter",
+    "population"
+   ]
   },
   "glavis-ringworld": {
    "title": "Glavis Ringworld",
    "infobox": {
     "coordinates": "M-11",
-    "diameter": "158 km (98 miles)"
-   }
+    "diameter": "158 km (98 miles)",
+    "population": "1.63 million"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "diameter",
+    "population"
+   ],
+   "absent": [
+    "government"
+   ]
   },
   "korriban": {
    "title": "Korriban/Legends",
    "infobox": {
     "coordinates": "R-5",
-    "diameter": "16,890 km"
-   }
+    "diameter": "16,890 km",
+    "population": "Historic (Sith Empire): 9.6 billion | under 94% Sith | 6% Other | Historic (Jedi Civil War): 25,000 | Historic (Rise of the Empire era): few thousands | Modern (Legacy era): over 1,000",
+    "government": "Modern: None | Formerly: Sith Empire | Magocratic dictatorship"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "dromund-kaas": {
    "title": "Dromund Kaas/Legends",
    "infobox": {
     "coordinates": "R-5",
-    "diameter": "22,450 kilometers"
-   }
+    "diameter": "22,450 kilometers",
+    "population": "Pre&ndash;Cold War: Millions | 10 ABY: 10,000 (70% Human, 30% other)",
+    "government": "Empire | Religious order (pre-Galactic Empire)"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "taris": {
    "title": "Taris/Legends",
    "infobox": {
     "coordinates": "N-7",
-    "diameter": "12,200 km"
-   }
+    "diameter": "12,200 km",
+    "population": "60 billion (4156 BBY) | 6 billion (3956 BBY) | 30% Human, 70% other | 1 billion (3 ABY)",
+    "government": "Republic"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "manaan": {
    "title": "Manaan/Legends",
    "infobox": {
     "coordinates": "O-11",
-    "diameter": "14,211 km"
-   }
+    "diameter": "14,211 km",
+    "population": "Historic (Jedi Civil War): 502,000: | 99.6% Selkath | 0.4% Other | 1.8 million: | 80% Selkath | 18% Humans | 2% other | c. 25 ABY: 1&ndash;10 million",
+    "government": "Ahto High Court"
+   },
+   "present": [
+    "region",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "water",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "csilla": {
    "title": "Csilla/Legends",
    "infobox": {
     "coordinates": "F-8",
-    "diameter": "11,080 km"
-   }
+    "diameter": "11,080 km",
+    "population": "8 billion: | 99% Chiss | 1% other species",
+    "government": "Oligarchy"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "lehon": {
    "title": "Lehon/Legends",
    "infobox": {
     "coordinates": "G-11",
-    "diameter": "9,120 km"
-   }
+    "diameter": "9,120 km",
+    "population": "Modern: None | Historic: 11 billion | 90% Rakata | 10% other slave species",
+    "government": "Tribal (historically)"
+   },
+   "present": [
+    "region",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   },
   "ossus": {
    "title": "Ossus/Legends",
    "infobox": {
     "coordinates": "R-6",
-    "diameter": "29,000 kilometers"
-   }
+    "diameter": "29,000 kilometers",
+    "population": "Modern: 250 million | 85% Human | 15% other | Galactic Civil War: 3,750,000 | 99% Ysanna | 1% other | Historic: 250 million | 15% Ysanna | 10% Human | 75% other species",
+    "government": "Jedi hierarchy | Ysanna tribal government"
+   },
+   "present": [
+    "region",
+    "sector",
+    "system",
+    "coordinates",
+    "class",
+    "diameter",
+    "suns",
+    "moons",
+    "atmosphere",
+    "climate",
+    "terrain",
+    "population",
+    "government",
+    "affiliation"
+   ],
+   "absent": []
   }
  },
  "characters": {
@@ -772,6 +2284,12 @@
    "title": "Landonis Balthazar Calrissian",
    "infobox": {
     "birth": "c. 43 BBY, Socorro"
+   }
+  },
+  "jabba-the-hutt": {
+   "title": "Jabba Desilijic Tiure",
+   "infobox": {
+    "birth": "600 BBY, Nal Hutta"
    }
   }
  }

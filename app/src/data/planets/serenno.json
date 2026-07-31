@@ -14,7 +14,11 @@
   "system": "Serenno system",
   "coordinates": "P-5",
   "stats": {
-    "moonCount": 2
+    "moonCount": 2,
+    "government": {
+      "en": "Serenno government (the ruling Houses)",
+      "tr": "Serenno yönetimi (hüküm süren Hanedanlar)"
+    }
   },
   "suns": [
     {
