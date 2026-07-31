@@ -27,12 +27,13 @@
   "poi": [
     { "id": "nightsister-lair", "names": { "en": "Nightsister Fortress", "tr": "Nightsister Kalesi" }, "lat": 14, "lon": 20,
       "blurb": { "en": "Mother Talzin's stronghold of green ichor and resurrection pools.", "tr": "Talzin Ana'nın yeşil öz ve diriliş havuzlarıyla dolu kalesi." },
-      "source": "wookieepedia:Nightsister fortress" },
+      "source": "wookieepedia:Nightsister lair" },
     { "id": "nightbrother-village", "names": { "en": "Nightbrother Village", "tr": "Nightbrother Köyü" }, "lat": 10, "lon": 26,
       "blurb": { "en": "Where Savage Opress was chosen — and unmade into a weapon.", "tr": "Savage Opress'in seçildiği — ve bir silaha dönüştürüldüğü yer." },
       "source": "wookieepedia:Nightbrother village" },
     { "id": "chill-caves", "names": { "en": "The Stranglecliffs", "tr": "Boğum Yarları" }, "lat": 8, "lon": 16,
-      "blurb": { "en": "Cliff paths above the mists, stalked by rancors and worse.", "tr": "Sislerin üzerinde, rancorların ve beterlerinin kol gezdiği yar patikaları." } }
+      "blurb": { "en": "Cliff paths above the mists, stalked by rancors and worse.", "tr": "Sislerin üzerinde, rancorların ve beterlerinin kol gezdiği yar patikaları." },
+      "source": "wookieepedia:Strangled Cliffs" }
   ],
   "funFacts": {
     "en": [

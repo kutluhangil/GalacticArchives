@@ -65,3 +65,6 @@
 - Verified PLAN §8's leak budget: 50 planet transitions grow the JS heap 6.5% (target <10%).
 - Shipped v1.1 to production and added `SENDEN-GEREKENLER.md`, listing the assets, accounts and decisions still needed from the owner alongside the known gaps.
 - Added the project README with fresh production screenshots under `docs/screenshots/`; the old `screenshots/` shots predate the galaxy rewrite.
+- Points of interest now cover 86 of 88 bodies (174 places, 167 cited): the eight bodies that had none were filled from their Wookieepedia locations category, and 12 previously uncited pins found their article.
+- Fixed eleven pins that cited the wrong continuity — a canon world citing a Legends-only place or the reverse (Yoda's Hut, the Petranaki Arena, Lawquane's Farm, Csaplar, the Great Jedi Library and others).
+- Added the points-of-interest research pipeline (`scripts/fetch-poi.mjs` + `scripts/slim-poi.mjs`) and its committed snapshot; `validate-lore` now rejects a citation that Wookieepedia does not have or that belongs to a different continuity than the body it sits on.

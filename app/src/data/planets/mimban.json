@@ -51,9 +51,9 @@
     "chewbacca"
   ],
   "poi": [
-    { "id": "imperial-hq", "names": { "en": "Imperial Headquarters", "tr": "İmparatorluk Karargâhı" }, "lat": -19, "lon": 96,
-      "blurb": { "en": "Alien ruins turned into the seat of five mine towns — and their prison.", "tr": "Beş maden kasabasının merkezine ve hapishanesine çevrilmiş yabancı harabeler." },
-      "source": "wookieepedia:Imperial headquarters (Mimban)" }
+    { "id": "imperial-hq", "names": { "en": "Camp Forward", "tr": "İleri Kamp" }, "lat": -19, "lon": 96,
+      "blurb": { "en": "The Empire's forward headquarters in the disputed mud, where mudtroopers were fed to the Mimbanese war.", "tr": "İmparatorluğun ihtilaflı çamurdaki ileri karargâhı; çamur erlerinin Mimban savaşına sürüldüğü yer." },
+      "source": "wookieepedia:Imperial Forward Field Operations" }
   ],
   "funFacts": {
     "en": [

@@ -26,9 +26,10 @@
   "poi": [
     { "id": "petranaki-arena", "names": { "en": "Petranaki Arena", "tr": "Petranaki Arenası" }, "lat": 4, "lon": 12,
       "blurb": { "en": "Execution arena where 200 Jedi ignited the Clone Wars.", "tr": "200 Jedi'ın Klon Savaşları'nı ateşlediği infaz arenası." },
-      "source": "wookieepedia:Petranaki arena" },
+      "source": "wookieepedia:Petranaki Arena" },
     { "id": "droid-foundries", "names": { "en": "Droid Foundries", "tr": "Droid Dökümhaneleri" }, "lat": 1, "lon": 16,
-      "blurb": { "en": "Subterranean assembly lines pouring out battle droids by the billion.", "tr": "Milyarlarca savaş droidini döken yeraltı montaj hatları." } },
+      "blurb": { "en": "Subterranean assembly lines pouring out battle droids by the billion.", "tr": "Milyarlarca savaş droidini döken yeraltı montaj hatları." },
+      "source": "wookieepedia:Geonosis droid factories" },
     { "id": "stalgasin-hive", "names": { "en": "Stalgasin Hive", "tr": "Stalgasin Kovanı" }, "lat": 8, "lon": 9,
       "blurb": { "en": "Seat of Poggle the Lesser and the great hive queens.", "tr": "Küçük Poggle'ın ve büyük kovan kraliçelerinin makamı." },
       "source": "wookieepedia:Stalgasin hive" }

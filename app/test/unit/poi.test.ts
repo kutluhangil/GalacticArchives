@@ -5,6 +5,9 @@ import { describe, expect, it } from 'vitest'
 import { articleUrl } from '../../src/lib/sources'
 import { loadAllPlanets, stations } from '../../src/lib/lore'
 import type { CelestialBody } from '../../src/types/lore'
+import poiDigest from '../fixtures/poi-digest.json'
+
+const articles = poiDigest.articles as Record<string, { continuity?: string; missing?: boolean }>
 
 async function allBodies(): Promise<CelestialBody[]> {
   const planets = await loadAllPlanets()
@@ -15,16 +18,16 @@ describe('coverage', () => {
   it('reaches most of the archive rather than a handful of hero worlds', async () => {
     const bodies = await allBodies()
     const withPoi = bodies.filter((b) => (b.poi ?? []).length)
-    expect(withPoi.length).toBeGreaterThanOrEqual(75)
-    expect(bodies.flatMap((b) => b.poi ?? []).length).toBeGreaterThanOrEqual(150)
+    expect(withPoi.length).toBeGreaterThanOrEqual(85)
+    expect(bodies.flatMap((b) => b.poi ?? []).length).toBeGreaterThanOrEqual(170)
   })
 
-  it('cites a source for the overwhelming majority of them', async () => {
+  it('cites a source for all but a named handful', async () => {
     const pois = (await allBodies()).flatMap((b) => b.poi ?? [])
     const cited = pois.filter((p) => p.source)
-    // the uncited remainder are descriptive places with no article of their own
-    // (Nevarro's lava flats, Scarif's landing beaches); validate-lore lists them
-    expect(cited.length / pois.length).toBeGreaterThan(0.85)
+    // the uncited remainder are places canon shows but never gave an article
+    // (Scarif's landing beaches, Peridea's bone ring); validate-lore lists them
+    expect(cited.length / pois.length).toBeGreaterThan(0.95)
   })
 })
 
@@ -63,6 +66,31 @@ describe('shape', () => {
       for (const poi of body.poi ?? []) {
         if (poi.source === undefined) continue
         expect(poi.source, `${body.id}/${poi.id}`).toMatch(/^wookieepedia:.+/)
+      }
+    }
+  })
+})
+
+describe('citations, against the fetched snapshot', () => {
+  it('cites only articles Wookieepedia actually has', async () => {
+    for (const body of await allBodies()) {
+      for (const poi of body.poi ?? []) {
+        if (!poi.source) continue
+        const article = poi.source.slice('wookieepedia:'.length)
+        expect(articles[article], `${body.id}/${poi.id} -> ${article}`).toBeDefined()
+        expect(articles[article]?.missing, `${body.id}/${poi.id} -> ${article}`).toBeUndefined()
+      }
+    }
+  })
+
+  it('never pins a Legends place on a canon world, or the reverse', async () => {
+    for (const body of await allBodies()) {
+      for (const poi of body.poi ?? []) {
+        if (!poi.source) continue
+        const article = poi.source.slice('wookieepedia:'.length)
+        expect(articles[article]?.continuity, `${body.id}/${poi.id} -> ${article}`).toBe(
+          body.continuity ?? 'canon',
+        )
       }
     }
   })

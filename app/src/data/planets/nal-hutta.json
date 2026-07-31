@@ -67,6 +67,17 @@
       "terrain": { "en": ["Ecumenopolis"], "tr": ["Ekumenopolis"] },
       "appearances": ["tcw"],
       "characters": ["jabba-the-hutt"],
+      "poi": [
+        { "id": "wormtown", "names": { "en": "Wormtown", "tr": "Kurt Mahallesi" }, "lat": -8, "lon": 41,
+          "blurb": { "en": "Pit-fighting district. Boba Fett came for the arena champion and left the crowd's favorite dead too.", "tr": "Çukur dövüşü mahallesi. Boba Fett arena şampiyonu için geldi, kalabalığın gözdesini de ölü bıraktı." },
+          "source": "wookieepedia:Wormtown" },
+        { "id": "new-vertica", "names": { "en": "New Vertica", "tr": "Yeni Vertica" }, "lat": 16, "lon": 8,
+          "blurb": { "en": "A city with a cult tower on its outskirts — the Inheritors of the Crystal kept the Benevolence Tower.", "tr": "Eteklerinde tarikat kulesi olan bir şehir — Benevolence Kulesi'ni Kristalin Varisleri tutardı." },
+          "source": "wookieepedia:New Vertica" },
+        { "id": "smugglers-tunnels", "names": { "en": "Smuggler's Tunnels", "tr": "Kaçakçı Tünelleri" }, "lat": -2, "lon": -25,
+          "blurb": { "en": "The moon's real hyperlane: tunnels beside the podracing track, where cargo never meets a customs droid.", "tr": "Ayın gerçek hiperuzay hattı: podracing pistinin yanındaki tüneller; kargo burada gümrük droidi görmez." },
+          "source": "wookieepedia:Smuggler's tunnels" }
+      ],
       "funFacts": {
         "en": ["Nicknamed 'Little Coruscant' — if Coruscant were run entirely by criminals."],
         "tr": ["Lakabı 'Küçük Coruscant' — tabii Coruscant'ı baştan sona suçlular yönetseydi."]

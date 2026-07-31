@@ -28,7 +28,8 @@
       "blurb": { "en": "Capital of the cloners; every clone trooper's first home. Razed by the Empire in 19 BBY.", "tr": "Klonlayıcıların başkenti; her klon askerin ilk evi. 19 BBY'de İmparatorluk tarafından yerle bir edildi." },
       "source": "wookieepedia:Tipoca City" },
     { "id": "drowned-facilities", "names": { "en": "Drowned Cloning Facilities", "tr": "Sulara Gömülü Klonlama Tesisleri" }, "lat": -14, "lon": 44,
-      "blurb": { "en": "The Bad Batch watched Kamino's spires slip beneath the waves.", "tr": "Bad Batch, Kamino kulelerinin dalgaların altına kayışını izledi." } }
+      "blurb": { "en": "The Bad Batch watched Kamino's spires slip beneath the waves.", "tr": "Bad Batch, Kamino kulelerinin dalgaların altına kayışını izledi." },
+      "source": "wookieepedia:Tipoca City" }
   ],
   "funFacts": {
     "en": [

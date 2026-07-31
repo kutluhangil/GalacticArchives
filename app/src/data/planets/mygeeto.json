@@ -52,9 +52,9 @@
   ],
   "characters": [],
   "poi": [
-    { "id": "jygat", "names": { "en": "Jygat", "tr": "Jygat" }, "lat": 31, "lon": -119,
-      "blurb": { "en": "The crystal city that housed the Dressian Kiolsh Merchant Bank.", "tr": "Dressian Kiolsh Tüccar Bankası'nı barındıran kristal şehir." },
-      "source": "wookieepedia:Jygat" }
+    { "id": "southern-mesas", "names": { "en": "Southern Mesas", "tr": "Güney Mesaları" }, "lat": 31, "lon": -119,
+      "blurb": { "en": "Crystal towers strung together by bridges — Depa Billaba and her Padawan Caleb Dume cleared them droid by droid.", "tr": "Köprülerle birbirine bağlı kristal kuleler — Depa Billaba ile Padawanı Caleb Dume buraları droid droid temizledi." },
+      "source": "wookieepedia:Southern Mesas" }
   ],
   "funFacts": {
     "en": [

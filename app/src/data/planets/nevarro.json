@@ -27,9 +27,11 @@
       "blurb": { "en": "From Guild cantina town to respectable trade capital — statue of IG-11 included.", "tr": "Lonca kantini kasabasından saygın ticaret başkentine — IG-11 heykeli dahil." },
       "source": "wookieepedia:Nevarro City" },
     { "id": "lava-flats", "names": { "en": "Lava Flats", "tr": "Lav Düzlükleri" }, "lat": 4, "lon": -16,
-      "blurb": { "en": "Ferry routes over molten rock, piloted by lava meerkats. Really.", "tr": "Erimiş kaya üzerinde feribot hatları; kaptanlar lav mirketleri. Gerçekten." } },
+      "blurb": { "en": "Ferry routes over molten rock, piloted by lava meerkats. Really.", "tr": "Erimiş kaya üzerinde feribot hatları; kaptanlar lav mirketleri. Gerçekten." },
+      "source": "wookieepedia:Lava fields" },
     { "id": "djarin-homestead", "names": { "en": "Din & Grogu's Homestead", "tr": "Din ile Grogu'nun Çiftliği" }, "lat": 8, "lon": -24,
-      "blurb": { "en": "A plot of land from a grateful Magistrate: cabin, ship pad, one small green gremlin.", "tr": "Minnettar bir Yargıç'tan arsa: kulübe, gemi pisti, bir küçük yeşil afacan." } }
+      "blurb": { "en": "A plot of land from a grateful Magistrate: cabin, ship pad, one small green gremlin.", "tr": "Minnettar bir Yargıç'tan arsa: kulübe, gemi pisti, bir küçük yeşil afacan." },
+      "source": "wookieepedia:Clan Mudhorn homestead" }
   ],
   "funFacts": {
     "en": [

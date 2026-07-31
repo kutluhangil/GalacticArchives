@@ -28,7 +28,8 @@
       "blurb": { "en": "An eleven-level sinkhole metropolis; the Separatist Council's last refuge.", "tr": "On bir katlı obruk metropolü; Ayrılıkçı Konsey'in son sığınağı." },
       "source": "wookieepedia:Pau City" },
     { "id": "grievous-platform", "names": { "en": "Grievous's Landing", "tr": "Grievous'un Platformu" }, "lat": 5, "lon": -59,
-      "blurb": { "en": "\"Hello there.\" — the most polite ambush in the war.", "tr": "\"Hello there.\" — savaşın en kibar pususu." } }
+      "blurb": { "en": "\"Hello there.\" — the most polite ambush in the war.", "tr": "\"Hello there.\" — savaşın en kibar pususu." },
+      "source": "wookieepedia:Hangar 10" }
   ],
   "funFacts": {
     "en": [

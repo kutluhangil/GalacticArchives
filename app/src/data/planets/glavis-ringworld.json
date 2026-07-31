@@ -56,6 +56,11 @@
   "characters": [
     "darth-maul"
   ],
+  "poi": [
+    { "id": "starport", "names": { "en": "Glavis Starport", "tr": "Glavis Yıldız Limanı" }, "lat": 0, "lon": 12,
+      "blurb": { "en": "Gate one, non-stop to Tatooine: Star Liner Flight 1020, boarding announcements and all.", "tr": "Bir numaralı kapı, Tatooine'e aktarmasız: Star Liner 1020 seferi, biniş anonslarıyla birlikte." },
+      "source": "wookieepedia:Glavis Ringworld starport" }
+  ],
   "funFacts": {
     "en": [
       "Maul moved on Glavis to take its underworld out from under the Crimson Dawn's rivals.",

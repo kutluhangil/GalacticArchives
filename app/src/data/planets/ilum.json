@@ -25,7 +25,8 @@
   "characters": ["kylo-ren", "rey", "finn", "han-solo"],
   "poi": [
     { "id": "jedi-crucible", "names": { "en": "Jedi Temple of Ilum", "tr": "Ilum Jedi Tapınağı" }, "lat": 30, "lon": 10,
-      "blurb": { "en": "Gateway to the crystal caves of the Gathering — 'the ice speaks to you.'", "tr": "Toplanma'nın kristal mağaralarına açılan kapı — 'buz seninle konuşur.'" } },
+      "blurb": { "en": "Gateway to the crystal caves of the Gathering — 'the ice speaks to you.'", "tr": "Toplanma'nın kristal mağaralarına açılan kapı — 'buz seninle konuşur.'" },
+      "source": "wookieepedia:Jedi Temple (Ilum)" },
     { "id": "thermal-oscillator", "names": { "en": "Thermal Oscillator", "tr": "Termal Osilatör" }, "lat": -5, "lon": -20,
       "blurb": { "en": "The containment heart of Starkiller — and its fatal weakness.", "tr": "Starkiller'ın muhafaza kalbi — ve ölümcül zayıflığı." },
       "source": "wookieepedia:Thermal oscillator" },

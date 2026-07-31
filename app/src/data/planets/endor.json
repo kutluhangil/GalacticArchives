@@ -57,7 +57,7 @@
           "source": "wookieepedia:Bright Tree Village" },
         { "id": "shield-bunker", "names": { "en": "Shield Generator Bunker", "tr": "Kalkan Jeneratörü Sığınağı" }, "lat": 15, "lon": 26,
           "blurb": { "en": "The back door the Empire never expected to matter.", "tr": "İmparatorluğun asla önemseneceğini düşünmediği arka kapı." },
-          "source": "wookieepedia:Endor shield generator bunker" }
+          "source": "wookieepedia:Death Star's shield generator" }
       ],
       "funFacts": {
         "en": [

@@ -28,8 +28,7 @@
       "blurb": { "en": "The lakeside capital and royal palace where Leia was raised.", "tr": "Leia'nın büyüdüğü göl kıyısındaki başkent ve kraliyet sarayı." },
       "source": "wookieepedia:Aldera" },
     { "id": "castle-lands", "names": { "en": "Castle Lands", "tr": "Kale Diyarı" }, "lat": 35, "lon": 14,
-      "blurb": { "en": "Ancient Killik mound-castles standing silent in the mist.", "tr": "Siste sessizce duran kadim Killik höyük-kaleleri." },
-      "source": "wookieepedia:Castle Lands" }
+      "blurb": { "en": "Ancient Killik mound-castles standing silent in the mist. Canon never wrote them down; only Legends did.", "tr": "Siste sessizce duran kadim Killik höyük-kaleleri. Kanon burayı hiç yazmadı; yalnızca Legends yazdı." } }
   ],
   "funFacts": {
     "en": [

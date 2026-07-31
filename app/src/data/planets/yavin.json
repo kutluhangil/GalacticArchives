@@ -53,7 +53,7 @@
           "source": "wookieepedia:Great Temple" },
         { "id": "massassi-ruins", "names": { "en": "Massassi Ruins", "tr": "Massassi Kalıntıları" }, "lat": 9, "lon": -11,
           "blurb": { "en": "Temples raised millennia ago by an enslaved warrior species.", "tr": "Binyıllar önce köleleştirilmiş bir savaşçı türün diktiği tapınaklar." },
-          "source": "wookieepedia:Massassi Site/Legends" }
+          "source": "wookieepedia:Massassi Site" }
       ],
       "funFacts": {
         "en": [

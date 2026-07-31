@@ -75,6 +75,17 @@
       "terrain": { "en": ["Forests", "Mountains", "Mines"], "tr": ["Ormanlar", "Dağlar", "Madenler"] },
       "appearances": ["tcw"],
       "characters": ["obi-wan-kenobi", "bo-katan"],
+      "poi": [
+        { "id": "concordian-mines", "names": { "en": "Concordian Mines", "tr": "Concordia Madenleri" }, "lat": 14, "lon": -22,
+          "blurb": { "en": "Declared worked out and abandoned — which is exactly why Death Watch chose them.", "tr": "Tükenmiş ve terk edilmiş ilan edildi — Death Watch'ın tam da bu yüzden seçtiği yer." },
+          "source": "wookieepedia:Concordian mines" },
+        { "id": "death-watch-hideout", "names": { "en": "Death Watch Hideout", "tr": "Death Watch Sığınağı" }, "lat": 11, "lon": -18,
+          "blurb": { "en": "Miners built it, terrorists took it, and Obi-Wan found it with Satine one step behind him.", "tr": "Madenciler yaptı, teröristler el koydu; Obi-Wan burayı bir adım gerisinde Satine ile buldu." },
+          "source": "wookieepedia:Deathwatch hideout" },
+        { "id": "governors-city", "names": { "en": "The Governor's City", "tr": "Valinin Şehri" }, "lat": 5, "lon": -30,
+          "blurb": { "en": "Pre Vizsla kept a residence at the government complex here — Governor by day, Death Watch by night.", "tr": "Pre Vizsla buradaki hükümet kompleksinde ikamet ederdi — gündüz vali, gece Death Watch." },
+          "source": "wookieepedia:Unidentified Concordia city" }
+      ],
       "funFacts": {
         "en": ["Din Djarin was raised in a Children of the Watch covert tied to this moon's creed."],
         "tr": ["Din Djarin, bu ayın inancına bağlı Children of the Watch yeraltı topluluğunda yetiştirildi."]

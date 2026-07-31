@@ -25,7 +25,8 @@
   "characters": ["luke-skywalker", "leia-organa", "rey", "kylo-ren", "finn", "poe-dameron"],
   "poi": [
     { "id": "rebel-outpost", "names": { "en": "Old Rebel Outpost", "tr": "Eski İsyancı Karakolu" }, "lat": -6, "lon": 33,
-      "blurb": { "en": "A mine-turned-fortress with one very heavy door.", "tr": "Madenden kaleye dönmüş, çok ağır tek kapılı sığınak." } },
+      "blurb": { "en": "A mine-turned-fortress with one very heavy door.", "tr": "Madenden kaleye dönmüş, çok ağır tek kapılı sığınak." },
+      "source": "wookieepedia:Crait outpost" },
     { "id": "salt-plain", "names": { "en": "The Salt Plain", "tr": "Tuz Ovası" }, "lat": -5, "lon": 31,
       "blurb": { "en": "Where speeders cut red wakes into white salt before the walkers.", "tr": "Yürüyücülerin karşısında motorların beyaz tuza kızıl izler çizdiği ova." },
       "source": "wookieepedia:Battle of Crait" }

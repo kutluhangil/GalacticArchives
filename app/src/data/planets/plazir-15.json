@@ -57,6 +57,17 @@
     "bo-katan",
     "grogu"
   ],
+  "poi": [
+    { "id": "peacekeeping-zone", "names": { "en": "Peacekeeping Zone", "tr": "Barış Bölgesi" }, "lat": 9, "lon": 3,
+      "blurb": { "en": "The domed pleasure district the reprogrammed droids keep running while the citizens make art.", "tr": "Vatandaşlar sanat yaparken yeniden programlanmış droidlerin işlettiği kubbeli eğlence bölgesi." },
+      "source": "wookieepedia:Peacekeeping zone" },
+    { "id": "the-resistor", "names": { "en": "The Resistor", "tr": "Direnç" }, "lat": 7, "lon": 7,
+      "blurb": { "en": "A cantina for droids only. One drink on the menu: Nepenthé — the stuff that was making them malfunction.", "tr": "Yalnız droidlere açık kantin. Menüde tek içki: Nepenthé — onları arızalandıran şeyin ta kendisi." },
+      "source": "wookieepedia:The Resistor" },
+    { "id": "loading-docks", "names": { "en": "The Loading Docks", "tr": "Yükleme Rıhtımları" }, "lat": 2, "lon": -6,
+      "blurb": { "en": "Seaside cargo port worked by ex-Separatist super battle droids under a B1 foreman.", "tr": "Bir B1 ustabaşının yönettiği eski Ayrılıkçı süper savaş droidlerinin çalıştığı deniz kıyısı kargo limanı." },
+      "source": "wookieepedia:Loading docks" }
+  ],
   "funFacts": {
     "en": [
       "Plazir-15 is the only New Republic world to elect its rulers and keep its droid workforce.",

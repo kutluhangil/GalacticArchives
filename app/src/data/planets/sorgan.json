@@ -64,6 +64,17 @@
     "din-djarin",
     "grogu"
   ],
+  "poi": [
+    { "id": "krill-village", "names": { "en": "The Krill Village", "tr": "Krill Köyü" }, "lat": 6, "lon": 22,
+      "blurb": { "en": "Wood and wicker huts around ponds seeded generations ago — the quiet life Din almost stayed for.", "tr": "Nesiller önce tohumlanmış havuzların çevresinde ahşap ve hasır kulübeler — Din'in neredeyse kalacağı sessiz hayat." },
+      "source": "wookieepedia:Unidentified village (Sorgan)" },
+    { "id": "common-house", "names": { "en": "Sorgan Common House", "tr": "Sorgan Ortak Evi" }, "lat": 4, "lon": 19,
+      "blurb": { "en": "Bone broth, spotchka and one very short bounty hunter reaching for the tab.", "tr": "Kemik suyu, spotchka ve hesaba uzanan çok kısa boylu bir ödül avcısı." },
+      "source": "wookieepedia:Sorgan Common House" },
+    { "id": "raider-camp", "names": { "en": "Klatooinian Wikiup", "tr": "Klatooinli Wikiup" }, "lat": -3, "lon": 28,
+      "blurb": { "en": "The raiders' base the villagers were taught to storm — with an AT-ST waiting in the dark.", "tr": "Köylülerin basmayı öğrendiği akıncı üssü — karanlıkta bekleyen bir AT-ST ile." },
+      "source": "wookieepedia:Klatooinian wikiup" }
+  ],
   "funFacts": {
     "en": [
       "Din Djarin and Cara Dune trained farmers here to hold off raiders with an AT-ST.",

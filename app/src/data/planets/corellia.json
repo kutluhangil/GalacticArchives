@@ -28,7 +28,8 @@
       "blurb": { "en": "Shipyard capital; White Worms in the sewers, Star Destroyers overhead.", "tr": "Tersane başkenti; lağımlarda Beyaz Kurtlar, tepede Yıldız Destroyerleri." },
       "source": "wookieepedia:Coronet City" },
     { "id": "santhe-yards", "names": { "en": "Corellian Shipyards", "tr": "Corellia Tersaneleri" }, "lat": 14, "lon": -28,
-      "blurb": { "en": "Where hyperdrive cores 'went missing' into New Republic ledgers — and Thrawn's cause (Ahsoka).", "tr": "Hipersürücü çekirdeklerinin Yeni Cumhuriyet kayıtlarından Thrawn davasına 'kaybolduğu' yer (Ahsoka)." } }
+      "blurb": { "en": "Where hyperdrive cores 'went missing' into New Republic ledgers — and Thrawn's cause (Ahsoka).", "tr": "Hipersürücü çekirdeklerinin Yeni Cumhuriyet kayıtlarından Thrawn davasına 'kaybolduğu' yer (Ahsoka)." },
+      "source": "wookieepedia:Santhe Shipyards" }
   ],
   "funFacts": {
     "en": [

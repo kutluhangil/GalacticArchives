@@ -31,7 +31,8 @@
       "blurb": { "en": "A door between worlds: paintings that move, and a realm between time.", "tr": "Dünyalar arasında bir kapı: kıpırdayan resimler ve zamanlar arası bir âlem." },
       "source": "wookieepedia:Lothal Jedi Temple" },
     { "id": "ezras-tower", "names": { "en": "Ezra's Tower", "tr": "Ezra'nın Kulesi" }, "lat": 12, "lon": 2,
-      "blurb": { "en": "An abandoned comm spire a street kid called home.", "tr": "Bir sokak çocuğunun ev dediği terk edilmiş iletişim kulesi." } }
+      "blurb": { "en": "An abandoned comm spire a street kid called home.", "tr": "Bir sokak çocuğunun ev dediği terk edilmiş iletişim kulesi." },
+      "source": "wookieepedia:LothalNet comm tower E-272" }
   ],
   "funFacts": {
     "en": [

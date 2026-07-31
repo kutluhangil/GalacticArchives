@@ -18,6 +18,17 @@
     "characters": ["palpatine", "obi-wan-kenobi", "luke-skywalker", "leia-organa"],
     "existsInEras": ["empire"],
     "orbitHost": "yavin",
+    "poi": [
+      { "id": "overbridge", "names": { "en": "The Overbridge", "tr": "Üst Köprü" }, "lat": 22, "lon": -14,
+        "blurb": { "en": "The war room: Tarkin's post, the superlaser status board, and the order to fire on Alderaan.", "tr": "Savaş odası: Tarkin'in mevkisi, süperlazer durum ekranı ve Alderaan'a ateş emri." },
+        "source": "wookieepedia:Overbridge (Death Star I)" },
+      { "id": "detention-block-aa-23", "names": { "en": "Detention Block AA-23", "tr": "AA-23 Tutukevi Bloğu" }, "lat": -9, "lon": 37,
+        "blurb": { "en": "Political prisoners only, 400 meters under Docking Bay 327. 'Boring conversation anyway.'", "tr": "Yalnızca siyasi tutuklular; 327 numaralı iniş körfezinin 400 metre altında. 'Zaten sıkıcı bir muhabbetti.'" },
+        "source": "wookieepedia:Detention Block AA-23" },
+      { "id": "garbage-masher", "names": { "en": "Garbage Masher 3263827", "tr": "3263827 Numaralı Çöp Ezici" }, "lat": -18, "lon": 30,
+        "blurb": { "en": "Recyclable waste, one dianoga, and walls that do not stop when you ask them to.", "tr": "Geri dönüştürülebilir atık, bir dianoga ve rica ettiğinde durmayan duvarlar." },
+        "source": "wookieepedia:Garbage masher 3263827" }
+    ],
     "funFacts": {
       "en": [
         "Galen Erso hid the thermal exhaust flaw on purpose — the Rebellion just had to find it.",
@@ -57,6 +68,17 @@
     "characters": ["palpatine", "luke-skywalker", "anakin-skywalker", "lando-calrissian"],
     "existsInEras": ["empire"],
     "orbitHost": "endor",
+    "poi": [
+      { "id": "throne-room", "names": { "en": "The Emperor's Throne Room", "tr": "İmparator'un Taht Odası" }, "lat": 61, "lon": 0,
+        "blurb": { "en": "At the pinnacle of the Emperor's Tower, built for one purpose: to make whoever walks in feel small.", "tr": "İmparator Kulesi'nin tepesinde, tek amaç için yapıldı: içeri gireni küçük hissettirmek." },
+        "source": "wookieepedia:Emperor's Throne Room" },
+      { "id": "overbridge", "names": { "en": "The Overbridge", "tr": "Üst Köprü" }, "lat": 12, "lon": -20,
+        "blurb": { "en": "Command station for a battle station that was never finished — superlaser and shields both run from here.", "tr": "Hiç bitmemiş bir savaş istasyonunun komuta merkezi — süperlazer de kalkanlar da buradan işletilir." },
+        "source": "wookieepedia:Overbridge (Death Star II)" },
+      { "id": "superlaser-control", "names": { "en": "Superlaser Control Room", "tr": "Süperlazer Kontrol Odası" }, "lat": -6, "lon": 44,
+        "blurb": { "en": "The chamber both Death Stars carried, where the shot is aimed rather than ordered.", "tr": "İki Ölüm Yıldızı'nda da bulunan oda; atışın emredildiği değil, nişanlandığı yer." },
+        "source": "wookieepedia:Superlaser control room" }
+    ],
     "funFacts": {
       "en": [
         "'It's a trap!' — Admiral Ackbar, upon meeting its fully operational superlaser.",

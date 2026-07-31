@@ -1,0 +1,503 @@
+{
+ "note": "Slim snapshot of the articles this archive cites for points of interest, used by validate-lore so CI can check every citation resolves — and resolves in the same continuity as the body it sits on — without going online. Facts are not copyrightable; source Wookieepedia CC BY-SA. Rebuild: node scripts/fetch-poi.mjs <tmp> && node scripts/slim-poi.mjs <tmp>",
+ "articles": {
+  "Ahto City": {
+   "continuity": "legends"
+  },
+  "Aldera": {
+   "continuity": "canon"
+  },
+  "At Attin Mint": {
+   "continuity": "canon"
+  },
+  "Battle of Crait": {
+   "continuity": "canon"
+  },
+  "Battle of Hoth": {
+   "continuity": "canon"
+  },
+  "Bilbousa": {
+   "continuity": "canon"
+  },
+  "Black Spire Outpost": {
+   "continuity": "canon"
+  },
+  "Boba Fett's Palace": {
+   "continuity": "canon"
+  },
+  "Bright Tree Village": {
+   "continuity": "canon"
+  },
+  "Caleen Salyard": {
+   "continuity": "canon"
+  },
+  "Canto Bight": {
+   "continuity": "canon"
+  },
+  "Capital City": {
+   "continuity": "canon"
+  },
+  "Carannia": {
+   "continuity": "canon"
+  },
+  "Carbon-freezing chamber": {
+   "continuity": "canon"
+  },
+  "Caretaker village": {
+   "continuity": "canon"
+  },
+  "Catacombs of Cadera": {
+   "continuity": "canon"
+  },
+  "Cave of Evil": {
+   "continuity": "canon"
+  },
+  "Chaleydonia": {
+   "continuity": "canon"
+  },
+  "Chopper Base": {
+   "continuity": "canon"
+  },
+  "Citadel Tower": {
+   "continuity": "canon"
+  },
+  "Clan Mudhorn homestead": {
+   "continuity": "canon"
+  },
+  "Cloud City": {
+   "continuity": "canon"
+  },
+  "Concordian mines": {
+   "continuity": "canon"
+  },
+  "Coronet City": {
+   "continuity": "canon"
+  },
+  "Corvax Fen": {
+   "continuity": "canon"
+  },
+  "Crait outpost": {
+   "continuity": "canon"
+  },
+  "Csaplar/Legends": {
+   "continuity": "legends"
+  },
+  "Daiyu marketplace": {
+   "continuity": "canon"
+  },
+  "Daiyu spaceport": {
+   "continuity": "canon"
+  },
+  "Dark Temple": {
+   "continuity": "legends"
+  },
+  "Death Star's shield generator": {
+   "continuity": "canon"
+  },
+  "Deathwatch hideout": {
+   "continuity": "canon"
+  },
+  "Detention Block AA-23": {
+   "continuity": "canon"
+  },
+  "Dragonsnake Bog": {
+   "continuity": "canon"
+  },
+  "Dry Gulch": {
+   "continuity": "canon"
+  },
+  "DS-2 Death Star II Mobile Battle Station": {
+   "continuity": "canon"
+  },
+  "Eadu Energy Conversion Laboratory": {
+   "continuity": "canon"
+  },
+  "Echo Base": {
+   "continuity": "canon"
+  },
+  "Emperor's Throne Room": {
+   "continuity": "canon"
+  },
+  "Eriadu City": {
+   "continuity": "canon"
+  },
+  "Erso homestead": {
+   "continuity": "canon"
+  },
+  "Ferrix bell tower": {
+   "continuity": "canon"
+  },
+  "Festival of the Ancestors": {
+   "continuity": "canon"
+  },
+  "Forbidden Valley": {
+   "continuity": "canon"
+  },
+  "Fort Ypso": {
+   "continuity": "canon"
+  },
+  "Fortress Vader": {
+   "continuity": "canon"
+  },
+  "Galactic Senate": {
+   "continuity": "canon"
+  },
+  "Garbage masher 3263827": {
+   "continuity": "canon"
+  },
+  "Geonosis droid factories": {
+   "continuity": "canon"
+  },
+  "Glavis Ringworld starport": {
+   "continuity": "canon"
+  },
+  "Great Forge": {
+   "continuity": "canon"
+  },
+  "Great Jedi Library/Legends": {
+   "continuity": "legends"
+  },
+  "Great Mothers": {
+   "continuity": "canon"
+  },
+  "Great Pit of Carkoon": {
+   "continuity": "canon"
+  },
+  "Great Temple": {
+   "continuity": "canon"
+  },
+  "Hangar 10": {
+   "continuity": "canon"
+  },
+  "Hanna City": {
+   "continuity": "canon"
+  },
+  "Hrakert Rift": {
+   "continuity": "legends"
+  },
+  "Hutt Palace": {
+   "continuity": "canon"
+  },
+  "Imperial Detention Center & Labor Camp LEG-817": {
+   "continuity": "canon"
+  },
+  "Imperial Forward Field Operations": {
+   "continuity": "canon"
+  },
+  "Imperial Palace": {
+   "continuity": "canon"
+  },
+  "Iridium Mountains": {
+   "continuity": "canon"
+  },
+  "Iziz": {
+   "continuity": "canon"
+  },
+  "Jedha City": {
+   "continuity": "canon"
+  },
+  "Jedi Temple (Ilum)": {
+   "continuity": "canon"
+  },
+  "Kaas City": {
+   "continuity": "legends"
+  },
+  "Kachirho": {
+   "continuity": "canon"
+  },
+  "Kessel Run": {
+   "continuity": "canon"
+  },
+  "Kijimi City": {
+   "continuity": "canon"
+  },
+  "Klatooinian wikiup": {
+   "continuity": "canon"
+  },
+  "Klegger Corp Mining Facility": {
+   "continuity": "canon"
+  },
+  "Kuiil's moisture farm": {
+   "continuity": "canon"
+  },
+  "Lars homestead": {
+   "continuity": "canon"
+  },
+  "Lava fields": {
+   "continuity": "canon"
+  },
+  "Lawquane's Farm": {
+   "continuity": "canon"
+  },
+  "Lessu City": {
+   "continuity": "canon"
+  },
+  "Level 1313": {
+   "continuity": "canon"
+  },
+  "Living Waters": {
+   "continuity": "canon"
+  },
+  "Loading docks": {
+   "continuity": "canon"
+  },
+  "Lothal Jedi Temple": {
+   "continuity": "canon"
+  },
+  "LothalNet comm tower E-272": {
+   "continuity": "canon"
+  },
+  "Malachor Sith Temple": {
+   "continuity": "canon"
+  },
+  "Massassi Site": {
+   "continuity": "canon"
+  },
+  "Mirror cave": {
+   "continuity": "canon"
+  },
+  "Monument Plaza": {
+   "continuity": "canon"
+  },
+  "Morak Imperial refinery": {
+   "continuity": "canon"
+  },
+  "Mos Eisley": {
+   "continuity": "canon"
+  },
+  "Mos Espa": {
+   "continuity": "canon"
+  },
+  "Nasma Klain": {
+   "continuity": "canon"
+  },
+  "Nevarro City": {
+   "continuity": "canon"
+  },
+  "New Republic senatorial complex": {
+   "continuity": "canon"
+  },
+  "New Vertica": {
+   "continuity": "canon"
+  },
+  "Nightbrother village": {
+   "continuity": "canon"
+  },
+  "Nightsister lair": {
+   "continuity": "canon"
+  },
+  "Niima Outpost": {
+   "continuity": "canon"
+  },
+  "Nikto hideout": {
+   "continuity": "canon"
+  },
+  "Nymeve Lake": {
+   "continuity": "canon"
+  },
+  "Nysillin": {
+   "continuity": "canon"
+  },
+  "Ossus Jedi Temple": {
+   "continuity": "legends"
+  },
+  "Otoh Gunga": {
+   "continuity": "canon"
+  },
+  "Overbridge (Death Star I)": {
+   "continuity": "canon"
+  },
+  "Overbridge (Death Star II)": {
+   "continuity": "canon"
+  },
+  "Palmo": {
+   "continuity": "canon"
+  },
+  "Palmo Plaza": {
+   "continuity": "canon"
+  },
+  "Pau City": {
+   "continuity": "canon"
+  },
+  "Peacekeeping zone": {
+   "continuity": "canon"
+  },
+  "Petranaki Arena": {
+   "continuity": "canon"
+  },
+  "Polis Massa Base": {
+   "continuity": "canon"
+  },
+  "Resistance base": {
+   "continuity": "canon"
+  },
+  "Rix Road": {
+   "continuity": "canon"
+  },
+  "Santhe Shipyards": {
+   "continuity": "canon"
+  },
+  "Saw Gerrera's camp": {
+   "continuity": "canon"
+  },
+  "Seatos reflex point": {
+   "continuity": "canon"
+  },
+  "Seeing stone": {
+   "continuity": "canon"
+  },
+  "Shadowlands": {
+   "continuity": "canon"
+  },
+  "Shield Gate": {
+   "continuity": "canon"
+  },
+  "Silver Sea": {
+   "continuity": "canon"
+  },
+  "Sith Academy (Korriban)": {
+   "continuity": "legends"
+  },
+  "Sith Citadel": {
+   "continuity": "canon"
+  },
+  "Sith temple (Valley of the Dark Lords)": {
+   "continuity": "canon"
+  },
+  "Smuggler's tunnels": {
+   "continuity": "canon"
+  },
+  "Sorgan Common House": {
+   "continuity": "canon"
+  },
+  "Southern Mesas": {
+   "continuity": "canon"
+  },
+  "Spice mines of Kessel": {
+   "continuity": "canon"
+  },
+  "Stalgasin hive": {
+   "continuity": "canon"
+  },
+  "Star Forge": {
+   "continuity": "legends"
+  },
+  "Starkiller Base": {
+   "continuity": "canon"
+  },
+  "Starship Graveyard": {
+   "continuity": "canon"
+  },
+  "Strangled Cliffs": {
+   "continuity": "canon"
+  },
+  "Sundari": {
+   "continuity": "canon"
+  },
+  "Superlaser control room": {
+   "continuity": "canon"
+  },
+  "Supervisor's Tower": {
+   "continuity": "canon"
+  },
+  "Surabat River Valley": {
+   "continuity": "canon"
+  },
+  "Syndulla residence": {
+   "continuity": "canon"
+  },
+  "Takodana Castle": {
+   "continuity": "canon"
+  },
+  "Tarko-se": {
+   "continuity": "canon"
+  },
+  "Temple Island": {
+   "continuity": "canon"
+  },
+  "Temple of the Ancients": {
+   "continuity": "legends"
+  },
+  "Temple of the Kyber": {
+   "continuity": "canon"
+  },
+  "The Resistor": {
+   "continuity": "canon"
+  },
+  "Theed": {
+   "continuity": "canon"
+  },
+  "Thermal oscillator": {
+   "continuity": "canon"
+  },
+  "Thieves' Quarter": {
+   "continuity": "canon"
+  },
+  "Tipoca City": {
+   "continuity": "canon"
+  },
+  "Trask black market port": {
+   "continuity": "canon"
+  },
+  "Trask harbor inn": {
+   "continuity": "canon"
+  },
+  "Tuanul": {
+   "continuity": "canon"
+  },
+  "Umbaran airbase": {
+   "continuity": "canon"
+  },
+  "Umbaran capital city": {
+   "continuity": "canon"
+  },
+  "Undercity (Taris)": {
+   "continuity": "legends"
+  },
+  "Unidentified Concordia city": {
+   "continuity": "canon"
+  },
+  "Unidentified Imperial factory facility": {
+   "continuity": "canon"
+  },
+  "Unidentified temple (Numidian Prime)": {
+   "continuity": "canon"
+  },
+  "Unidentified village (Sorgan)": {
+   "continuity": "canon"
+  },
+  "Upper City": {
+   "continuity": "legends"
+  },
+  "Valley of the Dark Lords": {
+   "continuity": "canon"
+  },
+  "Valley of the Dark Lords/Legends": {
+   "continuity": "legends"
+  },
+  "Varykino": {
+   "continuity": "canon"
+  },
+  "Wampa cave": {
+   "continuity": "canon"
+  },
+  "Wawaatt Archipelago": {
+   "continuity": "canon"
+  },
+  "Wormtown": {
+   "continuity": "canon"
+  },
+  "Wren Stronghold": {
+   "continuity": "canon"
+  },
+  "Xyston-class Star Destroyer": {
+   "continuity": "canon"
+  },
+  "Yoda's Hut": {
+   "continuity": "canon"
+  },
+  "Zarra": {
+   "continuity": "canon"
+  }
+ }
+}

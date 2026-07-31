@@ -29,9 +29,11 @@
       "blurb": { "en": "'The Empire has been choking us so slowly, we're starting not to notice.' — Maarva's last speech rang here.", "tr": "'İmparatorluk bizi o kadar yavaş boğuyor ki fark etmemeye başladık.' — Maarva'nın son konuşması burada yankılandı." },
       "source": "wookieepedia:Rix Road" },
     { "id": "bell-tower", "names": { "en": "The Anvil Tower", "tr": "Örs Kulesi" }, "lat": 18, "lon": 41,
-      "blurb": { "en": "Ferrix keeps time by a man hammering brick-forged bells.", "tr": "Ferrix zamanı, tuğladan dövülmüş çanları çekiçleyen bir adamla tutar." } },
+      "blurb": { "en": "Ferrix keeps time by a man hammering brick-forged bells.", "tr": "Ferrix zamanı, tuğladan dövülmüş çanları çekiçleyen bir adamla tutar." },
+      "source": "wookieepedia:Ferrix bell tower" },
     { "id": "scrapfields", "names": { "en": "Salvage Fields", "tr": "Hurda Tarlaları" }, "lat": 16, "lon": 38,
-      "blurb": { "en": "Ship graveyards that taught Cassian everything worth stealing.", "tr": "Cassian'a çalınmaya değer her şeyi öğreten gemi mezarlıkları." } }
+      "blurb": { "en": "Ship graveyards that taught Cassian everything worth stealing.", "tr": "Cassian'a çalınmaya değer her şeyi öğreten gemi mezarlıkları." },
+      "source": "wookieepedia:Caleen Salyard" }
   ],
   "funFacts": {
     "en": [

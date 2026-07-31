@@ -51,6 +51,11 @@
     "sabine-wren",
     "thrawn"
   ],
+  "poi": [
+    { "id": "reflex-point", "names": { "en": "The Reflex Point", "tr": "Yansıma Noktası" }, "lat": 12, "lon": -8,
+      "blurb": { "en": "A henge raised by people from another galaxy: stand in it and the star map to Peridea lights up.", "tr": "Başka bir galaksiden gelenlerin diktiği henge: içinde durursan Peridea'ya giden yıldız haritası yanar." },
+      "source": "wookieepedia:Seatos reflex point" }
+  ],
   "funFacts": {
     "en": [
       "The Pathway to Peridea was read off a Nightsister star map assembled here.",

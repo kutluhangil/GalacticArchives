@@ -26,7 +26,7 @@
   "poi": [
     { "id": "yodas-hut", "names": { "en": "Yoda's Hut", "tr": "Yoda'nın Kulübesi" }, "lat": -5, "lon": 20,
       "blurb": { "en": "A mud hovel by the lagoon — and the greatest Jedi academy of its era.", "tr": "Lagün kıyısında çamurdan bir kulübe — ve döneminin en büyük Jedi akademisi." },
-      "source": "wookieepedia:Yoda's Hut/Legends" },
+      "source": "wookieepedia:Yoda's Hut" },
     { "id": "dark-side-cave", "names": { "en": "Cave of Evil", "tr": "Kötülük Mağarası" }, "lat": -8, "lon": 24,
       "blurb": { "en": "A dark side nexus. What's in there? Only what you take with you.", "tr": "Bir karanlık taraf düğümü. İçeride ne mi var? Yalnızca yanında götürdüğün." },
       "source": "wookieepedia:Cave of Evil" },

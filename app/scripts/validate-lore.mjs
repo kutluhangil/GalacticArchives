@@ -35,6 +35,33 @@ const routesFile = load('routes.json')
 const routeDigest = JSON.parse(
   readFileSync(join(ROOT, 'test/fixtures/route-digest.json'), 'utf8'),
 )
+const poiDigest = JSON.parse(
+  readFileSync(join(ROOT, 'test/fixtures/poi-digest.json'), 'utf8'),
+)
+
+/** A cited point of interest claims two things: Wookieepedia has the article,
+ *  and the article belongs to the same continuity as the body it sits on —
+ *  a canon world must not pin a Legends-only place, or the archive states as
+ *  canon something canon never wrote. Both are checked against the snapshot. */
+function checkPoiCitation(poi, id, file, continuity) {
+  const article = poi.source.slice('wookieepedia:'.length)
+  const entry = poiDigest.articles[article]
+  const where = `${file}: ${id} poi ${poi.id}`
+  if (!entry) {
+    err(`${where} cites "${article}", which is not in test/fixtures/poi-digest.json — rerun scripts/fetch-poi.mjs and scripts/slim-poi.mjs`)
+    return
+  }
+  if (entry.missing) {
+    err(`${where} cites "${article}", which Wookieepedia does not have`)
+    return
+  }
+  if (entry.continuity !== continuity) {
+    err(`${where} sits on a ${continuity} body but cites "${article}", a ${entry.continuity} article`)
+  }
+  if (entry.redirectsTo) {
+    warn(`${id}: poi "${poi.id}" cites "${article}", which redirects to "${entry.redirectsTo}" — cite the article itself`)
+  }
+}
 
 /** headline stat fields, as the Wookieepedia infobox names them -> our key */
 const TRACKED_FIELDS = { diameter: 'diameterKm', population: 'population', government: 'government' }
@@ -121,6 +148,8 @@ for (const [id, { body, file }] of bodies) {
       warn(`${id}: poi "${p.id}" cites no source article`)
     } else if (!/^wookieepedia:.+/.test(p.source)) {
       err(`${file}: ${id} poi ${p.id} source "${p.source}" is not "wookieepedia:<article>"`)
+    } else {
+      checkPoiCitation(p, id, file, body.continuity ?? 'canon')
     }
   }
   if (body.funFacts) {
