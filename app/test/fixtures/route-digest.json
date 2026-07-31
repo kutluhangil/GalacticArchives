@@ -1,0 +1,589 @@
+{
+ "note": "Slim snapshot of the fetched hyperlanes, used by validate-lore so CI can check src/data/routes.json against what Wookieepedia actually states without going online. Facts are not copyrightable; source Wookieepedia CC BY-SA. Rebuild with the two scripts named in routes.json.",
+ "routes": {
+  "perlemian-trade-route": {
+   "title": "Perlemian Trade Route",
+   "junctions": [
+    "Corellian Run",
+    "Metellos Trade Route",
+    "Namadii Corridor",
+    "Nexus Route",
+    "Hydian Way",
+    "Randon Run",
+    "Salin Corridor"
+   ],
+   "stops": {
+    "Coruscant": "L-9",
+    "Alsakan": "L-9",
+    "Brentaal IV": "L-9",
+    "Yabol Opa": "M-9",
+    "Castell": "M-9",
+    "Vurdon Ka": "M-9",
+    "Chazwa": "N-8",
+    "Tirahnn": "N-8",
+    "Taanab": "O-8",
+    "Gizer": "P-8",
+    "Lantillies": "P-8",
+    "Roche Asteroid Field": "Q-8",
+    "Abhean": "R-7",
+    "The Wheel": "R-7",
+    "Centares": "R-7",
+    "Anaxes": "R-7",
+    "Columex system": "R-6",
+    "Felucia": "R-6",
+    "Lianna": "S-6",
+    "Desevro": "S-6",
+    "Makem Te": "S-5",
+    "Quermia": "S-5",
+    "Barton IV": "S-5",
+    "Karkaris": "S-5"
+   },
+   "unplaced": []
+  },
+  "corellian-run": {
+   "title": "Corellian Run",
+   "junctions": [
+    "Metellos Trade Route",
+    "Namadii Corridor",
+    "Nexus Route",
+    "Perlemian Trade Route",
+    "Corellian Trade Spine",
+    "Herglic Alley",
+    "Hydian Way",
+    "Mumble's Turnaround"
+   ],
+   "stops": {
+    "Coruscant": "L-9",
+    "Ixtlar system": "L-10",
+    "Corellia": "M-11",
+    "Tinnel IV": "M-12",
+    "Loronar": "M-12",
+    "Byblos": "M-12",
+    "Iseno system": "N-13",
+    "Abednedo (planet)": "N-12",
+    "Denon": "N-13",
+    "Spirana": "N-13",
+    "Rhommamool system": "N-13",
+    "Allanteen VI": "O-14",
+    "Gamor system": "O-14",
+    "Milagro system": "O-14",
+    "Bacrana": "O-14",
+    "New Cov system": "P-14",
+    "Druckenwell": "P-15",
+    "Mon Gazza": "Q-16",
+    "Herdessa": "Q-16",
+    "Radnor": "Q-16",
+    "Christophsis": "Q-16",
+    "Ryloth": "R-17",
+    "Smuggler's Run": "S-18",
+    "Naos system": "S-18",
+    "Lamaredd": "S-18"
+   },
+   "unplaced": []
+  },
+  "hydian-way": {
+   "title": "Hydian Way",
+   "junctions": [
+    "Salin Corridor",
+    "Braxant Run",
+    "Shwuy Exchange",
+    "Perlemian Trade Route",
+    "Corellian Run",
+    "Biox Detour",
+    "Rimma Trade Route",
+    "Corellian Trade Spine"
+   ],
+   "stops": {
+    "Bonadan": "S-3",
+    "Salient system": "R-3",
+    "Cadomai Prime": "R-3",
+    "Ruuria": "Q-3",
+    "Listehol": "Q-4",
+    "Jelucan": "Q-4",
+    "Telos": "Q-4",
+    "Mirrin Prime": "P-5",
+    "Pho Ph'eah system": "P-5",
+    "Toprawa": "P-5",
+    "Junction system (Outer Rim Territories)": "O-5",
+    "Celanon": "O-6",
+    "Botajef": "O-6",
+    "Bandomeer": "O-6",
+    "Otor's Hub": "N-7",
+    "Corsin": "M-7",
+    "Mikkia": "M-7",
+    "Bogden": "M-8",
+    "Hevurion": "L-8",
+    "Paqualis III": "L-8",
+    "Drearia": "L-8",
+    "Champala": "L-8",
+    "Uviuy Exen": "L-9",
+    "Brentaal IV": "L-9",
+    "Skako": "L-9",
+    "Fedalle": "M-10",
+    "Bellassa": "M-11",
+    "Exodeen": "M-12",
+    "Suntilla": "N-12",
+    "Ubardia": "N-12",
+    "Korbori": "N-12",
+    "Candovant": "N-12",
+    "Denon": "N-13",
+    "Chardaan system": "N-14",
+    "Pax": "N-16",
+    "ZeHeth": "N-16",
+    "Malastare": "N-16",
+    "Darkknell": "M-17",
+    "Orish": "M-17",
+    "Eriadu": "M-18",
+    "Black Stall Station": "M-18",
+    "Shumavar": "L-19",
+    "Atravis system": "L-19",
+    "Rutan": "L-20",
+    "Terminus": "K-20",
+    "Nevarro": "K-20",
+    "Imynusoph system": "J-21"
+   },
+   "unplaced": []
+  },
+  "rimma-trade-route": {
+   "title": "Rimma Trade Route",
+   "junctions": [
+    "Herglic Alley",
+    "Corellian Trade Spine",
+    "Incisor Sidestep",
+    "Sanctuary Pipeline",
+    "Hydian Way"
+   ],
+   "stops": {
+    "Abregado-rae": "K-13",
+    "Dentaal system": "K-13",
+    "Giju": "L-13",
+    "Ghorman": "L-13",
+    "Thyferra": "L-14",
+    "Yag'Dhul": "L-14",
+    "Wroona": "L-15",
+    "Vandelhelm system": "M-15",
+    "Woostri system": "M-16",
+    "Vondarc system": "M-16",
+    "Sullust": "M-17",
+    "Eriadu": "M-18",
+    "Bith (planet)": "M-18",
+    "Triton": "M-18",
+    "Sluis Van": "M-19",
+    "Karideph system": "M-20",
+    "Kal'Shebbol": "M-21"
+   },
+   "unplaced": []
+  },
+  "corellian-trade-spine": {
+   "title": "Corellian Trade Spine",
+   "junctions": [
+    "Rimma Trade Route",
+    "Ison Trade Corridor",
+    "Hydian Way"
+   ],
+   "stops": {
+    "Corellia": "M-11",
+    "Duro": "M-11",
+    "Hosnian Prime": "M-12",
+    "Cabarria": "M-13",
+    "Nantoon": "M-13",
+    "Kelada": "M-13",
+    "Foless": "M-13",
+    "Bestine IV": "M-14",
+    "Mechis III": "L-14",
+    "Yag'Dhul": "L-14",
+    "Harrin system": "L-15",
+    "Cymoon": "L-15",
+    "Sibensko": "L-15",
+    "Kinyen": "L-15",
+    "Blutopia": "K-16",
+    "Ivarujar": "K-16",
+    "Bomis Koori system": "K-16",
+    "Kriselist system": "K-16",
+    "Kaal system": "K-17",
+    "Abelor": "K-17",
+    "Jiroch system": "K-17",
+    "Cargamalis system": "K-18",
+    "Mugaar system": "K-18",
+    "Javin system": "K-18",
+    "Aztubek system": "K-18",
+    "Kumru system": "K-18",
+    "High Chunah system": "K-18",
+    "Kirtarkin": "K-18",
+    "Mexeluine": "K-18",
+    "Gerrenthum": "K-18",
+    "Indellian system": "K-18",
+    "Bendeluum": "K-18",
+    "Zhanox": "K-18",
+    "Ione": "K-18",
+    "Mataou": "K-18",
+    "Anantapar": "K-18",
+    "Shuxl system": "K-18",
+    "Ertegas": "K-18",
+    "Darlyn Boda": "K-18",
+    "Orn Kios": "K-18",
+    "Ozu": "K-18",
+    "Isde Naha": "K-18",
+    "Togominda system": "K-18",
+    "Berrol's Donn system": "K-19",
+    "Trenchenovu": "K-19",
+    "Tureen VII": "K-19",
+    "Manpha": "K-20",
+    "Zastiga": "K-20",
+    "Grava": "K-20",
+    "Terminus": "K-20"
+   },
+   "unplaced": []
+  },
+  "triellus-trade-route": {
+   "title": "Triellus Trade Route",
+   "junctions": [
+    "Perlemian Trade Route",
+    "Salin Corridor",
+    "Pabol Sleheyron",
+    "Manda Merchant Run",
+    "Cloak of the Sith",
+    "Mumble's Turnaround",
+    "The Crystal Passage",
+    "Corellian Run",
+    "Llanic Spice Run"
+   ],
+   "stops": {
+    "Centares": "R-7",
+    "Mileva": "R-7",
+    "Sy Myrth": "S-7",
+    "Naraka": "S-7",
+    "Jabiim": "S-7",
+    "Taskeed system": "S-7",
+    "Dennogra": "S-8",
+    "Yarma": "T-8",
+    "Marleyvane": "T-8",
+    "Junkfort Station": "T-8",
+    "Qhulosk": "T-8",
+    "Alamass": "T-9",
+    "Kubindi": "T-9",
+    "Drualkiin system": "T-10",
+    "Formos": "T-10",
+    "Eadu": "U-10",
+    "Aduba": "U-11",
+    "Teth": "U-12",
+    "Barab I": "U-12",
+    "Dubrava system": "T-13",
+    "Syvris": "T-13",
+    "Arami system": "T-13",
+    "Gamorr": "T-14",
+    "Chuzalla system": "T-14",
+    "Kaddak": "T-14",
+    "Arvina": "S-15",
+    "Molavar": "S-15",
+    "Roon": "S-15",
+    "Cosmatanic Steppes gas giant": "R-16",
+    "Tatooine": "R-16",
+    "Geonosis": "R-16",
+    "Arkanis": "R-17",
+    "Yerbana": "Q-17",
+    "Nelvaan": "Q-16",
+    "Llanic": "Q-16",
+    "Zhar": "P-17",
+    "Farstine system": "P-17",
+    "Tovash Tchii": "O-17",
+    "Enarc": "O-17"
+   },
+   "unplaced": []
+  },
+  "namadii-corridor": {
+   "title": "Namadii Corridor",
+   "junctions": [
+    "Corellian Run",
+    "Metellos Trade Route",
+    "Koros Trunk Line",
+    "Nexus Route",
+    "Perlemian Trade Route",
+    "Stassia Alley",
+    "Shwuy Exchange",
+    "Celanon Spur"
+   ],
+   "stops": {
+    "Coruscant": "L-9",
+    "Pantolomin system": "K-9",
+    "Borleias": "K-9",
+    "Palanhi system": "K-9",
+    "Marquinn": "K-8",
+    "Pheryon": "J-8",
+    "Bilbringi": "J-8",
+    "Dorin": "J-8",
+    "Glee Anselm": "J-7",
+    "Ansion": "I-6",
+    "Namadii system": "I-6"
+   },
+   "unplaced": []
+  },
+  "salin-corridor": {
+   "title": "Salin Corridor",
+   "junctions": [
+    "Perlemian Trade Route",
+    "Hydian Way"
+   ],
+   "stops": {
+    "Boonta": "S-8",
+    "Sy Myrth": "S-7",
+    "Trogan": "R-7",
+    "Belderone": "R-6",
+    "Lola Sayu": "R-6",
+    "Columex": "R-6",
+    "Auratera": "R-6",
+    "Quell": "Q-6",
+    "Lucazec": "Q-6",
+    "Vjun": "Q-6",
+    "Yalbec Prime": "P-7",
+    "Nag Ubdur": "P-7",
+    "Phindar": "P-6",
+    "Raydonia": "O-6",
+    "Botajef": "O-6",
+    "Varkana": "O-6",
+    "Vinsoth": "N-5"
+   },
+   "unplaced": [
+    "Salin"
+   ]
+  },
+  "pabol-sleheyron": {
+   "title": "Pabol Sleheyron",
+   "junctions": [
+    "Randon Run",
+    "Kessel Run",
+    "Sanity Skip",
+    "Triellus Trade Route"
+   ],
+   "stops": {
+    "Randon": "Q-10",
+    "Chalacta": "R-10",
+    "Nimban": "S-10",
+    "Sleheyron": "S-10",
+    "Rion": "T-10",
+    "Ulmatra": "S-10",
+    "Randa system": "T-10",
+    "Injopan": "T-10",
+    "Zerm": "T-10",
+    "Oba Diah": "T-10",
+    "Kessel": "T-10",
+    "Mandrine": "T-10",
+    "Tilurus": "T-10",
+    "Aeneid system": "T-10",
+    "Little Kessel system": "T-10",
+    "Prishella system": "T-10",
+    "Formos": "T-10"
+   },
+   "unplaced": []
+  },
+  "lipsec-run": {
+   "title": "Lipsec Run",
+   "junctions": [
+    "Corellian Trade Spine",
+    "Hydian Way",
+    "Rimma Trade Route"
+   ],
+   "stops": {
+    "Lipsec system": "I-18",
+    "Shuraden": "I-18",
+    "Sump": "I-18",
+    "Merokia": "J-18",
+    "Taul": "J-18",
+    "Isde Naha": "K-18",
+    "Bettel system": "K-18",
+    "Mev system": "K-18",
+    "Actlyon": "K-19",
+    "Rycep asteroid belt": "L-19",
+    "Eriadu": "M-18"
+   },
+   "unplaced": [
+    "Wretch of Tayron"
+   ]
+  },
+  "entralla-route": {
+   "title": "Entralla Route",
+   "junctions": [
+    "Burke's Trailing",
+    "Celanon Spur"
+   ],
+   "stops": {
+    "Ord Mantell": "L-7",
+    "Orinda": "K-6",
+    "Ardennia": "K-6",
+    "Carlac": "K-5",
+    "Borosk system": "K-5",
+    "Yaga Minor": "K-5",
+    "Entralla system": "K-4",
+    "Muunilinst": "K-4"
+   },
+   "unplaced": []
+  },
+  "shipwrights-trace": {
+   "title": "Shipwrights' Trace",
+   "junctions": [
+    "Corellian Trade Spine",
+    "Hydian Way",
+    "Corellian Run"
+   ],
+   "stops": {
+    "Fondor": "L-13",
+    "Foless": "M-13",
+    "Atzerri": "M-13",
+    "Chardaan": "N-14",
+    "Tynna": "N-14",
+    "Allanteen VI": "O-14",
+    "Whiforla II": "M-13"
+   },
+   "unplaced": []
+  },
+  "great-gran-run": {
+   "title": "Great Gran Run",
+   "junctions": [
+    "Biox Detour",
+    "Corellian Trade Spine"
+   ],
+   "stops": {
+    "Cerea": "I-16",
+    "Chalcedon": "I-16",
+    "Takodana": "J-16",
+    "Travyx Prime": "J-16",
+    "Chyron system": "J-16",
+    "Noe'ha'on": "K-16",
+    "Haneli": "K-15",
+    "Rekelos": "K-15",
+    "Kinyen": "L-15"
+   },
+   "unplaced": []
+  },
+  "celanon-spur": {
+   "title": "Celanon Spur",
+   "junctions": [
+    "Entralla Route"
+   ],
+   "stops": {
+    "Dorin": "J-8",
+    "Ord Mantell": "L-7",
+    "Aleen": "L-7",
+    "Pandem Nai": "P-6",
+    "Celanon": "O-6"
+   },
+   "unplaced": []
+  },
+  "metellos-trade-route": {
+   "title": "Metellos Trade Route",
+   "junctions": [
+    "Corellian Run",
+    "Koros Trunk Line",
+    "Namadii Corridor",
+    "Nexus Route",
+    "Perlemian Trade Route",
+    "Stassia Alley"
+   ],
+   "stops": {
+    "N'zoth system": "K-10",
+    "Coruscant": "L-9"
+   },
+   "unplaced": []
+  },
+  "enarc-run": {
+   "title": "Enarc Run",
+   "junctions": [
+    "Rimma Trade Route",
+    "Triellus Trade Route"
+   ],
+   "stops": {
+    "Vondarc system": "M-16",
+    "Naboo": "O-17",
+    "Enarc": "O-17"
+   },
+   "unplaced": []
+  },
+  "death-wind-corridor": {
+   "title": "Death Wind Corridor",
+   "junctions": [
+    "Corellian Run",
+    "Mumble's Turnaround",
+    "Triellus Trade Route"
+   ],
+   "stops": {
+    "Roon": "S-15",
+    "Ryloth": "R-17"
+   },
+   "unplaced": []
+  },
+  "sanctuary-pipeline": {
+   "title": "Sanctuary Pipeline",
+   "junctions": [
+    "Rimma Trade Route",
+    "Incisor Sidestep",
+    "Bakura Trace"
+   ],
+   "stops": {
+    "Sullust": "M-17",
+    "Endor": "H-16",
+    "Murk system": "H-16"
+   },
+   "unplaced": []
+  },
+  "five-veils-route": {
+   "title": "Five Veils Route",
+   "junctions": [
+    "Llanic Spice Run",
+    "Triellus Trade Route"
+   ],
+   "stops": {
+    "Farstine system": "P-17",
+    "Svivren system": "O-19",
+    "Skynara system": "P-19"
+   },
+   "unplaced": []
+  },
+  "overic-griplink": {
+   "title": "Overic Griplink",
+   "junctions": [
+    "Perlemian Trade Route"
+   ],
+   "stops": {
+    "Mon Cala": "U-6",
+    "Quermia": "S-5"
+   },
+   "unplaced": []
+  },
+  "kessel-run": {
+   "title": "Kessel Run",
+   "junctions": [
+    "Pabol Sleheyron",
+    "Sanity Skip"
+   ],
+   "stops": {
+    "Kessel": "T-10",
+    "Oba Diah": "T-10"
+   },
+   "unplaced": []
+  },
+  "listehol-run": {
+   "title": "Listehol Run",
+   "junctions": [
+    "Hydian Way",
+    "Shaltin Tunnels"
+   ],
+   "stops": {
+    "Listehol": "Q-4",
+    "Zygerria": "S-4"
+   },
+   "unplaced": []
+  },
+  "shwuy-exchange": {
+   "title": "Shwuy Exchange",
+   "junctions": [
+    "Hydian Way",
+    "Namadii Corridor"
+   ],
+   "stops": {
+    "Uviuy Exen": "L-9",
+    "Vakkar": "K-9"
+   },
+   "unplaced": []
+  }
+ }
+}

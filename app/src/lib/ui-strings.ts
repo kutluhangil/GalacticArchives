@@ -151,6 +151,34 @@ const STRINGS = {
     tr: "Haritaya kanon dışı Legends dünyalarını (KotOR dönemi Sith ve Jedi dünyaları) ekler.",
   },
 
+  // hyperlanes and the course plotter
+  lanes: { en: 'Hyperlanes', tr: 'Hiperuzay hatları' },
+  lanesHint: {
+    en: 'Draws the canon trade routes across the disk.',
+    tr: 'Kanon ticaret yollarını diskin üzerine çizer.',
+  },
+  coursePlotter: { en: 'Plot a course', tr: 'Rota çiz' },
+  courseFrom: { en: 'From', tr: 'Nereden' },
+  courseTo: { en: 'To', tr: 'Nereye' },
+  coursePick: { en: 'Pick a stop…', tr: 'Bir durak seç…' },
+  courseClear: { en: 'Clear', tr: 'Temizle' },
+  courseJumps: { en: 'jumps', tr: 'sıçrama' },
+  courseParsecs: { en: 'parsecs', tr: 'parsek' },
+  courseLaneChanges: { en: 'lane changes', tr: 'hat değişimi' },
+  courseSameCell: { en: 'same grid square', tr: 'aynı grid karesi' },
+  courseDeparture: { en: 'Departure', tr: 'Kalkış' },
+  courseNone: {
+    en: 'No charted lane connects these two stops.',
+    tr: 'Bu iki durağı bağlayan çizili bir hat yok.',
+  },
+  courseSame: { en: 'Pick two different stops.', tr: 'İki farklı durak seç.' },
+  stopsInArchive: { en: 'Worlds in this archive', tr: 'Bu arşivdeki dünyalar' },
+  stopsCharted: { en: 'Other charted stops', tr: 'Diğer çizili duraklar' },
+  courseScale: {
+    en: 'Distances use the canon navigator grid: one grid square is 15 parsecs.',
+    tr: 'Mesafeler kanon seyir gridine göre: bir grid karesi 15 parsek.',
+  },
+
   // easter eggs
   kesselRun: { en: 'Kessel Run', tr: 'Kessel Koşusu' },
   kesselStart: { en: 'Start the run', tr: 'Koşuyu başlat' },

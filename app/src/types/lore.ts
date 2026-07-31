@@ -100,6 +100,33 @@ export interface Poi {
   source?: string
 }
 
+/** One stop on a hyperlane, as the lane's own infobox lists it. */
+export interface RouteStop {
+  /** the stop's Wookieepedia article title. Doubles as the citation
+   *  ("wookieepedia:<article>") and as the identity that merges a stop shared
+   *  by two lanes into one junction. */
+  article: string
+  /** the name the lane's article shows for it, when it differs from the title */
+  label?: string
+  /** Standard Galactic Grid cell, taken from the stop's own article */
+  coordinates: string
+  /** set when the stop is a world this archive ships a record for */
+  bodyId?: string
+}
+
+/** A canon super-hyperroute: the lane itself, plus its stops in travel order
+ *  (core-ward end first, as the article lists them). */
+export interface HyperspaceRoute {
+  id: string
+  names: Localized
+  blurb: Localized
+  /** "wookieepedia:<article>" — the lane's own article */
+  source: string
+  /** lane color on the map */
+  color: string
+  stops: RouteStop[]
+}
+
 export interface DestructionEvent {
   /** in-universe year, negative = BBY, positive = ABY */
   year: number

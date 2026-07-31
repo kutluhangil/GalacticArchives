@@ -30,6 +30,8 @@ const BUDGETS = [
   // provenance for every body and character; shared by the planet HUD and the
   // Holocron, and easy to grow without noticing — see scripts/sync-sources.mjs
   { name: 'sources chunk', pattern: /^sources-.*\.js$/, max: 24_000 },
+  // the charted hyperlanes and their stops; loaded with the galaxy map only
+  { name: 'routes chunk', pattern: /^routes-.*\.js$/, max: 26_000 },
 ]
 
 const files = readdirSync(ASSETS)

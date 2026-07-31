@@ -37,6 +37,13 @@ describe('vite config', () => {
     // the KTX2 transcoder must stay out of the always-loaded three chunk
     expect(source).toContain('KTX2Loader')
   })
+
+  it('keeps the hyperlane data in a chunk the budget can see', () => {
+    // routes.json grows with every lane charted; folded into the galaxy route
+    // chunk that growth would be invisible to check-bundle-budget.mjs
+    expect(read('vite.config.ts')).toContain("return 'routes'")
+    expect(read('scripts/check-bundle-budget.mjs')).toContain('routes chunk')
+  })
 })
 
 describe('vercel deployment config', () => {

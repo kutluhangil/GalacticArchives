@@ -1,16 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CelestialBody, RegionId } from '../types/lore'
-import {
-  GalaxyEngine,
-  gridToPos,
-  MANUAL_POS,
-  type GalaxyNode,
-} from '../lib/engine/galaxy-engine'
+import { GalaxyEngine, type GalaxyLane, type GalaxyNode } from '../lib/engine/galaxy-engine'
+import { gridToPos, MANUAL_POS } from '../lib/galaxy-grid'
 import { simClock } from '../lib/sim-clock'
 import { factionById, L, loadAllPlanets, regions, rendersAsRubble } from '../lib/lore'
+import { routes } from '../lib/routes'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
+import RoutePlanner from '../components/hud/RoutePlanner'
 import OnboardingHint from '../components/OnboardingHint'
 import { useFlyTo } from '../components/useFlyTo'
 
@@ -58,6 +56,14 @@ function declutter(labels: NodeLabel[]): NodeLabel[] {
 
 const NEUTRAL = '#8B94A7'
 
+/** the charted lanes, ready for the engine. Stops carry canon grid cells, so
+ *  the lane's shape follows the same placement rule the worlds do. */
+const LANES: GalaxyLane[] = routes.map((route) => ({
+  id: route.id,
+  color: route.color,
+  points: route.stops.map((stop) => gridToPos(stop.coordinates)),
+}))
+
 function nodeStates(planets: CelestialBody[], era: ReturnType<typeof useApp.getState>['era']) {
   return planets.map((p) => ({
     id: p.id,
@@ -70,6 +76,7 @@ export default function GalaxyView() {
   const lang = useApp((s) => s.lang)
   const era = useApp((s) => s.era)
   const legends = useApp((s) => s.legends)
+  const lanes = useApp((s) => s.lanes)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const engineRef = useRef<GalaxyEngine | null>(null)
   const [planets, setPlanets] = useState<CelestialBody[]>([])
@@ -123,12 +130,25 @@ export default function GalaxyView() {
       onRegionHover: setHoverRegion,
     })
     engine.init(nodes, useApp.getState().era)
+    engine.setLanes(LANES)
+    engine.setLanesVisible(useApp.getState().lanes)
     engineRef.current = engine
     return () => {
       engineRef.current = null
       engine.dispose()
     }
   }, [nodes, dive])
+
+  useEffect(() => {
+    engineRef.current?.setLanesVisible(lanes)
+  }, [lanes])
+
+  // stable across renders: the planner would otherwise redraw every frame it
+  // re-renders, and the effect that feeds it depends on this identity
+  const showCourse = useCallback(
+    (points: { x: number; z: number }[] | null) => engineRef.current?.setCourse(points),
+    [],
+  )
 
   // era switch: recolor nodes in place (no scene rebuild)
   useEffect(() => {
@@ -145,6 +165,7 @@ export default function GalaxyView() {
       <canvas ref={canvasRef} className="h-full w-full" />
       <TopBar />
       <OnboardingHint />
+      <RoutePlanner onCourse={showCourse} />
 
       {/* Keyboard/screen-reader access to the map: the WebGL nodes cannot take
           focus, so this stable, sorted list mirrors every visible world. Each

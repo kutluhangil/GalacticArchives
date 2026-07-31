@@ -4,16 +4,23 @@
 
 import * as THREE from 'three'
 import type { CelestialBody, EraId, RegionId } from '../../types/lore'
+import { GALAXY_R, MANUAL_POS, gridToPos } from '../galaxy-grid'
 import { EngineBase, type BaseCallbacks } from './engine-base'
 import { makeBodyMaterial } from './body-material'
 import { makeGlowTexture } from './effects'
 import { HAZE_FRAG, HAZE_VERT, STAR_FRAG, STAR_VERT } from './planet-shaders'
 
-export const GALAXY_R = 20
-
 /** node globe radius in disk units — small enough to read as a point from the
  *  overview, large enough to resolve into a real world on approach */
 const NODE_R = 0.17
+
+/** lanes ride above the region rings and below the node sprites (y=0.12), so
+ *  a world always reads as sitting on its lane rather than under it */
+const LANE_Y = 0.05
+const COURSE_Y = 0.2
+/** curve samples per lane leg — enough to read as a flight path, not a zigzag */
+const LANE_SAMPLES = 6
+const COURSE_COLOR = '#ffe81f'
 
 export interface GalaxyNode {
   id: string
@@ -24,6 +31,13 @@ export interface GalaxyNode {
   color: string
   destroyed: boolean
   body: CelestialBody
+}
+
+/** One hyperlane, ready to draw: its stops in travel order. */
+export interface GalaxyLane {
+  id: string
+  color: string
+  points: { x: number; z: number }[]
 }
 
 export interface GalaxyCallbacks extends BaseCallbacks {
@@ -41,33 +55,6 @@ export interface GalaxyCallbacks extends BaseCallbacks {
     }[],
   ) => void
   onRegionHover?: (region: RegionId | null) => void
-}
-
-/** Canon grid "R-16" -> disk position. Letters A..V span west->east,
- *  numbers 1..21 north->south. Radius clamped inside the disk. */
-export function gridToPos(grid: string): { x: number; z: number } {
-  const [letter, num] = grid.split('-')
-  const ci = letter.charCodeAt(0) - 65 // A=0 .. V=21
-  const ni = parseInt(num, 10)
-  let x = ((ci + 0.5) / 22) * 2 - 1
-  let z = ((ni - 0.5) / 21) * 2 - 1
-  const r = Math.hypot(x, z)
-  if (r > 0.95) {
-    x = (x / r) * 0.95
-    z = (z / r) * 0.95
-  }
-  return { x: x * GALAXY_R, z: z * GALAXY_R }
-}
-
-/** worlds without verified coordinates get hand-placed canon-plausible spots */
-export const MANUAL_POS: Record<string, { x: number; z: number }> = {
-  kamino: { x: 0.78 * GALAXY_R, z: 0.58 * GALAXY_R }, // south-east Wild Space rim
-  shakari: { x: -0.12 * GALAXY_R, z: 0.84 * GALAXY_R }, // southern Outer Rim
-  peridea: { x: -0.95 * GALAXY_R, z: -0.85 * GALAXY_R }, // separate far-galaxy islet
-  // Legends Sith Worlds share grid R-5 with canon Moraband; nudge the two apart
-  // so the trio does not stack into a single node (MANUAL_POS wins over the grid).
-  korriban: { x: 0.5 * GALAXY_R, z: -0.63 * GALAXY_R },
-  'dromund-kaas': { x: 0.67 * GALAXY_R, z: -0.51 * GALAXY_R },
 }
 
 // radial region bands as fraction of GALAXY_R (order matters: inner -> outer)
@@ -221,6 +208,13 @@ export class GalaxyEngine extends EngineBase {
    *  point sprites do not blow up into blobs at close range */
   private diskFade = 1
   private diving = false
+  /** the charted hyperlane network, and the course plotted across it */
+  private laneGroup = new THREE.Group()
+  private laneMats: THREE.Material[] = []
+  private courseGroup = new THREE.Group()
+  /** lanes step back while a course is plotted, so the course reads as the
+   *  answer rather than as one more line in the network */
+  private courseDim = 1
   private comet?: THREE.Sprite
   private cometStart = 6
   private cometFrom = new THREE.Vector3()
@@ -244,6 +238,8 @@ export class GalaxyEngine extends EngineBase {
     this.addStarfield(1600)
     this.buildDisk()
     this.buildRegionRings()
+    this.scene.add(this.laneGroup)
+    this.scene.add(this.courseGroup)
     this.buildNodes()
     this.buildComet()
     this.stampBaseOpacity()
@@ -274,6 +270,100 @@ export class GalaxyEngine extends EngineBase {
         const gm = globe.material as THREE.ShaderMaterial
         gm.uniforms.uVariant.value = node.body.renderRecipe.variantsByEra?.[era] ? 1 : 0
       }
+    }
+  }
+
+  /**
+   * Draw the hyperlane network. A lane is a curve through its stops rather
+   * than a chain of segments: the stops are real coordinates, but ships do not
+   * fly a polyline, and the corners of one read as a wiring diagram.
+   */
+  setLanes(lanes: GalaxyLane[]) {
+    this.disposeGroup(this.laneGroup)
+    this.laneMats = []
+    for (const lane of lanes) {
+      if (lane.points.length < 2) continue
+      const geo = new THREE.BufferGeometry().setFromPoints(this.laneCurve(lane.points, LANE_Y))
+      const mat = new THREE.LineBasicMaterial({
+        color: new THREE.Color(lane.color),
+        transparent: true,
+        opacity: 0.5,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      })
+      mat.userData.baseOpacity = mat.opacity
+      this.laneMats.push(mat)
+      this.laneGroup.add(new THREE.Line(geo, mat))
+
+      // a tick at every stop: the curve between them is our drawing, but the
+      // stops themselves are canon and should be visible as such
+      const ticks = new THREE.BufferGeometry().setFromPoints(
+        lane.points.map((p) => new THREE.Vector3(p.x, LANE_Y, p.z)),
+      )
+      const tickMat = new THREE.PointsMaterial({
+        color: new THREE.Color(lane.color),
+        size: 0.14,
+        transparent: true,
+        opacity: 0.75,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      })
+      tickMat.userData.baseOpacity = tickMat.opacity
+      this.laneMats.push(tickMat)
+      this.laneGroup.add(new THREE.Points(ticks, tickMat))
+    }
+    this.applyDiskFade()
+  }
+
+  setLanesVisible(visible: boolean) {
+    this.laneGroup.visible = visible
+  }
+
+  /** Highlight one plotted course over the lanes. Passing null clears it. */
+  setCourse(points: { x: number; z: number }[] | null) {
+    this.disposeGroup(this.courseGroup)
+    this.courseDim = points && points.length >= 2 ? 0.35 : 1
+    this.applyDiskFade()
+    if (!points || points.length < 2) return
+    const path = this.laneCurve(points, COURSE_Y)
+    // a tube, not a line: line width is not portable across platforms, and the
+    // plotted course is the one thing on the map that has to stand out
+    const geo = new THREE.TubeGeometry(new THREE.CatmullRomCurve3(path), path.length, 0.2, 6, false)
+    const course = new THREE.Mesh(
+      geo,
+      new THREE.MeshBasicMaterial({
+        color: new THREE.Color(COURSE_COLOR),
+        transparent: true,
+        opacity: 0.95,
+        depthWrite: false,
+        // drawn over everything: a course that disappears behind the core glow
+        // is not an answer to "how do I get there"
+        depthTest: false,
+        blending: THREE.AdditiveBlending,
+      }),
+    )
+    course.renderOrder = 6
+    this.courseGroup.add(course)
+  }
+
+  /** stops -> a smooth path through them, sampled for drawing */
+  private laneCurve(points: { x: number; z: number }[], y: number): THREE.Vector3[] {
+    const control = points.map((p) => new THREE.Vector3(p.x, y, p.z))
+    if (control.length < 3) return control
+    // centripetal parameterisation: where two stops nearly share a grid cell,
+    // the chordal default loops the curve out into a bubble
+    const curve = new THREE.CatmullRomCurve3(control, false, 'centripetal')
+    return curve.getPoints((control.length - 1) * LANE_SAMPLES)
+  }
+
+  private disposeGroup(group: THREE.Group) {
+    for (const child of [...group.children]) {
+      group.remove(child)
+      const drawn = child as THREE.Mesh | THREE.Line | THREE.Points
+      drawn.geometry?.dispose()
+      const mat = drawn.material
+      if (Array.isArray(mat)) for (const m of mat) m.dispose()
+      else mat?.dispose()
     }
   }
 
@@ -310,6 +400,10 @@ export class GalaxyEngine extends EngineBase {
       const mat = sprite.material as THREE.SpriteMaterial
       mat.opacity = (mat.userData.baseOpacity as number) * this.diskFade
     }
+    for (const mat of this.laneMats) {
+      mat.opacity = (mat.userData.baseOpacity as number) * this.diskFade * this.courseDim
+    }
+    this.courseGroup.visible = this.diskFade > 0.01
   }
 
   private buildDisk() {
@@ -778,6 +872,8 @@ export class GalaxyEngine extends EngineBase {
   dispose() {
     this.canvas.removeEventListener('pointerdown', this.onPointerDown)
     this.canvas.removeEventListener('pointermove', this.onPointerMove)
+    this.disposeGroup(this.laneGroup)
+    this.disposeGroup(this.courseGroup)
     super.dispose()
   }
 }

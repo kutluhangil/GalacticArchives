@@ -31,6 +31,10 @@ const media = load('meta/media.json')
 const stations = load('stations.json')
 const characters = load('characters.json')
 const sources = load('sources.json')
+const routesFile = load('routes.json')
+const routeDigest = JSON.parse(
+  readFileSync(join(ROOT, 'test/fixtures/route-digest.json'), 'utf8'),
+)
 
 /** headline stat fields, as the Wookieepedia infobox names them -> our key */
 const TRACKED_FIELDS = { diameter: 'diameterKm', population: 'population', government: 'government' }
@@ -207,6 +211,110 @@ for (const c of characters) {
     }
   }
 }
+
+// --- hyperlanes ------------------------------------------------------------
+// A lane is drawn on the map and flown by the course plotter, so three things
+// have to hold: every stop is placed by a canon grid cell, every lane cites the
+// article its stops came from, and the lanes actually form one network. A lane
+// nothing else touches is a line no course can ever use.
+const GRID = /^[A-V]-([1-9]|1\d|2[01])$/
+const routeIds = new Set()
+const stopCells = new Map() // article -> grid cell, shared across lanes
+const laneAdjacency = new Map()
+const linkStops = (a, b) => {
+  for (const [from, to] of [[a, b], [b, a]]) {
+    if (!laneAdjacency.has(from)) laneAdjacency.set(from, new Set())
+    laneAdjacency.get(from).add(to)
+  }
+}
+
+for (const route of routesFile.routes ?? []) {
+  const where = `routes.json: ${route.id}`
+  if (routeIds.has(route.id)) err(`${where} is declared twice`)
+  routeIds.add(route.id)
+  checkLocalized(route.names, `${route.id}.names`, 'routes.json')
+  checkLocalized(route.blurb, `${route.id}.blurb`, 'routes.json')
+  if (!/^wookieepedia:.+/.test(route.source ?? '')) {
+    err(`${where} source "${route.source}" is not "wookieepedia:<article>"`)
+  }
+  if (!/^#[0-9a-f]{6}$/i.test(route.color ?? '')) err(`${where} color "${route.color}" is not a hex color`)
+
+  const dig = routeDigest.routes?.[route.id]
+  if (!dig) {
+    err(`${where} has no entry in test/fixtures/route-digest.json — rerun scripts/fetch-routes.mjs and scripts/sync-routes.mjs`)
+  } else if (`wookieepedia:${dig.title}` !== route.source) {
+    err(`${where} cites "${route.source}" but the digest fetched "${dig.title}"`)
+  }
+  for (const label of dig?.unplaced ?? []) {
+    warn(`${route.id}: canon names "${label}" on this lane but states no grid cell for it, so it is not drawn`)
+  }
+
+  if ((route.stops ?? []).length < 2) {
+    err(`${where} has ${route.stops?.length ?? 0} stop(s) — a lane needs two to be a line`)
+  }
+  const seenHere = new Set()
+  for (const stop of route.stops ?? []) {
+    if (!stop.article) err(`${where} has a stop with no article`)
+    if (!GRID.test(stop.coordinates ?? '')) {
+      err(`${where} stop "${stop.article}" grid "${stop.coordinates}" is not a Standard Galactic Grid cell`)
+    }
+    if (seenHere.has(stop.article)) err(`${where} calls at "${stop.article}" twice`)
+    seenHere.add(stop.article)
+    // the same stop reached from two lanes has to sit in one place
+    const known = stopCells.get(stop.article)
+    if (known && known !== stop.coordinates) {
+      err(`routes.json: "${stop.article}" is grid ${known} on one lane and ${stop.coordinates} on another`)
+    }
+    stopCells.set(stop.article, stop.coordinates)
+    if (dig && dig.stops?.[stop.article] === undefined) {
+      err(`${where} stop "${stop.article}" is not in the fetched digest — it was not verified against Wookieepedia`)
+    } else if (dig && dig.stops[stop.article] !== stop.coordinates) {
+      err(`${where} stop "${stop.article}" is grid ${stop.coordinates} but the digest fetched ${dig.stops[stop.article]}`)
+    }
+    if (stop.bodyId && !bodies.has(stop.bodyId)) {
+      err(`${where} stop "${stop.article}" binds to unknown body "${stop.bodyId}"`)
+    }
+    const body = stop.bodyId ? bodies.get(stop.bodyId)?.body : undefined
+    if (body?.coordinates && body.coordinates !== stop.coordinates) {
+      err(`${where} stop "${stop.article}" is grid ${stop.coordinates} but ${stop.bodyId}.json says ${body.coordinates}`)
+    }
+  }
+  for (let i = 1; i < (route.stops ?? []).length; i++) {
+    linkStops(route.stops[i - 1].article, route.stops[i].article)
+  }
+}
+
+// one network, or the course plotter silently cannot reach half the map
+const visited = new Set()
+const components = []
+for (const article of laneAdjacency.keys()) {
+  if (visited.has(article)) continue
+  const queue = [article]
+  const group = []
+  visited.add(article)
+  while (queue.length) {
+    const at = queue.shift()
+    group.push(at)
+    for (const next of laneAdjacency.get(at) ?? []) {
+      if (visited.has(next)) continue
+      visited.add(next)
+      queue.push(next)
+    }
+  }
+  components.push(group)
+}
+components.sort((a, b) => b.length - a.length)
+if (components.length > 1) {
+  const strays = components.slice(1).map((g) => `${g.length} stop(s): ${g.slice(0, 4).join(', ')}`)
+  err(`routes.json: the lane network breaks into ${components.length} pieces — ${strays.join(' | ')}`)
+}
+
+const laneBodies = new Set(
+  (routesFile.routes ?? []).flatMap((r) => (r.stops ?? []).filter((s) => s.bodyId).map((s) => s.bodyId)),
+)
+console.log(
+  `hyperlanes=${routeIds.size}, stops=${stopCells.size} distinct, ${laneBodies.size} of them worlds in this archive`,
+)
 
 console.log(`bodies=${bodies.size} (planet files=${planetFiles.length}, stations=${stations.length})`)
 console.log(`characters=${characters.length}, media=${media.length}, eras=${eras.length}, regions=${regions.length}, factions=${factions.length}`)

@@ -3,7 +3,7 @@
 // placement rule in GalaxyView (MANUAL_POS ?? gridToPos ?? origin).
 
 import { describe, expect, it } from 'vitest'
-import { GALAXY_R, MANUAL_POS, gridToPos } from '../../src/lib/engine/galaxy-engine'
+import { GALAXY_R, MANUAL_POS, gridToPos } from '../../src/lib/galaxy-grid'
 import { loadAllPlanets, loadBody } from '../../src/lib/lore'
 
 const DISK_LIMIT = 0.95 * GALAXY_R

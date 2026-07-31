@@ -61,9 +61,45 @@ test('the Legends layer adds the Old Republic era to the timeline', async ({ pag
   await expect(oldRepublic).toHaveCount(0)
 
   await page.getByRole('button', { name: /Ayarlar|Settings/ }).click()
-  await page.getByRole('switch').click()
+  await page.getByRole('switch', { name: /Legends/ }).click()
 
   await expect(oldRepublic).toBeVisible()
+})
+
+test('the course plotter walks the lanes between two worlds', async ({ page }) => {
+  await page.goto('/galaxy')
+  await page.getByRole('button', { name: /Rota çiz|Plot a course/ }).click()
+
+  await page.getByRole('combobox', { name: /^(Nereden|From)$/ }).selectOption('Coruscant')
+  await page.getByRole('combobox', { name: /^(Nereye|To)$/ }).selectOption('Ryloth')
+
+  // Coruscant and Ryloth both sit on the Corellian Run, so the course is that
+  // lane walked end to end — jumps, parsecs and every stop in between
+  const itinerary = page.getByRole('list', { name: /Rota çiz|Plot a course/ })
+  await expect(page.getByText(/\d+ (sıçrama|jumps) ·/)).toBeVisible()
+  await expect(itinerary.getByText('Christophsis')).toBeVisible()
+  await expect(itinerary.getByText(/Corellia Koşusu|Corellian Run/).first()).toBeVisible()
+
+  // an archive world on the course opens its record
+  await itinerary.getByRole('button', { name: 'Ryloth', exact: true }).click()
+  await expect(page).toHaveURL(/\/planet\/ryloth/)
+})
+
+test('hyperlanes can be switched off', async ({ page }) => {
+  await page.goto('/galaxy')
+  await page.getByRole('button', { name: /Ayarlar|Settings/ }).click()
+
+  const lanes = page.getByRole('switch', { name: /Hiperuzay|Hyperlanes/ })
+  await expect(lanes).toHaveAttribute('aria-checked', 'true')
+  await lanes.click()
+  await expect(lanes).toHaveAttribute('aria-checked', 'false')
+
+  await page.reload()
+  await page.getByRole('button', { name: /Ayarlar|Settings/ }).click()
+  await expect(page.getByRole('switch', { name: /Hiperuzay|Hyperlanes/ })).toHaveAttribute(
+    'aria-checked',
+    'false',
+  )
 })
 
 test('a starred world survives a reload', async ({ page }) => {

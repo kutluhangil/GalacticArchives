@@ -1,0 +1,1659 @@
+{
+ "generatedAt": "2026-07-31T19:23:09.684Z",
+ "method": "Stops and their order come from each lane's {{TradeRoute}} infobox on Wookieepedia (endpoints + otherobjects, core-ward end first); every stop's grid cell comes from its own article. Names, blurbs and lane colors are authored in this repo. Rebuild: node scripts/fetch-routes.mjs <tmp> && node scripts/sync-routes.mjs <tmp>",
+ "routes": [
+  {
+   "id": "perlemian-trade-route",
+   "names": {
+    "en": "Perlemian Trade Route",
+    "tr": "Perlemian Ticaret Yolu"
+   },
+   "blurb": {
+    "en": "One of the five super-hyperroutes, running from Coruscant out through the Colonies and the Mid Rim to the Tion Cluster.",
+    "tr": "Beş süper-hiperrotadan biri; Coruscant'tan çıkıp Koloniler ve Orta Sınır üzerinden Tion Kümesi'ne uzanır."
+   },
+   "source": "wookieepedia:Perlemian Trade Route",
+   "color": "#e8c15a",
+   "stops": [
+    {
+     "article": "Coruscant",
+     "coordinates": "L-9",
+     "bodyId": "coruscant"
+    },
+    {
+     "article": "Alsakan",
+     "coordinates": "L-9"
+    },
+    {
+     "article": "Brentaal IV",
+     "coordinates": "L-9"
+    },
+    {
+     "article": "Yabol Opa",
+     "coordinates": "M-9"
+    },
+    {
+     "article": "Castell",
+     "coordinates": "M-9"
+    },
+    {
+     "article": "Vurdon Ka",
+     "coordinates": "M-9"
+    },
+    {
+     "article": "Chazwa",
+     "coordinates": "N-8"
+    },
+    {
+     "article": "Tirahnn",
+     "coordinates": "N-8"
+    },
+    {
+     "article": "Taanab",
+     "coordinates": "O-8"
+    },
+    {
+     "article": "Gizer",
+     "coordinates": "P-8"
+    },
+    {
+     "article": "Lantillies",
+     "coordinates": "P-8"
+    },
+    {
+     "article": "Roche Asteroid Field",
+     "coordinates": "Q-8",
+     "label": "Roche"
+    },
+    {
+     "article": "Abhean",
+     "coordinates": "R-7"
+    },
+    {
+     "article": "The Wheel",
+     "coordinates": "R-7"
+    },
+    {
+     "article": "Centares",
+     "coordinates": "R-7"
+    },
+    {
+     "article": "Anaxes",
+     "coordinates": "R-7"
+    },
+    {
+     "article": "Columex system",
+     "coordinates": "R-6",
+     "label": "Columex"
+    },
+    {
+     "article": "Felucia",
+     "coordinates": "R-6",
+     "bodyId": "felucia"
+    },
+    {
+     "article": "Lianna",
+     "coordinates": "S-6"
+    },
+    {
+     "article": "Desevro",
+     "coordinates": "S-6"
+    },
+    {
+     "article": "Makem Te",
+     "coordinates": "S-5"
+    },
+    {
+     "article": "Quermia",
+     "coordinates": "S-5"
+    },
+    {
+     "article": "Barton IV",
+     "coordinates": "S-5"
+    },
+    {
+     "article": "Karkaris",
+     "coordinates": "S-5"
+    }
+   ]
+  },
+  {
+   "id": "corellian-run",
+   "names": {
+    "en": "Corellian Run",
+    "tr": "Corellia Koşusu"
+   },
+   "blurb": {
+    "en": "A super-hyperroute from Coruscant to Lamaredd, passing Corellia, Christophsis and Ryloth on its way to the rim.",
+    "tr": "Coruscant'tan Lamaredd'e uzanan süper-hiperrota; sınıra giderken Corellia, Christophsis ve Ryloth'tan geçer."
+   },
+   "source": "wookieepedia:Corellian Run",
+   "color": "#5fd0e8",
+   "stops": [
+    {
+     "article": "Coruscant",
+     "coordinates": "L-9",
+     "bodyId": "coruscant"
+    },
+    {
+     "article": "Ixtlar system",
+     "coordinates": "L-10",
+     "label": "Ixtlar"
+    },
+    {
+     "article": "Corellia",
+     "coordinates": "M-11",
+     "bodyId": "corellia"
+    },
+    {
+     "article": "Tinnel IV",
+     "coordinates": "M-12"
+    },
+    {
+     "article": "Loronar",
+     "coordinates": "M-12"
+    },
+    {
+     "article": "Byblos",
+     "coordinates": "M-12"
+    },
+    {
+     "article": "Iseno system",
+     "coordinates": "N-13",
+     "label": "Iseno"
+    },
+    {
+     "article": "Abednedo (planet)",
+     "coordinates": "N-12",
+     "label": "Abednedo"
+    },
+    {
+     "article": "Denon",
+     "coordinates": "N-13"
+    },
+    {
+     "article": "Spirana",
+     "coordinates": "N-13"
+    },
+    {
+     "article": "Rhommamool system",
+     "coordinates": "N-13",
+     "label": "Rhommamool"
+    },
+    {
+     "article": "Allanteen VI",
+     "coordinates": "O-14"
+    },
+    {
+     "article": "Gamor system",
+     "coordinates": "O-14",
+     "label": "Gamor"
+    },
+    {
+     "article": "Milagro system",
+     "coordinates": "O-14",
+     "label": "Milagro"
+    },
+    {
+     "article": "Bacrana",
+     "coordinates": "O-14"
+    },
+    {
+     "article": "New Cov system",
+     "coordinates": "P-14",
+     "label": "New Cov"
+    },
+    {
+     "article": "Druckenwell",
+     "coordinates": "P-15"
+    },
+    {
+     "article": "Mon Gazza",
+     "coordinates": "Q-16"
+    },
+    {
+     "article": "Herdessa",
+     "coordinates": "Q-16"
+    },
+    {
+     "article": "Radnor",
+     "coordinates": "Q-16"
+    },
+    {
+     "article": "Christophsis",
+     "coordinates": "Q-16",
+     "bodyId": "christophsis"
+    },
+    {
+     "article": "Ryloth",
+     "coordinates": "R-17",
+     "bodyId": "ryloth"
+    },
+    {
+     "article": "Smuggler's Run",
+     "coordinates": "S-18"
+    },
+    {
+     "article": "Naos system",
+     "coordinates": "S-18",
+     "label": "Naos"
+    },
+    {
+     "article": "Lamaredd",
+     "coordinates": "S-18"
+    }
+   ]
+  },
+  {
+   "id": "hydian-way",
+   "names": {
+    "en": "Hydian Way",
+    "tr": "Hydian Yolu"
+   },
+   "blurb": {
+    "en": "The longest of the super-hyperroutes, charted by Freia Kallea: from Bonadan inward to the Core and back out to the southern Outer Rim.",
+    "tr": "Freia Kallea'nın haritaladığı en uzun süper-hiperrota: Bonadan'dan Çekirdek'e, oradan güney Dış Sınır'a döner."
+   },
+   "source": "wookieepedia:Hydian Way",
+   "color": "#c98bd8",
+   "stops": [
+    {
+     "article": "Bonadan",
+     "coordinates": "S-3"
+    },
+    {
+     "article": "Salient system",
+     "coordinates": "R-3",
+     "label": "Salient"
+    },
+    {
+     "article": "Cadomai Prime",
+     "coordinates": "R-3",
+     "label": "Cadomai"
+    },
+    {
+     "article": "Ruuria",
+     "coordinates": "Q-3"
+    },
+    {
+     "article": "Listehol",
+     "coordinates": "Q-4"
+    },
+    {
+     "article": "Jelucan",
+     "coordinates": "Q-4"
+    },
+    {
+     "article": "Telos",
+     "coordinates": "Q-4"
+    },
+    {
+     "article": "Mirrin Prime",
+     "coordinates": "P-5"
+    },
+    {
+     "article": "Pho Ph'eah system",
+     "coordinates": "P-5",
+     "label": "Pho Ph'eah"
+    },
+    {
+     "article": "Toprawa",
+     "coordinates": "P-5"
+    },
+    {
+     "article": "Junction system (Outer Rim Territories)",
+     "coordinates": "O-5",
+     "label": "Junction"
+    },
+    {
+     "article": "Celanon",
+     "coordinates": "O-6"
+    },
+    {
+     "article": "Botajef",
+     "coordinates": "O-6"
+    },
+    {
+     "article": "Bandomeer",
+     "coordinates": "O-6"
+    },
+    {
+     "article": "Otor's Hub",
+     "coordinates": "N-7"
+    },
+    {
+     "article": "Corsin",
+     "coordinates": "M-7"
+    },
+    {
+     "article": "Mikkia",
+     "coordinates": "M-7"
+    },
+    {
+     "article": "Bogden",
+     "coordinates": "M-8"
+    },
+    {
+     "article": "Hevurion",
+     "coordinates": "L-8"
+    },
+    {
+     "article": "Paqualis III",
+     "coordinates": "L-8"
+    },
+    {
+     "article": "Drearia",
+     "coordinates": "L-8"
+    },
+    {
+     "article": "Champala",
+     "coordinates": "L-8"
+    },
+    {
+     "article": "Uviuy Exen",
+     "coordinates": "L-9"
+    },
+    {
+     "article": "Brentaal IV",
+     "coordinates": "L-9"
+    },
+    {
+     "article": "Skako",
+     "coordinates": "L-9"
+    },
+    {
+     "article": "Fedalle",
+     "coordinates": "M-10"
+    },
+    {
+     "article": "Bellassa",
+     "coordinates": "M-11"
+    },
+    {
+     "article": "Exodeen",
+     "coordinates": "M-12"
+    },
+    {
+     "article": "Suntilla",
+     "coordinates": "N-12"
+    },
+    {
+     "article": "Ubardia",
+     "coordinates": "N-12"
+    },
+    {
+     "article": "Korbori",
+     "coordinates": "N-12"
+    },
+    {
+     "article": "Candovant",
+     "coordinates": "N-12"
+    },
+    {
+     "article": "Denon",
+     "coordinates": "N-13"
+    },
+    {
+     "article": "Chardaan system",
+     "coordinates": "N-14",
+     "label": "Chardaan"
+    },
+    {
+     "article": "Pax",
+     "coordinates": "N-16"
+    },
+    {
+     "article": "ZeHeth",
+     "coordinates": "N-16"
+    },
+    {
+     "article": "Malastare",
+     "coordinates": "N-16"
+    },
+    {
+     "article": "Darkknell",
+     "coordinates": "M-17"
+    },
+    {
+     "article": "Orish",
+     "coordinates": "M-17"
+    },
+    {
+     "article": "Eriadu",
+     "coordinates": "M-18",
+     "bodyId": "eriadu"
+    },
+    {
+     "article": "Black Stall Station",
+     "coordinates": "M-18"
+    },
+    {
+     "article": "Shumavar",
+     "coordinates": "L-19"
+    },
+    {
+     "article": "Atravis system",
+     "coordinates": "L-19",
+     "label": "Atravis"
+    },
+    {
+     "article": "Rutan",
+     "coordinates": "L-20"
+    },
+    {
+     "article": "Terminus",
+     "coordinates": "K-20"
+    },
+    {
+     "article": "Nevarro",
+     "coordinates": "K-20",
+     "bodyId": "nevarro"
+    },
+    {
+     "article": "Imynusoph system",
+     "coordinates": "J-21"
+    }
+   ]
+  },
+  {
+   "id": "rimma-trade-route",
+   "names": {
+    "en": "Rimma Trade Route",
+    "tr": "Rimma Ticaret Yolu"
+   },
+   "blurb": {
+    "en": "A super-hyperroute crossing the galaxy through Eriadu and Sullust, meeting the Hydian Way in the Outer Rim.",
+    "tr": "Eriadu ve Sullust üzerinden galaksiyi kat eden süper-hiperrota; Dış Sınır'da Hydian Yolu ile kesişir."
+   },
+   "source": "wookieepedia:Rimma Trade Route",
+   "color": "#7fe3a1",
+   "stops": [
+    {
+     "article": "Abregado-rae",
+     "coordinates": "K-13"
+    },
+    {
+     "article": "Dentaal system",
+     "coordinates": "K-13"
+    },
+    {
+     "article": "Giju",
+     "coordinates": "L-13"
+    },
+    {
+     "article": "Ghorman",
+     "coordinates": "L-13",
+     "bodyId": "ghorman"
+    },
+    {
+     "article": "Thyferra",
+     "coordinates": "L-14"
+    },
+    {
+     "article": "Yag'Dhul",
+     "coordinates": "L-14"
+    },
+    {
+     "article": "Wroona",
+     "coordinates": "L-15"
+    },
+    {
+     "article": "Vandelhelm system",
+     "coordinates": "M-15",
+     "label": "Vandelhelm"
+    },
+    {
+     "article": "Woostri system",
+     "coordinates": "M-16",
+     "label": "Woostri"
+    },
+    {
+     "article": "Vondarc system",
+     "coordinates": "M-16",
+     "label": "Vondarc"
+    },
+    {
+     "article": "Sullust",
+     "coordinates": "M-17"
+    },
+    {
+     "article": "Eriadu",
+     "coordinates": "M-18",
+     "bodyId": "eriadu"
+    },
+    {
+     "article": "Bith (planet)",
+     "coordinates": "M-18",
+     "label": "Clak'dor"
+    },
+    {
+     "article": "Triton",
+     "coordinates": "M-18"
+    },
+    {
+     "article": "Sluis Van",
+     "coordinates": "M-19"
+    },
+    {
+     "article": "Karideph system",
+     "coordinates": "M-20"
+    },
+    {
+     "article": "Kal'Shebbol",
+     "coordinates": "M-21"
+    }
+   ]
+  },
+  {
+   "id": "corellian-trade-spine",
+   "names": {
+    "en": "Corellian Trade Spine",
+    "tr": "Corellia Ticaret Omurgası"
+   },
+   "blurb": {
+    "en": "A super-hyperroute beginning at Corellia, crossing the Rimma at Yag’Dhul and the Hydian Way near Terminus.",
+    "tr": "Corellia'da başlayan süper-hiperrota; Yag'Dhul'da Rimma'yı, Terminus yakınında Hydian Yolu'nu keser."
+   },
+   "source": "wookieepedia:Corellian Trade Spine",
+   "color": "#8fa8ff",
+   "stops": [
+    {
+     "article": "Corellia",
+     "coordinates": "M-11",
+     "bodyId": "corellia"
+    },
+    {
+     "article": "Duro",
+     "coordinates": "M-11"
+    },
+    {
+     "article": "Hosnian Prime",
+     "coordinates": "M-12",
+     "bodyId": "hosnian-prime"
+    },
+    {
+     "article": "Cabarria",
+     "coordinates": "M-13"
+    },
+    {
+     "article": "Nantoon",
+     "coordinates": "M-13"
+    },
+    {
+     "article": "Kelada",
+     "coordinates": "M-13"
+    },
+    {
+     "article": "Foless",
+     "coordinates": "M-13"
+    },
+    {
+     "article": "Bestine IV",
+     "coordinates": "M-14"
+    },
+    {
+     "article": "Mechis III",
+     "coordinates": "L-14",
+     "label": "Mechis"
+    },
+    {
+     "article": "Yag'Dhul",
+     "coordinates": "L-14"
+    },
+    {
+     "article": "Harrin system",
+     "coordinates": "L-15",
+     "label": "Harrin"
+    },
+    {
+     "article": "Cymoon",
+     "coordinates": "L-15"
+    },
+    {
+     "article": "Sibensko",
+     "coordinates": "L-15"
+    },
+    {
+     "article": "Kinyen",
+     "coordinates": "L-15"
+    },
+    {
+     "article": "Blutopia",
+     "coordinates": "K-16"
+    },
+    {
+     "article": "Ivarujar",
+     "coordinates": "K-16"
+    },
+    {
+     "article": "Bomis Koori system",
+     "coordinates": "K-16",
+     "label": "Bomis Koori"
+    },
+    {
+     "article": "Kriselist system",
+     "coordinates": "K-16",
+     "label": "Kriselist"
+    },
+    {
+     "article": "Kaal system",
+     "coordinates": "K-17",
+     "label": "Kaal"
+    },
+    {
+     "article": "Abelor",
+     "coordinates": "K-17"
+    },
+    {
+     "article": "Jiroch system",
+     "coordinates": "K-17",
+     "label": "Jiroch"
+    },
+    {
+     "article": "Cargamalis system",
+     "coordinates": "K-18",
+     "label": "Cargamalis"
+    },
+    {
+     "article": "Mugaar system",
+     "coordinates": "K-18",
+     "label": "Mugaar"
+    },
+    {
+     "article": "Javin system",
+     "coordinates": "K-18",
+     "label": "Javin"
+    },
+    {
+     "article": "Aztubek system",
+     "coordinates": "K-18",
+     "label": "Aztubek"
+    },
+    {
+     "article": "Kumru system",
+     "coordinates": "K-18",
+     "label": "Kumru"
+    },
+    {
+     "article": "High Chunah system",
+     "coordinates": "K-18",
+     "label": "High Chunah"
+    },
+    {
+     "article": "Kirtarkin",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Mexeluine",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Gerrenthum",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Indellian system",
+     "coordinates": "K-18",
+     "label": "Indellian"
+    },
+    {
+     "article": "Bendeluum",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Zhanox",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Ione",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Mataou",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Anantapar",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Shuxl system",
+     "coordinates": "K-18",
+     "label": "Shuxl"
+    },
+    {
+     "article": "Ertegas",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Darlyn Boda",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Orn Kios",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Ozu",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Isde Naha",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Togominda system",
+     "coordinates": "K-18",
+     "label": "Togominda"
+    },
+    {
+     "article": "Berrol's Donn system",
+     "coordinates": "K-19",
+     "label": "Berrol's Donn"
+    },
+    {
+     "article": "Trenchenovu",
+     "coordinates": "K-19"
+    },
+    {
+     "article": "Tureen VII",
+     "coordinates": "K-19"
+    },
+    {
+     "article": "Manpha",
+     "coordinates": "K-20"
+    },
+    {
+     "article": "Zastiga",
+     "coordinates": "K-20"
+    },
+    {
+     "article": "Grava",
+     "coordinates": "K-20"
+    },
+    {
+     "article": "Terminus",
+     "coordinates": "K-20"
+    }
+   ]
+  },
+  {
+   "id": "triellus-trade-route",
+   "names": {
+    "en": "Triellus Trade Route",
+    "tr": "Triellus Ticaret Yolu"
+   },
+   "blurb": {
+    "en": "Runs Centares to Enarc along the rim, touching Wild Space and the Slice — and Tatooine, Geonosis and Eadu with it.",
+    "tr": "Centares'ten Enarc'a sınır boyunca uzanır; Vahşi Uzay ve Dilim'e değer, yolu Tatooine, Geonosis ve Eadu'dan geçer."
+   },
+   "source": "wookieepedia:Triellus Trade Route",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Centares",
+     "coordinates": "R-7"
+    },
+    {
+     "article": "Mileva",
+     "coordinates": "R-7"
+    },
+    {
+     "article": "Sy Myrth",
+     "coordinates": "S-7"
+    },
+    {
+     "article": "Naraka",
+     "coordinates": "S-7"
+    },
+    {
+     "article": "Jabiim",
+     "coordinates": "S-7"
+    },
+    {
+     "article": "Taskeed system",
+     "coordinates": "S-7",
+     "label": "Taskeed"
+    },
+    {
+     "article": "Dennogra",
+     "coordinates": "S-8"
+    },
+    {
+     "article": "Yarma",
+     "coordinates": "T-8"
+    },
+    {
+     "article": "Marleyvane",
+     "coordinates": "T-8"
+    },
+    {
+     "article": "Junkfort Station",
+     "coordinates": "T-8"
+    },
+    {
+     "article": "Qhulosk",
+     "coordinates": "T-8"
+    },
+    {
+     "article": "Alamass",
+     "coordinates": "T-9"
+    },
+    {
+     "article": "Kubindi",
+     "coordinates": "T-9"
+    },
+    {
+     "article": "Drualkiin system",
+     "coordinates": "T-10",
+     "label": "Drualkiin"
+    },
+    {
+     "article": "Formos",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Eadu",
+     "coordinates": "U-10",
+     "bodyId": "eadu"
+    },
+    {
+     "article": "Aduba",
+     "coordinates": "U-11"
+    },
+    {
+     "article": "Teth",
+     "coordinates": "U-12"
+    },
+    {
+     "article": "Barab I",
+     "coordinates": "U-12"
+    },
+    {
+     "article": "Dubrava system",
+     "coordinates": "T-13",
+     "label": "Dubrava"
+    },
+    {
+     "article": "Syvris",
+     "coordinates": "T-13"
+    },
+    {
+     "article": "Arami system",
+     "coordinates": "T-13"
+    },
+    {
+     "article": "Gamorr",
+     "coordinates": "T-14"
+    },
+    {
+     "article": "Chuzalla system",
+     "coordinates": "T-14"
+    },
+    {
+     "article": "Kaddak",
+     "coordinates": "T-14"
+    },
+    {
+     "article": "Arvina",
+     "coordinates": "S-15"
+    },
+    {
+     "article": "Molavar",
+     "coordinates": "S-15"
+    },
+    {
+     "article": "Roon",
+     "coordinates": "S-15"
+    },
+    {
+     "article": "Cosmatanic Steppes gas giant",
+     "coordinates": "R-16",
+     "label": "Cosmatanic Steppes"
+    },
+    {
+     "article": "Tatooine",
+     "coordinates": "R-16",
+     "bodyId": "tatooine"
+    },
+    {
+     "article": "Geonosis",
+     "coordinates": "R-16",
+     "bodyId": "geonosis"
+    },
+    {
+     "article": "Arkanis",
+     "coordinates": "R-17"
+    },
+    {
+     "article": "Yerbana",
+     "coordinates": "Q-17"
+    },
+    {
+     "article": "Nelvaan",
+     "coordinates": "Q-16"
+    },
+    {
+     "article": "Llanic",
+     "coordinates": "Q-16"
+    },
+    {
+     "article": "Zhar",
+     "coordinates": "P-17"
+    },
+    {
+     "article": "Farstine system",
+     "coordinates": "P-17",
+     "label": "Farstine"
+    },
+    {
+     "article": "Tovash Tchii",
+     "coordinates": "O-17"
+    },
+    {
+     "article": "Enarc",
+     "coordinates": "O-17"
+    }
+   ]
+  },
+  {
+   "id": "namadii-corridor",
+   "names": {
+    "en": "Namadii Corridor",
+    "tr": "Namadii Koridoru"
+   },
+   "blurb": {
+    "en": "Coruscant to Namadii through the Colonies and the Expansion Region, with junctions onto the Corellian Run and the Perlemian.",
+    "tr": "Koloniler ve Genişleme Bölgesi üzerinden Coruscant'tan Namadii'ye; Corellia Koşusu ve Perlemian'a kavşak verir."
+   },
+   "source": "wookieepedia:Namadii Corridor",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Coruscant",
+     "coordinates": "L-9",
+     "bodyId": "coruscant"
+    },
+    {
+     "article": "Pantolomin system",
+     "coordinates": "K-9",
+     "label": "Pantolomin"
+    },
+    {
+     "article": "Borleias",
+     "coordinates": "K-9"
+    },
+    {
+     "article": "Palanhi system",
+     "coordinates": "K-9",
+     "label": "Palanhi"
+    },
+    {
+     "article": "Marquinn",
+     "coordinates": "K-8"
+    },
+    {
+     "article": "Pheryon",
+     "coordinates": "J-8"
+    },
+    {
+     "article": "Bilbringi",
+     "coordinates": "J-8"
+    },
+    {
+     "article": "Dorin",
+     "coordinates": "J-8"
+    },
+    {
+     "article": "Glee Anselm",
+     "coordinates": "J-7"
+    },
+    {
+     "article": "Ansion",
+     "coordinates": "I-6"
+    },
+    {
+     "article": "Namadii system",
+     "coordinates": "I-6",
+     "label": "Namadii"
+    }
+   ]
+  },
+  {
+   "id": "salin-corridor",
+   "names": {
+    "en": "Salin Corridor",
+    "tr": "Salin Koridoru"
+   },
+   "blurb": {
+    "en": "An Outer Rim route running the stretch of sky that holds Dathomir and Quell.",
+    "tr": "Dathomir ve Quell'i barındıran gökyüzü şeridi boyunca uzanan Dış Sınır rotası."
+   },
+   "source": "wookieepedia:Salin Corridor",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Boonta",
+     "coordinates": "S-8"
+    },
+    {
+     "article": "Sy Myrth",
+     "coordinates": "S-7"
+    },
+    {
+     "article": "Trogan",
+     "coordinates": "R-7"
+    },
+    {
+     "article": "Belderone",
+     "coordinates": "R-6"
+    },
+    {
+     "article": "Lola Sayu",
+     "coordinates": "R-6"
+    },
+    {
+     "article": "Columex",
+     "coordinates": "R-6"
+    },
+    {
+     "article": "Auratera",
+     "coordinates": "R-6"
+    },
+    {
+     "article": "Quell",
+     "coordinates": "Q-6"
+    },
+    {
+     "article": "Lucazec",
+     "coordinates": "Q-6"
+    },
+    {
+     "article": "Vjun",
+     "coordinates": "Q-6"
+    },
+    {
+     "article": "Yalbec Prime",
+     "coordinates": "P-7"
+    },
+    {
+     "article": "Nag Ubdur",
+     "coordinates": "P-7"
+    },
+    {
+     "article": "Phindar",
+     "coordinates": "P-6"
+    },
+    {
+     "article": "Raydonia",
+     "coordinates": "O-6"
+    },
+    {
+     "article": "Botajef",
+     "coordinates": "O-6"
+    },
+    {
+     "article": "Varkana",
+     "coordinates": "O-6"
+    },
+    {
+     "article": "Vinsoth",
+     "coordinates": "N-5"
+    }
+   ]
+  },
+  {
+   "id": "pabol-sleheyron",
+   "names": {
+    "en": "Pabol Sleheyron",
+    "tr": "Pabol Sleheyron"
+   },
+   "blurb": {
+    "en": "Randon to Formos through Hutt Space and the Kessel sector, meeting the Kessel Run at Oba Diah.",
+    "tr": "Hutt Uzayı ve Kessel sektörü üzerinden Randon'dan Formos'a; Oba Diah'da Kessel Koşusu ile buluşur."
+   },
+   "source": "wookieepedia:Pabol Sleheyron",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Randon",
+     "coordinates": "Q-10"
+    },
+    {
+     "article": "Chalacta",
+     "coordinates": "R-10"
+    },
+    {
+     "article": "Nimban",
+     "coordinates": "S-10"
+    },
+    {
+     "article": "Sleheyron",
+     "coordinates": "S-10"
+    },
+    {
+     "article": "Rion",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Ulmatra",
+     "coordinates": "S-10"
+    },
+    {
+     "article": "Randa system",
+     "coordinates": "T-10",
+     "label": "Randa"
+    },
+    {
+     "article": "Injopan",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Zerm",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Oba Diah",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Kessel",
+     "coordinates": "T-10",
+     "bodyId": "kessel"
+    },
+    {
+     "article": "Mandrine",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Tilurus",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Aeneid system",
+     "coordinates": "T-10",
+     "label": "Aeneid"
+    },
+    {
+     "article": "Little Kessel system",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Prishella system",
+     "coordinates": "T-10"
+    },
+    {
+     "article": "Formos",
+     "coordinates": "T-10"
+    }
+   ]
+  },
+  {
+   "id": "lipsec-run",
+   "names": {
+    "en": "Lipsec Run",
+    "tr": "Lipsec Koşusu"
+   },
+   "blurb": {
+    "en": "Lipsec to Eriadu across the Western Reaches, feeding the Hydian Way and the Rimma at its end.",
+    "tr": "Batı Erimleri boyunca Lipsec'ten Eriadu'ya; ucunda Hydian Yolu ile Rimma'yı besler."
+   },
+   "source": "wookieepedia:Lipsec Run",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Lipsec system",
+     "coordinates": "I-18",
+     "label": "Lipsec"
+    },
+    {
+     "article": "Shuraden",
+     "coordinates": "I-18"
+    },
+    {
+     "article": "Sump",
+     "coordinates": "I-18"
+    },
+    {
+     "article": "Merokia",
+     "coordinates": "J-18"
+    },
+    {
+     "article": "Taul",
+     "coordinates": "J-18"
+    },
+    {
+     "article": "Isde Naha",
+     "coordinates": "K-18"
+    },
+    {
+     "article": "Bettel system",
+     "coordinates": "K-18",
+     "label": "Bettel"
+    },
+    {
+     "article": "Mev system",
+     "coordinates": "K-18",
+     "label": "Mev"
+    },
+    {
+     "article": "Actlyon",
+     "coordinates": "K-19"
+    },
+    {
+     "article": "Rycep asteroid belt",
+     "coordinates": "L-19"
+    },
+    {
+     "article": "Eriadu",
+     "coordinates": "M-18",
+     "bodyId": "eriadu"
+    }
+   ]
+  },
+  {
+   "id": "entralla-route",
+   "names": {
+    "en": "Entralla Route",
+    "tr": "Entralla Rotası"
+   },
+   "blurb": {
+    "en": "Muunilinst south to Ord Mantell through the Mid Rim, where it meets the Celanon Spur.",
+    "tr": "Orta Sınır boyunca Muunilinst'ten güneye Ord Mantell'e; orada Celanon Mahmuzu ile kesişir."
+   },
+   "source": "wookieepedia:Entralla Route",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Ord Mantell",
+     "coordinates": "L-7"
+    },
+    {
+     "article": "Orinda",
+     "coordinates": "K-6"
+    },
+    {
+     "article": "Ardennia",
+     "coordinates": "K-6"
+    },
+    {
+     "article": "Carlac",
+     "coordinates": "K-5"
+    },
+    {
+     "article": "Borosk system",
+     "coordinates": "K-5",
+     "label": "Borosk"
+    },
+    {
+     "article": "Yaga Minor",
+     "coordinates": "K-5"
+    },
+    {
+     "article": "Entralla system",
+     "coordinates": "K-4",
+     "label": "Entralla"
+    },
+    {
+     "article": "Muunilinst",
+     "coordinates": "K-4"
+    }
+   ]
+  },
+  {
+   "id": "shipwrights-trace",
+   "names": {
+    "en": "Shipwrights' Trace",
+    "tr": "Gemi Ustaları İzi"
+   },
+   "blurb": {
+    "en": "Fondor to Allanteen VI, threading the shipyard worlds between the Corellian Trade Spine and the Corellian Run.",
+    "tr": "Fondor'dan Allanteen VI'ya; Corellia Ticaret Omurgası ile Corellia Koşusu arasındaki tersane dünyalarını dizer."
+   },
+   "source": "wookieepedia:Shipwrights' Trace",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Fondor",
+     "coordinates": "L-13"
+    },
+    {
+     "article": "Foless",
+     "coordinates": "M-13"
+    },
+    {
+     "article": "Atzerri",
+     "coordinates": "M-13"
+    },
+    {
+     "article": "Chardaan",
+     "coordinates": "N-14"
+    },
+    {
+     "article": "Tynna",
+     "coordinates": "N-14"
+    },
+    {
+     "article": "Allanteen VI",
+     "coordinates": "O-14"
+    },
+    {
+     "article": "Whiforla II",
+     "coordinates": "M-13"
+    }
+   ]
+  },
+  {
+   "id": "great-gran-run",
+   "names": {
+    "en": "Great Gran Run",
+    "tr": "Büyük Gran Koşusu"
+   },
+   "blurb": {
+    "en": "Cerea to Kinyen by way of Chalcedon and Takodana, ending at the Gran homeworld on the Corellian Trade Spine.",
+    "tr": "Chalcedon ve Takodana üzerinden Cerea'dan Kinyen'e; Corellia Ticaret Omurgası üzerindeki Gran anavatanında biter."
+   },
+   "source": "wookieepedia:Great Gran Run",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Cerea",
+     "coordinates": "I-16"
+    },
+    {
+     "article": "Chalcedon",
+     "coordinates": "I-16"
+    },
+    {
+     "article": "Takodana",
+     "coordinates": "J-16",
+     "bodyId": "takodana"
+    },
+    {
+     "article": "Travyx Prime",
+     "coordinates": "J-16"
+    },
+    {
+     "article": "Chyron system",
+     "coordinates": "J-16"
+    },
+    {
+     "article": "Noe'ha'on",
+     "coordinates": "K-16"
+    },
+    {
+     "article": "Haneli",
+     "coordinates": "K-15"
+    },
+    {
+     "article": "Rekelos",
+     "coordinates": "K-15"
+    },
+    {
+     "article": "Kinyen",
+     "coordinates": "L-15"
+    }
+   ]
+  },
+  {
+   "id": "celanon-spur",
+   "names": {
+    "en": "Celanon Spur",
+    "tr": "Celanon Mahmuzu"
+   },
+   "blurb": {
+    "en": "Dorin in the Mid Rim out to Celanon on the Hydian Way.",
+    "tr": "Orta Sınır'daki Dorin'den Hydian Yolu üzerindeki Celanon'a."
+   },
+   "source": "wookieepedia:Celanon Spur",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Dorin",
+     "coordinates": "J-8"
+    },
+    {
+     "article": "Ord Mantell",
+     "coordinates": "L-7"
+    },
+    {
+     "article": "Aleen",
+     "coordinates": "L-7"
+    },
+    {
+     "article": "Pandem Nai",
+     "coordinates": "P-6"
+    },
+    {
+     "article": "Celanon",
+     "coordinates": "O-6"
+    }
+   ]
+  },
+  {
+   "id": "metellos-trade-route",
+   "names": {
+    "en": "Metellos Trade Route",
+    "tr": "Metellos Ticaret Yolu"
+   },
+   "blurb": {
+    "en": "A Core Worlds route from the N’zoth system down to Coruscant, the busiest junction in the galaxy.",
+    "tr": "N'zoth sisteminden galaksinin en işlek kavşağı Coruscant'a inen Çekirdek Dünyalar rotası."
+   },
+   "source": "wookieepedia:Metellos Trade Route",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "N'zoth system",
+     "coordinates": "K-10"
+    },
+    {
+     "article": "Coruscant",
+     "coordinates": "L-9",
+     "bodyId": "coruscant"
+    }
+   ]
+  },
+  {
+   "id": "enarc-run",
+   "names": {
+    "en": "Enarc Run",
+    "tr": "Enarc Koşusu"
+   },
+   "blurb": {
+    "en": "Vondarc on the Rimma out to Enarc on the Triellus, carrying Naboo’s traffic between them.",
+    "tr": "Rimma üzerindeki Vondarc'tan Triellus üzerindeki Enarc'a; arada Naboo'nun trafiğini taşır."
+   },
+   "source": "wookieepedia:Enarc Run",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Vondarc system",
+     "coordinates": "M-16"
+    },
+    {
+     "article": "Naboo",
+     "coordinates": "O-17",
+     "bodyId": "naboo"
+    },
+    {
+     "article": "Enarc",
+     "coordinates": "O-17"
+    }
+   ]
+  },
+  {
+   "id": "death-wind-corridor",
+   "names": {
+    "en": "Death Wind Corridor",
+    "tr": "Ölüm Rüzgârı Koridoru"
+   },
+   "blurb": {
+    "en": "A spice corridor from Roon to Ryloth; with the Corellian Run and the Triellus it closes the Spice Triangle.",
+    "tr": "Roon'dan Ryloth'a uzanan baharat koridoru; Corellia Koşusu ve Triellus ile birlikte Baharat Üçgeni'ni kapatır."
+   },
+   "source": "wookieepedia:Death Wind Corridor",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Roon",
+     "coordinates": "S-15"
+    },
+    {
+     "article": "Ryloth",
+     "coordinates": "R-17",
+     "bodyId": "ryloth"
+    }
+   ]
+  },
+  {
+   "id": "sanctuary-pipeline",
+   "names": {
+    "en": "Sanctuary Pipeline",
+    "tr": "Sığınak Hattı"
+   },
+   "blurb": {
+    "en": "The Empire’s secret lane from Sullust to the moon of Endor, opened to supply the second Death Star.",
+    "tr": "İmparatorluğun Sullust'tan Endor ayına uzanan gizli hattı; ikinci Ölüm Yıldızı'nı beslemek için açıldı."
+   },
+   "source": "wookieepedia:Sanctuary Pipeline",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Sullust",
+     "coordinates": "M-17"
+    },
+    {
+     "article": "Endor",
+     "coordinates": "H-16",
+     "bodyId": "endor"
+    },
+    {
+     "article": "Murk system",
+     "coordinates": "H-16",
+     "label": "Murk"
+    }
+   ]
+  },
+  {
+   "id": "five-veils-route",
+   "names": {
+    "en": "Five Veils Route",
+    "tr": "Beş Peçe Rotası"
+   },
+   "blurb": {
+    "en": "Branches off the Triellus at Farstine and runs south through Sterdic IV and Vallt.",
+    "tr": "Farstine'da Triellus'tan ayrılır, Sterdic IV ve Vallt üzerinden güneye iner."
+   },
+   "source": "wookieepedia:Five Veils Route",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Farstine system",
+     "coordinates": "P-17"
+    },
+    {
+     "article": "Svivren system",
+     "coordinates": "O-19"
+    },
+    {
+     "article": "Skynara system",
+     "coordinates": "P-19"
+    }
+   ]
+  },
+  {
+   "id": "overic-griplink",
+   "names": {
+    "en": "Overic Griplink",
+    "tr": "Overic Griplink"
+   },
+   "blurb": {
+    "en": "Mon Cala north to Quermia, where it meets the Perlemian and a traveller can turn for the interior.",
+    "tr": "Mon Cala'dan kuzeye Quermia'ya; orada Perlemian'a kavuşur ve yolcu iç bölgelere dönebilir."
+   },
+   "source": "wookieepedia:Overic Griplink",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Mon Cala",
+     "coordinates": "U-6"
+    },
+    {
+     "article": "Quermia",
+     "coordinates": "S-5"
+    }
+   ]
+  },
+  {
+   "id": "kessel-run",
+   "names": {
+    "en": "Kessel Run",
+    "tr": "Kessel Koşusu"
+   },
+   "blurb": {
+    "en": "The twenty-parsec smugglers’ route through the Akkadese Maelstrom — the one Han Solo claimed in under twelve.",
+    "tr": "Akkadese Girdabı içinden geçen yirmi parseklik kaçakçı rotası — Han Solo'nun on ikinin altında koştuğunu iddia ettiği yol."
+   },
+   "source": "wookieepedia:Kessel Run",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Kessel",
+     "coordinates": "T-10",
+     "bodyId": "kessel"
+    },
+    {
+     "article": "Oba Diah",
+     "coordinates": "T-10"
+    }
+   ]
+  },
+  {
+   "id": "listehol-run",
+   "names": {
+    "en": "Listehol Run",
+    "tr": "Listehol Koşusu"
+   },
+   "blurb": {
+    "en": "Leaves the Hydian Way at Listehol and winds east through Mirial to Zygerria.",
+    "tr": "Listehol'da Hydian Yolu'ndan ayrılır, Mirial üzerinden doğuya kıvrılıp Zygerria'ya varır."
+   },
+   "source": "wookieepedia:Listehol Run",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Listehol",
+     "coordinates": "Q-4"
+    },
+    {
+     "article": "Zygerria",
+     "coordinates": "S-4"
+    }
+   ]
+  },
+  {
+   "id": "shwuy-exchange",
+   "names": {
+    "en": "Shwuy Exchange",
+    "tr": "Shwuy Takası"
+   },
+   "blurb": {
+    "en": "Uviuy Exen to Vakkar through the Colonies, joining the Namadii Corridor at Palanhi.",
+    "tr": "Koloniler üzerinden Uviuy Exen'den Vakkar'a; Palanhi'de Namadii Koridoru'na bağlanır."
+   },
+   "source": "wookieepedia:Shwuy Exchange",
+   "color": "#6a8fa5",
+   "stops": [
+    {
+     "article": "Uviuy Exen",
+     "coordinates": "L-9"
+    },
+    {
+     "article": "Vakkar",
+     "coordinates": "K-9"
+    }
+   ]
+  }
+ ]
+}

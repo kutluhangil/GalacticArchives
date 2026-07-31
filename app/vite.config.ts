@@ -33,6 +33,10 @@ export default defineConfig({
           // chunk so they split into a dynamic chunk (see planet-textures.ts).
           if (id.includes('node_modules/three/examples/jsm/loaders/KTX2Loader')) return
           if (id.includes('node_modules/three')) return 'three'
+          // the hyperlane network is the largest single data file and grows
+          // with every lane charted; its own chunk keeps that growth visible
+          // to the bundle budget instead of hiding it inside the galaxy route
+          if (id.includes('src/data/routes.json')) return 'routes'
         },
       },
     },

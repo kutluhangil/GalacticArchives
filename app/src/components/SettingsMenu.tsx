@@ -12,8 +12,48 @@ const QUALITY_LABELS: Record<Quality, { en: string; tr: string }> = {
   high: { en: 'High', tr: 'Yüksek' },
 }
 
+/** labelled switch row — the settings popover has one per map layer */
+function Toggle({
+  label,
+  hint,
+  checked,
+  onChange,
+}: {
+  label: string
+  hint: string
+  checked: boolean
+  onChange: (v: boolean) => void
+}) {
+  return (
+    <div className="mt-3 border-t border-white/5 pt-2.5">
+      <button
+        onClick={() => onChange(!checked)}
+        role="switch"
+        aria-checked={checked}
+        className="flex w-full items-center justify-between gap-2 text-left"
+      >
+        <span className="font-hud text-[10px] uppercase tracking-[0.25em] text-slate-500">
+          {label}
+        </span>
+        <span
+          className={`relative h-4 w-7 shrink-0 rounded-full transition-colors ${
+            checked ? 'bg-holo-cyan/40' : 'bg-white/10'
+          }`}
+        >
+          <span
+            className={`absolute top-0.5 h-3 w-3 rounded-full transition-all ${
+              checked ? 'left-3.5 bg-holo-cyan' : 'left-0.5 bg-slate-400'
+            }`}
+          />
+        </span>
+      </button>
+      <p className="mt-1.5 text-[10px] leading-snug text-slate-600">{hint}</p>
+    </div>
+  )
+}
+
 export default function SettingsMenu() {
-  const { lang, quality, setQuality, legends, setLegends } = useApp()
+  const { lang, quality, setQuality, legends, setLegends, lanes, setLanes } = useApp()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -63,30 +103,18 @@ export default function SettingsMenu() {
           </div>
           <p className="mt-2 text-[10px] leading-snug text-slate-600">{t('qualityHint', lang)}</p>
 
-          <div className="mt-3 border-t border-white/5 pt-2.5">
-            <button
-              onClick={() => setLegends(!legends)}
-              role="switch"
-              aria-checked={legends}
-              className="flex w-full items-center justify-between gap-2 text-left"
-            >
-              <span className="font-hud text-[10px] uppercase tracking-[0.25em] text-slate-500">
-                {t('legends', lang)}
-              </span>
-              <span
-                className={`relative h-4 w-7 shrink-0 rounded-full transition-colors ${
-                  legends ? 'bg-holo-cyan/40' : 'bg-white/10'
-                }`}
-              >
-                <span
-                  className={`absolute top-0.5 h-3 w-3 rounded-full transition-all ${
-                    legends ? 'left-3.5 bg-holo-cyan' : 'left-0.5 bg-slate-400'
-                  }`}
-                />
-              </span>
-            </button>
-            <p className="mt-1.5 text-[10px] leading-snug text-slate-600">{t('legendsHint', lang)}</p>
-          </div>
+          <Toggle
+            label={t('legends', lang)}
+            hint={t('legendsHint', lang)}
+            checked={legends}
+            onChange={setLegends}
+          />
+          <Toggle
+            label={t('lanes', lang)}
+            hint={t('lanesHint', lang)}
+            checked={lanes}
+            onChange={setLanes}
+          />
         </div>
       )}
     </div>
