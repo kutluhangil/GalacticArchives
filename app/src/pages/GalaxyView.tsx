@@ -7,8 +7,10 @@ import { factionById, L, loadAllPlanets, regions, rendersAsRubble } from '../lib
 import { routes } from '../lib/routes'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
+import { useSearchParams } from 'react-router'
 import TopBar from '../components/hud/TopBar'
 import RoutePlanner from '../components/hud/RoutePlanner'
+import LanePanel from '../components/hud/LanePanel'
 import OnboardingHint from '../components/OnboardingHint'
 import { useFlyTo } from '../components/useFlyTo'
 
@@ -90,6 +92,31 @@ export default function GalaxyView() {
     [flyTo],
   )
 
+  // the selected lane lives in the URL, so it is shareable and the back button
+  // walks the selections
+  const [searchParams, setSearchParams] = useSearchParams()
+  const laneParam = searchParams.get('lane')
+  const selectedLane = routes.some((r) => r.id === laneParam) ? laneParam : null
+
+  const selectLane = useCallback(
+    (id: string | null) => {
+      setSearchParams((prev) => {
+        const next = new URLSearchParams(prev)
+        if (id) next.set('lane', id)
+        else next.delete('lane')
+        return next
+      })
+    },
+    [setSearchParams],
+  )
+
+  // the engine is built once per node set; routing the callback through a ref
+  // keeps a lane selection from tearing the scene down and rebuilding it
+  const selectLaneRef = useRef(selectLane)
+  useEffect(() => {
+    selectLaneRef.current = selectLane
+  }, [selectLane])
+
   useEffect(() => {
     loadAllPlanets().then(setPlanets)
   }, [])
@@ -126,6 +153,7 @@ export default function GalaxyView() {
       getSimTime: () => simClock.getTime(),
       onFps: setFps,
       onSelect: dive,
+      onLaneSelect: (routeId: string) => selectLaneRef.current(routeId),
       onLabelPositions: setLabels,
       onRegionHover: setHoverRegion,
     })
@@ -142,6 +170,16 @@ export default function GalaxyView() {
   useEffect(() => {
     engineRef.current?.setLanesVisible(lanes)
   }, [lanes])
+
+  useEffect(() => {
+    engineRef.current?.setSelectedLane(selectedLane)
+  }, [selectedLane, nodes])
+
+  // lanes switched off take their selection with them: a panel for something
+  // the map is no longer drawing is a panel about nothing
+  useEffect(() => {
+    if (!lanes && selectedLane) selectLane(null)
+  }, [lanes, selectedLane, selectLane])
 
   // stable across renders: the planner would otherwise redraw every frame it
   // re-renders, and the effect that feeds it depends on this identity
@@ -166,6 +204,25 @@ export default function GalaxyView() {
       <TopBar />
       <OnboardingHint />
       <RoutePlanner onCourse={showCourse} />
+
+      {selectedLane && <LanePanel routeId={selectedLane} onClose={() => selectLane(null)} />}
+
+      {/* The lane tubes cannot take focus either, so this mirrors the map's
+          lanes the way the planet nav below mirrors its worlds. */}
+      <nav aria-label={t('lanesNav', lang)}>
+        <ul>
+          {routes.map((route) => (
+            <li key={route.id}>
+              <button
+                onClick={() => selectLane(route.id)}
+                className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-28 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-none focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
+              >
+                {L(route.names, lang)}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       {/* Keyboard/screen-reader access to the map: the WebGL nodes cannot take
           focus, so this stable, sorted list mirrors every visible world. Each

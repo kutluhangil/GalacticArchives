@@ -179,6 +179,18 @@ const STRINGS = {
     tr: 'Mesafeler kanon seyir gridine göre: bir grid karesi 15 parsek.',
   },
 
+  laneSelected: { en: 'Hyperlane', tr: 'Hiperuzay hattı' },
+  lanesNav: { en: 'Hyperlanes', tr: 'Hiperuzay hatları' },
+  laneStops: { en: 'stops', tr: 'durak' },
+  laneInArchive: { en: 'in this archive', tr: 'bu arşivde' },
+  laneFly: { en: 'Fly this lane', tr: 'Bu hattı uç' },
+  laneClose: { en: 'Close', tr: 'Kapat' },
+  laneTooThin: {
+    en: 'Too few of this lane’s stops have a record here to fly it end to end.',
+    tr: 'Bu hattın burada kaydı olan durağı, baştan sona uçmak için yeterli değil.',
+  },
+  laneSource: { en: 'Lane article', tr: 'Hat makalesi' },
+
   // easter eggs
   kesselRun: { en: 'Kessel Run', tr: 'Kessel Koşusu' },
   kesselStart: { en: 'Start the run', tr: 'Koşuyu başlat' },
