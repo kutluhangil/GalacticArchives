@@ -49,9 +49,11 @@
       "characters": ["poe-dameron", "luke-skywalker", "leia-organa", "mon-mothma"],
       "poi": [
         { "id": "great-temple", "names": { "en": "Great Temple (Massassi Base)", "tr": "Büyük Tapınak (Massassi Üssü)" }, "lat": 6, "lon": -15,
-          "blurb": { "en": "Ancient stone pyramid turned starfighter hangar and war room.", "tr": "Yıldız avcısı hangarına ve harekât odasına dönüşen kadim taş piramit." } },
+          "blurb": { "en": "Ancient stone pyramid turned starfighter hangar and war room.", "tr": "Yıldız avcısı hangarına ve harekât odasına dönüşen kadim taş piramit." },
+          "source": "wookieepedia:Great Temple" },
         { "id": "massassi-ruins", "names": { "en": "Massassi Ruins", "tr": "Massassi Kalıntıları" }, "lat": 9, "lon": -11,
-          "blurb": { "en": "Temples raised millennia ago by an enslaved warrior species.", "tr": "Binyıllar önce köleleştirilmiş bir savaşçı türün diktiği tapınaklar." } }
+          "blurb": { "en": "Temples raised millennia ago by an enslaved warrior species.", "tr": "Binyıllar önce köleleştirilmiş bir savaşçı türün diktiği tapınaklar." },
+          "source": "wookieepedia:Massassi Site/Legends" }
       ],
       "funFacts": {
         "en": [

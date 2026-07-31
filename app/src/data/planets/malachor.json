@@ -63,6 +63,11 @@
     "ezra-bridger",
     "kanan-jarrus"
   ],
+  "poi": [
+    { "id": "sith-temple", "names": { "en": "Malachor Sith Temple", "tr": "Malachor Sith Tapınağı" }, "lat": -3, "lon": 47,
+      "blurb": { "en": "A superweapon under a crust of stone, openable only by a Sith master and apprentice together.", "tr": "Taş kabuğun altında bir süper silah; ancak bir Sith ustası ve çırağı birlikte açabilirdi." },
+      "source": "wookieepedia:Malachor Sith Temple" }
+  ],
   "funFacts": {
     "en": [
       "Kanan Jarrus was blinded here and Ahsoka walked into the temple with Vader.",

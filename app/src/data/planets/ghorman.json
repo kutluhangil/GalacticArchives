@@ -59,6 +59,14 @@
     "cassian-andor",
     "mon-mothma"
   ],
+  "poi": [
+    { "id": "palmo", "names": { "en": "Palmo", "tr": "Palmo" }, "lat": 22, "lon": -37,
+      "blurb": { "en": "The elegant capital of the twill trade, and the square where Tarkin's cruiser crushed five hundred civilians.", "tr": "Twill ticaretinin zarif başkenti; Tarkin'in kruvazörünün beş yüz sivili ezdiği şehir." },
+      "source": "wookieepedia:Palmo" },
+    { "id": "palmo-plaza", "names": { "en": "Palmo Plaza", "tr": "Palmo Meydanı" }, "lat": 24, "lon": -34,
+      "blurb": { "en": "The Monument to the Fallen stands here — and here the Ghorman Massacre answered a protest with rifles in 2 BBY.", "tr": "Düşenler Anıtı burada durur — ve 2 BBY'de Ghorman Katliamı bir protestoya tüfeklerle cevap verdi." },
+      "source": "wookieepedia:Palmo Plaza" }
+  ],
   "funFacts": {
     "en": [
       "The Ghorman Massacre was staged by the Empire to justify stripping the planet for its ore.",

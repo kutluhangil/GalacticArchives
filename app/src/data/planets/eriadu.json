@@ -54,6 +54,11 @@
   },
   "appearances": [],
   "characters": [],
+  "poi": [
+    { "id": "eriadu-city", "names": { "en": "Eriadu City", "tr": "Eriadu Şehri" }, "lat": -11, "lon": 132,
+      "blurb": { "en": "The capital of Tarkin's homeworld, burned in the Battle of Eriadu and built again.", "tr": "Tarkin'in ana dünyasının başkenti; Eriadu Muharebesi'nde yandı ve yeniden inşa edildi." },
+      "source": "wookieepedia:Eriadu City" }
+  ],
   "funFacts": {
     "en": [
       "Wilhuff Tarkin grew up hunting in Eriadu's wilds under a family code of survival.",

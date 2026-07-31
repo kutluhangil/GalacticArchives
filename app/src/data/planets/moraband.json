@@ -53,6 +53,14 @@
     "palpatine",
     "darth-maul"
   ],
+  "poi": [
+    { "id": "valley-of-the-dark-lords", "names": { "en": "Valley of the Dark Lords", "tr": "Kara Lordlar Vadisi" }, "lat": -8, "lon": 21,
+      "blurb": { "en": "A corridor of monuments serving as crypts for the dead Dark Lords of the Sith.", "tr": "Ölmüş Sith Kara Lordlarına mezar olan anıtlar koridoru." },
+      "source": "wookieepedia:Valley of the Dark Lords" },
+    { "id": "sith-temple", "names": { "en": "Sith Temple", "tr": "Sith Tapınağı" }, "lat": -11, "lon": 25,
+      "blurb": { "en": "The valley's largest monument: Darth Bane's tomb, and a chamber where the ancient Sith sacrificed Jedi.", "tr": "Vadinin en büyük anıtı: Darth Bane'in mezarı ve kadim Sith'in Jedi kurban ettiği oda." },
+      "source": "wookieepedia:Sith temple (Valley of the Dark Lords)" }
+  ],
   "funFacts": {
     "en": [
       "Yoda came here to face Sidious in vision and learn how to survive as a ghost.",

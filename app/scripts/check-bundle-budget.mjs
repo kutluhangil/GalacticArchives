@@ -26,9 +26,10 @@ const BUDGETS = [
   { name: 'entry chunk', pattern: /^index-.*\.js$/, max: 360_000 },
   { name: 'entry stylesheet', pattern: /^index-.*\.css$/, max: 48_000 },
   { name: 'KTX2 transcoder chunk', pattern: /^KTX2Loader-.*\.js$/, max: 40_000 },
-  // carries sources.json (provenance for every body), which is easy to grow
-  // without noticing — see scripts/sync-sources.mjs
   { name: 'planet route chunk', pattern: /^PlanetView-.*\.js$/, max: 40_000 },
+  // provenance for every body and character; shared by the planet HUD and the
+  // Holocron, and easy to grow without noticing — see scripts/sync-sources.mjs
+  { name: 'sources chunk', pattern: /^sources-.*\.js$/, max: 24_000 },
 ]
 
 const files = readdirSync(ASSETS)

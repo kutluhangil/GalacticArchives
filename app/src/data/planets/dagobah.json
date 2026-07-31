@@ -25,11 +25,14 @@
   "characters": ["yoda", "luke-skywalker"],
   "poi": [
     { "id": "yodas-hut", "names": { "en": "Yoda's Hut", "tr": "Yoda'nın Kulübesi" }, "lat": -5, "lon": 20,
-      "blurb": { "en": "A mud hovel by the lagoon — and the greatest Jedi academy of its era.", "tr": "Lagün kıyısında çamurdan bir kulübe — ve döneminin en büyük Jedi akademisi." } },
+      "blurb": { "en": "A mud hovel by the lagoon — and the greatest Jedi academy of its era.", "tr": "Lagün kıyısında çamurdan bir kulübe — ve döneminin en büyük Jedi akademisi." },
+      "source": "wookieepedia:Yoda's Hut/Legends" },
     { "id": "dark-side-cave", "names": { "en": "Cave of Evil", "tr": "Kötülük Mağarası" }, "lat": -8, "lon": 24,
-      "blurb": { "en": "A dark side nexus. What's in there? Only what you take with you.", "tr": "Bir karanlık taraf düğümü. İçeride ne mi var? Yalnızca yanında götürdüğün." } },
+      "blurb": { "en": "A dark side nexus. What's in there? Only what you take with you.", "tr": "Bir karanlık taraf düğümü. İçeride ne mi var? Yalnızca yanında götürdüğün." },
+      "source": "wookieepedia:Cave of Evil" },
     { "id": "dragonsnake-bog", "names": { "en": "Dragonsnake Bog", "tr": "Ejder Yılanı Bataklığı" }, "lat": -3, "lon": 17,
-      "blurb": { "en": "Where an X-wing sank — and rose again, because size matters not.", "tr": "Bir X-wing'in battığı — ve boyut önemli olmadığı için yeniden yükseldiği yer." } }
+      "blurb": { "en": "Where an X-wing sank — and rose again, because size matters not.", "tr": "Bir X-wing'in battığı — ve boyut önemli olmadığı için yeniden yükseldiği yer." },
+      "source": "wookieepedia:Dragonsnake Bog" }
   ],
   "funFacts": {
     "en": [

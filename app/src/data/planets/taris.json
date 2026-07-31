@@ -64,6 +64,14 @@
     "kotor",
     "swtor"
   ],
+  "poi": [
+    { "id": "upper-city", "names": { "en": "Upper City", "tr": "Üst Şehir" }, "lat": 29, "lon": -8,
+      "blurb": { "en": "The glittering spires of the privileged, and the last level of Taris to fall in the riots.", "tr": "Ayrıcalıklıların ışıldayan kuleleri; ayaklanmalarda Taris'in en son düşen katı." },
+      "source": "wookieepedia:Upper City" },
+    { "id": "undercity", "names": { "en": "Undercity", "tr": "Alt Şehir" }, "lat": 22, "lon": -14,
+      "blurb": { "en": "A mechanical wilderness at ground level, left to the Outcasts banished from the surface.", "tr": "Zemin katta mekanik bir vahşi doğa; yüzeyden sürülen Dışlanmışlara bırakıldı." },
+      "source": "wookieepedia:Undercity (Taris)" }
+  ],
   "funFacts": {
     "en": [
       "Darth Malak ordered the planet's orbital bombardment to kill a single hidden Jedi.",

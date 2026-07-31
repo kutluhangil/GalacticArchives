@@ -25,9 +25,11 @@
   "characters": ["ezra-bridger", "kanan-jarrus", "hera-syndulla", "sabine-wren", "thrawn", "ahsoka-tano"],
   "poi": [
     { "id": "capital-city", "names": { "en": "Capital City", "tr": "Başkent" }, "lat": 10, "lon": 5,
-      "blurb": { "en": "Site of Ezra's last broadcast and the liberation of 1 BBY.", "tr": "Ezra'nın son yayınının ve 1 BBY kurtuluşunun sahnesi." } },
+      "blurb": { "en": "Site of Ezra's last broadcast and the liberation of 1 BBY.", "tr": "Ezra'nın son yayınının ve 1 BBY kurtuluşunun sahnesi." },
+      "source": "wookieepedia:Capital City" },
     { "id": "lothal-temple", "names": { "en": "Lothal Jedi Temple", "tr": "Lothal Jedi Tapınağı" }, "lat": 16, "lon": -8,
-      "blurb": { "en": "A door between worlds: paintings that move, and a realm between time.", "tr": "Dünyalar arasında bir kapı: kıpırdayan resimler ve zamanlar arası bir âlem." } },
+      "blurb": { "en": "A door between worlds: paintings that move, and a realm between time.", "tr": "Dünyalar arasında bir kapı: kıpırdayan resimler ve zamanlar arası bir âlem." },
+      "source": "wookieepedia:Lothal Jedi Temple" },
     { "id": "ezras-tower", "names": { "en": "Ezra's Tower", "tr": "Ezra'nın Kulesi" }, "lat": 12, "lon": 2,
       "blurb": { "en": "An abandoned comm spire a street kid called home.", "tr": "Bir sokak çocuğunun ev dediği terk edilmiş iletişim kulesi." } }
   ],

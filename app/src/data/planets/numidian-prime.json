@@ -53,6 +53,11 @@
     "chewbacca",
     "lando-calrissian"
   ],
+  "poi": [
+    { "id": "numidian-temple", "names": { "en": "Numidian Temple", "tr": "Numidian Tapınağı" }, "lat": 16, "lon": -76,
+      "blurb": { "en": "The temple Luke Skywalker came looking for around 3 ABY — and did not find.", "tr": "Luke Skywalker'ın 3 ABY civarında aradığı ve bulamadığı tapınak." },
+      "source": "wookieepedia:Unidentified temple (Numidian Prime)" }
+  ],
   "funFacts": {
     "en": [
       "Han won the Millennium Falcon from Lando here — with the green sylop Lando had palmed away.",

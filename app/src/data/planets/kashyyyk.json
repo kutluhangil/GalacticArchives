@@ -25,11 +25,14 @@
   "characters": ["chewbacca", "yoda"],
   "poi": [
     { "id": "kachirho", "names": { "en": "Kachirho", "tr": "Kachirho" }, "lat": -2, "lon": 48,
-      "blurb": { "en": "Coastal tree-city where the Battle of Kashyyyk raged in 19 BBY.", "tr": "19 BBY'de Kashyyyk Muharebesi'nin yaşandığı kıyı ağaç-şehri." } },
+      "blurb": { "en": "Coastal tree-city where the Battle of Kashyyyk raged in 19 BBY.", "tr": "19 BBY'de Kashyyyk Muharebesi'nin yaşandığı kıyı ağaç-şehri." },
+      "source": "wookieepedia:Kachirho" },
     { "id": "wawaatt-archipelago", "names": { "en": "Wawaatt Archipelago", "tr": "Wawaatt Takımadaları" }, "lat": -5, "lon": 44,
-      "blurb": { "en": "Island chains under the great canopy's edge.", "tr": "Büyük kanopinin kıyısındaki ada zincirleri." } },
+      "blurb": { "en": "Island chains under the great canopy's edge.", "tr": "Büyük kanopinin kıyısındaki ada zincirleri." },
+      "source": "wookieepedia:Wawaatt Archipelago" },
     { "id": "shadowlands", "names": { "en": "The Shadowlands", "tr": "Gölge Diyarı" }, "lat": 3, "lon": 52,
-      "blurb": { "en": "The lightless forest floor where even Wookiees walk armed.", "tr": "Wookieelerin bile silahlı yürüdüğü ışıksız orman tabanı." } }
+      "blurb": { "en": "The lightless forest floor where even Wookiees walk armed.", "tr": "Wookieelerin bile silahlı yürüdüğü ışıksız orman tabanı." },
+      "source": "wookieepedia:Shadowlands" }
   ],
   "funFacts": {
     "en": [

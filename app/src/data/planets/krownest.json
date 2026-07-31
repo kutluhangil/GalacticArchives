@@ -51,6 +51,11 @@
     "ezra-bridger",
     "kanan-jarrus"
   ],
+  "poi": [
+    { "id": "wren-stronghold", "names": { "en": "Wren Stronghold", "tr": "Wren Kalesi" }, "lat": 58, "lon": 14,
+      "blurb": { "en": "Clan Wren's seat of steel and glass, built at the edge of a frozen lake.", "tr": "Clan Wren'in donmuş bir gölün kıyısına kurulmuş çelik ve cam yurdu." },
+      "source": "wookieepedia:Wren Stronghold" }
+  ],
   "funFacts": {
     "en": [
       "Sabine Wren returned home here to ask her mother to choose a side.",

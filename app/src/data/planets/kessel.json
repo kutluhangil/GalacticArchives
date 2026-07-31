@@ -26,9 +26,11 @@
   "characters": ["han-solo", "chewbacca", "lando-calrissian"],
   "poi": [
     { "id": "spice-mines", "names": { "en": "Spice Mines of Kessel", "tr": "Kessel Baharat Madenleri" }, "lat": 35, "lon": 10,
-      "blurb": { "en": "Coaxium and spice dug by enslaved hands — until a droid uprising, L3-37's finest hour.", "tr": "Köle ellerin kazdığı coaxium ve baharat — L3-37'nin en parlak anı olan droid ayaklanmasına dek." } },
+      "blurb": { "en": "Coaxium and spice dug by enslaved hands — until a droid uprising, L3-37's finest hour.", "tr": "Köle ellerin kazdığı coaxium ve baharat — L3-37'nin en parlak anı olan droid ayaklanmasına dek." },
+      "source": "wookieepedia:Spice mines of Kessel" },
     { "id": "the-maw-approach", "names": { "en": "The Maw Approach", "tr": "Maw Yaklaşması" }, "lat": 0, "lon": 0,
-      "blurb": { "en": "The cluster of gravity wells guarding the only fast way out.", "tr": "Tek hızlı çıkışı koruyan kütleçekim kuyuları kümesi." } }
+      "blurb": { "en": "The cluster of gravity wells guarding the only fast way out.", "tr": "Tek hızlı çıkışı koruyan kütleçekim kuyuları kümesi." },
+      "source": "wookieepedia:Kessel Run" }
   ],
   "funFacts": {
     "en": [

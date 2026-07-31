@@ -59,6 +59,11 @@
     "grogu",
     "luke-skywalker"
   ],
+  "poi": [
+    { "id": "seeing-stone", "names": { "en": "Seeing Stone", "tr": "Görü Taşı" }, "lat": 1, "lon": -56,
+      "blurb": { "en": "The stone at the Force-henge that calls out to any Force-sensitive within reach.", "tr": "Güç-henge'deki taş; menzildeki her Güç duyarlısına seslenir." },
+      "source": "wookieepedia:Seeing stone" }
+  ],
   "funFacts": {
     "en": [
       "Grogu reached out from the seeing stone and Luke Skywalker answered the call.",

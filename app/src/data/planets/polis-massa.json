@@ -57,6 +57,11 @@
     "luke-skywalker",
     "leia-organa"
   ],
+  "poi": [
+    { "id": "polis-massa-base", "names": { "en": "Polis Massa Base", "tr": "Polis Massa Üssü" }, "lat": 0, "lon": 0,
+      "blurb": { "en": "The archaeologists' base in the asteroid field, where Padmé's twins were born and separated.", "tr": "Asteroit alanındaki arkeolog üssü; Padmé'nin ikizleri burada doğdu ve ayrıldı." },
+      "source": "wookieepedia:Polis Massa Base" }
+  ],
   "funFacts": {
     "en": [
       "Luke and Leia were born in the medical wing here, minutes before their mother died.",

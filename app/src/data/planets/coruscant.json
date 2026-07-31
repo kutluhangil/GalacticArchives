@@ -25,13 +25,17 @@
   "characters": ["palpatine", "padme-amidala", "qui-gon-jinn", "kanan-jarrus", "anakin-skywalker", "mon-mothma"],
   "poi": [
     { "id": "jedi-temple", "names": { "en": "Jedi Temple", "tr": "Jedi Tapınağı" }, "lat": 14, "lon": -20,
-      "blurb": { "en": "Five-spired heart of the Jedi Order — later the Imperial Palace.", "tr": "Jedi Düzeni'nin beş kuleli kalbi — sonradan İmparatorluk Sarayı." } },
+      "blurb": { "en": "Five-spired heart of the Jedi Order — later the Imperial Palace.", "tr": "Jedi Düzeni'nin beş kuleli kalbi — sonradan İmparatorluk Sarayı." },
+      "source": "wookieepedia:Imperial Palace" },
     { "id": "galactic-senate", "names": { "en": "Galactic Senate", "tr": "Galaktik Senato" }, "lat": 12, "lon": -14,
-      "blurb": { "en": "The mushroom-domed chamber where the Republic argued itself to death.", "tr": "Cumhuriyet'in kendini ölümüne tartıştığı mantar kubbeli meclis." } },
+      "blurb": { "en": "The mushroom-domed chamber where the Republic argued itself to death.", "tr": "Cumhuriyet'in kendini ölümüne tartıştığı mantar kubbeli meclis." },
+      "source": "wookieepedia:Galactic Senate" },
     { "id": "level-1313", "names": { "en": "Level 1313", "tr": "Katman 1313" }, "lat": -6, "lon": 8,
-      "blurb": { "en": "A lawless underworld level deep beneath the surface lights.", "tr": "Yüzey ışıklarının çok altında kanunsuz bir yeraltı katmanı." } },
+      "blurb": { "en": "A lawless underworld level deep beneath the surface lights.", "tr": "Yüzey ışıklarının çok altında kanunsuz bir yeraltı katmanı." },
+      "source": "wookieepedia:Level 1313" },
     { "id": "monument-plaza", "names": { "en": "Monument Plaza", "tr": "Anıt Meydanı" }, "lat": 20, "lon": -35,
-      "blurb": { "en": "Crowds gather around the one bare peak of Umate — the only exposed rock on the planet.", "tr": "Kalabalıklar Umate'nin çıplak zirvesinde toplanır — gezegendeki tek açık kaya." } }
+      "blurb": { "en": "Crowds gather around the one bare peak of Umate — the only exposed rock on the planet.", "tr": "Kalabalıklar Umate'nin çıplak zirvesinde toplanır — gezegendeki tek açık kaya." },
+      "source": "wookieepedia:Monument Plaza" }
   ],
   "funFacts": {
     "en": [

@@ -24,7 +24,8 @@
   "characters": ["din-djarin", "grogu", "boba-fett"],
   "poi": [
     { "id": "nevarro-city", "names": { "en": "Nevarro City", "tr": "Nevarro Şehri" }, "lat": 6, "lon": -20,
-      "blurb": { "en": "From Guild cantina town to respectable trade capital — statue of IG-11 included.", "tr": "Lonca kantini kasabasından saygın ticaret başkentine — IG-11 heykeli dahil." } },
+      "blurb": { "en": "From Guild cantina town to respectable trade capital — statue of IG-11 included.", "tr": "Lonca kantini kasabasından saygın ticaret başkentine — IG-11 heykeli dahil." },
+      "source": "wookieepedia:Nevarro City" },
     { "id": "lava-flats", "names": { "en": "Lava Flats", "tr": "Lav Düzlükleri" }, "lat": 4, "lon": -16,
       "blurb": { "en": "Ferry routes over molten rock, piloted by lava meerkats. Really.", "tr": "Erimiş kaya üzerinde feribot hatları; kaptanlar lav mirketleri. Gerçekten." } },
     { "id": "djarin-homestead", "names": { "en": "Din & Grogu's Homestead", "tr": "Din ile Grogu'nun Çiftliği" }, "lat": 8, "lon": -24,

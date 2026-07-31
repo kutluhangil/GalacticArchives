@@ -50,6 +50,11 @@
     "han-solo",
     "chewbacca"
   ],
+  "poi": [
+    { "id": "imperial-hq", "names": { "en": "Imperial Headquarters", "tr": "İmparatorluk Karargâhı" }, "lat": -19, "lon": 96,
+      "blurb": { "en": "Alien ruins turned into the seat of five mine towns — and their prison.", "tr": "Beş maden kasabasının merkezine ve hapishanesine çevrilmiş yabancı harabeler." },
+      "source": "wookieepedia:Imperial headquarters (Mimban)" }
+  ],
   "funFacts": {
     "en": [
       "Han Solo met Chewbacca in a pit on Mimban, where the Empire kept a \"beast\" to eat deserters.",

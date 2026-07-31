@@ -52,6 +52,11 @@
     "tfa"
   ],
   "characters": [],
+  "poi": [
+    { "id": "senatorial-complex", "names": { "en": "New Republic Senatorial Complex", "tr": "Yeni Cumhuriyet Senato Kompleksi" }, "lat": 7, "lon": 41,
+      "blurb": { "en": "One storey tall on purpose, so that no senator's office could sit above another's.", "tr": "Kasten tek katlı: hiçbir senatörün ofisi bir diğerininkinden yüksekte olmasın diye." },
+      "source": "wookieepedia:New Republic senatorial complex" }
+  ],
   "funFacts": {
     "en": [
       "The Hosnian system was destroyed with the Republic fleet still docked around it.",

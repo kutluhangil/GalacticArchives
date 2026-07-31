@@ -61,6 +61,11 @@
   "characters": [
     "finn"
   ],
+  "poi": [
+    { "id": "canto-bight", "names": { "en": "Canto Bight", "tr": "Canto Bight" }, "lat": -8, "lon": 52,
+      "blurb": { "en": "The coastal casino city where the war's profiteers spend, and where Finn and Rose went hunting a codebreaker.", "tr": "Savaş vurguncularının parasını harcadığı kıyı kumarhane şehri; Finn ile Rose burada bir şifre kırıcı aradı." },
+      "source": "wookieepedia:Canto Bight" }
+  ],
   "funFacts": {
     "en": [
       "Canto Bight's fathier stables and its casino floor are run by the same fortunes.",

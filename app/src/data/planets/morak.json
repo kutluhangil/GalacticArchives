@@ -55,6 +55,11 @@
   "characters": [
     "din-djarin"
   ],
+  "poi": [
+    { "id": "imperial-refinery", "names": { "en": "Imperial Rhydonium Refinery", "tr": "İmparatorluk Rhydonium Rafinerisi" }, "lat": -7, "lon": 118,
+      "blurb": { "en": "The remnant refinery Din Djarin and Mayfeld walked into as transport pilots, and left burning.", "tr": "Din Djarin ile Mayfeld'in nakliye pilotu kılığında girip yanar halde bıraktığı artık rafinerisi." },
+      "source": "wookieepedia:Morak Imperial refinery" }
+  ],
   "funFacts": {
     "en": [
       "Din Djarin wore stormtrooper armour here for the only time — and hated every minute.",

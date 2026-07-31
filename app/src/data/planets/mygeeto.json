@@ -51,6 +51,11 @@
     "tcw"
   ],
   "characters": [],
+  "poi": [
+    { "id": "jygat", "names": { "en": "Jygat", "tr": "Jygat" }, "lat": 31, "lon": -119,
+      "blurb": { "en": "The crystal city that housed the Dressian Kiolsh Merchant Bank.", "tr": "Dressian Kiolsh Tüccar Bankası'nı barındıran kristal şehir." },
+      "source": "wookieepedia:Jygat" }
+  ],
   "funFacts": {
     "en": [
       "Ki-Adi-Mundi died here, cut down by his own clone troopers mid-advance.",

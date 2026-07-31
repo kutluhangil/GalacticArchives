@@ -66,6 +66,11 @@
     "sabine-wren",
     "thrawn"
   ],
+  "poi": [
+    { "id": "chopper-base", "names": { "en": "Chopper Base", "tr": "Chopper Üssü" }, "lat": -22, "lon": 48,
+      "blurb": { "en": "Phoenix Cell's rebel base, chosen only after the Empire blockaded their first pick.", "tr": "Phoenix Hücresi'nin isyancı üssü; ancak İmparatorluk ilk seçeneklerini ablukaya alınca seçildi." },
+      "source": "wookieepedia:Chopper Base" }
+  ],
   "funFacts": {
     "en": [
       "Chopper Base was abandoned after Thrawn's blockade broke the Phoenix Cell.",

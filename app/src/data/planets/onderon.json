@@ -57,6 +57,14 @@
     "ahsoka-tano",
     "obi-wan-kenobi"
   ],
+  "poi": [
+    { "id": "iziz", "names": { "en": "Iziz", "tr": "Iziz" }, "lat": 12, "lon": -41,
+      "blurb": { "en": "The walled capital the Onderon rebels took back from the Separatists during the Clone Wars.", "tr": "Onderon isyancılarının Klon Savaşları'nda Ayrılıkçılardan geri aldığı surlu başkent." },
+      "source": "wookieepedia:Iziz" },
+    { "id": "saw-camp", "names": { "en": "Saw Gerrera's Camp", "tr": "Saw Gerrera'nın Kampı" }, "lat": 4, "lon": -47,
+      "blurb": { "en": "The insurgents' jungle base, raised inside the ruins of something far older.", "tr": "İsyancıların orman üssü; çok daha eski bir yapının harabeleri içine kuruldu." },
+      "source": "wookieepedia:Saw Gerrera's camp" }
+  ],
   "funFacts": {
     "en": [
       "Saw Gerrera learned insurgency here, trained by Jedi who would later regret it.",

@@ -27,7 +27,8 @@
     { "id": "fungal-plains", "names": { "en": "Fungal Plains", "tr": "Mantar Ovaları" }, "lat": 0, "lon": 25,
       "blurb": { "en": "Bioluminescent groves where gunships vanish under the canopy.", "tr": "Gemilerin kanopi altında kaybolduğu biyolüminesan korular." } },
     { "id": "nysillin-farms", "names": { "en": "Nysillin Farms", "tr": "Nysillin Çiftlikleri" }, "lat": 6, "lon": 30,
-      "blurb": { "en": "Healing-herb fields defended by four Jedi and a band of bounty hunters.", "tr": "Dört Jedi ve bir grup ödül avcısının savunduğu şifalı bitki tarlaları." } }
+      "blurb": { "en": "Healing-herb fields defended by four Jedi and a band of bounty hunters.", "tr": "Dört Jedi ve bir grup ödül avcısının savunduğu şifalı bitki tarlaları." },
+      "source": "wookieepedia:Nysillin" }
   ],
   "funFacts": {
     "en": [

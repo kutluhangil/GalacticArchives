@@ -21,7 +21,8 @@
   "characters": ["thrawn", "ezra-bridger", "ahsoka-tano", "sabine-wren"],
   "poi": [
     { "id": "nightsister-fortress", "names": { "en": "Fortress of the Great Mothers", "tr": "Büyük Analar Kalesi" }, "lat": 12, "lon": -20,
-      "blurb": { "en": "A witch-citadel where the Chimaera waited, wrapped in scaffolds of bone.", "tr": "Chimaera'nın kemik iskeleler içinde beklediği cadı hisarı." } },
+      "blurb": { "en": "A witch-citadel where the Chimaera waited, wrapped in scaffolds of bone.", "tr": "Chimaera'nın kemik iskeleler içinde beklediği cadı hisarı." },
+      "source": "wookieepedia:Great Mothers" },
     { "id": "noti-caravan", "names": { "en": "Noti Caravan Routes", "tr": "Noti Kervan Yolları" }, "lat": 6, "lon": -10,
       "blurb": { "en": "Shell-backed nomads who sheltered a stranded Jedi with a smile.", "tr": "Mahsur kalmış bir Jedi'ı gülümseyerek barındıran kabuklu göçebeler." } },
     { "id": "bone-ring", "names": { "en": "The Purrgil Graveyard Ring", "tr": "Purrgil Mezarlığı Halkası" }, "lat": 0, "lon": 0,

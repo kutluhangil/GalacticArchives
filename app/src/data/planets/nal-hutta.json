@@ -23,9 +23,11 @@
   "characters": ["jabba-the-hutt", "din-djarin", "grogu"],
   "poi": [
     { "id": "bilbousa", "names": { "en": "Bilbousa", "tr": "Bilbousa" }, "lat": 4, "lon": 30,
-      "blurb": { "en": "Bazaar capital where Ziro the Hutt once kept court (The Clone Wars).", "tr": "Ziro the Hutt'ın bir zamanlar hüküm sürdüğü pazar başkenti (Klon Savaşları)." } },
+      "blurb": { "en": "Bazaar capital where Ziro the Hutt once kept court (The Clone Wars).", "tr": "Ziro the Hutt'ın bir zamanlar hüküm sürdüğü pazar başkenti (Klon Savaşları)." },
+      "source": "wookieepedia:Bilbousa" },
     { "id": "hutt-palaces", "names": { "en": "Clan Palace-Fortresses", "tr": "Klan Saray-Kaleleri" }, "lat": 7, "lon": 34,
-      "blurb": { "en": "Where the Hutt twins received Din Djarin — and removed his helmet by force (2026).", "tr": "Hutt ikizlerinin Din Djarin'i ağırladığı — ve kaskını zorla çıkardığı yer (2026)." } }
+      "blurb": { "en": "Where the Hutt twins received Din Djarin — and removed his helmet by force (2026).", "tr": "Hutt ikizlerinin Din Djarin'i ağırladığı — ve kaskını zorla çıkardığı yer (2026)." },
+      "source": "wookieepedia:Hutt Palace" }
   ],
   "funFacts": {
     "en": [

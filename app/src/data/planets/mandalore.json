@@ -26,11 +26,14 @@
   "characters": ["bo-katan", "sabine-wren", "din-djarin", "darth-maul", "boba-fett"],
   "poi": [
     { "id": "sundari", "names": { "en": "Sundari", "tr": "Sundari" }, "lat": 8, "lon": 15,
-      "blurb": { "en": "The great bio-dome capital: Satine's pacifist court, Maul's throne, the Night of a Thousand Tears.", "tr": "Büyük biyo-kubbe başkent: Satine'in pasifist sarayı, Maul'un tahtı, Bin Gözyaşı Gecesi." } },
+      "blurb": { "en": "The great bio-dome capital: Satine's pacifist court, Maul's throne, the Night of a Thousand Tears.", "tr": "Büyük biyo-kubbe başkent: Satine'in pasifist sarayı, Maul'un tahtı, Bin Gözyaşı Gecesi." },
+      "source": "wookieepedia:Sundari" },
     { "id": "living-waters", "names": { "en": "The Living Waters", "tr": "Yaşayan Sular" }, "lat": 4, "lon": 18,
-      "blurb": { "en": "Sacred mines beneath the Civic Center — where Din Djarin bathed, and a mythosaur opened one eye.", "tr": "Şehir merkezinin altındaki kutsal madenler — Din Djarin'in yıkandığı ve bir mythosaur'un tek gözünü açtığı yer." } },
+      "blurb": { "en": "Sacred mines beneath the Civic Center — where Din Djarin bathed, and a mythosaur opened one eye.", "tr": "Şehir merkezinin altındaki kutsal madenler — Din Djarin'in yıkandığı ve bir mythosaur'un tek gözünü açtığı yer." },
+      "source": "wookieepedia:Living Waters" },
     { "id": "great-forge", "names": { "en": "The Great Forge", "tr": "Büyük Demirhane" }, "lat": 6, "lon": 16,
-      "blurb": { "en": "Heart of beskar-craft, relit when the clans retook the surface.", "tr": "Beskar işçiliğinin kalbi; klanlar yüzeyi geri aldığında yeniden yakıldı." } }
+      "blurb": { "en": "Heart of beskar-craft, relit when the clans retook the surface.", "tr": "Beskar işçiliğinin kalbi; klanlar yüzeyi geri aldığında yeniden yakıldı." },
+      "source": "wookieepedia:Great Forge" }
   ],
   "funFacts": {
     "en": [

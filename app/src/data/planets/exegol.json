@@ -24,9 +24,11 @@
   "characters": ["palpatine", "rey", "kylo-ren"],
   "poi": [
     { "id": "sith-citadel", "names": { "en": "Sith Citadel", "tr": "Sith Hisarı" }, "lat": 8, "lon": 0,
-      "blurb": { "en": "A monolith over an abyss of cultists, clones and one waiting throne.", "tr": "Tarikatçılar, klonlar ve bekleyen tek bir tahtın uçurumu üzerinde bir monolit." } },
+      "blurb": { "en": "A monolith over an abyss of cultists, clones and one waiting throne.", "tr": "Tarikatçılar, klonlar ve bekleyen tek bir tahtın uçurumu üzerinde bir monolit." },
+      "source": "wookieepedia:Sith Citadel" },
     { "id": "fleet-yards", "names": { "en": "Final Order Shipyards", "tr": "Final Order Tersaneleri" }, "lat": 5, "lon": 6,
-      "blurb": { "en": "Thousands of Xyston Star Destroyers rose from this ground.", "tr": "Binlerce Xyston Yıldız Destroyeri bu zeminden yükseldi." } }
+      "blurb": { "en": "Thousands of Xyston Star Destroyers rose from this ground.", "tr": "Binlerce Xyston Yıldız Destroyeri bu zeminden yükseldi." },
+      "source": "wookieepedia:Xyston-class Star Destroyer" }
   ],
   "funFacts": {
     "en": [

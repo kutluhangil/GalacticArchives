@@ -27,9 +27,11 @@
     { "id": "jedi-crucible", "names": { "en": "Jedi Temple of Ilum", "tr": "Ilum Jedi Tapınağı" }, "lat": 30, "lon": 10,
       "blurb": { "en": "Gateway to the crystal caves of the Gathering — 'the ice speaks to you.'", "tr": "Toplanma'nın kristal mağaralarına açılan kapı — 'buz seninle konuşur.'" } },
     { "id": "thermal-oscillator", "names": { "en": "Thermal Oscillator", "tr": "Termal Osilatör" }, "lat": -5, "lon": -20,
-      "blurb": { "en": "The containment heart of Starkiller — and its fatal weakness.", "tr": "Starkiller'ın muhafaza kalbi — ve ölümcül zayıflığı." } },
+      "blurb": { "en": "The containment heart of Starkiller — and its fatal weakness.", "tr": "Starkiller'ın muhafaza kalbi — ve ölümcül zayıflığı." },
+      "source": "wookieepedia:Thermal oscillator" },
     { "id": "weapon-trench", "names": { "en": "Equatorial Weapon Trench", "tr": "Ekvator Silah Hendeği" }, "lat": 0, "lon": 40,
-      "blurb": { "en": "A machined canyon that swallowed a star's fire before firing it back.", "tr": "Bir yıldızın ateşini yutup geri püskürten makine yapımı kanyon." } }
+      "blurb": { "en": "A machined canyon that swallowed a star's fire before firing it back.", "tr": "Bir yıldızın ateşini yutup geri püskürten makine yapımı kanyon." },
+      "source": "wookieepedia:Starkiller Base" }
   ],
   "funFacts": {
     "en": [

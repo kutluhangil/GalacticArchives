@@ -56,6 +56,14 @@
     "mon-mothma",
     "leia-organa"
   ],
+  "poi": [
+    { "id": "hanna-city", "names": { "en": "Hanna City", "tr": "Hanna Şehri" }, "lat": 26, "lon": -14,
+      "blurb": { "en": "The capital of Chandrila, and for a while the capital of the New Republic itself.", "tr": "Chandrila'nın başkenti ve bir süre Yeni Cumhuriyet'in de başkenti." },
+      "source": "wookieepedia:Hanna City" },
+    { "id": "silver-sea", "names": { "en": "Silver Sea", "tr": "Gümüş Deniz" }, "lat": 19, "lon": -22,
+      "blurb": { "en": "The sea Hanna City looks out over, flown by every pilot who trained there.", "tr": "Hanna Şehri'nin baktığı deniz; orada eğitilen her pilotun üzerinde uçtuğu su." },
+      "source": "wookieepedia:Silver Sea" }
+  ],
   "funFacts": {
     "en": [
       "Mon Mothma's Chandrilan marriage customs were used as cover for funding a rebellion.",

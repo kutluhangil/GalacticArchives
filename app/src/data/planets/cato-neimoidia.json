@@ -57,6 +57,14 @@
     "tcw"
   ],
   "characters": [],
+  "poi": [
+    { "id": "zarra", "names": { "en": "Zarra", "tr": "Zarra" }, "lat": 3, "lon": 88,
+      "blurb": { "en": "The bridge-city capital, where the Smuggler's Guide was lifted from Tobias Beckett's pack.", "tr": "Köprü şehirlerinin başkenti; Tobias Beckett'in çantasından Kaçakçı Rehberi burada aşırıldı." },
+      "source": "wookieepedia:Zarra" },
+    { "id": "tarko-se", "names": { "en": "Tarko-se", "tr": "Tarko-se" }, "lat": -6, "lon": 79,
+      "blurb": { "en": "Baron Tarko's city, under the shadow of the mountain called the Bride's Talon.", "tr": "Baron Tarko'nun şehri; Gelin Pençesi denen dağın gölgesinde." },
+      "source": "wookieepedia:Tarko-se" }
+  ],
   "funFacts": {
     "en": [
       "Plo Koon was shot down over these bridges when Order 66 came through.",

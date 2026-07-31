@@ -50,6 +50,11 @@
   "characters": [
     "jyn-erso"
   ],
+  "poi": [
+    { "id": "leg-817", "names": { "en": "Labor Camp LEG-817", "tr": "LEG-817 Çalışma Kampı" }, "lat": -25, "lon": 39,
+      "blurb": { "en": "The Imperial labor camp Jyn Erso was serving time in when the Rebellion pulled her out.", "tr": "İsyan onu çıkardığında Jyn Erso'nun cezasını çektiği İmparatorluk çalışma kampı." },
+      "source": "wookieepedia:Imperial Detention Center & Labor Camp LEG-817" }
+  ],
   "funFacts": {
     "en": [
       "Jyn Erso was serving twenty years in Imperial Labor Camp LEG-817 when the Alliance broke her out.",

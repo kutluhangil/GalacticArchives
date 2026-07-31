@@ -25,11 +25,14 @@
   "characters": ["luke-skywalker", "han-solo", "leia-organa", "din-djarin", "grogu"],
   "poi": [
     { "id": "echo-base", "names": { "en": "Echo Base", "tr": "Echo Üssü" }, "lat": 38, "lon": -12,
-      "blurb": { "en": "The Rebellion's hidden ice fortress, evacuated under AT-AT fire in 3 ABY.", "tr": "İsyan'ın gizli buz kalesi; 3 ABY'de AT-AT ateşi altında boşaltıldı." } },
+      "blurb": { "en": "The Rebellion's hidden ice fortress, evacuated under AT-AT fire in 3 ABY.", "tr": "İsyan'ın gizli buz kalesi; 3 ABY'de AT-AT ateşi altında boşaltıldı." },
+      "source": "wookieepedia:Echo Base" },
     { "id": "north-ridge", "names": { "en": "AT-AT Battlefield", "tr": "AT-AT Savaş Alanı" }, "lat": 42, "lon": -6,
-      "blurb": { "en": "Where snowspeeders learned that tow cables beat armor.", "tr": "Kar motorlarının çekme halatının zırhı yendiğini öğrendiği yer." } },
+      "blurb": { "en": "Where snowspeeders learned that tow cables beat armor.", "tr": "Kar motorlarının çekme halatının zırhı yendiğini öğrendiği yer." },
+      "source": "wookieepedia:Battle of Hoth" },
     { "id": "wampa-caves", "names": { "en": "Wampa Caves", "tr": "Wampa Mağaraları" }, "lat": 45, "lon": -20,
-      "blurb": { "en": "Luke hung here, upside down, about one arm's reach from his lightsaber.", "tr": "Luke burada baş aşağı, ışın kılıcına bir kol boyu mesafede asılı kaldı." } }
+      "blurb": { "en": "Luke hung here, upside down, about one arm's reach from his lightsaber.", "tr": "Luke burada baş aşağı, ışın kılıcına bir kol boyu mesafede asılı kaldı." },
+      "source": "wookieepedia:Wampa cave" }
   ],
   "funFacts": {
     "en": [

@@ -72,6 +72,14 @@
     "kotor2",
     "swtor"
   ],
+  "poi": [
+    { "id": "valley-of-the-dark-lords", "names": { "en": "Valley of the Dark Lords", "tr": "Kara Lordlar Vadisi" }, "lat": -14, "lon": 26,
+      "blurb": { "en": "A burial ground begun for the planet's own kings, then filled with the tombs of Sith Lords.", "tr": "Gezegenin kendi kralları için açılan, sonra Sith Lordlarının mezarlarıyla dolan bir gömü alanı." },
+      "source": "wookieepedia:Valley of the Dark Lords/Legends" },
+    { "id": "sith-academy", "names": { "en": "Sith Academy", "tr": "Sith Akademisi" }, "lat": -18, "lon": 31,
+      "blurb": { "en": "Where the Sith trained their acolytes and dug through the valley's tombs for what the dead knew.", "tr": "Sith'in müritlerini eğittiği ve ölülerin bildiği için vadinin mezarlarını kazdığı yer." },
+      "source": "wookieepedia:Sith Academy (Korriban)" }
+  ],
   "funFacts": {
     "en": [
       "The Valley of the Dark Lords holds the tombs of Naga Sadow, Ajunta Pall, Marka Ragnos and other ancient Sith.",

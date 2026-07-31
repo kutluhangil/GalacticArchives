@@ -60,6 +60,11 @@
     "poe-dameron",
     "finn"
   ],
+  "poi": [
+    { "id": "resistance-base", "names": { "en": "Resistance Base", "tr": "Direniş Üssü" }, "lat": -16, "lon": -48,
+      "blurb": { "en": "Where the assault on Starkiller Base was planned — and which the First Order razed soon after.", "tr": "Starkiller Üssü saldırısının planlandığı yer; kısa süre sonra First Order tarafından yerle bir edildi." },
+      "source": "wookieepedia:Resistance base" }
+  ],
   "funFacts": {
     "en": [
       "The evacuation of D'Qar cost the Resistance its entire bomber wing.",

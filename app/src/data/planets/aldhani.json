@@ -49,6 +49,11 @@
   "characters": [
     "cassian-andor"
   ],
+  "poi": [
+    { "id": "nasma-klain", "names": { "en": "Nasma Klain", "tr": "Nasma Klain" }, "lat": -18, "lon": 24,
+      "blurb": { "en": "The sacred river the Empire dammed into a payroll vault — the target of the Aldhani heist in 5 BBY.", "tr": "İmparatorluğun bir maaş kasasına çevirdiği kutsal nehir — 5 BBY'deki Aldhani soygununun hedefi." },
+      "source": "wookieepedia:Nasma Klain" }
+  ],
   "funFacts": {
     "en": [
       "The Eye of Aldhani is a debris field the planet passes through once every three years.",

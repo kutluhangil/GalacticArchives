@@ -26,9 +26,11 @@
   "characters": ["hera-syndulla", "ahsoka-tano"],
   "poi": [
     { "id": "lessu", "names": { "en": "Lessu", "tr": "Lessu" }, "lat": 6, "lon": -30,
-      "blurb": { "en": "The plasma-bridge capital, taken bloodlessly thanks to Cham Syndulla's resistance.", "tr": "Plazma köprülü başkent; Cham Syndulla'nın direnişi sayesinde kansız alındı." } },
+      "blurb": { "en": "The plasma-bridge capital, taken bloodlessly thanks to Cham Syndulla's resistance.", "tr": "Plazma köprülü başkent; Cham Syndulla'nın direnişi sayesinde kansız alındı." },
+      "source": "wookieepedia:Lessu City" },
     { "id": "syndulla-estate", "names": { "en": "Syndulla Homestead", "tr": "Syndulla Yurdu" }, "lat": 8, "lon": -26,
-      "blurb": { "en": "Where a girl who loved flying grew into the Ghost's captain.", "tr": "Uçmayı seven bir kızın Ghost'un kaptanına dönüştüğü yer." } },
+      "blurb": { "en": "Where a girl who loved flying grew into the Ghost's captain.", "tr": "Uçmayı seven bir kızın Ghost'un kaptanına dönüştüğü yer." },
+      "source": "wookieepedia:Syndulla residence" },
     { "id": "gutkurr-caves", "names": { "en": "Canyon Caves", "tr": "Kanyon Mağaraları" }, "lat": 3, "lon": -34,
       "blurb": { "en": "Twi'lek shelters through every occupation, patrolled by gutkurrs.", "tr": "Her işgalde Twi'lek sığınağı olmuş, gutkurrların dolaştığı mağaralar." } }
   ],

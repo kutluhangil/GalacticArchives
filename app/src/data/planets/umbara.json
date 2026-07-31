@@ -59,6 +59,14 @@
     "captain-rex",
     "anakin-skywalker"
   ],
+  "poi": [
+    { "id": "umbaran-airbase", "names": { "en": "Umbaran Airbase", "tr": "Umbara Hava Üssü" }, "lat": -6, "lon": 88,
+      "blurb": { "en": "The Separatist supply line the 501st was ordered to take in 20 BBY, under a general who spent them.", "tr": "501. Lejyon'un 20 BBY'de almakla görevlendirildiği Ayrılıkçı ikmal hattı; onları harcayan bir generalin emrinde." },
+      "source": "wookieepedia:Umbaran airbase" },
+    { "id": "umbaran-capital", "names": { "en": "Umbaran Capital City", "tr": "Umbara Başkenti" }, "lat": -2, "lon": 94,
+      "blurb": { "en": "The Republic's objective at the Battle of Umbara, taken sector by sector.", "tr": "Umbara Muharebesi'nde Cumhuriyet'in hedefi; sektör sektör alındı." },
+      "source": "wookieepedia:Umbaran capital city" }
+  ],
   "funFacts": {
     "en": [
       "Pong Krell's campaign here ended with clones executing their own general for treason.",

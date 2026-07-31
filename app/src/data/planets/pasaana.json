@@ -62,6 +62,14 @@
     "finn",
     "chewbacca"
   ],
+  "poi": [
+    { "id": "forbidden-valley", "names": { "en": "Forbidden Valley", "tr": "Yasak Vadi" }, "lat": -23, "lon": 67,
+      "blurb": { "en": "A rocky valley that hosts the Aki-Aki festival, and draws thrill-seekers the rest of the time.", "tr": "Aki-Aki şenliğine ev sahipliği yapan kayalık vadi; kalan zamanda maceracıları çeker." },
+      "source": "wookieepedia:Forbidden Valley" },
+    { "id": "festival-of-the-ancestors", "names": { "en": "Festival of the Ancestors", "tr": "Atalar Şenliği" }, "lat": -21, "lon": 63,
+      "blurb": { "en": "Held once every forty-two years: kites, sweets, and the year Rey's search passed through.", "tr": "Kırk iki yılda bir yapılır: uçurtmalar, tatlılar ve Rey'in arayışının uğradığı yıl." },
+      "source": "wookieepedia:Festival of the Ancestors" }
+  ],
   "funFacts": {
     "en": [
       "The Festival of the Ancestors runs for days and happens once in a generation.",

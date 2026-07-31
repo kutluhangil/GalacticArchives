@@ -24,11 +24,14 @@
   "characters": ["jyn-erso", "cassian-andor"],
   "poi": [
     { "id": "nijedha", "names": { "en": "NiJedha (Holy City)", "tr": "NiJedha (Kutsal Şehir)" }, "lat": 20, "lon": -12,
-      "blurb": { "en": "Walled mesa city of pilgrims — vaporized in the Death Star's first test.", "tr": "Hacıların surlu yayla şehri — Ölüm Yıldızı'nın ilk testinde buharlaştı." } },
+      "blurb": { "en": "Walled mesa city of pilgrims — vaporized in the Death Star's first test.", "tr": "Hacıların surlu yayla şehri — Ölüm Yıldızı'nın ilk testinde buharlaştı." },
+      "source": "wookieepedia:Jedha City" },
     { "id": "temple-of-the-kyber", "names": { "en": "Temple of the Kyber", "tr": "Kyber Tapınağı" }, "lat": 20, "lon": -13,
-      "blurb": { "en": "Chirrut Îmwe's shrine: 'I am one with the Force and the Force is with me.'", "tr": "Chirrut Îmwe'nin mabedi: 'Güç'le birim ve Güç benimledir.'" } },
+      "blurb": { "en": "Chirrut Îmwe's shrine: 'I am one with the Force and the Force is with me.'", "tr": "Chirrut Îmwe'nin mabedi: 'Güç'le birim ve Güç benimledir.'" },
+      "source": "wookieepedia:Temple of the Kyber" },
     { "id": "catacombs", "names": { "en": "Catacombs of Cadera", "tr": "Cadera Yeraltı Mezarları" }, "lat": 18, "lon": -10,
-      "blurb": { "en": "Saw Gerrera's partisan hideout in the tombs outside the city.", "tr": "Saw Gerrera'nın şehir dışındaki mezarlardaki partizan sığınağı." } }
+      "blurb": { "en": "Saw Gerrera's partisan hideout in the tombs outside the city.", "tr": "Saw Gerrera'nın şehir dışındaki mezarlardaki partizan sığınağı." },
+      "source": "wookieepedia:Catacombs of Cadera" }
   ],
   "funFacts": {
     "en": [

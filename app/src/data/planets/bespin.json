@@ -26,9 +26,11 @@
   "characters": ["lando-calrissian", "han-solo", "leia-organa", "luke-skywalker"],
   "poi": [
     { "id": "cloud-city", "names": { "en": "Cloud City", "tr": "Cloud City" }, "lat": 12, "lon": 0,
-      "blurb": { "en": "A floating dream of white towers — carbonite chamber included.", "tr": "Beyaz kulelerden yüzen bir düş — karbonit odası dahil." } },
+      "blurb": { "en": "A floating dream of white towers — carbonite chamber included.", "tr": "Beyaz kulelerden yüzen bir düş — karbonit odası dahil." },
+      "source": "wookieepedia:Cloud City" },
     { "id": "duel-gantry", "names": { "en": "The Gantry", "tr": "İskele" }, "lat": 11, "lon": 2,
-      "blurb": { "en": "\"No. I am your father.\" The most famous platform in cinema.", "tr": "\"Hayır. Ben senin babanım.\" Sinemanın en ünlü platformu." } }
+      "blurb": { "en": "\"No. I am your father.\" The most famous platform in cinema.", "tr": "\"Hayır. Ben senin babanım.\" Sinemanın en ünlü platformu." },
+      "source": "wookieepedia:Carbon-freezing chamber" }
   ],
   "funFacts": {
     "en": [

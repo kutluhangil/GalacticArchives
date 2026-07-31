@@ -57,6 +57,11 @@
   "characters": [
     "jyn-erso"
   ],
+  "poi": [
+    { "id": "erso-homestead", "names": { "en": "Erso Homestead", "tr": "Erso Çiftliği" }, "lat": -27, "lon": -63,
+      "blurb": { "en": "The black-sand farm the Ersos hid on for four years, until Krennic's shuttle came down.", "tr": "Erso ailesinin Krennic'in mekiği inene dek dört yıl saklandığı siyah kumlu çiftlik." },
+      "source": "wookieepedia:Erso homestead" }
+  ],
   "funFacts": {
     "en": [
       "Jyn Erso hid in a bunker in the fields while her mother was shot in the open.",

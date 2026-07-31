@@ -26,11 +26,14 @@
   "characters": ["anakin-skywalker", "obi-wan-kenobi", "padme-amidala"],
   "poi": [
     { "id": "fortress-vader", "names": { "en": "Fortress Vader", "tr": "Vader Kalesi" }, "lat": 10, "lon": -30,
-      "blurb": { "en": "A black tuning-fork tower channeling the dark side over a lava lake.", "tr": "Bir lav gölü üzerinde karanlık tarafı odaklayan siyah diyapazon kule." } },
+      "blurb": { "en": "A black tuning-fork tower channeling the dark side over a lava lake.", "tr": "Bir lav gölü üzerinde karanlık tarafı odaklayan siyah diyapazon kule." },
+      "source": "wookieepedia:Fortress Vader" },
     { "id": "duel-site", "names": { "en": "Klegger Corp Mining Facility", "tr": "Klegger Corp Maden Tesisi" }, "lat": 6, "lon": -24,
-      "blurb": { "en": "\"You were the chosen one!\" — the high ground was here.", "tr": "\"Seçilmiş kişi sendin!\" — o yüksek zemin buradaydı." } },
+      "blurb": { "en": "\"You were the chosen one!\" — the high ground was here.", "tr": "\"Seçilmiş kişi sendin!\" — o yüksek zemin buradaydı." },
+      "source": "wookieepedia:Klegger Corp Mining Facility" },
     { "id": "corvax-fen", "names": { "en": "Corvax Fen", "tr": "Corvax Bataklığı" }, "lat": 2, "lon": -18,
-      "blurb": { "en": "A rare green scar on the burnt world, tied to old Lady Corvax legends.", "tr": "Yanık dünyada ender bir yeşil iz; eski Leydi Corvax efsanelerine bağlı." } }
+      "blurb": { "en": "A rare green scar on the burnt world, tied to old Lady Corvax legends.", "tr": "Yanık dünyada ender bir yeşil iz; eski Leydi Corvax efsanelerine bağlı." },
+      "source": "wookieepedia:Corvax Fen" }
   ],
   "funFacts": {
     "en": [

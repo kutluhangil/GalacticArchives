@@ -26,9 +26,11 @@
   "characters": ["rey", "finn", "han-solo", "kylo-ren"],
   "poi": [
     { "id": "maz-castle", "names": { "en": "Maz Kanata's Castle", "tr": "Maz Kanata'nın Kalesi" }, "lat": 4, "lon": 22,
-      "blurb": { "en": "A thousand-year-old freeport of flags and secrets; leveled by the First Order in 34 ABY.", "tr": "Bayraklar ve sırlarla dolu bin yıllık serbest liman; 34 ABY'de First Order tarafından yerle bir edildi." } },
+      "blurb": { "en": "A thousand-year-old freeport of flags and secrets; leveled by the First Order in 34 ABY.", "tr": "Bayraklar ve sırlarla dolu bin yıllık serbest liman; 34 ABY'de First Order tarafından yerle bir edildi." },
+      "source": "wookieepedia:Takodana Castle" },
     { "id": "nymeve-lake", "names": { "en": "Nymeve Lake", "tr": "Nymeve Gölü" }, "lat": 3, "lon": 21,
-      "blurb": { "en": "Still waters where Rey first saw 'so much green' in her life.", "tr": "Rey'in hayatında ilk kez 'bu kadar çok yeşili' gördüğü durgun sular." } }
+      "blurb": { "en": "Still waters where Rey first saw 'so much green' in her life.", "tr": "Rey'in hayatında ilk kez 'bu kadar çok yeşili' gördüğü durgun sular." },
+      "source": "wookieepedia:Nymeve Lake" }
   ],
   "funFacts": {
     "en": [

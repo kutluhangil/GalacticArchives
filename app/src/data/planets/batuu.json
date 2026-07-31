@@ -63,6 +63,14 @@
   },
   "appearances": [],
   "characters": [],
+  "poi": [
+    { "id": "black-spire-outpost", "names": { "en": "Black Spire Outpost", "tr": "Black Spire Karakolu" }, "lat": 14, "lon": -64,
+      "blurb": { "en": "One of the last stops before Wild Space, named for the petrified trees towering over it.", "tr": "Wild Space'ten önceki son duraklardan biri; adını üzerinde yükselen taşlaşmış ağaçlardan alır." },
+      "source": "wookieepedia:Black Spire Outpost" },
+    { "id": "surabat-river-valley", "names": { "en": "Surabat River Valley", "tr": "Surabat Nehri Vadisi" }, "lat": 9, "lon": -71,
+      "blurb": { "en": "A deep valley of rock spires named for the settler who planted her flag in it — and a nightmare to fly through.", "tr": "Bayrağını buraya diken yerleşimcinin adını taşıyan derin kaya kuleleri vadisi — uçmak için kâbus." },
+      "source": "wookieepedia:Surabat River Valley" }
+  ],
   "funFacts": {
     "en": [
       "Black Spire Outpost is named for the petrified trees that ring it.",

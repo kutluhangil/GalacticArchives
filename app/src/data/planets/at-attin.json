@@ -55,6 +55,14 @@
     "skeleton-crew"
   ],
   "characters": [],
+  "poi": [
+    { "id": "at-attin-mint", "names": { "en": "At Attin Mint", "tr": "At Attin Darphanesi" }, "lat": -4, "lon": 12,
+      "blurb": { "en": "The buried mint that stamped the credit ingots the whole planet worked for.", "tr": "Bütün gezegenin uğruna çalıştığı kredi külçelerini basan gömülü darphane." },
+      "source": "wookieepedia:At Attin Mint" },
+    { "id": "supervisors-tower", "names": { "en": "Supervisor's Tower", "tr": "Nazır Kulesi" }, "lat": 2, "lon": 18,
+      "blurb": { "en": "The tower at the city's centre, from which the Supervisor held the planet's power and security.", "tr": "Şehrin merkezindeki kule; Nazır gezegenin enerjisini ve güvenliğini buradan elinde tuttu." },
+      "source": "wookieepedia:Supervisor's Tower" }
+  ],
   "funFacts": {
     "en": [
       "The Great Work is a mint: At Attin made the Old Republic's currency and never stopped.",

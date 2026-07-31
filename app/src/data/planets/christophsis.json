@@ -54,6 +54,11 @@
     "obi-wan-kenobi",
     "ahsoka-tano"
   ],
+  "poi": [
+    { "id": "chaleydonia", "names": { "en": "Chaleydonia", "tr": "Chaleydonia" }, "lat": 5, "lon": 33,
+      "blurb": { "en": "The Crystal City: a capital built of living crystal, bombarded from orbit in 3 BBY.", "tr": "Kristal Şehir: canlı kristalden yapılmış başkent; 3 BBY'de yörüngeden bombalandı." },
+      "source": "wookieepedia:Chaleydonia" }
+  ],
   "funFacts": {
     "en": [
       "Ahsoka Tano was delivered to Anakin on this battlefield — the beginning of everything they became.",

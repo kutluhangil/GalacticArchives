@@ -53,9 +53,11 @@
       "characters": ["luke-skywalker", "leia-organa", "han-solo", "chewbacca"],
       "poi": [
         { "id": "bright-tree-village", "names": { "en": "Bright Tree Village", "tr": "Parlak Ağaç Köyü" }, "lat": 18, "lon": 30,
-          "blurb": { "en": "Ewok treetop village; briefly worshipped a golden protocol droid.", "tr": "Ewokların ağaç tepesi köyü; bir süreliğine altın bir protokol droidine tapıldı." } },
+          "blurb": { "en": "Ewok treetop village; briefly worshipped a golden protocol droid.", "tr": "Ewokların ağaç tepesi köyü; bir süreliğine altın bir protokol droidine tapıldı." },
+          "source": "wookieepedia:Bright Tree Village" },
         { "id": "shield-bunker", "names": { "en": "Shield Generator Bunker", "tr": "Kalkan Jeneratörü Sığınağı" }, "lat": 15, "lon": 26,
-          "blurb": { "en": "The back door the Empire never expected to matter.", "tr": "İmparatorluğun asla önemseneceğini düşünmediği arka kapı." } }
+          "blurb": { "en": "The back door the Empire never expected to matter.", "tr": "İmparatorluğun asla önemseneceğini düşünmediği arka kapı." },
+          "source": "wookieepedia:Endor shield generator bunker" }
       ],
       "funFacts": {
         "en": [
@@ -99,7 +101,8 @@
       "characters": ["rey", "finn", "poe-dameron", "kylo-ren"],
       "poi": [
         { "id": "ds2-wreck", "names": { "en": "Death Star II Wreckage", "tr": "Ölüm Yıldızı II Enkazı" }, "lat": -8, "lon": 12,
-          "blurb": { "en": "A broken throne room above the waves — and a wayfinder within.", "tr": "Dalgaların üzerinde kırık bir taht odası — ve içinde bir yolbulucu." } }
+          "blurb": { "en": "A broken throne room above the waves — and a wayfinder within.", "tr": "Dalgaların üzerinde kırık bir taht odası — ve içinde bir yolbulucu." },
+          "source": "wookieepedia:DS-2 Death Star II Mobile Battle Station" }
       ],
       "funFacts": {
         "en": [

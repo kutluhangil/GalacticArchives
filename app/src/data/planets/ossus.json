@@ -74,6 +74,14 @@
   "appearances": [
     "swtor"
   ],
+  "poi": [
+    { "id": "ossus-jedi-temple", "names": { "en": "Ossus Jedi Temple", "tr": "Ossus Jedi Tapınağı" }, "lat": 8, "lon": 143,
+      "blurb": { "en": "One of the Order's oldest temples, built when the Jedi left Tython after the Force Wars.", "tr": "Tarikatın en eski tapınaklarından biri; Jedi, Güç Savaşları'ndan sonra Tython'ı bırakınca yapıldı." },
+      "source": "wookieepedia:Ossus Jedi Temple" },
+    { "id": "great-jedi-library", "names": { "en": "Great Jedi Library", "tr": "Büyük Jedi Kütüphanesi" }, "lat": 3, "lon": 137,
+      "blurb": { "en": "Odan-Urr's library of datacards and holocrons, lost long before the Empire existed.", "tr": "Odan-Urr'un veri kartları ve holokronlardan kütüphanesi; İmparatorluk doğmadan çok önce yitti." },
+      "source": "wookieepedia:Great Jedi Library" }
+  ],
   "funFacts": {
     "en": [
       "Ossus held one of the Jedi Order's greatest libraries before the Great Sith War.",

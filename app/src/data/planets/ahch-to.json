@@ -27,11 +27,14 @@
   "characters": ["luke-skywalker", "rey"],
   "poi": [
     { "id": "temple-island", "names": { "en": "Temple Island", "tr": "Tapınak Adası" }, "lat": 24, "lon": -40,
-      "blurb": { "en": "The first Jedi Temple and the ancient texts — 'page-turners they were not.'", "tr": "İlk Jedi Tapınağı ve kadim metinler — 'pek sürükleyici sayılmazlardı.'" } },
+      "blurb": { "en": "The first Jedi Temple and the ancient texts — 'page-turners they were not.'", "tr": "İlk Jedi Tapınağı ve kadim metinler — 'pek sürükleyici sayılmazlardı.'" },
+      "source": "wookieepedia:Temple Island" },
     { "id": "mirror-cave", "names": { "en": "Mirror Cave", "tr": "Ayna Mağarası" }, "lat": 23, "lon": -41,
-      "blurb": { "en": "A dark-side hollow beneath the island that showed Rey only herself.", "tr": "Adanın altında Rey'e yalnızca kendisini gösteren karanlık taraf oyuğu." } },
+      "blurb": { "en": "A dark-side hollow beneath the island that showed Rey only herself.", "tr": "Adanın altında Rey'e yalnızca kendisini gösteren karanlık taraf oyuğu." },
+      "source": "wookieepedia:Mirror cave" },
     { "id": "lanai-village", "names": { "en": "Lanai Village", "tr": "Lanai Köyü" }, "lat": 25, "lon": -39,
-      "blurb": { "en": "Home of the caretaker nuns who tolerated exactly one Jedi's mess.", "tr": "Tam olarak bir Jedi'ın dağınıklığına katlanan bakıcı rahibelerin köyü." } }
+      "blurb": { "en": "Home of the caretaker nuns who tolerated exactly one Jedi's mess.", "tr": "Tam olarak bir Jedi'ın dağınıklığına katlanan bakıcı rahibelerin köyü." },
+      "source": "wookieepedia:Caretaker village" }
   ],
   "funFacts": {
     "en": [

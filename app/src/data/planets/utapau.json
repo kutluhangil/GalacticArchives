@@ -25,7 +25,8 @@
   "characters": ["grievous", "obi-wan-kenobi"],
   "poi": [
     { "id": "pau-city", "names": { "en": "Pau City", "tr": "Pau City" }, "lat": 5, "lon": -60,
-      "blurb": { "en": "An eleven-level sinkhole metropolis; the Separatist Council's last refuge.", "tr": "On bir katlı obruk metropolü; Ayrılıkçı Konsey'in son sığınağı." } },
+      "blurb": { "en": "An eleven-level sinkhole metropolis; the Separatist Council's last refuge.", "tr": "On bir katlı obruk metropolü; Ayrılıkçı Konsey'in son sığınağı." },
+      "source": "wookieepedia:Pau City" },
     { "id": "grievous-platform", "names": { "en": "Grievous's Landing", "tr": "Grievous'un Platformu" }, "lat": 5, "lon": -59,
       "blurb": { "en": "\"Hello there.\" — the most polite ambush in the war.", "tr": "\"Hello there.\" — savaşın en kibar pususu." } }
   ],

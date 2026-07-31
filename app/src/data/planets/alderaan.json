@@ -25,9 +25,11 @@
   "characters": ["leia-organa", "obi-wan-kenobi"],
   "poi": [
     { "id": "aldera", "names": { "en": "Aldera", "tr": "Aldera" }, "lat": 22, "lon": -8,
-      "blurb": { "en": "The lakeside capital and royal palace where Leia was raised.", "tr": "Leia'nın büyüdüğü göl kıyısındaki başkent ve kraliyet sarayı." } },
+      "blurb": { "en": "The lakeside capital and royal palace where Leia was raised.", "tr": "Leia'nın büyüdüğü göl kıyısındaki başkent ve kraliyet sarayı." },
+      "source": "wookieepedia:Aldera" },
     { "id": "castle-lands", "names": { "en": "Castle Lands", "tr": "Kale Diyarı" }, "lat": 35, "lon": 14,
-      "blurb": { "en": "Ancient Killik mound-castles standing silent in the mist.", "tr": "Siste sessizce duran kadim Killik höyük-kaleleri." } }
+      "blurb": { "en": "Ancient Killik mound-castles standing silent in the mist.", "tr": "Siste sessizce duran kadim Killik höyük-kaleleri." },
+      "source": "wookieepedia:Castle Lands" }
   ],
   "funFacts": {
     "en": [

@@ -61,6 +61,11 @@
     "new-republic": "neutral"
   },
   "appearances": [],
+  "poi": [
+    { "id": "csaplar", "names": { "en": "Csaplar", "tr": "Csaplar" }, "lat": 41, "lon": 108,
+      "blurb": { "en": "Capital of the Chiss Ascendancy, and by the Imperial era mostly buried under the ice.", "tr": "Chiss Yükselişi'nin başkenti; İmparatorluk döneminde büyük ölçüde buzun altına gömülüydü." },
+      "source": "wookieepedia:Csaplar" }
+  ],
   "funFacts": {
     "en": [
       "An ice age locked the surface under glaciers, pushing Chiss civilisation into cities carved deep below.",

@@ -57,6 +57,14 @@
     "poe-dameron",
     "rey"
   ],
+  "poi": [
+    { "id": "kijimi-city", "names": { "en": "Kijimi City", "tr": "Kijimi Şehri" }, "lat": 47, "lon": -88,
+      "blurb": { "en": "A monastery town turned lawless refuge, packed into the slopes of Mount Izukika.", "tr": "Izukika Dağı'nın yamaçlarına sıkışmış, kanunsuz bir sığınağa dönüşmüş manastır kasabası." },
+      "source": "wookieepedia:Kijimi City" },
+    { "id": "thieves-quarter", "names": { "en": "Thieves' Quarter", "tr": "Hırsızlar Mahallesi" }, "lat": 44, "lon": -92,
+      "blurb": { "en": "The district a religious brotherhood was chased out of by the city's own crime.", "tr": "Şehrin kendi suçunun dindar bir kardeşliği kovduğu mahalle." },
+      "source": "wookieepedia:Thieves' Quarter" }
+  ],
   "funFacts": {
     "en": [
       "Zorii Bliss ran the Spice Runners of Kijimi from these streets.",

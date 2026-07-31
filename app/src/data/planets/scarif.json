@@ -25,9 +25,11 @@
   "characters": ["jyn-erso", "cassian-andor"],
   "poi": [
     { "id": "citadel-tower", "names": { "en": "The Citadel", "tr": "Citadel Kulesi" }, "lat": -6, "lon": 18,
-      "blurb": { "en": "Data vault of the Tarkin Initiative; the Death Star plans slept here.", "tr": "Tarkin İnisiyatifi'nin veri kasası; Ölüm Yıldızı planları burada uyudu." } },
+      "blurb": { "en": "Data vault of the Tarkin Initiative; the Death Star plans slept here.", "tr": "Tarkin İnisiyatifi'nin veri kasası; Ölüm Yıldızı planları burada uyudu." },
+      "source": "wookieepedia:Citadel Tower" },
     { "id": "shield-gate", "names": { "en": "Shield Gate (orbital)", "tr": "Kalkan Kapısı (yörünge)" }, "lat": 0, "lon": 18,
-      "blurb": { "en": "The single orbital door through Scarif's planetary shield.", "tr": "Scarif'in gezegensel kalkanındaki tek yörünge kapısı." } },
+      "blurb": { "en": "The single orbital door through Scarif's planetary shield.", "tr": "Scarif'in gezegensel kalkanındaki tek yörünge kapısı." },
+      "source": "wookieepedia:Shield Gate" },
     { "id": "beach-landing", "names": { "en": "Landing Zone Beaches", "tr": "Çıkarma Plajları" }, "lat": -7, "lon": 20,
       "blurb": { "en": "Where hope was born, at the cost of everyone who carried it.", "tr": "Umudun, onu taşıyan herkesin canı pahasına doğduğu yer." } }
   ],

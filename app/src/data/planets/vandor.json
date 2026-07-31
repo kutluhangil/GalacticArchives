@@ -59,6 +59,14 @@
     "chewbacca",
     "lando-calrissian"
   ],
+  "poi": [
+    { "id": "fort-ypso", "names": { "en": "Fort Ypso", "tr": "Fort Ypso" }, "lat": 43, "lon": -128,
+      "blurb": { "en": "A mountain village of wooden bridges, with the Lodge and its droid-fighting pit at its heart.", "tr": "Ahşap köprülerden bir dağ köyü; kalbinde Lodge ve droid dövüşü çukuru." },
+      "source": "wookieepedia:Fort Ypso" },
+    { "id": "iridium-mountains", "names": { "en": "Iridium Mountains", "tr": "İridyum Dağları" }, "lat": 47, "lon": -134,
+      "blurb": { "en": "The range that holds Fort Ypso and the Crispin Imperial Depository.", "tr": "Fort Ypso'yu ve Crispin İmparatorluk Kasası'nı barındıran sıradağ." },
+      "source": "wookieepedia:Iridium Mountains" }
+  ],
   "funFacts": {
     "en": [
       "The Fort Ypso lodge is where Han first saw the Millennium Falcon across a sabacc table.",

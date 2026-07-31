@@ -51,6 +51,11 @@
     "chewbacca",
     "lando-calrissian"
   ],
+  "poi": [
+    { "id": "dry-gulch", "names": { "en": "Dry Gulch", "tr": "Dry Gulch" }, "lat": -29, "lon": 104,
+      "blurb": { "en": "A southern settlement built around an independent coaxium refinery, and the gangs that wanted it.", "tr": "Bağımsız bir coaxium rafinerisinin çevresine kurulmuş güney yerleşimi ve onu isteyen çeteler." },
+      "source": "wookieepedia:Dry Gulch" }
+  ],
   "funFacts": {
     "en": [
       "Unrefined coaxium detonates if it is not processed quickly — Savareen was the closest refinery to Kessel.",

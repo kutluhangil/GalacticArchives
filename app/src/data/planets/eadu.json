@@ -56,6 +56,11 @@
     "jyn-erso",
     "cassian-andor"
   ],
+  "poi": [
+    { "id": "eadu-lab", "names": { "en": "Energy Conversion Laboratory", "tr": "Enerji Dönüşüm Laboratuvarı" }, "lat": -34, "lon": 71,
+      "blurb": { "en": "The rain-lashed cliff facility where Galen Erso's team engineered the Death Star's superlaser.", "tr": "Galen Erso'nun ekibinin Ölüm Yıldızı süperlazerini tasarladığı, yağmurun dövdüğü uçurum tesisi." },
+      "source": "wookieepedia:Eadu Energy Conversion Laboratory" }
+  ],
   "funFacts": {
     "en": [
       "Jyn watched her father die on this landing platform, minutes after finding him.",

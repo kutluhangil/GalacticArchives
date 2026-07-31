@@ -2,6 +2,7 @@
 
 ## 2026-07-31
 
+- Points of interest went from 86 across 32 bodies to 154 across 78 of 88, each new one written from its own Wookieepedia article: Nasma Klain on Aldhani, Palmo Plaza on Ghorman, the Narkina 5 factory floor, Wren Stronghold, Ahto City, the Valley of the Dark Lords, and so on. 136 of the 154 now cite the article they came from, linked from the Holocron; the 18 that do not are descriptive places with no article of their own, and lore validation lists them by name.
 - Data honesty: an empty fact row now says which kind of empty it is. Every body and character carries the Wookieepedia article it was sourced from (all 88 bodies and 33 characters, up from 34 worlds), and the panel distinguishes four states — sourced value, value this archive summarised itself (marked), "not stated in canon" when the article defines none, and silence when the gap is ours. `unverified` is derived from the fetched infobox by `scripts/sync-sources.mjs`, never asserted by hand, and `validate-lore` fails if the two drift apart.
 - Removed em-dash placeholder stats (Endor, Yavin) and a zero diameter; Endor's canon diameter (48,951 km) was wrong as 0. Filled the eight fields canon states but the archive lacked (Atollon, Cantonica, Cato Neimoidia, Malachor, Saleucami, Serenno, Sorgan, Umbara). Lore validation now runs at zero warnings.
 - Fixed the stale "34 worlds" claim in the page description and share cards; it is 81, and an integrity test now ties the number to the file count.

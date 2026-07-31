@@ -25,7 +25,8 @@
   "characters": ["han-solo"],
   "poi": [
     { "id": "coronet-city", "names": { "en": "Coronet City", "tr": "Coronet City" }, "lat": 12, "lon": -32,
-      "blurb": { "en": "Shipyard capital; White Worms in the sewers, Star Destroyers overhead.", "tr": "Tersane başkenti; lağımlarda Beyaz Kurtlar, tepede Yıldız Destroyerleri." } },
+      "blurb": { "en": "Shipyard capital; White Worms in the sewers, Star Destroyers overhead.", "tr": "Tersane başkenti; lağımlarda Beyaz Kurtlar, tepede Yıldız Destroyerleri." },
+      "source": "wookieepedia:Coronet City" },
     { "id": "santhe-yards", "names": { "en": "Corellian Shipyards", "tr": "Corellia Tersaneleri" }, "lat": 14, "lon": -28,
       "blurb": { "en": "Where hyperdrive cores 'went missing' into New Republic ledgers — and Thrawn's cause (Ahsoka).", "tr": "Hipersürücü çekirdeklerinin Yeni Cumhuriyet kayıtlarından Thrawn davasına 'kaybolduğu' yer (Ahsoka)." } }
   ],

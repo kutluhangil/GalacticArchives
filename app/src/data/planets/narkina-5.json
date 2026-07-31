@@ -52,6 +52,11 @@
   "characters": [
     "cassian-andor"
   ],
+  "poi": [
+    { "id": "factory-complex", "names": { "en": "Narkina 5 Factory Complex", "tr": "Narkina 5 Fabrika Kompleksi" }, "lat": -13, "lon": 84,
+      "blurb": { "en": "A prison in the middle of a lake: seven floors, five thousand men, and a shift that never ends.", "tr": "Bir gölün ortasında hapishane: yedi kat, beş bin adam ve hiç bitmeyen bir vardiya." },
+      "source": "wookieepedia:Unidentified Imperial factory facility" }
+  ],
   "funFacts": {
     "en": [
       "The Narkina prison complex ran on shifts, tables and the constant threat of the floor.",

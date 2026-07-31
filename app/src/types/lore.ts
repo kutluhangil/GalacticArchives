@@ -95,6 +95,9 @@ export interface Poi {
   lat: number
   lon: number
   blurb: Localized
+  /** "wookieepedia:<article>" — the location's own article, verified to
+   *  resolve. The placement is ours; the place itself is not. */
+  source?: string
 }
 
 export interface DestructionEvent {

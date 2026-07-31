@@ -25,11 +25,14 @@
   "characters": ["padme-amidala", "palpatine", "qui-gon-jinn"],
   "poi": [
     { "id": "theed", "names": { "en": "Theed", "tr": "Theed" }, "lat": 16, "lon": -30,
-      "blurb": { "en": "The domed capital on the cliff's edge — palace, hangar, and one long plasma-lit duel.", "tr": "Uçurumun kenarındaki kubbeli başkent — saray, hangar ve plazma ışığında uzun bir düello." } },
+      "blurb": { "en": "The domed capital on the cliff's edge — palace, hangar, and one long plasma-lit duel.", "tr": "Uçurumun kenarındaki kubbeli başkent — saray, hangar ve plazma ışığında uzun bir düello." },
+      "source": "wookieepedia:Theed" },
     { "id": "otoh-gunga", "names": { "en": "Otoh Gunga", "tr": "Otoh Gunga" }, "lat": -8, "lon": -42,
-      "blurb": { "en": "The Gungans' bubble city glowing beneath Lake Paonga.", "tr": "Paonga Gölü'nün altında parlayan Gungan baloncuk şehri." } },
+      "blurb": { "en": "The Gungans' bubble city glowing beneath Lake Paonga.", "tr": "Paonga Gölü'nün altında parlayan Gungan baloncuk şehri." },
+      "source": "wookieepedia:Otoh Gunga" },
     { "id": "varykino", "names": { "en": "Varykino (Lake Country)", "tr": "Varykino (Göl Ülkesi)" }, "lat": 10, "lon": -18,
-      "blurb": { "en": "The island retreat where Anakin and Padmé married in secret.", "tr": "Anakin ile Padmé'nin gizlice evlendiği ada yalısı." } }
+      "blurb": { "en": "The island retreat where Anakin and Padmé married in secret.", "tr": "Anakin ile Padmé'nin gizlice evlendiği ada yalısı." },
+      "source": "wookieepedia:Varykino" }
   ],
   "funFacts": {
     "en": [

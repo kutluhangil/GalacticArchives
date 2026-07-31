@@ -43,6 +43,13 @@ export function sourceFor(id: string): SourceEntry | undefined {
   return file.entities[id]
 }
 
+/** "wookieepedia:Mos Eisley" -> the article's url. POIs carry their source
+ *  inline (see Poi.source) because a location is sourced per place, not per
+ *  world. */
+export function articleUrl(source: string): string {
+  return `https://starwars.fandom.com/wiki/${source.replace(/^wookieepedia:/, '').replace(/ /g, '_')}`
+}
+
 /** true when the sourced article's infobox defines no value for `field` */
 export function isUnstatedInCanon(id: string, field: TrackedField): boolean {
   return file.entities[id]?.unverified?.includes(field) ?? false

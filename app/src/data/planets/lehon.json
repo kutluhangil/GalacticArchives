@@ -64,6 +64,14 @@
   "appearances": [
     "kotor"
   ],
+  "poi": [
+    { "id": "star-forge", "names": { "en": "Star Forge", "tr": "Yıldız Ocağı" }, "lat": 0, "lon": -12,
+      "blurb": { "en": "The Rakatan shipyard in orbit that fed on a star to build an endless fleet.", "tr": "Yörüngedeki Rakata tersanesi; sonsuz bir filo kurmak için bir yıldızı emerdi." },
+      "source": "wookieepedia:Star Forge" },
+    { "id": "temple-of-the-ancients", "names": { "en": "Temple of the Ancients", "tr": "Kadimler Tapınağı" }, "lat": -6, "lon": 4,
+      "blurb": { "en": "The temple whose computer held the way to the Star Forge, sealed behind a Rakatan ritual.", "tr": "Bilgisayarı Yıldız Ocağı'na giden yolu saklayan tapınak; bir Rakata ayiniyle mühürlenmişti." },
+      "source": "wookieepedia:Temple of the Ancients" }
+  ],
   "funFacts": {
     "en": [
       "The Rakata built the Star Forge here, a space station that fed on the dark side and the system's star.",

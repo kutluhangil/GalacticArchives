@@ -103,11 +103,21 @@ for (const [id, { body, file }] of bodies) {
   for (const c of body.characters ?? []) {
     if (!characterIds.has(c)) err(`${file}: ${id} character "${c}" not in characters.json`)
   }
+  const poiIds = new Set()
   for (const p of body.poi ?? []) {
     checkLocalized(p.names, `${id}.poi.${p.id}.names`, file)
     checkLocalized(p.blurb, `${id}.poi.${p.id}.blurb`, file)
     if (typeof p.lat !== 'number' || p.lat < -90 || p.lat > 90) err(`${file}: ${id} poi ${p.id} lat out of range`)
     if (typeof p.lon !== 'number' || p.lon < -180 || p.lon > 180) err(`${file}: ${id} poi ${p.id} lon out of range`)
+    if (poiIds.has(p.id)) err(`${file}: ${id} has two points of interest with id "${p.id}"`)
+    poiIds.add(p.id)
+    // the placement on the globe is ours; the place itself has to be canon, so
+    // a POI either cites its own article or is reported as uncited
+    if (p.source === undefined) {
+      warn(`${id}: poi "${p.id}" cites no source article`)
+    } else if (!/^wookieepedia:.+/.test(p.source)) {
+      err(`${file}: ${id} poi ${p.id} source "${p.source}" is not "wookieepedia:<article>"`)
+    }
   }
   if (body.funFacts) {
     if (!Array.isArray(body.funFacts.en) || !Array.isArray(body.funFacts.tr) || body.funFacts.en.length !== body.funFacts.tr.length) {
@@ -200,6 +210,12 @@ for (const c of characters) {
 
 console.log(`bodies=${bodies.size} (planet files=${planetFiles.length}, stations=${stations.length})`)
 console.log(`characters=${characters.length}, media=${media.length}, eras=${eras.length}, regions=${regions.length}, factions=${factions.length}`)
+
+const allPoi = [...bodies.values()].flatMap(({ body }) => body.poi ?? [])
+const bodiesWithPoi = [...bodies.values()].filter(({ body }) => (body.poi ?? []).length).length
+console.log(
+  `points of interest=${allPoi.length} across ${bodiesWithPoi}/${bodies.size} bodies, ${allPoi.filter((p) => p.source).length} cited`,
+)
 console.log(`\nERRORS: ${errors.length}`)
 for (const e of errors) console.log('  ✗ ' + e)
 console.log(`WARNINGS: ${warnings.length}`)

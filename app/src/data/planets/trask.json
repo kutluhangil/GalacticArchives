@@ -59,6 +59,14 @@
     "grogu",
     "bo-katan"
   ],
+  "poi": [
+    { "id": "harbor-inn", "names": { "en": "Trask Harbor Inn", "tr": "Trask Liman Hanı" }, "lat": 36, "lon": 121,
+      "blurb": { "en": "The dockside inn where Din Djarin asked a Mon Calamari server where to find more Mandalorians.", "tr": "Din Djarin'in bir Mon Calamari garsona başka Mandaloryalıları nerede bulacağını sorduğu liman hanı." },
+      "source": "wookieepedia:Trask harbor inn" },
+    { "id": "black-market-port", "names": { "en": "Black Market Port", "tr": "Kara Borsa Limanı" }, "lat": 33, "lon": 126,
+      "blurb": { "en": "The quay where Gideon's remnant ran cargo, and Bo-Katan planned to take a ship.", "tr": "Gideon'ın artıklarının yük taşıdığı, Bo-Katan'ın bir gemiyi ele geçirmeyi planladığı rıhtım." },
+      "source": "wookieepedia:Trask black market port" }
+  ],
   "funFacts": {
     "en": [
       "Bo-Katan Kryze and the Nite Owls took an Imperial freighter out of Trask's skies.",

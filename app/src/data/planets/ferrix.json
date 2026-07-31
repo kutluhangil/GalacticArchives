@@ -26,7 +26,8 @@
   "characters": ["cassian-andor"],
   "poi": [
     { "id": "rix-road", "names": { "en": "Rix Road", "tr": "Rix Yolu" }, "lat": 18, "lon": 40,
-      "blurb": { "en": "'The Empire has been choking us so slowly, we're starting not to notice.' — Maarva's last speech rang here.", "tr": "'İmparatorluk bizi o kadar yavaş boğuyor ki fark etmemeye başladık.' — Maarva'nın son konuşması burada yankılandı." } },
+      "blurb": { "en": "'The Empire has been choking us so slowly, we're starting not to notice.' — Maarva's last speech rang here.", "tr": "'İmparatorluk bizi o kadar yavaş boğuyor ki fark etmemeye başladık.' — Maarva'nın son konuşması burada yankılandı." },
+      "source": "wookieepedia:Rix Road" },
     { "id": "bell-tower", "names": { "en": "The Anvil Tower", "tr": "Örs Kulesi" }, "lat": 18, "lon": 41,
       "blurb": { "en": "Ferrix keeps time by a man hammering brick-forged bells.", "tr": "Ferrix zamanı, tuğladan dövülmüş çanları çekiçleyen bir adamla tutar." } },
     { "id": "scrapfields", "names": { "en": "Salvage Fields", "tr": "Hurda Tarlaları" }, "lat": 16, "lon": 38,

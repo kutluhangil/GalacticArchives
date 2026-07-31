@@ -68,6 +68,14 @@
   "appearances": [
     "swtor"
   ],
+  "poi": [
+    { "id": "kaas-city", "names": { "en": "Kaas City", "tr": "Kaas Şehri" }, "lat": -9, "lon": 17,
+      "blurb": { "en": "Capital of the reconstituted Sith Empire, grown out of a jungle settlement of exiles.", "tr": "Yeniden kurulan Sith İmparatorluğu'nun başkenti; sürgünlerin orman yerleşiminden büyüdü." },
+      "source": "wookieepedia:Kaas City" },
+    { "id": "dark-temple", "names": { "en": "Dark Temple", "tr": "Kara Tapınak" }, "lat": -21, "lon": 9,
+      "blurb": { "en": "A Sith structure holding the spirits — and the tombs — of the Lords who built it.", "tr": "Onu inşa eden Lordların ruhlarını ve mezarlarını barındıran bir Sith yapısı." },
+      "source": "wookieepedia:Dark Temple" }
+  ],
   "funFacts": {
     "en": [
       "Kaas City was raised as the Sith Empire's capital after its retreat into the Unknown Regions.",

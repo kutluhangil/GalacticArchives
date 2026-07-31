@@ -62,6 +62,14 @@
   "appearances": [
     "kotor"
   ],
+  "poi": [
+    { "id": "ahto-city", "names": { "en": "Ahto City", "tr": "Ahto Şehri" }, "lat": 4, "lon": -29,
+      "blurb": { "en": "The only city above Manaan's endless ocean, built by the Selkath for the offworlders who came for kolto.", "tr": "Manaan'ın sonsuz okyanusunun üstündeki tek şehir; Selkath'ın kolto için gelen yabancılara yaptığı." },
+      "source": "wookieepedia:Ahto City" },
+    { "id": "hrakert-rift", "names": { "en": "Hrakert Rift", "tr": "Hrakert Yarığı" }, "lat": -2, "lon": -34,
+      "blurb": { "en": "The undersea trench kolto came from, and where the Progenitor lived.", "tr": "Kolto'nun geldiği su altı yarığı; Progenitor'ün yaşadığı yer." },
+      "source": "wookieepedia:Hrakert Rift" }
+  ],
   "funFacts": {
     "en": [
       "Manaan was the galaxy's only source of kolto, a healing agent it guarded through strict neutrality.",

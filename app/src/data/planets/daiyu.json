@@ -50,6 +50,14 @@
     "obi-wan-kenobi",
     "leia-organa"
   ],
+  "poi": [
+    { "id": "daiyu-spaceport", "names": { "en": "Daiyu Spaceport", "tr": "Daiyu Uzay Limanı" }, "lat": 12, "lon": 61,
+      "blurb": { "en": "Kenobi's way in — and, once the Inquisitors sealed it, no longer his way out.", "tr": "Kenobi'nin giriş yolu; Engizisyoncular kapattıktan sonra artık çıkış yolu değil." },
+      "source": "wookieepedia:Daiyu spaceport" },
+    { "id": "daiyu-market", "names": { "en": "Daiyu Marketplace", "tr": "Daiyu Çarşısı" }, "lat": 8, "lon": 55,
+      "blurb": { "en": "Aurebesh neon over the stalls of a city that sells anything, spice first.", "tr": "Her şeyi, önce de baharatı satan bir şehrin tezgâhları üzerinde Aurebesh neonlar." },
+      "source": "wookieepedia:Daiyu marketplace" }
+  ],
   "funFacts": {
     "en": [
       "Obi-Wan came out of hiding for the first time in ten years to find Leia in these streets.",

@@ -26,11 +26,14 @@
   "characters": ["rey", "finn", "poe-dameron"],
   "poi": [
     { "id": "niima-outpost", "names": { "en": "Niima Outpost", "tr": "Niima Karakolu" }, "lat": 10, "lon": -8,
-      "blurb": { "en": "Junk-trade post where a day's scavenging buys quarter portions.", "tr": "Bir günlük hurda mesaisinin çeyrek porsiyon ettiği takas noktası." } },
+      "blurb": { "en": "Junk-trade post where a day's scavenging buys quarter portions.", "tr": "Bir günlük hurda mesaisinin çeyrek porsiyon ettiği takas noktası." },
+      "source": "wookieepedia:Niima Outpost" },
     { "id": "starship-graveyard", "names": { "en": "Starship Graveyard", "tr": "Yıldız Gemisi Mezarlığı" }, "lat": 7, "lon": -14,
-      "blurb": { "en": "Fallen Star Destroyers and the wreck of the Inflictor, half-buried since 5 ABY.", "tr": "5 ABY'den beri yarı gömülü Yıldız Destroyerleri ve Inflictor enkazı." } },
+      "blurb": { "en": "Fallen Star Destroyers and the wreck of the Inflictor, half-buried since 5 ABY.", "tr": "5 ABY'den beri yarı gömülü Yıldız Destroyerleri ve Inflictor enkazı." },
+      "source": "wookieepedia:Starship Graveyard" },
     { "id": "tuanul", "names": { "en": "Tuanul Village", "tr": "Tuanul Köyü" }, "lat": 13, "lon": -4,
-      "blurb": { "en": "Lor San Tekka's village — where the map to Luke Skywalker surfaced.", "tr": "Lor San Tekka'nın köyü — Luke Skywalker haritasının ortaya çıktığı yer." } }
+      "blurb": { "en": "Lor San Tekka's village — where the map to Luke Skywalker surfaced.", "tr": "Lor San Tekka'nın köyü — Luke Skywalker haritasının ortaya çıktığı yer." },
+      "source": "wookieepedia:Tuanul" }
   ],
   "funFacts": {
     "en": [

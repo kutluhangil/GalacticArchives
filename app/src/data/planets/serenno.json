@@ -60,6 +60,11 @@
   "characters": [
     "count-dooku"
   ],
+  "poi": [
+    { "id": "carannia", "names": { "en": "Carannia", "tr": "Carannia" }, "lat": 17, "lon": -103,
+      "blurb": { "en": "The capital of the Count's world, walked by the initiates Dooku and Sifo-Dyas during a festival.", "tr": "Kont'un dünyasının başkenti; bir şenlikte müritler Dooku ile Sifo-Dyas burada yürüdü." },
+      "source": "wookieepedia:Carannia" }
+  ],
   "funFacts": {
     "en": [
       "Dooku was born to the House of Serenno and returned as its Count to fund a war.",

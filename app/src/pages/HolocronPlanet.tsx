@@ -15,6 +15,7 @@ import {
   regions,
 } from '../lib/lore'
 import { t } from '../lib/ui-strings'
+import { articleUrl } from '../lib/sources'
 import { useApp } from '../state/app'
 import HoloPortrait from '../components/HoloPortrait'
 import HolocronChrome from '../components/HolocronChrome'
@@ -176,6 +177,16 @@ export default function HolocronPlanet() {
                     <p className="mt-1 text-[13px] leading-relaxed text-slate-400">
                       {L(poi.blurb, lang)}
                     </p>
+                    {poi.source && (
+                      <a
+                        href={articleUrl(poi.source)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-1.5 inline-block text-[10px] tracking-wide text-slate-600 transition-colors hover:text-holo-cyan"
+                      >
+                        {t('sourceLink', lang)}: {poi.source.replace('wookieepedia:', '')} ↗
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
