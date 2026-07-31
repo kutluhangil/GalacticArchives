@@ -68,3 +68,5 @@
 - Points of interest now cover 86 of 88 bodies (174 places, 167 cited): the eight bodies that had none were filled from their Wookieepedia locations category, and 12 previously uncited pins found their article.
 - Fixed eleven pins that cited the wrong continuity — a canon world citing a Legends-only place or the reverse (Yoda's Hut, the Petranaki Arena, Lawquane's Farm, Csaplar, the Great Jedi Library and others).
 - Added the points-of-interest research pipeline (`scripts/fetch-poi.mjs` + `scripts/slim-poi.mjs`) and its committed snapshot; `validate-lore` now rejects a citation that Wookieepedia does not have or that belongs to a different continuity than the body it sits on.
+- Hyperlanes can now be selected on the map: clicking one opens its panel at `/galaxy?lane=<id>`, dims the rest of the network, and lists every stop with the grid square canon puts it in.
+- Six of the 23 charted lanes can be flown end to end as a guided tour, generated from each world's own description rather than written by hand; the other lanes call almost entirely at worlds this archive holds no record for, and the panel says so instead of offering an empty flight.

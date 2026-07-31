@@ -111,3 +111,48 @@ test('a starred world survives a reload', async ({ page }) => {
     page.getByRole('button', { name: /Favorilerden çıkar|Remove from favorites/ }),
   ).toBeVisible()
 })
+
+test('a hyperlane deep-links into its own panel', async ({ page }) => {
+  await page.goto('/galaxy?lane=perlemian-trade-route')
+
+  const panel = page.getByRole('region', { name: /Hiperuzay hattı|Hyperlane/ })
+  // the galaxy route cold-loads three.js, and under a full parallel run that
+  // first paint outruns the default 5s expect timeout
+  await expect(panel.getByRole('heading', { name: /Perlemian/ })).toBeVisible({ timeout: 20_000 })
+  await expect(panel.getByText(/\d+ (durak|stops) ·/)).toBeVisible()
+
+  // an archive world on the lane opens its record; the charted stops with no
+  // record here are listed, but are not reachable
+  await expect(panel.getByRole('button', { name: 'Alsakan', exact: true })).toHaveCount(0)
+  await panel.getByRole('button', { name: 'Coruscant', exact: true }).click()
+  await expect(page).toHaveURL(/\/planet\/coruscant/)
+})
+
+test('flying a lane starts a tour at its first stop', async ({ page }) => {
+  await page.goto('/galaxy?lane=corellian-run')
+  await page.getByRole('button', { name: /Bu hattı uç|Fly this lane/ }).click()
+
+  // the player owns the route: it navigates to the first stop by itself
+  await expect(page).toHaveURL(/\/planet\/coruscant/)
+  const player = page.getByRole('region', { name: /Corellia Koşusu|Corellian Run/ })
+  await expect(player.getByText('1 / 4')).toBeVisible()
+
+  await player.getByRole('button', { name: /İleri|Next/ }).click()
+  await expect(player.getByText('2 / 4')).toBeVisible()
+  await expect(page).toHaveURL(/\/planet\/corellia/)
+})
+
+test('the keyboard lane list selects a lane without a pointer', async ({ page }) => {
+  await page.goto('/galaxy')
+  const entry = page
+    .getByRole('navigation', { name: /Hiperuzay hatları|Hyperlanes/ })
+    .getByRole('button', { name: /Corellia Koşusu|Corellian Run/ })
+  await expect(entry).toBeAttached({ timeout: 20_000 })
+  await entry.focus()
+  await page.keyboard.press('Enter')
+
+  await expect(page).toHaveURL(/lane=corellian-run/)
+  await expect(page.getByRole('region', { name: /Hiperuzay hattı|Hyperlane/ })).toBeVisible({
+    timeout: 20_000,
+  })
+})

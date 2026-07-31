@@ -201,3 +201,15 @@ describe('canon distance scale', () => {
     expect(course.parsecs).toBeLessThan(20)
   })
 })
+
+describe('lane stops as tour destinations', () => {
+  it('resolves every stop that claims a record to a real body', async () => {
+    for (const route of routes) {
+      for (const stop of route.stops) {
+        if (!stop.bodyId) continue
+        const body = await loadBody(stop.bodyId)
+        expect(body.id, `${route.id} -> ${stop.article}`).toBe(stop.bodyId)
+      }
+    }
+  })
+})
