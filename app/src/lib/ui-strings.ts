@@ -194,6 +194,47 @@ export type UiKey = keyof typeof STRINGS
 
 export const t = (key: UiKey, lang: Lang): string => STRINGS[key][lang]
 
+/** Copy with holes in it. Kept apart from STRINGS because these are not
+ *  lookups: every one of them is meaningless until its values are filled, and
+ *  the two languages put the numbers in different places. */
+const FORMATS = {
+  laneStopOf: {
+    en: 'Stop {n} of {total} on the {lane}',
+    tr: '{lane} üzerinde {total} durağın {n}.',
+  },
+  laneLegFrom: {
+    en: '{parsecs} parsecs out from {from}.',
+    tr: '{from} çıkışından {parsecs} parsek.',
+  },
+  laneDeparture: {
+    en: 'The core-ward end of the lane, where the run begins.',
+    tr: 'Hattın çekirdeğe bakan ucu; koşu burada başlar.',
+  },
+  laneSkipped: {
+    en: '{n} charted stops on this lane have no record in the archive and were passed.',
+    tr: 'Bu hattaki {n} çizili durağın arşivde kaydı yok; geçildiler.',
+  },
+} as const
+
+export type FormatKey = keyof typeof FORMATS
+
+/**
+ * Fill `{name}` holes in a bilingual template. Throws on a hole with no value:
+ * a sentence shipped with `{total}` still in it is a bug that should stop the
+ * test run, not copy a visitor gets to read.
+ */
+export const tf = (
+  key: FormatKey,
+  lang: Lang,
+  vars: Record<string, string | number>,
+): string =>
+  FORMATS[key][lang].replace(/\{(\w+)\}/g, (_, name: string) => {
+    if (!(name in vars)) {
+      throw new Error(`ui-strings: "${key}" (${lang}) has no value for {${name}}`)
+    }
+    return String(vars[name])
+  })
+
 /** short era chip labels (the range strings read as noise in the UI) */
 export const ERA_SHORT: Record<EraId, { en: string; tr: string }> = {
   'old-republic': { en: 'Old Republic', tr: 'Eski Cumhuriyet' },

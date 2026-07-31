@@ -2,7 +2,7 @@
 // of that promise (no blank or placeholder copy shipping in either language).
 
 import { describe, expect, it } from 'vitest'
-import { ERA_SHORT, t, type UiKey } from '../../src/lib/ui-strings'
+import { ERA_SHORT, t, tf, type UiKey } from '../../src/lib/ui-strings'
 import { ERA_ORDER, eras } from '../../src/lib/lore'
 
 // t() is a typed lookup, so the key list has to come from a value the module
@@ -21,6 +21,22 @@ describe('t', () => {
   it('actually differs between languages where it should', () => {
     expect(t('region', 'en')).toBe('Region')
     expect(t('region', 'tr')).toBe('Bölge')
+  })
+})
+
+describe('tf', () => {
+  it('fills every placeholder in both languages', () => {
+    // lane names carry no article of their own, so the template supplies it
+    expect(tf('laneStopOf', 'en', { n: 3, total: 11, lane: 'Perlemian Trade Route' })).toBe(
+      'Stop 3 of 11 on the Perlemian Trade Route',
+    )
+    expect(tf('laneStopOf', 'tr', { n: 3, total: 11, lane: 'Perlemian Ticaret Yolu' })).toBe(
+      'Perlemian Ticaret Yolu üzerinde 11 durağın 3.',
+    )
+  })
+
+  it('throws when a placeholder has no value, rather than rendering a hole', () => {
+    expect(() => tf('laneStopOf', 'en', { n: 3 })).toThrow(/laneStopOf.*total/)
   })
 })
 
