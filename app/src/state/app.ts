@@ -9,9 +9,13 @@ export type Quality = 'auto' | 'low' | 'high'
 /** open -> closing -> closed -> opening -> open, driven by useFlyTo */
 export type VeilPhase = 'open' | 'closing' | 'closed' | 'opening'
 
+/** where an active tour came from: a hand-written itinerary, or a hyperlane
+ *  flown end to end. Both play through the same player. */
+export type TourSource = { kind: 'authored'; id: string } | { kind: 'lane'; id: string }
+
 /** an active guided tour: which one, and how far along */
 export interface TourState {
-  id: string
+  source: TourSource
   step: number
   playing: boolean
 }
@@ -34,7 +38,7 @@ interface AppState {
   setLegends: (v: boolean) => void
   setLanes: (v: boolean) => void
   setVeil: (v: VeilPhase) => void
-  startTour: (id: string) => void
+  startTour: (source: TourSource) => void
   setTourStep: (step: number) => void
   toggleTourPlaying: () => void
   endTour: () => void
@@ -89,7 +93,7 @@ export const useApp = create<AppState>((set, get) => ({
     set({ lanes })
   },
   setVeil: (veil) => set({ veil }),
-  startTour: (id) => set({ tour: { id, step: 0, playing: true } }),
+  startTour: (source) => set({ tour: { source, step: 0, playing: true } }),
   setTourStep: (step) => {
     const tour = get().tour
     if (tour) set({ tour: { ...tour, step } })

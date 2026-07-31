@@ -118,7 +118,7 @@ function ToursMenu() {
               key={tour.id}
               onClick={() => {
                 close()
-                startTour(tour.id)
+                startTour({ kind: 'authored', id: tour.id })
               }}
               className="block w-full rounded px-2 py-1.5 text-left transition-colors hover:bg-white/5"
             >

@@ -90,8 +90,12 @@ describe('Legends layer', () => {
 describe('tour state', () => {
   it('walks start -> step -> pause -> end', async () => {
     const useApp = await bootStore()
-    useApp.getState().startTour('skywalker')
-    expect(useApp.getState().tour).toEqual({ id: 'skywalker', step: 0, playing: true })
+    useApp.getState().startTour({ kind: 'authored', id: 'skywalker' })
+    expect(useApp.getState().tour).toEqual({
+      source: { kind: 'authored', id: 'skywalker' },
+      step: 0,
+      playing: true,
+    })
 
     useApp.getState().setTourStep(3)
     expect(useApp.getState().tour?.step).toBe(3)
@@ -101,6 +105,16 @@ describe('tour state', () => {
 
     useApp.getState().endTour()
     expect(useApp.getState().tour).toBeNull()
+  })
+
+  it('carries a lane source through untouched', async () => {
+    const useApp = await bootStore()
+    useApp.getState().startTour({ kind: 'lane', id: 'perlemian-trade-route' })
+    expect(useApp.getState().tour?.source).toEqual({
+      kind: 'lane',
+      id: 'perlemian-trade-route',
+    })
+    useApp.getState().endTour()
   })
 
   it('ignores step and play changes with no tour running', async () => {

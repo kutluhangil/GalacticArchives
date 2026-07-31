@@ -2,11 +2,12 @@
 // navigation — each stop swaps the planet route and the arriving view plays
 // its own dive-in, so a tour looks like a flight plan rather than a slideshow.
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { L } from '../lib/lore'
-import { tourById } from '../lib/tours'
-import { t } from '../lib/ui-strings'
+import { loadLaneTour, type PlayableTour } from '../lib/lane-tour'
+import { authoredTour } from '../lib/tours'
+import { t, tf } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 
 /** how long a stop holds before the tour moves on */
@@ -21,7 +22,30 @@ export default function TourPlayer() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const definition = tour ? tourById(tour.id) : undefined
+  // A lane tour has to load the worlds it narrates, so it resolves in an
+  // effect. What is stored is the lane it belongs to as well as the tour, so
+  // switching lanes reads as "not loaded yet" without a second setState to
+  // clear it — the stale tour is never the one rendered.
+  const [resolved, setResolved] = useState<{ laneId: string; tour: PlayableTour } | null>(null)
+  const source = tour?.source
+  const laneId = source?.kind === 'lane' ? source.id : null
+  useEffect(() => {
+    if (!laneId) return
+    let live = true
+    void loadLaneTour(laneId).then((tour) => {
+      if (live) setResolved({ laneId, tour })
+    })
+    return () => {
+      live = false
+    }
+  }, [laneId])
+
+  const definition =
+    source?.kind === 'authored'
+      ? authoredTour(source.id)
+      : resolved?.laneId === laneId
+        ? resolved.tour
+        : undefined
   const stop = definition?.stops[tour?.step ?? 0]
   const target = stop ? `/planet/${stop.bodyId}` : null
 
@@ -61,6 +85,12 @@ export default function TourPlayer() {
       </div>
 
       <p className="mb-3 text-[13px] leading-relaxed text-slate-200">{L(stop.narration, lang)}</p>
+
+      {definition.skipped > 0 && (
+        <p className="mb-3 text-[11px] leading-snug text-slate-500">
+          {tf('laneSkipped', lang, { n: definition.skipped })}
+        </p>
+      )}
 
       <div className="mb-3 flex gap-1" aria-hidden>
         {definition.stops.map((s, i) => (

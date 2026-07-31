@@ -14,6 +14,7 @@ import {
 import { routes } from '../../src/lib/routes'
 import { parsecsBetween } from '../../src/lib/galaxy-grid'
 import { loadBody } from '../../src/lib/lore'
+import { authoredTour, tours } from '../../src/lib/tours'
 
 /**
  * The lanes that can be flown, named so the set is asserted rather than
@@ -96,5 +97,14 @@ describe('laneTour', () => {
     const route = routes.find((r) => laneArchiveStops(r).length >= MIN_TOUR_STOPS)!
     const only = await loadBody(laneArchiveStops(route)[0].bodyId!)
     expect(() => laneTour(route.id, [only])).toThrow(/is not among the bodies given/)
+  })
+})
+
+describe('authoredTour', () => {
+  it('returns a hand-written tour in the same shape, skipping nothing', () => {
+    const tour = authoredTour(tours[0].id)!
+    expect(tour.stops.length).toBe(tours[0].stops.length)
+    expect(tour.skipped).toBe(0)
+    expect(authoredTour('grand-tour-of-nothing')).toBeUndefined()
   })
 })
