@@ -21,6 +21,8 @@ const COURSE_Y = 0.2
 /** curve samples per lane leg — enough to read as a flight path, not a zigzag */
 const LANE_SAMPLES = 6
 const COURSE_COLOR = '#ffe81f'
+/** how far the rest of the network steps back while one lane is selected */
+const SELECTED_LANE_DIM = 0.15
 
 export interface GalaxyNode {
   id: string
@@ -42,6 +44,8 @@ export interface GalaxyLane {
 
 export interface GalaxyCallbacks extends BaseCallbacks {
   onSelect?: (id: string) => void
+  /** a click that landed on a lane rather than on a world */
+  onLaneSelect?: (routeId: string) => void
   onLabelPositions?: (
     labels: {
       id: string
@@ -193,6 +197,7 @@ export class GalaxyEngine extends EngineBase {
   private selectCb?: (id: string) => void
   private labelCb?: GalaxyCallbacks['onLabelPositions']
   private regionCb?: GalaxyCallbacks['onRegionHover']
+  private laneCb?: GalaxyCallbacks['onLaneSelect']
   private lastRegion: RegionId | null = null
   private brokenTex = makeBrokenRingTexture()
   /** everything that turns with the disk: stars, haze, dust, bulge */
@@ -211,6 +216,10 @@ export class GalaxyEngine extends EngineBase {
   /** the charted hyperlane network, and the course plotted across it */
   private laneGroup = new THREE.Group()
   private laneMats: THREE.Material[] = []
+  /** invisible tubes along each lane: a line is too thin to hit, especially
+   *  under a finger, so the pickable lane is a volume around the drawn one */
+  private laneHits: THREE.Mesh[] = []
+  private selectedLane: string | null = null
   private courseGroup = new THREE.Group()
   /** lanes step back while a course is plotted, so the course reads as the
    *  answer rather than as one more line in the network */
@@ -225,6 +234,7 @@ export class GalaxyEngine extends EngineBase {
     this.selectCb = cb.onSelect
     this.labelCb = cb.onLabelPositions
     this.regionCb = cb.onRegionHover
+    this.laneCb = cb.onLaneSelect
   }
 
   init(nodes: GalaxyNode[], era: EraId) {
@@ -281,6 +291,7 @@ export class GalaxyEngine extends EngineBase {
   setLanes(lanes: GalaxyLane[]) {
     this.disposeGroup(this.laneGroup)
     this.laneMats = []
+    this.laneHits = []
     for (const lane of lanes) {
       if (lane.points.length < 2) continue
       const geo = new THREE.BufferGeometry().setFromPoints(this.laneCurve(lane.points, LANE_Y))
@@ -292,6 +303,7 @@ export class GalaxyEngine extends EngineBase {
         blending: THREE.AdditiveBlending,
       })
       mat.userData.baseOpacity = mat.opacity
+      mat.userData.routeId = lane.id
       this.laneMats.push(mat)
       this.laneGroup.add(new THREE.Line(geo, mat))
 
@@ -309,14 +321,35 @@ export class GalaxyEngine extends EngineBase {
         blending: THREE.AdditiveBlending,
       })
       tickMat.userData.baseOpacity = tickMat.opacity
+      tickMat.userData.routeId = lane.id
       this.laneMats.push(tickMat)
       this.laneGroup.add(new THREE.Points(ticks, tickMat))
+
+      // the same curve the line follows, given a radius. Radial segments are
+      // as low as a tube goes: it is never drawn, only hit.
+      const hitGeo = new THREE.TubeGeometry(
+        new THREE.CatmullRomCurve3(this.laneCurve(lane.points, LANE_Y)),
+        lane.points.length * LANE_SAMPLES,
+        0.45,
+        4,
+        false,
+      )
+      const hitMesh = new THREE.Mesh(hitGeo, new THREE.MeshBasicMaterial({ visible: false }))
+      hitMesh.userData.routeId = lane.id
+      this.laneGroup.add(hitMesh)
+      this.laneHits.push(hitMesh)
     }
     this.applyDiskFade()
   }
 
   setLanesVisible(visible: boolean) {
     this.laneGroup.visible = visible
+  }
+
+  /** Bring one lane forward and step the rest back. Passing null clears it. */
+  setSelectedLane(routeId: string | null) {
+    this.selectedLane = routeId
+    this.applyDiskFade()
   }
 
   /** Highlight one plotted course over the lanes. Passing null clears it. */
@@ -401,7 +434,9 @@ export class GalaxyEngine extends EngineBase {
       mat.opacity = (mat.userData.baseOpacity as number) * this.diskFade
     }
     for (const mat of this.laneMats) {
-      mat.opacity = (mat.userData.baseOpacity as number) * this.diskFade * this.courseDim
+      const off =
+        this.selectedLane && mat.userData.routeId !== this.selectedLane ? SELECTED_LANE_DIM : 1
+      mat.opacity = (mat.userData.baseOpacity as number) * this.diskFade * this.courseDim * off
     }
     this.courseGroup.visible = this.diskFade > 0.01
   }
@@ -789,10 +824,18 @@ export class GalaxyEngine extends EngineBase {
     this.raycaster.setFromCamera(this.pointer, this.camera)
   }
 
+  /** the lane under the pointer, or null. Lanes switched off are not there to
+   *  be hit, and a world sitting on its lane always wins the click. */
+  private laneUnderPointer(): string | null {
+    if (!this.laneGroup.visible) return null
+    const hit = this.raycaster.intersectObjects(this.laneHits, false)
+    return (hit[0]?.object.userData.routeId as string | undefined) ?? null
+  }
+
   private onPointerMove = (e: PointerEvent) => {
     this.setPointer(e)
     const hit = this.raycaster.intersectObjects(this.hitTargets, false)
-    this.canvas.style.cursor = hit.length ? 'pointer' : 'grab'
+    this.canvas.style.cursor = hit.length || this.laneUnderPointer() ? 'pointer' : 'grab'
     if (this.regionCb) {
       const target = new THREE.Vector3()
       const on = this.raycaster.ray.intersectPlane(this.plane, target)
@@ -809,7 +852,12 @@ export class GalaxyEngine extends EngineBase {
     this.setPointer(e)
     const hit = this.raycaster.intersectObjects(this.hitTargets, false)
     const id = hit[0]?.object.userData.bodyId as string | undefined
-    if (id) this.selectCb?.(id)
+    if (id) {
+      this.selectCb?.(id)
+      return
+    }
+    const routeId = this.laneUnderPointer()
+    if (routeId) this.laneCb?.(routeId)
   }
 
   protected update() {
