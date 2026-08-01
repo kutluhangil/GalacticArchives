@@ -4,19 +4,21 @@
 
 <img src="https://img.shields.io/badge/Status-Live-facc15?style=for-the-badge&logoColor=black" alt="status" />
 <img src="https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=black" alt="react" />
-<img src="https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="typescript" />
+<img src="https://img.shields.io/badge/TypeScript-5.9-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="typescript" />
 <img src="https://img.shields.io/badge/three.js-r185-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="threejs" />
 <img src="https://img.shields.io/badge/Vite-7-646cff?style=for-the-badge&logo=vite&logoColor=white" alt="vite" />
 <img src="https://img.shields.io/badge/Tauri-2-24c8db?style=for-the-badge&logo=tauri&logoColor=black" alt="tauri" />
-<img src="https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel" />
+<img src="https://img.shields.io/badge/Tests-196_unit_·_16_e2e-3ecf8e?style=for-the-badge&logoColor=white" alt="tests" />
+<img src="https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel" />
+<img src="https://img.shields.io/badge/License-MIT_·_CC_BY--SA-22c55e?style=for-the-badge" alt="license" />
 
 <br /><br />
 
 ```
  ██████╗  █████╗ ██╗      █████╗  ██████╗████████╗██╗ ██████╗
 ██╔════╝ ██╔══██╗██║     ██╔══██╗██╔════╝╚══██╔══╝██║██╔════╝
-██║  ███╗███████║██║     ███████║██║        ██║   ██║██║     
-██║   ██║██╔══██║██║     ██╔══██║██║        ██║   ██║██║     
+██║  ███╗███████║██║     ███████║██║        ██║   ██║██║
+██║   ██║██╔══██║██║     ██╔══██║██║        ██║   ██║██║
 ╚██████╔╝██║  ██║███████╗██║  ██║╚██████╗   ██║   ██║╚██████╗
  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝
  █████╗ ██████╗  ██████╗██╗  ██╗██╗██╗   ██╗███████╗███████╗
@@ -27,106 +29,109 @@
 ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝  ╚══════╝╚══════╝
 ```
 
-### **GALACTIC ARCHIVES** — çok uzak bir galaksinin atlası.
+### **Çok uzak bir galaksinin atlası** — 88 gök cismi, 23 hiperuzay hattı, sıfır backend, tarayıcıda gerçek zamanlı.
 
-**Gerçek zamanlı 3D** · 74 gök cismi · 3 dönem · sıfır backend · tarayıcıda 77 fps.
+*"Uzun zaman önce, çok çok uzak bir galakside…"*
 
-[🌌 Canlı](https://galactic-archives.vercel.app) · [🛰️ Galaksi Haritası](https://galactic-archives.vercel.app/galaxy) · [📜 Holocron](https://galactic-archives.vercel.app/holocron) · [⚖️ Kıyasla](https://galactic-archives.vercel.app/compare)
+[**Galaksiye gir →**](https://galactic-archives.vercel.app/galaxy) · [Holocron](https://galactic-archives.vercel.app/holocron) · [Kıyasla](https://galactic-archives.vercel.app/compare) · [Hata bildir](https://github.com/kutluhangil/GalacticArchives/issues)
 
 </div>
 
 ---
 
-## ✦ Genel Bakış
+## ✦ Galactic Archives nedir?
 
-**Galactic Archives**, Star Wars galaksisini **gezilebilir bir 3D atlasa** çeviren bir fan
-projesidir. Galaksi diskinden bir yıldız sistemine, oradan gezegenin yüzeyine kesintisiz
-kamera uçuşuyla inersin. Her dünya **prosedürel GLSL shader'larla** gerçek zamanlı üretilir —
-hazır doku dosyası yok, gündüz/gece terminatörü gerçek saatle ilerler.
+**Galactic Archives**, Star Wars galaksisini gezilebilir bir **3D atlasa** çeviren bir hayran
+projesidir. Galaksi diskinden bir yıldız sistemine, oradan gezegenin yüzeyine kesme olmadan,
+kamera uçuşuyla inersin. Her dünya **prosedürel GLSL shader'larla** gerçek zamanlı çizilir —
+repoda tek bir telifli doku yok, gündüz/gece terminatörü gerçek saatle ilerler.
 
-Üstünde ikinci bir katman var: **Holocron** — 74 dünya ve 33 figürün birbirine bağlı,
-iki dilli wiki'si. Ve **dönem çubuğu**: Klon Savaşları / İmparatorluk / Yeni Cumhuriyet
-arasında geçiş yaptığında galaksi değişir — Alderaan kırılır, Ölüm Yıldızı belirir,
-Starkiller ateşlenir.
+Üstünde iki katman daha var:
 
-> **Backend yok, hesap yok, API çağrısı yok.** Tüm veri statik JSON, tüm görsel ham three.js
-> ile çizilir. Aynı kod tabanı hem Vercel'de web olarak hem de Tauri v2 ile 12 MB'lık
-> macOS `.dmg` olarak paketlenir.
+- **Holocron** — 88 gök cismi ve 33 figürün çapraz bağlı, tamamen iki dilli wiki'si.
+- **Zaman ekseni** — Klon Savaşları / İmparatorluk / Yeni Cumhuriyet (+ yalnız Legends açıkken
+  Eski Cumhuriyet). Dönemi değiştirdiğinde galaksi değişir: Alderaan kırılır, Ölüm Yıldızı
+  belirir, bağlılık renkleri döner.
 
-<div align="center">
-<img src="docs/screenshots/galaxy-map.jpg" alt="Galaksi haritası — log-sarmal disk" width="100%" />
-<sub><i>Galaksi haritası — logaritmik sarmal kollar, nebula pusu, toz şeritleri, çubuklu çekirdek. 74 dünya, 77 fps.</i></sub>
-</div>
+Ve son fazda gelen katman: **hiperuzay ağı** — 23 çizili hat, kanonun verdiği grid kareleriyle,
+tıklanabilir ve uçulabilir.
+
+> **Backend yok, hesap yok, API çağrısı yok.** Tüm veri statik JSON, tüm görsel ham three.js ile
+> çizilir. Aynı kod tabanı hem Vercel'de web olarak hem de Tauri v2 ile 12 MB'lık macOS `.dmg`
+> olarak paketlenir.
 
 ---
 
-## ⚡ Öne Çıkan Özellikler
+## ⚡ Öne çıkan özellikler
 
 | Özellik | Açıklama |
-|--------|----------|
-| 🌌 **Üç Kademeli Hiyerarşi** | Galaksi diski → yıldız sistemi → gezegen yüzeyi. Aralarda kesme yok, kamera uçuşu var. |
-| 🎨 **Prosedürel Gezegenler** | 12 arketip (çöl, buz, lav, ekumenopolis, gaz devi, bataklık…), tamamı GLSL. Doku dosyası sıfır. |
-| 🏔️ **Kabartma Gölgeleme** | Arketip başına yükseklik alanı normali bozar — kumullar, buz sırtları ve krater kenarları terminatörde ışık yakalar. |
-| 🕰️ **Dönem Sistemi** | Klon Savaşları · İmparatorluk · Yeni Cumhuriyet. Bağlılıklar, mevcudiyet ve gök cisminin durumu döneme göre değişir. |
-| 📜 **Holocron Wiki** | 114 kayıt — dünyalar ve figürler çapraz bağlı, bölge/yapım filtreli. |
+|---|---|
+| 🌌 **Üç kademeli hiyerarşi** | Galaksi diski → yıldız sistemi → gezegen yüzeyi. Aralarda kesme yok, kamera uçuşu var. |
+| 🎨 **Prosedürel gezegenler** | 12 arketip (çöl, buz, lav, ekumenopolis, gaz devi, bataklık…), tamamı GLSL. Doku dosyası sıfır. |
+| 🛰️ **Hiperuzay ağı** | 23 hat, 308 durak. Hattı tıkla, panelini aç, `?lane=<id>` ile paylaş; 6 hat uçtan uca uçulabilir. |
+| 🧭 **Rota planlayıcı** | İki dünya seç, kurs hatlar üzerinden çizilsin, mesafe parsek olarak hesaplansın. |
+| 🕰️ **Dönem sistemi** | 3 kanon dönem + Legends açıkken Eski Cumhuriyet. Bağlılık, mevcudiyet ve gövde durumu döneme göre değişir. |
+| 📜 **Holocron wiki** | 121 kayıt — dünyalar ve figürler çapraz bağlı, bölge/medya filtreli. |
+| 📍 **174 ilgi noktası** | 86 gövdede işaretli yer; 167'si Wookieepedia makalesiyle kaynaklı, süreklilik uyumu derlemede doğrulanıyor. |
 | ⚖️ **Kıyaslama** | İki canlı küre yan yana + gerçek çap oranı şeridi + istatistik tablosu, URL ile paylaşılabilir. |
-| 🎬 **Rehberli Turlar** | Skywalker Destanı · Klon Savaşları · Mandalorlunun Yolu — anlatı kartlarıyla rotayı kendisi sürer. |
-| ⌘ **Komut Paleti** | ⌘K ile Türkçe-duyarlı bulanık arama; gezegen, karakter, sistem hepsi tek kutuda. |
-| ⭐ **Favoriler & Son Gezilenler** | localStorage, giriş yok. |
-| 🌍 **TR / EN** | Tüm arayüz ve tüm lore içeriği iki dilli — tip düzeyinde zorunlu. |
-| 🖥️ **macOS Uygulaması** | Tauri v2 · 12 MB `.dmg` · yüksek kalite katmanı varsayılan. |
+| 🎬 **Rehberli turlar** | 3 elle yazılmış tur + her uçulabilir hattın kendi dünyalarının açıklamasından **üretilen** turu. |
+| ⌘ **Komut paleti** | ⌘K ile Türkçe-duyarlı bulanık arama; gezegen, karakter, bölge filtresi tek kutuda. |
+| ♿ **Klavye + ekran okuyucu** | Haritadaki dünyalar ve hatlar `sr-only` listelerle gezilebilir; `prefers-reduced-motion` gerçek bir dal. |
+| 🌍 **TR / EN** | Tüm arayüz ve tüm lore içeriği iki dilli — tip düzeyinde zorunlu, tek dilli anahtar derlemeyi keser. |
+| 🖥️ **macOS uygulaması** | Tauri v2 · 12 MB `.dmg` · yüksek kalite katmanı varsayılan. |
 
 <div align="center">
-<img src="docs/screenshots/planet-mustafar.jpg" alt="Mustafar — lav arketipi" width="49%" />
-<img src="docs/screenshots/system-tatoo.jpg" alt="Tatoo sistemi — ikiz güneş" width="49%" />
-<br />
-<sub><i>Sol: Mustafar, lav arketipi + emissive nehirler. Sağ: Tatoo sistemi, ikiz güneş ve üç ay.</i></sub>
+<img src="docs/screenshots/galaxy-map.jpg" alt="Galaksi haritası" width="100%" />
+<sub><i>Galaksi haritası — logaritmik sarmal kollar, nebula pusu, çubuklu çekirdek. (Görüntü hiperuzay ağından önce çekildi; yenilenecek.)</i></sub>
 </div>
 
 ---
 
-## 🗂️ Veri Nereden Geliyor? (Gerçeklik)
+## 🗂️ Veri nereden geliyor?
 
-Tüm lore verisi **Wookieepedia** ve **StarWars.com Databank**'tan çekilip elle doğrulandı;
-`scripts/validate-lore.mjs` `(?)` işaretli veya kaynaksız alanı derlemede reddeder.
-Görseller ise **tamamen prosedüreldir** — hiçbir telifli görsel repoda yoktur.
+Tüm lore verisi **Wookieepedia** ve **StarWars.com Databank**'tan çekilip doğrulandı.
+`scripts/validate-lore.mjs` kaynaksız alanı, var olmayan makaleyi ve süreklilik uyumsuzluğunu
+derlemede reddeder — dijest repoda, yani CI aynı kontrolü tekrar üretebilir.
 
 | Kaynak | Ne için | Yöntem | Durum |
-|--------|---------|--------|:---:|
-| **Wookieepedia** | Gezegen istatistikleri, bölge, sektör, nüfus, yönetim | `starwars.fandom.com/api.php` digest → `fetch-lore.mjs` | ✅ Doğrulandı |
-| **StarWars.com Databank** | Karakter biyografileri, çapraz kontrol | Manuel çapraz doğrulama | ✅ Doğrulandı |
-| **Prosedürel shader** | Tüm gezegen yüzeyleri | 12 arketipli uber-shader + FBM gürültü | 🎨 Üretilmiş |
-| **Prosedürel shader** | Galaksi diski, yıldız alanları, nebula | Log-sarmal nokta bulutları | 🎨 Üretilmiş |
-| **Holo-büst placeholder** | Karakter portreleri | Prosedürel siluet + tarama çizgisi | 🟡 Geçici |
+|---|---|---|:-:|
+| **Wookieepedia** | Gezegen istatistikleri, bölge, sektör, nüfus, yönetim, hat durakları | `starwars.fandom.com/api.php` digest → `fetch-lore.mjs` / `fetch-routes.mjs` | ✅ |
+| **Wookieepedia** | İlgi noktaları ve atıfları | `fetch-poi.mjs` + `slim-poi.mjs` anlık görüntüsü | ✅ |
+| **StarWars.com Databank** | Karakter biyografileri, çapraz kontrol | Manuel çapraz doğrulama | ✅ |
+| **Prosedürel shader** | Tüm gezegen yüzeyleri, galaksi diski, yıldız alanları | 12 arketipli uber-shader + FBM gürültü | 🎨 |
+| **Holo-büst yer tutucusu** | Karakter portreleri | Prosedürel siluet + tarama çizgisi | 🟡 |
 
-**Doğrulama:** son çalıştırmada **74 gök cismi, 0 hata, 0 uyarı**.
+**Son doğrulama:** `bodies=88 · points of interest=174 across 86/88 bodies, 167 cited · ERRORS: 0 · WARNINGS: 9`
+(uyarıların hepsi "kanon bu durak için grid karesi vermiyor" gibi bilinçli boşluklar).
 
 ---
 
 ## 📊 Kapsam
 
-> **74 gök cismi** · 33 karakter · 2 megayapı · 12 yüzey arketipi · 3 dönem · 114 Holocron kaydı
+> **88 gök cismi** · 33 figür · 121 Holocron kaydı · 174 yer · 23 hiperuzay hattı · 308 durak · 12 yüzey arketipi · 4 dönem
 
-**Bölgeye göre** — merkezden dışa
+**Bölgeye göre** — merkezden dışa (81 gezegen dosyası)
 
-| Derin Çekirdek | Çekirdek Dünyalar | Koloniler | İç Halka | Genişleme | Orta Halka | Dış Halka | Vahşi Uzay | Bilinmeyen | Uzak Galaksi |
+| Derin Çekirdek | Çekirdek | Koloniler | İç Halka | Genişleme | Orta Halka | Dış Halka | Vahşi Uzay | Bilinmeyen | Uzak Galaksi |
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| 1 | 6 | 2 | 2 | 4 | 8 | **45** | 2 | 3 | 1 |
+| 1 | 6 | 2 | 3 | 4 | 8 | **49** | 2 | 5 | 1 |
 
 **Yüzey arketipine göre** — 12 shader dalı
 
 | Arketip | Dünya | Arketip | Dünya |
-|---------|:--:|---------|:--:|
-| 🌿 Verdant | **25** | 🌫️ Swamp-fog | **4** |
-| 🏜️ Desert | **12** | 🪨 Barren | **4** |
-| ❄️ Ice | **6** | ⛈️ Dark-storm | **3** |
-| 🔴 Crystal-red | **6** | 🪐 Gas-giant | **3** |
-| 🏙️ Ecumenopolis | **4** | 🌋 Lava | **2** |
-| 🌊 Ocean-storm | **4** | 🛰️ Station | **1** |
+|---|:--:|---|:--:|
+| 🌿 Verdant | **26** | 🪨 Barren | **5** |
+| 🏜️ Desert | **12** | ⛈️ Dark-storm | **4** |
+| ❄️ Ice | **7** | 🌫️ Swamp-fog | **4** |
+| 🌊 Ocean-storm | **6** | 🪐 Gas-giant | **3** |
+| 🔴 Crystal-red | **6** | 🌋 Lava | **2** |
+| 🏙️ Ecumenopolis | **5** | 🛰️ Station | **1** |
+
+**Süreklilik:** 74 kanon + 7 Legends dünyası (ayarlardan açılır; kendi dönemini de açar).
 
 <div align="center">
-<img src="docs/screenshots/holocron.jpg" alt="Holocron — 114 kayıt" width="49%" />
-<img src="docs/screenshots/compare.jpg" alt="Kıyaslama — Coruscant vs Hoth" width="49%" />
+<img src="docs/screenshots/holocron.jpg" alt="Holocron" width="49%" />
+<img src="docs/screenshots/compare.jpg" alt="Kıyaslama" width="49%" />
 <br />
 <sub><i>Sol: Holocron, filtreli katalog. Sağ: Kıyaslama, iki canlı küre + gerçek çap oranı.</i></sub>
 </div>
@@ -136,30 +141,34 @@ Görseller ise **tamamen prosedüreldir** — hiçbir telifli görsel repoda yok
 ## 🛠️ Teknoloji
 
 ```
-Çatı         →  Vite 7 · React 19 · TypeScript 5.9 · React Router 7
-Render       →  Ham three.js r185 · özel GLSL · WebGL2 (R3F kullanılmadı)
-Stil         →  Tailwind CSS 3 · shadcn/ui (Radix)
-Durum        →  Zustand (localStorage kalıcı: dil, dönem, kalite, favoriler)
-Veri         →  Statik JSON · backend yok · API çağrısı yok
+Çatı         →  Vite 7 · React 19 · TypeScript 5.9 · React Router 7 (data router)
+Render       →  Ham three.js r185 · özel GLSL · WebGL2 (React Three Fiber kullanılmadı)
+Stil         →  Tailwind CSS 3 (shadcn/Radix katmanı söküldü — 44 ölü paket kaldırıldı)
+Durum        →  Zustand · localStorage (dil, dönem, kalite, favoriler, Legends, onboarding)
+Veri         →  Statik JSON · backend yok · API çağrısı yok · çalışma zamanı fetch'i yok
+Test         →  Vitest + Testing Library (196 test) · Playwright (16 e2e)
+CI           →  GitHub Actions: tsc -b · eslint · validate-lore · build
+Güvenlik     →  vercel.json sıkı CSP + HSTS/Referrer/Permissions · Tauri csp dolu · Dependabot
 Masaüstü     →  Tauri v2 (Rust + WKWebView) → aarch64 .dmg
-Dağıtım      →  Vercel · SPA rewrite + build sonrası statik meta sayfaları
+Dağıtım      →  Vercel · SPA rewrite + derleme sonrası statik meta/OG/sitemap üretimi
 ```
 
-**Neden ham three.js?** Motor shader ağırlıklı ve tek karede 74 küre + üç nokta bulutu
+**Neden ham three.js?** Motor shader ağırlıklı ve tek karede 80+ küre ile üç nokta bulutu
 çiziyor; React Three Fiber'ın reconciler'ı bu iş için gereksiz bir katman olurdu.
-Karar gerekçesi `PLAN.md` §K3'te.
+Gerekçe `PLAN.md` §K3'te.
 
 ---
 
-## 🔄 Nasıl Çalışıyor (Render Akışı)
+## 🔄 Nasıl çalışıyor (render akışı)
 
 ```
-  data/planets/*.json ──▶ lore.ts ──▶ renderRecipe { archetype, palette, relief }
+  data/planets/*.json ──▶ lore.ts ──▶ renderRecipe { archetype, palette, relief, textures }
                                             │
                                             ▼
                        body-material.ts ──▶ uber-shader (12 arketip dalı)
                                             │  + noise-glsl (FBM)
                                             │  + relief (yükseklik gradyanı → normal)
+                                            │  + planet-textures (varsa albedo/night karışır)
                                             ▼
   galaxy-engine ──┐
   system-engine ──┼──▶ engine-base (sahne · kamera · flyTo · bloom) ──▶ WebGL2
@@ -168,14 +177,40 @@ Karar gerekçesi `PLAN.md` §K3'te.
   sim-clock.ts (gerçek saat) ────────────────┘   terminatör ve yörüngeler canlı ilerler
 ```
 
-- **Galaksi** — 3 nokta bulutu (kol yıldızları, kollar arası alan, nebula pusu) + 74 arketip küresi (`uRelief=0`, kaba küre)
+- **Galaksi** — 3 nokta bulutu (kol yıldızları, kollar arası alan, nebula pusu) + arketip küreleri
+  (`uRelief=0`, kaba küre) + hiperuzay hatları ve her hattın görünmez tüp hedefi
 - **Sistem** — güneş(ler), yörünge çizgileri, gezegen + ayları, hızlandırılabilir sim zamanı
-- **Gezegen** — tam kabartmalı küre, atmosfer rim ışığı, bulut katmanı, bloom
-- **Geçiş** — `useFlyTo` kamerayı hedefe süzer, varan görünüm aynı kadrajdan devralır
+- **Gezegen** — tam kabartmalı küre, atmosfer rim ışığı, bulut katmanı, bloom, ilgi noktaları
+- **Geçiş** — `useFlyTo` kamerayı hedefe süzer, varan görünüm aynı kadrajdan devralır;
+  Holocron tarafında `startViewTransition` ile kart↔portre morph'u
 
 ---
 
-## 📐 Proje Yapısı
+## 🛰️ Hiperuzay hatları
+
+Hat seçimi URL'de yaşar (`/galaxy?lane=<id>`) — paylaşılabilir ve geri tuşuyla gezilir.
+Bir çizgiyi ışın izleme ile tutturmak her yakınlaşmada güvenilmez olduğundan, her hattın
+çizdiği eğri boyunca **görünmez bir tüp** var; hattın üstünde duran bir dünya tıklamayı
+her zaman kazanır.
+
+| Hat | Arşivdeki durak / toplam |
+|---|:-:|
+| Corellian Run | 4 / 25 |
+| Triellus Trade Route | 3 / 39 |
+| Perlemian Trade Route | 2 / 24 |
+| Hydian Way | 2 / 47 |
+| Rimma Trade Route | 2 / 17 |
+| Corellian Trade Spine | 2 / 50 |
+| kalan 17 hat | 0 veya 1 |
+
+Uçulabilir hat sayısı **6/23** — ve panel bunu gizlemiyor, "bu hattın burada kaydı olan durağı
+yeterli değil" diyor. Hat turu her durağın anlatısını dünyanın **kendi açıklamasından** üretir;
+atlanan durakları sayar ve söyler. Kalan 17 hattı açmanın yolu uydurmak değil, kavşak
+dünyalarını aynı dürüstlük modeliyle arşive eklemek — yol haritasında ilk sırada.
+
+---
+
+## 📐 Proje yapısı
 
 ```
 GalacticArchives/
@@ -183,22 +218,27 @@ GalacticArchives/
 │   ├── src/
 │   │   ├── lib/engine/       # engine-base · planet · system · galaxy · body-material
 │   │   │                     # planet-shaders · noise-glsl · effects · planet-textures
-│   │   ├── lib/              # lore · collections · tours · quality · sim-clock · ui-strings
+│   │   ├── lib/              # lore · routes · lane-tour · collections · tours · galaxy-grid
+│   │   │                     # quality · sim-clock · sources · ui-strings (t / tf)
 │   │   ├── pages/            # Landing · GalaxyView · SystemView · PlanetView · Compare
 │   │   │                     # Holocron · HolocronPlanet · HolocronCharacter
-│   │   ├── components/       # TransitionVeil · useFlyTo · TourPlayer · Aurebesh
-│   │   │                     # CommandPalette · EraFade · SettingsMenu · hud/*
+│   │   ├── components/       # TransitionVeil · useFlyTo · TourPlayer · HoloPortrait
+│   │   │                     # CommandPalette · ErrorBoundary · OnboardingHint · hud/*
 │   │   ├── state/            # app.ts (zustand)
-│   │   └── data/             # planets/*.json (74) · characters.json (33)
-│   │                         # stations.json (2) · tours.json (3) · sources.json
-│   ├── scripts/              # fetch-lore · validate-lore · process-textures · build-static-meta
+│   │   └── data/             # planets/*.json (81 + 5 detaylı ay) · characters.json (33)
+│   │                         # stations.json (2) · routes.json (23) · tours.json (3) · sources.json
+│   ├── scripts/              # fetch-lore · fetch-poi · fetch-routes · validate-lore
+│   │                         # process-textures · build-static-meta · check-bundle-budget
+│   ├── test/unit/            # 17 dosya · 196 test
+│   ├── e2e/                  # Playwright · 16 test
 │   ├── src-tauri/            # Tauri v2 masaüstü kabuğu
-│   └── vercel.json           # SPA rewrite
-├── docs/screenshots/
-├── PLAN.md                   # ürün + teknik plan
-├── design.md                 # görsel varlık brief'leri
-├── HANDOFF.md                # devam talimatı + kritik tuzaklar
-└── SENDEN-GEREKENLER.md      # açık kalemler ve eksik varlıklar
+│   └── vercel.json           # SPA rewrite + güvenlik başlıkları
+├── docs/
+│   ├── gorsel-uretim-promptlari.md   # 224 görsel için üretim promptu
+│   ├── superpowers/                  # faz spec'leri ve uygulama planları
+│   └── screenshots/
+├── ROADMAP.md · PLAN.md · design.md · HANDOFF.md · SENDEN-GEREKENLER.md
+└── CHANGELOG.md
 ```
 
 ---
@@ -215,58 +255,94 @@ GalacticArchives/
 git clone https://github.com/kutluhangil/GalacticArchives.git
 cd GalacticArchives/app
 
-# Bağımlılıklar
+# Bağımlılıklar  (DİKKAT: kökte değil, app/ içinde)
 npm install
 
 # Geliştirme
 npm run dev        # http://localhost:5173
-
-# Derleme / kontrol
-npm run build      # tsc + vite build + statik meta sayfaları
-npm run lint
-
-# macOS uygulaması
-npm run desktop    # -> src-tauri/target/release/bundle/dmg/*.dmg
 ```
 
-> **Ortam değişkeni yok, veritabanı yok, anahtar yok.** `npm install && npm run dev`
-> yeterli — tüm veri repoda.
+> **Ortam değişkeni yok, veritabanı yok, anahtar yok.** `npm install && npm run dev` yeterli —
+> tüm veri repoda.
 
-Opsiyonel: `app/raw/planets/<id>-albedo.png` (2:1 equirectangular) bırakıp `npm run textures`
-çalıştırırsan motor üretilen albedo haritasını prosedürel yüzeyin üstüne karıştırır.
-Detay: [`SENDEN-GEREKENLER.md`](SENDEN-GEREKENLER.md).
+### Komut kartı
+
+| Komut | Ne yapar |
+|---|---|
+| `npm run dev` | Geliştirme sunucusu |
+| `npm run build` | `tsc -b` + vite build + statik meta/OG/sitemap üretimi |
+| `npm run lint` | ESLint |
+| `npm run validate` | Lore doğrulama (kaynak, koordinat, çap, süreklilik) |
+| `npm test` | Vitest — 196 test |
+| `npm run e2e` | Playwright — 16 test |
+| `npm run budget` | Paket bütçesi kontrolü |
+| `npm run verify` | Hepsi sırayla — commit öncesi kapı |
+| `npm run textures` | `raw/planets/*.png` → 4K/2K/1K WebP/KTX2 + manifest |
+| `npm run desktop` | Tauri derlemesi → `.dmg` |
+
+### Kendi dokularını koymak
+
+`app/raw/planets/<id>-albedo.png` (2:1 equirectangular, 4096×2048) bırakıp `npm run textures`
+çalıştırırsan motor üretilen albedo haritasını prosedürel yüzeyin üstüne karıştırır. Şehir
+dünyaları için `<id>-night.png` de okunur. **88 gövdenin hepsi ve 33 portre için hazır
+promptlar:** [`docs/gorsel-uretim-promptlari.md`](docs/gorsel-uretim-promptlari.md).
 
 ---
 
 ## 📈 Ölçümler
 
 | Ölçüm | Değer |
-|-------|:--:|
-| Galaksi haritası (74 dünya) | **77 fps** |
+|---|:-:|
+| İlk boya toplamı (bütçe 400 000) | **381 219 bayt** |
+| three vendor chunk | **634 976 bayt** |
+| Birim test | **196** (17 dosya) |
+| E2E test | **16** |
+| `validate-lore` | **0 hata**, 9 bilinçli uyarı |
+| Çalışma zamanı bağımlılığı | **9** (44 ölü paket söküldü) |
+| Galaksi haritası | **77 fps** (74 dünyalık ölçümde) |
 | Gezegen görünümü | **~115 fps** |
-| Lighthouse — performans | **95** |
-| Lighthouse — erişilebilirlik | **100** |
-| Lighthouse — best practices | **100** |
-| Lighthouse — SEO | **100** |
 | 50 gezegen geçişinde heap büyümesi | **%6,5** (bütçe <%10) |
 | `.dmg` boyutu | **12 MB** |
-| Prod ilk yanıt | **~0,5 s** |
 
-<sub>Ölçüm ortamı: Apple M4, Chrome, 1360×904.</sub>
+<sub>Ölçüm ortamı: Apple M4, Chrome, 1360×904. FPS rakamları hiperuzay ağı eklenmeden önce alındı; yeniden ölçülecek.</sub>
 
 ---
 
-## ✅ "Gerçek mi?" — Özet
+## 🗺️ Yol haritası
+
+| Durum | Madde |
+|:-:|---|
+| ✅ | Üç kademeli motor (galaksi · sistem · gezegen), 12 arketipli prosedürel uber-shader |
+| ✅ | 88 gök cismi, 33 figür, 174 ilgi noktası — hepsi kaynaklı ve doğrulanıyor |
+| ✅ | Dönem sistemi + Legends katmanı (7 dünya, kendi dönemiyle) |
+| ✅ | Holocron wiki, kıyaslama, rehberli turlar, ⌘K komut paleti |
+| ✅ | Hiperuzay ağı: 23 hat, seçilebilir, paylaşılabilir, 6'sı uçulabilir |
+| ✅ | Test kalkanı (196 birim + 16 e2e), GitHub Actions CI, ErrorBoundary, CSP, LICENSE |
+| ✅ | Vercel dağıtımı + Tauri v2 macOS `.dmg` |
+| ○ | **Hat veri borcu** — 17 hattı açacak ~20 kavşak dünyası |
+| ○ | Gemini gezegen dokuları + KTX2 (promptlar hazır, görseller bekliyor) |
+| ○ | Holocron kart görselleri ve gerçek holo-büst portreleri |
+| ○ | Harita göstergesi (legend): hat renkleri, düğüm renkleri, yıkım işareti |
+| ○ | Veri için mono yazı tipi rolü + tek `focus-visible` kuralı + "içeriğe atla" bağlantısı |
+| ○ | Kıyaslamayı ikiden fazlaya çıkarmak · karakter↔gezegen çapraz grafiği |
+| ○ | `.dmg` imzalama + notarization (Apple Developer hesabı gerekiyor) |
+| ⚠ | Bilinen kırık: `e2e/atlas.spec.ts` "keyboard lane list" testi hat panelini bulamıyor |
+
+<sub>✅ Tamam &nbsp;·&nbsp; ○ Planlı &nbsp;·&nbsp; ⚠ Açık hata</sub>
+
+---
+
+## ✅ "Gerçek mi?" — özet
 
 | Şey | Durum |
-|------|:--:|
-| Lore verisi (istatistik, bölge, biyografi) | ✅ Wookieepedia + Databank, doğrulandı |
-| Gezegen yüzeyleri | 🎨 Prosedürel — telifli doku yok |
-| Galaksi diski ve yıldız alanları | 🎨 Prosedürel |
-| Dönem değişimleri (Alderaan, Ölüm Yıldızı, Starkiller) | ✅ Kanonla uyumlu |
+|---|:-:|
+| Lore verisi (istatistik, bölge, biyografi, ilgi noktaları) | ✅ Wookieepedia + Databank, derlemede doğrulanıyor |
+| Hiperuzay hatları ve durak koordinatları | ✅ Kanon grid kareleri; verilmeyen durak çizilmiyor |
+| Gezegen yüzeyleri, galaksi diski, yıldız alanları | 🎨 Prosedürel — telifli doku yok |
+| Dönem değişimleri (Alderaan, Ölüm Yıldızı) | ✅ Kanonla uyumlu |
 | Terminatör ve yörünge hareketi | ✅ Gerçek saatle canlı |
 | Karakter portreleri | 🟡 Geçici holo-siluet |
-| Aurebesh yazı katmanı | 🟡 Bileşen hazır, font dosyası bekliyor |
+| Holocron kart görselleri | 🟡 Palet degradesi — bilgi taşımıyor |
 | `.dmg` imzası | 🟡 İmzasız — ilk açılışta sağ tık → Aç |
 
 ---
@@ -277,21 +353,41 @@ Detay: [`SENDEN-GEREKENLER.md`](SENDEN-GEREKENLER.md).
 
 ---
 
-## 📄 Lisans ve Telif
+## 🤝 Katkı
 
-Resmî olmayan bir hayran projesidir. **Lucasfilm veya Disney ile ilişkisi yoktur.**
-Star Wars ve tüm ilgili isimler Lucasfilm Ltd.'ye aittir.
-Lore metinleri Wookieepedia (CC BY-SA) ve StarWars.com Databank kaynaklıdır.
-Repodaki tüm görseller prosedürel olarak üretilmiştir; telifli hiçbir varlık dağıtılmaz.
+Katkı memnuniyetle — issue aç ya da PR gönder.
+
+1. Depoyu fork'la
+2. Dal aç (`git checkout -b feature/lane-legend`)
+3. `cd app && npm run verify` — tsc, lint, validate, test, build, budget, e2e hepsi geçmeli
+4. PR aç
+
+> **Veri değişikliği** yapıyorsan `npm run validate` çıktısını PR'a ekle. Kaynaksız alan,
+> var olmayan makale ve süreklilik uyumsuzluğu bilinçli olarak derlemeyi keser.
+
+---
+
+## 📄 Lisans ve telif
+
+Kod **MIT**; lore metinleri **Wookieepedia (CC BY-SA)** kaynaklıdır ve aynı lisansla paylaşılır.
+Ayrıntı: [`LICENSE`](LICENSE).
+
+Resmî olmayan bir hayran projesidir. **Lucasfilm veya Disney ile ilişkisi yoktur.** Star Wars ve
+tüm ilgili isimler Lucasfilm Ltd.'ye aittir. Repodaki tüm görseller prosedürel olarak üretilmiştir;
+telifli hiçbir varlık dağıtılmaz.
 
 ---
 
 <div align="center">
 
+<br />
+
 Çok uzak bir galaksi için ❤️ ile yapıldı · **[kutluhangil](https://github.com/kutluhangil)**
 
 <br />
 
-*Faydalı bulduysan bir ⭐ bırakmayı düşün.*
+*Faydalı bulduysan bir ⭐ bırak.*
+
+<br />
 
 </div>
