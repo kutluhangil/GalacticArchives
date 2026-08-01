@@ -77,17 +77,19 @@ function Starfield({ still }: { still: boolean }) {
 }
 
 function WorldCard({ body, lang }: { body: CelestialBody; lang: 'en' | 'tr' }) {
-  const { primary, secondary } = body.renderRecipe.palette
   return (
     <Link
       to={`/planet/${body.id}`}
       className="group relative block overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
     >
-      <div
-        className="h-32 w-full transition-transform duration-500 group-hover:scale-105"
-        style={{
-          background: `radial-gradient(120% 130% at 30% 25%, ${primary} 0%, ${secondary ?? primary} 55%, #05070c 100%)`,
-        }}
+      <img
+        src={`/cards/${body.id}.webp`}
+        alt=""
+        width={1200}
+        height={600}
+        loading="lazy"
+        decoding="async"
+        className="aspect-[2/1] w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <div className="flex items-baseline justify-between gap-2 bg-panel/90 px-3 py-2">
         <span className="font-display text-[13px] tracking-[0.18em] text-slate-100">

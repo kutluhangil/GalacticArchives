@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-01
+
+- Audited the complete authored code, data, tests, configuration and visual prompt inventory; documented architecture and verified risks, added strict dimension/seam/manifest validation for the 224-asset production scope, connected generated Holocron cards and faceless hologram portraits to the Landing/archive surfaces with offline caching, and made the generated brand masters drive PWA/OG/README presentation.
+
 ## 2026-07-31
 
 - Charted the hyperlane network: 23 canon trade routes with 308 stops (276 distinct, 29 of them junctions) now draw as real lanes across the galaxy disk, switchable from the settings menu. Stops and their travel order come from each lane's `{{TradeRoute}}` infobox on Wookieepedia and every stop's grid cell from its own article, so a lane's shape follows the same placement rule the worlds do; 16 worlds in the archive sit on it. Lanes with fewer than two placeable stops, or that touch nothing else, were left out rather than drawn as islands.

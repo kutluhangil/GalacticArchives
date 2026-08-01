@@ -1,0 +1,678 @@
+{
+  "tatooine": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "ahch-to": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "alderaan": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "aldhani": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "arvala-7": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "at-attin": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "atollon": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "batuu": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "bespin": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "cantonica": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "cato-neimoidia": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "chandrila": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "christophsis": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "concordia": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "corellia": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "coruscant": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "crait": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "csilla": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "dagobah": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "daiyu": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "dathomir": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "death-star": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "death-star-2": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "dqar": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "dromund-kaas": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "eadu": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "endor": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "endor-moon": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "eriadu": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "exegol": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "felucia": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "ferrix": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "geonosis": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "ghorman": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "glavis-ringworld": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "hosnian-prime": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "hoth": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "ilum": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "jakku": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "jedha": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "kamino": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "kashyyyk": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "kef-bir": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "kessel": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "kijimi": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "korriban": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "krownest": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "lahmu": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "lehon": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "lothal": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "malachor": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "manaan": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "mandalore": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "mimban": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "moraband": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "morak": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "mustafar": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "mygeeto": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "naboo": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "nal-hutta": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "nar-shaddaa": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "narkina-5": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "nevarro": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "numidian-prime": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "onderon": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "ossus": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "pasaana": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "peridea": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "plazir-15": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "polis-massa": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "ryloth": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "saleucami": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "savareen": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "scarif": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "seatos": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "serenno": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "shakari": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "sorgan": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "takodana": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "taris": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    },
+    "night": {
+      "4k": "night-4k.webp",
+      "2k": "night-2k.webp",
+      "1k": "night-1k.webp"
+    }
+  },
+  "trask": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "tython": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "umbara": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "utapau": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "vandor": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "wobani": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "yavin": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  },
+  "yavin-4": {
+    "albedo": {
+      "4k": "albedo-4k.webp",
+      "2k": "albedo-2k.webp",
+      "1k": "albedo-1k.webp"
+    }
+  }
+}
