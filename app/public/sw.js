@@ -2,7 +2,7 @@
 // cached forever; navigations go to the network first so a deploy is picked up
 // on the next load, with the cached shell as the offline fallback.
 
-const VERSION = 'ga-v1'
+const VERSION = 'ga-v2'
 const SHELL = `${VERSION}-shell`
 const ASSETS = `${VERSION}-assets`
 
@@ -43,7 +43,13 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  if (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/textures/')) {
+  if (
+    url.pathname.startsWith('/assets/') ||
+    url.pathname.startsWith('/icons/') ||
+    url.pathname.startsWith('/textures/') ||
+    url.pathname.startsWith('/cards/') ||
+    url.pathname.startsWith('/portraits/')
+  ) {
     event.respondWith(
       caches.match(request).then(
         (hit) =>

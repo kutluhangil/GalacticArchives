@@ -12,7 +12,7 @@
 // hitting /planet/hoth gets Hoth's tags while the router still takes over in
 // the browser.
 
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
@@ -20,9 +20,18 @@ import sharp from 'sharp'
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = join(ROOT, 'dist')
 const PLANET_DIR = join(ROOT, 'src', 'data', 'planets')
+const BRAND_DIR = join(ROOT, 'raw', 'brand')
 const SITE = process.env.SITE_URL ?? 'https://galactic-archives.vercel.app'
 
 const shell = readFileSync(join(DIST, 'index.html'), 'utf8')
+
+function requiredAsset(name) {
+  const path = join(BRAND_DIR, name)
+  if (!existsSync(path)) {
+    throw new Error(`static meta: required brand asset is missing: ${path}`)
+  }
+  return path
+}
 
 const planets = readdirSync(PLANET_DIR)
   .filter((f) => f.endsWith('.json'))
@@ -140,27 +149,23 @@ for (const planet of planets) {
   }
 }
 
-// site-wide card, reused by the routes without a world of their own
-await sharp(
-  Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#04060a"/>
-  <text x="600" y="300" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
-        font-size="64" letter-spacing="14" fill="#FFE81F">GALACTIC ARCHIVES</text>
-  <text x="600" y="368" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
-        font-size="26" letter-spacing="6" fill="#94A3B8">An atlas of a galaxy far, far away</text>
-</svg>`),
-)
+// Site-wide card: generated art is the background and the build owns readable,
+// deterministic text instead of asking an image model to typeset it.
+const defaultOgText = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <text x="72" y="248" font-family="Helvetica, Arial, sans-serif"
+        font-size="58" font-weight="700" letter-spacing="10" fill="#FFE81F">GALACTIC</text>
+  <text x="72" y="318" font-family="Helvetica, Arial, sans-serif"
+        font-size="58" font-weight="700" letter-spacing="10" fill="#FFE81F">ARCHIVES</text>
+  <text x="76" y="374" font-family="Helvetica, Arial, sans-serif"
+        font-size="24" letter-spacing="4" fill="#C8D1DC">AN INTERACTIVE GALACTIC ATLAS</text>
+</svg>`)
+await sharp(requiredAsset('og-default.png'))
+  .composite([{ input: defaultOgText }])
   .png()
   .toFile(join(DIST, 'og', 'default.png'))
 
-// PWA icons from the holocron mark
-const icon = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
-  <rect width="512" height="512" rx="96" fill="#04060a"/>
-  <g transform="rotate(45 256 256)">
-    <rect x="146" y="146" width="220" height="220" rx="24" fill="none" stroke="#66D9FF" stroke-width="26"/>
-    <rect x="216" y="216" width="80" height="80" rx="12" fill="#FFE81F"/>
-  </g>
-</svg>`)
+// PWA icons from the generated master artwork.
+const icon = requiredAsset('app-icon.png')
 mkdirSync(join(DIST, 'icons'), { recursive: true })
 for (const size of [192, 512]) {
   await sharp(icon).resize(size, size).png().toFile(join(DIST, 'icons', `icon-${size}.png`))

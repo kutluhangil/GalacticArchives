@@ -150,7 +150,6 @@ export default function Holocron() {
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {worlds.map(({ body }) => {
-              const { primary, secondary } = body.renderRecipe.palette
               return (
                 <Link
                   key={body.id}
@@ -158,11 +157,14 @@ export default function Holocron() {
                   viewTransition
                   className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
                 >
-                  <div
-                    className="h-24 w-full transition-transform duration-500 group-hover:scale-105"
-                    style={{
-                      background: `radial-gradient(120% 130% at 32% 26%, ${primary} 0%, ${secondary ?? primary} 58%, #05070c 100%)`,
-                    }}
+                  <img
+                    src={`/cards/${body.id}.webp`}
+                    alt=""
+                    width={1200}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-[2/1] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="bg-panel/90 px-2.5 py-2">
                     <div className="font-display text-[12px] tracking-[0.16em] text-slate-100">

@@ -2,6 +2,10 @@
 
 <br />
 
+<img src="docs/brand/readme-banner.png" alt="Galactic Archives galactic chart" width="100%" />
+
+<br />
+
 <img src="https://img.shields.io/badge/Status-Live-facc15?style=for-the-badge&logoColor=black" alt="status" />
 <img src="https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=black" alt="react" />
 <img src="https://img.shields.io/badge/TypeScript-5.9-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="typescript" />
@@ -273,6 +277,7 @@ npm run dev        # http://localhost:5173
 | `npm run build` | `tsc -b` + vite build + statik meta/OG/sitemap üretimi |
 | `npm run lint` | ESLint |
 | `npm run validate` | Lore doğrulama (kaynak, koordinat, çap, süreklilik) |
+| `npm run validate:assets` | 224 görsel hedefte ID, boyut, format, dikiş ve manifest doğrulaması |
 | `npm test` | Vitest — 196 test |
 | `npm run e2e` | Playwright — 16 test |
 | `npm run budget` | Paket bütçesi kontrolü |

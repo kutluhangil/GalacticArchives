@@ -88,7 +88,6 @@ export default function HolocronPlanet() {
     )
   }
 
-  const { primary, secondary } = body.renderRecipe.palette
   const faction = factionById(body.affiliationsByEra?.[era])
   const destroyed = destroyedInEra(body, era)
   const facts = LL(body.funFacts, lang)
@@ -102,11 +101,13 @@ export default function HolocronPlanet() {
         ← {t('backToHolocron', lang)}
       </Link>
 
-      <div
-        className="mb-6 h-40 w-full rounded-lg border border-white/10"
-        style={{
-          background: `radial-gradient(110% 140% at 28% 22%, ${primary} 0%, ${secondary ?? primary} 52%, #05070c 100%)`,
-        }}
+      <img
+        src={`/cards/${body.id}.webp`}
+        alt=""
+        width={1200}
+        height={600}
+        decoding="async"
+        className="mb-6 aspect-[2/1] w-full rounded-lg border border-white/10 object-cover"
       />
 
       <div className="mb-2 flex flex-wrap items-baseline justify-between gap-3">

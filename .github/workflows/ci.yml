@@ -36,6 +36,9 @@ jobs:
       - name: Validate lore
         run: npm run validate
 
+      - name: Validate generated assets
+        run: npm run validate:assets
+
       - name: Unit and component tests
         run: npm run test
 

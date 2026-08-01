@@ -85,7 +85,7 @@ node scripts/process-textures.mjs tatooine   # tek dünya
 Script yatay dikişi ölçer, tolerans (12) aşılırsa uyarır. Uyarı gelirse görseli yatayda %50
 kaydır, ortadaki bindirmeyi klonlayarak düzelt, yeniden çalıştır.
 
-**Öncelik sırası:** önce A70 Tatooine, A14 Coruscant, A51 Mustafar, A32 Hoth, A08 Bespin —
+**Öncelik sırası:** önce A72 Tatooine, A14 Coruscant, A50 Mustafar, A31 Hoth, A08 Bespin —
 bu beşi motorda görüp stil kilidini onaylayalım, kalan 76'yı seri üretirsin.
 
 ---
