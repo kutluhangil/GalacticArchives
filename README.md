@@ -155,6 +155,7 @@ CI           →  GitHub Actions: tsc -b · eslint · validate-lore · build
 Güvenlik     →  vercel.json sıkı CSP + HSTS/Referrer/Permissions · Tauri csp dolu · Dependabot
 Masaüstü     →  Tauri v2 (Rust + WKWebView) → aarch64 .dmg
 Dağıtım      →  Vercel · SPA rewrite + derleme sonrası statik meta/OG/sitemap üretimi
+                Vercel projesinde Root Directory = `app` olmalı; kökte package.json yok
 ```
 
 **Neden ham three.js?** Motor shader ağırlıklı ve tek karede 80+ küre ile üç nokta bulutu

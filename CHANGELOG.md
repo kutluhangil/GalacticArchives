@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-02
+
+- Fixed the Vercel production deployment: the project had no Root Directory set, so `npm run build` ran from the repo root and died with `ENOENT /vercel/path0/package.json` on every deploy since 2026-07-31, leaving the live site stuck on an old build. Root Directory is now `app`, the deploy is green again and serves the same bundle as a local build. Recorded the requirement in the README stack summary and gitignored the local `.vercel` link directory.
+
 ## 2026-08-01
 
 - Audited the complete authored code, data, tests, configuration and visual prompt inventory; documented architecture and verified risks, added strict dimension/seam/manifest validation for the 224-asset production scope, connected generated Holocron cards and faceless hologram portraits to the Landing/archive surfaces with offline caching, and made the generated brand masters drive PWA/OG/README presentation.
