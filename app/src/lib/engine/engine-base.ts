@@ -205,7 +205,19 @@ export abstract class EngineBase {
     return sprite
   }
 
+  /** Compiling this scene's programs is what stalls the first frame — profiled
+   *  at ~2s inside the driver, with JS accounting for barely a tenth of it.
+   *  `compileAsync` hands that work to KHR_parallel_shader_compile where the
+   *  browser has it, so the loop waits on a promise instead of the main thread
+   *  freezing; without the extension three resolves once compilation is done
+   *  and behaviour matches the old path. */
   start() {
+    void this.renderer.compileAsync(this.scene, this.camera).then(() => {
+      if (!this.disposed) this.runLoop()
+    })
+  }
+
+  private runLoop() {
     this.fpsLast = performance.now()
     this.startWall = performance.now()
     const loop = () => {

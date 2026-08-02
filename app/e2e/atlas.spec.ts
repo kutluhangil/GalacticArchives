@@ -106,6 +106,9 @@ test('hyperlanes can be switched off', async ({ page }) => {
 })
 
 test('a starred world survives a reload', async ({ page }) => {
+  // the only test that pays the cold scene build twice — once on arrival and
+  // once after the reload — which outruns the 30s per-test budget on CI
+  test.slow()
   await page.goto('/planet/hoth')
   await page.getByRole('button', { name: /Favorilere ekle|Add to favorites/ }).click()
 

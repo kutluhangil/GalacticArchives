@@ -47,6 +47,7 @@ self.addEventListener('fetch', (event) => {
     url.pathname.startsWith('/assets/') ||
     url.pathname.startsWith('/icons/') ||
     url.pathname.startsWith('/textures/') ||
+    url.pathname.startsWith('/basis/') ||
     url.pathname.startsWith('/cards/') ||
     url.pathname.startsWith('/portraits/')
   ) {

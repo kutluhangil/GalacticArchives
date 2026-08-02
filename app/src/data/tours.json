@@ -1,7 +1,10 @@
 [
   {
     "id": "skywalker",
-    "names": { "en": "The Skywalker Saga", "tr": "Skywalker Destanı" },
+    "names": {
+      "en": "The Skywalker Saga",
+      "tr": "Skywalker Destanı"
+    },
     "blurb": {
       "en": "Nine films, one bloodline, seven worlds that carried it.",
       "tr": "Dokuz film, tek bir kan bağı ve onu taşıyan yedi dünya."
@@ -67,7 +70,10 @@
   },
   {
     "id": "clone-wars",
-    "names": { "en": "The Clone Wars", "tr": "Klon Savaşları" },
+    "names": {
+      "en": "The Clone Wars",
+      "tr": "Klon Savaşları"
+    },
     "blurb": {
       "en": "Three years of war, from the factory floors to the last order.",
       "tr": "Döküm atölyelerinden son emre: üç yıllık savaş."
@@ -119,7 +125,10 @@
   },
   {
     "id": "mando",
-    "names": { "en": "The Way of the Mandalore", "tr": "Mandalorlunun Yolu" },
+    "names": {
+      "en": "The Way of the Mandalore",
+      "tr": "Mandalorlunun Yolu"
+    },
     "blurb": {
       "en": "A bounty hunter, a foundling, and the road back to a poisoned home.",
       "tr": "Bir ödül avcısı, bir bulunmuş çocuk ve zehirlenmiş bir eve dönüş yolu."
@@ -158,6 +167,143 @@
         "narration": {
           "en": "Glassed by the Purge, its Living Waters still under the ruin. This is where the creed is redeemed.",
           "tr": "Tasfiye'de camlaştı; Yaşayan Sular hâlâ yıkıntının altında. İnancın bağışlandığı yer burası."
+        }
+      }
+    ]
+  },
+  {
+    "id": "rogue-one",
+    "names": {
+      "en": "The Price of One Hope",
+      "tr": "Bir Umudun Bedeli"
+    },
+    "blurb": {
+      "en": "Five worlds between a stolen weapon and the plans that undid it.",
+      "tr": "Çalınmış bir silahla onu bitiren planlar arasındaki beş dünya."
+    },
+    "stops": [
+      {
+        "bodyId": "jedha",
+        "narration": {
+          "en": "A pilgrim moon quarried for its kyber. The Empire tests its new weapon on the Holy City and the crater answers for it.",
+          "tr": "Kyber’i için kazılan bir hac ayı. İmparatorluk yeni silahını Kutsal Şehir üzerinde dener; cevabı krater verir."
+        }
+      },
+      {
+        "bodyId": "eadu",
+        "narration": {
+          "en": "Rain, black rock and a research platform where the weapon’s own engineer hides a flaw inside it.",
+          "tr": "Yağmur, siyah kaya ve silahın mühendisinin içine gizli bir kusur sakladığı araştırma platformu."
+        }
+      },
+      {
+        "bodyId": "scarif",
+        "narration": {
+          "en": "A tropical vault behind a shield gate. The plans leave here; almost no one who fetched them does.",
+          "tr": "Kalkan kapısının ardındaki tropik kasa. Planlar buradan çıkar; onları alanların neredeyse hiçbiri çıkamaz."
+        }
+      },
+      {
+        "bodyId": "death-star",
+        "narration": {
+          "en": "The station the whole run was about: a moon-sized argument that fear can hold a galaxy together.",
+          "tr": "Tüm koşunun sebebi olan istasyon: korkunun bir galaksiyi bir arada tutabileceğine dair ay büyüklüğünde bir iddia."
+        }
+      },
+      {
+        "bodyId": "yavin-4",
+        "narration": {
+          "en": "The plans land in a temple hangar, and the flaw hidden on Eadu becomes a two-metre thermal exhaust port.",
+          "tr": "Planlar bir tapınak hangarına iner ve Eadu’da saklanan kusur iki metrelik bir termal egzoz kanalına dönüşür."
+        }
+      }
+    ]
+  },
+  {
+    "id": "rebellion",
+    "names": {
+      "en": "How a Rebellion Starts",
+      "tr": "Bir İsyan Nasıl Başlar"
+    },
+    "blurb": {
+      "en": "Not with a fleet: with a wage, a heist, a factory floor and a massacre.",
+      "tr": "Filoyla değil: bir yevmiye, bir soygun, bir fabrika zemini ve bir katliamla."
+    },
+    "stops": [
+      {
+        "bodyId": "ferrix",
+        "narration": {
+          "en": "A salvage town that keeps time by hammering on an anvil. Its funeral for a bricklayer’s widow turns into the first open fight.",
+          "tr": "Zamanı örse vurarak tutan bir hurda kasabası. Bir duvarcı dulunun cenazesi ilk açık kavgaya dönüşür."
+        }
+      },
+      {
+        "bodyId": "aldhani",
+        "narration": {
+          "en": "Once every three years the sky burns with the Eye. Under it, a garrison payroll walks out of an Imperial vault.",
+          "tr": "Üç yılda bir gökyüzü Göz ile yanar. Onun altında bir garnizonun kasası İmparatorluk kasasından yürütülür."
+        }
+      },
+      {
+        "bodyId": "narkina-5",
+        "narration": {
+          "en": "A factory prison on stilts above the water, where the floor itself is the guard and the sentence never really ends.",
+          "tr": "Suyun üstünde direkler üzerinde bir fabrika hapishanesi: gardiyan zeminin kendisidir ve ceza asla gerçekten bitmez."
+        }
+      },
+      {
+        "bodyId": "ghorman",
+        "narration": {
+          "en": "A textile world worth more to the Empire as raw material than as a people. The plaza where that is proved gives the Rebellion its name.",
+          "tr": "İmparatorluk için halkından çok hammaddesi değerli bir dokuma dünyası. Bunun kanıtlandığı meydan, İsyan’a adını verir."
+        }
+      },
+      {
+        "bodyId": "coruscant",
+        "narration": {
+          "en": "The same towers, seen from the other side: an office decides who is a person, and a senator quietly funds the answer.",
+          "tr": "Aynı kuleler, öbür taraftan: bir ofis kimin insan sayılacağına karar verir, bir senatör de cevabı sessizce finanse eder."
+        }
+      }
+    ]
+  },
+  {
+    "id": "dark-side",
+    "names": {
+      "en": "Where the Dark Side Waits",
+      "tr": "Karanlık Tarafın Beklediği Yerler"
+    },
+    "blurb": {
+      "en": "Four worlds the Sith left marks on, in the order the galaxy found them.",
+      "tr": "Sith’in iz bıraktığı dört dünya, galaksinin onları bulduğu sırayla."
+    },
+    "stops": [
+      {
+        "bodyId": "moraband",
+        "narration": {
+          "en": "The Sith homeworld gone to dust and tombs. Even the Order that buried it here came back to be tested.",
+          "tr": "Toza ve mezarlara dönmüş Sith anayurdu. Onu buraya gömen Tarikat bile sınanmak için geri döndü."
+        }
+      },
+      {
+        "bodyId": "dathomir",
+        "narration": {
+          "en": "Red mist, bone trees and the Nightsisters’ magick — power older than either Order, and answerable to neither.",
+          "tr": "Kızıl sis, kemik ağaçlar ve Gece Kızkardeşleri’nin büyüsü — iki Tarikattan da eski, ikisine de hesap vermeyen bir güç."
+        }
+      },
+      {
+        "bodyId": "mustafar",
+        "narration": {
+          "en": "Lava, a duel and a castle raised over a Sith cave. Whatever was left of Anakin Skywalker stayed on this bank.",
+          "tr": "Lav, bir düello ve Sith mağarasının üzerine dikilmiş bir kale. Anakin Skywalker’dan geriye ne kaldıysa bu kıyıda kaldı."
+        }
+      },
+      {
+        "bodyId": "exegol",
+        "narration": {
+          "en": "A hidden world in the Unknown Regions where a fleet waits in the dark for an order a dead Emperor already gave.",
+          "tr": "Bilinmeyen Bölgeler’de gizli bir dünya: karanlıkta bir filo, ölü bir İmparator’un çoktan verdiği emri bekler."
         }
       }
     ]

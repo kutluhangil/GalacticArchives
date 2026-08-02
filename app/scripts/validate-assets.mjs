@@ -82,6 +82,35 @@ inspectInventory(PORTRAITS, characterIds.map((id) => `${id}.webp`), ['.webp'])
 inspectInventory(join(ROOT, 'raw', 'brand'), ['app-icon.png', 'og-default.png'], ['.png'])
 inspectInventory(join(ROOT, '..', 'docs', 'brand'), ['readme-banner.png'], ['.png'])
 
+const KTX2_IDENTIFIER = Buffer.from([0xab, 0x4b, 0x54, 0x58, 0x20, 0x32, 0x30, 0xbb, 0x0d, 0x0a, 0x1a, 0x0a])
+
+/** Sharp cannot read KTX2, so the container header answers for it: the
+ *  identifier, the stored size and that Basis supercompression is on. */
+function inspectKtx2(path, expected) {
+  if (!existsSync(path)) {
+    fail(`${path}: missing asset`)
+    return null
+  }
+  const head = readFileSync(path).subarray(0, 48)
+  if (!head.subarray(0, 12).equals(KTX2_IDENTIFIER)) {
+    fail(`${path}: not a KTX2 container`)
+    return null
+  }
+  const width = head.readUInt32LE(20)
+  const height = head.readUInt32LE(24)
+  const levelCount = head.readUInt32LE(40)
+  const supercompression = head.readUInt32LE(44)
+  if (width !== expected.width || height !== expected.height) {
+    fail(`${path}: expected ${expected.width}x${expected.height}, got ${width}x${height}`)
+  }
+  if (levelCount < 2) fail(`${path}: no mipmap chain (levelCount ${levelCount})`)
+  // 1 = BasisLZ, what ETC1S output uses
+  if (supercompression !== 1) {
+    fail(`${path}: expected BasisLZ supercompression, got scheme ${supercompression}`)
+  }
+  return { width, height }
+}
+
 async function inspectImage(path, expected) {
   if (!existsSync(path)) {
     fail(`${path}: missing asset`)
@@ -176,7 +205,7 @@ if (!existsSync(MANIFEST)) {
       const kinds = nightIds.includes(id) ? ['albedo', 'night'] : ['albedo']
       inspectInventory(
         join(PUBLIC_TEXTURES, id),
-        kinds.flatMap((kind) => Object.keys(TIER_DIMENSIONS).map((tier) => `${kind}-${tier}.webp`)),
+        kinds.flatMap((kind) => Object.keys(TIER_DIMENSIONS).map((tier) => `${kind}-${tier}.ktx2`)),
         ['.webp', '.ktx2'],
       )
       for (const kind of kinds) {
@@ -191,10 +220,11 @@ if (!existsSync(MANIFEST)) {
             fail(`${MANIFEST}: ${id}/${kind} has no ${tier} entry`)
             continue
           }
-          await inspectImage(join(PUBLIC_TEXTURES, id, file), {
-            ...dimensions,
-            format: 'webp',
-          })
+          if (!file.endsWith('.ktx2')) {
+            fail(`${MANIFEST}: ${id}/${kind}/${tier} is ${file}, expected a .ktx2 tier`)
+            continue
+          }
+          inspectKtx2(join(PUBLIC_TEXTURES, id, file), dimensions)
         }
       }
     }

@@ -1,9 +1,9 @@
 {
   "tatooine": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "ahch-to": {

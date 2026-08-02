@@ -7,19 +7,19 @@
 //
 // For every map it checks the horizontal seam, writes 4K/2K/1K variants into
 // public/textures/planets/<id>/, and records what exists in a manifest the
-// engine reads at runtime. KTX2 (GPU-compressed, far less VRAM) is produced
-// when `toktx` is on PATH; otherwise the output is WebP, which every target
-// browser decodes but which costs more GPU memory once uploaded.
+// engine reads at runtime. Output is KTX2/ETC1S: the GPU keeps it compressed,
+// so a 4K albedo costs about 11 MB of VRAM instead of the 43 MB an RGBA upload
+// would take, and the transcode happens off the main thread.
 //
 //   node scripts/process-textures.mjs            process everything new
 //   node scripts/process-textures.mjs tatooine   process one world
 //   node scripts/process-textures.mjs --force    rebuild even if up to date
 
-import { execFileSync, spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
+import { NodeBasisEncoder } from 'ktx2-encoder'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const RAW_DIR = join(ROOT, 'raw', 'planets')
@@ -39,7 +39,16 @@ const args = process.argv.slice(2)
 const force = args.includes('--force')
 const only = args.filter((a) => !a.startsWith('--'))
 
-const hasToktx = spawnSync('which', ['toktx']).status === 0
+const encoder = new NodeBasisEncoder()
+
+/** Basis reads raw RGBA; sharp is already here, so it does the decoding. */
+async function imageDecoder(buffer) {
+  const { data, info } = await sharp(Buffer.from(buffer))
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true })
+  return { data: new Uint8Array(data), width: info.width, height: info.height }
+}
 
 /** mean absolute difference between the first and last texel column */
 async function seamDelta(file) {
@@ -55,16 +64,21 @@ async function seamDelta(file) {
 }
 
 async function writeTier(file, outBase, width) {
-  const webp = `${outBase}.webp`
-  await sharp(file)
+  const resized = await sharp(file)
     .resize({ width, height: width / 2, fit: 'fill', kernel: 'lanczos3' })
-    .webp({ quality: 90, effort: 5 })
-    .toFile(webp)
-  if (!hasToktx) return `${outBase.split('/').pop()}.webp`
-  // KTX2 wants a PNG on disk; the WebP above stays as the fallback source
-  const png = `${outBase}.png`
-  await sharp(webp).png().toFile(png)
-  execFileSync('toktx', ['--genmipmap', '--bcmp', '--t2', `${outBase}.ktx2`, png])
+    .png()
+    .toBuffer()
+  // ETC1S, not UASTC: on these surfaces UASTC costs ~7x the bytes for detail
+  // that a globe at this distance never shows (4K: 9.7 MB against 1.4 MB).
+  const ktx2 = await encoder.encode(resized, {
+    imageDecoder,
+    isUASTC: false,
+    isInputSRGB: true,
+    generateMipmap: true,
+    needSupercompression: true,
+    qualityLevel: 150,
+  })
+  writeFileSync(`${outBase}.ktx2`, Buffer.from(ktx2))
   return `${outBase.split('/').pop()}.ktx2`
 }
 
@@ -115,8 +129,8 @@ async function main() {
       for (const tier of TIERS) {
         if (meta.width < tier.width && tier.name !== '1k') continue
         const outBase = join(outPlanet, `${kind}-${tier.name}`)
-        if (!isStale(source, `${outBase}.webp`)) {
-          entry[kind][tier.name] = `${kind}-${tier.name}.${hasToktx ? 'ktx2' : 'webp'}`
+        if (!isStale(source, `${outBase}.ktx2`)) {
+          entry[kind][tier.name] = `${kind}-${tier.name}.ktx2`
           continue
         }
         entry[kind][tier.name] = await writeTier(source, outBase, tier.width)
@@ -127,12 +141,7 @@ async function main() {
   }
 
   writeFileSync(MANIFEST, `${JSON.stringify(manifest, null, 2)}\n`)
-  console.log(
-    `manifest updated: ${Object.keys(manifest).length} worlds, format ${hasToktx ? 'ktx2' : 'webp'}`,
-  )
-  if (!hasToktx) {
-    console.log('install KTX-Software for GPU-compressed output: brew install ktx')
-  }
+  console.log(`manifest updated: ${Object.keys(manifest).length} worlds, format ktx2`)
 }
 
 await main()

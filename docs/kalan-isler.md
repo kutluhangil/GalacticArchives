@@ -56,6 +56,12 @@ kurarım. Sertifikayı **repoya koyma**; ortam değişkeni olarak geçeceğiz
    app/public/portraits/<id>.webp      # karakter holo-büstü
    ```
    `<id>` = `app/src/data/planets/` altındaki dosya adı.
+
+   > **4K master'lar depoda değil.** 1.6 GB tutuyorlardı ve her klonu/derlemeyi
+   > yavaşlatıyorlardı; yalnız türetilen KTX2 katmanları yayınlanıyor. Mevcut
+   > master'ların yedeği: `/Volumes/ProjectVault/GalacticArchives-raw-masters/planets/`.
+   > Doku hattını yeniden çalıştıracaksan önce onları `app/raw/planets/` altına kopyala.
+   > `validate:assets` master'lar yokken boyut/dikiş denetimlerini atladığını yazar.
 3. Çalıştır:
    ```bash
    cd app

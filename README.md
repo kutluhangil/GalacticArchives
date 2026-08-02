@@ -230,7 +230,7 @@ GalacticArchives/
 │   │   │                     # CommandPalette · ErrorBoundary · OnboardingHint · hud/*
 │   │   ├── state/            # app.ts (zustand)
 │   │   └── data/             # planets/*.json (81 + 5 detaylı ay) · characters.json (33)
-│   │                         # stations.json (2) · routes.json (23) · tours.json (3) · sources.json
+│   │                         # stations.json (2) · routes.json (23) · tours.json (6) · sources.json
 │   ├── scripts/              # fetch-lore · fetch-poi · fetch-routes · validate-lore
 │   │                         # process-textures · build-static-meta · check-bundle-budget
 │   ├── test/unit/            # 17 dosya · 196 test
