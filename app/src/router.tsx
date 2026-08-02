@@ -40,6 +40,7 @@ const Compare = lazyWithReload(() => import('./pages/Compare'))
 const Holocron = lazyWithReload(() => import('./pages/Holocron'))
 const HolocronPlanet = lazyWithReload(() => import('./pages/HolocronPlanet'))
 const HolocronCharacter = lazyWithReload(() => import('./pages/HolocronCharacter'))
+const Timeline = lazyWithReload(() => import('./pages/Timeline'))
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,7 @@ export const router = createBrowserRouter([
       { path: '/planet/:id', element: <PlanetView /> },
       { path: '/system/:id', element: <SystemView /> },
       { path: '/compare', element: <Compare /> },
+      { path: '/timeline', element: <Timeline /> },
       { path: '/holocron', element: <Holocron /> },
       { path: '/holocron/planet/:id', element: <HolocronPlanet /> },
       { path: '/holocron/character/:id', element: <HolocronCharacter /> },
@@ -57,3 +59,4 @@ export const router = createBrowserRouter([
     ],
   },
 ])
+

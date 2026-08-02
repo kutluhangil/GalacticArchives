@@ -134,3 +134,22 @@ export async function loadBattles(): Promise<Battle[]> {
   return battlesCache
 }
 
+let timelineCache: any[] | null = null
+export async function loadTimelineEvents(): Promise<any[]> {
+  if (!timelineCache) {
+    const mod = await import('../data/timeline.json')
+    timelineCache = mod.default
+  }
+  return timelineCache
+}
+
+let transmissionsCache: any[] | null = null
+export async function loadTransmissions(): Promise<any[]> {
+  if (!transmissionsCache) {
+    const mod = await import('../data/transmissions.json')
+    transmissionsCache = mod.default
+  }
+  return transmissionsCache
+}
+
+

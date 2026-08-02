@@ -1,0 +1,140 @@
+[
+  {
+    "id": "founding-of-republic",
+    "yearLabel": "25,000 BBY",
+    "yearBBYABY": -25000,
+    "era": "old-republic",
+    "category": "political",
+    "titles": {
+      "en": "Founding of the Galactic Republic & Jedi Order",
+      "tr": "Galaktik Cumhuriyet ve Jedi Düzeninin Kuruluşu"
+    },
+    "desc": {
+      "en": "The signing of the Galactic Constitution on Coruscant established the Republic. Around the same era, early Force wielders gathered on Ahch-To and Tython to form the Jedi Order.",
+      "tr": "Coruscant'ta Galaktik Anayasa'nın imzalanmasıyla Cumhuriyet kuruldu. Aynı dönemde Güç kullanıcıları Ahch-To ve Tython'da toplanarak Jedi Düzenini oluşturdu."
+    },
+    "planetId": "coruscant"
+  },
+  {
+    "id": "construction-of-death-star-begins",
+    "yearLabel": "22 BBY",
+    "yearBBYABY": -22,
+    "era": "clone-wars",
+    "category": "construction",
+    "titles": {
+      "en": "First Battle of Geonosis & Secret Death Star Construction",
+      "tr": "İlk Geonosis Savaşı ve Gizli Ölüm Yıldızı İnşası"
+    },
+    "desc": {
+      "en": "The Clone Wars erupted in the Geonosis arena. Following the battle, Count Dooku delivered secret Separatist schematics for the orbital battle station to Darth Sidious.",
+      "tr": "Geonosis arenasında Klon Savaşları patlak verdi. Savaşın ardından Kont Dooku, yörünge savaş istasyonunun gizli Ayrılıkçı planlarını Darth Sidious'a teslim etti."
+    },
+    "planetId": "geonosis",
+    "battleId": "battle-of-geonosis"
+  },
+  {
+    "id": "order-66-and-rise-of-empire",
+    "yearLabel": "19 BBY",
+    "yearBBYABY": -19,
+    "era": "clone-wars",
+    "category": "political",
+    "titles": {
+      "en": "Execution of Order 66 & Rise of the Galactic Empire",
+      "tr": "Emir 66'nın Uygulanması ve Galaktik İmparatorluk'un Yükselişi"
+    },
+    "desc": {
+      "en": "Supreme Chancellor Palpatine initiated Order 66, compelling clone troopers to execute their Jedi commanders. Palpatine declared himself Emperor and transformed the Republic into the Galactic Empire.",
+      "tr": "Yüce Şansölye Palpatine, klon askerlerini Jedi komutanlarını katletmeye zorlayan Emir 66'yı devreye soktu. Palpatine kendisini İmparator ilan ederek Cumhuriyet'i Galaktik İmparatorluk'a dönüştürdü."
+    },
+    "planetId": "coruscant",
+    "characterIds": ["palpatine", "darth-vader", "obi-wan-kenobi"]
+  },
+  {
+    "id": "destruction-of-alderaan",
+    "yearLabel": "0 BBY",
+    "yearBBYABY": 0,
+    "era": "empire",
+    "category": "battle",
+    "titles": {
+      "en": "Destruction of Alderaan by the Death Star",
+      "tr": "Alderaan'ın Ölüm Yıldızı Tarafından Yok Edilmesi"
+    },
+    "desc": {
+      "en": "Grand Moff Tarkin ordered the first full-power superlaser test of Death Star I on the peaceful Core World of Alderaan, instantly obliterating the planet.",
+      "tr": "Grand Moff Tarkin, Ölüm Yıldızı I'in ilk tam güç süperlazer testini barışçıl Alderaan gezegeni üzerinde emrederek gezegeni anında yok etti."
+    },
+    "planetId": "alderaan",
+    "characterIds": ["leia-organa", "darth-vader"]
+  },
+  {
+    "id": "battle-of-yavin",
+    "yearLabel": "0 BBY",
+    "yearBBYABY": 0,
+    "era": "empire",
+    "category": "battle",
+    "titles": {
+      "en": "Battle of Yavin & Destruction of Death Star I",
+      "tr": "Yavin Savaşı ve Ölüm Yıldızı I'in Yok Edilmesi"
+    },
+    "desc": {
+      "en": "Luke Skywalker fired a proton torpedo into the thermal exhaust port of Death Star I, destroying the superweapon and marking year zero BBY/ABY.",
+      "tr": "Luke Skywalker, Ölüm Yıldızı I'in termal egzoz bacasına bir proton torpidosu atarak süper silahı yok etti ve galaktik takvimde 0 yılı noktasını oluşturdu."
+    },
+    "planetId": "yavin",
+    "battleId": "battle-of-yavin",
+    "characterIds": ["luke-skywalker", "darth-vader"]
+  },
+  {
+    "id": "battle-of-hoth",
+    "yearLabel": "3 ABY",
+    "yearBBYABY": 3,
+    "era": "empire",
+    "category": "battle",
+    "titles": {
+      "en": "Battle of Hoth & Fall of Echo Base",
+      "tr": "Hoth Savaşı ve Echo Üssü'nün Düşüşü"
+    },
+    "desc": {
+      "en": "Darth Vader's Death Squadron launched an assault on the ice world of Hoth with AT-AT walkers, forcing the Rebel Alliance to evacuate.",
+      "tr": "Darth Vader'ın Ölüm Filosu, AT-AT yürüyücüleriyle buz dünyası Hoth'taki Echo Üssü'ne saldırarak İsyan Birliği'ni tahliyeye zorladı."
+    },
+    "planetId": "hoth",
+    "battleId": "battle-of-hoth",
+    "characterIds": ["luke-skywalker", "darth-vader"]
+  },
+  {
+    "id": "battle-of-endor",
+    "yearLabel": "4 ABY",
+    "yearBBYABY": 4,
+    "era": "empire",
+    "category": "battle",
+    "titles": {
+      "en": "Battle of Endor & Fall of Emperor Palpatine",
+      "tr": "Endor Savaşı ve İmparator Palpatine'in Düşüşü"
+    },
+    "desc": {
+      "en": "The Alliance destroyed Death Star II over Endor. Darth Vader redeemed himself as Anakin Skywalker by betraying Palpatine to save his son Luke.",
+      "tr": "İsyan Birliği, Endor yörüngesindeki Ölüm Yıldızı II'yi yok etti. Darth Vader, oğlu Luke'u kurtarmak için Palpatine'e karşı çıkarak ışığa döndü."
+    },
+    "planetId": "endor",
+    "battleId": "battle-of-endor",
+    "characterIds": ["luke-skywalker", "darth-vader", "palpatine"]
+  },
+  {
+    "id": "battle-of-exegol",
+    "yearLabel": "35 ABY",
+    "yearBBYABY": 35,
+    "era": "new-republic",
+    "category": "jedi-sith",
+    "titles": {
+      "en": "Battle of Exegol & Defeat of the Sith Eternal",
+      "tr": "Exegol Savaşı ve Sith Eternal'ın Yenilgisi"
+    },
+    "desc": {
+      "en": "Rey and Ben Solo confronted the resurrected Emperor Palpatine on the Sith citadel world of Exegol. Supported by a galaxy-wide civilian fleet, the Resistance destroyed the Final Order.",
+      "tr": "Rey ve Ben Solo, Exegol'deki Sith kalesinde diriltilen İmparator Palpatine ile yüzleşti. Galaksi çapında sivil bir filonun desteğiyle Direniş, Son Düzen'i yok etti."
+    },
+    "planetId": "exegol",
+    "characterIds": ["rey", "kylo-ren", "palpatine"]
+  }
+]

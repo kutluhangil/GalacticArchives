@@ -254,7 +254,76 @@ export function makeGlowTexture(color: string): THREE.CanvasTexture {
   return tex
 }
 
-// --- ambient ship traffic ----------------------------------------------------
+// --- ambient 3D Star Wars ship traffic ---------------------------------------
+
+const hullMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#d4e2f5') })
+const darkHullMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#404a57') })
+
+/** Star Destroyer wedge geometry */
+function createStarDestroyerMesh(): THREE.Group {
+  const group = new THREE.Group()
+  const wedgeGeo = new THREE.ConeGeometry(0.04, 0.14, 3)
+  wedgeGeo.rotateX(Math.PI / 2)
+  wedgeGeo.scale(1, 0.3, 1)
+  const wedge = new THREE.Mesh(wedgeGeo, hullMat)
+  group.add(wedge)
+
+  // Bridge tower
+  const bridgeGeo = new THREE.BoxGeometry(0.02, 0.015, 0.02)
+  const bridge = new THREE.Mesh(bridgeGeo, darkHullMat)
+  bridge.position.set(0, 0.012, 0.02)
+  group.add(bridge)
+  return group
+}
+
+/** X-Wing Starfighter geometry */
+function createXWingMesh(): THREE.Group {
+  const group = new THREE.Group()
+  const bodyGeo = new THREE.ConeGeometry(0.012, 0.08, 4)
+  bodyGeo.rotateX(Math.PI / 2)
+  const body = new THREE.Mesh(bodyGeo, hullMat)
+  group.add(body)
+
+  // Cross wings
+  const wingGeo = new THREE.BoxGeometry(0.07, 0.003, 0.015)
+  const wing1 = new THREE.Mesh(wingGeo, hullMat)
+  wing1.rotation.z = Math.PI / 6
+  const wing2 = new THREE.Mesh(wingGeo, hullMat)
+  wing2.rotation.z = -Math.PI / 6
+  group.add(wing1, wing2)
+  return group
+}
+
+/** TIE Fighter geometry */
+function createTIEFighterMesh(): THREE.Group {
+  const group = new THREE.Group()
+  const podGeo = new THREE.SphereGeometry(0.012, 8, 8)
+  const pod = new THREE.Mesh(podGeo, darkHullMat)
+  group.add(pod)
+
+  const wingGeo = new THREE.BoxGeometry(0.002, 0.05, 0.04)
+  const leftWing = new THREE.Mesh(wingGeo, darkHullMat)
+  leftWing.position.x = -0.022
+  const rightWing = new THREE.Mesh(wingGeo, darkHullMat)
+  rightWing.position.x = 0.022
+  group.add(leftWing, rightWing)
+  return group
+}
+
+/** Freighter geometry (Falcon archetype) */
+function createFreighterMesh(): THREE.Group {
+  const group = new THREE.Group()
+  const saucerGeo = new THREE.CylinderGeometry(0.025, 0.025, 0.008, 12)
+  const saucer = new THREE.Mesh(saucerGeo, hullMat)
+  group.add(saucer)
+
+  const cockpitGeo = new THREE.CylinderGeometry(0.006, 0.006, 0.02, 8)
+  cockpitGeo.rotateZ(Math.PI / 2)
+  const cockpit = new THREE.Mesh(cockpitGeo, darkHullMat)
+  cockpit.position.set(0.02, 0, -0.005)
+  group.add(cockpit)
+  return group
+}
 
 interface TrafficLane {
   radius: number
@@ -275,26 +344,37 @@ export interface TrafficSystem {
 export function buildTraffic(count: number, hostRadius: number): TrafficSystem {
   const group = new THREE.Group()
   const lanes: TrafficLane[] = []
-  const shipGeo = new THREE.BoxGeometry(0.016, 0.016, 0.09)
-  const shipMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#cfe4ff') })
+
+  const builders = [
+    createStarDestroyerMesh,
+    createXWingMesh,
+    createTIEFighterMesh,
+    createFreighterMesh,
+  ]
+
   for (let i = 0; i < count; i++) {
     const node = new THREE.Group()
-    const hull = new THREE.Mesh(shipGeo, shipMat)
-    node.add(hull)
+    const shipBuilder = builders[i % builders.length]
+    const shipMesh = shipBuilder()
+    node.add(shipMesh)
+
     // engine glow trailing the hull
+    const isImperial = i % 2 === 0
+    const glowColor = isImperial ? '#FF3333' : '#66D9FF'
     const glow = new THREE.Sprite(
       new THREE.SpriteMaterial({
-        map: makeGlowTexture('#66D9FF'),
+        map: makeGlowTexture(glowColor),
         blending: THREE.AdditiveBlending,
         transparent: true,
         depthWrite: false,
-        opacity: 0.85,
+        opacity: 0.9,
       }),
     )
-    glow.scale.setScalar(0.06)
-    glow.position.z = 0.06
+    glow.scale.setScalar(0.07)
+    glow.position.z = 0.05
     node.add(glow)
     group.add(node)
+
     lanes.push({
       radius: hostRadius * (1.45 + Math.random() * 1.3),
       tilt: (Math.random() - 0.5) * 0.9,
@@ -350,3 +430,4 @@ export function buildTraffic(count: number, hostRadius: number): TrafficSystem {
 }
 
 const AXIS_X = new THREE.Vector3(1, 0, 0)
+

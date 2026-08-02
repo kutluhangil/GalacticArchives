@@ -11,6 +11,10 @@ import { useFavorites, useRecents } from '../../hooks/useCollections'
 import { useFlyTo } from '../useFlyTo'
 import { sfx } from '../../lib/audio'
 import AurebeshTranslator from '../AurebeshTranslator'
+import HyperspaceSimulator from '../HyperspaceSimulator'
+import LightsaberChamber from '../LightsaberChamber'
+import TransmissionPlayer from '../TransmissionPlayer'
+
 
 
 
@@ -213,6 +217,9 @@ export default function TopBar() {
   const navigate = useNavigate()
   const [muted, setMuted] = useState(sfx.isMuted())
   const [translatorOpen, setTranslatorOpen] = useState(false)
+  const [hyperspaceOpen, setHyperspaceOpen] = useState(false)
+  const [lightsabersOpen, setLightsabersOpen] = useState(false)
+  const [transmissionsOpen, setTransmissionsOpen] = useState(false)
 
   // the Old Republic era belongs to the Legends layer; hide it otherwise
   const shownEras = eras.filter((e) => e.id !== 'old-republic' || legends)
@@ -226,6 +233,10 @@ export default function TopBar() {
   return (
     <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-start justify-between gap-2 p-4">
       {translatorOpen && <AurebeshTranslator onClose={() => setTranslatorOpen(false)} />}
+      {hyperspaceOpen && <HyperspaceSimulator onClose={() => setHyperspaceOpen(false)} />}
+      {lightsabersOpen && <LightsaberChamber onClose={() => setLightsabersOpen(false)} />}
+      {transmissionsOpen && <TransmissionPlayer onClose={() => setTransmissionsOpen(false)} />}
+
       <div className="pointer-events-auto">
         <button
           onClick={() => {
@@ -251,6 +262,42 @@ export default function TopBar() {
           <ToursMenu />
           <button
             onClick={() => {
+              sfx.playHover()
+              navigate('/timeline')
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            📜 {lang === 'tr' ? 'Zaman Çizelgesi' : 'Timeline'}
+          </button>
+          <button
+            onClick={() => {
+              sfx.playSelect()
+              setHyperspaceOpen(true)
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            🚀 {lang === 'tr' ? 'Hiperuzay' : 'Hyperspace'}
+          </button>
+          <button
+            onClick={() => {
+              sfx.playSelect()
+              setLightsabersOpen(true)
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            ⚔️ {lang === 'tr' ? 'Işın Kılıçları' : 'Lightsabers'}
+          </button>
+          <button
+            onClick={() => {
+              sfx.playTransmission()
+              setTransmissionsOpen(true)
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            📻 {lang === 'tr' ? 'Telsizler' : 'Transmissions'}
+          </button>
+          <button
+            onClick={() => {
               sfx.playSelect()
               setTranslatorOpen(true)
             }}
@@ -258,15 +305,23 @@ export default function TopBar() {
           >
             🔤 Aurebesh
           </button>
-          <button
+          
+          {/* Sci-Fi HUD Search Input Bar */}
+          <div
             onClick={() => {
               sfx.playTransmission()
               window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))
             }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-400 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+            className="group flex cursor-pointer items-center gap-2 rounded border border-white/15 bg-black/50 px-3 py-1 text-[11px] tracking-wide text-slate-300 transition-all hover:border-holo-cyan/60 hover:bg-black/70 hover:shadow-[0_0_12px_rgba(102,217,255,0.2)]"
           >
-            {t('search', lang)} ⌘K
-          </button>
+            <span className="text-holo-cyan/80 group-hover:text-holo-cyan">🔍</span>
+            <span className="w-32 truncate text-slate-400 group-hover:text-slate-200">
+              {lang === 'tr' ? 'Arşivde Ara...' : 'Search Archives...'}
+            </span>
+            <kbd className="rounded bg-white/10 px-1.5 py-0.5 font-hud text-[9px] uppercase tracking-wider text-slate-400 group-hover:text-holo-cyan">
+              ⌘K
+            </kbd>
+          </div>
         </nav>
       </div>
 

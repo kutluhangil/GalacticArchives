@@ -235,6 +235,29 @@ export interface Starship {
   hologram?: string
 }
 
+export interface TimelineEvent {
+  id: string
+  yearLabel: string
+  yearBBYABY: number // negative for BBY, positive for ABY
+  era: EraId
+  category: 'political' | 'battle' | 'jedi-sith' | 'construction'
+  titles: Localized
+  desc: Localized
+  planetId?: string
+  characterIds?: string[]
+  battleId?: string
+}
+
+export interface Transmission {
+  id: string
+  title: Localized
+  speaker: Localized
+  era: EraId
+  yearLabel: string
+  audioFrequency: string
+  transcript: Localized
+}
+
 export interface Battle {
   id: string
   names: Localized
@@ -248,4 +271,3 @@ export interface Battle {
   appearances: string[]
   source?: string
 }
-

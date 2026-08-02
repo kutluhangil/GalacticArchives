@@ -1,0 +1,74 @@
+[
+  {
+    "id": "order-66-warning",
+    "title": {
+      "en": "General Kenobi's Order 66 Warning",
+      "tr": "General Kenobi'nin Emir 66 Uyarısı"
+    },
+    "speaker": {
+      "en": "Master Obi-Wan Kenobi",
+      "tr": "Usta Obi-Wan Kenobi"
+    },
+    "era": "clone-wars",
+    "yearLabel": "19 BBY",
+    "audioFrequency": "1420.405 MHz (Encrypted HoloNet)",
+    "transcript": {
+      "en": "This is Master Obi-Wan Kenobi. Regrettably, our Order and the Republic have fallen, with the dark shadow of the Empire rising to take their place. This message is a warning and a recollection for any surviving Jedi: Trust in the Force. Do not return to the Temple. The time will come when a new hope emerges.",
+      "tr": "Ben Usta Obi-Wan Kenobi. Ne yazık ki Düzenimiz ve Cumhuriyet, yerini alan İmparatorluk'un karanlık gölgesiyle yıkıldı. Bu mesaj hayatta kalan tüm Jedi'lar için bir uyarı ve hatıradır: Güç'e güvenin. Tapınak'a dönmeyin. Yeni bir umudun doğacağı zaman gelecektir."
+    }
+  },
+  {
+    "id": "leia-distress-beacon",
+    "title": {
+      "en": "Princess Leia's Hologram Message to Obi-Wan",
+      "tr": "Prenses Leia'nın Obi-Wan'a Hologram Mesajı"
+    },
+    "speaker": {
+      "en": "Princess Leia Organa",
+      "tr": "Prenses Leia Organa"
+    },
+    "era": "empire",
+    "yearLabel": "0 BBY",
+    "audioFrequency": "R2-D2 Memory Core 0x9F",
+    "transcript": {
+      "en": "General Kenobi. Years ago you served my father in the Clone Wars. Now he begs you to help him in his struggle against the Empire. I regret that I am unable to present my father's request to you in person, but my ship has come under attack... Help me, Obi-Wan Kenobi. You're my only hope.",
+      "tr": "General Kenobi. Yıllar önce Klon Savaşları'nda babama hizmet etmiştiniz. Şimdi İmparatorluk'a karşı mücadelesinde ona yardım etmeniz için size yalvarıyor. Babamın bu talebini size şahsen iletemediğim için üzgünüm, ancak gemim saldırıya uğradı... Bana yardım et, Obi-Wan Kenobi. Sen benim tek umudumsun."
+    }
+  },
+  {
+    "id": "palpatine-empire-proclamation",
+    "title": {
+      "en": "Palpatine's Galactic Empire Proclamation",
+      "tr": "Palpatine'in Galaktik İmparatorluk İlanı"
+    },
+    "speaker": {
+      "en": "Emperor Palpatine (Darth Sidious)",
+      "tr": "İmparator Palpatine (Darth Sidious)"
+    },
+    "era": "clone-wars",
+    "yearLabel": "19 BBY",
+    "audioFrequency": "Galactic Senate Broadcast Channel 1",
+    "transcript": {
+      "en": "In order to ensure the security and continuing stability, the Republic will be reorganized into the first Galactic Empire! For a safe and secure society!",
+      "tr": "Güvenliği ve sürekli istikrarı sağlamak amacıyla Cumhuriyet, ilk Galaktik İmparatorluk olarak yeniden örgütlenecektir! Güvenli ve korunaklı bir toplum için!"
+    }
+  },
+  {
+    "id": "rogue-one-scarif-transmission",
+    "title": {
+      "en": "Rogue One Transmission of Death Star Plans",
+      "tr": "Rogue One'ın Ölüm Yıldızı Planları Yayın Mesajı"
+    },
+    "speaker": {
+      "en": "Jyn Erso & Cassian Andor",
+      "tr": "Jyn Erso ve Cassian Andor"
+    },
+    "era": "empire",
+    "yearLabel": "0 BBY",
+    "audioFrequency": "Scarif Citadel Master Array (Tarkin Initiative)",
+    "transcript": {
+      "en": "Profundity, this is Rogue One! Transmitting Death Star structural schematics now. May the Force be with us.",
+      "tr": "Profundity, burası Rogue One! Ölüm Yıldızı yapısal şemaları şimdi iletiliyor. Güç bizimle olsun."
+    }
+  }
+]
