@@ -1,5 +1,9 @@
 # Gemini görsel üretim promptları — Galactic Archives
 
+> **DEVRİ GEÇTİ (2026-08-02).** Yerine `gorsel-uretim-promptlari.md` geçti; buradaki beş
+> prompt orada da, aynı numaralandırma içinde var. Üretim tamamlandı — bu dosya yalnız
+> tarihsel kayıt. Yeni görsel için büyük listeyi kullan.
+
 Bu dosya Gemini'ye (veya Imagen/Nano Banana'ya) doğrudan yapıştırılacak promptları içerir.
 Açıklamalar Türkçe, promptlar İngilizce — görsel modeller İngilizce promptta belirgin
 şekilde daha isabetli.

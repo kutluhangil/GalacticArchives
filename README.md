@@ -160,7 +160,6 @@ Dağıtım      →  Vercel · SPA rewrite + derleme sonrası statik meta/OG/sit
 
 **Neden ham three.js?** Motor shader ağırlıklı ve tek karede 80+ küre ile üç nokta bulutu
 çiziyor; React Three Fiber'ın reconciler'ı bu iş için gereksiz bir katman olurdu.
-Gerekçe `PLAN.md` §K3'te.
 
 ---
 
@@ -238,12 +237,14 @@ GalacticArchives/
 │   ├── e2e/                  # Playwright · 16 test
 │   ├── src-tauri/            # Tauri v2 masaüstü kabuğu
 │   └── vercel.json           # SPA rewrite + güvenlik başlıkları
-├── docs/
+├── docs/                             # projenin tüm belgeleri (index: docs/README.md)
+│   ├── kalan-isler.md                # ne bitti, ne sende, ne bende
+│   ├── roadmap.md                    # öncelikli iş listesi
 │   ├── gorsel-uretim-promptlari.md   # 224 görsel için üretim promptu
+│   ├── proje-denetim-raporu-2026-08-01.md
 │   ├── superpowers/                  # faz spec'leri ve uygulama planları
-│   └── screenshots/
-├── ROADMAP.md · PLAN.md · design.md · HANDOFF.md · SENDEN-GEREKENLER.md
-└── CHANGELOG.md
+│   ├── brand/ · screenshots/
+└── CHANGELOG.md · LICENSE
 ```
 
 ---

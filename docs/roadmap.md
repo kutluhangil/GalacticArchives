@@ -10,9 +10,13 @@ Uygulama kuralı: maddeler sırayla yapılır, her mantıksal birimden sonra ayr
 
 ## Özet durum
 
-Sağlam çekirdek: ham three.js motoru, 81 gezegen doğrulanmış veriyle, 3 era, TR/EN,
-holocron, Legends katmanı, Vercel + Tauri. Zayıf taraf mühendislik hijyeni: sıfır test,
-CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskele çürük.
+Bu dosyanın ilk hâli (2026-07-24) şunu ölçmüştü: sağlam çekirdek — ham three.js motoru,
+81 gezegen doğrulanmış veriyle, 3 era, TR/EN, holocron, Legends katmanı, Vercel + Tauri —
+ama çürük iskele: sıfır test, CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok.
+
+**Bugünkü durum (2026-08-02):** iskele kapandı. 196 birim + 16 uçtan uca test, yeşil CI,
+44 ölü paket söküldü, `ErrorBoundary` ve sıkı CSP yerinde, 224 görsel varlık üretildi.
+Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
 ---
 
@@ -33,7 +37,9 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 - [x] **P0** `validate-lore` için sabit digest snapshot commit'le; CI koordinat/çap regresyonu yakalar.
 - [x] **P1** Ölü ~40 bağımlılığı sök (`depcheck` ile doğrula). Supply-chain + lockfile + install küçülür. (44 paket söküldü; dependencies 50→9.)
 - [x] **P1** Kök `ErrorBoundary` — hata temalı panel + reload/galaksiye-dön gösterir, beyaz ekran değil. (app `<Routes>` JSX API kullandığı için data-router `errorElement` yerine React class boundary.)
-- [ ] **P2** Smoke test (Playwright): her rota açılıyor mu, galaxy 81 node, toggle 7 dünya.
+- [x] **P2** Smoke test (Playwright): 16 uçtan uca test (rota açılışı, deep-link panel, galaksi
+  WebGL, komut paleti, hat gezinme, favori kalıcılığı) + 196 birim/bileşen testi. CI'da `verify`
+  adımı hepsini koşuyor.
 
 ## 2. Güvenlik
 
@@ -60,7 +66,13 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
 - Prod FPS yeniden ölçülmeli (hafızada 160–175 notu var).
 
 **Yapılacak**
-- [ ] **P1** Gemini dokuları gelince KTX2 zorunlu + hero lazy. VRAM en büyük gerçek kazanç (kullanıcı verisine bağlı, bekliyor).
+- [ ] **P1** KTX2 + `public/basis/` transcoder. Dokular geldi ama **WebP olarak** yayınlanıyor:
+  `process-textures.mjs` yalnız PATH'te `toktx` varsa KTX2 yazıyor, üretim sırasında yoktu.
+  Ayrıca `planet-textures.ts` transcoder'ı `/basis/` altında arıyor, o klasör depoda hiç yok —
+  bugün KTX2'ye geçilse doku isteği 404 alır. VRAM'deki en büyük gerçek kazanç burada.
+- [ ] **P1** `PlanetEngine.init()` sahne kurulumunu karelere böl. Ölçüm: kurulum main thread'i
+  tek seferde ~2.0 sn bloke ediyor (galaksi rotasında 1.8 sn); o sırada HUD tıklamaya cevap
+  vermiyor. Panel artık kurulumdan **önce** boyanıyor (h1 719 ms → 394 ms) ama blok duruyor.
 - [x] **P2** Perf: **KTX2Loader lazy + three chunk'tan ayrıldı** (dynamic import + manualChunks
   istisnası) → three 634→622 kB, KTX2 kendi 14.5 kB async chunk'ında (dokular gelene dek hiç
   yüklenmez). **Landing'de galaxy route idle-prefetch** → atlas'a giriş anlık. three narrowing
@@ -91,7 +103,11 @@ CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok. Motor iyi, iskel
   yatay-scroll'a aldı (sayfayı genişletmez), Compare + Holocron root'larına `overflow-x-hidden`.
   Galaxy'de yatay taşma 0px doğrulandı. Panel/palette/overlay'ler zaten `max-w` korumalı.
 - [x] **P2** İlk ziyaret onboarding: `OnboardingHint` — era slider + Legends toggle'ı işaret eden, bir kez gösterilen (localStorage `ga-onboarded`), dismiss-edilebilir çift dilli kart.
-- [ ] **P2** POI kapsamını 81'e yaklaştır; tur sayısını artır (içerik işi).
+- [x] **P2** POI kapsamı: 168 nokta, yalnız iki gövde POI'siz (`endor`, `yavin` — ikisi de gaz
+  devi). Her nokta kendi Wookieepedia maddesinden yazıldı.
+- [ ] **P2** Tur sayısını artır (içerik işi) — şu an 3: `skywalker`, `clone-wars`, `mando`.
+- [ ] **P2** `docs/screenshots/` yeniden çekilecek: mevcut kareler 23 Temmuz'dan, hiperuzay
+  hatları ve üretilen kartlar görünmüyor, köşede `0 fps` yazıyor.
 
 ## 5. Özellik — PLAN boşlukları
 

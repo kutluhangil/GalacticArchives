@@ -2,3 +2,7 @@
 # raw font source (only the derived woff2 is shipped)
 Aurebesh_Rodian_beta.otf
 .vercel
+
+# editor / plugin scratch
+.DS_Store
+.impeccable

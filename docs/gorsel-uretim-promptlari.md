@@ -1,6 +1,11 @@
 # Görsel üretim promptları — Galactic Archives (tam liste)
 
-Bu dosya, projede **kod tarafı hazır ama görseli olmayan** her varlık için tek tek prompt
+> **Durum (2026-08-02): üretim tamamlandı.** Aşağıda yolu verilen 223 varlığın 223'ü
+> depoda, üstüne `docs/brand/readme-banner.png` — toplam 224/224. `npm run validate:assets`
+> sıfır hata veriyor. Dosya bundan sonra **kalıp** olarak duruyor: arşive yeni bir gövde
+> eklendiğinde promptu buradaki bölümden türet, sonuna STYLE BIBLE'ı yapıştır.
+
+Bu dosya, projedeki her görsel varlık için tek tek prompt
 içerir. Açıklamalar Türkçe, promptlar İngilizce (görsel modeller İngilizce promptta belirgin
 şekilde daha isabetli). Her prompt kopyala-yapıştır hazırdır; sonuna **STYLE BIBLE** bloğu
 eklenecektir — 200'ün üzerinde görsel tek bir görsel dile otursun diye tek değişmez kural.
@@ -10,19 +15,19 @@ yerine geçer**; oradaki beş prompt burada da, aynı numaralandırma içinde ye
 
 ---
 
-## 0. Ne eksik — envanter
+## 0. Envanter
 
 | Bölüm | Varlık | Adet | Yol | Durum |
 |---|---|---|---|---|
-| A | Gezegen albedo doku haritası (79 gezegen + 5 detaylı ay) | 84 | `app/raw/planets/<id>-albedo.png` | hiçbiri yok, hepsi prosedürel |
-| B | Gece ışıkları haritası (yalnız şehir dünyaları) | 12 | `app/raw/planets/<id>-night.png` | hiçbiri yok |
-| C | İstasyon / megayapı yüzeyi (2 istasyon + Glavis + Polis Massa) | 4 | `app/raw/planets/<id>-albedo.png` | hiçbiri yok |
-| D | Holocron kart görseli | 88 | `app/public/cards/<id>.webp` | CSS radial-gradient |
-| E | Karakter holo-büstü | 33 | `app/public/portraits/<id>.webp` | 4 SVG siluetin hash'i |
-| F | Marka görselleri (ikon, OG yedeği, README afişi) | 3 | aşağıda | SVG'den türetiliyor |
-| G | Ekran görüntüleri | 6 | `docs/screenshots/` | **sende değil, bende** — tarayıcıdan ben çekerim |
+| A | Gezegen albedo doku haritası (79 gezegen + 5 detaylı ay) | 84 | `app/raw/planets/<id>-albedo.png` | ✅ üretildi |
+| B | Gece ışıkları haritası (yalnız şehir dünyaları) | 12 | `app/raw/planets/<id>-night.png` | ✅ üretildi |
+| C | İstasyon / megayapı yüzeyi (2 istasyon + Glavis + Polis Massa) | 4 | `app/raw/planets/<id>-albedo.png` | ✅ üretildi |
+| D | Holocron kart görseli | 88 | `app/public/cards/<id>.webp` | ✅ üretildi |
+| E | Karakter holo-büstü | 33 | `app/public/portraits/<id>.webp` | ✅ üretildi |
+| F | Marka görselleri (ikon, OG yedeği, README afişi) | 3 | aşağıda | ✅ üretildi |
+| G | Ekran görüntüleri | 6 | `docs/screenshots/` | ⏳ bende — hiperuzay ve kartlar sonrası yeniden çekilecek |
 
-Toplam üretilecek: **224 görsel** (A 84 + B 12 + C 4 + D 88 + E 33 + F 3). G bende.
+Toplam üretilen: **224 görsel** (A 84 + B 12 + C 4 + D 88 + E 33 + F 3). G bende.
 
 `validate-lore` deposu 88 gövde sayıyor: 81 gezegen dosyası + 2 istasyon + gezegen dosyalarının
 içindeki 5 detaylı ay (Endor orman ayı, Kef Bir, Concordia, Nar Shaddaa, Yavin 4). Aylar da
