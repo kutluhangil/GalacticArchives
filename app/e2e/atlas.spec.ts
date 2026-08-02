@@ -10,14 +10,17 @@ test.beforeEach(async ({ page }) => {
 // SPA rewrite regress: the HTML resolves but its assets 404 under /planet/.
 test('a world deep-links straight into its panel', async ({ page }) => {
   await page.goto('/planet/tatooine')
-  await expect(page.getByRole('heading', { name: 'TATOOINE' })).toBeVisible()
+  // the panel paints before the globe, but building the scene then blocks the
+  // main thread for seconds on a two-core CI runner, and a blocked thread
+  // answers no queries — hence the same wide window the galaxy routes get
+  await expect(page.getByRole('heading', { name: 'TATOOINE' })).toBeVisible({ timeout: 20_000 })
   await expect(page.getByText('R-16')).toBeVisible()
   await expect(page.locator('canvas')).toBeVisible()
 })
 
 test('a world canon says little about states the gap instead of hiding it', async ({ page }) => {
   await page.goto('/planet/moraband')
-  await expect(page.getByRole('heading', { name: 'MORABAND' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'MORABAND' })).toBeVisible({ timeout: 20_000 })
 
   // canon states no diameter, population or government for Moraband
   await expect(page.getByText(/kanonda belirtilmemiş|not stated in canon/)).toHaveCount(3)
@@ -107,9 +110,10 @@ test('a starred world survives a reload', async ({ page }) => {
   await page.getByRole('button', { name: /Favorilere ekle|Add to favorites/ }).click()
 
   await page.reload()
+  // the reload pays the cold scene build a second time
   await expect(
     page.getByRole('button', { name: /Favorilerden çıkar|Remove from favorites/ }),
-  ).toBeVisible()
+  ).toBeVisible({ timeout: 20_000 })
 })
 
 test('a hyperlane deep-links into its own panel', async ({ page }) => {

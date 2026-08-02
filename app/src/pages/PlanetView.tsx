@@ -21,6 +21,7 @@ export default function PlanetView() {
   const era = useApp((s) => s.era)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const engineRef = useRef<PlanetEngine | null>(null)
+  const pending = useRef<number | null>(null)
   const [loaded, setLoaded] = useState<{ id: string; body: CelestialBody; systemHost: string } | null>(null)
   const [poiPos, setPoiPos] = useState<PoiScreenPos[]>([])
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
@@ -56,15 +57,30 @@ export default function PlanetView() {
 
   useEffect(() => {
     if (!body || !canvasRef.current) return
-    const engine = new PlanetEngine(canvasRef.current, {
-      getSimTime: () => simClock.getTime(),
-      onFps: setFps,
-      onPoiPositions: setPoiPos,
+    const canvas = canvasRef.current
+    let engine: PlanetEngine | null = null
+    // Building the scene blocks the main thread for a couple of seconds on a
+    // cold route (shader compile, geometry, texture upload). Two frames put
+    // that work after the panel's first paint, so the record is readable and
+    // the HUD responds while the globe assembles.
+    const frame = requestAnimationFrame(() => {
+      const build = requestAnimationFrame(() => {
+        engine = new PlanetEngine(canvas, {
+          getSimTime: () => simClock.getTime(),
+          onFps: setFps,
+          onPoiPositions: setPoiPos,
+        })
+        engine.init(body, era)
+        engineRef.current = engine
+        dissolve.onBuild(body.id)
+      })
+      pending.current = build
     })
-    engine.init(body, era)
-    engineRef.current = engine
-    dissolve.onBuild(body.id)
     return () => {
+      cancelAnimationFrame(frame)
+      if (pending.current !== null) cancelAnimationFrame(pending.current)
+      pending.current = null
+      if (!engine) return
       dissolve.onTeardown(engine)
       engineRef.current = null
       engine.dispose()

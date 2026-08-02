@@ -2,6 +2,7 @@
 
 ## 2026-08-02
 
+- Fixed the red CI: a world's panel now paints before its globe is built. Building the planet scene blocks the main thread for ~2s locally and far longer on a two-core runner, and a blocked thread answers no queries, so the three deep-link end-to-end tests timed out at the default 5s. The scene build moved behind the panel's first paint (the record is readable ~325ms sooner), and the WebGL-route assertions got the same 20s window the galaxy tests already used. CI also writes the Playwright HTML report and keeps `test-results`, so the next failure ships its traces instead of an empty artifact.
 - Fixed the Vercel production deployment: the project had no Root Directory set, so `npm run build` ran from the repo root and died with `ENOENT /vercel/path0/package.json` on every deploy since 2026-07-31, leaving the live site stuck on an old build. Root Directory is now `app`, the deploy is green again and serves the same bundle as a local build. Recorded the requirement in the README stack summary and gitignored the local `.vercel` link directory.
 
 ## 2026-08-01

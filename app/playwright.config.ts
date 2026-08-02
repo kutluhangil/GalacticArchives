@@ -13,7 +13,9 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  reporter: process.env.CI ? 'line' : 'list',
+  // CI keeps the line reporter readable in the log and writes the HTML report
+  // beside it, so a failure there can be opened instead of guessed at
+  reporter: process.env.CI ? [['line'], ['html', { open: 'never' }]] : 'list',
   use: {
     baseURL: BASE_URL,
     trace: 'on-first-retry',
