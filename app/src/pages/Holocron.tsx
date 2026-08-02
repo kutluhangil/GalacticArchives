@@ -5,16 +5,21 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import Fuse from 'fuse.js'
-import type { CelestialBody, Character } from '../types/lore'
-import { L, loadAllPlanets, loadCharacters, media, regions, stations } from '../lib/lore'
+import type { Battle, CelestialBody, Character, Starship } from '../types/lore'
+import { L, loadAllPlanets, loadBattles, loadCharacters, loadStarships, media, regions, stations } from '../lib/lore'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import HoloPortrait from '../components/HoloPortrait'
 import HolocronChrome from '../components/HolocronChrome'
+import HolocronQuiz from '../components/HolocronQuiz'
+import { sfx } from '../lib/audio'
+
 
 type Entry =
   | { kind: 'body'; id: string; body: CelestialBody }
   | { kind: 'character'; id: string; character: Character }
+  | { kind: 'starship'; id: string; starship: Starship }
+  | { kind: 'battle'; id: string; battle: Battle }
 
 function bodyEntries(bodies: CelestialBody[]): Entry[] {
   return bodies.map((body) => ({ kind: 'body', id: body.id, body }))
@@ -24,9 +29,12 @@ export default function Holocron() {
   const lang = useApp((s) => s.lang)
   const [bodies, setBodies] = useState<CelestialBody[]>([])
   const [characters, setCharacters] = useState<Character[]>([])
+  const [starships, setStarships] = useState<Starship[]>([])
+  const [battles, setBattles] = useState<Battle[]>([])
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('')
   const [mediaId, setMediaId] = useState('')
+  const [quizOpen, setQuizOpen] = useState(false)
 
   useEffect(() => {
     loadAllPlanets().then((planets) => {
@@ -34,14 +42,18 @@ export default function Holocron() {
       setBodies([...planets, ...moons, ...stations])
     })
     loadCharacters().then(setCharacters)
+    loadStarships().then(setStarships)
+    loadBattles().then(setBattles)
   }, [])
 
   const entries = useMemo<Entry[]>(
     () => [
       ...bodyEntries(bodies),
       ...characters.map((character) => ({ kind: 'character' as const, id: character.id, character })),
+      ...starships.map((starship) => ({ kind: 'starship' as const, id: starship.id, starship })),
+      ...battles.map((battle) => ({ kind: 'battle' as const, id: battle.id, battle })),
     ],
-    [bodies, characters],
+    [bodies, characters, starships, battles],
   )
 
   const fuse = useMemo(
@@ -52,16 +64,12 @@ export default function Holocron() {
         keys: [
           { name: 'body.names.en', weight: 3 },
           { name: 'body.names.tr', weight: 3 },
-          { name: 'body.desc.en', weight: 1 },
-          { name: 'body.desc.tr', weight: 1 },
-          { name: 'body.system', weight: 1 },
           { name: 'character.names.en', weight: 3 },
           { name: 'character.names.tr', weight: 3 },
-          { name: 'character.aka', weight: 2 },
-          { name: 'character.species.en', weight: 1 },
-          { name: 'character.species.tr', weight: 1 },
-          { name: 'character.bio.en', weight: 1 },
-          { name: 'character.bio.tr', weight: 1 },
+          { name: 'starship.names.en', weight: 3 },
+          { name: 'starship.names.tr', weight: 3 },
+          { name: 'battle.names.en', weight: 3 },
+          { name: 'battle.names.tr', weight: 3 },
         ],
       }),
     [entries],
@@ -76,7 +84,7 @@ export default function Holocron() {
       }
       if (mediaId) {
         const appearances =
-          entry.kind === 'body' ? entry.body.appearances : entry.character.appearances
+          entry.kind === 'body' ? entry.body.appearances : entry.kind === 'character' ? entry.character.appearances : entry.kind === 'starship' ? entry.starship.appearances : entry.battle.appearances
         if (!appearances.includes(mediaId)) return false
       }
       return true
@@ -84,20 +92,33 @@ export default function Holocron() {
   }, [query, region, mediaId, fuse, entries])
 
   const worlds = results.filter((e): e is Extract<Entry, { kind: 'body' }> => e.kind === 'body')
-  const figures = results.filter(
-    (e): e is Extract<Entry, { kind: 'character' }> => e.kind === 'character',
-  )
+  const figures = results.filter((e): e is Extract<Entry, { kind: 'character' }> => e.kind === 'character')
+  const ships = results.filter((e): e is Extract<Entry, { kind: 'starship' }> => e.kind === 'starship')
+  const conflictList = results.filter((e): e is Extract<Entry, { kind: 'battle' }> => e.kind === 'battle')
 
   return (
     <HolocronChrome>
-      <header className="mb-8">
-        <h1 className="font-display text-3xl tracking-[0.22em] text-star-gold">
-          {t('holocron', lang).toUpperCase()}
-        </h1>
-        <p className="mt-2 font-hud text-[13px] tracking-wide text-slate-400">
-          {t('holocronIntro', lang)}
-        </p>
+      {quizOpen && <HolocronQuiz onClose={() => setQuizOpen(false)} />}
+      <header className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
+        <div>
+          <h1 className="font-display text-3xl tracking-[0.22em] text-star-gold">
+            {t('holocron', lang).toUpperCase()}
+          </h1>
+          <p className="mt-2 font-hud text-[13px] tracking-wide text-slate-400">
+            {t('holocronIntro', lang)}
+          </p>
+        </div>
+        <button
+          onClick={() => {
+            sfx.playSelect()
+            setQuizOpen(true)
+          }}
+          className="rounded border border-star-gold/40 bg-star-gold/10 px-4 py-2 font-hud text-[11px] tracking-widest text-star-gold transition-colors hover:bg-star-gold/25"
+        >
+          ◈ {lang === 'tr' ? 'ARŞİV TESTİ' : 'ARCHIVIST TRIAL'}
+        </button>
       </header>
+
 
       <div className="mb-8 flex flex-wrap gap-2">
         <input
@@ -149,34 +170,92 @@ export default function Holocron() {
             {t('worlds', lang)}
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {worlds.map(({ body }) => {
-              return (
-                <Link
-                  key={body.id}
-                  to={`/holocron/planet/${body.id}`}
-                  viewTransition
-                  className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
-                >
-                  <img
-                    src={`/cards/${body.id}.webp`}
-                    alt=""
-                    width={1200}
-                    height={600}
-                    loading="lazy"
-                    decoding="async"
-                    className="aspect-[2/1] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="bg-panel/90 px-2.5 py-2">
-                    <div className="font-display text-[12px] tracking-[0.16em] text-slate-100">
-                      {L(body.names, lang).toUpperCase()}
-                    </div>
-                    <div className="mt-0.5 font-hud text-[10px] tracking-[0.18em] text-slate-400">
-                      {L(regions.find((r) => r.id === body.region)?.names, lang)}
-                    </div>
+            {worlds.map(({ body }) => (
+              <Link
+                key={body.id}
+                to={`/holocron/planet/${body.id}`}
+                onClick={() => sfx.playHover()}
+                viewTransition
+                className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
+              >
+                <img
+                  src={`/cards/${body.id}.webp`}
+                  alt=""
+                  width={1200}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[2/1] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="bg-panel/90 px-2.5 py-2">
+                  <div className="font-display text-[12px] tracking-[0.16em] text-slate-100">
+                    {L(body.names, lang).toUpperCase()}
                   </div>
-                </Link>
-              )
-            })}
+                  <div className="mt-0.5 font-hud text-[10px] tracking-[0.18em] text-slate-400">
+                    {L(regions.find((r) => r.id === body.region)?.names, lang)}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {ships.length > 0 && (
+        <section className="mb-12">
+          <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
+            🚀 {t('starships', lang)}
+          </h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {ships.map(({ starship }) => (
+              <div
+                key={starship.id}
+                className="rounded-lg border border-white/10 bg-panel/90 p-4 transition-colors hover:border-holo-cyan/50"
+              >
+                <div className="font-display text-[14px] tracking-[0.14em] text-holo-cyan">
+                  {L(starship.names, lang)}
+                </div>
+                <div className="mt-1 text-[11px] text-slate-400">
+                  {starship.model} · {L(starship.starshipClass, lang)}
+                </div>
+                <p className="mt-2 text-[12px] leading-relaxed text-slate-300">
+                  {L(starship.desc, lang)}
+                </p>
+                <div className="mt-3 flex justify-between border-t border-white/5 pt-2 text-[11px] text-slate-400">
+                  <span>{L(starship.manufacturer, lang)}</span>
+                  <span className="text-star-gold">{starship.hyperdriveRating}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {conflictList.length > 0 && (
+        <section className="mb-12">
+          <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
+            ⚔️ {t('battles', lang)}
+          </h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {conflictList.map(({ battle }) => (
+              <div
+                key={battle.id}
+                className="rounded-lg border border-sith-red/30 bg-panel/90 p-4 transition-colors hover:border-sith-red/60"
+              >
+                <div className="flex items-baseline justify-between">
+                  <div className="font-display text-[14px] tracking-[0.14em] text-red-400">
+                    {L(battle.names, lang)}
+                  </div>
+                  <span className="font-hud text-[10px] text-star-gold">{battle.yearLabel}</span>
+                </div>
+                <div className="mt-1 text-[11px] text-slate-400">
+                  📍 {L(battle.locationName, lang)}
+                </div>
+                <p className="mt-2 text-[12px] leading-relaxed text-slate-300">
+                  {L(battle.desc, lang)}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
       )}
@@ -191,6 +270,7 @@ export default function Holocron() {
               <Link
                 key={character.id}
                 to={`/holocron/character/${character.id}`}
+                onClick={() => sfx.playHover()}
                 viewTransition
                 className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
               >

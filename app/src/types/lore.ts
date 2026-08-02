@@ -218,3 +218,34 @@ export interface Faction {
   names: Localized
   color: string
 }
+
+export interface Starship {
+  id: string
+  names: Localized
+  model: string
+  manufacturer: Localized
+  starshipClass: Localized
+  lengthMeters?: number
+  hyperdriveRating?: string
+  crew?: string
+  passengers?: string
+  affiliationsByEra?: Partial<Record<EraId, FactionId>>
+  desc: Localized
+  appearances: string[]
+  hologram?: string
+}
+
+export interface Battle {
+  id: string
+  names: Localized
+  yearLabel: string
+  era: EraId
+  locationPlanetId: string
+  locationName: Localized
+  combatants: { factionId: FactionId; commander?: Localized }[]
+  victorFactionId: FactionId
+  desc: Localized
+  appearances: string[]
+  source?: string
+}
+

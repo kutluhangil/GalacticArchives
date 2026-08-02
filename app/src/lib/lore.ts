@@ -1,6 +1,7 @@
 // Lore data access: lazy per-planet JSON imports + localization helpers.
 
 import type {
+  Battle,
   CelestialBody,
   Character,
   Era,
@@ -8,6 +9,7 @@ import type {
   Faction,
   MediaEntry,
   Region,
+  Starship,
 } from '../types/lore'
 import erasJson from '../data/meta/eras.json'
 import regionsJson from '../data/meta/regions.json'
@@ -113,3 +115,22 @@ export async function loadCharacters(): Promise<Character[]> {
   }
   return charactersCache
 }
+
+let starshipsCache: Starship[] | null = null
+export async function loadStarships(): Promise<Starship[]> {
+  if (!starshipsCache) {
+    const mod = await import('../data/starships.json')
+    starshipsCache = mod.default as Starship[]
+  }
+  return starshipsCache
+}
+
+let battlesCache: Battle[] | null = null
+export async function loadBattles(): Promise<Battle[]> {
+  if (!battlesCache) {
+    const mod = await import('../data/battles.json')
+    battlesCache = mod.default as Battle[]
+  }
+  return battlesCache
+}
+

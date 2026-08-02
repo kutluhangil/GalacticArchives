@@ -9,6 +9,10 @@ import SettingsMenu from '../SettingsMenu'
 import { tours } from '../../lib/tours'
 import { useFavorites, useRecents } from '../../hooks/useCollections'
 import { useFlyTo } from '../useFlyTo'
+import { sfx } from '../../lib/audio'
+import AurebeshTranslator from '../AurebeshTranslator'
+
+
 
 /** shared popover shell for the top-bar menus */
 function Menu({
@@ -207,22 +211,37 @@ export default function TopBar() {
   const { lang, setLang, era, setEra, legends } = useApp()
   const jump = useFlyTo()
   const navigate = useNavigate()
+  const [muted, setMuted] = useState(sfx.isMuted())
+  const [translatorOpen, setTranslatorOpen] = useState(false)
 
   // the Old Republic era belongs to the Legends layer; hide it otherwise
   const shownEras = eras.filter((e) => e.id !== 'old-republic' || legends)
 
+  const toggleAudio = () => {
+    const active = sfx.toggleMute()
+    setMuted(!active)
+    if (active) sfx.playSelect()
+  }
+
   return (
     <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-start justify-between gap-2 p-4">
+      {translatorOpen && <AurebeshTranslator onClose={() => setTranslatorOpen(false)} />}
       <div className="pointer-events-auto">
         <button
-          onClick={() => navigate('/galaxy')}
+          onClick={() => {
+            sfx.playHover()
+            navigate('/galaxy')
+          }}
           className="font-display text-lg font-bold tracking-[0.35em] text-star-gold drop-shadow-[0_0_12px_rgba(255,232,31,0.35)]"
         >
           {t('brand', lang)}
         </button>
         <nav className="mt-2 flex flex-wrap gap-1">
           <button
-            onClick={() => jump('/galaxy')}
+            onClick={() => {
+              sfx.playHover()
+              jump('/galaxy')
+            }}
             className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
           >
             ◉ {t('galaxy', lang)}
@@ -231,7 +250,19 @@ export default function TopBar() {
           <CollectionsMenu />
           <ToursMenu />
           <button
-            onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))}
+            onClick={() => {
+              sfx.playSelect()
+              setTranslatorOpen(true)
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            🔤 Aurebesh
+          </button>
+          <button
+            onClick={() => {
+              sfx.playTransmission()
+              window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))
+            }}
             className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-400 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
           >
             {t('search', lang)} ⌘K
@@ -239,13 +270,17 @@ export default function TopBar() {
         </nav>
       </div>
 
+
       <div className="pointer-events-auto flex flex-wrap items-center justify-end gap-2">
         <div className="flex max-w-full shrink overflow-x-auto rounded border border-white/10 bg-black/30 p-0.5">
           {shownEras.map((e) => (
             <button
               key={e.id}
               title={`${L(e.names, lang)} · ${e.range}`}
-              onClick={() => setEra(e.id)}
+              onClick={() => {
+                sfx.playHover()
+                setEra(e.id)
+              }}
               className={`shrink-0 whitespace-nowrap rounded px-2 py-0.5 text-[11px] transition-colors ${
                 era === e.id ? 'bg-star-gold/20 text-star-gold' : 'text-slate-400 hover:text-slate-200'
               }`}
@@ -254,9 +289,21 @@ export default function TopBar() {
             </button>
           ))}
         </div>
+        <button
+          onClick={toggleAudio}
+          title={t(muted ? 'audioOff' : 'audioOn', lang)}
+          className={`rounded border px-2 py-0.5 text-[11px] transition-colors ${
+            !muted ? 'border-holo-cyan/40 bg-holo-cyan/10 text-holo-cyan' : 'border-white/10 bg-black/30 text-slate-500 hover:text-slate-300'
+          }`}
+        >
+          {muted ? '🔇 SFX' : '🔊 SFX'}
+        </button>
         <SettingsMenu />
         <button
-          onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
+          onClick={() => {
+            sfx.playHover()
+            setLang(lang === 'tr' ? 'en' : 'tr')
+          }}
           className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] font-semibold tracking-wider text-slate-200 hover:text-holo-cyan"
         >
           {lang === 'tr' ? 'EN' : 'TR'}
@@ -265,3 +312,4 @@ export default function TopBar() {
     </header>
   )
 }
+

@@ -1,0 +1,289 @@
+[
+  {
+    "id": "millennium-falcon",
+    "names": {
+      "en": "Millennium Falcon",
+      "tr": "Millennium Falcon"
+    },
+    "model": "YT-1300 Light Freighter",
+    "manufacturer": {
+      "en": "Corellian Engineering Corporation",
+      "tr": "Corellian Engineering Corporation"
+    },
+    "starshipClass": {
+      "en": "Light Freighter",
+      "tr": "Hafif Kargo Gemisi"
+    },
+    "lengthMeters": 34.75,
+    "hyperdriveRating": "Class 0.5 (Modified)",
+    "crew": "2 (Pilot, Co-pilot)",
+    "passengers": "6",
+    "affiliationsByEra": {
+      "clone-wars": "neutral",
+      "empire": "rebel",
+      "new-republic": "resistance"
+    },
+    "desc": {
+      "en": "A heavily modified Corellian freighter made famous by smugglers Han Solo and Chewbacca. Known for running the Kessel Run in less than twelve parsecs.",
+      "tr": "Kaçakçılar Han Solo ve Chewbacca tarafından ünlü yapılan, ağır şekilde modifiye edilmiş bir Corellian kargo gemisi. Kessel Rotası'nı 12 parsekten az sürede tamamlamasıyla bilinir."
+    },
+    "appearances": ["ep4", "ep5", "ep6", "ep7", "ep8", "ep9", "solo"]
+  },
+  {
+    "id": "imperial-star-destroyer",
+    "names": {
+      "en": "Imperial I-class Star Destroyer",
+      "tr": "İmparatorluk I-Sınıfı Yıldız Yok Edicisi"
+    },
+    "model": "Imperial I-class Star Destroyer",
+    "manufacturer": {
+      "en": "Kuat Drive Yards",
+      "tr": "Kuat Drive Yards"
+    },
+    "starshipClass": {
+      "en": "Capital Ship / Star Destroyer",
+      "tr": "Ana Savaş Gemisi / Yıldız Yok Edici"
+    },
+    "lengthMeters": 1600,
+    "hyperdriveRating": "Class 2.0",
+    "crew": "37,085",
+    "passengers": "9,700 Stormtroopers",
+    "affiliationsByEra": {
+      "empire": "empire"
+    },
+    "desc": {
+      "en": "The wedge-shaped capital ship of the Galactic Empire. Armed with turbolasers and tractor beams, serving as the backbone of Imperial military dominance.",
+      "tr": "Galaktik İmparatorluk'un kama şeklindeki ana savaş gemisi. Turbolazerler ve çekim ışınlarıyla donatılmış, İmparatorluk askeri gücünün belkemiğidir."
+    },
+    "appearances": ["ep4", "ep5", "ep6", "rogue-one"]
+  },
+  {
+    "id": "t-65b-x-wing",
+    "names": {
+      "en": "T-65B X-wing Starfighter",
+      "tr": "T-65B X-wing Yıldız Savaşçısı"
+    },
+    "model": "T-65B X-wing",
+    "manufacturer": {
+      "en": "Incom Corporation",
+      "tr": "Incom Corporation"
+    },
+    "starshipClass": {
+      "en": "Starfighter",
+      "tr": "Yıldız Savaşçısı"
+    },
+    "lengthMeters": 12.5,
+    "hyperdriveRating": "Class 1.0",
+    "crew": "1 Pilot, 1 Astromech Droid",
+    "passengers": "0",
+    "affiliationsByEra": {
+      "empire": "rebel",
+      "new-republic": "new-republic"
+    },
+    "desc": {
+      "en": "The iconic versatile Rebel Alliance starfighter featuring strike foil wings, four laser cannons, and proton torpedo launchers.",
+      "tr": "Asi İttifakı'nın açılır kanat yapısı, dört lazer topu ve proton torpidolarına sahip ikonik ve çok yönlü yıldız savaşçısı."
+    },
+    "appearances": ["ep4", "ep5", "ep6", "rogue-one"]
+  },
+  {
+    "id": "slave-i",
+    "names": {
+      "en": "Firespray-31 (Slave I)",
+      "tr": "Firespray-31 (Slave I)"
+    },
+    "model": "Firespray-31-class Patrol Craft",
+    "manufacturer": {
+      "en": "Kuat Systems Engineering",
+      "tr": "Kuat Systems Engineering"
+    },
+    "starshipClass": {
+      "en": "Patrol & Attack Craft",
+      "tr": "Devriye ve Saldırı Gemisi"
+    },
+    "lengthMeters": 21.5,
+    "hyperdriveRating": "Class 1.0",
+    "crew": "1 Pilot",
+    "passengers": "6 Detainees",
+    "affiliationsByEra": {
+      "clone-wars": "neutral",
+      "empire": "neutral",
+      "new-republic": "neutral"
+    },
+    "desc": {
+      "en": "A modified Firespray patrol craft utilized by bounty hunters Jango Fett and Boba Fett. Outfitted with seismic charges and hidden weapon pods.",
+      "tr": "Ödül avcıları Jango Fett ve Boba Fett tarafından kullanılan modifiye devriye gemisi. Sismik bombalar ve gizli silah kapsülleri ile donatılmıştır."
+    },
+    "appearances": ["ep2", "ep5", "mandalorian", "book-of-boba-fett"]
+  },
+  {
+    "id": "venator-star-destroyer",
+    "names": {
+      "en": "Venator-class Star Destroyer",
+      "tr": "Venator-Sınıfı Yıldız Yok Edicisi"
+    },
+    "model": "Venator-class Star Destroyer",
+    "manufacturer": {
+      "en": "Kuat Drive Yards",
+      "tr": "Kuat Drive Yards"
+    },
+    "starshipClass": {
+      "en": "Star Cruiser / Carrier",
+      "tr": "Yıldız Kruvazörü / Taşıyıcı"
+    },
+    "lengthMeters": 1137,
+    "hyperdriveRating": "Class 1.0",
+    "crew": "7,400",
+    "passengers": "2,000 Troops",
+    "affiliationsByEra": {
+      "clone-wars": "republic"
+    },
+    "desc": {
+      "en": "The primary capital warship of the Galactic Republic Navy during the Clone Wars, featuring a massive dorsal hangar bay for Republic starfighters.",
+      "tr": "Klon Savaşları sırasında Galaktik Cumhuriyet Donanması'nın ana savaş gemisi. Cumhuriyet savaşçıları için devasa bir üst hangar güvertesine sahiptir."
+    },
+    "appearances": ["ep3", "clone-wars", "bad-batch"]
+  },
+  {
+    "id": "razor-crest",
+    "names": {
+      "en": "ST-70 Assault Gunship (Razor Crest)",
+      "tr": "ST-70 Saldırı Gemisi (Razor Crest)"
+    },
+    "model": "ST-70 Assault Gunship",
+    "manufacturer": {
+      "en": "Custom / Pre-Empire Military",
+      "tr": "Özel / İmparatorluk Öncesi Askeri"
+    },
+    "starshipClass": {
+      "en": "Gunship / Transport",
+      "tr": "Saldırı ve Taşıma Gemisi"
+    },
+    "lengthMeters": 24.0,
+    "hyperdriveRating": "Class 2.0",
+    "crew": "1 Pilot",
+    "passengers": "3",
+    "affiliationsByEra": {
+      "new-republic": "neutral"
+    },
+    "desc": {
+      "en": "An armored pre-Empire gunship used by Din Djarin (The Mandalorian) for bounty hunting ops across the Outer Rim territory.",
+      "tr": "Din Djarin (Mandaloryalı) tarafından Dış Bölge'deki ödül avcılığı operasyonlarında kullanılan zırhlı İmparatorluk öncesi saldırı gemisi."
+    },
+    "appearances": ["mandalorian"]
+  },
+  {
+    "id": "executor-star-dreadnought",
+    "names": {
+      "en": "Super Star Destroyer (Executor)",
+      "tr": "Süper Yıldız Yok Edicisi (Executor)"
+    },
+    "model": "Executor-class Star Dreadnought",
+    "manufacturer": {
+      "en": "Kuat Drive Yards / Fondor Shipyards",
+      "tr": "Kuat Drive Yards / Fondor Shipyards"
+    },
+    "starshipClass": {
+      "en": "Super Star Destroyer",
+      "tr": "Süper Yıldız Yok Edicisi"
+    },
+    "lengthMeters": 19000,
+    "hyperdriveRating": "Class 2.0",
+    "crew": "279,144",
+    "passengers": "38,000 Troops",
+    "affiliationsByEra": {
+      "empire": "empire"
+    },
+    "desc": {
+      "en": "Darth Vader's personal flagship and command vessel of the Imperial Death Squadron. Spanning 19 kilometers with over 5,000 turbolasers.",
+      "tr": "Darth Vader'ın kişisel amiral gemisi ve İmparatorluk Ölüm Filosu'nun komuta merkezi. 19 kilometre uzunluğunda ve 5.000'den fazla turbolazere sahiptir."
+    },
+    "appearances": ["ep5", "ep6"]
+  },
+  {
+    "id": "ghost-vcx-100",
+    "names": {
+      "en": "The Ghost",
+      "tr": "Ghost"
+    },
+    "model": "VCX-100 Light Freighter",
+    "manufacturer": {
+      "en": "Corellian Engineering Corporation",
+      "tr": "Corellian Engineering Corporation"
+    },
+    "starshipClass": {
+      "en": "Light Freighter",
+      "tr": "Hafif Kargo Gemisi"
+    },
+    "lengthMeters": 43.9,
+    "hyperdriveRating": "Class 1.0",
+    "crew": "1 Pilot, 1 Co-pilot, 2 Gunners",
+    "passengers": "6",
+    "affiliationsByEra": {
+      "empire": "rebel",
+      "new-republic": "new-republic"
+    },
+    "desc": {
+      "en": "Hera Syndulla's modified freighter serving as home base for the Spectre rebel cell. Features an auxiliary shuttle dock ('Phantom').",
+      "tr": "Hera Syndulla'nın Spectre asi hücresi için üs görevi gören modifiye kargo gemisi. 'Phantom' adlı yardımcı mekik yuvasına sahiptir."
+    },
+    "appearances": ["rebels", "rogue-one", "ahsoka"]
+  },
+  {
+    "id": "tantive-iv",
+    "names": {
+      "en": "Tantive IV",
+      "tr": "Tantive IV"
+    },
+    "model": "CR90 Corvette",
+    "manufacturer": {
+      "en": "Corellian Engineering Corporation",
+      "tr": "Corellian Engineering Corporation"
+    },
+    "starshipClass": {
+      "en": "Corvette / Blockade Runner",
+      "tr": "Korvet / Abluka Koşucusu"
+    },
+    "lengthMeters": 150,
+    "hyperdriveRating": "Class 2.0",
+    "crew": "30-165",
+    "passengers": "60",
+    "affiliationsByEra": {
+      "clone-wars": "republic",
+      "empire": "rebel"
+    },
+    "desc": {
+      "en": "Princess Leia Organa's diplomatic starship that carried the stolen Death Star plans from Scarif before being intercepted by Darth Vader over Tatooine.",
+      "tr": "Prenses Leia Organa'nın Scarif'ten çalınan Ölüm Yıldızı planlarını taşıyan ve Tatooine üzerinde Darth Vader tarafından yakalanan diplomatik korveti."
+    },
+    "appearances": ["ep3", "ep4", "rogue-one"]
+  },
+  {
+    "id": "tie-interceptor",
+    "names": {
+      "en": "TIE/in Interceptor",
+      "tr": "TIE Interceptor"
+    },
+    "model": "TIE/in Interceptor",
+    "manufacturer": {
+      "en": "Sienar Fleet Systems",
+      "tr": "Sienar Fleet Systems"
+    },
+    "starshipClass": {
+      "en": "Interceptor Starfighter",
+      "tr": "Önleyici Yıldız Savaşçısı"
+    },
+    "lengthMeters": 9.6,
+    "hyperdriveRating": "None (Carrier Dependent)",
+    "crew": "1 Pilot",
+    "passengers": "0",
+    "affiliationsByEra": {
+      "empire": "empire"
+    },
+    "desc": {
+      "en": "The fast dagger-winged starfighter developed by Sienar Fleet Systems to counter the Rebel Alliance's superior X-wings.",
+      "tr": "Asi İttifakı'nın üstün X-wing'lerine karşı Sienar Fleet Systems tarafından geliştirilen hızlı, kama kanatlı önleyici savaşçı."
+    },
+    "appearances": ["ep6", "mandalorian"]
+  }
+]
