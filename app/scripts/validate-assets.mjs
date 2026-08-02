@@ -64,11 +64,19 @@ function inspectInventory(dir, expectedNames, extensions) {
   }
 }
 
-inspectInventory(
-  RAW_PLANETS,
-  [...bodyIds.map((id) => `${id}-albedo.png`), ...nightIds.map((id) => `${id}-night.png`)],
-  ['.png'],
-)
+// The 4K masters are 1.6 GB, so they live outside the repository; only the
+// derived tiers under public/textures ship. When a checkout has them —
+// anyone re-running the texture pipeline — they are validated in full, and
+// when it does not, the skip is reported rather than passed over in silence.
+const hasMasters = existsSync(RAW_PLANETS)
+
+if (hasMasters) {
+  inspectInventory(
+    RAW_PLANETS,
+    [...bodyIds.map((id) => `${id}-albedo.png`), ...nightIds.map((id) => `${id}-night.png`)],
+    ['.png'],
+  )
+}
 inspectInventory(CARDS, bodyIds.map((id) => `${id}.webp`), ['.webp'])
 inspectInventory(PORTRAITS, characterIds.map((id) => `${id}.webp`), ['.webp'])
 inspectInventory(join(ROOT, 'raw', 'brand'), ['app-icon.png', 'og-default.png'], ['.png'])
@@ -119,8 +127,10 @@ async function inspectMap(id, kind) {
   }
 }
 
-for (const id of bodyIds) await inspectMap(id, 'albedo')
-for (const id of nightIds) await inspectMap(id, 'night')
+if (hasMasters) {
+  for (const id of bodyIds) await inspectMap(id, 'albedo')
+  for (const id of nightIds) await inspectMap(id, 'night')
+}
 
 for (const id of bodyIds) {
   await inspectImage(join(CARDS, `${id}.webp`), {
@@ -195,6 +205,11 @@ if (!existsSync(MANIFEST)) {
 
 console.log(
   `assets: ${bodyIds.length} albedo, ${nightIds.length} night, 300 texture tiers, ${bodyIds.length} cards, ${characterIds.length} portraits, 3 brand`,
+)
+console.log(
+  hasMasters
+    ? `masters: ${bodyIds.length + nightIds.length} checked for size and seam`
+    : `masters: not in this checkout, ${bodyIds.length + nightIds.length} size/seam checks skipped (see docs/kalan-isler.md)`,
 )
 console.log(`ERRORS: ${errors.length}`)
 for (const error of errors) console.log(`  ✗ ${error}`)

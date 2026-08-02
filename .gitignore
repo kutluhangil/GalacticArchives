@@ -6,3 +6,6 @@ Aurebesh_Rodian_beta.otf
 # editor / plugin scratch
 .DS_Store
 .impeccable
+
+# 4K texture masters (1.6 GB) live outside the repo; only derived tiers ship
+app/raw/planets/
