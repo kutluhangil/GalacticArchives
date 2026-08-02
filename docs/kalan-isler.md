@@ -79,13 +79,15 @@ portresi (oyuncu benzerliği hem hak hem tutarlılık sorunu — hologram büst 
 
 Sıra bu; her madde ayrı commit + push.
 
-| # | İş | Neden |
+Bu listenin beş kalemi 2026-08-02'de kapandı:
+
+| # | İş | Sonuç |
 |---|---|---|
-| 1 | Ekran görüntülerini yeniden çek | `docs/screenshots/*` 23 Temmuz'dan: hiperuzay hatları yok, köşede `0 fps`, kartlar boş. README bunları gösteriyor. |
-| 2 | KTX2 doku hattı + `public/basis/` transcoder | Dokular WebP olarak yayınlanıyor; `toktx` üretim sırasında yoktu. Ayrıca `planet-textures.ts` transcoder'ı `/basis/` altında arıyor, o klasör hiç yok — bugün KTX2'ye geçilse 404 alır. VRAM'deki en büyük kazanç burada. |
-| 3 | Sahne kurulumunu karelere böl | `PlanetEngine.init()` main thread'i tek seferde ~2 sn bloke ediyor (ölçüldü). Panel artık öncesinde boyanıyor ama blok duruyor; HUD o sırada tıklamaya cevap vermiyor. |
-| 4 | Tur sayısını artır | 3 tur var (`skywalker`, `clone-wars`, `mando`). |
-| 5 | `docs/roadmap.md` kutularını gerçekle hizala | Playwright smoke testi ve POI kapsamı fiilen bitti, kutular boş duruyor. |
+| 1 | Ekran görüntüleri | Altı kare yeniden çekildi; hiperuzay ağı, üretilen kartlar ve KTX2 dokular görünüyor. Gerçek GPU'da alındı, fps göstergesi dürüst (58-88). |
+| 2 | KTX2 + `public/basis/` | 300 katmanın tamamı ETC1S KTX2. Hat harici `toktx` yerine `ktx2-encoder`'ı Node içinde çalıştırıyor; transcoder `public/basis/` altına kondu (o klasör hiç yoktu, yol kırıktı). 4K albedo GPU'da ~43 MB yerine ~11 MB. |
+| 3 | Sahne kurulumundaki blok | Profil kararı değiştirdi: blok JS'te değil (~300 ms), sürücüde (~8 sn). Sahneyi karelere bölmek yerine `renderer.compileAsync` eklendi. Blok tamamen bitmedi — kalanı program sayısını azaltmak, ayrı iş. |
+| 4 | Turlar | 3 → 6: `rogue-one`, `rebellion`, `dark-side`. |
+| 5 | `docs/roadmap.md` | Kutular gerçekle hizalandı. |
 
 ---
 

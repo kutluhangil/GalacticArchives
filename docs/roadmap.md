@@ -66,13 +66,17 @@ Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'d
 - Prod FPS yeniden ölçülmeli (hafızada 160–175 notu var).
 
 **Yapılacak**
-- [ ] **P1** KTX2 + `public/basis/` transcoder. Dokular geldi ama **WebP olarak** yayınlanıyor:
-  `process-textures.mjs` yalnız PATH'te `toktx` varsa KTX2 yazıyor, üretim sırasında yoktu.
-  Ayrıca `planet-textures.ts` transcoder'ı `/basis/` altında arıyor, o klasör depoda hiç yok —
-  bugün KTX2'ye geçilse doku isteği 404 alır. VRAM'deki en büyük gerçek kazanç burada.
-- [ ] **P1** `PlanetEngine.init()` sahne kurulumunu karelere böl. Ölçüm: kurulum main thread'i
-  tek seferde ~2.0 sn bloke ediyor (galaksi rotasında 1.8 sn); o sırada HUD tıklamaya cevap
-  vermiyor. Panel artık kurulumdan **önce** boyanıyor (h1 719 ms → 394 ms) ama blok duruyor.
+- [x] **P1** KTX2 + `public/basis/` transcoder. 300 katmanın tamamı ETC1S KTX2; hat artık
+  harici `toktx` yerine `ktx2-encoder`'ı Node içinde çalıştırıyor, yani her makinede aynı çıktı.
+  Basis transcoder `public/basis/` altına kondu — o klasör hiç yoktu, KTX2 yolu kırıktı.
+  Ölçüm: 4K albedo GPU'da ~43 MB RGBA yerine ~11 MB. ETC1S seçildi çünkü UASTC aynı karede
+  görünmeyen detay için 9,7 MB istiyordu (ETC1S 1,4 MB).
+- [~] **P1** Sahne kurulumunun main-thread bloğu. **Profil karar değiştirdi:** blok JS'te değil
+  (JS ~300 ms), sürücü tarafında (~8 sn "(program)"), o yüzden sahneyi karelere bölmek doğru
+  kaldıraç değil. Bunun yerine `renderer.compileAsync` eklendi: `KHR_parallel_shader_compile`
+  olan tarayıcıda derleme bloklamadan yapılıyor. Headless SwiftShader'da eklenti yok, bu yüzden
+  CI ölçümünde kazanç görünmüyor. Bloom'un payı ölçüldü: blok 1,81 sn → 1,27 sn (bloom kapalı).
+  Kalan iş, program sayısını azaltmak — motor tasarımına dokunur, ayrı ele alınacak.
 - [x] **P2** Perf: **KTX2Loader lazy + three chunk'tan ayrıldı** (dynamic import + manualChunks
   istisnası) → three 634→622 kB, KTX2 kendi 14.5 kB async chunk'ında (dokular gelene dek hiç
   yüklenmez). **Landing'de galaxy route idle-prefetch** → atlas'a giriş anlık. three narrowing
@@ -105,9 +109,11 @@ Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'d
 - [x] **P2** İlk ziyaret onboarding: `OnboardingHint` — era slider + Legends toggle'ı işaret eden, bir kez gösterilen (localStorage `ga-onboarded`), dismiss-edilebilir çift dilli kart.
 - [x] **P2** POI kapsamı: 168 nokta, yalnız iki gövde POI'siz (`endor`, `yavin` — ikisi de gaz
   devi). Her nokta kendi Wookieepedia maddesinden yazıldı.
-- [ ] **P2** Tur sayısını artır (içerik işi) — şu an 3: `skywalker`, `clone-wars`, `mando`.
-- [ ] **P2** `docs/screenshots/` yeniden çekilecek: mevcut kareler 23 Temmuz'dan, hiperuzay
-  hatları ve üretilen kartlar görünmüyor, köşede `0 fps` yazıyor.
+- [x] **P2** Tur sayısı 3 → 6: `rogue-one` (Rogue One rotası), `rebellion` (Andor'un dört durağı
+  ve Coruscant) ve `dark-side` (Sith'in iz bıraktığı dünyalar) eklendi, hepsi çift dilli.
+- [x] **P2** `docs/screenshots/` yeniden çekildi: altı kare de hiperuzay ağını, üretilen
+  kartları ve KTX2 dokuları gösteriyor; gerçek GPU'da (Apple M4, ANGLE Metal) alındığı için
+  fps göstergesi de dürüst (58-88 fps).
 
 ## 5. Özellik — PLAN boşlukları
 

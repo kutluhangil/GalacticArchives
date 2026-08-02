@@ -8,671 +8,671 @@
   },
   "ahch-to": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "alderaan": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "aldhani": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "arvala-7": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "at-attin": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "atollon": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "batuu": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "bespin": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "cantonica": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "cato-neimoidia": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "chandrila": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "christophsis": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "concordia": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "corellia": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "coruscant": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "crait": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "csilla": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "dagobah": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "daiyu": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "dathomir": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "death-star": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "death-star-2": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "dqar": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "dromund-kaas": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "eadu": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "endor": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "endor-moon": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "eriadu": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "exegol": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "felucia": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "ferrix": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "geonosis": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "ghorman": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "glavis-ringworld": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "hosnian-prime": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "hoth": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "ilum": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "jakku": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "jedha": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "kamino": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "kashyyyk": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "kef-bir": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "kessel": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "kijimi": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "korriban": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "krownest": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "lahmu": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "lehon": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "lothal": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "malachor": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "manaan": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "mandalore": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "mimban": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "moraband": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "morak": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "mustafar": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "mygeeto": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "naboo": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "nal-hutta": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "nar-shaddaa": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "narkina-5": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "nevarro": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "numidian-prime": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "onderon": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "ossus": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "pasaana": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "peridea": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "plazir-15": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "polis-massa": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "ryloth": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "saleucami": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "savareen": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "scarif": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "seatos": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "serenno": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "shakari": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "sorgan": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "takodana": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "taris": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     },
     "night": {
-      "4k": "night-4k.webp",
-      "2k": "night-2k.webp",
-      "1k": "night-1k.webp"
+      "4k": "night-4k.ktx2",
+      "2k": "night-2k.ktx2",
+      "1k": "night-1k.ktx2"
     }
   },
   "trask": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "tython": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "umbara": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "utapau": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "vandor": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "wobani": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "yavin": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   },
   "yavin-4": {
     "albedo": {
-      "4k": "albedo-4k.webp",
-      "2k": "albedo-2k.webp",
-      "1k": "albedo-1k.webp"
+      "4k": "albedo-4k.ktx2",
+      "2k": "albedo-2k.ktx2",
+      "1k": "albedo-1k.ktx2"
     }
   }
 }
