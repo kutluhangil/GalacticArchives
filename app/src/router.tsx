@@ -41,6 +41,9 @@ const Holocron = lazyWithReload(() => import('./pages/Holocron'))
 const HolocronPlanet = lazyWithReload(() => import('./pages/HolocronPlanet'))
 const HolocronCharacter = lazyWithReload(() => import('./pages/HolocronCharacter'))
 const Timeline = lazyWithReload(() => import('./pages/Timeline'))
+const ForceLore = lazyWithReload(() => import('./pages/ForceLore'))
+const WatchGuide = lazyWithReload(() => import('./pages/WatchGuide'))
+const Hangar = lazyWithReload(() => import('./pages/Hangar'))
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +55,9 @@ export const router = createBrowserRouter([
       { path: '/system/:id', element: <SystemView /> },
       { path: '/compare', element: <Compare /> },
       { path: '/timeline', element: <Timeline /> },
+      { path: '/force', element: <ForceLore /> },
+      { path: '/watch-guide', element: <WatchGuide /> },
+      { path: '/hangar', element: <Hangar /> },
       { path: '/holocron', element: <Holocron /> },
       { path: '/holocron/planet/:id', element: <HolocronPlanet /> },
       { path: '/holocron/character/:id', element: <HolocronCharacter /> },

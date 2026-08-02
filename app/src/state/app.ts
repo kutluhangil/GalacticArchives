@@ -28,6 +28,8 @@ interface AppState {
   legends: boolean
   /** draw the canon hyperlane network across the galaxy disk */
   lanes: boolean
+  /** show faction territory overlay on galaxy map */
+  territory: boolean
   veil: VeilPhase
   tour: TourState | null
   clockSpeed: number
@@ -37,6 +39,7 @@ interface AppState {
   setQuality: (q: Quality) => void
   setLegends: (v: boolean) => void
   setLanes: (v: boolean) => void
+  setTerritory: (v: boolean) => void
   setVeil: (v: VeilPhase) => void
   startTour: (source: TourSource) => void
   setTourStep: (step: number) => void
@@ -52,6 +55,7 @@ const storedQuality = (localStorage.getItem('ga-quality') as Quality | null) ?? 
 const storedLegends = localStorage.getItem('ga-legends') === '1'
 // lanes are part of what the map is, so they are on until switched off
 const storedLanes = localStorage.getItem('ga-lanes') !== '0'
+const storedTerritory = localStorage.getItem('ga-territory') === '1'
 // never boot into the Legends-only era with the layer off
 const bootEra: EraId = storedEra === 'old-republic' && !storedLegends ? 'empire' : storedEra
 
@@ -61,6 +65,7 @@ export const useApp = create<AppState>((set, get) => ({
   quality: storedQuality,
   legends: storedLegends,
   lanes: storedLanes,
+  territory: storedTerritory,
   veil: 'open',
   tour: null,
   clockSpeed: 1,
@@ -91,6 +96,10 @@ export const useApp = create<AppState>((set, get) => ({
   setLanes: (lanes) => {
     localStorage.setItem('ga-lanes', lanes ? '1' : '0')
     set({ lanes })
+  },
+  setTerritory: (territory) => {
+    localStorage.setItem('ga-territory', territory ? '1' : '0')
+    set({ territory })
   },
   setVeil: (veil) => set({ veil }),
   startTour: (source) => set({ tour: { source, step: 0, playing: true } }),

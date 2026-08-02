@@ -1,0 +1,306 @@
+[
+  {
+    "id": "phantom-menace",
+    "titles": { "en": "Episode I: The Phantom Menace", "tr": "Bölüm I: Görünmez Tehlike" },
+    "type": "film",
+    "releaseYear": 1999,
+    "chronologicalYear": "32 BBY",
+    "chronologicalOrder": 1,
+    "releaseOrder": 4,
+    "synopsis": {
+      "en": "Jedi Knights Qui-Gon Jinn and Obi-Wan Kenobi discover young Anakin Skywalker on Tatooine, a boy with an extraordinarily high midi-chlorian count. Meanwhile the Trade Federation blockades Naboo under the secret command of Darth Sidious.",
+      "tr": "Jedi Şövalyeleri Qui-Gon Jinn ve Obi-Wan Kenobi, Tatooine'de olağanüstü yüksek midi-kloryen sayısına sahip genç Anakin Skywalker'ı keşfeder. Bu arada Ticaret Federasyonu, Darth Sidious'un gizli emriyle Naboo'yu abluka altına alır."
+    },
+    "planets": ["naboo", "tatooine", "coruscant"],
+    "characters": ["qui-gon-jinn", "obi-wan-kenobi", "anakin-skywalker", "palpatine", "darth-maul", "padme-amidala"],
+    "era": "clone-wars"
+  },
+  {
+    "id": "attack-of-clones",
+    "titles": { "en": "Episode II: Attack of the Clones", "tr": "Bölüm II: Klonların Saldırısı" },
+    "type": "film",
+    "releaseYear": 2002,
+    "chronologicalYear": "22 BBY",
+    "chronologicalOrder": 2,
+    "releaseOrder": 5,
+    "synopsis": {
+      "en": "Ten years after the blockade of Naboo, the Galactic Republic faces a separatist movement. Anakin and Padmé fall in love while Obi-Wan uncovers a massive secret clone army on Kamino, and Count Dooku ignites the first battle of the Clone Wars on Geonosis.",
+      "tr": "Naboo ablukasından on yıl sonra Galaktik Cumhuriyet ayrılıkçı bir hareketle karşı karşıya kalır. Anakin ve Padmé aşık olurken Obi-Wan, Kamino'da büyük bir gizli klon ordusu keşfeder ve Kont Dooku, Geonosis'te Klon Savaşlarının ilk savaşını başlatır."
+    },
+    "planets": ["coruscant", "naboo", "tatooine", "kamino", "geonosis"],
+    "characters": ["anakin-skywalker", "obi-wan-kenobi", "padme-amidala", "palpatine", "count-dooku", "jango-fett", "yoda"],
+    "era": "clone-wars"
+  },
+  {
+    "id": "clone-wars-series",
+    "titles": { "en": "The Clone Wars (Series)", "tr": "Klon Savaşları (Dizi)" },
+    "type": "animation",
+    "releaseYear": 2008,
+    "chronologicalYear": "22–19 BBY",
+    "chronologicalOrder": 3,
+    "releaseOrder": 6,
+    "synopsis": {
+      "en": "Seven seasons of canon animated series following Anakin, Obi-Wan, Ahsoka Tano and clone troopers through the Clone Wars. Introduces Maul's return, Mandalore's fall, the Bad Batch, and Order 66 from the clones' perspective.",
+      "tr": "Anakin, Obi-Wan, Ahsoka Tano ve klon askerleri Klon Savaşları boyunca takip eden yedi sezonluk kanon animasyon dizisi. Maul'un dönüşünü, Mandalore'un düşüşünü, Kötü Grubu ve klon bakış açısından 66. Emir'i tanıtır."
+    },
+    "planets": ["coruscant", "mandalore", "onderon", "ryloth"],
+    "characters": ["anakin-skywalker", "obi-wan-kenobi", "ahsoka-tano", "padme-amidala", "darth-maul", "yoda"],
+    "era": "clone-wars"
+  },
+  {
+    "id": "revenge-of-sith",
+    "titles": { "en": "Episode III: Revenge of the Sith", "tr": "Bölüm III: Sith'in İntikamı" },
+    "type": "film",
+    "releaseYear": 2005,
+    "chronologicalYear": "19 BBY",
+    "chronologicalOrder": 4,
+    "releaseOrder": 7,
+    "synopsis": {
+      "en": "Anakin Skywalker is seduced to the Dark Side by Palpatine's promise to save Padmé from death, becoming Darth Vader. The Republic falls, the Jedi Order is exterminated by Order 66, and the Galactic Empire rises from the ashes.",
+      "tr": "Anakin Skywalker, Palpatine'in Padmé'yi ölümden kurtarma vaadine kapılarak Darth Vader olur ve Karanlık Tarafa geçer. Cumhuriyet çöker, Jedi Düzeni 66. Emir ile yok edilir ve Galaktik İmparatorluk küllerden yükselir."
+    },
+    "planets": ["coruscant", "mustafar", "utapau", "kashyyyk"],
+    "characters": ["anakin-skywalker", "obi-wan-kenobi", "palpatine", "padme-amidala", "yoda", "mace-windu"],
+    "era": "clone-wars"
+  },
+  {
+    "id": "bad-batch",
+    "titles": { "en": "The Bad Batch (Series)", "tr": "Kötü Grup (Dizi)" },
+    "type": "animation",
+    "releaseYear": 2021,
+    "chronologicalYear": "19–18 BBY",
+    "chronologicalOrder": 5,
+    "releaseOrder": 12,
+    "synopsis": {
+      "en": "Clone Force 99 — an elite squad of genetically mutated clone troopers — navigates the new Imperial era, taking mercenary work while harboring the young clone Omega. Three seasons of canon animation.",
+      "tr": "Genetik olarak mutasyona uğramış elit klon askerlerinden oluşan Klon Gücü 99, genç klon Omega'yı barındırırken paralı askerlik yaparak yeni İmparatorluk döneminde varlığını sürdürür. Üç sezonluk kanon animasyonu."
+    },
+    "planets": ["kamino", "coruscant", "ord-mantell"],
+    "characters": ["hunter", "wrecker", "tech", "crosshair", "omega"],
+    "era": "empire"
+  },
+  {
+    "id": "obi-wan-kenobi",
+    "titles": { "en": "Obi-Wan Kenobi (Series)", "tr": "Obi-Wan Kenobi (Dizi)" },
+    "type": "live-action",
+    "releaseYear": 2022,
+    "chronologicalYear": "9 BBY",
+    "chronologicalOrder": 6,
+    "releaseOrder": 16,
+    "synopsis": {
+      "en": "Set 10 years after Revenge of the Sith, the series reunites Ewan McGregor and Hayden Christensen as Obi-Wan and Darth Vader. Young Princess Leia is kidnapped by an Inquisitor, forcing Kenobi out of hiding on Tatooine.",
+      "tr": "Sith'in İntikamından 10 yıl sonra geçen dizi, Ewan McGregor ve Hayden Christensen'i Obi-Wan ve Darth Vader olarak yeniden bir araya getirir. Genç Prenses Leia bir Engizisyoncu tarafından kaçırılır ve Kenobi'yi Tatooine'deki saklanma yerinden çıkmaya zorlar."
+    },
+    "planets": ["tatooine", "alderaan", "mapuzo"],
+    "characters": ["obi-wan-kenobi", "darth-vader", "leia-organa"],
+    "era": "empire"
+  },
+  {
+    "id": "andor",
+    "titles": { "en": "Andor (Series)", "tr": "Andor (Dizi)" },
+    "type": "live-action",
+    "releaseYear": 2022,
+    "chronologicalYear": "5–0 BBY",
+    "chronologicalOrder": 7,
+    "releaseOrder": 17,
+    "synopsis": {
+      "en": "A gritty, political spy thriller tracing Cassian Andor's radicalization from petty criminal to Rebel operative. Set 5 years before Rogue One, exploring Mon Mothma's political maneuvering and the Empire's authoritarianism in unflinching detail.",
+      "tr": "Cassian Andor'un küçük suçludan Asi operatifine dönüşümünü izleyen karanlık, siyasi bir casus gerilimi. Rogue One'dan 5 yıl önce geçer; Mon Mothma'nın siyasi manevraları ve İmparatorluğun otoritarizmi ayrıntılı biçimde aktarılır."
+    },
+    "planets": ["ferrix", "coruscant", "aldhani", "narkina-5"],
+    "characters": ["cassian-andor", "mon-mothma", "luthen-rael"],
+    "era": "empire"
+  },
+  {
+    "id": "rebels",
+    "titles": { "en": "Star Wars Rebels (Series)", "tr": "Star Wars: Asiler (Dizi)" },
+    "type": "animation",
+    "releaseYear": 2014,
+    "chronologicalYear": "5–0 BBY",
+    "chronologicalOrder": 8,
+    "releaseOrder": 9,
+    "synopsis": {
+      "en": "The crew of the Ghost — Kanan Jarrus, Ezra Bridger, Hera Syndulla, Sabine Wren, Zeb and Chopper — fight against the Galactic Empire on Lothal and across the Outer Rim. Introduces Grand Admiral Thrawn to canon.",
+      "tr": "Ghost mürettebatı — Kanan Jarrus, Ezra Bridger, Hera Syndulla, Sabine Wren, Zeb ve Chopper — Lothal'da ve Dış Bölge genelinde Galaktik İmparatorluğa karşı savaşır. Büyük Amiral Thrawn'u kanona tanıtır."
+    },
+    "planets": ["lothal", "malachor", "mandalore"],
+    "characters": ["kanan-jarrus", "ezra-bridger", "hera-syndulla", "darth-vader", "ahsoka-tano"],
+    "era": "empire"
+  },
+  {
+    "id": "rogue-one",
+    "titles": { "en": "Rogue One: A Star Wars Story", "tr": "Rogue One: Bir Star Wars Hikayesi" },
+    "type": "film",
+    "releaseYear": 2016,
+    "chronologicalYear": "0 BBY",
+    "chronologicalOrder": 9,
+    "releaseOrder": 10,
+    "synopsis": {
+      "en": "Jyn Erso and Cassian Andor lead a ragtag group of Rebels to steal the Death Star plans from the Imperial archives on Scarif. The film ends directly where Episode IV begins — with Vader boarding the Tantive IV.",
+      "tr": "Jyn Erso ve Cassian Andor, Scarif'teki İmparatorluk arşivlerinden Ölüm Yıldızı planlarını çalmak için düzensiz bir Asi grubuna önderlik eder. Film, Vader'ın Tantive IV'e binmesiyle Bölüm IV'ün başladığı yerde sona erer."
+    },
+    "planets": ["scarif", "jedha", "eadu", "yavin-4"],
+    "characters": ["jyn-erso", "cassian-andor", "darth-vader", "galen-erso", "chirrut-imwe"],
+    "era": "empire"
+  },
+  {
+    "id": "a-new-hope",
+    "titles": { "en": "Episode IV: A New Hope", "tr": "Bölüm IV: Yeni Bir Umut" },
+    "type": "film",
+    "releaseYear": 1977,
+    "chronologicalYear": "0 BBY",
+    "chronologicalOrder": 10,
+    "releaseOrder": 1,
+    "synopsis": {
+      "en": "Farm boy Luke Skywalker joins Obi-Wan Kenobi, Han Solo and Chewbacca to rescue Princess Leia and destroy the Empire's planet-destroying superweapon, the Death Star, in the Battle of Yavin — the first major Rebel victory.",
+      "tr": "Çiftçi Luke Skywalker, Prenses Leia'yı kurtarmak ve İmparatorluğun gezegen yok eden süper silahı Ölüm Yıldızı'nı Yavin Savaşı'nda — ilk büyük Asi zaferi — imha etmek için Obi-Wan Kenobi, Han Solo ve Chewbacca ile birleşir."
+    },
+    "planets": ["tatooine", "alderaan", "yavin-4"],
+    "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "obi-wan-kenobi"],
+    "era": "empire"
+  },
+  {
+    "id": "empire-strikes-back",
+    "titles": { "en": "Episode V: The Empire Strikes Back", "tr": "Bölüm V: İmparatorluk Geri Saldırıyor" },
+    "type": "film",
+    "releaseYear": 1980,
+    "chronologicalYear": "3 ABY",
+    "chronologicalOrder": 11,
+    "releaseOrder": 2,
+    "synopsis": {
+      "en": "The Empire drives the Rebels from Hoth. Luke trains with Yoda on Dagobah while Han, Leia and Chewbacca flee to Cloud City, where they are betrayed by Lando. The shocking reveal: Darth Vader is Luke's father.",
+      "tr": "İmparatorluk, Asiler'i Hoth'tan sürer. Luke Dagobah'ta Yoda ile eğitim alırken Han, Leia ve Chewbacca Bulut Şehri'ne kaçar; burada Lando tarafından ihanete uğrarlar. Şok eden açıklama: Darth Vader, Luke'un babasıdır."
+    },
+    "planets": ["hoth", "dagobah", "bespin"],
+    "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "yoda", "lando-calrissian"],
+    "era": "empire"
+  },
+  {
+    "id": "return-of-jedi",
+    "titles": { "en": "Episode VI: Return of the Jedi", "tr": "Bölüm VI: Jedi'nin Dönüşü" },
+    "type": "film",
+    "releaseYear": 1983,
+    "chronologicalYear": "4 ABY",
+    "chronologicalOrder": 12,
+    "releaseOrder": 3,
+    "synopsis": {
+      "en": "Luke rescues Han from Jabba the Hutt before leading the assault on the second Death Star above Endor. Darth Vader redeems himself by throwing Palpatine into the reactor shaft, fulfilling the Chosen One prophecy and ending the Empire.",
+      "tr": "Luke, Jabba the Hutt'tan Han'ı kurtardıktan sonra Endor üzerindeki ikinci Ölüm Yıldızı'na saldırıya önderlik eder. Darth Vader, Palpatine'i reaktör boşluğuna fırlatarak kendini kurtarır, Seçilmiş Kişi kehanetini yerine getirir ve İmparatorluğa son verir."
+    },
+    "planets": ["tatooine", "endor", "coruscant"],
+    "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "palpatine", "lando-calrissian"],
+    "era": "empire"
+  },
+  {
+    "id": "mandalorian",
+    "titles": { "en": "The Mandalorian (Series)", "tr": "Mandaloryalı (Dizi)" },
+    "type": "live-action",
+    "releaseYear": 2019,
+    "chronologicalYear": "9 ABY",
+    "chronologicalOrder": 13,
+    "releaseOrder": 11,
+    "synopsis": {
+      "en": "A lone Mandalorian bounty hunter, Din Djarin, is hired to retrieve a mysterious target — Grogu (Baby Yoda), a Force-sensitive child of the same species as Yoda. Din must protect him while navigating a galaxy still fractured after the Empire's fall.",
+      "tr": "Yalnız Mandaloryalı ödül avcısı Din Djarin, gizemli bir hedefi — Yoda ile aynı türden Güce duyarlı bir çocuk olan Grogu'yu (Bebek Yoda) — geri almak için işe alınır. Din, İmparatorluğun çöküşünden sonra hâlâ parçalanmış bir galakside onu korumak zorundadır."
+    },
+    "planets": ["nevarro", "tatooine", "tython", "mandalore"],
+    "characters": ["din-djarin", "grogu", "cara-dune", "moff-gideon", "bo-katan-kryze", "luke-skywalker"],
+    "era": "new-republic"
+  },
+  {
+    "id": "book-of-boba-fett",
+    "titles": { "en": "The Book of Boba Fett (Series)", "tr": "Boba Fett'in Kitabı (Dizi)" },
+    "type": "live-action",
+    "releaseYear": 2021,
+    "chronologicalYear": "9 ABY",
+    "chronologicalOrder": 14,
+    "releaseOrder": 14,
+    "synopsis": {
+      "en": "Boba Fett and Fennec Shand return to Tatooine to claim Jabba the Hutt's criminal empire and rule Mos Espa. Flashbacks reveal Boba's survival in the Sarlacc pit and his time with the Tusken Raiders.",
+      "tr": "Boba Fett ve Fennec Shand, Jabba the Hutt'ın suç imparatorluğunu ele geçirmek ve Mos Espa'yı yönetmek için Tatooine'e döner. Geri dönüşler Boba'nın Sarlacc çukurundan kurtuluşunu ve Tusken Saldırganlarıyla geçirdiği zamanı ortaya koyar."
+    },
+    "planets": ["tatooine"],
+    "characters": ["boba-fett", "fennec-shand", "din-djarin", "grogu"],
+    "era": "new-republic"
+  },
+  {
+    "id": "ahsoka",
+    "titles": { "en": "Ahsoka (Series)", "tr": "Ahsoka (Dizi)" },
+    "type": "live-action",
+    "releaseYear": 2023,
+    "chronologicalYear": "9 ABY",
+    "chronologicalOrder": 15,
+    "releaseOrder": 18,
+    "synopsis": {
+      "en": "Ahsoka Tano investigates the search for Grand Admiral Thrawn alongside Sabine Wren, leading them to a distant galaxy where Ezra Bridger has been stranded. A live-action sequel to Star Wars Rebels.",
+      "tr": "Ahsoka Tano, Sabine Wren ile birlikte Büyük Amiral Thrawn'u aramayı araştırır; bu onları Ezra Bridger'ın mahsur kaldığı uzak bir galaksiye götürür. Star Wars: Asiler'in canlı aksiyon devamıdır."
+    },
+    "planets": ["lothal", "seatos"],
+    "characters": ["ahsoka-tano", "sabine-wren", "grand-admiral-thrawn", "ezra-bridger", "hera-syndulla"],
+    "era": "new-republic"
+  },
+  {
+    "id": "skeleton-crew",
+    "titles": { "en": "Skeleton Crew (Series)", "tr": "İskelet Mürettebat (Dizi)" },
+    "type": "live-action",
+    "releaseYear": 2024,
+    "chronologicalYear": "9 ABY",
+    "chronologicalOrder": 16,
+    "releaseOrder": 20,
+    "synopsis": {
+      "en": "A group of children from a secret, peaceful planet get lost in the wider galaxy and must find their way home with the help of Jod Na Nawood, a mysterious former Jedi. Described as a Star Wars coming-of-age adventure.",
+      "tr": "Gizli, barışçıl bir gezegenden bir grup çocuk daha geniş galakside kaybolur ve gizemli eski bir Jedi olan Jod Na Nawood'un yardımıyla eve giden yolu bulmak zorunda kalır. Star Wars büyüme macerası olarak tanımlanır."
+    },
+    "planets": ["at-attin"],
+    "characters": ["jod-na-nawood"],
+    "era": "new-republic"
+  },
+  {
+    "id": "force-awakens",
+    "titles": { "en": "Episode VII: The Force Awakens", "tr": "Bölüm VII: Güç Uyanıyor" },
+    "type": "film",
+    "releaseYear": 2015,
+    "chronologicalYear": "34 ABY",
+    "chronologicalOrder": 17,
+    "releaseOrder": 8,
+    "synopsis": {
+      "en": "Thirty years after Endor, Rey — a desert scavenger on Jakku — discovers BB-8, a droid carrying a map to Luke Skywalker. She joins Finn, a defected stormtrooper, and Han Solo to oppose the fascist First Order and Kylo Ren, Han's son who murdered his own father.",
+      "tr": "Endor'dan otuz yıl sonra Jakku'da hurda toplayıcısı Rey, Luke Skywalker'ın haritasını taşıyan BB-8 isimli bir droid keşfeder. Kaçak fırtına askeri Finn ve Han Solo ile faşist Birinci Düzen'e ve Han'ın öz babasını öldüren oğlu Kylo Ren'e karşı koymak için birleşir."
+    },
+    "planets": ["jakku", "takodana", "starkiller-base", "ahch-to"],
+    "characters": ["rey", "finn", "kylo-ren", "han-solo", "leia-organa", "poe-dameron"],
+    "era": "new-republic"
+  },
+  {
+    "id": "last-jedi",
+    "titles": { "en": "Episode VIII: The Last Jedi", "tr": "Bölüm VIII: Son Jedi" },
+    "type": "film",
+    "releaseYear": 2017,
+    "chronologicalYear": "34 ABY",
+    "chronologicalOrder": 18,
+    "releaseOrder": 9,
+    "synopsis": {
+      "en": "Rey trains with a reluctant Luke Skywalker on Ahch-To while the Resistance flees the First Order fleet. The Force bond between Rey and Kylo Ren deepens. Luke makes the ultimate sacrifice projecting himself across the galaxy to save the last Resistance fighters.",
+      "tr": "Rey, isteksiz Luke Skywalker ile Ahch-To'da eğitim alırken Direniş, Birinci Düzen filosundan kaçar. Rey ile Kylo Ren arasındaki Güç bağı derinleşir. Luke, son Direniş savaşçılarını kurtarmak için kendini galaksi genelinde yansıtarak nihai fedakarlığı yapar."
+    },
+    "planets": ["ahch-to", "crait", "canto-bight"],
+    "characters": ["rey", "kylo-ren", "luke-skywalker", "leia-organa", "finn", "poe-dameron"],
+    "era": "new-republic"
+  },
+  {
+    "id": "rise-of-skywalker",
+    "titles": { "en": "Episode IX: The Rise of Skywalker", "tr": "Bölüm IX: Skywalker'ın Yükselişi" },
+    "type": "film",
+    "releaseYear": 2019,
+    "chronologicalYear": "35 ABY",
+    "chronologicalOrder": 19,
+    "releaseOrder": 10,
+    "synopsis": {
+      "en": "Emperor Palpatine returns from death, revealing he has been orchestrating everything from the Sith fortress world of Exegol. Rey discovers she is Palpatine's granddaughter and must choose her destiny as the Final Order's fleet threatens all free worlds.",
+      "tr": "İmparator Palpatine ölümden döner; her şeyi Sith kalesi gezegen Exegol'dan yönettiğini ortaya koyar. Rey, Palpatine'in torunu olduğunu keşfeder ve Son Düzen'in filosu tüm özgür dünyaları tehdit ederken kaderini seçmek zorunda kalır."
+    },
+    "planets": ["exegol", "pasaana", "kijimi", "endor"],
+    "characters": ["rey", "kylo-ren", "palpatine", "finn", "poe-dameron", "leia-organa", "ben-solo"],
+    "era": "new-republic"
+  }
+]

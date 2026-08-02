@@ -14,6 +14,7 @@ import AurebeshTranslator from '../AurebeshTranslator'
 import HyperspaceSimulator from '../HyperspaceSimulator'
 import LightsaberChamber from '../LightsaberChamber'
 import TransmissionPlayer from '../TransmissionPlayer'
+import GalacticIdGenerator from '../GalacticIdGenerator'
 /** shared popover shell for the top-bar menus */
 function Menu({
   label,
@@ -208,7 +209,7 @@ function PlanetsDropdown() {
 }
 
 export default function TopBar() {
-  const { lang, setLang, era, setEra, legends } = useApp()
+  const { lang, setLang, era, setEra, legends, territory, setTerritory } = useApp()
   const jump = useFlyTo()
   const navigate = useNavigate()
   const [muted, setMuted] = useState(sfx.isMuted())
@@ -216,6 +217,7 @@ export default function TopBar() {
   const [hyperspaceOpen, setHyperspaceOpen] = useState(false)
   const [lightsabersOpen, setLightsabersOpen] = useState(false)
   const [transmissionsOpen, setTransmissionsOpen] = useState(false)
+  const [idGenOpen, setIdGenOpen] = useState(false)
 
   // the Old Republic era belongs to the Legends layer; hide it otherwise
   const shownEras = eras.filter((e) => e.id !== 'old-republic' || legends)
@@ -232,6 +234,7 @@ export default function TopBar() {
       {hyperspaceOpen && <HyperspaceSimulator onClose={() => setHyperspaceOpen(false)} />}
       {lightsabersOpen && <LightsaberChamber onClose={() => setLightsabersOpen(false)} />}
       {transmissionsOpen && <TransmissionPlayer onClose={() => setTransmissionsOpen(false)} />}
+      {idGenOpen && <GalacticIdGenerator onClose={() => setIdGenOpen(false)} />}
 
       <div className="pointer-events-auto">
         <button
@@ -300,6 +303,56 @@ export default function TopBar() {
             className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
           >
             🔤 Aurebesh
+          </button>
+          <button
+            onClick={() => {
+              sfx.playHover()
+              setTerritory(!territory)
+            }}
+            className={`rounded border px-2 py-0.5 text-[11px] tracking-wide transition-colors ${
+              territory
+                ? 'border-holo-cyan/60 bg-holo-cyan/15 text-holo-cyan'
+                : 'border-white/10 bg-black/30 text-slate-300 hover:border-holo-cyan/40 hover:text-holo-cyan'
+            }`}
+            title={lang === 'tr' ? 'Galaksi Nüfuz Haritası' : 'Territory Overlay'}
+          >
+            🗺️ {lang === 'tr' ? 'Nüfuz' : 'Territory'}
+          </button>
+          <button
+            onClick={() => {
+              sfx.playHover()
+              navigate('/force')
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            ⚡ {lang === 'tr' ? 'Güç Kazınağı' : 'Force Vault'}
+          </button>
+          <button
+            onClick={() => {
+              sfx.playHover()
+              navigate('/watch-guide')
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            🎬 {lang === 'tr' ? 'İzleme Rehberi' : 'Watch Guide'}
+          </button>
+          <button
+            onClick={() => {
+              sfx.playHover()
+              navigate('/hangar')
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            🛸 {lang === 'tr' ? 'Hangar' : 'Hangar'}
+          </button>
+          <button
+            onClick={() => {
+              sfx.playSelect()
+              setIdGenOpen(true)
+            }}
+            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
+          >
+            🪪 {lang === 'tr' ? 'Holo-Kimlik' : 'Holo-ID'}
           </button>
           
           {/* Sci-Fi HUD Search Input Bar */}

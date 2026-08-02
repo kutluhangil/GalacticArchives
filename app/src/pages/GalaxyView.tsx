@@ -13,6 +13,7 @@ import RoutePlanner from '../components/hud/RoutePlanner'
 import LanePanel from '../components/hud/LanePanel'
 import OnboardingHint from '../components/OnboardingHint'
 import { useFlyTo } from '../components/useFlyTo'
+import FactionOverlay from '../components/hud/FactionOverlay'
 
 interface NodeLabel {
   id: string
@@ -79,6 +80,7 @@ export default function GalaxyView() {
   const era = useApp((s) => s.era)
   const legends = useApp((s) => s.legends)
   const lanes = useApp((s) => s.lanes)
+  const territory = useApp((s) => s.territory)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const engineRef = useRef<GalaxyEngine | null>(null)
   const [planets, setPlanets] = useState<CelestialBody[]>([])
@@ -201,6 +203,7 @@ export default function GalaxyView() {
   return (
     <div className="relative h-full w-full overflow-hidden bg-space">
       <canvas ref={canvasRef} className="h-full w-full" />
+      {territory && <FactionOverlay era={era} lang={lang} />}
       <TopBar />
       <OnboardingHint />
       <RoutePlanner onCourse={showCourse} />
