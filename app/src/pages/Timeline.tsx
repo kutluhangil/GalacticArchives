@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
+import type { TimelineEvent } from '../types/lore'
 import { L, loadTimelineEvents } from '../lib/lore'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
@@ -7,7 +8,7 @@ import { sfx } from '../lib/audio'
 
 export default function Timeline() {
   const lang = useApp((s) => s.lang)
-  const [events, setEvents] = useState<any[]>([])
+  const [events, setEvents] = useState<TimelineEvent[]>([])
   const [filterCategory, setFilterCategory] = useState<string>('all')
 
   useEffect(() => {

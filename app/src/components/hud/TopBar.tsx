@@ -14,10 +14,6 @@ import AurebeshTranslator from '../AurebeshTranslator'
 import HyperspaceSimulator from '../HyperspaceSimulator'
 import LightsaberChamber from '../LightsaberChamber'
 import TransmissionPlayer from '../TransmissionPlayer'
-
-
-
-
 /** shared popover shell for the top-bar menus */
 function Menu({
   label,

@@ -314,7 +314,7 @@ export default function Compare() {
 
             <div className="mt-6 rounded-lg border border-white/10 bg-panel/60 p-4 mb-6">
               <div className="mb-3 font-hud text-[10px] uppercase tracking-[0.3em] text-slate-500">
-                {t('toScale', lang)} (LENGTH)
+                {t('toScale', lang)} ({lang === 'tr' ? 'UZUNLUK' : 'LENGTH'})
               </div>
               <div className="space-y-3">
                 {[
@@ -349,9 +349,9 @@ export default function Compare() {
                       {L(ship.desc, lang)}
                     </p>
                     <div className="mt-4 border-t border-white/5 pt-3 text-[11px] space-y-1 text-slate-400">
-                      <div><strong className="text-slate-300">Manufacturer:</strong> {L(ship.manufacturer, lang)}</div>
-                      <div><strong className="text-slate-300">Hyperdrive:</strong> {ship.hyperdriveRating}</div>
-                      <div><strong className="text-slate-300">Crew:</strong> {ship.crew}</div>
+                      <div><strong className="text-slate-300">{t('manufacturer', lang)}:</strong> {L(ship.manufacturer, lang)}</div>
+                      <div><strong className="text-slate-300">{t('hyperdrive', lang)}:</strong> {ship.hyperdriveRating}</div>
+                      <div><strong className="text-slate-300">{lang === 'tr' ? 'Mürettebat' : 'Crew'}:</strong> {ship.crew}</div>
                     </div>
                   </div>
                 )

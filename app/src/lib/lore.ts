@@ -10,6 +10,8 @@ import type {
   MediaEntry,
   Region,
   Starship,
+  TimelineEvent,
+  Transmission,
 } from '../types/lore'
 import erasJson from '../data/meta/eras.json'
 import regionsJson from '../data/meta/regions.json'
@@ -134,20 +136,20 @@ export async function loadBattles(): Promise<Battle[]> {
   return battlesCache
 }
 
-let timelineCache: any[] | null = null
-export async function loadTimelineEvents(): Promise<any[]> {
+let timelineCache: TimelineEvent[] | null = null
+export async function loadTimelineEvents(): Promise<TimelineEvent[]> {
   if (!timelineCache) {
     const mod = await import('../data/timeline.json')
-    timelineCache = mod.default
+    timelineCache = mod.default as TimelineEvent[]
   }
   return timelineCache
 }
 
-let transmissionsCache: any[] | null = null
-export async function loadTransmissions(): Promise<any[]> {
+let transmissionsCache: Transmission[] | null = null
+export async function loadTransmissions(): Promise<Transmission[]> {
   if (!transmissionsCache) {
     const mod = await import('../data/transmissions.json')
-    transmissionsCache = mod.default
+    transmissionsCache = mod.default as Transmission[]
   }
   return transmissionsCache
 }
