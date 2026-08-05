@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useApp } from '../state/app'
 import Aurebesh from './Aurebesh'
 import { sfx } from '../lib/audio'
+import ModalShell from './ModalShell'
 
 
 export default function AurebeshTranslator({ onClose }: { onClose: () => void }) {
@@ -17,23 +18,8 @@ export default function AurebeshTranslator({ onClose }: { onClose: () => void })
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm">
-      <div className="w-full max-w-lg rounded-lg border border-holo-cyan/40 bg-panel/95 p-6 shadow-[0_0_30px_rgba(102,217,255,0.2)]">
-        <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-          <h2 className="font-display text-lg tracking-[0.2em] text-star-gold">
-            🔤 AUREBESH TRANSLATOR
-          </h2>
-          <button
-            onClick={() => {
-              sfx.playHover()
-              onClose()
-            }}
-            className="text-slate-400 hover:text-white"
-          >
-            ✕
-          </button>
-        </div>
-
+    <ModalShell title="🔤 AUREBESH TRANSLATOR" onClose={onClose} accent="star-gold">
+      <div className="mt-4">
         <div className="mb-4">
           <label className="mb-1.5 block font-hud text-[11px] uppercase tracking-[0.25em] text-slate-400">
             {lang === 'tr' ? 'Metin Girin' : 'Enter Text'}
@@ -74,6 +60,6 @@ export default function AurebeshTranslator({ onClose }: { onClose: () => void })
           </button>
         </div>
       </div>
-    </div>
+    </ModalShell>
   )
 }

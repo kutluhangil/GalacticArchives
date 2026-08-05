@@ -4,6 +4,7 @@ import { L, loadAllPlanets } from '../lib/lore'
 import type { CelestialBody } from '../types/lore'
 import { useApp } from '../state/app'
 import { sfx } from '../lib/audio'
+import ModalShell from './ModalShell'
 
 export default function HyperspaceSimulator({ onClose }: { onClose: () => void }) {
   const lang = useApp((s) => s.lang)
@@ -87,23 +88,12 @@ export default function HyperspaceSimulator({ onClose }: { onClose: () => void }
   const destName = planets.find((p) => p.id === dest) ? L(planets.find((p) => p.id === dest)?.names, lang) : dest
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md">
-      {warping && (
-        <canvas ref={canvasRef} className="absolute inset-0 z-10 h-full w-full" />
-      )}
-
-      <div className="relative z-20 w-full max-w-xl rounded-xl border border-holo-cyan/40 bg-panel/95 p-6 shadow-[0_0_30px_rgba(102,217,255,0.25)]">
-        <div className="flex items-center justify-between border-b border-white/10 pb-3">
-          <h2 className="font-display text-lg tracking-[0.2em] text-holo-cyan">
-            🚀 {lang === 'tr' ? 'HİPERUZAY ROTA SİCİLİ' : 'HYPERSPACE ROUTE CALCULATOR'}
-          </h2>
-          <button
-            onClick={onClose}
-            className="text-slate-400 hover:text-slate-100"
-          >
-            ✕
-          </button>
-        </div>
+    <ModalShell
+      title={`🚀 ${lang === 'tr' ? 'HİPERUZAY ROTA SİCİLİ' : 'HYPERSPACE ROUTE CALCULATOR'}`}
+      onClose={onClose}
+      panelClassName="max-w-xl"
+      backdrop={warping ? <canvas ref={canvasRef} className="absolute inset-0 z-10 h-full w-full" /> : null}
+    >
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div>
@@ -161,7 +151,6 @@ export default function HyperspaceSimulator({ onClose }: { onClose: () => void }
             ? (lang === 'tr' ? '⚡ HİPERUZAY SIÇRAMASI YAPILIYOR...' : '⚡ WARPING THROUGH HYPERSPACE...')
             : (lang === 'tr' ? `⚡ ${originName} -> ${destName} SIÇRAMA YAP` : `⚡ JUMP HYPERSPACE TO ${destName}`)}
         </button>
-      </div>
-    </div>
+    </ModalShell>
   )
 }

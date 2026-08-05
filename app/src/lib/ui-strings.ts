@@ -95,6 +95,7 @@ const STRINGS = {
   victor: { en: 'Victor', tr: 'Galip' },
   audioOn: { en: 'Audio FX Enabled', tr: 'Ses Efektleri Açık' },
   audioOff: { en: 'Audio FX Muted', tr: 'Ses Efektleri Kapalı' },
+  close: { en: 'Close', tr: 'Kapat' },
   sfx: { en: 'Interface sound', tr: 'Arayüz sesi' },
   sfxHint: {
     en: 'Synthesised clicks and chimes for panels and jumps. The choice is remembered.',

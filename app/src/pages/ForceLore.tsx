@@ -166,12 +166,12 @@ export default function ForceLore() {
         }
       `}</style>
 
-      <div className="mx-auto max-w-5xl px-4 pt-24">
+      <main className="mx-auto max-w-5xl px-4 pt-24">
         {/* Header */}
         <div className="mb-8 flex flex-wrap items-start justify-between gap-6">
           <div>
             <h1 className="font-display text-2xl tracking-[0.25em] text-slate-100">
-              {lang === 'tr' ? '⚡ GÜÇ KAZINAĞI' : '⚡ FORCE LORE VAULT'}
+              {lang === 'tr' ? '⚡ GÜÇ KASASI' : '⚡ FORCE LORE VAULT'}
             </h1>
             <p className="mt-1 font-hud text-xs text-slate-400">
               {lang === 'tr'
@@ -187,7 +187,11 @@ export default function ForceLore() {
         </div>
 
         {/* Tabs */}
-        <div className="mb-6 flex rounded border border-white/10 bg-black/40 p-0.5">
+        <div
+          role="tablist"
+          aria-label={lang === 'tr' ? 'Güç kasası bölümleri' : 'Force vault sections'}
+          className="mb-6 flex rounded border border-white/10 bg-black/40 p-0.5"
+        >
           {[
             { id: 'jedi', label: lang === 'tr' ? '☀️ JEDİ KODU' : '☀️ JEDI CODE' },
             { id: 'sith', label: lang === 'tr' ? '⚡ SİTH KODU' : '⚡ SITH CODE' },
@@ -195,6 +199,8 @@ export default function ForceLore() {
           ].map((tab) => (
             <button
               key={tab.id}
+              role="tab"
+              aria-selected={activeTab === tab.id}
               onClick={() => {
                 sfx.playHover()
                 setActiveTab(tab.id as typeof activeTab)
@@ -331,10 +337,15 @@ export default function ForceLore() {
           <div>
             {/* Filters */}
             <div className="mb-5 flex flex-wrap gap-4">
-              <div className="flex gap-1 rounded border border-white/10 bg-black/40 p-0.5">
+              <div
+                role="group"
+                aria-label={lang === 'tr' ? 'Tarafa göre süz' : 'Filter by side'}
+                className="flex gap-1 rounded border border-white/10 bg-black/40 p-0.5"
+              >
                 {['all', 'light', 'dark', 'neutral'].map((a) => (
                   <button
                     key={a}
+                    aria-pressed={alignFilter === a}
                     onClick={() => setAlignFilter(a)}
                     className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-all ${
                       alignFilter === a
@@ -354,10 +365,15 @@ export default function ForceLore() {
                 ))}
               </div>
 
-              <div className="flex gap-1 rounded border border-white/10 bg-black/40 p-0.5">
+              <div
+                role="group"
+                aria-label={lang === 'tr' ? 'Seviyeye göre süz' : 'Filter by tier'}
+                className="flex gap-1 rounded border border-white/10 bg-black/40 p-0.5"
+              >
                 {['all', ...TIER_ORDER].map((tier) => (
                   <button
                     key={tier}
+                    aria-pressed={tierFilter === tier}
                     onClick={() => setTierFilter(tier)}
                     className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-all ${
                       tierFilter === tier
@@ -467,7 +483,7 @@ export default function ForceLore() {
             )}
           </div>
         )}
-      </div>
+      </main>
     </div>
   )
 }

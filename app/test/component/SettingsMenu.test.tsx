@@ -10,11 +10,19 @@ import { t } from '../../src/lib/ui-strings'
 
 beforeEach(() => {
   localStorage.clear()
-  useApp.setState({ lang: 'en', era: 'empire', quality: 'auto', legends: false, lanes: true })
+  useApp.setState({
+    lang: 'en',
+    era: 'empire',
+    quality: 'auto',
+    legends: false,
+    lanes: true,
+    sfx: true,
+  })
 })
 
 const legendsLabel = t('legends', 'en')
 const lanesLabel = t('lanes', 'en')
+const sfxLabel = t('sfx', 'en')
 
 const openMenu = async () => {
   const user = userEvent.setup()
@@ -98,5 +106,17 @@ describe('hyperlane switch', () => {
     await user.click(screen.getByRole('switch', { name: lanesLabel }))
 
     expect(useApp.getState().era).toBe('clone-wars')
+  })
+})
+
+describe('interface sound switch', () => {
+  it('remembers being switched off, which the header chip never did', async () => {
+    const user = await openMenu()
+    const toggle = screen.getByRole('switch', { name: sfxLabel })
+    expect(toggle).toHaveAttribute('aria-checked', 'true')
+
+    await user.click(toggle)
+    expect(useApp.getState().sfx).toBe(false)
+    expect(localStorage.getItem('ga-sfx')).toBe('0')
   })
 })

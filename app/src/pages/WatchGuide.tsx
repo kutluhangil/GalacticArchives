@@ -60,7 +60,7 @@ export default function WatchGuide() {
     <div className="relative min-h-screen w-full overflow-y-auto bg-space pb-24">
       <TopBar />
 
-      <div className="mx-auto max-w-4xl px-4 pt-24">
+      <main className="mx-auto max-w-4xl px-4 pt-24">
         {/* Header */}
         <div className="mb-6">
           <h1 className="font-display text-2xl tracking-[0.25em] text-slate-100">
@@ -76,13 +76,18 @@ export default function WatchGuide() {
         {/* Controls */}
         <div className="mb-6 flex flex-wrap items-center gap-3">
           {/* Sort toggle */}
-          <div className="flex rounded border border-white/10 bg-black/40 p-0.5">
+          <div
+            role="group"
+            aria-label={lang === 'tr' ? 'Sıralama' : 'Sort order'}
+            className="flex rounded border border-white/10 bg-black/40 p-0.5"
+          >
             {([
               { id: 'chronological', label: lang === 'tr' ? '📅 Kronolojik' : '📅 Chronological' },
               { id: 'release', label: lang === 'tr' ? '🎞️ Çıkış Sırası' : '🎞️ Release Order' },
             ] as { id: SortMode; label: string }[]).map((s) => (
               <button
                 key={s.id}
+                aria-pressed={sortMode === s.id}
                 onClick={() => {
                   sfx.playHover()
                   setSortMode(s.id)
@@ -99,7 +104,11 @@ export default function WatchGuide() {
           </div>
 
           {/* Type filter */}
-          <div className="flex rounded border border-white/10 bg-black/40 p-0.5">
+          <div
+            role="group"
+            aria-label={lang === 'tr' ? 'Türe göre süz' : 'Filter by type'}
+            className="flex rounded border border-white/10 bg-black/40 p-0.5"
+          >
             {([
               { id: 'all', label: lang === 'tr' ? 'Hepsi' : 'All' },
               { id: 'film', label: lang === 'tr' ? 'Film' : 'Film' },
@@ -110,6 +119,7 @@ export default function WatchGuide() {
               return (
                 <button
                   key={f.id}
+                  aria-pressed={typeFilter === f.id}
                   onClick={() => setTypeFilter(f.id)}
                   className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-all ${
                     typeFilter === f.id ? 'text-slate-100' : 'text-slate-500 hover:text-slate-300'
@@ -180,7 +190,7 @@ export default function WatchGuide() {
             ))}
           </div>
         )}
-      </div>
+      </main>
     </div>
   )
 }

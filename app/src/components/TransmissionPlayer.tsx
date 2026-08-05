@@ -3,6 +3,7 @@ import { L, loadTransmissions } from '../lib/lore'
 import type { Transmission } from '../types/lore'
 import { useApp } from '../state/app'
 import { sfx } from '../lib/audio'
+import ModalShell from './ModalShell'
 import SourceLink from './SourceLink'
 
 export default function TransmissionPlayer({ onClose }: { onClose: () => void }) {
@@ -24,14 +25,11 @@ export default function TransmissionPlayer({ onClose }: { onClose: () => void })
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md">
-      <div className="relative w-full max-w-2xl rounded-xl border border-holo-cyan/40 bg-panel/95 p-6 shadow-[0_0_35px_rgba(102,217,255,0.2)]">
-        <div className="flex items-center justify-between border-b border-white/10 pb-3">
-          <h2 className="font-display text-lg tracking-[0.2em] text-holo-cyan">
-            📻 {lang === 'tr' ? 'ARŞİV SESLİ TELSİZ KAYITLARI' : 'ARCHIVAL TRANSMISSIONS PLAYER'}
-          </h2>
-          <button onClick={onClose} className="text-slate-400 hover:text-slate-100">✕</button>
-        </div>
+    <ModalShell
+      title={`📻 ${lang === 'tr' ? 'ARŞİV SESLİ TELSİZ KAYITLARI' : 'ARCHIVAL TRANSMISSIONS PLAYER'}`}
+      onClose={onClose}
+      panelClassName="max-w-2xl"
+    >
 
         <div className="mt-4 grid gap-4 sm:grid-cols-12">
           {/* Transmission List */}
@@ -126,7 +124,6 @@ export default function TransmissionPlayer({ onClose }: { onClose: () => void })
             </div>
           )}
         </div>
-      </div>
-    </div>
+    </ModalShell>
   )
 }

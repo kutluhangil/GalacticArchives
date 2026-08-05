@@ -54,7 +54,7 @@ export default function Hangar() {
     <div className="relative min-h-screen w-full overflow-y-auto bg-space pb-24">
       <TopBar />
 
-      <div className="mx-auto max-w-6xl px-4 pt-24">
+      <main className="mx-auto max-w-6xl px-4 pt-24">
         {/* Header */}
         <div className="mb-6">
           <h1 className="font-display text-2xl tracking-[0.25em] text-slate-100">
@@ -71,11 +71,16 @@ export default function Hangar() {
           {/* Sidebar: ship list + era filter */}
           <div>
             {/* Era filter */}
-            <div className="mb-3 flex flex-wrap gap-1 rounded border border-white/10 bg-black/40 p-0.5">
+            <div
+              role="group"
+              aria-label={lang === 'tr' ? 'Döneme göre süz' : 'Filter by era'}
+              className="mb-3 flex flex-wrap gap-1 rounded border border-white/10 bg-black/40 p-0.5"
+            >
               {['all', 'clone-wars', 'empire', 'new-republic'].map((e) => (
                 <button
                   key={e}
                   onClick={() => setEraFilter(e)}
+                  aria-pressed={eraFilter === e}
                   className={`rounded px-2 py-1 font-hud text-[9px] uppercase tracking-wider transition-all ${
                     eraFilter === e
                       ? 'bg-star-gold/20 text-star-gold'
@@ -88,12 +93,18 @@ export default function Hangar() {
             </div>
 
             {/* Ship list */}
-            <div className="space-y-1.5 max-h-[calc(100vh-280px)] overflow-y-auto pr-1">
+            <div
+              role="listbox"
+              aria-label={lang === 'tr' ? 'Yıldız gemileri' : 'Starships'}
+              className="space-y-1.5 max-h-[calc(100vh-280px)] overflow-y-auto pr-1"
+            >
               {filtered.map((ship) => {
                 const shipFaction = factionById(ship.affiliationsByEra?.[era])
                 return (
                   <button
                     key={ship.id}
+                    role="option"
+                    aria-selected={selectedShip.id === ship.id}
                     onClick={() => {
                       sfx.playSelect()
                       setSelectedShip(ship)
@@ -273,7 +284,7 @@ export default function Hangar() {
             <SourceLink source={selectedShip.source} className="mt-4" />
           </div>
         </div>
-      </div>
+      </main>
     </div>
   )
 }

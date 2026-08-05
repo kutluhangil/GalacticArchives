@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useApp } from '../state/app'
 import { L } from '../lib/lore'
 import { sfx } from '../lib/audio'
+import ModalShell from './ModalShell'
 
 interface FormSpec {
   id: string
@@ -113,14 +114,12 @@ export default function LightsaberChamber({ onClose }: { onClose: () => void }) 
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md">
-      <div className="relative w-full max-w-4xl rounded-xl border border-holo-cyan/40 bg-panel/95 p-6 shadow-[0_0_40px_rgba(102,217,255,0.2)]">
-        <div className="flex items-center justify-between border-b border-white/10 pb-3">
-          <h2 className="font-display text-lg tracking-[0.2em] text-star-gold">
-            ⚔️ {lang === 'tr' ? 'IŞIN KILIÇLARI & GÜÇ FORMLARI ODASI' : 'LIGHTSABER COMBAT FORMS CHAMBER'}
-          </h2>
-          <button onClick={onClose} className="text-slate-400 hover:text-slate-100">✕</button>
-        </div>
+    <ModalShell
+      title={`⚔️ ${lang === 'tr' ? 'IŞIN KILIÇLARI & GÜÇ FORMLARI ODASI' : 'LIGHTSABER COMBAT FORMS CHAMBER'}`}
+      onClose={onClose}
+      panelClassName="max-w-4xl"
+      accent="star-gold"
+    >
 
         <div className="mt-6 grid gap-6 md:grid-cols-12">
           {/* Form Selector List */}
@@ -215,7 +214,6 @@ export default function LightsaberChamber({ onClose }: { onClose: () => void }) 
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </ModalShell>
   )
 }

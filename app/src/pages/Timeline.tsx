@@ -24,7 +24,7 @@ export default function Timeline() {
     <div className="relative min-h-screen w-full overflow-y-auto bg-space pb-20">
       <TopBar />
 
-      <div className="mx-auto max-w-5xl px-4 pt-24">
+      <main className="mx-auto max-w-5xl px-4 pt-24">
         <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-white/10 pb-4">
           <div>
             <h1 className="font-display text-2xl tracking-[0.25em] text-slate-100">
@@ -102,7 +102,7 @@ export default function Timeline() {
             </div>
           ))}
         </div>
-      </div>
+      </main>
     </div>
   )
 }
