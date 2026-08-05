@@ -199,6 +199,11 @@ const STRINGS = {
     tr: 'Mesafeler kanon seyir gridine göre: bir grid karesi 15 parsek.',
   },
 
+  arrowHint: {
+    en: 'Use the arrow keys to move through the list, Enter to open.',
+    tr: 'Listede ok tuşlarıyla gezinin, açmak için Enter.',
+  },
+
   laneSelected: { en: 'Hyperlane', tr: 'Hiperuzay hattı' },
   lanesNav: { en: 'Hyperlanes', tr: 'Hiperuzay hatları' },
   laneStops: { en: 'stops', tr: 'durak' },

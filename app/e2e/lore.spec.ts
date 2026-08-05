@@ -89,3 +89,32 @@ test('four worlds compare side by side from one link', async ({ page }) => {
   await expect(page.locator('canvas')).toHaveCount(4, { timeout: 20_000 })
   await expect(page.getByRole('columnheader', { name: 'Coruscant' })).toBeVisible()
 })
+
+test('the Holocron grid walks by row under the arrow keys', async ({ page }) => {
+  // jsdom performs no layout, so the row arithmetic is only real here
+  await page.goto('/holocron')
+  const cards = page.locator('[data-roving-item]')
+  await expect(cards.first()).toBeVisible()
+
+  // the whole grid costs one Tab stop: every card but the resting one is
+  // pulled out of the tab order
+  await expect(page.locator('[data-roving-item][tabindex="0"]').first()).toBeAttached()
+
+  await cards.first().focus()
+  const firstTop = await cards.first().evaluate((el) => el.getBoundingClientRect().top)
+
+  await page.keyboard.press('ArrowRight')
+  const second = await page.evaluate(() => document.activeElement?.getAttribute('href'))
+  expect(second).not.toBeNull()
+
+  await page.keyboard.press('ArrowDown')
+  const moved = await page.evaluate(() => {
+    const el = document.activeElement as HTMLElement
+    return { href: el.getAttribute('href'), top: el.getBoundingClientRect().top }
+  })
+  expect(moved.href).not.toBe(second)
+  expect(moved.top).toBeGreaterThan(firstTop)
+
+  await page.keyboard.press('Enter')
+  await expect(page).toHaveURL(/\/holocron\/planet\//)
+})

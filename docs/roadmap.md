@@ -14,7 +14,7 @@ Bu dosyanın ilk hâli (2026-07-24) şunu ölçmüştü: sağlam çekirdek — h
 81 gezegen doğrulanmış veriyle, 3 era, TR/EN, holocron, Legends katmanı, Vercel + Tauri —
 ama çürük iskele: sıfır test, CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok.
 
-**Bugünkü durum (2026-08-05):** iskele kapandı. 238 birim + 26 uçtan uca test, yeşil CI,
+**Bugünkü durum (2026-08-05):** iskele kapandı. 259 birim + 29 uçtan uca test, yeşil CI,
 44 ölü paket söküldü, `ErrorBoundary` ve sıkı CSP yerinde, 224 görsel varlık üretildi.
 02 Ağustos'ta gelen dört lore rotası (`/timeline`, `/force`, `/watch-guide`, `/hangar`)
 CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve panelin üstünü örten
@@ -100,6 +100,11 @@ bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan
 **Yapılacak**
 - [x] **P1** Legends node'larına harita düzeyi ayrım: dış **kesikli altın halka** (`continuity==='legends'`). Tarayıcıda doğrulandı — canon komşularından ayrık okunuyor.
 - [x] **P1** Klavye/screen-reader erişimi: stabil sr-only `<nav>` tüm görünür gezegenleri sıralı yansıtır, Tab'da chip belirir, Enter dive eder; görsel label'lar mouse-only (`tabIndex=-1`, `aria-hidden`). Tarayıcıda doğrulandı (81 buton, focus→görünür chip). WebGL node churn'ü tab-order'dan çıkarıldı.
+- [x] **P1** Uzun listelerde ok tuşuyla gezinme: gezegen aynası (81 dünya), hat aynası (23 hat)
+  ve Holocron'un iki kart ızgarası tek tab durağı tutuyor, oku basan o durağı yürütüyor
+  (`useRovingFocus`). Izgarada aşağı/yukarı sütunu koruyor — satır geometrisi jsdom'da
+  olmadığı için gerçek tarayıcıda uçtan uca doğrulandı; `Home`/`End` uçlara atlıyor,
+  filtre listeyi değiştirince durak ilk karta dönüyor.
 - [x] **P2** Holocron view transitions — kart↔portre shared-element morph + sayfa cross-fade.
   **Data-router migration yapıldı** (`createBrowserRouter` + `router.tsx` + `App` layout +
   `<Outlet/>`), böylece `<Link viewTransition>` artık `startViewTransition`'ı tetikliyor

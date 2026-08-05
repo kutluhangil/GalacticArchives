@@ -187,3 +187,29 @@ test('the keyboard lane list selects a lane without a pointer', async ({ page })
     timeout: 20_000,
   })
 })
+
+test('the map mirrors move under the arrows instead of hoarding Tab stops', async ({ page }) => {
+  // the galaxy route cold-builds the WebGL scene, which under a full parallel
+  // run has taken past the default budget on this machine
+  test.slow()
+  await page.goto('/galaxy')
+  const worlds = page.getByRole('navigation', { name: /Gezegenler|Planets/ }).getByRole('button')
+  await expect(worlds.first()).toBeAttached({ timeout: 20_000 })
+
+  // 80-odd worlds, one Tab stop between them
+  expect(await worlds.count()).toBeGreaterThan(20)
+  await expect(
+    page
+      .getByRole('navigation', { name: /Gezegenler|Planets/ })
+      .locator('button[tabindex="0"]'),
+  ).toHaveCount(1)
+
+  const first = await worlds.first().textContent()
+  await worlds.first().focus()
+  await page.keyboard.press('ArrowDown')
+  const after = await page.evaluate(() => document.activeElement?.textContent)
+  expect(after).not.toBe(first)
+
+  await page.keyboard.press('Enter')
+  await expect(page).toHaveURL(/\/planet\//, { timeout: 20_000 })
+})

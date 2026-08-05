@@ -14,7 +14,7 @@ Bu dosya tek kaynak: neyin bittiği, neyin **sende**, neyin **bende** olduğu. E
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
 | Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 168 POI, 23 hiperuzay hattı | `npm run validate` → 0 hata |
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
-| Test | 238 birim/bileşen + 26 uçtan uca | `npm run verify` |
+| Test | 259 birim/bileşen + 29 uçtan uca | `npm run verify` |
 | CI | Yeşil | GitHub Actions `CI / verify` |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
 
@@ -101,11 +101,13 @@ Bu listenin beş kalemi 2026-08-02'de kapandı:
 
 Sıradaki işler:
 
-- **Klavye ile gezinme derinliği.** Araç panelleri artık `dialog` (odak tuzağı +
-  `Escape` + odağı geri verme) ve üç sayfa `main` + etiketli filtre gruplarıyla
-  geliyor. `HolocronQuiz` aynı kabuğa taşındı, `ShipBlueprint`'in şeması
-  dekoratif ilan edilip lejant düğmeleri gerçek denetim oldu. Kalan: galaksi
-  haritasındaki gibi ok tuşlarıyla liste gezinme.
+- **Klavye ile gezinme derinliği — kapandı.** Araç panelleri `dialog` (odak
+  tuzağı + `Escape` + odağı geri verme), üç sayfa `main` + etiketli filtre
+  grubu, `HolocronQuiz` aynı kabukta, `ShipBlueprint`'in şeması dekoratif.
+  Son kalem de bitti: uzun listeler tek tab durağı tutuyor, ok tuşları o durağı
+  yürütüyor (`src/hooks/useRovingFocus.ts`) — galaksinin gezegen ve hat
+  aynaları, Holocron'un dünya ve karakter ızgaraları. Izgarada aşağı/yukarı
+  sütunu koruyor, `Home`/`End` uçlara atlıyor.
 - **İlk boya artık tavanda değil.** Tur oynatıcısı kendi host'una alındı
   (`TourPlayerHost`): `lib/lore` üzerinden istasyon/era/bölge/hizip/yapım
   tablolarını ve yazılı turları ilk boyaya taşıyordu. Giriş yığını 346 → 308 kB,

@@ -14,6 +14,7 @@ import LanePanel from '../components/hud/LanePanel'
 import OnboardingHint from '../components/OnboardingHint'
 import { useFlyTo } from '../components/useFlyTo'
 import FactionOverlay from '../components/hud/FactionOverlay'
+import { useRovingFocus } from '../hooks/useRovingFocus'
 
 interface NodeLabel {
   id: string
@@ -196,6 +197,11 @@ export default function GalaxyView() {
     engineRef.current.applyNodeStates(nodeStates(planets, era), era)
   }, [era, planets])
 
+  // both mirrors are long enough that a Tab stop per entry would bury the rest
+  // of the page behind them: 23 lanes and every visible world
+  const { ref: laneNavRef, onKeyDown: onLaneNavKey } = useRovingFocus<HTMLUListElement>()
+  const { ref: planetNavRef, onKeyDown: onPlanetNavKey } = useRovingFocus<HTMLUListElement>()
+
   const regionName = hoverRegion
     ? L(regions.find((r) => r.id === hoverRegion)?.names, lang)
     : null
@@ -212,11 +218,15 @@ export default function GalaxyView() {
 
       {/* The lane tubes cannot take focus either, so this mirrors the map's
           lanes the way the planet nav below mirrors its worlds. */}
-      <nav aria-label={t('lanesNav', lang)}>
-        <ul>
+      <nav aria-label={t('lanesNav', lang)} aria-describedby="lanes-nav-hint">
+        <p id="lanes-nav-hint" className="sr-only">
+          {t('arrowHint', lang)}
+        </p>
+        <ul ref={laneNavRef} onKeyDown={onLaneNavKey}>
           {routes.map((route) => (
             <li key={route.id}>
               <button
+                data-roving-item
                 onClick={() => selectLane(route.id)}
                 className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-28 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-none focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
               >
@@ -230,13 +240,17 @@ export default function GalaxyView() {
       {/* Keyboard/screen-reader access to the map: the WebGL nodes cannot take
           focus, so this stable, sorted list mirrors every visible world. Each
           entry is visually hidden until focused, then shows as a chip. */}
-      <nav aria-label={t('planets', lang)}>
-        <ul>
+      <nav aria-label={t('planets', lang)} aria-describedby="planets-nav-hint">
+        <p id="planets-nav-hint" className="sr-only">
+          {t('arrowHint', lang)}
+        </p>
+        <ul ref={planetNavRef} onKeyDown={onPlanetNavKey}>
           {[...visiblePlanets]
             .sort((a, b) => L(a.names, lang).localeCompare(L(b.names, lang), lang))
             .map((p) => (
               <li key={p.id}>
                 <button
+                  data-roving-item
                   onClick={() => dive(p.id)}
                   className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-16 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-none focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
                 >
