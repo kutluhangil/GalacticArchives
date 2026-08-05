@@ -60,6 +60,20 @@ describe('codex provenance', () => {
     }
   })
 
+  it('a transmission names its medium without inventing telemetry', () => {
+    // The player used to print "1420.405 MHz (Encrypted HoloNet)" and
+    // "R2-D2 Memory Core 0x9F" beside a sourced transcript, so fabricated
+    // precision read as canon detail. No cited article gives these recordings a
+    // frequency, a channel number or a memory address.
+    for (const transmission of transmissions as { id: string; channelLabel?: string }[]) {
+      const channel = transmission.channelLabel ?? ''
+      expect(channel.trim(), `${transmission.id} has no channelLabel`).not.toBe('')
+      expect(channel, transmission.id).not.toMatch(/\d\s*(?:[kMG]?Hz)\b/i)
+      expect(channel, transmission.id).not.toMatch(/0x[0-9a-f]+/i)
+      expect(channel, transmission.id).not.toMatch(/\bchannel\s*\d/i)
+    }
+  })
+
   it('a citation turns into the article url the UI links to', () => {
     expect(articleUrl('wookieepedia:Battle of Yavin')).toBe(
       'https://starwars.fandom.com/wiki/Battle_of_Yavin',

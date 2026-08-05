@@ -261,7 +261,12 @@ export interface Transmission {
   speaker: Localized
   era: EraId
   yearLabel: string
-  audioFrequency: string
+  /** How the archive describes the medium the recording travelled on. No cited
+   *  article states a frequency or a channel number for any of these, so this
+   *  line is the archive's own wording and the player marks it as such.
+   *  `validate-lore` rejects invented telemetry (MHz, hex addresses, channel
+   *  numbers) so the fabricated precision cannot come back. */
+  channelLabel: string
   transcript: Localized
   /** true only when the wording is quoted from the cited article; false marks a
    *  transcript this archive reconstructed from the scene. */

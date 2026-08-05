@@ -307,10 +307,30 @@ for (const [file, kind] of Object.entries(CODEX_FILES)) {
 }
 
 // A transmission prints words in quotation marks, so it has to say whether the
-// archive is quoting the article or paraphrasing the scene.
+// archive is quoting the article or paraphrasing the scene. Its channel line is
+// the archive's own wording — no cited article gives these recordings a
+// frequency, a channel number or a memory address — so invented telemetry is
+// rejected here rather than left to read as canon detail.
+const INVENTED_TELEMETRY = [
+  [/\d\s*(?:[kMG]?Hz)\b/i, 'a radio frequency'],
+  [/0x[0-9a-f]+/i, 'a memory address'],
+  [/\bchannel\s*\d/i, 'a channel number'],
+]
 for (const transmission of load('transmissions.json')) {
   if (typeof transmission.verbatim !== 'boolean') {
     err(`transmissions.json: ${transmission.id}.verbatim must be true (quoted) or false (reconstructed)`)
+  }
+  const channel = transmission.channelLabel
+  if (typeof channel !== 'string' || !channel.trim()) {
+    err(`transmissions.json: ${transmission.id}.channelLabel must name the medium the recording travelled on`)
+    continue
+  }
+  for (const [pattern, what] of INVENTED_TELEMETRY) {
+    if (pattern.test(channel)) {
+      err(
+        `transmissions.json: ${transmission.id}.channelLabel "${channel}" states ${what}, which no cited article gives — describe the medium instead`,
+      )
+    }
   }
 }
 

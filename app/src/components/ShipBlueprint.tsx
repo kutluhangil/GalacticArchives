@@ -129,10 +129,16 @@ export default function ShipBlueprint({
 
   return (
     <div className="relative rounded-lg border border-white/10 bg-black/60 p-3">
+      {/* The schematic is decorative: its rings answer to the mouse only, and
+          every one of them has a named button in the legend below, which is the
+          control a keyboard or screen reader uses. Exposing both would put the
+          same hotspot in the reading order twice. */}
       <svg
         viewBox="0 0 200 200"
         className="h-48 w-full"
         style={{ filter: `drop-shadow(0 0 12px ${spec.color}40)` }}
+        aria-hidden="true"
+        focusable="false"
       >
         {/* Grid lines */}
         {[40, 80, 120, 160].map((v) => (
@@ -180,24 +186,31 @@ export default function ShipBlueprint({
       </svg>
 
       {/* Hotspot tooltip */}
-      {activeHotspot && (
-        <div
-          className="mt-2 rounded border border-white/15 bg-black/80 p-3"
-          style={{ borderColor: spec.color + '40' }}
-        >
-          <div className="mb-1 font-hud text-[10px] font-bold uppercase tracking-wider" style={{ color: spec.color }}>
-            {activeHotspot.label[lang]}
+      <div aria-live="polite">
+        {activeHotspot && (
+          <div
+            className="mt-2 rounded border border-white/15 bg-black/80 p-3"
+            style={{ borderColor: spec.color + '40' }}
+          >
+            <div className="mb-1 font-hud text-[10px] font-bold uppercase tracking-wider" style={{ color: spec.color }}>
+              {activeHotspot.label[lang]}
+            </div>
+            <p className="text-[11px] leading-relaxed text-slate-300">{activeHotspot.detail[lang]}</p>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-300">{activeHotspot.detail[lang]}</p>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Hotspot legend */}
-      <div className="mt-2 flex flex-wrap gap-1.5">
+      <div
+        className="mt-2 flex flex-wrap gap-1.5"
+        role="group"
+        aria-label={lang === 'tr' ? 'Şema bölümleri' : 'Schematic components'}
+      >
         {spec.hotspots.map((h) => (
           <button
             key={h.id}
             onClick={() => setActiveHotspot(activeHotspot?.id === h.id ? null : h)}
+            aria-pressed={activeHotspot?.id === h.id}
             className="rounded px-1.5 py-0.5 font-hud text-[9px] transition-all"
             style={{
               color: activeHotspot?.id === h.id ? spec.color : '#6B7280',

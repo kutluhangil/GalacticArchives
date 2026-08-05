@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useApp } from '../state/app'
 import { sfx } from '../lib/audio'
+import ModalShell from './ModalShell'
 
 interface Question {
   qEn: string
@@ -84,29 +85,29 @@ export default function HolocronQuiz({ onClose }: { onClose: () => void }) {
     return lang === 'tr' ? '📜 ARŞİV ÇIRAGI' : '📜 ARCHIVAL CHRONICLER'
   }
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md">
-      <div className="w-full max-w-lg rounded-lg border border-star-gold/40 bg-panel/95 p-6 shadow-[0_0_30px_rgba(255,232,31,0.2)]">
-        <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-          <h2 className="font-display text-lg tracking-[0.2em] text-star-gold">
-            ◈ ARCHIVIST TRIAL
-          </h2>
-          <button
-            onClick={() => {
-              sfx.playHover()
-              onClose()
-            }}
-            className="text-slate-400 hover:text-white"
-          >
-            ✕
-          </button>
-        </div>
+  // Colour alone said whether an answer was right, and nothing announced the
+  // change of question, so a screen reader heard the same four buttons twice.
+  const markFor = (idx: number) => {
+    if (selectedOpt === null) return null
+    if (idx === currentQ.answerIdx) return { glyph: '✓', label: lang === 'tr' ? 'Doğru cevap' : 'Correct answer' }
+    if (idx === selectedOpt) return { glyph: '✗', label: lang === 'tr' ? 'Yanlış cevap' : 'Wrong answer' }
+    return null
+  }
 
+  return (
+    <ModalShell
+      title={lang === 'tr' ? '◈ ARŞİVCİ SINAVI' : '◈ ARCHIVIST TRIAL'}
+      onClose={onClose}
+      accent="star-gold"
+    >
+      <div className="mt-4">
         {!finished ? (
           <div>
             <div className="mb-2 flex items-center justify-between text-[11px] font-hud tracking-widest text-slate-400">
-              <span>QUESTION {currentIdx + 1} / {QUIZ_QUESTIONS.length}</span>
-              <span className="text-holo-cyan">SCORE: {score}</span>
+              <span>
+                {lang === 'tr' ? 'SORU' : 'QUESTION'} {currentIdx + 1} / {QUIZ_QUESTIONS.length}
+              </span>
+              <span className="text-holo-cyan">{lang === 'tr' ? 'PUAN' : 'SCORE'}: {score}</span>
             </div>
 
             <h3 className="mb-6 font-display text-[15px] leading-relaxed tracking-wide text-slate-100">
@@ -123,21 +124,41 @@ export default function HolocronQuiz({ onClose }: { onClose: () => void }) {
                     btnStyle = 'border-sith-red/80 bg-sith-red/20 text-red-300'
                   }
                 }
+                const mark = markFor(idx)
                 return (
                   <button
                     key={opt}
                     onClick={() => handleSelect(idx)}
                     disabled={selectedOpt !== null}
-                    className={`block w-full rounded border p-3 text-left font-hud text-[13px] tracking-wide transition-all ${btnStyle}`}
+                    className={`flex w-full items-center justify-between gap-3 rounded border p-3 text-left font-hud text-[13px] tracking-wide transition-all ${btnStyle}`}
                   >
-                    {opt}
+                    <span>{opt}</span>
+                    {mark && (
+                      <span aria-label={mark.label} className="shrink-0">
+                        {mark.glyph}
+                      </span>
+                    )}
                   </button>
                 )
               })}
             </div>
+
+            {/* Announces the verdict once per question, so the outcome does not
+                live only in the border colour. */}
+            <p aria-live="polite" className="sr-only">
+              {selectedOpt === null
+                ? ''
+                : selectedOpt === currentQ.answerIdx
+                  ? lang === 'tr'
+                    ? `Doğru. Puan ${score}.`
+                    : `Correct. Score ${score}.`
+                  : lang === 'tr'
+                    ? `Yanlış. Doğru cevap: ${currentQ.optionsTr[currentQ.answerIdx]}.`
+                    : `Wrong. Correct answer: ${currentQ.optionsEn[currentQ.answerIdx]}.`}
+            </p>
           </div>
         ) : (
-          <div className="py-6 text-center">
+          <div className="py-6 text-center" aria-live="polite">
             <div className="mb-2 font-display text-2xl tracking-[0.2em] text-star-gold">
               {getRank()}
             </div>
@@ -158,6 +179,6 @@ export default function HolocronQuiz({ onClose }: { onClose: () => void }) {
           </div>
         )}
       </div>
-    </div>
+    </ModalShell>
   )
 }

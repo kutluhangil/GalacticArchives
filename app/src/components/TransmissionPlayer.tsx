@@ -64,7 +64,20 @@ export default function TransmissionPlayer({ onClose }: { onClose: () => void })
                       {L(active.title, lang)}
                     </h3>
                     <div className="font-hud text-xs text-star-gold">{L(active.speaker, lang)}</div>
-                    <div className="mt-0.5 text-[10px] text-slate-500">{active.audioFrequency}</div>
+                    <div
+                      className="mt-0.5 text-[10px] text-slate-500"
+                      title={
+                        lang === 'tr'
+                          ? 'Kaynak makale bu kayda bir frekans ya da kanal vermiyor; bu satır ortamı arşivin kendi sözleriyle tarif eder.'
+                          : 'No cited article gives this recording a frequency or channel; this line is the archive describing the medium in its own words.'
+                      }
+                    >
+                      {active.channelLabel}
+                      <span className="text-slate-600">
+                        {' · '}
+                        {lang === 'tr' ? 'arşiv etiketi' : 'archive label'}
+                      </span>
+                    </div>
                   </div>
 
                   <button
