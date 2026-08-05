@@ -81,9 +81,12 @@ export default function TransmissionPlayer({ onClose }: { onClose: () => void })
                   {[40, 70, 30, 90, 50, 80, 20, 100, 60, 40, 85, 30].map((h, i) => (
                     <div
                       key={i}
-                      className="w-1.5 bg-holo-cyan/80 rounded transition-all duration-300"
+                      className={`w-1.5 bg-holo-cyan/80 rounded transition-all duration-300${
+                        playing ? ' ga-waveform-bar' : ''
+                      }`}
                       style={{
-                        height: playing ? `${Math.max(15, Math.round(h * Math.random()))}%` : '20%',
+                        height: playing ? `${h}%` : '20%',
+                        animationDelay: `${i * 70}ms`,
                       }}
                     />
                   ))}

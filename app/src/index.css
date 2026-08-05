@@ -79,3 +79,20 @@ canvas {
     animation: none !important;
   }
 }
+
+/* Transmission waveform: the bar heights are fixed, the pulse is CSS so the
+   render stays pure (a Math.random() height was recomputed during render).
+   The reduced-motion block above already flattens it. */
+@keyframes ga-waveform {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.ga-waveform-bar {
+  transform-origin: center;
+  animation: ga-waveform 900ms ease-in-out infinite;
+}

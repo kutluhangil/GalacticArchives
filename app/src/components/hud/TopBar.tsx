@@ -15,6 +15,38 @@ import HyperspaceSimulator from '../HyperspaceSimulator'
 import LightsaberChamber from '../LightsaberChamber'
 import TransmissionPlayer from '../TransmissionPlayer'
 import GalacticIdGenerator from '../GalacticIdGenerator'
+/**
+ * Routes that read as archive sections rather than map controls. They live in
+ * one menu because thirteen flat chips wrapped the header onto a second row,
+ * which then covered the planet panel's own controls.
+ */
+const ARCHIVE_ROUTES = [
+  {
+    path: '/timeline',
+    icon: '📜',
+    label: { tr: 'Zaman Çizelgesi', en: 'Timeline' },
+    blurb: { tr: 'Kanon olayları sırasıyla', en: 'Canon events in order' },
+  },
+  {
+    path: '/force',
+    icon: '⚡',
+    label: { tr: 'Güç Kasası', en: 'Force Vault' },
+    blurb: { tr: 'Güç yetenekleri ve yolları', en: 'Force powers and their paths' },
+  },
+  {
+    path: '/watch-guide',
+    icon: '🎬',
+    label: { tr: 'İzleme Rehberi', en: 'Watch Guide' },
+    blurb: { tr: 'Filmler ve diziler hangi sırayla', en: 'What to watch in which order' },
+  },
+  {
+    path: '/hangar',
+    icon: '🛸',
+    label: { tr: 'Hangar', en: 'Hangar' },
+    blurb: { tr: 'Yıldız gemileri ve planları', en: 'Starships and their blueprints' },
+  },
+] as const
+
 /** shared popover shell for the top-bar menus */
 function Menu({
   label,
@@ -259,51 +291,88 @@ export default function TopBar() {
           <PlanetsDropdown />
           <CollectionsMenu />
           <ToursMenu />
-          <button
-            onClick={() => {
-              sfx.playHover()
-              navigate('/timeline')
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            📜 {lang === 'tr' ? 'Zaman Çizelgesi' : 'Timeline'}
-          </button>
-          <button
-            onClick={() => {
-              sfx.playSelect()
-              setHyperspaceOpen(true)
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            🚀 {lang === 'tr' ? 'Hiperuzay' : 'Hyperspace'}
-          </button>
-          <button
-            onClick={() => {
-              sfx.playSelect()
-              setLightsabersOpen(true)
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            ⚔️ {lang === 'tr' ? 'Işın Kılıçları' : 'Lightsabers'}
-          </button>
-          <button
-            onClick={() => {
-              sfx.playTransmission()
-              setTransmissionsOpen(true)
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            📻 {lang === 'tr' ? 'Telsizler' : 'Transmissions'}
-          </button>
-          <button
-            onClick={() => {
-              sfx.playSelect()
-              setTranslatorOpen(true)
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            🔤 Aurebesh
-          </button>
+          <Menu label={`📜 ${lang === 'tr' ? 'Arşiv' : 'Archive'}`}>
+            {(close) =>
+              ARCHIVE_ROUTES.map((entry) => (
+                <button
+                  key={entry.path}
+                  onClick={() => {
+                    close()
+                    sfx.playHover()
+                    navigate(entry.path)
+                  }}
+                  className="block w-full rounded px-2 py-1.5 text-left transition-colors hover:bg-white/5"
+                >
+                  <span className="block text-[12px] text-slate-200">
+                    {entry.icon} {entry.label[lang]}
+                  </span>
+                  <span className="block text-[10.5px] leading-snug text-slate-500">
+                    {entry.blurb[lang]}
+                  </span>
+                </button>
+              ))
+            }
+          </Menu>
+          <Menu label={`🛠 ${lang === 'tr' ? 'Araçlar' : 'Tools'}`}>
+            {(close) =>
+              (
+                [
+                  {
+                    icon: '🚀',
+                    label: { tr: 'Hiperuzay', en: 'Hyperspace' },
+                    blurb: { tr: 'Sıçrama süresi hesapla', en: 'Plot a jump and its duration' },
+                    open: () => setHyperspaceOpen(true),
+                    sound: () => sfx.playSelect(),
+                  },
+                  {
+                    icon: '⚔️',
+                    label: { tr: 'Işın Kılıçları', en: 'Lightsabers' },
+                    blurb: { tr: 'Kristal ve kabza odası', en: 'The crystal and hilt chamber' },
+                    open: () => setLightsabersOpen(true),
+                    sound: () => sfx.playSelect(),
+                  },
+                  {
+                    icon: '📻',
+                    label: { tr: 'Telsizler', en: 'Transmissions' },
+                    blurb: { tr: 'Kayıtlı galaktik yayınlar', en: 'Recorded galactic broadcasts' },
+                    open: () => setTransmissionsOpen(true),
+                    sound: () => sfx.playTransmission(),
+                  },
+                  {
+                    icon: '🔤',
+                    label: { tr: 'Aurebesh', en: 'Aurebesh' },
+                    blurb: { tr: 'Yazıyı Aurebesh’e çevir', en: 'Transliterate into Aurebesh' },
+                    open: () => setTranslatorOpen(true),
+                    sound: () => sfx.playSelect(),
+                  },
+                  {
+                    icon: '🪪',
+                    label: { tr: 'Holo-Kimlik', en: 'Holo-ID' },
+                    blurb: { tr: 'Kendine galaktik kimlik üret', en: 'Generate a galactic identity' },
+                    open: () => setIdGenOpen(true),
+                    sound: () => sfx.playSelect(),
+                  },
+                ] as const
+              ).map((tool) => (
+                <button
+                  key={tool.icon}
+                  onClick={() => {
+                    close()
+                    tool.sound()
+                    tool.open()
+                  }}
+                  className="block w-full rounded px-2 py-1.5 text-left transition-colors hover:bg-white/5"
+                >
+                  <span className="block text-[12px] text-slate-200">
+                    {tool.icon} {tool.label[lang]}
+                  </span>
+                  <span className="block text-[10.5px] leading-snug text-slate-500">
+                    {tool.blurb[lang]}
+                  </span>
+                </button>
+              ))
+            }
+          </Menu>
           <button
             onClick={() => {
               sfx.playHover()
@@ -318,43 +387,6 @@ export default function TopBar() {
           >
             🗺️ {lang === 'tr' ? 'Nüfuz' : 'Territory'}
           </button>
-          <button
-            onClick={() => {
-              sfx.playHover()
-              navigate('/force')
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            ⚡ {lang === 'tr' ? 'Güç Kazınağı' : 'Force Vault'}
-          </button>
-          <button
-            onClick={() => {
-              sfx.playHover()
-              navigate('/watch-guide')
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            🎬 {lang === 'tr' ? 'İzleme Rehberi' : 'Watch Guide'}
-          </button>
-          <button
-            onClick={() => {
-              sfx.playHover()
-              navigate('/hangar')
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            🛸 {lang === 'tr' ? 'Hangar' : 'Hangar'}
-          </button>
-          <button
-            onClick={() => {
-              sfx.playSelect()
-              setIdGenOpen(true)
-            }}
-            className="rounded border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] tracking-wide text-slate-300 transition-colors hover:border-holo-cyan/40 hover:text-holo-cyan"
-          >
-            🪪 {lang === 'tr' ? 'Holo-Kimlik' : 'Holo-ID'}
-          </button>
-          
           {/* Sci-Fi HUD Search Input Bar */}
           <div
             onClick={() => {

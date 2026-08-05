@@ -32,6 +32,9 @@ function GlobePane({ body, era }: { body: CelestialBody; era: EraId }) {
       dissolve.onTeardown(engine)
       engine.dispose()
     }
+    // dissolve helpers are stable refs; excluding them keeps the rebuild keyed
+    // strictly to body/era
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [body, era])
 
   return (

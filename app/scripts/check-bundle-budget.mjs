@@ -24,7 +24,10 @@ if (!existsSync(ASSETS)) {
 const BUDGETS = [
   { name: 'three vendor chunk', pattern: /^three-.*\.js$/, max: 660_000 },
   { name: 'entry chunk', pattern: /^index-.*\.js$/, max: 360_000 },
-  { name: 'entry stylesheet', pattern: /^index-.*\.css$/, max: 48_000 },
+  // raised from 48,000 when the Timeline, Force, Watch Guide and Hangar routes
+  // landed: five new pages' Tailwind utilities are a real, wanted increase, and
+  // first paint stays inside its own 400,000 ceiling
+  { name: 'entry stylesheet', pattern: /^index-.*\.css$/, max: 56_000 },
   { name: 'KTX2 transcoder chunk', pattern: /^KTX2Loader-.*\.js$/, max: 40_000 },
   { name: 'planet route chunk', pattern: /^PlanetView-.*\.js$/, max: 40_000 },
   // provenance for every body and character; shared by the planet HUD and the
