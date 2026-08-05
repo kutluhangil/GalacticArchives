@@ -1,0 +1,110 @@
+name: Canon watch
+
+# Wookieepedia keeps moving: an article gets renamed, a redirect appears, a
+# world's grid cell is corrected, a codex citation stops resolving. The archive
+# validates against committed snapshots, so none of that shows up in CI — the
+# repo would keep passing while its citations quietly went stale.
+#
+# Once a week this refetches the codex citations against the live API and
+# compares them with the committed snapshot. Drift opens an issue with the diff
+# rather than editing data on its own: which way to resolve a rename is an
+# authoring decision, not something a cron job should guess.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Mondays, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  codex-citations:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Refetch codex citations
+        # exits non-zero when an article has vanished, which is exactly the
+        # drift this job exists to report — let the diff step speak instead
+        continue-on-error: true
+        run: node scripts/fetch-codex.mjs /tmp/codex-fresh.json
+
+      - name: Compare with the committed snapshot
+        id: diff
+        run: |
+          if diff -u test/fixtures/codex-digest.json /tmp/codex-fresh.json > /tmp/codex.diff; then
+            echo "drifted=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "drifted=true" >> "$GITHUB_OUTPUT"
+            {
+              echo 'diff<<CODEX_EOF'
+              head -c 60000 /tmp/codex.diff
+              echo
+              echo CODEX_EOF
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open an issue describing the drift
+        if: steps.diff.outputs.drifted == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const diff = ${{ toJSON(steps.diff.outputs.diff) }}
+            const title = 'Canon watch: codex citations drifted from Wookieepedia'
+            const body = [
+              'The weekly refetch of the codex citations no longer matches',
+              '`app/test/fixtures/codex-digest.json`. An article was renamed, redirected,',
+              'deleted, or moved between continuities.',
+              '',
+              'Resolve by hand — a rename may need the record repointed rather than the',
+              'snapshot rewritten:',
+              '',
+              '```bash',
+              'cd app && node scripts/fetch-codex.mjs && npm run validate',
+              '```',
+              '',
+              '<details><summary>Diff</summary>',
+              '',
+              '```diff',
+              diff,
+              '```',
+              '',
+              '</details>',
+            ].join('\n')
+
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'canon-watch',
+            })
+            if (existing.data.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body,
+              })
+              return
+            }
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ['canon-watch'],
+            })

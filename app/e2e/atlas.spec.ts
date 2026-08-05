@@ -136,6 +136,9 @@ test('a hyperlane deep-links into its own panel', async ({ page }) => {
 })
 
 test('flying a lane starts a tour at its first stop', async ({ page }) => {
+  // walks two WebGL routes in one test — the galaxy scene, then a world's —
+  // which has outrun the default budget on a two-core runner
+  test.slow()
   await page.goto('/galaxy?lane=corellian-run')
   await page.getByRole('button', { name: /Bu hattı uç|Fly this lane/ }).click()
 

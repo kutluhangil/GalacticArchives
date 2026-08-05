@@ -14,7 +14,7 @@ Bu dosyanın ilk hâli (2026-07-24) şunu ölçmüştü: sağlam çekirdek — h
 81 gezegen doğrulanmış veriyle, 3 era, TR/EN, holocron, Legends katmanı, Vercel + Tauri —
 ama çürük iskele: sıfır test, CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok.
 
-**Bugünkü durum (2026-08-05):** iskele kapandı. 226 birim + 23 uçtan uca test, yeşil CI,
+**Bugünkü durum (2026-08-05):** iskele kapandı. 232 birim + 23 uçtan uca test, yeşil CI,
 44 ölü paket söküldü, `ErrorBoundary` ve sıkı CSP yerinde, 224 görsel varlık üretildi.
 02 Ağustos'ta gelen dört lore rotası (`/timeline`, `/force`, `/watch-guide`, `/hangar`)
 CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve panelin üstünü örten
@@ -148,7 +148,11 @@ bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan
 - [x] **P1** Yeni rotalar için birim + uçtan uca test: 226 birim/bileşen (202'den) ve
   23 uçtan uca (16'dan) — dört rota, atıf linkleri ve panel klavye akışı dahil.
 - [ ] **P2** İlk boya 399 328/400 000 bayt — giriş yığınını bölmeden yeni özellik sığmaz.
-- [ ] **P3** Compare'i ikiden fazlaya / sistem düzeyine çıkar.
+- [x] **P3** Compare 2 → 4 sütun: set `?ids=` ile URL'de, eski `?a=&b=` linkleri çalışmaya devam
+  ediyor, sütunlar tek ölçeği paylaşıyor, tavan 4 (her gezegen sütunu kendi WebGL sahnesini kurar).
+- [x] **P2** Haftalık kanon nöbeti (`.github/workflows/canon-watch.yml`): 60 atıf makalesi canlı
+  API'ye karşı yeniden çekilir, kayma olursa diff'li issue açılır — veri kendiliğinden değişmez.
+- [ ] **P3** Compare'i sistem düzeyine çıkar.
 - [ ] **P3** Karakter↔gezegen çapraz-graf navigasyonunu derinleştir.
 - [ ] **P3** Megayapıları tamamla (Starkiller vb.).
 - [ ] **P3** 3. dil gelince i18next'i yeniden değerlendir.

@@ -1,5 +1,10 @@
 // Side-by-side comparison: Planets (live globes & scale), Characters (holo-portraits & bio),
 // and Starships (tech specs & relative scale).
+//
+// Up to four columns rather than a fixed pair: the archive's own worlds argue
+// for it (three Death Star-adjacent bodies, four desert worlds), and the URL
+// carries the whole set so a comparison stays shareable. Four is the ceiling
+// because each planet column builds its own WebGL scene.
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router'
@@ -17,6 +22,13 @@ import HoloPortrait from '../components/HoloPortrait'
 import { sfx } from '../lib/audio'
 
 type Mode = 'planets' | 'characters' | 'starships'
+
+/** each planet column builds its own WebGL scene, and past four the table stops
+ *  being readable on a laptop */
+const MAX_COLUMNS = 4
+
+/** one tint per column, so the scale discs stay tellable apart */
+const COLUMN_TINTS = ['#66D9FF', '#FFE81F', '#A78BFA', '#4ADE80']
 
 function GlobePane({ body, era }: { body: CelestialBody; era: EraId }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -48,6 +60,74 @@ function GlobePane({ body, era }: { body: CelestialBody; era: EraId }) {
   )
 }
 
+/** the row of pickers above every mode: one select per column, plus the add and
+ *  remove controls that make the set variable rather than a fixed pair */
+function ColumnPickers({
+  ids,
+  options,
+  onChange,
+}: {
+  ids: string[]
+  options: { id: string; name: string }[]
+  onChange: (ids: string[]) => void
+}) {
+  const lang = useApp((s) => s.lang)
+  const unused = options.find((o) => !ids.includes(o.id))
+
+  return (
+    <div className="mt-4 flex flex-wrap items-center gap-3">
+      {ids.map((id, index) => (
+        <div key={index} className="flex items-center gap-1.5">
+          <span className="font-hud text-[10px] uppercase tracking-[0.2em] text-slate-500">
+            {String.fromCharCode(65 + index)}
+          </span>
+          <select
+            value={id}
+            aria-label={`${t('compare', lang)} ${String.fromCharCode(65 + index)}`}
+            onChange={(e) => onChange(ids.map((v, i) => (i === index ? e.target.value : v)))}
+            className="rounded border border-white/10 bg-black/40 px-2 py-1 text-[12px] text-slate-200 outline-none"
+          >
+            {options.map((o) => (
+              <option key={o.id} value={o.id}>
+                {o.name}
+              </option>
+            ))}
+          </select>
+          {ids.length > 2 && (
+            <button
+              onClick={() => {
+                sfx.playHover()
+                onChange(ids.filter((_, i) => i !== index))
+              }}
+              aria-label={t('compareRemove', lang)}
+              className="rounded px-1 text-[12px] text-slate-500 transition-colors hover:text-red-300"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+      ))}
+
+      {ids.length < MAX_COLUMNS && unused && (
+        <button
+          onClick={() => {
+            sfx.playSelect()
+            onChange([...ids, unused.id])
+          }}
+          className="rounded border border-holo-cyan/30 bg-holo-cyan/10 px-2 py-1 font-hud text-[10px] uppercase tracking-wider text-holo-cyan transition-colors hover:bg-holo-cyan/20"
+        >
+          + {t('compareAdd', lang)}
+        </button>
+      )}
+      {ids.length === MAX_COLUMNS && (
+        <span className="font-hud text-[10px] uppercase tracking-wider text-slate-600">
+          {t('compareFull', lang)}
+        </span>
+      )}
+    </div>
+  )
+}
+
 function regionNameFor(body: CelestialBody | null, lang: 'en' | 'tr'): string | undefined {
   const region = regions.find((r) => r.id === body?.region)
   return region ? L(region.names, lang) : undefined
@@ -64,11 +144,25 @@ export default function Compare() {
   const [characters, setCharacters] = useState<Character[]>([])
   const [starships, setStarships] = useState<Starship[]>([])
 
-  const [leftPlanet, setLeftPlanet] = useState<CelestialBody | null>(null)
-  const [rightPlanet, setRightPlanet] = useState<CelestialBody | null>(null)
+  const [bodies, setBodies] = useState<(CelestialBody | null)[]>([])
 
-  const leftId = params.get('a') ?? (mode === 'planets' ? 'coruscant' : mode === 'characters' ? 'luke-skywalker' : 'millennium-falcon')
-  const rightId = params.get('b') ?? (mode === 'planets' ? 'tatooine' : mode === 'characters' ? 'darth-vader' : 'imperial-star-destroyer')
+  const defaults: Record<Mode, string[]> = {
+    planets: ['coruscant', 'tatooine'],
+    characters: ['luke-skywalker', 'darth-vader'],
+    starships: ['millennium-falcon', 'imperial-star-destroyer'],
+  }
+
+  // `ids` carries the set; `a`/`b` are still read so links shared before this
+  // page grew past two columns keep working
+  const ids = useMemo(() => {
+    const listed = params.get('ids')?.split(',').filter(Boolean)
+    const pair = [params.get('a'), params.get('b')].filter(Boolean) as string[]
+    const chosen = listed?.length ? listed : pair.length ? pair : defaults[mode]
+    return chosen.slice(0, MAX_COLUMNS)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params, mode])
+
+  const setIds = (next: string[]) => setParams({ ids: next.join(',') })
 
   useEffect(() => {
     loadAllPlanets().then(setPlanets)
@@ -84,49 +178,55 @@ export default function Compare() {
   useEffect(() => {
     if (mode !== 'planets') return
     let cancelled = false
-    Promise.all([loadBody(leftId), loadBody(rightId)]).then(([a, b]) => {
-      if (cancelled) return
-      setLeftPlanet(a)
-      setRightPlanet(b)
-    }).catch(() => {})
+    Promise.all(ids.map((id) => loadBody(id).catch(() => null)))
+      .then((loaded) => {
+        if (!cancelled) setBodies(loaded)
+      })
+      .catch(() => {})
     return () => {
       cancelled = true
     }
-  }, [leftId, rightId, mode])
+  }, [ids, mode])
 
-  const leftChar = useMemo(() => characters.find((c) => c.id === leftId) ?? characters[0], [characters, leftId])
-  const rightChar = useMemo(() => characters.find((c) => c.id === rightId) ?? characters[1], [characters, rightId])
+  const chosenCharacters = useMemo(
+    () => ids.map((id, i) => characters.find((c) => c.id === id) ?? characters[i]).filter(Boolean),
+    [characters, ids],
+  )
 
-  const leftShip = useMemo(() => starships.find((s) => s.id === leftId) ?? starships[0], [starships, leftId])
-  const rightShip = useMemo(() => starships.find((s) => s.id === rightId) ?? starships[1], [starships, rightId])
+  const chosenShips = useMemo(
+    () => ids.map((id, i) => starships.find((s) => s.id === id) ?? starships[i]).filter(Boolean),
+    [starships, ids],
+  )
 
-  const planetScale = useMemo(() => {
-    const a = leftPlanet?.stats?.diameterKm ?? 0
-    const b = rightPlanet?.stats?.diameterKm ?? 0
-    const max = Math.max(a, b, 1)
-    return { a: a / max, b: b / max }
-  }, [leftPlanet, rightPlanet])
+  /** each value against the largest in the set, so the columns share one scale */
+  const fractions = (values: (number | undefined)[]) => {
+    const max = Math.max(...values.map((v) => v ?? 0), 1)
+    return values.map((v) => (v ?? 0) / max)
+  }
 
-  const shipScale = useMemo(() => {
-    const a = leftShip?.lengthMeters ?? 0
-    const b = rightShip?.lengthMeters ?? 0
-    const max = Math.max(a, b, 1)
-    return { a: a / max, b: b / max }
-  }, [leftShip, rightShip])
+  const planetScale = useMemo(
+    () => fractions(bodies.map((b) => b?.stats?.diameterKm)),
+    [bodies],
+  )
 
-  const planetRows: { label: string; a?: string; b?: string }[] = [
+  const shipScale = useMemo(
+    () => fractions(chosenShips.map((s) => s?.lengthMeters)),
+    [chosenShips],
+  )
+
+  const planetRows: { label: string; values: (string | undefined)[] }[] = [
     {
       label: t('diameter', lang),
-      a: leftPlanet?.stats?.diameterKm ? `${leftPlanet.stats.diameterKm.toLocaleString(lang)} km` : undefined,
-      b: rightPlanet?.stats?.diameterKm ? `${rightPlanet.stats.diameterKm.toLocaleString(lang)} km` : undefined,
+      values: bodies.map((b) =>
+        b?.stats?.diameterKm ? `${b.stats.diameterKm.toLocaleString(lang)} km` : undefined,
+      ),
     },
-    { label: t('region', lang), a: regionNameFor(leftPlanet, lang), b: regionNameFor(rightPlanet, lang) },
-    { label: t('climate', lang), a: LL(leftPlanet?.climate, lang).join(' · '), b: LL(rightPlanet?.climate, lang).join(' · ') },
-    { label: t('terrain', lang), a: LL(leftPlanet?.terrain, lang).join(' · '), b: LL(rightPlanet?.terrain, lang).join(' · ') },
+    { label: t('region', lang), values: bodies.map((b) => regionNameFor(b, lang)) },
+    { label: t('climate', lang), values: bodies.map((b) => LL(b?.climate, lang).join(' · ')) },
+    { label: t('terrain', lang), values: bodies.map((b) => LL(b?.terrain, lang).join(' · ')) },
     {
       label: t('population', lang),
-      a: leftPlanet?.stats?.population ? L(leftPlanet.stats.population, lang) : undefined,
-      b: rightPlanet?.stats?.population ? L(rightPlanet.stats.population, lang) : undefined,
+      values: bodies.map((b) => (b?.stats?.population ? L(b.stats.population, lang) : undefined)),
     },
   ]
 
@@ -164,36 +264,21 @@ export default function Compare() {
 
         {mode === 'planets' && (
           <>
-            <div className="mt-4 flex flex-wrap gap-4">
-              <label className="flex items-center gap-2 text-[11px] text-slate-400">
-                <span className="uppercase tracking-[0.2em] text-slate-500">A</span>
-                <select
-                  value={leftId}
-                  onChange={(e) => setParams({ a: e.target.value, b: rightId })}
-                  className="rounded border border-white/10 bg-black/40 px-2 py-1 text-[12px] text-slate-200 outline-none"
-                >
-                  {selectablePlanets.map((p) => (
-                    <option key={p.id} value={p.id}>{L(p.names, lang)}</option>
-                  ))}
-                </select>
-              </label>
-              <label className="flex items-center gap-2 text-[11px] text-slate-400">
-                <span className="uppercase tracking-[0.2em] text-slate-500">B</span>
-                <select
-                  value={rightId}
-                  onChange={(e) => setParams({ a: leftId, b: e.target.value })}
-                  className="rounded border border-white/10 bg-black/40 px-2 py-1 text-[12px] text-slate-200 outline-none"
-                >
-                  {selectablePlanets.map((p) => (
-                    <option key={p.id} value={p.id}>{L(p.names, lang)}</option>
-                  ))}
-                </select>
-              </label>
-            </div>
+            <ColumnPickers
+              ids={ids}
+              options={selectablePlanets.map((p) => ({ id: p.id, name: L(p.names, lang) }))}
+              onChange={setIds}
+            />
 
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {[leftPlanet, rightPlanet].map((body, i) => (
-                <div key={i} className="relative h-[300px] overflow-hidden rounded-lg border border-holo-cyan/15 bg-black/40">
+            <div
+              className="mt-4 grid gap-3"
+              style={{ gridTemplateColumns: `repeat(auto-fit, minmax(220px, 1fr))` }}
+            >
+              {bodies.map((body, i) => (
+                <div
+                  key={ids[i] ?? i}
+                  className="relative h-[300px] overflow-hidden rounded-lg border border-holo-cyan/15 bg-black/40"
+                >
                   {body && <GlobePane body={body} era={era} />}
                   <span className="absolute bottom-2 left-3 font-display text-sm tracking-[0.2em] text-slate-200">
                     {body ? L(body.names, lang).toUpperCase() : ''}
@@ -206,160 +291,151 @@ export default function Compare() {
               <div className="mb-3 font-hud text-[10px] uppercase tracking-[0.3em] text-slate-500">
                 {t('toScale', lang)}
               </div>
-              <div className="flex items-end justify-center gap-8">
-                {[
-                  { body: leftPlanet, frac: planetScale.a, tint: '#66D9FF' },
-                  { body: rightPlanet, frac: planetScale.b, tint: '#FFE81F' },
-                ].map(({ body, frac, tint }, i) => (
-                  <div key={i} className="flex flex-col items-center gap-2">
+              <div className="flex flex-wrap items-end justify-center gap-8">
+                {bodies.map((body, i) => (
+                  <div key={ids[i] ?? i} className="flex flex-col items-center gap-2">
                     <span
                       className="block rounded-full"
                       style={{
-                        width: `${Math.max(frac * 160, 12)}px`,
-                        height: `${Math.max(frac * 160, 12)}px`,
-                        background: `radial-gradient(circle at 35% 30%, ${tint}, #0b1018 70%)`,
+                        width: `${Math.max((planetScale[i] ?? 0) * 160, 12)}px`,
+                        height: `${Math.max((planetScale[i] ?? 0) * 160, 12)}px`,
+                        background: `radial-gradient(circle at 35% 30%, ${COLUMN_TINTS[i % COLUMN_TINTS.length]}, #0b1018 70%)`,
                       }}
                     />
                     <span className="text-[11px] text-slate-400">
-                      {body?.stats?.diameterKm ? `${body.stats.diameterKm.toLocaleString(lang)} km` : '—'}
+                      {body?.stats?.diameterKm
+                        ? `${body.stats.diameterKm.toLocaleString(lang)} km`
+                        : '—'}
                     </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <table className="mt-6 w-full text-[12px]">
-              <thead>
-                <tr className="text-left text-[10px] uppercase tracking-[0.2em] text-slate-500">
-                  <th className="w-1/4 pb-2 font-normal" />
-                  <th className="pb-2 font-normal">{leftPlanet ? L(leftPlanet.names, lang) : ''}</th>
-                  <th className="pb-2 font-normal">{rightPlanet ? L(rightPlanet.names, lang) : ''}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {planetRows.map((row) => (
-                  <tr key={row.label} className="border-t border-white/5 align-top">
-                    <td className="py-2 pr-3 text-slate-500">{row.label}</td>
-                    <td className="py-2 pr-3 text-slate-200">{row.a ?? '—'}</td>
-                    <td className="py-2 text-slate-200">{row.b ?? '—'}</td>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[520px] text-[12px]">
+                <thead>
+                  <tr className="text-left text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                    <th className="w-1/4 pb-2 font-normal" />
+                    {bodies.map((body, i) => (
+                      <th key={ids[i] ?? i} className="pb-2 font-normal">
+                        {body ? L(body.names, lang) : ''}
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {planetRows.map((row) => (
+                    <tr key={row.label} className="border-t border-white/5 align-top">
+                      <td className="py-2 pr-3 text-slate-500">{row.label}</td>
+                      {row.values.map((value, i) => (
+                        <td key={ids[i] ?? i} className="py-2 pr-3 text-slate-200">
+                          {value || '—'}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </>
         )}
 
         {mode === 'characters' && (
-          <div className="mt-6">
-            <div className="flex flex-wrap gap-4 mb-4">
-              <select
-                value={leftChar?.id}
-                onChange={(e) => setParams({ a: e.target.value, b: rightChar?.id ?? '' })}
-                className="rounded border border-white/10 bg-black/40 px-3 py-1.5 text-[12px] text-slate-200 outline-none"
-              >
-                {characters.map((c) => (
-                  <option key={c.id} value={c.id}>{L(c.names, lang)}</option>
-                ))}
-              </select>
-              <select
-                value={rightChar?.id}
-                onChange={(e) => setParams({ a: leftChar?.id ?? '', b: e.target.value })}
-                className="rounded border border-white/10 bg-black/40 px-3 py-1.5 text-[12px] text-slate-200 outline-none"
-              >
-                {characters.map((c) => (
-                  <option key={c.id} value={c.id}>{L(c.names, lang)}</option>
-                ))}
-              </select>
-            </div>
+          <div className="mt-2">
+            <ColumnPickers
+              ids={ids}
+              options={characters.map((c) => ({ id: c.id, name: L(c.names, lang) }))}
+              onChange={setIds}
+            />
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {[leftChar, rightChar].map((char) => (
-                char && (
-                  <div key={char.id} className="rounded-lg border border-holo-cyan/20 bg-panel/80 p-4">
-                    <HoloPortrait id={char.id} name={L(char.names, lang)} size="md" />
-                    <h3 className="mt-3 font-display text-lg tracking-wider text-slate-100">
-                      {L(char.names, lang)}
-                    </h3>
-                    <div className="mt-1 font-hud text-[11px] text-holo-cyan">
-                      {L(char.species, lang)}
-                    </div>
-                    <p className="mt-3 text-[12px] leading-relaxed text-slate-300">
-                      {L(char.bio, lang)}
-                    </p>
+            <div
+              className="mt-6 grid gap-6"
+              style={{ gridTemplateColumns: `repeat(auto-fit, minmax(240px, 1fr))` }}
+            >
+              {chosenCharacters.map((char) => (
+                <div key={char.id} className="rounded-lg border border-holo-cyan/20 bg-panel/80 p-4">
+                  <HoloPortrait id={char.id} name={L(char.names, lang)} size="md" />
+                  <h3 className="mt-3 font-display text-lg tracking-wider text-slate-100">
+                    {L(char.names, lang)}
+                  </h3>
+                  <div className="mt-1 font-hud text-[11px] text-holo-cyan">
+                    {L(char.species, lang)}
                   </div>
-                )
+                  <p className="mt-3 text-[12px] leading-relaxed text-slate-300">
+                    {L(char.bio, lang)}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         )}
 
         {mode === 'starships' && (
-          <div className="mt-6">
-            <div className="flex flex-wrap gap-4 mb-4">
-              <select
-                value={leftShip?.id}
-                onChange={(e) => setParams({ a: e.target.value, b: rightShip?.id ?? '' })}
-                className="rounded border border-white/10 bg-black/40 px-3 py-1.5 text-[12px] text-slate-200 outline-none"
-              >
-                {starships.map((s) => (
-                  <option key={s.id} value={s.id}>{L(s.names, lang)}</option>
-                ))}
-              </select>
-              <select
-                value={rightShip?.id}
-                onChange={(e) => setParams({ a: leftShip?.id ?? '', b: e.target.value })}
-                className="rounded border border-white/10 bg-black/40 px-3 py-1.5 text-[12px] text-slate-200 outline-none"
-              >
-                {starships.map((s) => (
-                  <option key={s.id} value={s.id}>{L(s.names, lang)}</option>
-                ))}
-              </select>
-            </div>
+          <div className="mt-2">
+            <ColumnPickers
+              ids={ids}
+              options={starships.map((s) => ({ id: s.id, name: L(s.names, lang) }))}
+              onChange={setIds}
+            />
 
-            <div className="mt-6 rounded-lg border border-white/10 bg-panel/60 p-4 mb-6">
+            <div className="mb-6 mt-6 rounded-lg border border-white/10 bg-panel/60 p-4">
               <div className="mb-3 font-hud text-[10px] uppercase tracking-[0.3em] text-slate-500">
                 {t('toScale', lang)} ({lang === 'tr' ? 'UZUNLUK' : 'LENGTH'})
               </div>
               <div className="space-y-3">
-                {[
-                  { ship: leftShip, frac: shipScale.a },
-                  { ship: rightShip, frac: shipScale.b },
-                ].map(({ ship, frac }, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <span className="w-32 truncate text-[11px] text-slate-300">{ship ? L(ship.names, lang) : ''}</span>
-                    <div className="flex-1 h-3 rounded bg-black/50 overflow-hidden">
+                {chosenShips.map((ship, i) => (
+                  <div key={ship.id} className="flex items-center gap-3">
+                    <span className="w-32 truncate text-[11px] text-slate-300">
+                      {L(ship.names, lang)}
+                    </span>
+                    <div className="h-3 flex-1 overflow-hidden rounded bg-black/50">
                       <div
                         className="h-full bg-gradient-to-r from-holo-cyan to-star-gold transition-all duration-500"
-                        style={{ width: `${Math.max(frac * 100, 2)}%` }}
+                        style={{ width: `${Math.max((shipScale[i] ?? 0) * 100, 2)}%` }}
                       />
                     </div>
-                    <span className="w-24 text-right text-[11px] text-star-gold">{ship?.lengthMeters ? `${ship.lengthMeters} m` : '—'}</span>
+                    <span className="w-24 text-right text-[11px] text-star-gold">
+                      {ship.lengthMeters ? `${ship.lengthMeters} m` : '—'}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {[leftShip, rightShip].map((ship) => (
-                ship && (
-                  <div key={ship.id} className="rounded-lg border border-white/10 bg-panel/80 p-4">
-                    <h3 className="font-display text-lg tracking-wider text-holo-cyan">
-                      {L(ship.names, lang)}
-                    </h3>
-                    <div className="mt-1 text-[11px] text-slate-400">
-                      {ship.model} · {L(ship.starshipClass, lang)}
-                    </div>
-                    <p className="mt-3 text-[12px] leading-relaxed text-slate-300">
-                      {L(ship.desc, lang)}
-                    </p>
-                    <div className="mt-4 border-t border-white/5 pt-3 text-[11px] space-y-1 text-slate-400">
-                      <div><strong className="text-slate-300">{t('manufacturer', lang)}:</strong> {L(ship.manufacturer, lang)}</div>
-                      <div><strong className="text-slate-300">{t('hyperdrive', lang)}:</strong> {ship.hyperdriveRating}</div>
-                      <div><strong className="text-slate-300">{lang === 'tr' ? 'Mürettebat' : 'Crew'}:</strong> {ship.crew}</div>
-                    </div>
-                    <SourceLink source={ship.source} className="mt-3" />
+            <div
+              className="grid gap-6"
+              style={{ gridTemplateColumns: `repeat(auto-fit, minmax(240px, 1fr))` }}
+            >
+              {chosenShips.map((ship) => (
+                <div key={ship.id} className="rounded-lg border border-white/10 bg-panel/80 p-4">
+                  <h3 className="font-display text-lg tracking-wider text-holo-cyan">
+                    {L(ship.names, lang)}
+                  </h3>
+                  <div className="mt-1 text-[11px] text-slate-400">
+                    {ship.model} · {L(ship.starshipClass, lang)}
                   </div>
-                )
+                  <p className="mt-3 text-[12px] leading-relaxed text-slate-300">
+                    {L(ship.desc, lang)}
+                  </p>
+                  <div className="mt-4 space-y-1 border-t border-white/5 pt-3 text-[11px] text-slate-400">
+                    <div>
+                      <strong className="text-slate-300">{t('manufacturer', lang)}:</strong>{' '}
+                      {L(ship.manufacturer, lang)}
+                    </div>
+                    <div>
+                      <strong className="text-slate-300">{t('hyperdrive', lang)}:</strong>{' '}
+                      {ship.hyperdriveRating}
+                    </div>
+                    <div>
+                      <strong className="text-slate-300">
+                        {lang === 'tr' ? 'Mürettebat' : 'Crew'}:
+                      </strong>{' '}
+                      {ship.crew}
+                    </div>
+                  </div>
+                  <SourceLink source={ship.source} className="mt-3" />
+                </div>
               ))}
             </div>
           </div>
