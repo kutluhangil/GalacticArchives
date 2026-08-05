@@ -5,7 +5,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Command } from 'cmdk'
 import type { CelestialBody, Character } from '../types/lore'
-import { L, loadAllPlanets, loadCharacters, regions } from '../lib/lore'
+import { L, loadAllPlanets, loadCharacters, regions, sectorShort } from '../lib/lore'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import { useFlyTo } from './useFlyTo'
@@ -95,13 +95,18 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
               {shownPlanets.map((p) => (
                 <Command.Item
                   key={p.id}
-                  value={`${p.names.en} ${p.names.tr} ${p.id}`}
+                  // the sector rides in the search value, so typing "Arkanis"
+                  // gathers the three worlds canon puts in that sector — the
+                  // one grouping the map cannot draw, since no canon borders
+                  // exist to trace
+                  value={`${p.names.en} ${p.names.tr} ${p.id}${p.sector ? ` ${p.sector}` : ''}`}
                   onSelect={() => go(`/planet/${p.id}`)}
-                  className="flex cursor-pointer items-center justify-between rounded px-3 py-2 text-[13px] text-slate-200 aria-selected:bg-holo-cyan/15 aria-selected:text-holo-cyan"
+                  className="flex cursor-pointer items-center justify-between gap-3 rounded px-3 py-2 text-[13px] text-slate-200 aria-selected:bg-holo-cyan/15 aria-selected:text-holo-cyan"
                 >
                   <span>{L(p.names, lang)}</span>
-                  <span className="text-[10px] tracking-widest text-slate-500">
+                  <span className="shrink-0 text-[10px] tracking-widest text-slate-500">
                     {L(regions.find((r) => r.id === p.region)?.names, lang)}
+                    {p.sector ? ` · ${sectorShort(p.sector)}` : ''}
                     {p.coordinates ? ` · ${p.coordinates}` : ''}
                   </span>
                 </Command.Item>

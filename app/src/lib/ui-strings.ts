@@ -88,6 +88,8 @@ const STRINGS = {
   },
   allRegions: { en: 'All regions', tr: 'Tüm bölgeler' },
   allMedia: { en: 'All productions', tr: 'Tüm yapımlar' },
+  allSectors: { en: 'All sectors', tr: 'Tüm sektörler' },
+  sectorUnstated: { en: 'Sector unstated in canon', tr: 'Sektörü kanonda belirtilmemiş' },
   worlds: { en: 'Worlds', tr: 'Dünyalar' },
   characters: { en: 'Characters', tr: 'Karakterler' },
   starships: { en: 'Starships', tr: 'Yıldız Gemileri' },

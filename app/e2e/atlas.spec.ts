@@ -58,6 +58,24 @@ test('the command palette finds a world by name', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'TATOOINE' })).toBeVisible()
 })
 
+// The sector is the one grouping the map cannot draw: canon states no sector
+// borders, so it lives as a search and filter axis instead of a polygon.
+test('the command palette gathers a sector the map cannot draw', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+  await page.keyboard.press('ControlOrMeta+k')
+  const search = page.getByPlaceholder(/ara|search/i)
+  await expect(search).toBeVisible()
+
+  await search.fill('Arkanis sector')
+  // no world is called Arkanis; these three are the worlds the sector holds
+  for (const world of [/Tatooine/i, /Geonosis/i, /Trask/i]) {
+    await expect(page.getByRole('option', { name: world })).toBeVisible()
+  }
+  await expect(page.getByRole('option', { name: /Hoth/i })).toHaveCount(0)
+})
+
 test('the Legends layer adds the Old Republic era to the timeline', async ({ page }) => {
   await page.goto('/galaxy')
   const oldRepublic = page.getByRole('button', { name: /Eski Cumhuriyet|Old Republic/ })

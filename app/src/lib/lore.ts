@@ -105,6 +105,27 @@ export function factionById(id: string | undefined): Faction | undefined {
   return factions.find((f) => f.id === id)
 }
 
+/** The sectors that name worlds in the archive, alphabetical, with how many
+ *  worlds each holds. Canon draws no sector borders this map could trace — 60
+ *  sectors across 74 worlds, most of them holding a single one — so a sector is
+ *  an axis to search and filter along, never a polygon on the map. A world
+ *  whose sector canon leaves unstated simply omits the field. */
+export function sectorsIn(bodies: CelestialBody[]): { name: string; count: number }[] {
+  const counts = new Map<string, number>()
+  for (const body of bodies) {
+    if (!body.sector) continue
+    counts.set(body.sector, (counts.get(body.sector) ?? 0) + 1)
+  }
+  return [...counts]
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => a.name.localeCompare(b.name))
+}
+
+/** "Arkanis sector" reads as "Arkanis" where the column already says sector. */
+export function sectorShort(name: string): string {
+  return name.replace(/\s+sector$/i, '')
+}
+
 export function mediaById(id: string): MediaEntry | undefined {
   return media.find((m) => m.id === id)
 }

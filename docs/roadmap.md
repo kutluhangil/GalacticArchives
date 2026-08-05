@@ -159,8 +159,11 @@ bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan
   rayı okuyucuyu takip eder ve tıklanınca ilgili döneme atlar, ekranın ortasındaki kayıt kendini
   işaretler (ölçüm kaydırmada yapılır; IntersectionObserver gizli sekmede kısıtlanıyor).
 - [ ] **P3** Compare'i sistem düzeyine çıkar.
-- [ ] **P3** Sektör katmanı: kanon sektör poligonu yok (74 dünya / 60 sektör). Geometri uydurmadan
-  yapılabilecek olan, sektörü filtre ekseni yapmak — ayrı iş olarak duruyor.
+- [x] **P3** Sektör ekseni: kanon sektör poligonu yok (71 dünya / 60 sektör), o yüzden harita
+  katmanı değil **arama + filtre ekseni** oldu. Holocron'da sayılı sektör seçicisi (+ "sektörü
+  kanonda belirtilmemiş" grubu), ⌘K'da sektör adı aranabilir — "Arkanis sector" üç dünyayı
+  toplar. Yan bulgu: üç dünya sektör alanında `"None"`/`"N/A"` yer tutucusu taşıyordu (Tython,
+  Morak, Plazir-15); alan kaldırıldı, `validate-lore` yer tutucuyu sektör adı saymayı reddediyor.
 - [ ] **P3** Karakter↔gezegen çapraz-graf navigasyonunu derinleştir.
 - [ ] **P3** Megayapıları tamamla (Starkiller vb.).
 - [ ] **P3** 3. dil gelince i18next'i yeniden değerlendir.

@@ -103,16 +103,16 @@ Sıradaki işler:
 
 - **Klavye ile gezinme derinliği.** Araç panelleri artık `dialog` (odak tuzağı +
   `Escape` + odağı geri verme) ve üç sayfa `main` + etiketli filtre gruplarıyla
-  geliyor. Kalan: galaksi haritasındaki gibi ok tuşlarıyla liste gezinme ve
-  `HolocronQuiz`/`ShipBlueprint` gibi ikincil bileşenlerin denetimi.
-- **İlk boya tavanda.** `first paint total` 399 328 / 400 000 bayt. Sonraki
-  özellik bütçeyi kırar; giriş yığınını (345 kB) bölmek ayrı bir iş.
-- **Telsiz meta alanları uydurma.** `audioFrequency` ("1420.405 MHz (Encrypted
-  HoloNet)" gibi) kanon değil, atmosfer amaçlı. Transkriptler artık birebir mi
-  yeniden yazım mı olduğunu söylüyor; bu alan hâlâ söylemiyor.
+  geliyor. `HolocronQuiz` aynı kabuğa taşındı, `ShipBlueprint`'in şeması
+  dekoratif ilan edilip lejant düğmeleri gerçek denetim oldu. Kalan: galaksi
+  haritasındaki gibi ok tuşlarıyla liste gezinme.
+- **İlk boya tavanda.** `first paint total` 399 500 / 400 000 bayt. Sonraki
+  özellik bütçeyi kırar; giriş yığınını (346 kB) bölmek ayrı bir iş.
 
 Bilinçli olarak ertelendi, istersen sıraya alırım:
 
+- Sektör **poligon** katmanı — yapılmayacak: kanon sektör sınırı geometrisi yok, çizmek uydurma
+  veri üretmek olurdu. Sektör bunun yerine arama/filtre ekseni olarak duruyor.
 - Compare'i sistem düzeyine çıkarmak (gövde sayısı 2 → 4 oldu, sistem karşılaştırması hâlâ yok).
 - Karakter ↔ gezegen çapraz-graf navigasyonunu derinleştirmek.
 - Megayapıları tamamlamak (şu an yalnız `death-star`, `death-star-2`).

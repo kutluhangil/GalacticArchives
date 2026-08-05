@@ -102,6 +102,16 @@ for (const [id, { body, file }] of bodies) {
   checkLocalized(body.desc, `${id}.desc`, file)
   if (!regionIds.has(body.region)) err(`${file}: ${id}.region "${body.region}" not in regions.json`)
   if (!body.system) err(`${file}: ${id}.system missing`)
+  // The sector is a filter axis, so "None" — what a Wookieepedia infobox prints
+  // for a world no sector claims — must not become a sector named None. A world
+  // with no stated sector omits the field and falls under "unstated".
+  if (body.sector !== undefined) {
+    if (typeof body.sector !== 'string' || !body.sector.trim()) {
+      err(`${file}: ${id}.sector must be a sector name or be omitted`)
+    } else if (/^(none|n\/a|unknown)$/i.test(body.sector.trim())) {
+      err(`${file}: ${id}.sector is "${body.sector}" — omit the field instead of naming a sector that does not exist`)
+    }
+  }
   // A missing stats block is only a gap when canon actually states something;
   // where it does not, the panel says so explicitly and there is nothing to
   // author. The per-field check further down reports the real gaps.
