@@ -2,7 +2,7 @@ import { Suspense, useEffect } from 'react'
 import { Outlet } from 'react-router'
 import ErrorBoundary from './components/ErrorBoundary'
 import TransitionVeil from './components/TransitionVeil'
-import TourPlayer from './components/TourPlayer'
+import TourPlayerHost from './components/TourPlayerHost'
 import CommandPaletteHost from './components/CommandPaletteHost'
 import { setQuality } from './lib/quality'
 import { t } from './lib/ui-strings'
@@ -43,7 +43,7 @@ export default function App() {
           <Outlet />
         </Suspense>
       </ErrorBoundary>
-      <TourPlayer />
+      <TourPlayerHost />
       <TransitionVeil />
       <CommandPaletteHost />
     </>

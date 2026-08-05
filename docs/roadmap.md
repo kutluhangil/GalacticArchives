@@ -147,7 +147,10 @@ bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan
   `aria-pressed`/`aria-selected` ve listbox semantiği kazandı.
 - [x] **P1** Yeni rotalar için birim + uçtan uca test: 226 birim/bileşen (202'den) ve
   23 uçtan uca (16'dan) — dört rota, atıf linkleri ve panel klavye akışı dahil.
-- [ ] **P2** İlk boya 399 328/400 000 bayt — giriş yığınını bölmeden yeni özellik sığmaz.
+- [x] **P2** İlk boya tavandan indi: tur oynatıcısı `TourPlayerHost` arkasına alındı — `lib/lore`
+  üzerinden istasyon/era/bölge/hizip/yapım tablolarını, yazılı turları ve hat turu yükleyicisini
+  ilk boyaya taşıyordu, oysa tur başlamadan yapacak işi yok. Giriş yığını 346 → 308 kB, ilk boya
+  399 500 → 361 270 bayt (%9,6). Bütçe tavanları da 330 kB / 390 kB'ye çekildi.
 - [x] **P3** Compare 2 → 4 sütun: set `?ids=` ile URL'de, eski `?a=&b=` linkleri çalışmaya devam
   ediyor, sütunlar tek ölçeği paylaşıyor, tavan 4 (her gezegen sütunu kendi WebGL sahnesini kurar).
 - [x] **P2** Haftalık kanon nöbeti (`.github/workflows/canon-watch.yml`): 60 atıf makalesi canlı
