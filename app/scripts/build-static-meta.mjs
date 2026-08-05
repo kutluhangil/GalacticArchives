@@ -127,6 +127,41 @@ function writePage(routePath, html) {
 
 const urls = ['/', '/galaxy', '/holocron', '/compare']
 
+// The archive sections have no per-record page of their own, so they get one
+// static page each: without it a crawler sees only the SPA shell's site-wide
+// title and the routes are absent from the sitemap entirely.
+const sections = [
+  {
+    path: '/timeline',
+    title: 'Timeline — Galactic Archives',
+    description:
+      'Canon events from the founding of the Republic to the battle of Exegol, each one linked to the world it happened on.',
+  },
+  {
+    path: '/force',
+    title: 'Force Vault — Galactic Archives',
+    description:
+      'The Force powers the archive documents, by tier and by side, each citing the article it was written from.',
+  },
+  {
+    path: '/watch-guide',
+    title: 'Watch Guide — Galactic Archives',
+    description:
+      'Every canon film and series in chronological or release order, linked to the worlds and characters it features.',
+  },
+  {
+    path: '/hangar',
+    title: 'Hangar — Galactic Archives',
+    description:
+      'Starships of the galaxy with their blueprints, scale against one another, and allegiance across the eras.',
+  },
+]
+
+for (const section of sections) {
+  writePage(section.path, page({ ...section, image: '/og/default.png' }))
+  urls.push(section.path)
+}
+
 for (const planet of planets) {
   const name = planet.names.en
   const description = planet.desc.en.slice(0, 180)

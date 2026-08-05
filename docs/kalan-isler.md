@@ -1,6 +1,6 @@
 # Kalan işler — Galactic Archives
 
-**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-02
+**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-05
 
 Bu dosya tek kaynak: neyin bittiği, neyin **sende**, neyin **bende** olduğu. Eski
 `HANDOFF.md` ve `SENDEN-GEREKENLER.md` bunun yerine geçtiği için silindi.
@@ -13,9 +13,15 @@ Bu dosya tek kaynak: neyin bittiği, neyin **sende**, neyin **bende** olduğu. E
 |---|---|---|
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
 | Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 168 POI, 23 hiperuzay hattı | `npm run validate` → 0 hata |
-| Test | 196 birim/bileşen + 16 uçtan uca | `npm run verify` |
+| Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
+| Test | 212 birim/bileşen + 16 uçtan uca | `npm run verify` |
 | CI | Yeşil | GitHub Actions `CI / verify` |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
+
+**Lore sayfaları (2026-08-02'de eklendi, 2026-08-05'te kaynaklandı):** `/timeline`,
+`/force`, `/watch-guide`, `/hangar` rotaları + üst çubuktaki beş araç paneli
+(Hiperuzay, Işın Kılıçları, Telsizler, Aurebesh, Holo-Kimlik) ve Holocron testi.
+Dördü de artık statik meta + sitemap üretiyor; araç panelleri tembel yükleniyor.
 
 **Görsel üretimi tarafında açık prompt kalmadı.** `docs/gorsel-uretim-promptlari.md`
 içinde dosya yolu verilen 223 varlığın 223'ü diskte; üstüne `docs/brand/readme-banner.png`.
@@ -91,7 +97,21 @@ Bu listenin beş kalemi 2026-08-02'de kapandı:
 
 ---
 
-## 3. Kapsam dışı bırakılanlar (P3)
+## 3. Açık kalanlar
+
+Sıradaki işler:
+
+- **Yeni sayfalarda erişilebilirlik.** `Hangar`, `ForceLore`, `WatchGuide` sıfır
+  `aria-`/`role=` ile geldi; beş araç panelinde odak tuzağı ve `Escape` yok.
+  Gezegen paneli ve galaksi düğümlerinde kazanılan klavye/ekran okuyucu desteği bu
+  yüzeye taşınmadı.
+- **Yeni sayfaların testi.** 4 rota + 5 panel için birim/uçtan uca kapsam yok;
+  bugünkü koruma yalnız veri tarafında (codex kaynak testleri).
+- **İlk boya tavanda.** `first paint total` 399 328 / 400 000 bayt. Sonraki
+  özellik bütçeyi kırar; giriş yığınını (345 kB) bölmek ayrı bir iş.
+- **Telsiz meta alanları uydurma.** `audioFrequency` ("1420.405 MHz (Encrypted
+  HoloNet)" gibi) kanon değil, atmosfer amaçlı. Transkriptler artık birebir mi
+  yeniden yazım mı olduğunu söylüyor; bu alan hâlâ söylemiyor.
 
 Bilinçli olarak ertelendi, istersen sıraya alırım:
 

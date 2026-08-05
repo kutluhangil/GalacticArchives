@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import type { CelestialBody } from '../../types/lore'
 import { useApp } from '../../state/app'
@@ -10,11 +10,15 @@ import { tours } from '../../lib/tours'
 import { useFavorites, useRecents } from '../../hooks/useCollections'
 import { useFlyTo } from '../useFlyTo'
 import { sfx } from '../../lib/audio'
-import AurebeshTranslator from '../AurebeshTranslator'
-import HyperspaceSimulator from '../HyperspaceSimulator'
-import LightsaberChamber from '../LightsaberChamber'
-import TransmissionPlayer from '../TransmissionPlayer'
-import GalacticIdGenerator from '../GalacticIdGenerator'
+
+// The five tool panels are only ever reached from the menu below, and the top
+// bar rides along on every route — importing them eagerly put roughly a
+// thousand lines of modal into the first paint of the galaxy map.
+const AurebeshTranslator = lazy(() => import('../AurebeshTranslator'))
+const HyperspaceSimulator = lazy(() => import('../HyperspaceSimulator'))
+const LightsaberChamber = lazy(() => import('../LightsaberChamber'))
+const TransmissionPlayer = lazy(() => import('../TransmissionPlayer'))
+const GalacticIdGenerator = lazy(() => import('../GalacticIdGenerator'))
 /**
  * Routes that read as archive sections rather than map controls. They live in
  * one menu because thirteen flat chips wrapped the header onto a second row,
@@ -244,7 +248,6 @@ export default function TopBar() {
   const { lang, setLang, era, setEra, legends, territory, setTerritory } = useApp()
   const jump = useFlyTo()
   const navigate = useNavigate()
-  const [muted, setMuted] = useState(sfx.isMuted())
   const [translatorOpen, setTranslatorOpen] = useState(false)
   const [hyperspaceOpen, setHyperspaceOpen] = useState(false)
   const [lightsabersOpen, setLightsabersOpen] = useState(false)
@@ -254,19 +257,15 @@ export default function TopBar() {
   // the Old Republic era belongs to the Legends layer; hide it otherwise
   const shownEras = eras.filter((e) => e.id !== 'old-republic' || legends)
 
-  const toggleAudio = () => {
-    const active = sfx.toggleMute()
-    setMuted(!active)
-    if (active) sfx.playSelect()
-  }
-
   return (
     <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-start justify-between gap-2 p-4">
-      {translatorOpen && <AurebeshTranslator onClose={() => setTranslatorOpen(false)} />}
-      {hyperspaceOpen && <HyperspaceSimulator onClose={() => setHyperspaceOpen(false)} />}
-      {lightsabersOpen && <LightsaberChamber onClose={() => setLightsabersOpen(false)} />}
-      {transmissionsOpen && <TransmissionPlayer onClose={() => setTransmissionsOpen(false)} />}
-      {idGenOpen && <GalacticIdGenerator onClose={() => setIdGenOpen(false)} />}
+      <Suspense fallback={null}>
+        {translatorOpen && <AurebeshTranslator onClose={() => setTranslatorOpen(false)} />}
+        {hyperspaceOpen && <HyperspaceSimulator onClose={() => setHyperspaceOpen(false)} />}
+        {lightsabersOpen && <LightsaberChamber onClose={() => setLightsabersOpen(false)} />}
+        {transmissionsOpen && <TransmissionPlayer onClose={() => setTransmissionsOpen(false)} />}
+        {idGenOpen && <GalacticIdGenerator onClose={() => setIdGenOpen(false)} />}
+      </Suspense>
 
       <div className="pointer-events-auto">
         <button
@@ -425,15 +424,6 @@ export default function TopBar() {
             </button>
           ))}
         </div>
-        <button
-          onClick={toggleAudio}
-          title={t(muted ? 'audioOff' : 'audioOn', lang)}
-          className={`rounded border px-2 py-0.5 text-[11px] transition-colors ${
-            !muted ? 'border-holo-cyan/40 bg-holo-cyan/10 text-holo-cyan' : 'border-white/10 bg-black/30 text-slate-500 hover:text-slate-300'
-          }`}
-        >
-          {muted ? '🔇 SFX' : '🔊 SFX'}
-        </button>
         <SettingsMenu />
         <button
           onClick={() => {

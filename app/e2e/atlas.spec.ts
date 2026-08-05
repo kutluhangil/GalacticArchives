@@ -150,6 +150,9 @@ test('flying a lane starts a tour at its first stop', async ({ page }) => {
 })
 
 test('the keyboard lane list selects a lane without a pointer', async ({ page }) => {
+  // the galaxy route cold-builds the WebGL scene, which under a full parallel
+  // run has taken past the default budget on this machine
+  test.slow()
   await page.goto('/galaxy')
   const entry = page
     .getByRole('navigation', { name: /Hiperuzay hatları|Hyperlanes/ })

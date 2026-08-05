@@ -95,6 +95,11 @@ const STRINGS = {
   victor: { en: 'Victor', tr: 'Galip' },
   audioOn: { en: 'Audio FX Enabled', tr: 'Ses Efektleri Açık' },
   audioOff: { en: 'Audio FX Muted', tr: 'Ses Efektleri Kapalı' },
+  sfx: { en: 'Interface sound', tr: 'Arayüz sesi' },
+  sfxHint: {
+    en: 'Synthesised clicks and chimes for panels and jumps. The choice is remembered.',
+    tr: 'Paneller ve sıçramalar için sentezlenmiş tık ve ton sesleri. Seçim hatırlanır.',
+  },
 
   resultCount: { en: 'records', tr: 'kayıt' },
   viewIn3d: { en: 'View in 3D', tr: "3B'de görüntüle" },

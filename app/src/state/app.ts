@@ -30,6 +30,8 @@ interface AppState {
   lanes: boolean
   /** show faction territory overlay on galaxy map */
   territory: boolean
+  /** interface sound effects; the engine keeps the same value in storage */
+  sfx: boolean
   veil: VeilPhase
   tour: TourState | null
   clockSpeed: number
@@ -40,6 +42,7 @@ interface AppState {
   setLegends: (v: boolean) => void
   setLanes: (v: boolean) => void
   setTerritory: (v: boolean) => void
+  setSfx: (v: boolean) => void
   setVeil: (v: VeilPhase) => void
   startTour: (source: TourSource) => void
   setTourStep: (step: number) => void
@@ -56,6 +59,8 @@ const storedLegends = localStorage.getItem('ga-legends') === '1'
 // lanes are part of what the map is, so they are on until switched off
 const storedLanes = localStorage.getItem('ga-lanes') !== '0'
 const storedTerritory = localStorage.getItem('ga-territory') === '1'
+// sound is part of the console feel, so it is on until switched off
+const storedSfx = localStorage.getItem('ga-sfx') !== '0'
 // never boot into the Legends-only era with the layer off
 const bootEra: EraId = storedEra === 'old-republic' && !storedLegends ? 'empire' : storedEra
 
@@ -66,6 +71,7 @@ export const useApp = create<AppState>((set, get) => ({
   legends: storedLegends,
   lanes: storedLanes,
   territory: storedTerritory,
+  sfx: storedSfx,
   veil: 'open',
   tour: null,
   clockSpeed: 1,
@@ -100,6 +106,15 @@ export const useApp = create<AppState>((set, get) => ({
   setTerritory: (territory) => {
     localStorage.setItem('ga-territory', territory ? '1' : '0')
     set({ territory })
+  },
+  setSfx: (sfxOn) => {
+    // the audio engine reads this key when it is constructed, so a reload
+    // respects the choice without the store having to reach it. Telling a
+    // loaded engine is a dynamic import on purpose: the synthesiser is not
+    // worth carrying in the first-paint chunk for a preference nobody may touch.
+    localStorage.setItem('ga-sfx', sfxOn ? '1' : '0')
+    void import('../lib/audio').then((m) => m.sfx.setMuted(!sfxOn))
+    set({ sfx: sfxOn })
   },
   setVeil: (veil) => set({ veil }),
   startTour: (source) => set({ tour: { source, step: 0, playing: true } }),

@@ -29,6 +29,9 @@ const BUDGETS = [
   // first paint stays inside its own 400,000 ceiling
   { name: 'entry stylesheet', pattern: /^index-.*\.css$/, max: 56_000 },
   { name: 'KTX2 transcoder chunk', pattern: /^KTX2Loader-.*\.js$/, max: 40_000 },
+  // rides along on every route, so it is the easiest place to accidentally put
+  // a panel nobody opened — the five tool modals are lazy for that reason
+  { name: 'top bar chunk', pattern: /^TopBar-.*\.js$/, max: 22_000 },
   { name: 'planet route chunk', pattern: /^PlanetView-.*\.js$/, max: 40_000 },
   // provenance for every body and character; shared by the planet HUD and the
   // Holocron, and easy to grow without noticing — see scripts/sync-sources.mjs

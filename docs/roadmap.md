@@ -14,9 +14,12 @@ Bu dosyanın ilk hâli (2026-07-24) şunu ölçmüştü: sağlam çekirdek — h
 81 gezegen doğrulanmış veriyle, 3 era, TR/EN, holocron, Legends katmanı, Vercel + Tauri —
 ama çürük iskele: sıfır test, CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok.
 
-**Bugünkü durum (2026-08-02):** iskele kapandı. 196 birim + 16 uçtan uca test, yeşil CI,
+**Bugünkü durum (2026-08-05):** iskele kapandı. 212 birim + 16 uçtan uca test, yeşil CI,
 44 ölü paket söküldü, `ErrorBoundary` ve sıkı CSP yerinde, 224 görsel varlık üretildi.
-Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
+02 Ağustos'ta gelen dört lore rotası (`/timeline`, `/force`, `/watch-guide`, `/hangar`)
+CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve panelin üstünü örten
+üst çubuk 05 Ağustos'ta düzeltildi. Aynı gün codex kayıtlarının 64'ü de kaynak makalesine
+bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
 ---
 
@@ -130,6 +133,18 @@ Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'d
   ile paletinden social card çiziyor (`dist/og/<id>.png`, 82 kart), ayrıca `sitemap.xml` (166 URL)
   + `robots.txt` üretiyor. **Düzeltme:** ilk analizdeki "sitemap/robots yok" iddiası yanlıştı —
   `public/` yerine build çıktısı `dist/`'e üretiliyorlar. SEO/social altyapısı tam.
+- [x] **P2** Codex kaynak disiplini: 64 gemi/savaş/Güç yeteneği/olay/yapım/telsiz kaydı
+  `source` taşıyor, `scripts/fetch-codex.mjs` her atıfı MediaWiki API'sinde çözüyor,
+  `test/fixtures/codex-digest.json` kanıt olarak commit'li, `validate-lore` kaynaksız
+  kaydı, olmayan makaleyi, gerçek-dünya makalesi gösteren evren-içi kaydı ve canon diye
+  sunulan Legends makalesini reddediyor. "Force absorb" = "Tutaminis" kopyası silindi.
+- [x] **P2** Yeni rotalar statik meta + sitemap üretiyor (166 → 170 URL); üst çubuğun beş
+  araç paneli tembel yüklendi (TopBar yığını 51,7 → 16,9 kB) ve ses tercihi
+  `localStorage`'a bağlanıp ayarlar menüsüne taşındı.
+- [ ] **P1** Yeni sayfalarda a11y: `Hangar`/`ForceLore`/`WatchGuide` sıfır `aria-`/`role=`,
+  araç panellerinde odak tuzağı yok.
+- [ ] **P1** Yeni rotalar için birim + uçtan uca test.
+- [ ] **P2** İlk boya 399 328/400 000 bayt — giriş yığınını bölmeden yeni özellik sığmaz.
 - [ ] **P3** Compare'i ikiden fazlaya / sistem düzeyine çıkar.
 - [ ] **P3** Karakter↔gezegen çapraz-graf navigasyonunu derinleştir.
 - [ ] **P3** Megayapıları tamamla (Starkiller vb.).

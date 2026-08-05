@@ -1,9 +1,13 @@
 // Web Audio API synthesizer for sci-fi Holocron UI audio feedback.
 // Zero external assets required — synthesized procedurally.
 
+/** the visitor's choice survives a reload, like every other app preference */
+const STORAGE_KEY = 'ga-sfx'
+
 class AudioEngine {
   private ctx: AudioContext | null = null
-  private enabled: boolean = true
+  private enabled: boolean =
+    typeof localStorage === 'undefined' || localStorage.getItem(STORAGE_KEY) !== '0'
 
   private init() {
     if (!this.ctx && typeof window !== 'undefined') {
@@ -21,9 +25,9 @@ class AudioEngine {
     return !this.enabled
   }
 
-  public toggleMute(): boolean {
-    this.enabled = !this.enabled
-    return this.enabled
+  public setMuted(muted: boolean) {
+    this.enabled = !muted
+    if (typeof localStorage !== 'undefined') localStorage.setItem(STORAGE_KEY, muted ? '0' : '1')
   }
 
   /** Subtle holographic button hover click */
