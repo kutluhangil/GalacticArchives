@@ -53,3 +53,39 @@ test('a tool panel opens as a dialog and Escape closes it', async ({ page }) => 
   await page.keyboard.press('Escape')
   await expect(dialog).toBeHidden()
 })
+
+// The four lore routes shipped inside a `min-h-screen` wrapper while `#root` is
+// a fixed-height, overflow-hidden box: the wrapper grew past the root, so every
+// record below the first screen was clipped and unreachable. Nothing in the
+// unit suite can see that — jsdom has no layout — so it is asserted here.
+test('the chronology scrolls to its last event', async ({ page }) => {
+  await page.goto('/timeline')
+
+  const last = page.getByRole('heading', { name: /Exegol/ })
+  await last.scrollIntoViewIfNeeded()
+  await expect(last).toBeInViewport()
+})
+
+test('the era rail follows the reader down the chronology', async ({ page }) => {
+  await page.goto('/timeline')
+  const rail = page.getByRole('navigation', { name: /Dönemler|Eras/ })
+
+  await expect(rail.locator('[aria-current="true"]')).toContainText(/Eski Cumhuriyet|Old Republic/)
+
+  await page.getByRole('heading', { name: /Exegol/ }).scrollIntoViewIfNeeded()
+  await expect(rail.locator('[aria-current="true"]')).toContainText(
+    /Yeni Cumhuriyet|New Republic/,
+  )
+})
+
+test('four worlds compare side by side from one link', async ({ page }) => {
+  // four cold WebGL scenes at once, so the same wide window the other engine
+  // routes get
+  test.slow()
+  await page.goto('/compare?ids=hoth,mustafar,naboo,coruscant')
+
+  // the picker options come from the whole planet index, loaded lazily
+  await expect(page.getByRole('combobox')).toHaveCount(4, { timeout: 20_000 })
+  await expect(page.locator('canvas')).toHaveCount(4, { timeout: 20_000 })
+  await expect(page.getByRole('columnheader', { name: 'Coruscant' })).toBeVisible()
+})

@@ -57,7 +57,7 @@ export default function WatchGuide() {
   }, [sorted, sortMode])
 
   return (
-    <div className="relative min-h-screen w-full overflow-y-auto bg-space pb-24">
+    <div className="relative h-full w-full overflow-y-auto overflow-x-hidden bg-space pb-24">
       <TopBar />
 
       <main className="mx-auto max-w-4xl px-4 pt-24">

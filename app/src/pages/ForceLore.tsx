@@ -151,7 +151,7 @@ export default function ForceLore() {
   })
 
   return (
-    <div className="relative min-h-screen w-full overflow-y-auto bg-space pb-24">
+    <div className="relative h-full w-full overflow-y-auto overflow-x-hidden bg-space pb-24">
       <TopBar />
 
       {/* CSS Keyframes injected inline */}

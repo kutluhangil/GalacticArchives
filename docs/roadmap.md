@@ -14,7 +14,7 @@ Bu dosyanın ilk hâli (2026-07-24) şunu ölçmüştü: sağlam çekirdek — h
 81 gezegen doğrulanmış veriyle, 3 era, TR/EN, holocron, Legends katmanı, Vercel + Tauri —
 ama çürük iskele: sıfır test, CI yok, ~40 ölü bağımlılık, `ErrorBoundary` yok, CSP yok.
 
-**Bugünkü durum (2026-08-05):** iskele kapandı. 232 birim + 23 uçtan uca test, yeşil CI,
+**Bugünkü durum (2026-08-05):** iskele kapandı. 238 birim + 26 uçtan uca test, yeşil CI,
 44 ölü paket söküldü, `ErrorBoundary` ve sıkı CSP yerinde, 224 görsel varlık üretildi.
 02 Ağustos'ta gelen dört lore rotası (`/timeline`, `/force`, `/watch-guide`, `/hangar`)
 CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve panelin üstünü örten
@@ -152,7 +152,15 @@ bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan
   ediyor, sütunlar tek ölçeği paylaşıyor, tavan 4 (her gezegen sütunu kendi WebGL sahnesini kurar).
 - [x] **P2** Haftalık kanon nöbeti (`.github/workflows/canon-watch.yml`): 60 atıf makalesi canlı
   API'ye karşı yeniden çekilir, kayma olursa diff'li issue açılır — veri kendiliğinden değişmez.
+- [x] **P1** Lore rotalarında kaydırma hatası: `min-h-screen` sarmalayıcı, sabit yükseklikli
+  `overflow:hidden` `#root` içinde büyüyüp ilk ekranın altındaki her kaydı kırpıyordu. Dördü de
+  Compare'in kullandığı `h-full` kaydırma kabına alındı, uçtan uca iki test bunu koruyor.
+- [x] **P2** Zaman çizelgesi scrollytelling: dönem bölümleri + yapışkan başlıklar, soldaki dönem
+  rayı okuyucuyu takip eder ve tıklanınca ilgili döneme atlar, ekranın ortasındaki kayıt kendini
+  işaretler (ölçüm kaydırmada yapılır; IntersectionObserver gizli sekmede kısıtlanıyor).
 - [ ] **P3** Compare'i sistem düzeyine çıkar.
+- [ ] **P3** Sektör katmanı: kanon sektör poligonu yok (74 dünya / 60 sektör). Geometri uydurmadan
+  yapılabilecek olan, sektörü filtre ekseni yapmak — ayrı iş olarak duruyor.
 - [ ] **P3** Karakter↔gezegen çapraz-graf navigasyonunu derinleştir.
 - [ ] **P3** Megayapıları tamamla (Starkiller vb.).
 - [ ] **P3** 3. dil gelince i18next'i yeniden değerlendir.
