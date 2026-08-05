@@ -219,6 +219,11 @@ export interface Faction {
   color: string
 }
 
+/** "wookieepedia:<article>" — the record's own article, verified to resolve by
+ *  scripts/fetch-codex.mjs and enforced by scripts/validate-lore.mjs. Required
+ *  on every codex record: a fact this archive cannot point at is not a fact. */
+type Citation = string
+
 export interface Starship {
   id: string
   names: Localized
@@ -233,6 +238,7 @@ export interface Starship {
   desc: Localized
   appearances: string[]
   hologram?: string
+  source: Citation
 }
 
 export interface TimelineEvent {
@@ -246,6 +252,7 @@ export interface TimelineEvent {
   planetId?: string
   characterIds?: string[]
   battleId?: string
+  source: Citation
 }
 
 export interface Transmission {
@@ -256,6 +263,10 @@ export interface Transmission {
   yearLabel: string
   audioFrequency: string
   transcript: Localized
+  /** true only when the wording is quoted from the cited article; false marks a
+   *  transcript this archive reconstructed from the scene. */
+  verbatim: boolean
+  source: Citation
 }
 
 export interface Battle {
@@ -269,5 +280,34 @@ export interface Battle {
   victorFactionId: FactionId
   desc: Localized
   appearances: string[]
-  source?: string
+  source: Citation
+}
+
+export interface ForcePower {
+  id: string
+  names: Localized
+  alignment: 'light' | 'dark' | 'neutral'
+  tier: 'basic' | 'intermediate' | 'advanced' | 'master'
+  sideOfForce: 'light' | 'dark' | 'both'
+  desc: Localized
+  notableUsers: string[]
+  /** absent = Disney canon; "legends" powers Wookieepedia documents only in the
+   *  Legends continuity, shown with the same gold marking worlds use */
+  continuity?: 'canon' | 'legends'
+  source: Citation
+}
+
+export interface WatchGuideEntry {
+  id: string
+  titles: Localized
+  type: 'film' | 'live-action' | 'animation'
+  releaseYear: number
+  chronologicalYear: string
+  chronologicalOrder: number
+  releaseOrder: number
+  synopsis: Localized
+  planets: string[]
+  characters: string[]
+  era: EraId
+  source: Citation
 }

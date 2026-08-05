@@ -5,6 +5,7 @@ import { L, loadTimelineEvents } from '../lib/lore'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
 import { sfx } from '../lib/audio'
+import SourceLink from '../components/SourceLink'
 
 export default function Timeline() {
   const lang = useApp((s) => s.lang)
@@ -86,16 +87,17 @@ export default function Timeline() {
                   {L(evt.desc, lang)}
                 </p>
 
-                {evt.planetId && (
-                  <div className="mt-3 pt-2 border-t border-white/5 flex gap-3 text-[11px]">
+                <div className="mt-3 flex flex-wrap items-center gap-3 border-t border-white/5 pt-2 text-[11px]">
+                  {evt.planetId && (
                     <Link
                       to={`/planet/${evt.planetId}`}
                       className="text-holo-cyan hover:underline"
                     >
                       🌐 {lang === 'tr' ? 'Gezegen Sayfası' : 'Planet Page'}
                     </Link>
-                  </div>
-                )}
+                  )}
+                  <SourceLink source={evt.source} />
+                </div>
               </div>
             </div>
           ))}

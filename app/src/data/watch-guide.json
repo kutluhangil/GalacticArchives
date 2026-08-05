@@ -13,7 +13,8 @@
     },
     "planets": ["naboo", "tatooine", "coruscant"],
     "characters": ["qui-gon-jinn", "obi-wan-kenobi", "anakin-skywalker", "palpatine", "darth-maul", "padme-amidala"],
-    "era": "clone-wars"
+    "era": "clone-wars",
+    "source": "wookieepedia:Star Wars: Episode I The Phantom Menace"
   },
   {
     "id": "attack-of-clones",
@@ -29,7 +30,8 @@
     },
     "planets": ["coruscant", "naboo", "tatooine", "kamino", "geonosis"],
     "characters": ["anakin-skywalker", "obi-wan-kenobi", "padme-amidala", "palpatine", "count-dooku", "jango-fett", "yoda"],
-    "era": "clone-wars"
+    "era": "clone-wars",
+    "source": "wookieepedia:Star Wars: Episode II Attack of the Clones"
   },
   {
     "id": "clone-wars-series",
@@ -45,7 +47,8 @@
     },
     "planets": ["coruscant", "mandalore", "onderon", "ryloth"],
     "characters": ["anakin-skywalker", "obi-wan-kenobi", "ahsoka-tano", "padme-amidala", "darth-maul", "yoda"],
-    "era": "clone-wars"
+    "era": "clone-wars",
+    "source": "wookieepedia:Star Wars: The Clone Wars"
   },
   {
     "id": "revenge-of-sith",
@@ -61,7 +64,8 @@
     },
     "planets": ["coruscant", "mustafar", "utapau", "kashyyyk"],
     "characters": ["anakin-skywalker", "obi-wan-kenobi", "palpatine", "padme-amidala", "yoda", "mace-windu"],
-    "era": "clone-wars"
+    "era": "clone-wars",
+    "source": "wookieepedia:Star Wars: Episode III Revenge of the Sith"
   },
   {
     "id": "bad-batch",
@@ -77,7 +81,8 @@
     },
     "planets": ["kamino", "coruscant", "ord-mantell"],
     "characters": ["hunter", "wrecker", "tech", "crosshair", "omega"],
-    "era": "empire"
+    "era": "empire",
+    "source": "wookieepedia:Star Wars: The Bad Batch"
   },
   {
     "id": "obi-wan-kenobi",
@@ -93,7 +98,8 @@
     },
     "planets": ["tatooine", "alderaan", "mapuzo"],
     "characters": ["obi-wan-kenobi", "darth-vader", "leia-organa"],
-    "era": "empire"
+    "era": "empire",
+    "source": "wookieepedia:Star Wars: Obi-Wan Kenobi"
   },
   {
     "id": "andor",
@@ -109,7 +115,8 @@
     },
     "planets": ["ferrix", "coruscant", "aldhani", "narkina-5"],
     "characters": ["cassian-andor", "mon-mothma", "luthen-rael"],
-    "era": "empire"
+    "era": "empire",
+    "source": "wookieepedia:Star Wars: Andor"
   },
   {
     "id": "rebels",
@@ -125,7 +132,8 @@
     },
     "planets": ["lothal", "malachor", "mandalore"],
     "characters": ["kanan-jarrus", "ezra-bridger", "hera-syndulla", "darth-vader", "ahsoka-tano"],
-    "era": "empire"
+    "era": "empire",
+    "source": "wookieepedia:Star Wars Rebels"
   },
   {
     "id": "rogue-one",
@@ -141,7 +149,8 @@
     },
     "planets": ["scarif", "jedha", "eadu", "yavin-4"],
     "characters": ["jyn-erso", "cassian-andor", "darth-vader", "galen-erso", "chirrut-imwe"],
-    "era": "empire"
+    "era": "empire",
+    "source": "wookieepedia:Rogue One: A Star Wars Story"
   },
   {
     "id": "a-new-hope",
@@ -157,7 +166,8 @@
     },
     "planets": ["tatooine", "alderaan", "yavin-4"],
     "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "obi-wan-kenobi"],
-    "era": "empire"
+    "era": "empire",
+    "source": "wookieepedia:Star Wars: Episode IV A New Hope"
   },
   {
     "id": "empire-strikes-back",
@@ -173,7 +183,8 @@
     },
     "planets": ["hoth", "dagobah", "bespin"],
     "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "yoda", "lando-calrissian"],
-    "era": "empire"
+    "era": "empire",
+    "source": "wookieepedia:Star Wars: Episode V The Empire Strikes Back"
   },
   {
     "id": "return-of-jedi",
@@ -189,7 +200,8 @@
     },
     "planets": ["tatooine", "endor", "coruscant"],
     "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "palpatine", "lando-calrissian"],
-    "era": "empire"
+    "era": "empire",
+    "source": "wookieepedia:Star Wars: Episode VI Return of the Jedi"
   },
   {
     "id": "mandalorian",
@@ -205,7 +217,8 @@
     },
     "planets": ["nevarro", "tatooine", "tython", "mandalore"],
     "characters": ["din-djarin", "grogu", "cara-dune", "moff-gideon", "bo-katan-kryze", "luke-skywalker"],
-    "era": "new-republic"
+    "era": "new-republic",
+    "source": "wookieepedia:Star Wars: The Mandalorian"
   },
   {
     "id": "book-of-boba-fett",
@@ -221,7 +234,8 @@
     },
     "planets": ["tatooine"],
     "characters": ["boba-fett", "fennec-shand", "din-djarin", "grogu"],
-    "era": "new-republic"
+    "era": "new-republic",
+    "source": "wookieepedia:Star Wars: The Book of Boba Fett"
   },
   {
     "id": "ahsoka",
@@ -237,7 +251,8 @@
     },
     "planets": ["lothal", "seatos"],
     "characters": ["ahsoka-tano", "sabine-wren", "grand-admiral-thrawn", "ezra-bridger", "hera-syndulla"],
-    "era": "new-republic"
+    "era": "new-republic",
+    "source": "wookieepedia:Star Wars: Ahsoka"
   },
   {
     "id": "skeleton-crew",
@@ -253,7 +268,8 @@
     },
     "planets": ["at-attin"],
     "characters": ["jod-na-nawood"],
-    "era": "new-republic"
+    "era": "new-republic",
+    "source": "wookieepedia:Star Wars: Skeleton Crew"
   },
   {
     "id": "force-awakens",
@@ -269,7 +285,8 @@
     },
     "planets": ["jakku", "takodana", "starkiller-base", "ahch-to"],
     "characters": ["rey", "finn", "kylo-ren", "han-solo", "leia-organa", "poe-dameron"],
-    "era": "new-republic"
+    "era": "new-republic",
+    "source": "wookieepedia:Star Wars: Episode VII The Force Awakens"
   },
   {
     "id": "last-jedi",
@@ -285,7 +302,8 @@
     },
     "planets": ["ahch-to", "crait", "canto-bight"],
     "characters": ["rey", "kylo-ren", "luke-skywalker", "leia-organa", "finn", "poe-dameron"],
-    "era": "new-republic"
+    "era": "new-republic",
+    "source": "wookieepedia:Star Wars: Episode VIII The Last Jedi"
   },
   {
     "id": "rise-of-skywalker",
@@ -301,6 +319,7 @@
     },
     "planets": ["exegol", "pasaana", "kijimi", "endor"],
     "characters": ["rey", "kylo-ren", "palpatine", "finn", "poe-dameron", "leia-organa", "ben-solo"],
-    "era": "new-republic"
+    "era": "new-republic",
+    "source": "wookieepedia:Star Wars: Episode IX The Rise of Skywalker"
   }
 ]

@@ -3,6 +3,7 @@ import { L, loadTransmissions } from '../lib/lore'
 import type { Transmission } from '../types/lore'
 import { useApp } from '../state/app'
 import { sfx } from '../lib/audio'
+import SourceLink from './SourceLink'
 
 export default function TransmissionPlayer({ onClose }: { onClose: () => void }) {
   const lang = useApp((s) => s.lang)
@@ -94,6 +95,32 @@ export default function TransmissionPlayer({ onClose }: { onClose: () => void })
 
                 <div className="rounded bg-black/40 p-3 border border-white/5 font-mono text-[11px] leading-relaxed text-slate-200">
                   "{L(active.transcript, lang)}"
+                </div>
+
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                  <span
+                    className={`font-hud text-[9px] uppercase tracking-wider ${
+                      active.verbatim ? 'text-slate-500' : 'text-star-gold/80'
+                    }`}
+                    title={
+                      active.verbatim
+                        ? lang === 'tr'
+                          ? 'Sözler kaynak makaleden birebir alıntı'
+                          : 'Quoted word for word from the cited article'
+                        : lang === 'tr'
+                          ? 'Sahneden bu arşiv tarafından yeniden yazıldı; birebir alıntı değil'
+                          : 'Reconstructed from the scene by this archive, not a quotation'
+                    }
+                  >
+                    {active.verbatim
+                      ? lang === 'tr'
+                        ? 'Birebir alıntı'
+                        : 'Verbatim'
+                      : lang === 'tr'
+                        ? 'Arşiv yeniden yazımı'
+                        : 'Archive reconstruction'}
+                  </span>
+                  <SourceLink source={active.source} />
                 </div>
               </div>
             </div>

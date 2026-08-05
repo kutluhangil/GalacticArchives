@@ -27,7 +27,8 @@
       "en": "A heavily modified Corellian freighter made famous by smugglers Han Solo and Chewbacca. Known for running the Kessel Run in less than twelve parsecs.",
       "tr": "Kaçakçılar Han Solo ve Chewbacca tarafından ünlü yapılan, ağır şekilde modifiye edilmiş bir Corellian kargo gemisi. Kessel Rotası'nı 12 parsekten az sürede tamamlamasıyla bilinir."
     },
-    "appearances": ["ep4", "ep5", "ep6", "ep7", "ep8", "ep9", "solo"]
+    "appearances": ["ep4", "ep5", "ep6", "ep7", "ep8", "ep9", "solo"],
+    "source": "wookieepedia:Millennium Falcon"
   },
   {
     "id": "imperial-star-destroyer",
@@ -55,7 +56,8 @@
       "en": "The wedge-shaped capital ship of the Galactic Empire. Armed with turbolasers and tractor beams, serving as the backbone of Imperial military dominance.",
       "tr": "Galaktik İmparatorluk'un kama şeklindeki ana savaş gemisi. Turbolazerler ve çekim ışınlarıyla donatılmış, İmparatorluk askeri gücünün belkemiğidir."
     },
-    "appearances": ["ep4", "ep5", "ep6", "rogue-one"]
+    "appearances": ["ep4", "ep5", "ep6", "rogue-one"],
+    "source": "wookieepedia:Imperial I-class Star Destroyer"
   },
   {
     "id": "t-65b-x-wing",
@@ -84,7 +86,8 @@
       "en": "The iconic versatile Rebel Alliance starfighter featuring strike foil wings, four laser cannons, and proton torpedo launchers.",
       "tr": "Asi İttifakı'nın açılır kanat yapısı, dört lazer topu ve proton torpidolarına sahip ikonik ve çok yönlü yıldız savaşçısı."
     },
-    "appearances": ["ep4", "ep5", "ep6", "rogue-one"]
+    "appearances": ["ep4", "ep5", "ep6", "rogue-one"],
+    "source": "wookieepedia:T-65B X-wing starfighter"
   },
   {
     "id": "slave-i",
@@ -114,7 +117,8 @@
       "en": "A modified Firespray patrol craft utilized by bounty hunters Jango Fett and Boba Fett. Outfitted with seismic charges and hidden weapon pods.",
       "tr": "Ödül avcıları Jango Fett ve Boba Fett tarafından kullanılan modifiye devriye gemisi. Sismik bombalar ve gizli silah kapsülleri ile donatılmıştır."
     },
-    "appearances": ["ep2", "ep5", "mandalorian", "book-of-boba-fett"]
+    "appearances": ["ep2", "ep5", "mandalorian", "book-of-boba-fett"],
+    "source": "wookieepedia:Slave I"
   },
   {
     "id": "venator-star-destroyer",
@@ -142,7 +146,8 @@
       "en": "The primary capital warship of the Galactic Republic Navy during the Clone Wars, featuring a massive dorsal hangar bay for Republic starfighters.",
       "tr": "Klon Savaşları sırasında Galaktik Cumhuriyet Donanması'nın ana savaş gemisi. Cumhuriyet savaşçıları için devasa bir üst hangar güvertesine sahiptir."
     },
-    "appearances": ["ep3", "clone-wars", "bad-batch"]
+    "appearances": ["ep3", "clone-wars", "bad-batch"],
+    "source": "wookieepedia:Venator-class Star Destroyer"
   },
   {
     "id": "razor-crest",
@@ -170,7 +175,8 @@
       "en": "An armored pre-Empire gunship used by Din Djarin (The Mandalorian) for bounty hunting ops across the Outer Rim territory.",
       "tr": "Din Djarin (Mandaloryalı) tarafından Dış Bölge'deki ödül avcılığı operasyonlarında kullanılan zırhlı İmparatorluk öncesi saldırı gemisi."
     },
-    "appearances": ["mandalorian"]
+    "appearances": ["mandalorian"],
+    "source": "wookieepedia:Razor Crest"
   },
   {
     "id": "executor-star-dreadnought",
@@ -198,7 +204,8 @@
       "en": "Darth Vader's personal flagship and command vessel of the Imperial Death Squadron. Spanning 19 kilometers with over 5,000 turbolasers.",
       "tr": "Darth Vader'ın kişisel amiral gemisi ve İmparatorluk Ölüm Filosu'nun komuta merkezi. 19 kilometre uzunluğunda ve 5.000'den fazla turbolazere sahiptir."
     },
-    "appearances": ["ep5", "ep6"]
+    "appearances": ["ep5", "ep6"],
+    "source": "wookieepedia:Executor"
   },
   {
     "id": "ghost-vcx-100",
@@ -227,7 +234,8 @@
       "en": "Hera Syndulla's modified freighter serving as home base for the Spectre rebel cell. Features an auxiliary shuttle dock ('Phantom').",
       "tr": "Hera Syndulla'nın Spectre asi hücresi için üs görevi gören modifiye kargo gemisi. 'Phantom' adlı yardımcı mekik yuvasına sahiptir."
     },
-    "appearances": ["rebels", "rogue-one", "ahsoka"]
+    "appearances": ["rebels", "rogue-one", "ahsoka"],
+    "source": "wookieepedia:Ghost"
   },
   {
     "id": "tantive-iv",
@@ -256,7 +264,8 @@
       "en": "Princess Leia Organa's diplomatic starship that carried the stolen Death Star plans from Scarif before being intercepted by Darth Vader over Tatooine.",
       "tr": "Prenses Leia Organa'nın Scarif'ten çalınan Ölüm Yıldızı planlarını taşıyan ve Tatooine üzerinde Darth Vader tarafından yakalanan diplomatik korveti."
     },
-    "appearances": ["ep3", "ep4", "rogue-one"]
+    "appearances": ["ep3", "ep4", "rogue-one"],
+    "source": "wookieepedia:Tantive IV"
   },
   {
     "id": "tie-interceptor",
@@ -284,6 +293,7 @@
       "en": "The fast dagger-winged starfighter developed by Sienar Fleet Systems to counter the Rebel Alliance's superior X-wings.",
       "tr": "Asi İttifakı'nın üstün X-wing'lerine karşı Sienar Fleet Systems tarafından geliştirilen hızlı, kama kanatlı önleyici savaşçı."
     },
-    "appearances": ["ep6", "mandalorian"]
+    "appearances": ["ep6", "mandalorian"],
+    "source": "wookieepedia:TIE/IN interceptor"
   }
 ]

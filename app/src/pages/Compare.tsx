@@ -12,6 +12,7 @@ import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
 import EraDissolve from '../components/EraDissolve'
 import { useEraDissolve } from '../components/useEraDissolve'
+import SourceLink from '../components/SourceLink'
 import HoloPortrait from '../components/HoloPortrait'
 import { sfx } from '../lib/audio'
 
@@ -356,6 +357,7 @@ export default function Compare() {
                       <div><strong className="text-slate-300">{t('hyperdrive', lang)}:</strong> {ship.hyperdriveRating}</div>
                       <div><strong className="text-slate-300">{lang === 'tr' ? 'Mürettebat' : 'Crew'}:</strong> {ship.crew}</div>
                     </div>
+                    <SourceLink source={ship.source} className="mt-3" />
                   </div>
                 )
               ))}

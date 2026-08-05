@@ -6,25 +6,13 @@ import { Link } from 'react-router'
 import TopBar from '../components/hud/TopBar'
 import { useApp } from '../state/app'
 import { sfx } from '../lib/audio'
+import SourceLink from '../components/SourceLink'
 import watchData from '../data/watch-guide.json'
+import type { WatchGuideEntry as WatchEntry } from '../types/lore'
 
 type LangKey = 'en' | 'tr'
-type MediaType = 'film' | 'live-action' | 'animation'
+type MediaType = WatchEntry['type']
 type SortMode = 'chronological' | 'release'
-
-interface WatchEntry {
-  id: string
-  titles: { en: string; tr: string }
-  type: MediaType
-  releaseYear: number
-  chronologicalYear: string
-  chronologicalOrder: number
-  releaseOrder: number
-  synopsis: { en: string; tr: string }
-  planets: string[]
-  characters: string[]
-  era: string
-}
 
 const entries = watchData as WatchEntry[]
 
@@ -294,6 +282,8 @@ function EntryCard({
               </div>
             </div>
           )}
+
+          <SourceLink source={entry.source} className="mt-4 border-t border-white/5 pt-2" />
         </div>
       )}
     </div>

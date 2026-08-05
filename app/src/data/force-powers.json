@@ -9,7 +9,8 @@
       "en": "The most fundamental Force ability — moving objects or beings with the power of the mind. Manifests as Force Push, Force Pull, and precise object manipulation.",
       "tr": "En temel Güç yeteneği — nesneleri veya varlıkları zihinsel güçle hareket ettirmek. Güç İtme, Güç Çekme ve hassas nesne manipülasyonu olarak tezahür eder."
     },
-    "notableUsers": ["Yoda", "Luke Skywalker", "Darth Vader", "Rey", "Kylo Ren"]
+    "notableUsers": ["Yoda", "Luke Skywalker", "Darth Vader", "Rey", "Kylo Ren"],
+    "source": "wookieepedia:Telekinesis"
   },
   {
     "id": "force-lightning",
@@ -21,7 +22,8 @@
       "en": "Raw dark-side energy discharged from the fingertips as devastating arcs of blue-white lightning. Causes severe pain and death. Associated with strong emotion, hatred, and rage.",
       "tr": "Parmak uçlarından yıkıcı mavi-beyaz şimşek yayları olarak boşalan ham karanlık taraf enerjisi. Şiddetli acıya ve ölüme yol açar. Güçlü duygu, nefret ve öfkeyle ilişkilidir."
     },
-    "notableUsers": ["Emperor Palpatine", "Count Dooku", "Darth Plagueis", "Rey (redirected)"]
+    "notableUsers": ["Emperor Palpatine", "Count Dooku", "Darth Plagueis", "Rey (redirected)"],
+    "source": "wookieepedia:Force lightning"
   },
   {
     "id": "mind-trick",
@@ -33,7 +35,8 @@
       "en": "A subtle influence over weak-minded beings to alter their perception or implant suggestions. Phrase 'These are not the droids you're looking for' is its most famous use. Does not work on Force-sensitives or particularly strong-willed individuals.",
       "tr": "Zayıf akıllı varlıkların algısını değiştirmek veya öneri aşılamak için ince bir etki. 'Bunlar aradığınız droidler değil' cümlesi en ünlü kullanımıdır. Güce duyarlı veya özellikle güçlü iradeli bireylere işe yaramaz."
     },
-    "notableUsers": ["Obi-Wan Kenobi", "Luke Skywalker", "Qui-Gon Jinn"]
+    "notableUsers": ["Obi-Wan Kenobi", "Luke Skywalker", "Qui-Gon Jinn"],
+    "source": "wookieepedia:Mind trick"
   },
   {
     "id": "battle-meditation",
@@ -45,7 +48,8 @@
       "en": "Extremely rare ability that connects Force user to all allies simultaneously, boosting their courage and coordination while causing opponents to falter. Revan and Bastila Shan were among its most powerful practitioners.",
       "tr": "Güç kullanıcısını tüm müttefiklere aynı anda bağlayan, son derece nadir bir yetenek; cesaretlerini ve koordinasyonlarını artırırken rakiplerin sendelemesine neden olur. Revan ve Bastila Shan en güçlü uygulayıcıları arasındaydı."
     },
-    "notableUsers": ["Bastila Shan", "Revan", "Yoda (limited)"]
+    "notableUsers": ["Bastila Shan", "Revan", "Yoda (limited)"],
+    "source": "wookieepedia:Battle meditation"
   },
   {
     "id": "shatterpoint",
@@ -57,7 +61,8 @@
       "en": "The ability to perceive weakness or fault lines in any physical or metaphysical construct — a being, a wall, an event. Mace Windu used it to identify the exact moment to strike in combat.",
       "tr": "Herhangi bir fiziksel veya metafiziksel yapıdaki — bir varlık, bir duvar, bir olay — zayıflığı veya fay hatlarını algılama yeteneği. Mace Windu bunu savaşta tam isabetli anı belirlemek için kullandı."
     },
-    "notableUsers": ["Mace Windu", "Depa Billaba"]
+    "notableUsers": ["Mace Windu", "Depa Billaba"],
+    "source": "wookieepedia:Shatterpoint"
   },
   {
     "id": "force-heal",
@@ -69,7 +74,8 @@
       "en": "Channeling the Force to accelerate natural healing in oneself or others. At its apex (Dyad healing), a Force-bonded pair can transfer life force between each other — as demonstrated by Rey and Ben Solo.",
       "tr": "Kendinde veya başkalarında doğal iyileşmeyi hızlandırmak için Gücü yönlendirme. En yüksek noktasında (Dyad iyileştirme), Güç bağlı bir çift aralarında yaşam enerjisi aktarabilir — Rey ve Ben Solo'nun gösterdiği gibi."
     },
-    "notableUsers": ["Rey", "Ben Solo", "Jedi Temple healers"]
+    "notableUsers": ["Rey", "Ben Solo", "Jedi Temple healers"],
+    "source": "wookieepedia:Force healing"
   },
   {
     "id": "force-vision",
@@ -81,7 +87,8 @@
       "en": "Precognitive glimpses of possible futures, echoes of the past, or awareness of distant events in the present. Luke's vision in Bespin cave (Dagobah), Anakin's visions of Padmé dying — all Force visions.",
       "tr": "Olası geleceklerin, geçmişin yankılarının veya günümüzdeki uzak olayların önsezimsel görüntüleri. Luke'un Dagobah mağarasındaki vizyonu, Anakin'in Padmé'nin ölümüne ilişkin vizyonları — bunların hepsi Güç vizyonlarıdır."
     },
-    "notableUsers": ["Anakin Skywalker", "Luke Skywalker", "Rey", "Yoda"]
+    "notableUsers": ["Anakin Skywalker", "Luke Skywalker", "Rey", "Yoda"],
+    "source": "wookieepedia:Force vision"
   },
   {
     "id": "force-choke",
@@ -93,7 +100,8 @@
       "en": "Telekinetically constricting an enemy's throat or body from across a room. Darth Vader's signature move — used to silently execute incompetent Imperial officers.",
       "tr": "Bir odanın karşısından düşmanın boğazını veya vücudunu telekinetik olarak sıkıştırma. Darth Vader'ın imza hareketi — yetersiz İmparatorluk subaylarını sessizce tasfiye etmek için kullanılırdı."
     },
-    "notableUsers": ["Darth Vader", "Kylo Ren", "Rey (instinctive)"]
+    "notableUsers": ["Darth Vader", "Kylo Ren", "Rey (instinctive)"],
+    "source": "wookieepedia:Force choke"
   },
   {
     "id": "force-speed",
@@ -105,7 +113,8 @@
       "en": "Using the Force to greatly enhance physical speed and reflexes, allowing a practitioner to move faster than the eye can track. Qui-Gon and Obi-Wan used it to outrun destroyer droids in the Trade Federation blockade.",
       "tr": "Gücü kullanarak fiziksel hızı ve refleksleri büyük ölçüde artırma; bir uygulayıcının gözün takip edemeyeceği kadar hızlı hareket etmesine olanak tanır. Qui-Gon ve Obi-Wan bunu Ticaret Federasyonu ablukasında tahribatçı droidlerden kaçmak için kullandı."
     },
-    "notableUsers": ["Qui-Gon Jinn", "Obi-Wan Kenobi", "Darth Maul"]
+    "notableUsers": ["Qui-Gon Jinn", "Obi-Wan Kenobi", "Darth Maul"],
+    "source": "wookieepedia:Force Dash"
   },
   {
     "id": "force-barrier",
@@ -117,7 +126,8 @@
       "en": "Creating a protective bubble of pure Force energy to deflect physical impacts, energy blasts, or even surviving the vacuum of space briefly. Leia used an extraordinary manifestation to survive in space after the attack on the Raddus.",
       "tr": "Fiziksel darbeleri, enerji patlamalarını veya kısa süreliğine uzay boşluğunda hayatta kalmayı saptırmak için saf Güç enerjisinden koruyucu bir kabarcık oluşturma. Leia, Raddus'a saldırı sırasında uzayda hayatta kalmak için olağanüstü bir tezahür kullandı."
     },
-    "notableUsers": ["Leia Organa", "Yoda", "Darth Vader"]
+    "notableUsers": ["Leia Organa", "Yoda", "Darth Vader"],
+    "source": "wookieepedia:Force barrier"
   },
   {
     "id": "force-ghost",
@@ -129,19 +139,8 @@
       "en": "The ultimate Jedi achievement: transcending death by retaining individual consciousness in the Force. Qui-Gon Jinn was the first to discover this path, and taught it to Yoda, who passed it to Obi-Wan. Rare and requires years of post-death meditation.",
       "tr": "En yüksek Jedi başarısı: bireysel bilinci Güç'te tutarak ölümü aşma. Qui-Gon Jinn bu yolu keşfeden ilk kişiydi ve bunu Yoda'ya öğretti, Yoda da Obi-Wan'a aktardı. Nadirdir ve yıllarca ölüm sonrası meditasyon gerektirir."
     },
-    "notableUsers": ["Obi-Wan Kenobi", "Yoda", "Anakin Skywalker", "Qui-Gon Jinn", "Luke Skywalker"]
-  },
-  {
-    "id": "force-absorb",
-    "names": { "en": "Force Absorb", "tr": "Güç Emme" },
-    "alignment": "light",
-    "tier": "advanced",
-    "sideOfForce": "light",
-    "desc": {
-      "en": "Absorbing incoming Force energy — particularly Force Lightning — into oneself and dissipating or redirecting it. Requires deep harmony with the Force and is extremely difficult against prolonged attacks.",
-      "tr": "Gelen Güç enerjisini — özellikle Güç Şimşeğini — içine çekip dağıtma veya yönlendirme. Güçle derin uyum gerektirir ve uzun süreli saldırılara karşı son derece zordur."
-    },
-    "notableUsers": ["Yoda (vs Palpatine)", "Luke Skywalker (limited)"]
+    "notableUsers": ["Obi-Wan Kenobi", "Yoda", "Anakin Skywalker", "Qui-Gon Jinn", "Luke Skywalker"],
+    "source": "wookieepedia:Force spirit"
   },
   {
     "id": "dark-transfer",
@@ -153,7 +152,8 @@
       "en": "The forbidden Sith alchemy to transfer one's consciousness into another body or object, effectively achieving immortality. Darth Sidious used this to survive his death at Endor, inhabiting clone bodies until his revival in The Rise of Skywalker.",
       "tr": "Kişinin bilincini başka bir bedene veya nesneye aktarma, etkin biçimde ölümsüzlük kazanma gibi yasaklı Sith simyası. Darth Sidious, Endor'daki ölümünden kurtulmak için bunu kullandı; Skywalker'ın Yükselişi'ndeki dirilişine kadar klon bedenlerinde yaşadı."
     },
-    "notableUsers": ["Darth Sidious", "Darth Bane", "Darth Plagueis (attempted)"]
+    "notableUsers": ["Darth Sidious", "Darth Bane", "Darth Plagueis (attempted)"],
+    "source": "wookieepedia:Transference"
   },
   {
     "id": "force-storm",
@@ -165,7 +165,9 @@
       "en": "A catastrophic manifestation of dark-side power that creates reality-rending vortexes of dark energy — capable of destroying entire fleets or tearing hyperspace tunnels. One of the most destructive Force abilities known.",
       "tr": "Tüm filolar yok edebilen veya hiperuzay tünelleri açabilen gerçekliği parçalayan karanlık enerji girdapları yaratan karanlık taraf gücünün yıkıcı tezahürü. Bilinen en yıkıcı Güç yeteneklerinden biri."
     },
-    "notableUsers": ["Emperor Palpatine (Clone Wars)", "Darth Sidious (resurrected)"]
+    "notableUsers": ["Emperor Palpatine (Clone Wars)", "Darth Sidious (resurrected)"],
+    "source": "wookieepedia:Force storm (wormhole)",
+    "continuity": "legends"
   },
   {
     "id": "precognition",
@@ -177,7 +179,8 @@
       "en": "Passive Force sensitivity to incoming danger, allowing microseconds of advance warning before an attack. The reason Jedi can deflect blaster bolts with a lightsaber — they sense the shot before it arrives.",
       "tr": "Gelen tehlikeye pasif Güç duyarlılığı; bir saldırıdan önce mikrosaniyelik önceden uyarı sağlar. Jedi'ların işın kılıcıyla blaster mermilerini saptırabilmesinin nedeni budur — atış gelmeden önce hissederler."
     },
-    "notableUsers": ["All Force-sensitives", "Chirrut Îmwe (Force-connection)"]
+    "notableUsers": ["All Force-sensitives", "Chirrut Îmwe (Force-connection)"],
+    "source": "wookieepedia:Precognition"
   },
   {
     "id": "tutaminis",
@@ -189,6 +192,8 @@
       "en": "Advanced lightsaber deflection taken to its extreme — absorbing raw blaster or Force Lightning energy directly into the body using midichlorian cellular absorption. Yoda famously caught Dooku's Force Lightning with his bare hands.",
       "tr": "Gelişmiş ışın kılıcı saptırmanın uç noktasına taşınması — ham blaster veya Güç Şimşeği enerjisini doğrudan midichlorian hücresel emilimi kullanarak vücuda emme. Yoda, Dooku'nun Güç Şimşeğini çıplak elleriyle tutmasıyla ünlüdür."
     },
-    "notableUsers": ["Yoda", "Mace Windu", "Anakin Skywalker (partial)"]
+    "notableUsers": ["Yoda", "Mace Windu", "Anakin Skywalker (partial)"],
+    "source": "wookieepedia:Tutaminis",
+    "continuity": "legends"
   }
 ]

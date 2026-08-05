@@ -241,6 +241,81 @@ for (const c of characters) {
   }
 }
 
+// --- codex records ---------------------------------------------------------
+// Starships, battles, Force powers, timeline events, watch-guide entries and
+// transmissions each state facts the archive presents as canon, so each one
+// cites the article it was written from, exactly as the bodies and characters
+// do. Three things are checked: the record carries a citation, Wookieepedia
+// has that article, and the continuity matches — an in-universe record must
+// not quietly present a Legends-only article as canon, and a watch-guide entry
+// points at a real-world article, which belongs to neither continuity.
+const codexDigest = JSON.parse(
+  readFileSync(join(ROOT, 'test/fixtures/codex-digest.json'), 'utf8'),
+)
+
+/** file -> which continuity its articles must belong to */
+const CODEX_FILES = {
+  'starships.json': 'in-universe',
+  'battles.json': 'in-universe',
+  'force-powers.json': 'in-universe',
+  'timeline.json': 'in-universe',
+  'transmissions.json': 'in-universe',
+  'watch-guide.json': 'real-world',
+}
+
+let codexRecords = 0
+for (const [file, kind] of Object.entries(CODEX_FILES)) {
+  const records = load(file)
+  const seen = new Set()
+  for (const record of records) {
+    codexRecords++
+    const where = `${file}: ${record.id}`
+    if (seen.has(record.id)) err(`${where} is declared twice`)
+    seen.add(record.id)
+
+    if (!record.source) {
+      err(`${where} carries no source — every codex record cites its own article`)
+      continue
+    }
+    if (!record.source.startsWith('wookieepedia:')) {
+      err(`${where} source "${record.source}" is not a "wookieepedia:<article>" citation`)
+      continue
+    }
+    const article = record.source.slice('wookieepedia:'.length)
+    const entry = codexDigest.articles[article]
+    if (!entry) {
+      err(`${where} cites "${article}", which is not in test/fixtures/codex-digest.json — rerun scripts/fetch-codex.mjs`)
+      continue
+    }
+    if (entry.missing) {
+      err(`${where} cites "${article}", which Wookieepedia does not have`)
+      continue
+    }
+    if (kind === 'real-world') {
+      if (entry.continuity !== 'unstated') {
+        err(`${where} is a real-world entry but cites "${article}", an in-universe ${entry.continuity} article`)
+      }
+      continue
+    }
+    const claimed = record.continuity ?? 'canon'
+    if (entry.continuity === 'unstated') {
+      err(`${where} cites "${article}", a real-world article, for an in-universe record`)
+    } else if (entry.continuity !== claimed) {
+      err(`${where} reads as ${claimed} but cites "${article}", a ${entry.continuity} article`)
+    }
+  }
+}
+
+// A transmission prints words in quotation marks, so it has to say whether the
+// archive is quoting the article or paraphrasing the scene.
+for (const transmission of load('transmissions.json')) {
+  if (typeof transmission.verbatim !== 'boolean') {
+    err(`transmissions.json: ${transmission.id}.verbatim must be true (quoted) or false (reconstructed)`)
+  }
+}
+
+console.log(`codex records=${codexRecords}, cited articles=${Object.keys(codexDigest.articles).length}`)
+
 // --- hyperlanes ------------------------------------------------------------
 // A lane is drawn on the map and flown by the course plotter, so three things
 // have to hold: every stop is placed by a canon grid cell, every lane cites the

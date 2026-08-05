@@ -1,0 +1,185 @@
+{
+ "note": "Slim snapshot of the Wookieepedia articles the codex records (starships, battles, Force powers, timeline events, watch-guide entries, transmissions) are written from, so validate-lore can check every citation resolves — and in the continuity the record claims — without going online. Facts are not copyrightable; source Wookieepedia CC BY-SA. Rebuild: node scripts/fetch-codex.mjs",
+ "articles": {
+  "Battle meditation": {
+   "continuity": "canon"
+  },
+  "Battle of Coruscant": {
+   "continuity": "canon"
+  },
+  "Battle of Endor": {
+   "continuity": "canon"
+  },
+  "Battle of Exegol": {
+   "continuity": "canon"
+  },
+  "Battle of Hoth": {
+   "continuity": "canon"
+  },
+  "Battle of Jakku": {
+   "continuity": "canon"
+  },
+  "Battle of Scarif": {
+   "continuity": "canon"
+  },
+  "Battle of Yavin": {
+   "continuity": "canon"
+  },
+  "Death Star": {
+   "continuity": "canon"
+  },
+  "Death Star plans": {
+   "continuity": "canon"
+  },
+  "Destruction of Alderaan": {
+   "continuity": "canon"
+  },
+  "Executor": {
+   "continuity": "canon"
+  },
+  "First Battle of Geonosis": {
+   "continuity": "canon"
+  },
+  "Force barrier": {
+   "continuity": "canon"
+  },
+  "Force choke": {
+   "continuity": "canon"
+  },
+  "Force Dash": {
+   "continuity": "canon"
+  },
+  "Force healing": {
+   "continuity": "canon"
+  },
+  "Force lightning": {
+   "continuity": "canon"
+  },
+  "Force spirit": {
+   "continuity": "canon"
+  },
+  "Force storm (wormhole)": {
+   "continuity": "legends"
+  },
+  "Force vision": {
+   "continuity": "canon"
+  },
+  "Galactic Republic": {
+   "continuity": "canon"
+  },
+  "Ghost": {
+   "continuity": "canon"
+  },
+  "Imperial I-class Star Destroyer": {
+   "continuity": "canon"
+  },
+  "Jedi beacon": {
+   "continuity": "canon"
+  },
+  "Millennium Falcon": {
+   "continuity": "canon"
+  },
+  "Mind trick": {
+   "continuity": "canon"
+  },
+  "Order 66": {
+   "continuity": "canon"
+  },
+  "Precognition": {
+   "continuity": "canon"
+  },
+  "Proclamation of the New Order": {
+   "continuity": "canon"
+  },
+  "Razor Crest": {
+   "continuity": "canon"
+  },
+  "Rogue One: A Star Wars Story": {
+   "continuity": "unstated"
+  },
+  "Shatterpoint": {
+   "continuity": "canon"
+  },
+  "Siege of Mandalore": {
+   "continuity": "canon"
+  },
+  "Slave I": {
+   "continuity": "canon"
+  },
+  "Star Wars Rebels": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Ahsoka": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Andor": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode I The Phantom Menace": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode II Attack of the Clones": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode III Revenge of the Sith": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode IV A New Hope": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode IX The Rise of Skywalker": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode V The Empire Strikes Back": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode VI Return of the Jedi": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode VII The Force Awakens": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Episode VIII The Last Jedi": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Obi-Wan Kenobi": {
+   "continuity": "unstated"
+  },
+  "Star Wars: Skeleton Crew": {
+   "continuity": "unstated"
+  },
+  "Star Wars: The Bad Batch": {
+   "continuity": "unstated"
+  },
+  "Star Wars: The Book of Boba Fett": {
+   "continuity": "unstated"
+  },
+  "Star Wars: The Clone Wars": {
+   "continuity": "unstated"
+  },
+  "Star Wars: The Mandalorian": {
+   "continuity": "unstated"
+  },
+  "T-65B X-wing starfighter": {
+   "continuity": "canon"
+  },
+  "Tantive IV": {
+   "continuity": "canon"
+  },
+  "Telekinesis": {
+   "continuity": "canon"
+  },
+  "TIE/IN interceptor": {
+   "continuity": "canon"
+  },
+  "Transference": {
+   "continuity": "canon"
+  },
+  "Tutaminis": {
+   "continuity": "legends"
+  },
+  "Venator-class Star Destroyer": {
+   "continuity": "canon"
+  }
+ }
+}

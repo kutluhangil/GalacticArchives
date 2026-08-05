@@ -6,20 +6,12 @@ import { useState } from 'react'
 import TopBar from '../components/hud/TopBar'
 import { useApp } from '../state/app'
 import { sfx } from '../lib/audio'
+import SourceLink from '../components/SourceLink'
 import forcePowersData from '../data/force-powers.json'
+import type { ForcePower } from '../types/lore'
 
 type LangKey = 'en' | 'tr'
-type Tier = 'basic' | 'intermediate' | 'advanced' | 'master'
-
-interface ForcePower {
-  id: string
-  names: { en: string; tr: string }
-  alignment: string
-  tier: Tier
-  sideOfForce: string
-  desc: { en: string; tr: string }
-  notableUsers: string[]
-}
+type Tier = ForcePower['tier']
 
 const powers = forcePowersData as ForcePower[]
 
@@ -382,23 +374,41 @@ export default function ForceLore() {
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {filteredPowers.map((power) => {
                 const color = ALIGNMENT_COLOR[power.alignment] ?? '#A8B3C5'
+                const expanded = selectedPower?.id === power.id
                 return (
-                  <button
+                  <div
                     key={power.id}
-                    onClick={() => {
-                      sfx.playSelect()
-                      setSelectedPower(selectedPower?.id === power.id ? null : power)
-                    }}
-                    className={`group rounded-lg border p-4 text-left transition-all ${
-                      selectedPower?.id === power.id
+                    className={`group rounded-lg border p-4 transition-all ${
+                      expanded
                         ? 'border-white/30 bg-panel/90'
                         : 'border-white/10 bg-panel/50 hover:border-white/20 hover:bg-panel/70'
                     }`}
-                    style={selectedPower?.id === power.id ? { borderColor: color + '60' } : {}}
+                    style={expanded ? { borderColor: color + '60' } : {}}
                   >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        sfx.playSelect()
+                        setSelectedPower(expanded ? null : power)
+                      }}
+                      aria-expanded={expanded}
+                      className="block w-full text-left"
+                    >
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="font-display text-[13px] tracking-wide text-slate-100">
                         {power.names[lang]}
+                        {power.continuity === 'legends' && (
+                          <span
+                            className="ml-1.5 rounded border border-star-gold/50 px-1 py-0.5 font-hud text-[8px] uppercase tracking-wider text-star-gold"
+                            title={
+                              lang === 'tr'
+                                ? 'Wookieepedia bu yeteneği yalnız Legends sürekliliğinde belgeliyor'
+                                : 'Wookieepedia documents this power only in the Legends continuity'
+                            }
+                          >
+                            Legends
+                          </span>
+                        )}
                       </h3>
                       <span
                         className="shrink-0 rounded px-1.5 py-0.5 font-hud text-[9px] uppercase tracking-wider"
@@ -420,7 +430,9 @@ export default function ForceLore() {
                       </span>
                     </div>
 
-                    {selectedPower?.id === power.id && (
+                    </button>
+
+                    {expanded && (
                       <div className="mt-3 border-t border-white/10 pt-3">
                         <p className="text-[12px] leading-relaxed text-slate-300">
                           {power.desc[lang]}
@@ -440,9 +452,10 @@ export default function ForceLore() {
                             ))}
                           </div>
                         </div>
+                        <SourceLink source={power.source} className="mt-3" />
                       </div>
                     )}
-                  </button>
+                  </div>
                 )
               })}
             </div>

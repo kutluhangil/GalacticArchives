@@ -7,6 +7,7 @@ import ShipBlueprint from '../components/ShipBlueprint'
 import { useApp } from '../state/app'
 import { factionById, L } from '../lib/lore'
 import { sfx } from '../lib/audio'
+import SourceLink from '../components/SourceLink'
 import starshipsData from '../data/starships.json'
 import type { Starship } from '../types/lore'
 
@@ -268,6 +269,8 @@ export default function Hangar() {
                 </div>
               </div>
             )}
+
+            <SourceLink source={selectedShip.source} className="mt-4" />
           </div>
         </div>
       </div>

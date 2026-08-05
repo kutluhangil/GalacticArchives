@@ -13,9 +13,11 @@
     "yearLabel": "19 BBY",
     "audioFrequency": "1420.405 MHz (Encrypted HoloNet)",
     "transcript": {
-      "en": "This is Master Obi-Wan Kenobi. Regrettably, our Order and the Republic have fallen, with the dark shadow of the Empire rising to take their place. This message is a warning and a recollection for any surviving Jedi: Trust in the Force. Do not return to the Temple. The time will come when a new hope emerges.",
-      "tr": "Ben Usta Obi-Wan Kenobi. Ne yazık ki Düzenimiz ve Cumhuriyet, yerini alan İmparatorluk'un karanlık gölgesiyle yıkıldı. Bu mesaj hayatta kalan tüm Jedi'lar için bir uyarı ve hatıradır: Güç'e güvenin. Tapınak'a dönmeyin. Yeni bir umudun doğacağı zaman gelecektir."
-    }
+      "en": "This is Master Obi-Wan Kenobi. I regret to report that both our Jedi Order and the Republic have fallen, with the dark shadow of the Empire rising to take their place. This message is a warning and a reminder for any surviving Jedi: trust in the Force. Do not return to the Temple. That time has passed, and our future is uncertain. Avoid Coruscant. Avoid detection. Be secret... but be strong. We will each be challenged: our trust, our faith, our friendships. But we must persevere and, in time, I believe a new hope will emerge. May the Force be with you, always.",
+      "tr": "Ben Usta Obi-Wan Kenobi. Üzülerek bildiriyorum ki hem Jedi Düzenimiz hem de Cumhuriyet yıkıldı; yerlerini almak üzere İmparatorluk'un karanlık gölgesi yükseliyor. Bu mesaj, hayatta kalan her Jedi için bir uyarı ve bir hatırlatmadır: Güç'e güvenin. Tapınak'a dönmeyin. O zaman geçti ve geleceğimiz belirsiz. Coruscant'tan uzak durun. Fark edilmekten kaçının. Gizli olun... ama güçlü olun. Her birimiz sınanacağız: güvenimiz, inancımız, dostluklarımız. Ama direnmeliyiz ve zamanla, inanıyorum ki yeni bir umut doğacak. Güç daima sizinle olsun."
+    },
+    "verbatim": true,
+    "source": "wookieepedia:Jedi beacon"
   },
   {
     "id": "leia-distress-beacon",
@@ -33,7 +35,9 @@
     "transcript": {
       "en": "General Kenobi. Years ago you served my father in the Clone Wars. Now he begs you to help him in his struggle against the Empire. I regret that I am unable to present my father's request to you in person, but my ship has come under attack... Help me, Obi-Wan Kenobi. You're my only hope.",
       "tr": "General Kenobi. Yıllar önce Klon Savaşları'nda babama hizmet etmiştiniz. Şimdi İmparatorluk'a karşı mücadelesinde ona yardım etmeniz için size yalvarıyor. Babamın bu talebini size şahsen iletemediğim için üzgünüm, ancak gemim saldırıya uğradı... Bana yardım et, Obi-Wan Kenobi. Sen benim tek umudumsun."
-    }
+    },
+    "verbatim": false,
+    "source": "wookieepedia:Death Star plans"
   },
   {
     "id": "palpatine-empire-proclamation",
@@ -51,7 +55,9 @@
     "transcript": {
       "en": "In order to ensure the security and continuing stability, the Republic will be reorganized into the first Galactic Empire! For a safe and secure society!",
       "tr": "Güvenliği ve sürekli istikrarı sağlamak amacıyla Cumhuriyet, ilk Galaktik İmparatorluk olarak yeniden örgütlenecektir! Güvenli ve korunaklı bir toplum için!"
-    }
+    },
+    "verbatim": true,
+    "source": "wookieepedia:Proclamation of the New Order"
   },
   {
     "id": "rogue-one-scarif-transmission",
@@ -69,6 +75,8 @@
     "transcript": {
       "en": "Profundity, this is Rogue One! Transmitting Death Star structural schematics now. May the Force be with us.",
       "tr": "Profundity, burası Rogue One! Ölüm Yıldızı yapısal şemaları şimdi iletiliyor. Güç bizimle olsun."
-    }
+    },
+    "verbatim": false,
+    "source": "wookieepedia:Battle of Scarif"
   }
 ]

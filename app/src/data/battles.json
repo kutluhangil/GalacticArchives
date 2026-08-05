@@ -27,7 +27,8 @@
       "en": "A decisive clash in galactic history where Luke Skywalker exploited a thermal exhaust port flaw to destroy the first Death Star.",
       "tr": "Luke Skywalker'ın bir termal egzoz deliği zafiyetini kullanarak ilk Ölüm Yıldızı'nı imha ettiği, galaksi tarihinin dönüm noktası savaşı."
     },
-    "appearances": ["ep4"]
+    "appearances": ["ep4"],
+    "source": "wookieepedia:Battle of Yavin"
   },
   {
     "id": "battle-of-hoth",
@@ -57,7 +58,8 @@
       "en": "Imperial Blizzard Force deployed AT-AT walkers to crush the Rebel Echo Base, forcing the Alliance into evacuation across the galaxy.",
       "tr": "İmparatorluk Tipi AT-AT yürüyücülerinin Asi Yankı Üssü'nü ezdiği ve İttifak'ı galaksi geneline tahliyeye zorladığı askeri harekat."
     },
-    "appearances": ["ep5"]
+    "appearances": ["ep5"],
+    "source": "wookieepedia:Battle of Hoth"
   },
   {
     "id": "battle-of-endor",
@@ -87,7 +89,8 @@
       "en": "The climatic battle that saw the destruction of the second Death Star, the death of Emperor Palpatine, and the fall of the Galactic Empire.",
       "tr": "İkinci Ölüm Yıldızı'nın imhası, İmparator Palpatine'in ölümü ve Galaktik İmparatorluk'un çöküşünü getiren nihai galaktik savaş."
     },
-    "appearances": ["ep6"]
+    "appearances": ["ep6"],
+    "source": "wookieepedia:Battle of Endor"
   },
   {
     "id": "battle-of-geonosis",
@@ -117,7 +120,8 @@
       "en": "The opening battle of the Clone Wars. The Grand Army of the Republic unveiled its clone trooper legions to rescue Jedi Strike Team.",
       "tr": "Klon Savaşları'nın açılış savaşı. Galaktik Cumhuriyet Büyük Ordusu, Jedi ekibini kurtarmak için Klon Asker lejyonlarını sahaya sürdü."
     },
-    "appearances": ["ep2", "clone-wars"]
+    "appearances": ["ep2", "clone-wars"],
+    "source": "wookieepedia:First Battle of Geonosis"
   },
   {
     "id": "battle-of-coruscant",
@@ -147,7 +151,8 @@
       "en": "A massive orbital fleet engagement above the galactic capital. Separatist forces kidnapped Chancellor Palpatine before being repelled.",
       "tr": "Galaktik başkentin yörüngesinde gerçekleşen devasa filo savaşı. Ayrılıkçılar Şansölye Palpatine'i kaçırmış ancak püskürtülmüşlerdir."
     },
-    "appearances": ["ep3"]
+    "appearances": ["ep3"],
+    "source": "wookieepedia:Battle of Coruscant"
   },
   {
     "id": "siege-of-mandalore",
@@ -177,7 +182,8 @@
       "en": "The 332nd Company led by Ahsoka Tano liberated Mandalore from Maul's criminal syndicate right as Order 66 was issued.",
       "tr": "Ahsoka Tano komutasındaki 332. Bölük, tam Emir 66 yürürlüğe girerken Mandalore'u Maul'un suç sendikasından kurtardı."
     },
-    "appearances": ["clone-wars"]
+    "appearances": ["clone-wars"],
+    "source": "wookieepedia:Siege of Mandalore"
   },
   {
     "id": "battle-of-scarif",
@@ -207,7 +213,8 @@
       "en": "Rogue One squad infiltrated the Imperial security complex on Scarif to transmit the Death Star schematics to Admiral Raddus' fleet.",
       "tr": "Rogue One ekibi, Ölüm Yıldızı şematiklerini Amiral Raddus filosuna iletmek için Scarif'teki İmparatorluk güvenlik kompleksine sızdı."
     },
-    "appearances": ["rogue-one"]
+    "appearances": ["rogue-one"],
+    "source": "wookieepedia:Battle of Scarif"
   },
   {
     "id": "battle-of-jakku",
@@ -237,6 +244,7 @@
       "en": "The final major fleet engagement of the Galactic Civil War. The New Republic defeated the remnant Imperial fleet, leading to the Galactic Concordance.",
       "tr": "Galaktik İç Savaş'ın son büyük filo savaşı. Yeni Cumhuriyet, geriye kalan İmparatorluk filosunu mağlup ederek Galaktik Barış Antlaşması'nı sağladı."
     },
-    "appearances": ["ep7"]
+    "appearances": ["ep7"],
+    "source": "wookieepedia:Battle of Jakku"
   }
 ]
