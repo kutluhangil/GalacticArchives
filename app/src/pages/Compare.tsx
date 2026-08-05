@@ -1,5 +1,6 @@
-// Side-by-side comparison: Planets (live globes & scale), Characters (holo-portraits & bio),
-// and Starships (tech specs & relative scale).
+// Side-by-side comparison: Planets (live globes & scale), Systems (the star
+// system around each world), Characters (holo-portraits & bio), and Starships
+// (tech specs & relative scale).
 //
 // Up to four columns rather than a fixed pair: the archive's own worlds argue
 // for it (three Death Star-adjacent bodies, four desert worlds), and the URL
@@ -11,7 +12,17 @@ import { useSearchParams } from 'react-router'
 import type { CelestialBody, Character, EraId, Starship } from '../types/lore'
 import { PlanetEngine } from '../lib/engine/planet-engine'
 import { simClock } from '../lib/sim-clock'
-import { L, LL, loadAllPlanets, loadBody, loadCharacters, loadStarships, regions } from '../lib/lore'
+import {
+  L,
+  LL,
+  factionById,
+  loadAllPlanets,
+  loadBody,
+  loadCharacters,
+  loadStarships,
+  regions,
+  systemFacts,
+} from '../lib/lore'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import TopBar from '../components/hud/TopBar'
@@ -19,9 +30,11 @@ import EraDissolve from '../components/EraDissolve'
 import { useEraDissolve } from '../components/useEraDissolve'
 import SourceLink from '../components/SourceLink'
 import HoloPortrait from '../components/HoloPortrait'
+import SystemSchematic from '../components/SystemSchematic'
 import { sfx } from '../lib/audio'
 
-type Mode = 'planets' | 'characters' | 'starships'
+const MODES = ['planets', 'systems', 'characters', 'starships'] as const
+type Mode = (typeof MODES)[number]
 
 /** each planet column builds its own WebGL scene, and past four the table stops
  *  being readable on a laptop */
@@ -128,6 +141,46 @@ function ColumnPickers({
   )
 }
 
+/** the fact table under the columns: one header per column, one row per fact */
+function FactTable({
+  keys,
+  headers,
+  rows,
+}: {
+  keys: string[]
+  headers: (string | undefined)[]
+  rows: { label: string; values: (string | undefined)[] }[]
+}) {
+  return (
+    <div className="mt-6 overflow-x-auto">
+      <table className="w-full min-w-[520px] text-[12px]">
+        <thead>
+          <tr className="text-left text-[10px] uppercase tracking-[0.2em] text-slate-500">
+            <th className="w-1/4 pb-2 font-normal" />
+            {headers.map((header, i) => (
+              <th key={keys[i] ?? i} className="pb-2 font-normal">
+                {header ?? ''}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.label} className="border-t border-white/5 align-top">
+              <td className="py-2 pr-3 text-slate-500">{row.label}</td>
+              {row.values.map((value, i) => (
+                <td key={keys[i] ?? i} className="py-2 pr-3 text-slate-200">
+                  {value || '—'}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 function regionNameFor(body: CelestialBody | null, lang: 'en' | 'tr'): string | undefined {
   const region = regions.find((r) => r.id === body?.region)
   return region ? L(region.names, lang) : undefined
@@ -138,7 +191,14 @@ export default function Compare() {
   const era = useApp((s) => s.era)
   const legends = useApp((s) => s.legends)
   const [params, setParams] = useSearchParams()
-  const [mode, setMode] = useState<Mode>('planets')
+
+  // the mode rides in the URL with the set, so a system comparison is as
+  // shareable as a planet one, and switching tabs cannot leave the previous
+  // mode's ids behind
+  const modeParam = params.get('mode')
+  const mode: Mode = (MODES as readonly string[]).includes(modeParam ?? '')
+    ? (modeParam as Mode)
+    : 'planets'
 
   const [planets, setPlanets] = useState<CelestialBody[]>([])
   const [characters, setCharacters] = useState<Character[]>([])
@@ -148,6 +208,8 @@ export default function Compare() {
 
   const defaults: Record<Mode, string[]> = {
     planets: ['coruscant', 'tatooine'],
+    // a twin-sun system against a gas giant with twenty-six moons
+    systems: ['tatooine', 'yavin'],
     characters: ['luke-skywalker', 'darth-vader'],
     starships: ['millennium-falcon', 'imperial-star-destroyer'],
   }
@@ -162,7 +224,11 @@ export default function Compare() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params, mode])
 
-  const setIds = (next: string[]) => setParams({ ids: next.join(',') })
+  const setIds = (next: string[]) => setParams({ mode, ids: next.join(',') })
+
+  /** a mode change starts that mode's own set: character ids mean nothing to
+   *  the planet columns */
+  const setMode = (next: Mode) => setParams({ mode: next, ids: defaults[next].join(',') })
 
   useEffect(() => {
     loadAllPlanets().then(setPlanets)
@@ -175,8 +241,19 @@ export default function Compare() {
     [planets, legends],
   )
 
+  /** the system picker names systems, not worlds — the column is the system */
+  const systemOptions = useMemo(
+    () =>
+      selectablePlanets
+        .map((p) => ({ id: p.id, name: p.system }))
+        .sort((a, b) => a.name.localeCompare(b.name)),
+    [selectablePlanets],
+  )
+
   useEffect(() => {
-    if (mode !== 'planets') return
+    // both world modes need the full record: the globe for its recipe, the
+    // system for its suns, moons and stations
+    if (mode !== 'planets' && mode !== 'systems') return
     let cancelled = false
     Promise.all(ids.map((id) => loadBody(id).catch(() => null)))
       .then((loaded) => {
@@ -214,19 +291,57 @@ export default function Compare() {
     [chosenShips],
   )
 
+  const diameters = bodies.map((b) =>
+    b?.stats?.diameterKm ? `${b.stats.diameterKm.toLocaleString(lang)} km` : undefined,
+  )
+
   const planetRows: { label: string; values: (string | undefined)[] }[] = [
-    {
-      label: t('diameter', lang),
-      values: bodies.map((b) =>
-        b?.stats?.diameterKm ? `${b.stats.diameterKm.toLocaleString(lang)} km` : undefined,
-      ),
-    },
+    { label: t('diameter', lang), values: diameters },
     { label: t('region', lang), values: bodies.map((b) => regionNameFor(b, lang)) },
     { label: t('climate', lang), values: bodies.map((b) => LL(b?.climate, lang).join(' · ')) },
     { label: t('terrain', lang), values: bodies.map((b) => LL(b?.terrain, lang).join(' · ')) },
     {
       label: t('population', lang),
       values: bodies.map((b) => (b?.stats?.population ? L(b.stats.population, lang) : undefined)),
+    },
+  ]
+
+  const facts = useMemo(
+    () => bodies.map((b) => (b ? systemFacts(b, era, lang) : null)),
+    [bodies, era, lang],
+  )
+
+  const systemRows: { label: string; values: (string | undefined)[] }[] = [
+    { label: t('system', lang), values: facts.map((f) => f?.name) },
+    {
+      label: t('suns', lang),
+      values: facts.map((f) =>
+        f?.suns.length ? `${f.suns.length} · ${f.suns.map((s) => s.name).join(' · ')}` : undefined,
+      ),
+    },
+    {
+      label: t('moons', lang),
+      values: facts.map((f) => (f?.moonCount != null ? String(f.moonCount) : undefined)),
+    },
+    {
+      label: t('namedMoons', lang),
+      values: facts.map((f) => (f?.namedMoons.length ? f.namedMoons.join(' · ') : undefined)),
+    },
+    {
+      label: t('stations', lang),
+      values: facts.map((f) =>
+        f?.stations.length ? f.stations.map((s) => L(s.names, lang)).join(' · ') : undefined,
+      ),
+    },
+    { label: t('diameter', lang), values: diameters },
+    { label: t('region', lang), values: bodies.map((b) => regionNameFor(b, lang)) },
+    { label: t('sector', lang), values: bodies.map((b) => b?.sector) },
+    {
+      label: t('affiliation', lang),
+      values: bodies.map((b) => {
+        const faction = factionById(b?.affiliationsByEra?.[era])
+        return faction ? L(faction.names, lang) : undefined
+      }),
     },
   ]
 
@@ -243,6 +358,7 @@ export default function Compare() {
           <div className="flex rounded border border-white/10 bg-black/40 p-0.5">
             {[
               { id: 'planets' as const, label: t('planets', lang) },
+              { id: 'systems' as const, label: t('systems', lang) },
               { id: 'characters' as const, label: t('characters', lang) },
               { id: 'starships' as const, label: t('starships', lang) },
             ].map((m) => (
@@ -312,32 +428,60 @@ export default function Compare() {
               </div>
             </div>
 
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full min-w-[520px] text-[12px]">
-                <thead>
-                  <tr className="text-left text-[10px] uppercase tracking-[0.2em] text-slate-500">
-                    <th className="w-1/4 pb-2 font-normal" />
-                    {bodies.map((body, i) => (
-                      <th key={ids[i] ?? i} className="pb-2 font-normal">
-                        {body ? L(body.names, lang) : ''}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {planetRows.map((row) => (
-                    <tr key={row.label} className="border-t border-white/5 align-top">
-                      <td className="py-2 pr-3 text-slate-500">{row.label}</td>
-                      {row.values.map((value, i) => (
-                        <td key={ids[i] ?? i} className="py-2 pr-3 text-slate-200">
-                          {value || '—'}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <FactTable
+              keys={ids}
+              headers={bodies.map((body) => (body ? L(body.names, lang) : ''))}
+              rows={planetRows}
+            />
+          </>
+        )}
+
+        {mode === 'systems' && (
+          <>
+            <ColumnPickers
+              ids={ids}
+              options={systemOptions}
+              onChange={setIds}
+            />
+
+            <div
+              className="mt-4 grid gap-3"
+              style={{ gridTemplateColumns: `repeat(auto-fit, minmax(220px, 1fr))` }}
+            >
+              {bodies.map((body, i) => (
+                <div
+                  key={ids[i] ?? i}
+                  className="rounded-lg border border-holo-cyan/15 bg-black/40 p-3"
+                >
+                  <div className="h-[110px]">
+                    {body && (
+                      <SystemSchematic
+                        suns={body.suns ?? []}
+                        // the canon figure first: Yavin names one moon and
+                        // counts twenty-six, and the sketch should show a
+                        // crowded orbit either way
+                        moonDots={facts[i]?.moonCount ?? facts[i]?.namedMoons.length ?? 0}
+                        hasStation={Boolean(facts[i]?.stations.length)}
+                        fraction={planetScale[i] ?? 0}
+                        primaryColor={body.renderRecipe.palette.primary}
+                      />
+                    )}
+                  </div>
+                  <div className="mt-2 font-display text-sm tracking-[0.2em] text-slate-200">
+                    {facts[i]?.name.toUpperCase() ?? ''}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    {body ? L(body.names, lang) : ''}
+                  </div>
+                </div>
+              ))}
             </div>
+
+            <FactTable
+              keys={ids}
+              headers={bodies.map((body) => (body ? L(body.names, lang) : ''))}
+              rows={systemRows}
+            />
           </>
         )}
 

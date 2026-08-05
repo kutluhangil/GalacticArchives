@@ -10,6 +10,7 @@ import type {
   MediaEntry,
   Region,
   Starship,
+  SunSpec,
   TimelineEvent,
   Transmission,
 } from '../types/lore'
@@ -49,6 +50,42 @@ export function stationsForHost(hostId: string, era: EraId): CelestialBody[] {
 }
 
 export type Lang = 'en' | 'tr'
+
+/** What a star system holds, read off the primary body's own record: the suns
+ *  it turns around, the moon figure canon states, the moons the archive can
+ *  name, and the stations standing in this era. Nothing is inferred — a world
+ *  whose article gives no moon count reports none rather than a guess. */
+export interface SystemFacts {
+  /** the system's name as the body's record gives it, e.g. "Tatoo system" */
+  name: string
+  suns: SunSpec[]
+  /** the canon figure, when the record carries one */
+  moonCount?: number
+  /** moons the archive can name: renderable companions first, then the minors
+   *  the record only lists by name */
+  namedMoons: string[]
+  /** era-gated: the Death Stars come and go with the era */
+  stations: CelestialBody[]
+}
+
+export function systemFacts(body: CelestialBody, era: EraId, lang: Lang): SystemFacts {
+  const named: string[] = []
+  for (const name of [
+    ...(body.moonsDetail ?? []).map((moon) => moon.names[lang]),
+    ...(body.moons ?? []),
+  ]) {
+    // a renderable companion is often listed among the minors too (Concordia)
+    if (!named.some((seen) => seen.toLowerCase() === name.toLowerCase())) named.push(name)
+  }
+
+  return {
+    name: body.system,
+    suns: body.suns ?? [],
+    moonCount: body.stats?.moonCount,
+    namedMoons: named,
+    stations: stationsForHost(body.id, era),
+  }
+}
 
 export const L = (obj: { en: string; tr: string } | undefined, lang: Lang): string =>
   obj ? obj[lang] : ''

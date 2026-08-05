@@ -166,7 +166,13 @@ bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan
 - [x] **P2** Zaman çizelgesi scrollytelling: dönem bölümleri + yapışkan başlıklar, soldaki dönem
   rayı okuyucuyu takip eder ve tıklanınca ilgili döneme atlar, ekranın ortasındaki kayıt kendini
   işaretler (ölçüm kaydırmada yapılır; IntersectionObserver gizli sekmede kısıtlanıyor).
-- [ ] **P3** Compare'i sistem düzeyine çıkar.
+- [x] **P3** Compare'i sistem düzeyine çıkar: dördüncü mod **Sistemler**. Sütun artık dünya değil
+  yıldız sistemi — güneşler (ad + renk), kanon ay sayısı, adı geçen aylar, o dönemde ayakta olan
+  istasyonlar (Ölüm Yıldızı era-kapılı), birincil gövdenin çapı/bölge/sektör/hizip. Kanon 81 dünyaya
+  81 ayrı sistem adı verdiği için sistem ayrı kayıt değil; `systemFacts` birincil gövdenin kendi
+  kaydından okur, uydurmaz (ay sayısı yoksa boş kalır). Şema **SVG** — dört canlı sistem sahnesi
+  dört WebGL bağlamı demekti, tek bakışta okunan bir resim için. Mod da URL'e yazıldı
+  (`?mode=systems&ids=`), sekme değişince o modun kendi varsayılan seti yükleniyor.
 - [x] **P3** Sektör ekseni: kanon sektör poligonu yok (71 dünya / 60 sektör), o yüzden harita
   katmanı değil **arama + filtre ekseni** oldu. Holocron'da sayılı sektör seçicisi (+ "sektörü
   kanonda belirtilmemiş" grubu), ⌘K'da sektör adı aranabilir — "Arkanis sector" üç dünyayı

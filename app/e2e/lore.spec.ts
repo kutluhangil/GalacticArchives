@@ -90,6 +90,21 @@ test('four worlds compare side by side from one link', async ({ page }) => {
   await expect(page.getByRole('columnheader', { name: 'Coruscant' })).toBeVisible()
 })
 
+test('four systems compare from one link without a single WebGL context', async ({ page }) => {
+  await page.goto('/compare?mode=systems&ids=tatooine,yavin,endor,mandalore')
+
+  await expect(page.getByRole('combobox')).toHaveCount(4, { timeout: 20_000 })
+  await expect(page.getByRole('cell', { name: 'Tatoo system' })).toBeVisible()
+  // the schematics are SVG on purpose — four live star systems would cost four
+  // contexts for a picture read at a glance
+  await expect(page.locator('canvas')).toHaveCount(0)
+  await expect(page.locator('[data-system-schematic]')).toHaveCount(4)
+
+  // both Death Stars stand this era, each over the world it was built above
+  await expect(page.getByRole('cell', { name: /DS-1/ })).toBeVisible()
+  await expect(page.getByRole('cell', { name: /DS-2/ })).toBeVisible()
+})
+
 test('the Holocron grid walks by row under the arrow keys', async ({ page }) => {
   // jsdom performs no layout, so the row arithmetic is only real here
   await page.goto('/holocron')

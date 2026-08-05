@@ -88,6 +88,19 @@ describe('Compare columns', () => {
     expect(screen.getByText(t('compareFull', 'en'))).toBeInTheDocument()
   })
 
+  it('keeps the mode in the URL, so a system comparison is as shareable as a planet one', async () => {
+    const user = userEvent.setup()
+    show('/compare')
+    await waitFor(() => expect(pickers()).toHaveLength(2))
+
+    await user.click(screen.getByRole('button', { name: t('systems', 'en') }))
+    await waitFor(() =>
+      expect(screen.getByTestId('url').textContent).toMatch(/mode=systems/),
+    )
+    // the mode change starts that mode's own set rather than carrying ids over
+    expect(screen.getByTestId('url').textContent).toMatch(/ids=tatooine%2Cyavin/)
+  })
+
   it('drops a column but never below a pair', async () => {
     const user = userEvent.setup()
     show('/compare?ids=hoth,mustafar,naboo')
@@ -96,5 +109,38 @@ describe('Compare columns', () => {
     await user.click(screen.getAllByRole('button', { name: t('compareRemove', 'en') })[0])
     await waitFor(() => expect(pickers()).toHaveLength(2))
     expect(screen.queryByRole('button', { name: t('compareRemove', 'en') })).not.toBeInTheDocument()
+  })
+})
+
+// The system columns compare what surrounds a world rather than the world:
+// its suns, its moons, and whatever the Empire parked in orbit that era. The
+// schematic above the table is decorative, so every figure it draws has to be
+// readable as text underneath it.
+describe('Compare systems', () => {
+  it('reads a system set from the URL and names the systems, not the worlds', async () => {
+    show('/compare?mode=systems&ids=tatooine,yavin')
+
+    await waitFor(() => expect(screen.getByText('TATOO SYSTEM')).toBeInTheDocument())
+    expect(screen.getByText('YAVIN SYSTEM')).toBeInTheDocument()
+    // no WebGL here: the schematic is SVG, so four systems cost no contexts
+    expect(document.querySelectorAll('canvas')).toHaveLength(0)
+  })
+
+  it('writes out the suns, the moon figure and the named moons', async () => {
+    show('/compare?mode=systems&ids=tatooine,yavin')
+
+    await waitFor(() => expect(screen.getByText('2 · Tatoo I · Tatoo II')).toBeInTheDocument())
+    expect(screen.getByText('Ghomrassen · Guermessa · Chenini')).toBeInTheDocument()
+    expect(screen.getByText('Yavin 4')).toBeInTheDocument()
+    expect(screen.getByRole('row', { name: new RegExp(`^${t('moons', 'en')} 3 26$`) }))
+      .toBeInTheDocument()
+  })
+
+  it('stands the Death Star up over Yavin only in the era it exists in', async () => {
+    show('/compare?mode=systems&ids=tatooine,yavin')
+    await waitFor(() => expect(screen.getByText(/Death Star/)).toBeInTheDocument())
+
+    useApp.setState({ era: 'new-republic' })
+    await waitFor(() => expect(screen.queryByText(/Death Star/)).not.toBeInTheDocument())
   })
 })
