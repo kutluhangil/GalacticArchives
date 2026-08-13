@@ -49,7 +49,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
-    "jsdom": "^26.1.0",
+    "jsdom": "^30.0.1",
     "kimi-plugin-inspect-react": "^1.0.3",
     "ktx2-encoder": "^0.6.0",
     "postcss": "^8.5.6",
