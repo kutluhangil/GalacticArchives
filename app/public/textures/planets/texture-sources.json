@@ -1,0 +1,782 @@
+{
+  "version": 1,
+  "seamTolerance": 12,
+  "sources": {
+    "ahch-to": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.063,
+        "sha256": "e370438cb76dd3976b6ee69a0926728574db2aa86a382382205566da524c2a1c"
+      }
+    },
+    "alderaan": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.8582,
+        "sha256": "21a5fe7f438ece95e13c6ae6f605a75088bd7998c942a0ee78f2462ffc0baf30"
+      }
+    },
+    "aldhani": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.562,
+        "sha256": "0f0f3e046debe53174a8d83219aa62684ff70a9457bc5d95df527bb9a1cffc71"
+      }
+    },
+    "arvala-7": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.769,
+        "sha256": "8f1e3861067fd674fe602aa8820db9b44026ee5ff47eace8014823c641df5f68"
+      }
+    },
+    "at-attin": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.2993,
+        "sha256": "478443787609ac3df70171958de9628648dc7b0a614fe5107543ee26e009846c"
+      }
+    },
+    "atollon": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "6b80addb2b7a156b55aeeafb56fe20d600aa33e531ca468e32dd22c44699e0c7"
+      }
+    },
+    "batuu": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.1466,
+        "sha256": "5024dce6460c1a53261d3c550cbee489ce0047a40105863cc30f20afe07aa80b"
+      }
+    },
+    "bespin": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 5.0898,
+        "sha256": "1dd4c2375ff6ae8e1bb64699d9cafefe6184ce8d393a7f2c89c9b153d56379e9"
+      }
+    },
+    "cantonica": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.117,
+        "sha256": "f3eb52e39bd768698548e078cd767c15bfd8e92d81cb9f5c25f177019480ec00"
+      }
+    },
+    "cato-neimoidia": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.7186,
+        "sha256": "1eb8fce2c0d7a57d91d8c6d11dbdeb51e86d77758c50ef87724321b5054c1fb7"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 3.5257,
+        "sha256": "133ac02890891613b36d56d38950d49fea752d48f299757884f7e6b50594e470"
+      }
+    },
+    "chandrila": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.7992,
+        "sha256": "02a39d8d1888ff157208559467ffd25b96480232df38a9b6db5cc5eb7ecf8269"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0.4852,
+        "sha256": "54ba23196d56c1d8f010e8081f7b89cc475bf1b904a8e2233e042aa45c43259d"
+      }
+    },
+    "christophsis": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "64f3349792b683608e0d377564c461b1e6ad803abb4224fcb3641d24649cf8ae"
+      }
+    },
+    "concordia": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.2567,
+        "sha256": "ab12157d3e5e13db2aa031d86bdd857d30462a95f7e47baac14af67a3db036f2"
+      }
+    },
+    "corellia": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.0964,
+        "sha256": "8155585d80c30e60cb3c8420c8856674496db2c726e4cb92868eefed72780778"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 2.6738,
+        "sha256": "8bdd4ad80e0869940ddebf88d3a20a8b110af15b5a205f3d590c87015003cc6a"
+      }
+    },
+    "coruscant": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "872fe23a12adac9d5cd287d5b8bacdc1765199dfba86e528074eeb516927c983"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.2987,
+        "sha256": "a897c5c5190ab30b9c6184cb82a1d64007a4906021cb1fdd30e56fc8df3af146"
+      }
+    },
+    "crait": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "8371d69437aed08b1634686b472887cb952319b51020114f69725a630ff5a500"
+      }
+    },
+    "csilla": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.3421,
+        "sha256": "297f76fe8aec8ba899d44203aaa91445aec1fa0a3014a03eb0b14d7cea2c0088"
+      }
+    },
+    "dagobah": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.4045,
+        "sha256": "925549d765013cdf78e523dceaa55ceace4372118e2f29b6c3a3ab72f1095e26"
+      }
+    },
+    "daiyu": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.2463,
+        "sha256": "8bc79ef3d42bd0b1b9302e4b0a75348958147a02faaada85b67cac91d31a514e"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 6.4788,
+        "sha256": "d578e4fb08571ce85eb6c28c0c5052d780fd85b15ee46c2d2b36cb0723ac6e45"
+      }
+    },
+    "dathomir": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.2562,
+        "sha256": "3be1e4bc4ae59b8c8399701781c6072d088fc6a7e66b2e0dc93aa93ef7a6dd8e"
+      }
+    },
+    "death-star": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.5959,
+        "sha256": "7e8535f5c5b0f8200bc969ca85f04b72deb36ac2989fa61c876ed39d2549b09c"
+      }
+    },
+    "death-star-2": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.7038,
+        "sha256": "a568ff8d88b75c594e817f158dca9db2d8d2b122abad3a9969b4ab9536a1c102"
+      }
+    },
+    "dqar": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.1268,
+        "sha256": "7bbef0919a21af8ee5a0b9c944e5214f7f42e50b2392d541539ef11b4413aaba"
+      }
+    },
+    "dromund-kaas": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 4.0872,
+        "sha256": "0afd17f86ac3ce72d97878666e0197255c028e85e57de277a9f087863baf0343"
+      }
+    },
+    "eadu": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.5192,
+        "sha256": "1924a4cc7be08f2fb37fed743281c476a6b88c3ddfccfab9279a9e8576cb5e76"
+      }
+    },
+    "endor": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 4.2329,
+        "sha256": "876e86903c54b3378e1e70fb66c516e2c94f1058bc19e06ca2d25ac90159a06c"
+      }
+    },
+    "endor-moon": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.1847,
+        "sha256": "7f0bd65ab6e540924371e7837f4090c7363b81c199afa5463d43257db5d1ce1a"
+      }
+    },
+    "eriadu": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.9276,
+        "sha256": "7a7e6e91a95fe423e47a7241ae3c1d60e3907d429dc177e6d517cc65a9af72dd"
+      }
+    },
+    "exegol": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 6.6328,
+        "sha256": "821532a74b638b1cb52204dbd2ef16bda955d79207d6949044cb656057403b1d"
+      }
+    },
+    "felucia": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.591,
+        "sha256": "647f34df7f346f6b6575448f7e456e346a44f95261492255c598fa516c1775b9"
+      }
+    },
+    "ferrix": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.5311,
+        "sha256": "7f2de927bd55ea48573e7e85f4e19400ae6aca2c659da42d4c3fa1fb1f7c710c"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 2.4881,
+        "sha256": "b38c663c4451bb0b68e23f33508657370e5359d1049e1a21a6e1d7543c0d3014"
+      }
+    },
+    "geonosis": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.028,
+        "sha256": "7552e2c3fe372618ae957d07c6f2df76e5a12fa0ac125f1bf3114ea20e7a1599"
+      }
+    },
+    "ghorman": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.5845,
+        "sha256": "b0ade1e15ddd0cb7f9044f6ffd3bb0d349655afe99c8aa6ab573088dd4af472c"
+      }
+    },
+    "glavis-ringworld": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.8628,
+        "sha256": "994882ae6841b33b66c7ba1ae4e2c581136284f7d1f21383430487fcec95829c"
+      }
+    },
+    "hosnian-prime": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "16886ff88d2c8b1c587b19574da1172acbbc729fb55d5f1237288e6b48443fdb"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "3f955af2d42d055d6091a81d29c24139d161eb065bf155e9dd0eaaf093c1be08"
+      }
+    },
+    "hoth": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.5314,
+        "sha256": "593df0b340872abee8221eda370a693606e4685eacfdcc9039870dca1a01b054"
+      }
+    },
+    "ilum": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "5f8aaa83796a239f34870b9ef65833201dde1431e66cc25d8c8cd6d9ba3e3867"
+      }
+    },
+    "jakku": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.1611,
+        "sha256": "c94e3be0c6455a8c3a858694e011473808f0d6ae552d137ccbf3627aa7262c2b"
+      }
+    },
+    "jedha": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.7088,
+        "sha256": "5e88455851858b16126e5695b7bce56992a418834e87291d51c21744c1fc728a"
+      }
+    },
+    "kamino": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.2329,
+        "sha256": "71e000593a523f6c5fa39b2a49fcb9bb393dbd2d737f7c28b4fc75a4035f48d0"
+      }
+    },
+    "kashyyyk": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 6.812,
+        "sha256": "bb9163c82d9b7be074aa50cd51d2d1e0886b27523ca7fa9883729175fb4eed1b"
+      }
+    },
+    "kef-bir": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.8652,
+        "sha256": "8041fdce07e3c9afba81fcbdf331bbfc9cf31b87f0c5efec9f982fa8d05cfceb"
+      }
+    },
+    "kessel": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.3188,
+        "sha256": "952aec70f1c476e4aa4585256a3ae626d4a4fd7ee081f306d1501cca16b930a4"
+      }
+    },
+    "kijimi": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "a6509ec81b5aeb0da0c0f587d438516e7f76e8c352bc1827ecbcccd88b022f32"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0.1872,
+        "sha256": "72781debf9cf89bc1e15606c2dd1cffcd4a79ebdbdb85127c214bf3223ccff9d"
+      }
+    },
+    "korriban": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.272,
+        "sha256": "81333f0acdd50ec060f587fc73cbc2e3f6359f39cd0adfee454d50cb41fcfb6b"
+      }
+    },
+    "krownest": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "7facf8f0e20df85b25bc5f7db50503a84e7bfa387230a997b364374baf5c66c1"
+      }
+    },
+    "lahmu": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 4.5177,
+        "sha256": "fef5fdadbe3582c841ae1f630653df87a1076e12b4eb34b5ed7dc2a9afe4451f"
+      }
+    },
+    "lehon": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 5.8783,
+        "sha256": "8bd066c2d1301afe0f596d5349e2bdbc89dbf6167663201695c967fe897804d4"
+      }
+    },
+    "lothal": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.7894,
+        "sha256": "0e78659dcd5cfdef031c8f0347a5a77c39680e7f988e6629cfcb7f4df8cdc46a"
+      }
+    },
+    "malachor": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.276,
+        "sha256": "8464fc4d417cc0a3c6ecdf9ff437b66902bf717fffaae50f3d030cf2aee7f681"
+      }
+    },
+    "manaan": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 3.4128,
+        "sha256": "eb29bfdd5bbf954d38e93ee1c651c0a254c8b93b611731c65936d89f55e6a98b"
+      }
+    },
+    "mandalore": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.821,
+        "sha256": "8d376cc5d6a4a5662a34d0101d45ef59763dc8a32f107cd79439a4181e4fc12a"
+      }
+    },
+    "mimban": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.4513,
+        "sha256": "d8f8cfed6d9618916e7fbf189de17fc674ddafe9fc93dcefef102abaeb6c3411"
+      }
+    },
+    "moraband": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.222,
+        "sha256": "dfb371eaf99a0e565f63ecf6d7a9c1caec778aa70ba29e80349b16fbe9744717"
+      }
+    },
+    "morak": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.9175,
+        "sha256": "a434f2df66eca7d94fe9ffd2e54ff82c25e25dc148f97f063aa5985d1ac4f797"
+      }
+    },
+    "mustafar": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.8182,
+        "sha256": "89abb83b63c06d15d97d241621fbb599526ff9d669f50535749a36132f9b20b5"
+      }
+    },
+    "mygeeto": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "8a2ff7bea6a928787318b60a9d2e0ef4b3e182285aa0cde5bb38fa7fffef7722"
+      }
+    },
+    "naboo": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.576,
+        "sha256": "da7f1fd9a3fe7d501afe64d4f4c0d56796d1215271d0dd677aa6176228f15228"
+      }
+    },
+    "nal-hutta": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.5687,
+        "sha256": "a2d538a7d9b6ab268c5851d008493e5193abbcf855df208e7d9fb821bd21bdf4"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 2.3799,
+        "sha256": "1ecaaa9f9929d47c26e66500cddc2df1a48a3415d7ff078860f74ecc67d6b783"
+      }
+    },
+    "nar-shaddaa": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "0b4d3c1b908d9e27b3c366fa4526849ef637dc3f378bffc2db92df00173f3f84"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.9842,
+        "sha256": "35969d57a65b7a5672ebf98a92fa92bea4a8f1ee3030a28393302a249bf0a5e9"
+      }
+    },
+    "narkina-5": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 5.1234,
+        "sha256": "35c779a07b1a07204e8f3de7f4aface2720ac81b5fc740d0cfb0c0fbdbf69a8e"
+      }
+    },
+    "nevarro": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.2308,
+        "sha256": "cbbbcae727e6552b3b3ee413003ac81cabf0cc684ada94e16cfab87b6bf63d79"
+      }
+    },
+    "numidian-prime": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 5.7712,
+        "sha256": "35877b165ce6649dd46aaf513d99ae41a0be245f292ab59fad44279eae2b9966"
+      }
+    },
+    "onderon": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.0086,
+        "sha256": "da45c367a48ee7c24a622c4169fef2190a28e603415481a3102050ba30c0ed51"
+      }
+    },
+    "ossus": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.596,
+        "sha256": "9ad996477e60751ba64f061ec4ff0ed928cceba387c4dd57ab93a8fc00fc33fb"
+      }
+    },
+    "pasaana": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.9268,
+        "sha256": "c2be296f851b81b5bbbacad8b25a9622a63900b71da92be346f4ea6208a11808"
+      }
+    },
+    "peridea": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 6.8724,
+        "sha256": "af7aa60727ad2a981986a959e2c685a639d9b132b049e943a487e3192a8fa19d"
+      }
+    },
+    "plazir-15": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.2204,
+        "sha256": "218a6946c1a42654a303de9b69b22540e5a73e7f7ac8067be9f86edefe96b534"
+      }
+    },
+    "polis-massa": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "fe95c044c739eba23b0ac0c6d17df11f62cd7d96f1ffa9acefc1f3b64355943d"
+      }
+    },
+    "ryloth": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.0877,
+        "sha256": "3b94019ce253d3f8349971c9947b34058d522d84598f7dc47d91ffedd9be8045"
+      }
+    },
+    "saleucami": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "c18bc097d59719bd27bc725b4558aad2c50869afd61b8d939de2cd9d167f5e3a"
+      }
+    },
+    "savareen": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 5.3641,
+        "sha256": "af2521d04b6570d82f0b537f44ce622a44bec203555fd1862bd7c81cdf398a3d"
+      }
+    },
+    "scarif": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.7119,
+        "sha256": "9079ed4f95aaa061d7d2f1a8565aa09e64fa3f202bfce956eb713a76f3880f82"
+      }
+    },
+    "seatos": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 6.9035,
+        "sha256": "7aae6b098a34cc2864ef82157f1778fc1fc2d44f54f558d9c21ec597fea728f3"
+      }
+    },
+    "serenno": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.7435,
+        "sha256": "0d01879a42b578e4dd7a40069573281e519e14ddf0d8fada4128706d273155ca"
+      }
+    },
+    "shakari": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.1208,
+        "sha256": "de62b0735245f8f20b9337848c877b9c28f7711463215aab492fab3835a67502"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 5.431,
+        "sha256": "324ad610d4001e6e46e30cfc8bdb28adfc74b298e9c1f73f6a4765ed8b83a30b"
+      }
+    },
+    "sorgan": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.5391,
+        "sha256": "80161e9f8641de0cde294cfa5218c9461c78497db62dc1d53b74c24e98563412"
+      }
+    },
+    "takodana": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 11.0358,
+        "sha256": "af529cd9861cf623b1e34c7c21099b4af84119ad256809f428c9dff93556f101"
+      }
+    },
+    "taris": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.2367,
+        "sha256": "fff5dde24e8f3ccea0c30b7becd630ea4d3568e1ede78422b55b592442cc91a3"
+      },
+      "night": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0.8813,
+        "sha256": "33de7a7e69e2608b027b3b098925ba555b964112bb90510364cfbbff497ad669"
+      }
+    },
+    "tatooine": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 7.7962,
+        "sha256": "9644723cb2d8e68daf9133f908765d72acfa6635dcf602eb6e7072458a8d470d"
+      }
+    },
+    "trask": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 6.0794,
+        "sha256": "914efb983a8016198f509a1efd0d1fe9a325a94147f7e176176ee838d36def1f"
+      }
+    },
+    "tython": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.2568,
+        "sha256": "13bd923f3403747669479ca97727027f520a109e05bdc3e01e0f00d0a37f7058"
+      }
+    },
+    "umbara": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 9.3428,
+        "sha256": "050cea49f59ef97224a32aa06a17a2aa9dd89e88b2026715bff836bb080c9f7a"
+      }
+    },
+    "utapau": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "588ba7a787b36a9057a1c5842231a2dea281e7d778ae9b7b74175246bed1c501"
+      }
+    },
+    "vandor": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 0,
+        "sha256": "4cf69f768b48b824a355d8105cc7df80ffe787d8ae2a71a2087ebfa159a68e7a"
+      }
+    },
+    "wobani": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 6.4613,
+        "sha256": "ceadc23cd19a070924e3bf1b77e45c72ed7875bd7c3f1c137daa3b99b6c15ecc"
+      }
+    },
+    "yavin": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 8.3866,
+        "sha256": "8b849d5582f288cd7b73cc594ef8de7c0a610647b0e0a5f4200e11ed7710ff02"
+      }
+    },
+    "yavin-4": {
+      "albedo": {
+        "width": 4096,
+        "height": 2048,
+        "seamDelta": 10.0179,
+        "sha256": "2142141dce7e5949505d7688f24452f6220821ea48e399476e4fc6d08b950c06"
+      }
+    }
+  }
+}

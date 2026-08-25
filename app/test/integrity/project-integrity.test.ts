@@ -29,6 +29,13 @@ describe('vite config', () => {
     expect(viteConfig.worker?.format).toBe('es')
   })
 
+  it('uses the same fixed development address as Tauri', () => {
+    const tauri = readJson('src-tauri/tauri.conf.json')
+    expect(viteConfig.server?.port).toBe(5173)
+    expect(viteConfig.server?.strictPort).toBe(true)
+    expect(tauri.build.devUrl).toBe('http://localhost:5173')
+  })
+
   it('keeps three.js pinned to its own vendor chunk', () => {
     const manualChunks = viteConfig.build?.rollupOptions?.output
     expect(manualChunks).toBeTruthy()

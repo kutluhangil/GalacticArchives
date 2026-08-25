@@ -127,6 +127,8 @@ const STRINGS = {
     tr: 'Kaynaklar: Wookieepedia (CC BY-SA) · StarWars.com Databank',
   },
   notFound: { en: 'No such record in the archives.', tr: 'Arşivlerde böyle bir kayıt yok.' },
+  recordMissing: { en: 'This route does not match a record in the archive.', tr: 'Bu rota arşivdeki bir kayda karşılık gelmiyor.' },
+  textureErrorTitle: { en: 'Surface assets unavailable:', tr: 'Yüzey varlıkları yüklenemedi:' },
 
   // data provenance
   unstated: { en: 'not stated in canon', tr: 'kanonda belirtilmemiş' },

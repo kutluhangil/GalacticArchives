@@ -10,11 +10,13 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js'
 import { qualitySettings } from '../quality'
 import { STAR_FRAG, STAR_VERT } from './planet-shaders'
+import { applySurfaceTextures, type SurfaceTextureLease } from './planet-textures'
 
 export interface BaseCallbacks {
   /** simulated ms epoch — drives rotations and orbits */
   getSimTime: () => number
   onFps?: (fps: number) => void
+  onAssetError?: (error: Error) => void
 }
 
 export abstract class EngineBase {
@@ -46,6 +48,8 @@ export abstract class EngineBase {
   private fpsCount = 0
   private fpsLast = 0
   private resizeObs?: ResizeObserver
+  private readonly textureAbort = new AbortController()
+  private textureLeases: SurfaceTextureLease[] = []
 
   constructor(canvas: HTMLCanvasElement, cb: BaseCallbacks) {
     this.canvas = canvas
@@ -139,6 +143,23 @@ export abstract class EngineBase {
     stars.frustumCulled = false
     this.scene.add(stars)
     this.timedMats.push(mat)
+  }
+
+  /** Binds streamed KTX2 maps to an engine-owned material. The engine owns
+   * both cancellation and cache leases, so navigation cannot write into a
+   * disposed material or evict a texture that is still on screen. */
+  protected loadSurfaceTextures(id: string, material: THREE.ShaderMaterial) {
+    void applySurfaceTextures(id, material, this.renderer, this.textureAbort.signal)
+      .then((lease) => {
+        if (this.textureAbort.signal.aborted) lease.release()
+        else this.textureLeases.push(lease)
+      })
+      .catch((error: unknown) => {
+        if (this.textureAbort.signal.aborted) return
+        const reported = error instanceof Error ? error : new Error(`Surface textures failed for ${id}: ${String(error)}`)
+        if (this.cb.onAssetError) this.cb.onAssetError(reported)
+        else console.error(reported)
+      })
   }
 
   /** Camera approach: ease from wherever the viewer is to `endDist` away from
@@ -269,6 +290,9 @@ export abstract class EngineBase {
 
   dispose() {
     this.disposed = true
+    this.textureAbort.abort()
+    for (const lease of this.textureLeases) lease.release()
+    this.textureLeases = []
     cancelAnimationFrame(this.raf)
     this.resizeObs?.disconnect()
     this.controls.dispose()

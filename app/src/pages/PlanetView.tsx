@@ -14,6 +14,7 @@ import { useFlyTo } from '../components/useFlyTo'
 import EraDissolve from '../components/EraDissolve'
 import { useEraDissolve } from '../components/useEraDissolve'
 import { KesselRun, Porg } from '../components/EasterEggs'
+import RecordLoadOverlay from '../components/RecordLoadOverlay'
 
 export default function PlanetView() {
   const { id = 'tatooine' } = useParams()
@@ -26,6 +27,8 @@ export default function PlanetView() {
   const [poiPos, setPoiPos] = useState<PoiScreenPos[]>([])
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
   const [fps, setFps] = useState(0)
+  const [loadError, setLoadError] = useState<{ id: string; error: unknown } | null>(null)
+  const [textureError, setTextureError] = useState<{ id: string; error: Error } | null>(null)
   const jump = useFlyTo()
   const dissolve = useEraDissolve()
   // keyed by id, so a route change reads as "not loaded yet" without a reset
@@ -49,6 +52,8 @@ export default function PlanetView() {
         }
       }
       if (!cancelled) setLoaded({ id, body: b, systemHost: host })
+    }).catch((error: unknown) => {
+      if (!cancelled) setLoadError({ id, error })
     })
     return () => {
       cancelled = true
@@ -69,6 +74,7 @@ export default function PlanetView() {
           getSimTime: () => simClock.getTime(),
           onFps: setFps,
           onPoiPositions: setPoiPos,
+          onAssetError: (error) => setTextureError({ id, error }),
         })
         engine.init(body, era)
         engineRef.current = engine
@@ -148,9 +154,14 @@ export default function PlanetView() {
 
       {!body && (
         <div className="absolute inset-0 z-30 flex items-center justify-center bg-space">
-          <div className="animate-pulse text-[13px] tracking-[0.3em] text-holo-cyan">
-            {t('loading', lang)}
-          </div>
+          <RecordLoadOverlay error={loadError?.id === id ? loadError.error : undefined} lang={lang} />
+        </div>
+      )}
+
+      {textureError?.id === id && body && (
+        <div role="alert" className="absolute bottom-12 left-4 z-30 max-w-sm rounded border border-holo-red/40 bg-panel/95 p-3 text-xs text-slate-300 backdrop-blur">
+          <span className="font-semibold text-holo-red">{t('textureErrorTitle', lang)}</span>{' '}
+          {textureError.error.message}
         </div>
       )}
     </div>

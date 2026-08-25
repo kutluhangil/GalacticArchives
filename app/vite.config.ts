@@ -13,7 +13,8 @@ export default defineConfig({
     format: 'es',
   },
   server: {
-    port: 3000,
+    port: 5173,
+    strictPort: true,
   },
   resolve: {
     alias: {

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-25
+
+- Repaired the desktop/dev address contract, invalid body deep-links, station rendering, KTX2 texture ownership and error reporting, all-detail static SEO, and texture-source provenance; added regression coverage and refreshed the release-status documentation.
+
 ## 2026-08-05
 
 - Compare rose to the system level: a fourth mode where each column is a star system rather than a world. It states the suns by name and colour, the moon figure canon gives, the moons the archive can name, the stations standing in the selected era, and the primary's diameter, region, sector and allegiance. Canon gives the 81 worlds 81 distinct system names, so a system is not a record of its own — `systemFacts` reads it off the primary body and reports nothing where the record states nothing, which is why Nal Hutta shows a named moon and no count. The schematic above each column is SVG, not a `SystemEngine` scene: four live systems would have cost four WebGL contexts for a picture whose job is to be read at a glance, and every figure it draws is written out in the table below it. The mode now rides in the URL beside the set (`?mode=systems&ids=`), so a system comparison is as shareable as a planet one and switching tabs no longer leaves the previous mode's ids behind. 269 unit and component tests, up from 259, and 30 end-to-end, up from 29.

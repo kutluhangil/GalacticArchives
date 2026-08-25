@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import type { CelestialBody, EraId } from '../../types/lore'
 import { rendersAsRubble, stationsForHost } from '../lore'
 import { EngineBase, type BaseCallbacks } from './engine-base'
-import { buildAsteroidField, buildDeathStar, buildTraffic, type TrafficSystem } from './effects'
+import { buildAsteroidField, buildStationBody, buildTraffic, type TrafficSystem } from './effects'
 import { makeBodyMaterial, seedFrom, type SunLight } from './body-material'
 
 export interface SystemCallbacks extends BaseCallbacks {
@@ -106,6 +106,7 @@ export class SystemEngine extends EngineBase {
       .map((sun) => ({ dir: new THREE.Vector3(1, 0, 0), color: new THREE.Color(sun.color) }))
     const mat = makeBodyMaterial(body, era, lights)
     this.timedMats.push(mat)
+    this.loadSurfaceTextures(body.id, mat)
     return mat
   }
 
@@ -199,8 +200,7 @@ export class SystemEngine extends EngineBase {
 
     // era-gated stations (Death Stars), clickable like moons
     stationsForHost(body.id, era).forEach((station, i) => {
-      const half = (station.renderRecipe.effects ?? []).includes('half-built-scaffold')
-      const ds = buildDeathStar(0.42, half, seedFrom(station.id))
+      const ds = buildStationBody(station, 0.42, seedFrom(station.id))
       this.timedMats.push(...ds.materials)
       ds.object.traverse((o) => {
         o.userData.bodyId = station.id

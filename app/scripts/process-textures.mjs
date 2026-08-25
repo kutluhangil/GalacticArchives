@@ -16,6 +16,7 @@
 //   node scripts/process-textures.mjs --force    rebuild even if up to date
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
@@ -25,6 +26,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const RAW_DIR = join(ROOT, 'raw', 'planets')
 const OUT_DIR = join(ROOT, 'public', 'textures', 'planets')
 const MANIFEST = join(OUT_DIR, 'manifest.json')
+const PROVENANCE = join(OUT_DIR, 'texture-sources.json')
 
 const KINDS = ['albedo', 'night', 'clouds']
 const TIERS = [
@@ -94,6 +96,12 @@ async function main() {
   }
   mkdirSync(OUT_DIR, { recursive: true })
   const manifest = existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, 'utf8')) : {}
+  const provenance = existsSync(PROVENANCE)
+    ? JSON.parse(readFileSync(PROVENANCE, 'utf8'))
+    : { version: 1, seamTolerance: SEAM_TOLERANCE, sources: {} }
+  provenance.version = 1
+  provenance.seamTolerance = SEAM_TOLERANCE
+  provenance.sources ??= {}
 
   const ids = new Set()
   for (const file of readdirSync(RAW_DIR)) {
@@ -122,7 +130,14 @@ async function main() {
       }
       const delta = await seamDelta(source)
       if (delta > SEAM_TOLERANCE) {
-        console.warn(`  ! ${id}-${kind}: seam delta ${delta.toFixed(1)} — the wrap will be visible`)
+        throw new Error(`${id}-${kind}.png: seam delta ${delta.toFixed(2)} exceeds ${SEAM_TOLERANCE}`)
+      }
+      provenance.sources[id] ??= {}
+      provenance.sources[id][kind] = {
+        width: meta.width,
+        height: meta.height,
+        seamDelta: Number(delta.toFixed(4)),
+        sha256: createHash('sha256').update(readFileSync(source)).digest('hex'),
       }
 
       entry[kind] = {}
@@ -141,6 +156,7 @@ async function main() {
   }
 
   writeFileSync(MANIFEST, `${JSON.stringify(manifest, null, 2)}\n`)
+  writeFileSync(PROVENANCE, `${JSON.stringify(provenance, null, 2)}\n`)
   console.log(`manifest updated: ${Object.keys(manifest).length} worlds, format ktx2`)
 }
 

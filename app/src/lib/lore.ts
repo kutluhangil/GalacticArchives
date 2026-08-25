@@ -106,6 +106,17 @@ export const planetIds = Object.keys(planetModules)
   .map((path) => path.replace('../data/planets/', '').replace('.json', ''))
   .sort()
 
+export class UnknownBodyError extends Error {
+  constructor(id: string) {
+    super(`Unknown body id "${id}" (no planet file, moon or station matches)`)
+    this.name = 'UnknownBodyError'
+  }
+}
+
+export function isUnknownBodyError(error: unknown): error is UnknownBodyError {
+  return error instanceof UnknownBodyError
+}
+
 export async function loadBody(id: string): Promise<CelestialBody> {
   const hit = cache.get(id)
   if (hit) return hit
@@ -120,7 +131,7 @@ export async function loadBody(id: string): Promise<CelestialBody> {
       const found = cache.get(id)
       if (found) return found
     }
-    throw new Error(`Unknown body id "${id}" (no planet file, moon or station matches)`)
+    throw new UnknownBodyError(id)
   }
   const mod = await loader()
   const body = mod.default
@@ -211,5 +222,4 @@ export async function loadTransmissions(): Promise<Transmission[]> {
   }
   return transmissionsCache
 }
-
 

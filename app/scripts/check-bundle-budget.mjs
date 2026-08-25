@@ -99,11 +99,17 @@ for (const asset of [
   if (!existsSync(join(DIST, asset))) errors.push(`missing generated asset: dist/${asset}`)
 }
 
-const planetCount = readdirSync(join(ROOT, 'src/data/planets')).filter((f) => f.endsWith('.json')).length
+const planets = readdirSync(join(ROOT, 'src/data/planets'))
+  .filter((f) => f.endsWith('.json'))
+  .map((file) => JSON.parse(readFileSync(join(ROOT, 'src/data/planets', file), 'utf8')))
+const stations = JSON.parse(readFileSync(join(ROOT, 'src/data/stations.json'), 'utf8'))
+const characters = JSON.parse(readFileSync(join(ROOT, 'src/data/characters.json'), 'utf8'))
+const bodyCount = planets.length + planets.flatMap((planet) => planet.moonsDetail ?? []).length + stations.length
+const expectedOgCount = bodyCount + characters.length + 1
 const ogCount = readdirSync(join(DIST, 'og')).filter((f) => f.endsWith('.png')).length
-report.push(`${'og cards'.padEnd(24)} ${String(ogCount).padStart(8)} for ${planetCount} worlds + default`)
-if (ogCount !== planetCount + 1) {
-  errors.push(`og cards: ${ogCount} png files for ${planetCount} worlds (expected ${planetCount + 1} with default.png)`)
+report.push(`${'og cards'.padEnd(24)} ${String(ogCount).padStart(8)} for ${bodyCount} bodies + ${characters.length} characters + default`)
+if (ogCount !== expectedOgCount) {
+  errors.push(`og cards: ${ogCount} png files (expected ${expectedOgCount}: ${bodyCount} bodies, ${characters.length} characters and default.png)`)
 }
 
 for (const line of report) console.log('  ' + line)

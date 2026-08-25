@@ -11,6 +11,7 @@ import TimeBar from '../components/hud/TimeBar'
 import { useFlyTo } from '../components/useFlyTo'
 import EraDissolve from '../components/EraDissolve'
 import { useEraDissolve } from '../components/useEraDissolve'
+import RecordLoadOverlay from '../components/RecordLoadOverlay'
 
 interface Label {
   id: string
@@ -28,6 +29,8 @@ export default function SystemView() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [loaded, setLoaded] = useState<{ id: string; body: CelestialBody } | null>(null)
   const [labels, setLabels] = useState<Label[]>([])
+  const [loadError, setLoadError] = useState<{ id: string; error: unknown } | null>(null)
+  const [textureError, setTextureError] = useState<{ id: string; error: Error } | null>(null)
   const engineRef = useRef<SystemEngine | null>(null)
   const flyTo = useFlyTo()
   const dissolve = useEraDissolve()
@@ -43,6 +46,8 @@ export default function SystemView() {
     let cancelled = false
     loadBody(id).then((b) => {
       if (!cancelled) setLoaded({ id, body: b })
+    }).catch((error: unknown) => {
+      if (!cancelled) setLoadError({ id, error })
     })
     return () => {
       cancelled = true
@@ -55,6 +60,7 @@ export default function SystemView() {
       getSimTime: () => simClock.getTime(),
       onSelectBody: dive,
       onLabelPositions: setLabels,
+      onAssetError: (error) => setTextureError({ id, error }),
     })
     engine.init(body, era, lang)
     engineRef.current = engine
@@ -122,9 +128,14 @@ export default function SystemView() {
 
       {!body && (
         <div className="absolute inset-0 z-30 flex items-center justify-center bg-space">
-          <div className="animate-pulse text-[13px] tracking-[0.3em] text-holo-cyan">
-            {t('loading', lang)}
-          </div>
+          <RecordLoadOverlay error={loadError?.id === id ? loadError.error : undefined} lang={lang} />
+        </div>
+      )}
+
+      {textureError?.id === id && body && (
+        <div role="alert" className="absolute bottom-12 left-4 z-30 max-w-sm rounded border border-holo-red/40 bg-panel/95 p-3 text-xs text-slate-300 backdrop-blur">
+          <span className="font-semibold text-holo-red">{t('textureErrorTitle', lang)}</span>{' '}
+          {textureError.error.message}
         </div>
       )}
     </div>

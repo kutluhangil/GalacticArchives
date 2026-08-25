@@ -21,6 +21,12 @@ CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve
 üst çubuk 05 Ağustos'ta düzeltildi. Aynı gün codex kayıtlarının 64'ü de kaynak makalesine
 bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
+**Son doğrulama (2026-08-25):** 272 birim/bileşen testi geçti. Tauri geliştirme adresi,
+geçersiz deep-link hata durumu, Glavis halka renderer'ı, texture yaşam döngüsü ve tüm detay
+rotalarının statik metasına ait denetim açıkları kapatıldı. Yerel sandbox tarayıcı sunucusunu
+`::1:4173` üzerinde açmaya izin vermediği için uçtan uca/Tauri GUI doğrulaması bu ortamda tekrar
+koşulamadı.
+
 ---
 
 ## 1. Geliştirme / mühendislik sağlığı — en kritik

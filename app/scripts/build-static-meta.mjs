@@ -20,7 +20,10 @@ import sharp from 'sharp'
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = join(ROOT, 'dist')
 const PLANET_DIR = join(ROOT, 'src', 'data', 'planets')
+const STATIONS_FILE = join(ROOT, 'src', 'data', 'stations.json')
+const CHARACTERS_FILE = join(ROOT, 'src', 'data', 'characters.json')
 const BRAND_DIR = join(ROOT, 'raw', 'brand')
+const PORTRAIT_DIR = join(ROOT, 'public', 'portraits')
 const SITE = process.env.SITE_URL ?? 'https://galactic-archives.vercel.app'
 
 const shell = readFileSync(join(DIST, 'index.html'), 'utf8')
@@ -36,6 +39,14 @@ function requiredAsset(name) {
 const planets = readdirSync(PLANET_DIR)
   .filter((f) => f.endsWith('.json'))
   .map((f) => JSON.parse(readFileSync(join(PLANET_DIR, f), 'utf8')))
+const stations = JSON.parse(readFileSync(STATIONS_FILE, 'utf8'))
+const characters = JSON.parse(readFileSync(CHARACTERS_FILE, 'utf8'))
+const bodies = [...planets, ...planets.flatMap((planet) => planet.moonsDetail ?? []), ...stations]
+const bodyIds = new Set()
+for (const body of bodies) {
+  if (bodyIds.has(body.id)) throw new Error(`static meta: duplicate body id "${body.id}"`)
+  bodyIds.add(body.id)
+}
 
 const escape = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -91,6 +102,24 @@ function ogCard(planet) {
     )
     .join('\n  ')}
 </svg>`)
+}
+
+async function characterOgCard(character) {
+  const portrait = join(PORTRAIT_DIR, `${character.id}.webp`)
+  if (!existsSync(portrait)) {
+    throw new Error(`static meta: required character portrait is missing: ${portrait}`)
+  }
+  const name = escape(character.names.en.toUpperCase())
+  const bio = wrap(character.bio.en, 54, 2)
+  const overlay = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <defs><linearGradient id="shade" x1="0" x2="1"><stop stop-color="#04060a" stop-opacity="0.98"/><stop offset="0.62" stop-color="#04060a" stop-opacity="0.72"/><stop offset="1" stop-color="#04060a" stop-opacity="0.06"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#shade)"/>
+  <text x="72" y="126" font-family="Helvetica, Arial, sans-serif" font-size="24" letter-spacing="9" fill="#FFE81F">GALACTIC ARCHIVES</text>
+  <text x="72" y="254" font-family="Helvetica, Arial, sans-serif" font-size="64" letter-spacing="5" fill="#F1F5F9">${name}</text>
+  <text x="72" y="310" font-family="Helvetica, Arial, sans-serif" font-size="21" letter-spacing="4" fill="#66D9FF">CHARACTER RECORD</text>
+  ${bio.map((line, i) => `<text x="72" y="${390 + i * 34}" font-family="Helvetica, Arial, sans-serif" font-size="23" fill="#CBD5E1">${line}</text>`).join('\n  ')}
+</svg>`)
+  return sharp(portrait).resize(1200, 630, { fit: 'cover', position: 'right' }).composite([{ input: overlay }]).png()
 }
 
 function page({ title, description, path, image }) {
@@ -162,15 +191,15 @@ for (const section of sections) {
   urls.push(section.path)
 }
 
-for (const planet of planets) {
-  const name = planet.names.en
-  const description = planet.desc.en.slice(0, 180)
-  const image = `/og/${planet.id}.png`
+for (const body of bodies) {
+  const name = body.names.en
+  const description = body.desc.en.slice(0, 180)
+  const image = `/og/${body.id}.png`
 
   mkdirSync(join(DIST, 'og'), { recursive: true })
-  await sharp(ogCard(planet)).png().toFile(join(DIST, 'og', `${planet.id}.png`))
+  await sharp(ogCard(body)).png().toFile(join(DIST, 'og', `${body.id}.png`))
 
-  for (const route of [`/planet/${planet.id}`, `/holocron/planet/${planet.id}`]) {
+  for (const route of [`/planet/${body.id}`, `/holocron/planet/${body.id}`]) {
     writePage(
       route,
       page({
@@ -182,6 +211,22 @@ for (const planet of planets) {
     )
     urls.push(route)
   }
+}
+
+for (const character of characters) {
+  const image = `/og/character-${character.id}.png`
+  await (await characterOgCard(character)).toFile(join(DIST, 'og', `character-${character.id}.png`))
+  const route = `/holocron/character/${character.id}`
+  writePage(
+    route,
+    page({
+      title: `${character.names.en} — Galactic Archives`,
+      description: character.bio.en.slice(0, 180),
+      path: route,
+      image,
+    }),
+  )
+  urls.push(route)
 }
 
 // Site-wide card: generated art is the background and the build owns readable,
@@ -218,4 +263,4 @@ ${urls.map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}
 
 writeFileSync(join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`)
 
-console.log(`static meta: ${planets.length} worlds, ${urls.length} urls`)
+console.log(`static meta: ${bodies.length} worlds, ${characters.length} characters, ${urls.length} urls`)

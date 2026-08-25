@@ -73,6 +73,8 @@ export interface RingSpec {
 
 export interface RenderRecipe {
   archetype: Archetype
+  /** Explicit station geometry; prevents ring habitats from falling through to Death Star rendering. */
+  stationVisual?: 'death-star' | 'ringworld'
   palette: { primary: string; secondary?: string }
   atmosphere?: { color: string; density: number } // density 0..1
   textures?: {

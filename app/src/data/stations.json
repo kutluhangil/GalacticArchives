@@ -43,6 +43,7 @@
     },
     "renderRecipe": {
       "archetype": "station",
+      "stationVisual": "death-star",
       "palette": { "primary": "#9AA0A8", "secondary": "#5E646C" },
       "textures": { "albedo": "stations/greeble" },
       "effects": ["superlaser-dish", "equator-trench"]
@@ -93,6 +94,7 @@
     },
     "renderRecipe": {
       "archetype": "station",
+      "stationVisual": "death-star",
       "palette": { "primary": "#9AA0A8", "secondary": "#5E646C" },
       "textures": { "albedo": "stations/greeble" },
       "effects": ["half-built-scaffold", "superlaser-dish"]

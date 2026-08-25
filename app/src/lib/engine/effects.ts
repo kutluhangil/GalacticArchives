@@ -161,6 +161,50 @@ export function buildDeathStar(radius: number, half: boolean, seed: number): Tim
   return { object: mesh, materials: [mat] }
 }
 
+/** Spinning ring habitat with a lit inner city band. Unlike a Death Star this
+ * is deliberately open at its centre, so its silhouette reads as an orbital
+ * habitat at both close and system-view scales. */
+export function buildRingworld(radius: number, seed: number): TimedEffect {
+  const group = new THREE.Group()
+  const hull = new THREE.MeshStandardMaterial({
+    color: new THREE.Color('#68717d'),
+    metalness: 0.86,
+    roughness: 0.34,
+  })
+  const habitat = new THREE.MeshStandardMaterial({
+    color: new THREE.Color('#172333'),
+    emissive: new THREE.Color('#4eaac9'),
+    emissiveIntensity: 1.25,
+    metalness: 0.35,
+    roughness: 0.52,
+    side: THREE.BackSide,
+  })
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(radius, radius * 0.16, 20, 128), hull)
+  ring.rotation.x = Math.PI / 2
+  const inner = new THREE.Mesh(new THREE.TorusGeometry(radius, radius * 0.105, 16, 128), habitat)
+  inner.rotation.x = Math.PI / 2
+  group.add(ring, inner)
+
+  const lights = new THREE.Group()
+  const lightMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#8cecff') })
+  const count = 24 + (seed % 12)
+  for (let i = 0; i < count; i++) {
+    const angle = (i / count) * Math.PI * 2
+    const light = new THREE.Mesh(new THREE.BoxGeometry(radius * 0.06, radius * 0.018, radius * 0.04), lightMat)
+    light.position.set(Math.cos(angle) * radius, Math.sin(angle) * radius, 0)
+    light.rotation.z = angle
+    lights.add(light)
+  }
+  lights.rotation.x = Math.PI / 2
+  group.add(lights)
+  return { object: group, materials: [] }
+}
+
+export function buildStationBody(body: { id: string; renderRecipe: { stationVisual?: 'death-star' | 'ringworld'; effects?: string[] } }, radius: number, seed: number): TimedEffect {
+  if (body.renderRecipe.stationVisual === 'ringworld') return buildRingworld(radius, seed)
+  return buildDeathStar(radius, (body.renderRecipe.effects ?? []).includes('half-built-scaffold'), seed)
+}
+
 /** Slow-tumbling asteroid disk (Alderaan graveyard / destroyed worlds). */
 export function buildAsteroidField(
   count: number,
@@ -430,4 +474,3 @@ export function buildTraffic(count: number, hostRadius: number): TrafficSystem {
 }
 
 const AXIS_X = new THREE.Vector3(1, 0, 0)
-

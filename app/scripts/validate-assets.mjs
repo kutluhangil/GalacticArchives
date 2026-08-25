@@ -12,6 +12,7 @@ const CARDS = join(ROOT, 'public', 'cards')
 const PORTRAITS = join(ROOT, 'public', 'portraits')
 const PUBLIC_TEXTURES = join(ROOT, 'public', 'textures', 'planets')
 const MANIFEST = join(PUBLIC_TEXTURES, 'manifest.json')
+const PROVENANCE = join(PUBLIC_TEXTURES, 'texture-sources.json')
 const SEAM_TOLERANCE = 12
 const TIER_DIMENSIONS = {
   '4k': { width: 4096, height: 2048 },
@@ -233,13 +234,45 @@ if (!existsSync(MANIFEST)) {
   }
 }
 
+if (!existsSync(PROVENANCE)) {
+  fail(`${PROVENANCE}: missing texture source provenance; run "npm run textures" with raw masters available`)
+} else {
+  try {
+    const provenance = JSON.parse(readFileSync(PROVENANCE, 'utf8'))
+    if (provenance.version !== 1) fail(`${PROVENANCE}: unsupported provenance version ${provenance.version}`)
+    if (provenance.seamTolerance !== SEAM_TOLERANCE) {
+      fail(`${PROVENANCE}: seam tolerance must be ${SEAM_TOLERANCE}, got ${provenance.seamTolerance}`)
+    }
+    for (const id of bodyIds) {
+      for (const kind of nightIds.includes(id) ? ['albedo', 'night'] : ['albedo']) {
+        const source = provenance.sources?.[id]?.[kind]
+        if (!source) {
+          fail(`${PROVENANCE}: missing ${id}/${kind} source record`)
+          continue
+        }
+        if (source.width !== 4096 || source.height !== 2048) {
+          fail(`${PROVENANCE}: ${id}/${kind} expected 4096x2048, got ${source.width}x${source.height}`)
+        }
+        if (typeof source.seamDelta !== 'number' || source.seamDelta > SEAM_TOLERANCE) {
+          fail(`${PROVENANCE}: ${id}/${kind} seam delta ${source.seamDelta} exceeds ${SEAM_TOLERANCE}`)
+        }
+        if (typeof source.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(source.sha256)) {
+          fail(`${PROVENANCE}: ${id}/${kind} has an invalid SHA-256`)
+        }
+      }
+    }
+  } catch (error) {
+    fail(`${PROVENANCE}: invalid JSON: ${error instanceof Error ? error.message : error}`)
+  }
+}
+
 console.log(
   `assets: ${bodyIds.length} albedo, ${nightIds.length} night, 300 texture tiers, ${bodyIds.length} cards, ${characterIds.length} portraits, 3 brand`,
 )
 console.log(
   hasMasters
     ? `masters: ${bodyIds.length + nightIds.length} checked for size and seam`
-    : `masters: not in this checkout, ${bodyIds.length + nightIds.length} size/seam checks skipped (see docs/kalan-isler.md)`,
+    : `masters: not in this checkout; ${bodyIds.length + nightIds.length} live size/seam checks unavailable, committed provenance validated (see docs/kalan-isler.md)`,
 )
 console.log(`ERRORS: ${errors.length}`)
 for (const error of errors) console.log(`  ✗ ${error}`)

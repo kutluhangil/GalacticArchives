@@ -73,6 +73,7 @@
   },
   "renderRecipe": {
     "archetype": "station",
+    "stationVisual": "ringworld",
     "palette": {
       "primary": "#8A8F98",
       "secondary": "#4A4F58"

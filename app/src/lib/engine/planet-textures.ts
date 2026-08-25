@@ -17,15 +17,36 @@ const BASE = '/textures/planets'
 const CACHE_LIMIT = 6
 
 let manifestPromise: Promise<Manifest> | null = null
-const cache = new Map<string, THREE.Texture>()
+interface CacheEntry {
+  texture: THREE.Texture
+  references: number
+}
+
+export interface SurfaceTextureLease {
+  release: () => void
+}
+
+const cache = new Map<string, CacheEntry>()
+const pendingLoads = new Map<string, Promise<void>>()
 let ktx2Loader: KTX2Loader | null = null
 
 function loadManifest(): Promise<Manifest> {
   if (!manifestPromise) {
     manifestPromise = fetch(`${BASE}/manifest.json`)
-      .then((res) => (res.ok ? res.json() : {}))
-      // no manifest means no generated textures yet, which is a valid state
-      .catch(() => ({}))
+      .then(async (res) => {
+        if (!res.ok) {
+          throw new Error(`Texture manifest request failed: ${res.url || `${BASE}/manifest.json`} returned HTTP ${res.status}`)
+        }
+        const manifest: unknown = await res.json()
+        if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) {
+          throw new Error(`Texture manifest is invalid: expected an object at ${BASE}/manifest.json`)
+        }
+        return manifest as Manifest
+      })
+      .catch((error: unknown) => {
+        manifestPromise = null
+        throw error instanceof Error ? error : new Error(`Texture manifest request failed: ${String(error)}`)
+      })
   }
   return manifestPromise
 }
@@ -45,12 +66,31 @@ async function loaderFor(file: string, renderer: THREE.WebGLRenderer) {
   return ktx2Loader
 }
 
-function evictOldest() {
+function evictUnused() {
   while (cache.size > CACHE_LIMIT) {
-    const oldest = cache.keys().next().value
-    if (oldest === undefined) return
-    cache.get(oldest)?.dispose()
-    cache.delete(oldest)
+    const oldestUnused = [...cache.entries()].find(([, entry]) => entry.references === 0)?.[0]
+    if (!oldestUnused) return
+    cache.get(oldestUnused)?.texture.dispose()
+    cache.delete(oldestUnused)
+  }
+}
+
+function acquire(key: string): SurfaceTextureLease & { texture: THREE.Texture } {
+  const entry = cache.get(key)
+  if (!entry) throw new Error(`Texture cache invariant failed: missing acquired key ${key}`)
+  entry.references += 1
+  cache.delete(key)
+  cache.set(key, entry)
+  let released = false
+  return {
+    texture: entry.texture,
+    release: () => {
+      if (released) return
+      released = true
+      entry.references -= 1
+      if (entry.references < 0) throw new Error(`Texture cache invariant failed: negative references for ${key}`)
+      evictUnused()
+    },
   }
 }
 
@@ -58,7 +98,7 @@ async function loadMap(
   id: string,
   kind: Kind,
   renderer: THREE.WebGLRenderer,
-): Promise<THREE.Texture | null> {
+): Promise<(SurfaceTextureLease & { texture: THREE.Texture }) | null> {
   const manifest = await loadManifest()
   const available = manifest[id]?.[kind]
   if (!available) return null
@@ -66,23 +106,26 @@ async function loadMap(
   if (!tier) return null
 
   const key = `${id}/${kind}/${tier}`
-  const hit = cache.get(key)
-  if (hit) {
-    // refresh recency
-    cache.delete(key)
-    cache.set(key, hit)
-    return hit
-  }
+  if (cache.has(key)) return acquire(key)
 
-  const url = `${BASE}/${id}/${available[tier]}`
-  const loader = await loaderFor(available[tier], renderer)
-  const texture = await loader.loadAsync(url)
-  texture.colorSpace = THREE.SRGBColorSpace
-  texture.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8)
-  texture.wrapS = THREE.RepeatWrapping
-  cache.set(key, texture)
-  evictOldest()
-  return texture
+  let pending = pendingLoads.get(key)
+  if (!pending) {
+    const url = `${BASE}/${id}/${available[tier]}`
+    pending = loaderFor(available[tier], renderer)
+      .then(async (loader) => {
+        const texture = await loader.loadAsync(url)
+        texture.colorSpace = THREE.SRGBColorSpace
+        texture.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8)
+        texture.wrapS = THREE.RepeatWrapping
+        cache.set(key, { texture, references: 0 })
+      })
+      .finally(() => pendingLoads.delete(key))
+    pendingLoads.set(key, pending)
+  }
+  await pending
+  const lease = acquire(key)
+  evictUnused()
+  return lease
 }
 
 /**
@@ -93,18 +136,39 @@ export async function applySurfaceTextures(
   id: string,
   material: THREE.ShaderMaterial,
   renderer: THREE.WebGLRenderer,
-): Promise<void> {
-  const [albedo, night] = await Promise.all([
+  signal?: AbortSignal,
+): Promise<SurfaceTextureLease> {
+  const maps = await Promise.allSettled([
     loadMap(id, 'albedo', renderer),
     loadMap(id, 'night', renderer),
   ])
+  const failed = maps.find((map): map is PromiseRejectedResult => map.status === 'rejected')
+  if (failed) {
+    for (const map of maps) if (map.status === 'fulfilled') map.value?.release()
+    throw failed.reason instanceof Error ? failed.reason : new Error(`Texture load failed for ${id}: ${String(failed.reason)}`)
+  }
+  const [albedoResult, nightResult] = maps as [
+    PromiseFulfilledResult<(SurfaceTextureLease & { texture: THREE.Texture }) | null>,
+    PromiseFulfilledResult<(SurfaceTextureLease & { texture: THREE.Texture }) | null>,
+  ]
+  const albedo = albedoResult.value
+  const night = nightResult.value
+  const release = () => {
+    albedo?.release()
+    night?.release()
+  }
+  if (signal?.aborted) {
+    release()
+    return { release: () => undefined }
+  }
   if (albedo) {
-    material.uniforms.uAlbedo.value = albedo
+    material.uniforms.uAlbedo.value = albedo.texture
     material.uniforms.uUseAlbedo.value = 1
   }
   if (night) {
-    material.uniforms.uNight.value = night
+    material.uniforms.uNight.value = night.texture
     material.uniforms.uUseNight.value = 1
   }
   material.needsUpdate = true
+  return { release }
 }

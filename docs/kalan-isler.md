@@ -1,6 +1,6 @@
 # Kalan işler — Galactic Archives
 
-**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-05
+**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-25
 
 Bu dosya tek kaynak: neyin bittiği, neyin **sende**, neyin **bende** olduğu. Eski
 `HANDOFF.md` ve `SENDEN-GEREKENLER.md` bunun yerine geçtiği için silindi.
@@ -14,7 +14,7 @@ Bu dosya tek kaynak: neyin bittiği, neyin **sende**, neyin **bende** olduğu. E
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
 | Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 168 POI, 23 hiperuzay hattı | `npm run validate` → 0 hata |
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
-| Test | 269 birim/bileşen + 30 uçtan uca | `npm run verify` |
+| Test | 272 birim/bileşen geçti; uçtan uca tarayıcı koşumu bu sandbox'ta yerel port izni olmadığı için bekliyor | `npm run test` → 32 dosya, 272 test geçti; `npm run e2e` → `listen EPERM ::1:4173` |
 | CI | Yeşil | GitHub Actions `CI / verify` |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
 
@@ -67,7 +67,9 @@ kurarım. Sertifikayı **repoya koyma**; ortam değişkeni olarak geçeceğiz
    > yavaşlatıyorlardı; yalnız türetilen KTX2 katmanları yayınlanıyor. Mevcut
    > master'ların yedeği: `/Volumes/ProjectVault/GalacticArchives-raw-masters/planets/`.
    > Doku hattını yeniden çalıştıracaksan önce onları `app/raw/planets/` altına kopyala.
-   > `validate:assets` master'lar yokken boyut/dikiş denetimlerini atladığını yazar.
+   > `validate:assets` master'lar yokken canlı piksel denetimini yapamaz; bunun yerine commitli
+   > `texture-sources.json` envanterini (boyut, seam değeri ve SHA-256) zorunlu doğrular. Tam
+   > bağımsız CI seam doğrulaması için master'ların LFS veya artifact deposunda bulunması gerekir.
 3. Çalıştır:
    ```bash
    cd app
@@ -113,6 +115,12 @@ Sıradaki işler:
   tablolarını ve yazılı turları ilk boyaya taşıyordu. Giriş yığını 346 → 308 kB,
   `first paint total` 399 500 → 361 270 bayt. Bütçe tavanları da indirildi
   (giriş 330 kB, ilk boya 390 kB) ki kazanç geri kaçmasın.
+
+2026-08-25 denetim/düzeltme turunda Tauri geliştirme adresi sabitlendi, bozuk body deep-link'leri
+geri dönüşlü hata ekranına taşındı, Glavis gerçek halka-habitat renderer'ına ayrıldı, KTX2 yükleme
+ve cache sahipliği engine yaşam döngüsüne bağlandı, System view KTX2 yüzeylerini kullanmaya başladı
+ve statik SEO ay/istasyon/karakter rotalarına genişletildi (217 URL). Kalan doğrulama yalnız gerçek
+tarayıcı/Tauri çalışma ortamıdır.
 
 Bilinçli olarak ertelendi, istersen sıraya alırım:
 

@@ -11,7 +11,7 @@ import { EngineBase, type BaseCallbacks } from './engine-base'
 import {
   buildAuroras,
   buildAsteroidField,
-  buildDeathStar,
+  buildStationBody,
   buildLightningColumns,
   buildMistShell,
   buildSparks,
@@ -19,7 +19,6 @@ import {
   type TrafficSystem,
 } from './effects'
 import { makeBodyMaterial, seedFrom } from './body-material'
-import { applySurfaceTextures } from './planet-textures'
 import {
   ATMO_FRAG,
   ATMO_VERT,
@@ -145,8 +144,7 @@ export class PlanetEngine extends EngineBase {
   private bodyMaterial(body: CelestialBody): THREE.ShaderMaterial {
     const mat = makeBodyMaterial(body, this.era, this.sunDirs)
     this.timedMats.push(mat)
-    // generated maps, when the pipeline has produced any for this world
-    void applySurfaceTextures(body.id, mat, this.renderer)
+    this.loadSurfaceTextures(body.id, mat)
     return mat
   }
 
@@ -251,8 +249,7 @@ export class PlanetEngine extends EngineBase {
 
   /** the viewed body IS a station (Death Star pages) */
   private buildStationBody() {
-    const half = (this.body.renderRecipe.effects ?? []).includes('half-built-scaffold')
-    const ds = buildDeathStar(1, half, seedFrom(this.body.id))
+    const ds = buildStationBody(this.body, 1, seedFrom(this.body.id))
     const s1 = this.sunDirs[0]
     for (const m of ds.materials) {
       ;(m.uniforms.uSun1Dir.value as THREE.Vector3).copy(s1.dir)
@@ -308,8 +305,7 @@ export class PlanetEngine extends EngineBase {
   private buildOrbitingStations() {
     const stations = stationsForHost(this.body.id, this.era)
     stations.forEach((station, i) => {
-      const half = (station.renderRecipe.effects ?? []).includes('half-built-scaffold')
-      const ds = buildDeathStar(0.2, half, seedFrom(station.id))
+      const ds = buildStationBody(station, 0.2, seedFrom(station.id))
       const s1 = this.sunDirs[0]
       for (const m of ds.materials) {
         ;(m.uniforms.uSun1Dir.value as THREE.Vector3).copy(s1.dir)

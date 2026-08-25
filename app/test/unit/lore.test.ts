@@ -70,6 +70,14 @@ describe('stationsForHost', () => {
   })
 })
 
+describe('station render recipes', () => {
+  it('keeps ring habitats distinct from Death Star bodies', async () => {
+    expect((await loadBody('glavis-ringworld')).renderRecipe.stationVisual).toBe('ringworld')
+    expect((await loadBody('death-star')).renderRecipe.stationVisual).toBe('death-star')
+    expect((await loadBody('death-star-2')).renderRecipe.stationVisual).toBe('death-star')
+  })
+})
+
 describe('localization helpers', () => {
   it('picks the requested language', () => {
     expect(L({ en: 'Desert', tr: 'Çöl' }, 'tr')).toBe('Çöl')
