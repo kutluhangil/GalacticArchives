@@ -7,7 +7,8 @@ import { ERA_SHORT, t } from '../../lib/ui-strings'
 import { OPEN_PALETTE_EVENT } from '../CommandPaletteHost'
 import SettingsMenu from '../SettingsMenu'
 import { tours } from '../../lib/tours'
-import { useFavorites, useRecents } from '../../hooks/useCollections'
+import { useFavorites, useRecents, useSavedTours } from '../../hooks/useCollections'
+import { toggleSavedTour } from '../../lib/collections'
 import { useFlyTo } from '../useFlyTo'
 import { sfx } from '../../lib/audio'
 
@@ -150,24 +151,37 @@ function CollectionsMenu() {
 function ToursMenu() {
   const { lang } = useApp()
   const startTour = useApp((s) => s.startTour)
+  const saved = useSavedTours()
   return (
     <Menu label={t('tours', lang)}>
       {(close) => (
         <>
           {tours.map((tour) => (
-            <button
-              key={tour.id}
-              onClick={() => {
-                close()
-                startTour({ kind: 'authored', id: tour.id })
-              }}
-              className="block w-full rounded px-2 py-1.5 text-left transition-colors hover:bg-white/5"
-            >
-              <span className="block text-[12px] text-slate-200">{L(tour.names, lang)}</span>
-              <span className="block text-[10.5px] leading-snug text-slate-500">
-                {L(tour.blurb, lang)}
-              </span>
-            </button>
+            <div key={tour.id} className="flex items-start gap-1 rounded transition-colors hover:bg-white/5">
+              <button
+                onClick={() => {
+                  close()
+                  startTour({ kind: 'authored', id: tour.id })
+                }}
+                className="min-w-0 flex-1 px-2 py-1.5 text-left"
+              >
+                <span className="block text-[12px] text-slate-200">{L(tour.names, lang)}</span>
+                <span className="block text-[10.5px] leading-snug text-slate-500">
+                  {L(tour.blurb, lang)}
+                </span>
+              </button>
+              <button
+                onClick={() => toggleSavedTour(tour.id)}
+                aria-pressed={saved.includes(tour.id)}
+                aria-label={t(saved.includes(tour.id) ? 'removeSavedTour' : 'saveTour', lang)}
+                title={t(saved.includes(tour.id) ? 'removeSavedTour' : 'saveTour', lang)}
+                className={`mt-1.5 px-2 text-[14px] leading-none transition-colors ${
+                  saved.includes(tour.id) ? 'text-star-gold' : 'text-slate-600 hover:text-star-gold/70'
+                }`}
+              >
+                {saved.includes(tour.id) ? '★' : '☆'}
+              </button>
+            </div>
           ))}
         </>
       )}
@@ -438,4 +452,3 @@ export default function TopBar() {
     </header>
   )
 }
-

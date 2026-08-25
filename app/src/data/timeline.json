@@ -49,7 +49,7 @@
       "tr": "Yüce Şansölye Palpatine, klon askerlerini Jedi komutanlarını katletmeye zorlayan Emir 66'yı devreye soktu. Palpatine kendisini İmparator ilan ederek Cumhuriyet'i Galaktik İmparatorluk'a dönüştürdü."
     },
     "planetId": "coruscant",
-    "characterIds": ["palpatine", "darth-vader", "obi-wan-kenobi"],
+    "characterIds": ["palpatine", "anakin-skywalker", "obi-wan-kenobi"],
     "source": "wookieepedia:Order 66"
   },
   {
@@ -67,7 +67,7 @@
       "tr": "Grand Moff Tarkin, Ölüm Yıldızı I'in ilk tam güç süperlazer testini barışçıl Alderaan gezegeni üzerinde emrederek gezegeni anında yok etti."
     },
     "planetId": "alderaan",
-    "characterIds": ["leia-organa", "darth-vader"],
+    "characterIds": ["leia-organa", "anakin-skywalker"],
     "source": "wookieepedia:Destruction of Alderaan"
   },
   {
@@ -86,7 +86,7 @@
     },
     "planetId": "yavin",
     "battleId": "battle-of-yavin",
-    "characterIds": ["luke-skywalker", "darth-vader"],
+    "characterIds": ["luke-skywalker", "anakin-skywalker"],
     "source": "wookieepedia:Battle of Yavin"
   },
   {
@@ -105,7 +105,7 @@
     },
     "planetId": "hoth",
     "battleId": "battle-of-hoth",
-    "characterIds": ["luke-skywalker", "darth-vader"],
+    "characterIds": ["luke-skywalker", "anakin-skywalker"],
     "source": "wookieepedia:Battle of Hoth"
   },
   {
@@ -124,7 +124,7 @@
     },
     "planetId": "endor",
     "battleId": "battle-of-endor",
-    "characterIds": ["luke-skywalker", "darth-vader", "palpatine"],
+    "characterIds": ["luke-skywalker", "anakin-skywalker", "palpatine"],
     "source": "wookieepedia:Battle of Endor"
   },
   {

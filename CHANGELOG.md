@@ -2,6 +2,7 @@
 
 ## 2026-08-25
 
+- Added an immutable, validated ArchiveGraph across all 88 bodies, 33 characters and timeline events; Holocron records now expose source-backed, keyboard-accessible world/figure/event connections, direct event anchors, source links and explicit unverified POIs. The renderer checks WebGL before Three.js starts and keeps a readable fallback with retry; guided tours can be saved locally and launch from matching world records. Canonical Anakin Skywalker references now back Darth Vader appearances in both timeline and watch-guide data. Added graph, compatibility, saved-tour and route-index coverage plus a character-to-world Playwright flow (283 Vitest and 31 Playwright scenarios passing at verification time).
 - Repaired the desktop/dev address contract, invalid body deep-links, station rendering, KTX2 texture ownership and error reporting, all-detail static SEO, and texture-source provenance; added regression coverage and refreshed the release-status documentation.
 
 ## 2026-08-05

@@ -133,3 +133,15 @@ test('the Holocron grid walks by row under the arrow keys', async ({ page }) => 
   await page.keyboard.press('Enter')
   await expect(page).toHaveURL(/\/holocron\/planet\//)
 })
+
+test('a character record follows a sourced archive connection to its world', async ({ page }) => {
+  await page.goto('/holocron/character/luke-skywalker')
+  await expect(page.getByRole('heading', { name: /Luke Skywalker/i, level: 1 })).toBeVisible()
+
+  const connections = page.getByRole('region', { name: /Arşiv bağlantıları|Archive connections/ })
+  await expect(connections).toBeVisible()
+  await connections.getByRole('link', { name: /Tatooine.*Anavatan|Tatooine.*Homeworld/i }).click()
+
+  await expect(page).toHaveURL(/\/holocron\/planet\/tatooine/)
+  await expect(page.getByRole('heading', { name: 'TATOOINE', level: 1 })).toBeVisible()
+})

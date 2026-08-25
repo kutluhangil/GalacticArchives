@@ -6,8 +6,10 @@ import {
   isFavorite,
   pushRecent,
   recents,
+  savedTours,
   subscribeCollections,
   toggleFavorite,
+  toggleSavedTour,
 } from '../../src/lib/collections'
 
 beforeEach(() => localStorage.clear())
@@ -47,6 +49,15 @@ describe('recents', () => {
     expect(list).toHaveLength(8)
     expect(list[0]).toBe('world-11')
     expect(list).not.toContain('world-3')
+  })
+})
+
+describe('saved tours', () => {
+  it('keeps a local, removable collection of guided routes', () => {
+    expect(toggleSavedTour('skywalker')).toBe(true)
+    expect(savedTours()).toEqual(['skywalker'])
+    expect(toggleSavedTour('skywalker')).toBe(false)
+    expect(savedTours()).toEqual([])
   })
 })
 

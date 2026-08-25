@@ -40,6 +40,7 @@ const STRINGS = {
   compareFull: { en: 'Four is the most that stays readable', tr: 'Okunur kalan en fazla dört sütun' },
   toScale: { en: 'To scale', tr: 'Gerçek oranla' },
   tours: { en: 'Tours', tr: 'Turlar' },
+  guidedRoutes: { en: 'Guided routes through this record', tr: 'Bu kayıttan geçen rehberli rotalar' },
   tourStart: { en: 'Start tour', tr: 'Turu başlat' },
   tourPrev: { en: 'Back', tr: 'Geri' },
   tourNext: { en: 'Next', tr: 'İleri' },
@@ -47,6 +48,8 @@ const STRINGS = {
   tourResume: { en: 'Play', tr: 'Oynat' },
   tourFinish: { en: 'Finish', tr: 'Bitir' },
   tourExit: { en: 'Exit tour', tr: 'Turdan çık' },
+  saveTour: { en: 'Save tour', tr: 'Turu kaydet' },
+  removeSavedTour: { en: 'Remove saved tour', tr: 'Kayıtlı turu kaldır' },
   aurebesh: { en: 'Aurebesh', tr: 'Aurebesh' },
   planets: { en: 'Planets', tr: 'Gezegenler' },
   search: { en: 'Search', tr: 'Ara' },
@@ -121,6 +124,14 @@ const STRINGS = {
   notableResidents: { en: 'Notable figures', tr: 'Ünlü isimler' },
   pointsOfInterest: { en: 'Points of interest', tr: 'Önemli yerler' },
   relatedCharacters: { en: 'Connected figures', tr: 'Bağlantılı isimler' },
+  archiveConnections: { en: 'Archive connections', tr: 'Arşiv bağlantıları' },
+  homeworldRelation: { en: 'Homeworld', tr: 'Anavatan' },
+  appearsOnRelation: { en: 'Known world', tr: 'Bilinen dünya' },
+  participatesInRelation: { en: 'Known event', tr: 'Bilinen olay' },
+  relatedCharacterRelation: { en: 'Connected figure', tr: 'Bağlantılı isim' },
+  eventLocationRelation: { en: 'Event location', tr: 'Olay konumu' },
+  relationshipEvidence: { en: 'Record evidence', tr: 'Kayıt dayanağı' },
+  relationshipUnavailable: { en: 'Archive connection data unavailable:', tr: 'Arşiv bağlantı verisi kullanılamıyor:' },
   biography: { en: 'Biography', tr: 'Biyografi' },
   sources: {
     en: 'Sources: Wookieepedia (CC BY-SA) · StarWars.com Databank',
@@ -129,6 +140,12 @@ const STRINGS = {
   notFound: { en: 'No such record in the archives.', tr: 'Arşivlerde böyle bir kayıt yok.' },
   recordMissing: { en: 'This route does not match a record in the archive.', tr: 'Bu rota arşivdeki bir kayda karşılık gelmiyor.' },
   textureErrorTitle: { en: 'Surface assets unavailable:', tr: 'Yüzey varlıkları yüklenemedi:' },
+  webglUnavailableTitle: { en: '3D view unavailable', tr: '3B görünüm kullanılamıyor' },
+  webglUnavailableBody: {
+    en: 'This browser could not create a WebGL context. The archive record remains available below.',
+    tr: 'Bu tarayıcı bir WebGL bağlamı oluşturamadı. Arşiv kaydı aşağıda kullanılabilir.',
+  },
+  webglRetry: { en: 'Retry 3D view', tr: '3B görünümü yeniden dene' },
 
   // data provenance
   unstated: { en: 'not stated in canon', tr: 'kanonda belirtilmemiş' },
@@ -139,6 +156,12 @@ const STRINGS = {
   authoredHint: {
     en: 'Summarised by this archive: the sourced article states no value for this field.',
     tr: 'Bu arşivin özeti: kaynak madde bu alan için bir değer belirtmiyor.',
+  },
+  archiveSummary: { en: 'archive summary', tr: 'arşiv özeti' },
+  unverified: { en: 'not yet verified', tr: 'henüz doğrulanmadı' },
+  unverifiedHint: {
+    en: 'The archive has not verified this field against its cited source yet.',
+    tr: 'Arşiv bu alanı atıf yaptığı kaynağa karşı henüz doğrulamadı.',
   },
   sourceLink: { en: 'Source', tr: 'Kaynak' },
 

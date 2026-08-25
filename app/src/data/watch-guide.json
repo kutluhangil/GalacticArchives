@@ -97,7 +97,7 @@
       "tr": "Sith'in İntikamından 10 yıl sonra geçen dizi, Ewan McGregor ve Hayden Christensen'i Obi-Wan ve Darth Vader olarak yeniden bir araya getirir. Genç Prenses Leia bir Engizisyoncu tarafından kaçırılır ve Kenobi'yi Tatooine'deki saklanma yerinden çıkmaya zorlar."
     },
     "planets": ["tatooine", "alderaan", "mapuzo"],
-    "characters": ["obi-wan-kenobi", "darth-vader", "leia-organa"],
+    "characters": ["obi-wan-kenobi", "anakin-skywalker", "leia-organa"],
     "era": "empire",
     "source": "wookieepedia:Star Wars: Obi-Wan Kenobi"
   },
@@ -131,7 +131,7 @@
       "tr": "Ghost mürettebatı — Kanan Jarrus, Ezra Bridger, Hera Syndulla, Sabine Wren, Zeb ve Chopper — Lothal'da ve Dış Bölge genelinde Galaktik İmparatorluğa karşı savaşır. Büyük Amiral Thrawn'u kanona tanıtır."
     },
     "planets": ["lothal", "malachor", "mandalore"],
-    "characters": ["kanan-jarrus", "ezra-bridger", "hera-syndulla", "darth-vader", "ahsoka-tano"],
+    "characters": ["kanan-jarrus", "ezra-bridger", "hera-syndulla", "anakin-skywalker", "ahsoka-tano"],
     "era": "empire",
     "source": "wookieepedia:Star Wars Rebels"
   },
@@ -148,7 +148,7 @@
       "tr": "Jyn Erso ve Cassian Andor, Scarif'teki İmparatorluk arşivlerinden Ölüm Yıldızı planlarını çalmak için düzensiz bir Asi grubuna önderlik eder. Film, Vader'ın Tantive IV'e binmesiyle Bölüm IV'ün başladığı yerde sona erer."
     },
     "planets": ["scarif", "jedha", "eadu", "yavin-4"],
-    "characters": ["jyn-erso", "cassian-andor", "darth-vader", "galen-erso", "chirrut-imwe"],
+    "characters": ["jyn-erso", "cassian-andor", "anakin-skywalker", "galen-erso", "chirrut-imwe"],
     "era": "empire",
     "source": "wookieepedia:Rogue One: A Star Wars Story"
   },
@@ -165,7 +165,7 @@
       "tr": "Çiftçi Luke Skywalker, Prenses Leia'yı kurtarmak ve İmparatorluğun gezegen yok eden süper silahı Ölüm Yıldızı'nı Yavin Savaşı'nda — ilk büyük Asi zaferi — imha etmek için Obi-Wan Kenobi, Han Solo ve Chewbacca ile birleşir."
     },
     "planets": ["tatooine", "alderaan", "yavin-4"],
-    "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "obi-wan-kenobi"],
+    "characters": ["luke-skywalker", "leia-organa", "han-solo", "anakin-skywalker", "obi-wan-kenobi"],
     "era": "empire",
     "source": "wookieepedia:Star Wars: Episode IV A New Hope"
   },
@@ -182,7 +182,7 @@
       "tr": "İmparatorluk, Asiler'i Hoth'tan sürer. Luke Dagobah'ta Yoda ile eğitim alırken Han, Leia ve Chewbacca Bulut Şehri'ne kaçar; burada Lando tarafından ihanete uğrarlar. Şok eden açıklama: Darth Vader, Luke'un babasıdır."
     },
     "planets": ["hoth", "dagobah", "bespin"],
-    "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "yoda", "lando-calrissian"],
+    "characters": ["luke-skywalker", "leia-organa", "han-solo", "anakin-skywalker", "yoda", "lando-calrissian"],
     "era": "empire",
     "source": "wookieepedia:Star Wars: Episode V The Empire Strikes Back"
   },
@@ -199,7 +199,7 @@
       "tr": "Luke, Jabba the Hutt'tan Han'ı kurtardıktan sonra Endor üzerindeki ikinci Ölüm Yıldızı'na saldırıya önderlik eder. Darth Vader, Palpatine'i reaktör boşluğuna fırlatarak kendini kurtarır, Seçilmiş Kişi kehanetini yerine getirir ve İmparatorluğa son verir."
     },
     "planets": ["tatooine", "endor", "coruscant"],
-    "characters": ["luke-skywalker", "leia-organa", "han-solo", "darth-vader", "palpatine", "lando-calrissian"],
+    "characters": ["luke-skywalker", "leia-organa", "han-solo", "anakin-skywalker", "palpatine", "lando-calrissian"],
     "era": "empire",
     "source": "wookieepedia:Star Wars: Episode VI Return of the Jedi"
   },

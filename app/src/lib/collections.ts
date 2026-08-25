@@ -3,6 +3,7 @@
 
 const FAV_KEY = 'ga-favorites'
 const RECENT_KEY = 'ga-recents'
+const SAVED_TOUR_KEY = 'ga-saved-tours'
 const RECENT_LIMIT = 8
 
 type Listener = () => void
@@ -48,6 +49,19 @@ export function recents(): string[] {
 export function pushRecent(id: string) {
   const next = [id, ...read(RECENT_KEY).filter((v) => v !== id)].slice(0, RECENT_LIMIT)
   write(RECENT_KEY, next)
+}
+
+/** Visitor-owned guided-route list. It deliberately stores only archive IDs:
+ * no account, remote sync, or lore copy leaves this browser. */
+export function savedTours(): string[] {
+  return read(SAVED_TOUR_KEY)
+}
+
+export function toggleSavedTour(id: string): boolean {
+  const current = read(SAVED_TOUR_KEY)
+  const next = current.includes(id) ? current.filter((value) => value !== id) : [id, ...current]
+  write(SAVED_TOUR_KEY, next)
+  return next.includes(id)
 }
 
 /** subscribe to any change; returns the unsubscribe */

@@ -36,13 +36,12 @@ beforeEach(() => {
 })
 
 describe('a world with no stats block', () => {
-  it('renders its identity without a stats row and without crashing', () => {
+  it('renders its identity and makes unverified stats visible', () => {
     renderPanel(BASE)
     expect(screen.getByRole('heading', { name: 'TEST WORLD' })).toBeInTheDocument()
     expect(screen.getByText('R-16')).toBeInTheDocument()
-    expect(screen.queryByText(t('diameter', 'en'))).not.toBeInTheDocument()
-    expect(screen.queryByText(t('population', 'en'))).not.toBeInTheDocument()
-    expect(screen.queryByText(t('government', 'en'))).not.toBeInTheDocument()
+    expect(screen.getByText(t('diameter', 'en'))).toBeInTheDocument()
+    expect(screen.getAllByText(t('unverified', 'en'))).toHaveLength(3)
   })
 
   it('says so out loud when canon itself states nothing', () => {
@@ -52,13 +51,11 @@ describe('a world with no stats block', () => {
     expect(screen.getAllByText(t('unstated', 'en'))).toHaveLength(3)
   })
 
-  it("stays silent when the gap is the archive's own", () => {
-    // Tatooine's article states a diameter and a population, so empty rows for
-    // those are our omission and stay hidden; it states no government, so that
-    // one row does speak up
+  it("labels an archive gap instead of silently hiding it", () => {
+    // Tatooine's article states a diameter and a population, so absent values
+    // are an archive verification task; its government is canon-unstated.
     renderPanel({ ...BASE, id: 'tatooine' })
-    expect(screen.queryByText(t('diameter', 'en'))).not.toBeInTheDocument()
-    expect(screen.queryByText(t('population', 'en'))).not.toBeInTheDocument()
+    expect(screen.getAllByText(t('unverified', 'en'))).toHaveLength(2)
     expect(screen.getByText(t('government', 'en'))).toBeInTheDocument()
     expect(screen.getAllByText(t('unstated', 'en'))).toHaveLength(1)
   })
@@ -104,6 +101,7 @@ describe('provenance marks', () => {
     renderPanel({ ...BASE, id: 'tatooine', stats })
     const marker = screen.getByTitle(t('authoredHint', 'en'))
     expect(marker).toBeInTheDocument()
+    expect(screen.getByText(t('archiveSummary', 'en'))).toBeInTheDocument()
     expect(screen.getByText('Fringe world under Hutt influence')).toBeInTheDocument()
   })
 

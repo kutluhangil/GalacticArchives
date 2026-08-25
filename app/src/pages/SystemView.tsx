@@ -12,6 +12,8 @@ import { useFlyTo } from '../components/useFlyTo'
 import EraDissolve from '../components/EraDissolve'
 import { useEraDissolve } from '../components/useEraDissolve'
 import RecordLoadOverlay from '../components/RecordLoadOverlay'
+import WebGLUnavailable from '../components/WebGLUnavailable'
+import { detectRenderCompatibility, type RenderCompatibility } from '../lib/render-compatibility'
 
 interface Label {
   id: string
@@ -31,6 +33,7 @@ export default function SystemView() {
   const [labels, setLabels] = useState<Label[]>([])
   const [loadError, setLoadError] = useState<{ id: string; error: unknown } | null>(null)
   const [textureError, setTextureError] = useState<{ id: string; error: Error } | null>(null)
+  const [renderCompatibility, setRenderCompatibility] = useState<RenderCompatibility>(detectRenderCompatibility)
   const engineRef = useRef<SystemEngine | null>(null)
   const flyTo = useFlyTo()
   const dissolve = useEraDissolve()
@@ -55,16 +58,22 @@ export default function SystemView() {
   }, [id])
 
   useEffect(() => {
-    if (!body || !canvasRef.current) return
-    const engine = new SystemEngine(canvasRef.current, {
-      getSimTime: () => simClock.getTime(),
-      onSelectBody: dive,
-      onLabelPositions: setLabels,
-      onAssetError: (error) => setTextureError({ id, error }),
-    })
-    engine.init(body, era, lang)
-    engineRef.current = engine
-    dissolve.onBuild(body.id)
+    if (!body || !canvasRef.current || !renderCompatibility.supported) return
+    let engine: SystemEngine
+    try {
+      engine = new SystemEngine(canvasRef.current, {
+        getSimTime: () => simClock.getTime(),
+        onSelectBody: dive,
+        onLabelPositions: setLabels,
+        onAssetError: (error) => setTextureError({ id, error }),
+      })
+      engine.init(body, era, lang)
+      engineRef.current = engine
+      dissolve.onBuild(body.id)
+    } catch {
+      queueMicrotask(() => setRenderCompatibility({ supported: false, reason: 'context-creation-failed' }))
+      return
+    }
     return () => {
       dissolve.onTeardown(engine)
       engineRef.current = null
@@ -73,7 +82,7 @@ export default function SystemView() {
     // dissolve helpers are stable refs; excluding them keeps the rebuild keyed
     // strictly to body/era/lang
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [body, era, lang, dive])
+  }, [body, era, lang, dive, renderCompatibility])
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-space">
@@ -137,6 +146,9 @@ export default function SystemView() {
           <span className="font-semibold text-holo-red">{t('textureErrorTitle', lang)}</span>{' '}
           {textureError.error.message}
         </div>
+      )}
+      {!renderCompatibility.supported && (
+        <WebGLUnavailable lang={lang} onRetry={() => setRenderCompatibility(detectRenderCompatibility())} />
       )}
     </div>
   )

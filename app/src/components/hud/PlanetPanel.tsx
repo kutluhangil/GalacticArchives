@@ -19,8 +19,9 @@ function Row({ label, value }: { label: string; value: string | undefined }) {
   )
 }
 
-/** A headline fact, with where it came from. An empty row is only dropped when
- *  the gap is ours; when canon itself states nothing, the row says so. */
+/** A headline fact with an explicit content state. A blank field is never
+ * presented as a complete archive record: it is canon-unstated or awaiting
+ * verification against the cited source. */
 function FactRow({
   bodyId,
   field,
@@ -37,13 +38,15 @@ function FactRow({
   const state = provenance(bodyId, field, !!value)
 
   if (!value) {
-    // an authoring gap stays silent; only canon's own silence is stated
-    if (state !== 'unstated') return null
+    const isUnstated = state === 'unstated'
     return (
       <div className="flex justify-between gap-4 border-b border-white/5 py-1.5 text-[12px]">
         <span className="shrink-0 text-slate-500">{label}</span>
-        <span className="text-right italic text-slate-500" title={t('unstatedHint', lang)}>
-          {t('unstated', lang)}
+        <span
+          className="text-right italic text-slate-500"
+          title={t(isUnstated ? 'unstatedHint' : 'unverifiedHint', lang)}
+        >
+          {t(isUnstated ? 'unstated' : 'unverified', lang)}
         </span>
       </div>
     )
@@ -57,9 +60,17 @@ function FactRow({
         {state === 'authored' && (
           <span
             title={t('authoredHint', lang)}
-            className="ml-1 cursor-help align-super text-[9px] text-slate-500"
+            className="ml-1.5 inline-block rounded border border-star-gold/20 px-1 align-middle text-[8px] uppercase tracking-wide text-star-gold/70"
           >
-            ◦
+            {t('archiveSummary', lang)}
+          </span>
+        )}
+        {state === undefined && (
+          <span
+            title={t('unverifiedHint', lang)}
+            className="ml-1.5 inline-block rounded border border-sith-red/20 px-1 align-middle text-[8px] uppercase tracking-wide text-red-300/70"
+          >
+            {t('unverified', lang)}
           </span>
         )}
       </span>

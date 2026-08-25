@@ -38,6 +38,11 @@ export default function Timeline() {
     loadTimelineEvents().then(setEvents)
   }, [])
 
+  useEffect(() => {
+    if (!events.length || !window.location.hash.startsWith('#event-')) return
+    document.getElementById(window.location.hash.slice(1))?.scrollIntoView({ block: 'center' })
+  }, [events])
+
   const filteredEvents = useMemo(
     () => events.filter((e) => filterCategory === 'all' || e.category === filterCategory),
     [events, filterCategory],
@@ -199,7 +204,7 @@ export default function Timeline() {
                   {section.events.map((evt) => {
                     const active = evt.id === activeId
                     return (
-                      <div key={evt.id} data-event-id={evt.id} className="group relative">
+                      <div id={`event-${evt.id}`} key={evt.id} data-event-id={evt.id} className="group relative scroll-mt-8">
                         {/* Timeline node marker */}
                         <div
                           className={`absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 transition-all ${

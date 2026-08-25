@@ -3,22 +3,31 @@
 
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
-import type { CelestialBody, Character } from '../types/lore'
+import type { CelestialBody, Character, TimelineEvent } from '../types/lore'
 import {
   destroyedInEra,
   factionById,
   L,
   LL,
+  loadAllPlanets,
   loadBody,
   loadCharacters,
+  loadTimelineEvents,
   mediaById,
   regions,
+  stations,
 } from '../lib/lore'
+import type { ArchiveGraph, ArchiveNode } from '../lib/archive-graph'
+import { loadArchiveGraph } from '../lib/archive-graph-loader'
+import { relationshipItemsFor } from '../lib/archive-relationships'
 import { t } from '../lib/ui-strings'
-import { articleUrl } from '../lib/sources'
+import { articleUrl, sourceFor } from '../lib/sources'
 import { useApp } from '../state/app'
 import HoloPortrait from '../components/HoloPortrait'
 import HolocronChrome from '../components/HolocronChrome'
+import RelationshipExplorer from '../components/RelationshipExplorer'
+import SourceLink from '../components/SourceLink'
+import RelevantTours from '../components/RelevantTours'
 
 function Row({ label, value }: { label: string; value?: string }) {
   if (!value) return null
@@ -39,6 +48,11 @@ export default function HolocronPlanet() {
     id: string
     body: CelestialBody | null
     residents: Character[]
+    characters: Character[]
+    planets: CelestialBody[]
+    events: TimelineEvent[]
+    graph: ArchiveGraph | null
+    graphError: string | null
   } | null>(null)
   const current = loaded?.id === id ? loaded : null
   const body = current?.body ?? null
@@ -47,18 +61,30 @@ export default function HolocronPlanet() {
 
   useEffect(() => {
     let cancelled = false
-    loadBody(id)
-      .then(async (b) => {
-        const all = await loadCharacters()
+    const graphPromise = loadArchiveGraph()
+    Promise.all([loadBody(id), loadCharacters(), loadAllPlanets(), loadTimelineEvents()])
+      .then(async ([b, all, planets, events]) => {
+        let graph: ArchiveGraph | null = null
+        let graphError: string | null = null
+        try {
+          graph = await graphPromise
+        } catch (error) {
+          graphError = error instanceof Error ? error.message : String(error)
+        }
         if (cancelled) return
         setLoaded({
           id,
           body: b,
           residents: all.filter((c) => (b.characters ?? []).includes(c.id)),
+          characters: all,
+          planets,
+          events,
+          graph,
+          graphError,
         })
       })
       .catch(() => {
-        if (!cancelled) setLoaded({ id, body: null, residents: [] })
+        if (!cancelled) setLoaded({ id, body: null, residents: [], characters: [], planets: [], events: [], graph: null, graphError: null })
       })
     return () => {
       cancelled = true
@@ -91,6 +117,17 @@ export default function HolocronPlanet() {
   const faction = factionById(body.affiliationsByEra?.[era])
   const destroyed = destroyedInEra(body, era)
   const facts = LL(body.funFacts, lang)
+  const relationshipLabels = new Map<ArchiveNode['id'], string>()
+  for (const planet of current?.planets ?? []) {
+    relationshipLabels.set(`body:${planet.id}`, L(planet.names, lang))
+    for (const moon of planet.moonsDetail ?? []) relationshipLabels.set(`body:${moon.id}`, L(moon.names, lang))
+  }
+  for (const station of stations) relationshipLabels.set(`body:${station.id}`, L(station.names, lang))
+  for (const character of current?.characters ?? []) relationshipLabels.set(`character:${character.id}`, L(character.names, lang))
+  for (const event of current?.events ?? []) relationshipLabels.set(`event:${event.id}`, L(event.titles, lang))
+  const relationshipItems = current?.graph
+    ? relationshipItemsFor(current.graph, `body:${body.id}`, relationshipLabels)
+    : []
 
   return (
     <HolocronChrome>
@@ -123,6 +160,9 @@ export default function HolocronPlanet() {
       <p className="mb-5 max-w-3xl text-[14px] leading-relaxed text-slate-400">
         {L(body.desc, lang)}
       </p>
+      {sourceFor(body.id) && (
+        <SourceLink source={sourceFor(body.id)!.source} className="mb-5" />
+      )}
 
       <div className="mb-8 flex flex-wrap gap-2">
         {faction && (
@@ -188,6 +228,11 @@ export default function HolocronPlanet() {
                         {t('sourceLink', lang)}: {poi.source.replace('wookieepedia:', '')} ↗
                       </a>
                     )}
+                    {!poi.source && (
+                      <span title={t('unverifiedHint', lang)} className="mt-1.5 inline-block text-[10px] tracking-wide text-red-300/70">
+                        {t('unverified', lang)}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -215,6 +260,18 @@ export default function HolocronPlanet() {
               </div>
             </section>
           )}
+
+          <RelationshipExplorer
+            lang={lang}
+            focalLabel={L(body.names, lang)}
+            items={relationshipItems}
+          />
+          {current?.graphError && (
+            <p role="alert" className="mt-4 text-[11px] text-red-300/80">
+              {t('relationshipUnavailable', lang)} {current.graphError}
+            </p>
+          )}
+          <RelevantTours bodyId={body.id} lang={lang} />
         </div>
 
         <aside>

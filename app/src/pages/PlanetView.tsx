@@ -15,6 +15,8 @@ import EraDissolve from '../components/EraDissolve'
 import { useEraDissolve } from '../components/useEraDissolve'
 import { KesselRun, Porg } from '../components/EasterEggs'
 import RecordLoadOverlay from '../components/RecordLoadOverlay'
+import WebGLUnavailable from '../components/WebGLUnavailable'
+import { detectRenderCompatibility, type RenderCompatibility } from '../lib/render-compatibility'
 
 export default function PlanetView() {
   const { id = 'tatooine' } = useParams()
@@ -29,6 +31,7 @@ export default function PlanetView() {
   const [fps, setFps] = useState(0)
   const [loadError, setLoadError] = useState<{ id: string; error: unknown } | null>(null)
   const [textureError, setTextureError] = useState<{ id: string; error: Error } | null>(null)
+  const [renderCompatibility, setRenderCompatibility] = useState<RenderCompatibility>(detectRenderCompatibility)
   const jump = useFlyTo()
   const dissolve = useEraDissolve()
   // keyed by id, so a route change reads as "not loaded yet" without a reset
@@ -61,7 +64,7 @@ export default function PlanetView() {
   }, [id])
 
   useEffect(() => {
-    if (!body || !canvasRef.current) return
+    if (!body || !canvasRef.current || !renderCompatibility.supported) return
     const canvas = canvasRef.current
     let engine: PlanetEngine | null = null
     // Building the scene blocks the main thread for a couple of seconds on a
@@ -70,15 +73,19 @@ export default function PlanetView() {
     // the HUD responds while the globe assembles.
     const frame = requestAnimationFrame(() => {
       const build = requestAnimationFrame(() => {
-        engine = new PlanetEngine(canvas, {
-          getSimTime: () => simClock.getTime(),
-          onFps: setFps,
-          onPoiPositions: setPoiPos,
-          onAssetError: (error) => setTextureError({ id, error }),
-        })
-        engine.init(body, era)
-        engineRef.current = engine
-        dissolve.onBuild(body.id)
+        try {
+          engine = new PlanetEngine(canvas, {
+            getSimTime: () => simClock.getTime(),
+            onFps: setFps,
+            onPoiPositions: setPoiPos,
+            onAssetError: (error) => setTextureError({ id, error }),
+          })
+          engine.init(body, era)
+          engineRef.current = engine
+          dissolve.onBuild(body.id)
+        } catch {
+          setRenderCompatibility({ supported: false, reason: 'context-creation-failed' })
+        }
       })
       pending.current = build
     })
@@ -94,7 +101,7 @@ export default function PlanetView() {
     // dissolve helpers are stable refs; excluding them keeps the rebuild keyed
     // strictly to body/era
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [body, era])
+  }, [body, era, renderCompatibility])
 
   // leaving a world is the dive in reverse: pull back, then swap views
   const departTo = (path: string) => jump(path, () => engineRef.current?.depart() ?? 0)
@@ -163,6 +170,9 @@ export default function PlanetView() {
           <span className="font-semibold text-holo-red">{t('textureErrorTitle', lang)}</span>{' '}
           {textureError.error.message}
         </div>
+      )}
+      {!renderCompatibility.supported && (
+        <WebGLUnavailable lang={lang} onRetry={() => setRenderCompatibility(detectRenderCompatibility())} />
       )}
     </div>
   )

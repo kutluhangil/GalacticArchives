@@ -3,12 +3,18 @@
 
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
-import type { CelestialBody, Character } from '../types/lore'
-import { factionById, L, loadAllPlanets, loadCharacters, mediaById } from '../lib/lore'
+import type { CelestialBody, Character, TimelineEvent } from '../types/lore'
+import { factionById, L, loadAllPlanets, loadCharacters, loadTimelineEvents, mediaById, stations } from '../lib/lore'
+import type { ArchiveGraph, ArchiveNode } from '../lib/archive-graph'
+import { loadArchiveGraph } from '../lib/archive-graph-loader'
+import { relationshipItemsFor } from '../lib/archive-relationships'
+import { sourceFor } from '../lib/sources'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
 import HoloPortrait from '../components/HoloPortrait'
 import HolocronChrome from '../components/HolocronChrome'
+import RelationshipExplorer from '../components/RelationshipExplorer'
+import SourceLink from '../components/SourceLink'
 
 function Row({ label, value }: { label: string; value?: string }) {
   if (!value) return null
@@ -29,6 +35,11 @@ export default function HolocronCharacter() {
     character: Character | null
     related: Character[]
     homeworld: CelestialBody | null
+    characters: Character[]
+    planets: CelestialBody[]
+    events: TimelineEvent[]
+    graph: ArchiveGraph | null
+    graphError: string | null
   } | null>(null)
   const current = loaded?.id === id ? loaded : null
   const character = current?.character ?? null
@@ -38,19 +49,31 @@ export default function HolocronCharacter() {
 
   useEffect(() => {
     let cancelled = false
-    loadCharacters().then(async (all) => {
+    const graphPromise = loadArchiveGraph()
+    Promise.all([loadCharacters(), loadAllPlanets(), loadTimelineEvents()]).then(async ([all, planets, events]) => {
       const found = all.find((c) => c.id === id)
       if (!found) {
-        if (!cancelled) setLoaded({ id, character: null, related: [], homeworld: null })
+        if (!cancelled) setLoaded({ id, character: null, related: [], homeworld: null, characters: [], planets: [], events: [], graph: null, graphError: null })
         return
       }
-      const planets = found.homeworldId ? await loadAllPlanets() : []
+      let graph: ArchiveGraph | null = null
+      let graphError: string | null = null
+      try {
+        graph = await graphPromise
+      } catch (error) {
+        graphError = error instanceof Error ? error.message : String(error)
+      }
       if (cancelled) return
       setLoaded({
         id,
         character: found,
         related: all.filter((c) => (found.relatedCharacters ?? []).includes(c.id)),
         homeworld: planets.find((p) => p.id === found.homeworldId) ?? null,
+        characters: all,
+        planets,
+        events,
+        graph,
+        graphError,
       })
     })
     return () => {
@@ -82,6 +105,17 @@ export default function HolocronCharacter() {
   }
 
   const faction = factionById(character.affiliationsByEra?.[era])
+  const relationshipLabels = new Map<ArchiveNode['id'], string>()
+  for (const planet of current?.planets ?? []) {
+    relationshipLabels.set(`body:${planet.id}`, L(planet.names, lang))
+    for (const moon of planet.moonsDetail ?? []) relationshipLabels.set(`body:${moon.id}`, L(moon.names, lang))
+  }
+  for (const station of stations) relationshipLabels.set(`body:${station.id}`, L(station.names, lang))
+  for (const other of current?.characters ?? []) relationshipLabels.set(`character:${other.id}`, L(other.names, lang))
+  for (const event of current?.events ?? []) relationshipLabels.set(`event:${event.id}`, L(event.titles, lang))
+  const relationshipItems = current?.graph
+    ? relationshipItemsFor(current.graph, `character:${character.id}`, relationshipLabels)
+    : []
 
   return (
     <HolocronChrome>
@@ -157,6 +191,7 @@ export default function HolocronCharacter() {
             <p className="max-w-2xl text-[14px] leading-relaxed text-slate-300">
               {L(character.bio, lang)}
             </p>
+            {sourceFor(character.id) && <SourceLink source={sourceFor(character.id)!.source} className="mt-2" />}
           </section>
 
           <section className="mt-6">
@@ -199,6 +234,17 @@ export default function HolocronCharacter() {
                 ))}
               </div>
             </section>
+          )}
+
+          <RelationshipExplorer
+            lang={lang}
+            focalLabel={L(character.names, lang)}
+            items={relationshipItems}
+          />
+          {current?.graphError && (
+            <p role="alert" className="mt-4 text-[11px] text-red-300/80">
+              {t('relationshipUnavailable', lang)} {current.graphError}
+            </p>
           )}
         </div>
       </div>

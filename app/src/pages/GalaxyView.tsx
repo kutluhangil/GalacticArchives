@@ -15,6 +15,8 @@ import OnboardingHint from '../components/OnboardingHint'
 import { useFlyTo } from '../components/useFlyTo'
 import FactionOverlay from '../components/hud/FactionOverlay'
 import { useRovingFocus } from '../hooks/useRovingFocus'
+import WebGLUnavailable from '../components/WebGLUnavailable'
+import { detectRenderCompatibility, type RenderCompatibility } from '../lib/render-compatibility'
 
 interface NodeLabel {
   id: string
@@ -88,6 +90,7 @@ export default function GalaxyView() {
   const [labels, setLabels] = useState<NodeLabel[]>([])
   const [hoverRegion, setHoverRegion] = useState<RegionId | null>(null)
   const [fps, setFps] = useState(0)
+  const [renderCompatibility, setRenderCompatibility] = useState<RenderCompatibility>(detectRenderCompatibility)
   const flyTo = useFlyTo()
   // stable across renders, so handing it to the engine does not rebuild the scene
   const dive = useCallback(
@@ -151,24 +154,30 @@ export default function GalaxyView() {
   }, [visiblePlanets, lang])
 
   useEffect(() => {
-    if (!nodes.length || !canvasRef.current) return
-    const engine = new GalaxyEngine(canvasRef.current, {
-      getSimTime: () => simClock.getTime(),
-      onFps: setFps,
-      onSelect: dive,
-      onLaneSelect: (routeId: string) => selectLaneRef.current(routeId),
-      onLabelPositions: setLabels,
-      onRegionHover: setHoverRegion,
-    })
-    engine.init(nodes, useApp.getState().era)
-    engine.setLanes(LANES)
-    engine.setLanesVisible(useApp.getState().lanes)
-    engineRef.current = engine
+    if (!nodes.length || !canvasRef.current || !renderCompatibility.supported) return
+    let engine: GalaxyEngine
+    try {
+      engine = new GalaxyEngine(canvasRef.current, {
+        getSimTime: () => simClock.getTime(),
+        onFps: setFps,
+        onSelect: dive,
+        onLaneSelect: (routeId: string) => selectLaneRef.current(routeId),
+        onLabelPositions: setLabels,
+        onRegionHover: setHoverRegion,
+      })
+      engine.init(nodes, useApp.getState().era)
+      engine.setLanes(LANES)
+      engine.setLanesVisible(useApp.getState().lanes)
+      engineRef.current = engine
+    } catch {
+      queueMicrotask(() => setRenderCompatibility({ supported: false, reason: 'context-creation-failed' }))
+      return
+    }
     return () => {
       engineRef.current = null
       engine.dispose()
     }
-  }, [nodes, dive])
+  }, [nodes, dive, renderCompatibility])
 
   useEffect(() => {
     engineRef.current?.setLanesVisible(lanes)
@@ -215,6 +224,9 @@ export default function GalaxyView() {
       <RoutePlanner onCourse={showCourse} />
 
       {selectedLane && <LanePanel routeId={selectedLane} onClose={() => selectLane(null)} />}
+      {!renderCompatibility.supported && (
+        <WebGLUnavailable lang={lang} onRetry={() => setRenderCompatibility(detectRenderCompatibility())} />
+      )}
 
       {/* The lane tubes cannot take focus either, so this mirrors the map's
           lanes the way the planet nav below mirrors its worlds. */}
