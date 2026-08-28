@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-28
+
+- Closed the five advisories `npm audit` was reporting: `react-router` 7.18.1 → 7.18.2 (RSC-mode CSRF bypass), `postcss` 8.5.22 → 8.5.26 (arbitrary `.map` read through an attacker-controlled `sourceMappingURL`) and its `nanoid`, plus `js-yaml` and `brace-expansion` under ESLint. All five were semver-compatible, so only the lockfile moved. The hyperlane toggle end-to-end test also got the `test.slow()` the favourite-reload test already carries: it reloads `/galaxy`, paying the cold scene build twice, which took 26.7s of a 30s budget on a green run and timed out on the next one. 283 unit and 31 end-to-end tests pass, `npm audit` reports 0 vulnerabilities.
+
 ## 2026-08-25
 
 - Added an immutable, validated ArchiveGraph across all 88 bodies, 33 characters and timeline events; Holocron records now expose source-backed, keyboard-accessible world/figure/event connections, direct event anchors, source links and explicit unverified POIs. The renderer checks WebGL before Three.js starts and keeps a readable fallback with retry; guided tours can be saved locally and launch from matching world records. Canonical Anakin Skywalker references now back Darth Vader appearances in both timeline and watch-guide data. Added graph, compatibility, saved-tour and route-index coverage plus a character-to-world Playwright flow (283 Vitest and 31 Playwright scenarios passing at verification time).

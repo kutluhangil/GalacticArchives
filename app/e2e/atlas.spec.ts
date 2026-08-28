@@ -107,6 +107,9 @@ test('the course plotter walks the lanes between two worlds', async ({ page }) =
 })
 
 test('hyperlanes can be switched off', async ({ page }) => {
+  // the reload pays the galaxy's cold scene build a second time, which outruns
+  // the 30s per-test budget when the suite runs its workers in parallel
+  test.slow()
   await page.goto('/galaxy')
   await page.getByRole('button', { name: /Ayarlar|Settings/ }).click()
 
