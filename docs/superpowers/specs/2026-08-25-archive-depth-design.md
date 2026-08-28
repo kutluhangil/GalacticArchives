@@ -1,7 +1,8 @@
 # Archive Depth Design
 
 **Status:** Implemented; validation complete  
-**Date:** 2026-08-25
+**Date:** 2026-08-25 · **Reviewed:** 2026-08-28 (section 3 rewritten to state what
+shipped: no second route format was added, see below)
 
 ## Goal
 
@@ -70,21 +71,33 @@ Acceptance criteria:
 
 ## 3. Story routes
 
-`src/data/stories.json` holds a small, sourced set of authored routes. Each
-story has bilingual names/blurbs, ordered stops, edge evidence, and an optional
-era. `src/lib/stories.ts` validates and adapts it to the existing TourPlayer
-interface; TourPlayer remains the only route-execution owner.
+**Delivered without a second route format.** The plan here was
+`src/data/stories.json` plus a `src/lib/stories.ts` validator adapting it to
+TourPlayer. That would have put a second authored-route record beside
+`src/data/tours.json`, which already holds six bilingual, sourced, ordered-stop
+routes and already runs through TourPlayer. A new file would have duplicated
+the shape, the validation and the era gating for no reading the archive cannot
+already give.
 
-The first routes are limited to relationships already represented by body,
-character, appearance, and timeline IDs. A story whose next stop cannot load
-fails explicitly in development and renders a clear unavailable state in the
-UI rather than skipping ahead.
+What shipped instead is the lookup that was actually missing:
+`src/lib/tour-index.ts` exposes `toursForBody(bodyId)` — an exact data match on
+stop IDs, never a thematic inference — and `RelevantTours` renders it on a world
+record so a graph selection can start a route that names that world. Saving a
+route is browser-local through `src/lib/collections.ts` (`ga-saved-tours`),
+under the same versioned, malformed-data-recoverable rules as starred worlds.
+
+Authoring further routes stays a data change in `tours.json`; a stop still has
+to name a body the archive holds, which `validate-lore` enforces and
+`test/unit/tours.test.ts` proves for every stop.
 
 Acceptance criteria:
 
-- A graph selection can start a relevant story route.
-- Stories remain URL-addressable and respect the existing simulated era.
+- A graph selection can start a relevant route. *(met — `RelevantTours` on the
+  world record, `toursForBody` lookup)*
+- Routes remain URL-addressable and respect the existing simulated era.
+  *(met — unchanged TourPlayer behaviour)*
 - Existing authored and hyperlane tours have no behavioural regression.
+  *(met — `tours.test.ts`, `tour-index.test.ts`, lane-tour E2E)*
 
 ## 4. Megastructure renderer
 

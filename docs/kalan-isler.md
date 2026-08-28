@@ -1,6 +1,6 @@
 # Kalan işler — Galactic Archives
 
-**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-25
+**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-28
 
 Bu dosya tek kaynak: neyin bittiği, neyin **sende**, neyin **bende** olduğu. Eski
 `HANDOFF.md` ve `SENDEN-GEREKENLER.md` bunun yerine geçtiği için silindi.
@@ -12,10 +12,11 @@ Bu dosya tek kaynak: neyin bittiği, neyin **sende**, neyin **bende** olduğu. E
 | Alan | Durum | Kanıt |
 |---|---|---|
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
-| Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 168 POI, 23 hiperuzay hattı | `npm run validate` → 0 hata |
+| Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 174 POI (86/88 gövdede, 167'si kaynaklı), 23 hiperuzay hattı | `npm run validate` → 0 hata, 9 uyarı |
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
-| Test | 272 birim/bileşen geçti; uçtan uca tarayıcı koşumu bu sandbox'ta yerel port izni olmadığı için bekliyor | `npm run test` → 32 dosya, 272 test geçti; `npm run e2e` → `listen EPERM ::1:4173` |
+| Test | 283 birim/bileşen + 31 uçtan uca geçti | `npm run verify` → 36 dosya / 283 test, `playwright` 31 passed |
 | CI | Yeşil | GitHub Actions `CI / verify` |
+| Bağımlılık güvenliği | 0 açık | `npm audit` → `found 0 vulnerabilities` (5 açık 2026-08-28'de kapatıldı) |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
 
 **Lore sayfaları (2026-08-02'de eklendi, 2026-08-05'te kaynaklandı):** `/timeline`,
@@ -115,19 +116,32 @@ Sıradaki işler:
   tablolarını ve yazılı turları ilk boyaya taşıyordu. Giriş yığını 346 → 308 kB,
   `first paint total` 399 500 → 361 270 bayt. Bütçe tavanları da indirildi
   (giriş 330 kB, ilk boya 390 kB) ki kazanç geri kaçmasın.
+- **Karakter ↔ gezegen çapraz-grafı — kapandı.** `src/lib/archive-graph.ts` gövde, karakter,
+  olay ve tur kayıtlarını tek değişmez grafa bağlıyor; her kenar kanıtını kendi kayıt
+  ID'sinden alıyor, serbest metinden çıkarım yapmıyor. `RelationshipExplorer` Holocron'un karakter ve
+  dünya kayıtlarında klavyeyle gezilebilir bağlantı listesi, `RelevantTours` o dünyayı durak
+  yazan turları başlatıyor, turlar `localStorage`'a kaydedilebiliyor. WebGL yoksa kayıt yine
+  okunuyor (`WebGLUnavailable` + tekrar dene).
 
 2026-08-25 denetim/düzeltme turunda Tauri geliştirme adresi sabitlendi, bozuk body deep-link'leri
 geri dönüşlü hata ekranına taşındı, Glavis gerçek halka-habitat renderer'ına ayrıldı, KTX2 yükleme
 ve cache sahipliği engine yaşam döngüsüne bağlandı, System view KTX2 yüzeylerini kullanmaya başladı
-ve statik SEO ay/istasyon/karakter rotalarına genişletildi (217 URL). Kalan doğrulama yalnız gerçek
-tarayıcı/Tauri çalışma ortamıdır.
+ve statik SEO ay/istasyon/karakter rotalarına genişletildi (217 URL).
+
+2026-08-28 turunda `npm audit`'in bildirdiği beş açık kapatıldı (`react-router` 7.18.1 → 7.18.2
+RSC-mode CSRF, `postcss` 8.5.22 → 8.5.26 `sourceMappingURL` ile keyfi `.map` okuma, ve onun
+`nanoid`'i, ESLint altındaki `js-yaml` ile `brace-expansion`) — hepsi semver uyumlu, yalnız
+`package-lock.json` değişti. Aynı turda hiperuzay anahtarının uçtan uca testi `test.slow()` aldı:
+`/galaxy` + `reload` soğuk sahne kurulumunu iki kez ödüyor, yeşil koşuda 30 sn'lik bütçenin
+26,7 sn'sini yiyip sonraki koşuda zaman aşımına düşüyordu. Uçtan uca suite artık bu makinede
+koşuyor ve yeşil; kalan doğrulama yalnız Tauri GUI (imzalama bekliyor).
 
 Bilinçli olarak ertelendi, istersen sıraya alırım:
 
 - Sektör **poligon** katmanı — yapılmayacak: kanon sektör sınırı geometrisi yok, çizmek uydurma
   veri üretmek olurdu. Sektör bunun yerine arama/filtre ekseni olarak duruyor.
-- Karakter ↔ gezegen çapraz-graf navigasyonunu derinleştirmek.
-- Megayapıları tamamlamak (şu an yalnız `death-star`, `death-star-2`).
+- Megayapıları tamamlamak. Renderer hazır — `buildStationBody` tek dispatcher, `death-star` ve
+  `ringworld` (Glavis) mevcut; kalan iş yeni istasyonun kaynaklı lore kaydı (Starkiller vb.).
 - Üçüncü dil gelince `i18next` değerlendirmesi (bugün TR/EN elle sözlükle).
 
 ---

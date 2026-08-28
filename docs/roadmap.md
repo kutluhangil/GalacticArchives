@@ -21,11 +21,16 @@ CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve
 üst çubuk 05 Ağustos'ta düzeltildi. Aynı gün codex kayıtlarının 64'ü de kaynak makalesine
 bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
-**Son doğrulama (2026-08-25):** 272 birim/bileşen testi geçti. Tauri geliştirme adresi,
+**Son doğrulama (2026-08-28):** `npm run verify` tam zincir geçti — `tsc -b`, `eslint`,
+`validate-lore` (0 hata, 9 uyarı), `validate-assets` (0 hata), **283 birim/bileşen**, `build`,
+bütçe (0 hata) ve **31 uçtan uca** test; ayrıca `cargo check` temiz. 25 Ağustos notundaki
+"uçtan uca koşulamadı" kısıtı kalktı: bu makinede önizleme sunucusu bağlanıyor ve suite yeşil.
+`npm audit` 0 açık (28 Ağustos'ta beş tanesi kapatıldı). Tauri **GUI** doğrulaması hâlâ açık —
+`.dmg` imzalama bekliyor.
+
+**Bir önceki doğrulama (2026-08-25):** 272 birim/bileşen testi geçti; Tauri geliştirme adresi,
 geçersiz deep-link hata durumu, Glavis halka renderer'ı, texture yaşam döngüsü ve tüm detay
-rotalarının statik metasına ait denetim açıkları kapatıldı. Yerel sandbox tarayıcı sunucusunu
-`::1:4173` üzerinde açmaya izin vermediği için uçtan uca/Tauri GUI doğrulaması bu ortamda tekrar
-koşulamadı.
+rotalarının statik metasına ait denetim açıkları kapatıldı.
 
 ---
 
@@ -184,8 +189,14 @@ koşulamadı.
   kanonda belirtilmemiş" grubu), ⌘K'da sektör adı aranabilir — "Arkanis sector" üç dünyayı
   toplar. Yan bulgu: üç dünya sektör alanında `"None"`/`"N/A"` yer tutucusu taşıyordu (Tython,
   Morak, Plazir-15); alan kaldırıldı, `validate-lore` yer tutucuyu sektör adı saymayı reddediyor.
-- [ ] **P3** Karakter↔gezegen çapraz-graf navigasyonunu derinleştir.
-- [ ] **P3** Megayapıları tamamla (Starkiller vb.).
+- [x] **P3** Karakter↔gezegen çapraz-graf navigasyonu: `src/lib/archive-graph.ts` gövde,
+  karakter, olay ve tur kayıtlarını tek değişmez grafa bağlıyor — her kenar kendi kanıt
+  kaydını taşıyor, uydurma çıkarım yok. `RelationshipExplorer` bunu Holocron'un karakter ve
+  dünya kayıtlarında klavyeyle gezilebilir bağlantı listesi olarak gösteriyor, `RelevantTours`
+  o dünyayı durak yazan turları başlatıyor. Uçtan uca doğrulandı (karakter → dünya geçişi).
+- [ ] **P3** Megayapıları tamamla (Starkiller vb.). Renderer tarafı hazır: `buildStationBody`
+  tek dispatcher, iki motor da onu çağırıyor, `ringworld` (Glavis) eklendi — kalan iş yeni
+  istasyonun kaynaklı lore kaydı.
 - [ ] **P3** 3. dil gelince i18next'i yeniden değerlendir.
 
 ---

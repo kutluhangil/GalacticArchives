@@ -3,6 +3,15 @@
 ## 2026-08-28
 
 - Closed the five advisories `npm audit` was reporting: `react-router` 7.18.1 → 7.18.2 (RSC-mode CSRF bypass), `postcss` 8.5.22 → 8.5.26 (arbitrary `.map` read through an attacker-controlled `sourceMappingURL`) and its `nanoid`, plus `js-yaml` and `brace-expansion` under ESLint. All five were semver-compatible, so only the lockfile moved. The hyperlane toggle end-to-end test also got the `test.slow()` the favourite-reload test already carries: it reloads `/galaxy`, paying the cold scene build twice, which took 26.7s of a 30s budget on a green run and timed out on the next one. 283 unit and 31 end-to-end tests pass, `npm audit` reports 0 vulnerabilities.
+- Synced the three documents that had drifted from the code. `docs/roadmap.md` still carried the
+  character↔world cross-graph as an open box after `archive-graph.ts`, `RelationshipExplorer` and
+  `RelevantTours` shipped it, and both it and `docs/kalan-isler.md` still said the end-to-end suite
+  could not be run. Section 3 of `docs/superpowers/specs/2026-08-25-archive-depth-design.md` now
+  states what actually shipped: no `stories.json`/`stories.ts` was added, because `tours.json`
+  already holds the sourced, bilingual, ordered-stop routes and TourPlayer already runs them — the
+  missing piece was the exact stop-ID lookup (`tour-index.ts`), not a second route format. The
+  megastructure line reads correctly too: the dispatcher exists and both engines call it, so what is
+  open there is a sourced lore record, not renderer work.
 
 ## 2026-08-25
 
