@@ -76,6 +76,10 @@ export abstract class EngineBase {
 
     const size = new THREE.Vector2()
     this.renderer.getSize(size)
+    // The composer stays even when bloom is off: `OutputPass` is what encodes
+    // the frame to sRGB for every material, and the custom body/atmosphere
+    // shaders carry no `colorspace_fragment` of their own — drawing them
+    // straight to the canvas leaves the lit surface visibly dark.
     this.composer = new EffectComposer(this.renderer)
     this.composer.addPass(new RenderPass(this.scene, this.camera))
     if (this.quality.bloom) {
@@ -233,7 +237,14 @@ export abstract class EngineBase {
    *  freezing; without the extension three resolves once compilation is done
    *  and behaviour matches the old path. */
   start() {
+    // A program is keyed partly by what it draws into, so warming up against
+    // the canvas while the composer then draws into its own linear target had
+    // three compile every material a second time on the first frame — the
+    // stall this call exists to remove. Compile against the buffer the frames
+    // will actually use.
+    this.renderer.setRenderTarget(this.composer.renderTarget1)
     void this.renderer.compileAsync(this.scene, this.camera).then(() => {
+      this.renderer.setRenderTarget(null)
       if (!this.disposed) this.runLoop()
     })
   }

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-29
+
+- The call that exists to keep shader compilation off the first frame was warming up the wrong programs. A program is keyed partly by what it draws into, and `compileAsync` ran against the canvas while every frame is drawn into the composer's own linear target, so three compiled each material a second time on the first frame — the stall the call was added to remove. Warming against `composer.renderTarget1` cuts a planet route from 22 linked programs to 16 on the high tier and from 14 to 8 on the low one, measured by counting `linkProgram` in a real browser. Skipping the composer entirely when bloom is off was tried and reverted: it halved the low tier again but visibly darkened the lit surface, because the custom body and atmosphere shaders carry no `colorspace_fragment` and `OutputPass` is what encodes the frame to sRGB for all of them. That reason now sits in the code, where the next attempt will read it.
+
 ## 2026-08-28
 
 - Closed the five advisories `npm audit` was reporting: `react-router` 7.18.1 → 7.18.2 (RSC-mode CSRF bypass), `postcss` 8.5.22 → 8.5.26 (arbitrary `.map` read through an attacker-controlled `sourceMappingURL`) and its `nanoid`, plus `js-yaml` and `brace-expansion` under ESLint. All five were semver-compatible, so only the lockfile moved. The hyperlane toggle end-to-end test also got the `test.slow()` the favourite-reload test already carries: it reloads `/galaxy`, paying the cold scene build twice, which took 26.7s of a 30s budget on a green run and timed out on the next one. 283 unit and 31 end-to-end tests pass, `npm audit` reports 0 vulnerabilities.

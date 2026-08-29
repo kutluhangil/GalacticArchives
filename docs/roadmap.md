@@ -90,7 +90,15 @@ rotalarının statik metasına ait denetim açıkları kapatıldı.
   kaldıraç değil. Bunun yerine `renderer.compileAsync` eklendi: `KHR_parallel_shader_compile`
   olan tarayıcıda derleme bloklamadan yapılıyor. Headless SwiftShader'da eklenti yok, bu yüzden
   CI ölçümünde kazanç görünmüyor. Bloom'un payı ölçüldü: blok 1,81 sn → 1,27 sn (bloom kapalı).
-  Kalan iş, program sayısını azaltmak — motor tasarımına dokunur, ayrı ele alınacak.
+  **29 Ağustos'ta program sayısı düştü:** `compileAsync` canvas'a göre ısıtıyordu, oysa her kare
+  composer'ın kendi lineer target'ına çiziliyor — program anahtarı hedefe bağlı olduğundan three
+  ilk karede her malzemeyi ikinci kez derliyordu, yani bu çağrı kaldırmak için var olduğu donmanın
+  bir kısmını kendisi üretiyordu. Isıtma `composer.renderTarget1`'e alındı: gerçek tarayıcıda
+  `linkProgram` sayılarak ölçüldü, gezegen rotası yüksek katmanda 22 → 16, düşük katmanda 14 → 8
+  program. Bloom kapalıyken composer'ı tümüyle atlamak denendi ve **geri alındı**: düşük katmanı
+  8 → 7'ye indiriyor ama ışıklı yüzeyi gözle görülür biçimde koyulaştırıyor, çünkü özel gövde ve
+  atmosfer shader'ları `colorspace_fragment` taşımıyor, kareyi sRGB'ye kodlayan tek yer
+  `OutputPass`. Kalan iş: bloom zincirinin 8 programı — görsel karar, ayrı ele alınacak.
 - [x] **P2** Perf: **KTX2Loader lazy + three chunk'tan ayrıldı** (dynamic import + manualChunks
   istisnası) → three 634→622 kB, KTX2 kendi 14.5 kB async chunk'ında (dokular gelene dek hiç
   yüklenmez). **Landing'de galaxy route idle-prefetch** → atlas'a giriş anlık. three narrowing
