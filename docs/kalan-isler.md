@@ -1,9 +1,9 @@
 # Kalan işler — Galactic Archives
 
-**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-28
+**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-29
 
-Bu dosya tek kaynak: neyin bittiği, neyin **sende**, neyin **bende** olduğu. Eski
-`HANDOFF.md` ve `SENDEN-GEREKENLER.md` bunun yerine geçtiği için silindi.
+Bu dosya durum kaynağı: neyin bittiği, neyin **sende**, neyin **bende** olduğu. Sende olan
+işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-gerekenler.md).
 
 ---
 
@@ -31,56 +31,15 @@ içinde dosya yolu verilen 223 varlığın 223'ü diskte; üstüne `docs/brand/r
 
 ## 1. Sende olan işler
 
-### 1.1 `.dmg` imzalama + notarization (Apple Developer)
+Adım adım anlatımı **[senden-gerekenler.md](senden-gerekenler.md)** taşıyor; burada yalnız özeti
+duruyor, çünkü aynı yönergeyi iki dosyada tutmak ikisinin de yanlış olmasıyla biter.
 
-Tek gerçek blokaj bu. `tauri build` imzasız `.dmg` üretiyor; karşı taraf ilk açılışta
-sağ tık → Aç yapmak zorunda kalıyor.
-
-Bana lazım olanlar:
-
-1. **Developer ID Application** sertifikası (Apple Developer hesabında `Certificates` →
-   `Developer ID Application`), `.p12` olarak dışa aktarılmış + parolası.
-2. **App-specific password** (appleid.apple.com → Oturum Açma ve Güvenlik → Uygulamaya
-   Özel Parolalar) — notarization bunu ister.
-3. **Team ID** (Apple Developer → Membership).
-
-Bunlar elime geçince imzalama + notarization'ı `src-tauri/tauri.conf.json` ve CI'a ben
-kurarım. Sertifikayı **repoya koyma**; ortam değişkeni olarak geçeceğiz
-(`APPLE_CERTIFICATE`, `APPLE_CERTIFICATE_PASSWORD`, `APPLE_ID`, `APPLE_PASSWORD`,
-`APPLE_TEAM_ID`).
-
-### 1.2 Yeni görsel üretimi — yalnız yeni dünya eklersen
-
-Şu an eksik görsel yok. İleride arşive yeni bir gövde eklersen akış şu:
-
-1. Promptu `docs/gorsel-uretim-promptlari.md` içindeki ilgili bölümün kalıbından üret ve
-   sonuna **STYLE BIBLE** bloğunu aynen yapıştır (dosyanın başında duruyor).
-2. Çıktıları tam olarak şu adlarla bırak:
-   ```
-   app/raw/planets/<id>-albedo.png     # 4096×2048, 2:1 equirectangular, dikişsiz
-   app/raw/planets/<id>-night.png      # yalnız şehir dünyaları
-   app/public/cards/<id>.webp          # Holocron kartı
-   app/public/portraits/<id>.webp      # karakter holo-büstü
-   ```
-   `<id>` = `app/src/data/planets/` altındaki dosya adı.
-
-   > **4K master'lar depoda değil.** 1.6 GB tutuyorlardı ve her klonu/derlemeyi
-   > yavaşlatıyorlardı; yalnız türetilen KTX2 katmanları yayınlanıyor. Mevcut
-   > master'ların yedeği: `/Volumes/ProjectVault/GalacticArchives-raw-masters/planets/`.
-   > Doku hattını yeniden çalıştıracaksan önce onları `app/raw/planets/` altına kopyala.
-   > `validate:assets` master'lar yokken canlı piksel denetimini yapamaz; bunun yerine commitli
-   > `texture-sources.json` envanterini (boyut, seam değeri ve SHA-256) zorunlu doğrular. Tam
-   > bağımsız CI seam doğrulaması için master'ların LFS veya artifact deposunda bulunması gerekir.
-3. Çalıştır:
-   ```bash
-   cd app
-   npm run textures        # dikiş testi + 4K/2K/1K katmanlar + manifest
-   npm run validate:assets # boyut/seam/manifest denetimi
-   ```
-
-**Bilerek üretilmeyenler** (istek gelmedikçe yapılmayacak): `clouds` haritası (bulut
-katmanı shader'dan geliyor), `emissive` haritası (lav parlaması shader'dan), gerçek yüz
-portresi (oyuncu benzerliği hem hak hem tutarlılık sorunu — hologram büst kalıyor).
+| # | İş | Durum |
+|---|---|---|
+| 1 | `.dmg` imzalama + notarization — Developer ID `.p12` + parolası, app-specific password, Team ID; beşi GitHub Actions secret'ı olarak girilecek | **Blokaj.** Bunlar gelmeden imzalı derleme yok |
+| 2 | Yeni görsel üretimi | Yalnız arşive yeni bir gövde eklersen. Şu an eksik varlık yok |
+| 3 | Haftalık kanon nöbetinin açtığı issue'larda çözüm yönü | Issue açıldığında |
+| 4 | Üçüncü dil kararı (gelirse `i18next`) | İstediğin zaman |
 
 ---
 

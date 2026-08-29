@@ -6,6 +6,7 @@ Projenin tüm belgeleri burada. Kökte yalnız üçü duruyor: `README.md` (GitH
 | Dosya | Ne işe yarar |
 |---|---|
 | [kalan-isler.md](kalan-isler.md) | **Önce buraya bak.** Ne bitti, ne sende, ne bende, ne kapsam dışı. |
+| [senden-gerekenler.md](senden-gerekenler.md) | Yalnız proje sahibinin yapabileceği işler: Apple Developer ID imzalama/notarization adımları, GitHub secret'ları, yeni görsel üretimi akışı, kanon nöbeti kararları. |
 | [roadmap.md](roadmap.md) | Ölçüme dayalı öncelikli iş listesi (P0/P1/P2/P3), kutuları işaretlenerek ilerler. |
 | [gorsel-uretim-promptlari.md](gorsel-uretim-promptlari.md) | 224 görsel varlığın tek tek üretim promptu + STYLE BIBLE. Üretim bitti; yeni gövde eklenince kalıp buradan alınır. |
 | [gemini-image-prompts.md](gemini-image-prompts.md) | Yukarıdakinin öncülü (5 gezegen + şablonlar). **Devri geçti**, tarihsel kayıt olarak duruyor. |

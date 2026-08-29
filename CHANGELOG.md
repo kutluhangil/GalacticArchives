@@ -3,6 +3,11 @@
 ## 2026-08-29
 
 - The call that exists to keep shader compilation off the first frame was warming up the wrong programs. A program is keyed partly by what it draws into, and `compileAsync` ran against the canvas while every frame is drawn into the composer's own linear target, so three compiled each material a second time on the first frame — the stall the call was added to remove. Warming against `composer.renderTarget1` cuts a planet route from 22 linked programs to 16 on the high tier and from 14 to 8 on the low one, measured by counting `linkProgram` in a real browser. Skipping the composer entirely when bloom is off was tried and reverted: it halved the low tier again but visibly darkened the lit surface, because the custom body and atmosphere shaders carry no `colorspace_fragment` and `OutputPass` is what encodes the frame to sRGB for all of them. That reason now sits in the code, where the next attempt will read it.
+- Split the owner's own work out of the handover note into `docs/senden-gerekenler.md`: what a
+  Developer ID certificate is for, how to produce the CSR and export the `.p12`, where the
+  app-specific password and Team ID come from, and the five GitHub secrets they become — plus the
+  `codesign`/`spctl` checks that prove the result. `docs/kalan-isler.md` keeps the status table and
+  points at it, so the same instruction is not maintained in two places.
 
 ## 2026-08-28
 
