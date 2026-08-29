@@ -100,7 +100,8 @@ Bilinçli olarak ertelendi, istersen sıraya alırım:
 - Sektör **poligon** katmanı — yapılmayacak: kanon sektör sınırı geometrisi yok, çizmek uydurma
   veri üretmek olurdu. Sektör bunun yerine arama/filtre ekseni olarak duruyor.
 - Megayapıları tamamlamak. Renderer hazır — `buildStationBody` tek dispatcher, `death-star` ve
-  `ringworld` (Glavis) mevcut; kalan iş yeni istasyonun kaynaklı lore kaydı (Starkiller vb.).
+  `ringworld` (Glavis) mevcut. Starkiller ayrı bir kayıt değil, `ilum` dosyasının kendisi.
+  Yeni bir megayapı **sahibin görsel üretimine bağlı**: bkz. `senden-gerekenler.md` bölüm 3.
 - Üçüncü dil gelince `i18next` değerlendirmesi (bugün TR/EN elle sözlükle).
 
 ---

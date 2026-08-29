@@ -8,6 +8,14 @@
   app-specific password and Team ID come from, and the five GitHub secrets they become — plus the
   `codesign`/`spctl` checks that prove the result. `docs/kalan-isler.md` keeps the status table and
   points at it, so the same instruction is not maintained in two places.
+- Read the last open renderer item to the end and found most of it already closed. "Finish the
+  megastructures (Starkiller etc.)" survived from an older note: Starkiller Base is not a missing
+  station, it is the `ilum` record itself — the sacred kyber world the First Order hollowed out,
+  which already swaps to its `starkiller-variant` surface in the New Republic era. What is actually
+  open is a megastructure the archive does not hold at all, and that cannot be authored here: every
+  body owes a 4K albedo master and a Holocron card, `validate:assets` fails without them, and
+  generating that art is the owner's step. The roadmap line, the handover note and
+  `senden-gerekenler.md` now say so, with the candidates and the exact filenames.
 
 ## 2026-08-28
 

@@ -202,9 +202,14 @@ rotalarının statik metasına ait denetim açıkları kapatıldı.
   kaydını taşıyor, uydurma çıkarım yok. `RelationshipExplorer` bunu Holocron'un karakter ve
   dünya kayıtlarında klavyeyle gezilebilir bağlantı listesi olarak gösteriyor, `RelevantTours`
   o dünyayı durak yazan turları başlatıyor. Uçtan uca doğrulandı (karakter → dünya geçişi).
-- [ ] **P3** Megayapıları tamamla (Starkiller vb.). Renderer tarafı hazır: `buildStationBody`
-  tek dispatcher, iki motor da onu çağırıyor, `ringworld` (Glavis) eklendi — kalan iş yeni
-  istasyonun kaynaklı lore kaydı.
+- [ ] **P3** Megayapıları tamamla. Renderer tarafı hazır: `buildStationBody` tek dispatcher, iki
+  motor da onu çağırıyor, `ringworld` (Glavis) eklendi. **Starkiller kısmı zaten kapalı** —
+  ayrı bir istasyon değil, `ilum` kaydının kendisi ("Ilum / Starkiller Üssü", New Republic
+  döneminde `starkiller-variant` dokusuna geçiyor). Açık olan, arşivde hiç bulunmayan bir
+  megayapı eklemek ve o **sahibe bağlı**: her gövde kendi `<id>-albedo.png` master'ını ve
+  Holocron kartını zorunlu tutuyor (`validate:assets` eksikte hata verir), görsel üretimi bende
+  değil. Hangi yapı olduğu + görseller gelince kaydı, gerekirse yeni `stationVisual` tipini ve
+  testini ben yazarım — akış `docs/senden-gerekenler.md` bölüm 3'te.
 - [ ] **P3** 3. dil gelince i18next'i yeniden değerlendir.
 
 ---

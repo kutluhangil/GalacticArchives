@@ -149,7 +149,45 @@ Bu bölüm ileride yeni gövde eklenirse diye duruyor.
 
 ---
 
-## 3. Haftalık kanon nöbetinden gelen issue'lar — **karar senin**
+## 3. Yeni megayapı eklemek — **görsel sende, geri kalanı bende**
+
+`docs/roadmap.md`'de açık duran "Megayapıları tamamla" maddesi kod tarafında **hazır**:
+`buildStationBody` tek dispatcher, iki motor da onu çağırıyor, `death-star` ve `ringworld`
+(Glavis) görselleri mevcut. Kaydı ben yazamıyorum çünkü arşivdeki her gövde kendi görsellerini
+zorunlu tutuyor ve `npm run validate:assets` eksikte hata veriyor:
+
+```
+app/raw/planets/<id>-albedo.png    # 4096×2048, 2:1 equirectangular, dikişsiz
+app/public/cards/<id>.webp         # Holocron kartı
+```
+
+(`death-star`, `death-star-2` ve `glavis-ringworld` bu dosyalara sahip; yeni istasyon da
+sahip olmalı. KTX2 katmanlarını master'dan `npm run textures` üretir.)
+
+**Not:** Starkiller Üssü zaten arşivde — ayrı bir istasyon değil, `ilum` kaydının kendisi
+(`src/data/planets/ilum.json`, "Ilum / Starkiller Üssü", New Republic döneminde
+`starkiller-variant` dokusuna geçiyor). Yani roadmap'teki "Starkiller vb." ifadesindeki
+Starkiller kısmı kapalı; açık olan, arşivde hiç olmayan bir megayapı eklemek.
+
+### Senden istenen
+
+1. Hangi megayapıyı istediğine karar ver. Kanonda karşılığı olan ve şu an arşivde bulunmayan
+   adaylar: **the Colossus** (Castilon üstü süper tanker istasyonu), **Fortress Inquisitorius**
+   (Nur okyanus kalesi), **Star Dreadnought tersaneleri**. Kanon dışı (Legends) bir yapı da
+   olur ama o zaman arşivin altın Legends işaretini taşır.
+2. Görselleri üret: `docs/gorsel-uretim-promptlari.md` içindeki istasyon kalıbı + sonuna
+   **STYLE BIBLE** bloğu; çıktıları yukarıdaki iki adla bırak.
+3. Bana "şu yapıyı ekle" de.
+
+### Ben ne yapacağım
+
+Kaydı Wookieepedia maddesinden yazarım (atıf zorunlu, `validate-lore` kaynaksız kaydı
+reddediyor), gerekiyorsa yeni bir `stationVisual` tipi + builder + seçim testi eklerim,
+`npm run textures` ile katmanları üretir ve tüm doğrulama zincirini koştururum.
+
+---
+
+## 4. Haftalık kanon nöbetinden gelen issue'lar — **karar senin**
 
 `.github/workflows/canon-watch.yml` her Pazartesi 60 atıf makalesini canlı Wookieepedia
 API'sine karşı yeniden çekiyor. Bir makale yeniden adlandırıldıysa ya da yönlendirmeye
@@ -163,7 +201,7 @@ Uygulamayı ben yaparım.
 
 ---
 
-## 4. Üçüncü dil kararı
+## 5. Üçüncü dil kararı
 
 Bugün TR/EN elle yazılmış bir sözlükle yürüyor (`src/lib/ui-strings.ts`, `L()` yardımcıları).
 İki dil için bu en ucuz ve en okunur çözüm. **Üçüncü bir dil eklemeye karar verirsen**
@@ -172,7 +210,7 @@ kütüphane eklemek fazladan bağımlılık ve fazladan ilk-boya yükü demek.
 
 ---
 
-## 5. Vercel — bir kez ayarlandı, dokunma gerektirmiyor
+## 6. Vercel — bir kez ayarlandı, dokunma gerektirmiyor
 
 Sadece bilgi olsun: projede **Root Directory = `app`** ayarı zorunlu. Bu ayar bir kez
 2026-08-02'de yapıldı; kaldırılırsa `npm run build` repo kökünden koşar ve
@@ -184,7 +222,7 @@ Elle almak gerekirse: `vercel redeploy <deployment-url>`.
 
 ---
 
-## 6. Disk: ham master'lar ve harici birim
+## 7. Disk: ham master'lar ve harici birim
 
 Proje `/Volumes/ProjectClaude/GalacticArchives` altında, **harici bir birimde** duruyor.
 2026-08-29'da bu birim çalışma sırasında bağlantısını kaybetti; commit'lenmiş iş GitHub'da
@@ -212,6 +250,7 @@ npm audit            # bağımlılık açıkları
 ## Özet — sırayla senden bekleyenler
 
 1. **Apple Developer sertifikası + app-specific password + Team ID** → GitHub secret olarak gir. *(Blokaj)*
-2. Kanon nöbeti issue açtığında **çözüm yönü ver.** *(Tetiklenince)*
-3. Üçüncü dil isteyip istemediğine **karar ver.** *(İstediğin zaman)*
-4. Yeni dünya eklersen **görselleri üret** (bölüm 2 akışı). *(Yalnız gerekirse)*
+2. Yeni megayapı istiyorsan **hangisi olduğunu söyle + görsellerini üret** (bölüm 3). *(Roadmap'te açık tek kod maddesi)*
+3. Kanon nöbeti issue açtığında **çözüm yönü ver.** *(Tetiklenince)*
+4. Üçüncü dil isteyip istemediğine **karar ver.** *(İstediğin zaman)*
+5. Yeni dünya eklersen **görselleri üret** (bölüm 2 akışı). *(Yalnız gerekirse)*
