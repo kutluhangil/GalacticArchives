@@ -1,6 +1,6 @@
 # Kalan işler — Galactic Archives
 
-**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-08-29
+**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-09-12
 
 Bu dosya durum kaynağı: neyin bittiği, neyin **sende**, neyin **bende** olduğu. Sende olan
 işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-gerekenler.md).
@@ -16,7 +16,7 @@ işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-ger
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
 | Test | 283 birim/bileşen + 31 uçtan uca geçti | `npm run verify` → 36 dosya / 283 test, `playwright` 31 passed |
 | CI | Yeşil | GitHub Actions `CI / verify` |
-| Bağımlılık güvenliği | 0 açık | `npm audit` → `found 0 vulnerabilities` (5 açık 2026-08-28'de kapatıldı) |
+| Bağımlılık güvenliği | 0 açık | `npm audit` → `found 0 vulnerabilities` (5 açık 2026-08-28'de, 4'ü daha 2026-09-12'de kapatıldı) |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
 
 **Lore sayfaları (2026-08-02'de eklendi, 2026-08-05'te kaynaklandı):** `/timeline`,
@@ -94,6 +94,21 @@ RSC-mode CSRF, `postcss` 8.5.22 → 8.5.26 `sourceMappingURL` ile keyfi `.map` o
 `/galaxy` + `reload` soğuk sahne kurulumunu iki kez ödüyor, yeşil koşuda 30 sn'lik bütçenin
 26,7 sn'sini yiyip sonraki koşuda zaman aşımına düşüyordu. Uçtan uca suite artık bu makinede
 koşuyor ve yeşil; kalan doğrulama yalnız Tauri GUI (imzalama bekliyor).
+
+2026-09-12 turunda bağımlılıklar yeniden denetlendi: `npm audit` dört açık bildiriyordu,
+oysa üç doküman "0 açık" yazıyordu. `sharp` 0.35.3 → 0.35.4 (**high** — libheif'te
+GHSA-g89c-p67h-r497 ve GHSA-2jg2-4ch7-h545) ve `vitest` + `@vitest/ui` 3.2.7 → 5.0.0
+(moderate — `@vitest/mocker` redirect mock'u üzerinden path traversal; düzeltme yalnız 5.x'te,
+4.1.10 hâlâ etkilenen aralıkta) yükseltildi. Aynı turda Dependabot'un bir aydır bekleyen
+minor/patch grubu da yerelde uygulandı (zustand, `@playwright/test` 1.63.0, iki testing-library
+paketi, üç `@types`, `autoprefixer`, `eslint-plugin-react-refresh` 0.5.6, `postcss`,
+`typescript-eslint`). Playwright 1.63 yeni tarayıcı ikilisi istedi (`npx playwright install
+chromium`) — o kurulmadan uçtan uca suite 31/31 düşüyor, kod hatası değil. Sonuç:
+`npm audit` 0 açık, 283 birim/bileşen ve 31 uçtan uca test yeşil.
+
+Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
+`jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.
+`vitest` 4 ve `@vitest/ui` 4 PR'ları artık gereksiz (5.0.0 yüklendi), Dependabot onları kendiliğinden kapatır.
 
 Bilinçli olarak ertelendi, istersen sıraya alırım:
 

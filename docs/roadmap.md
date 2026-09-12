@@ -21,7 +21,14 @@ CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve
 üst çubuk 05 Ağustos'ta düzeltildi. Aynı gün codex kayıtlarının 64'ü de kaynak makalesine
 bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
-**Son doğrulama (2026-08-28):** `npm run verify` tam zincir geçti — `tsc -b`, `eslint`,
+**Son doğrulama (2026-09-12):** `npm run verify` tam zincir geçti — 283 birim/bileşen ve
+31 uçtan uca test yeşil, `validate-lore` 0 hata / 9 uyarı, `validate-assets` 0 hata, bütçe 0 hata.
+`npm audit` yeniden **0 açık**: `sharp` 0.35.4 (high, libheif) ve `vitest`/`@vitest/ui` 5.0.0
+(moderate, `@vitest/mocker` path traversal) yükseltildi, Dependabot'un bekleyen minor/patch
+grubu uygulandı. Playwright 1.63 yeni tarayıcı ikilisi ister (`npx playwright install chromium`).
+Tauri **GUI** doğrulaması hâlâ açık — `.dmg` imzalama bekliyor.
+
+**Bir önceki doğrulama (2026-08-28):** `npm run verify` tam zincir geçti — `tsc -b`, `eslint`,
 `validate-lore` (0 hata, 9 uyarı), `validate-assets` (0 hata), **283 birim/bileşen**, `build`,
 bütçe (0 hata) ve **31 uçtan uca** test; ayrıca `cargo check` temiz. 25 Ağustos notundaki
 "uçtan uca koşulamadı" kısıtı kalktı: bu makinede önizleme sunucusu bağlanıyor ve suite yeşil.

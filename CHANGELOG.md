@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-09-12
+
+- `npm audit` was reporting four advisories while three documents claimed zero, so the claim was
+  the first thing to fix. `sharp` 0.35.3 → 0.35.4 closes the one **high** (GHSA-g89c-p67h-r497 and
+  GHSA-2jg2-4ch7-h545 in the bundled libheif), and `vitest` with `@vitest/ui` 3.2.7 → 5.0.0 closes
+  the three moderates — a path traversal through `@vitest/mocker`'s redirect mock whose fix lands
+  only in 5.x, which is why the open Dependabot PR to 4.1.10 would not have helped: 4.1.10 sits
+  inside the affected range. The minor/patch group Dependabot had been holding for a month went in
+  with them (zustand, `@playwright/test` 1.63.0, two testing-library packages, three `@types`,
+  `autoprefixer`, `eslint-plugin-react-refresh` 0.5.6, `postcss`, `typescript-eslint`). Playwright
+  1.63 ships against a newer browser build, so `npx playwright install chromium` is now a
+  prerequisite on a fresh checkout — without it all 31 end-to-end tests fail on a launch error that
+  has nothing to do with the app. Verified green afterwards: 283 unit/component and 31 end-to-end
+  tests, `validate-lore` 0 errors, `validate-assets` 0 errors, budget 0 errors, `npm audit` 0
+  vulnerabilities. `docs/kalan-isler.md` and `docs/roadmap.md` now say so.
+
 ## 2026-08-29
 
 - The call that exists to keep shader compilation off the first frame was warming up the wrong programs. A program is keyed partly by what it draws into, and `compileAsync` ran against the canvas while every frame is drawn into the composer's own linear target, so three compiled each material a second time on the first frame — the stall the call was added to remove. Warming against `composer.renderTarget1` cuts a planet route from 22 linked programs to 16 on the high tier and from 14 to 8 on the low one, measured by counting `linkProgram` in a real browser. Skipping the composer entirely when bloom is off was tried and reverted: it halved the low tier again but visibly darkened the lit surface, because the custom body and atmosphere shaders carry no `colorspace_fragment` and `OutputPass` is what encodes the frame to sRGB for all of them. That reason now sits in the code, where the next attempt will read it.

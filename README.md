@@ -78,7 +78,7 @@ tıklanabilir ve uçulabilir.
 | 📜 **Holocron wiki** | 121 kayıt — dünyalar ve figürler çapraz bağlı, bölge/medya filtreli. |
 | 📍 **174 ilgi noktası** | 86 gövdede işaretli yer; 167'si Wookieepedia makalesiyle kaynaklı, süreklilik uyumu derlemede doğrulanıyor. |
 | ⚖️ **Kıyaslama** | İki canlı küre yan yana + gerçek çap oranı şeridi + istatistik tablosu, URL ile paylaşılabilir. |
-| 🎬 **Rehberli turlar** | 3 elle yazılmış tur + her uçulabilir hattın kendi dünyalarının açıklamasından **üretilen** turu. |
+| 🎬 **Rehberli turlar** | 6 elle yazılmış tur + her uçulabilir hattın kendi dünyalarının açıklamasından **üretilen** turu. |
 | ⌘ **Komut paleti** | ⌘K ile Türkçe-duyarlı bulanık arama; gezegen, karakter, bölge filtresi tek kutuda. |
 | ♿ **Klavye + ekran okuyucu** | Haritadaki dünyalar ve hatlar `sr-only` listelerle gezilebilir; `prefers-reduced-motion` gerçek bir dal. |
 | 🌍 **TR / EN** | Tüm arayüz ve tüm lore içeriği iki dilli — tip düzeyinde zorunlu, tek dilli anahtar derlemeyi keser. |
@@ -150,7 +150,7 @@ Render       →  Ham three.js r185 · özel GLSL · WebGL2 (React Three Fiber k
 Stil         →  Tailwind CSS 3 (shadcn/Radix katmanı söküldü — 44 ölü paket kaldırıldı)
 Durum        →  Zustand · localStorage (dil, dönem, kalite, favoriler, Legends, onboarding)
 Veri         →  Statik JSON · backend yok · API çağrısı yok · çalışma zamanı fetch'i yok
-Test         →  Vitest + Testing Library (196 test) · Playwright (16 e2e)
+Test         →  Vitest + Testing Library (283 test) · Playwright (31 e2e)
 CI           →  GitHub Actions: tsc -b · eslint · validate-lore · build
 Güvenlik     →  vercel.json sıkı CSP + HSTS/Referrer/Permissions · Tauri csp dolu · Dependabot
 Masaüstü     →  Tauri v2 (Rust + WKWebView) → aarch64 .dmg
@@ -233,8 +233,8 @@ GalacticArchives/
 │   │                         # stations.json (2) · routes.json (23) · tours.json (6) · sources.json
 │   ├── scripts/              # fetch-lore · fetch-poi · fetch-routes · validate-lore
 │   │                         # process-textures · build-static-meta · check-bundle-budget
-│   ├── test/unit/            # 17 dosya · 196 test
-│   ├── e2e/                  # Playwright · 16 test
+│   ├── test/                 # unit (21) · component (14) · integrity (1) · 283 test
+│   ├── e2e/                  # Playwright · 31 test
 │   ├── src-tauri/            # Tauri v2 masaüstü kabuğu
 │   └── vercel.json           # SPA rewrite + güvenlik başlıkları
 ├── docs/                             # projenin tüm belgeleri (index: docs/README.md)
@@ -252,7 +252,7 @@ GalacticArchives/
 ## 🚀 Kurulum
 
 ### Gereksinimler
-- Node.js `>= 18`
+- Node.js `>= 22` (CI 22'de koşuyor)
 - WebGL2 destekleyen tarayıcı
 - (opsiyonel) `.dmg` derlemek için Rust toolchain + Xcode CLT
 
@@ -263,6 +263,9 @@ cd GalacticArchives/app
 
 # Bağımlılıklar  (DİKKAT: kökte değil, app/ içinde)
 npm install
+
+# Uçtan uca test koşacaksan tarayıcı ikilisi (bir kez)
+npx playwright install chromium
 
 # Geliştirme
 npm run dev        # http://localhost:5173
@@ -280,8 +283,8 @@ npm run dev        # http://localhost:5173
 | `npm run lint` | ESLint |
 | `npm run validate` | Lore doğrulama (kaynak, koordinat, çap, süreklilik) |
 | `npm run validate:assets` | 224 görsel hedefte ID, boyut, format, dikiş ve manifest doğrulaması |
-| `npm test` | Vitest — 196 test |
-| `npm run e2e` | Playwright — 16 test |
+| `npm test` | Vitest — 283 test |
+| `npm run e2e` | Playwright — 31 test (ilk kez: `npx playwright install chromium`) |
 | `npm run budget` | Paket bütçesi kontrolü |
 | `npm run verify` | Hepsi sırayla — commit öncesi kapı |
 | `npm run textures` | `raw/planets/*.png` → 4K/2K/1K WebP/KTX2 + manifest |
@@ -324,7 +327,7 @@ promptlar:** [`docs/gorsel-uretim-promptlari.md`](docs/gorsel-uretim-promptlari.
 | ✅ | Dönem sistemi + Legends katmanı (7 dünya, kendi dönemiyle) |
 | ✅ | Holocron wiki, kıyaslama, rehberli turlar, ⌘K komut paleti |
 | ✅ | Hiperuzay ağı: 23 hat, seçilebilir, paylaşılabilir, 6'sı uçulabilir |
-| ✅ | Test kalkanı (196 birim + 16 e2e), GitHub Actions CI, ErrorBoundary, CSP, LICENSE |
+| ✅ | Test kalkanı (283 birim + 31 e2e), GitHub Actions CI, ErrorBoundary, CSP, LICENSE |
 | ✅ | Vercel dağıtımı + Tauri v2 macOS `.dmg` |
 | ○ | **Hat veri borcu** — 17 hattı açacak ~20 kavşak dünyası |
 | ○ | Gemini gezegen dokuları + KTX2 (promptlar hazır, görseller bekliyor) |
