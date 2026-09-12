@@ -2,6 +2,24 @@
 
 ## 2026-09-12
 
+- The hangar drew three ships and faked the other seven. `ShipBlueprint` held silhouettes for the
+  Millennium Falcon, an Imperial-class Star Destroyer and a T-65B X-wing; every other ship in
+  `starships.json` fell through to a fallback that drew one generic triangle and captioned it
+  "primary durasteel hull structure with deflector shield projector emitters" — a sentence true of
+  no ship in particular, which is exactly the invented detail the rest of the archive refuses to
+  ship. Slave I, the Venator, the Razor Crest, the Executor, the Ghost, the Tantive IV and the
+  TIE interceptor now each carry their own silhouette and five annotated components written from
+  what canon states about that ship: the Firespray's gyroscopic cockpit and seismic charges, the
+  Venator's dorsal flight deck and twin command towers, the Executor's shield globes and the bridge
+  an A-wing rode into, the Ghost's Phantom docking port, the CR90's eleven engines and the escape
+  pod that carried the Death Star plans, the interceptor's cut-back wings and missing hyperdrive.
+  The fallback is gone: a ship with no schematic now says so instead of drawing a lie. The table
+  moved out of the component into `src/lib/ship-blueprints.ts` so the suite can read it without
+  importing the view, and three new tests keep every ship in the data owning a schematic with
+  bilingual hotspots inside the 200×200 viewBox. Each silhouette was screenshotted in a real
+  browser and redrawn where it did not read — Slave I, the Venator and the Executor went back to
+  the board once. 286 unit/component and 31 end-to-end tests pass.
+
 - `npm audit` was reporting four advisories while three documents claimed zero, so the claim was
   the first thing to fix. `sharp` 0.35.3 → 0.35.4 closes the one **high** (GHSA-g89c-p67h-r497 and
   GHSA-2jg2-4ch7-h545 in the bundled libheif), and `vitest` with `@vitest/ui` 3.2.7 → 5.0.0 closes

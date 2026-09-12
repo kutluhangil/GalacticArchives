@@ -106,6 +106,15 @@ paketi, üç `@types`, `autoprefixer`, `eslint-plugin-react-refresh` 0.5.6, `pos
 chromium`) — o kurulmadan uçtan uca suite 31/31 düşüyor, kod hatası değil. Sonuç:
 `npm audit` 0 açık, 283 birim/bileşen ve 31 uçtan uca test yeşil.
 
+Aynı gün hangar tarafındaki bir yarım iş kapandı: `ShipBlueprint` yalnız üç gemiye şema
+çiziyordu (falcon, İmparatorluk Yıldız Yok Edicisi, X-wing); kalan yedisi tek üçgenlik bir
+fallback'e düşüyor ve hepsi aynı kaynaksız "durasteel gövde" metnini taşıyordu — arşivin geri
+kalanının reddettiği türden uydurma. Yedi geminin her biri kendi siluetini ve kanondan yazılmış
+beş bileşen açıklamasını aldı; fallback silindi, şeması olmayan gemi artık bunu söylüyor. Şema
+tablosu `src/lib/ship-blueprints.ts`'e taşındı, üç yeni test her geminin şemasını ve çift dilli
+etiketlerini koruyor. Siluetler gerçek tarayıcıda ekran görüntüsüyle denetlendi; Slave I, Venator
+ve Executor okunmadığı için yeniden çizildi. Test sayısı 283 → 286.
+
 Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
 `jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.
 `vitest` 4 ve `@vitest/ui` 4 PR'ları artık gereksiz (5.0.0 yüklendi), Dependabot onları kendiliğinden kapatır.
