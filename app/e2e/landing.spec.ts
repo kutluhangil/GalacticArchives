@@ -28,8 +28,20 @@ test('boots with no console or page errors', async ({ page }) => {
   expect(problems).toEqual([])
 })
 
-test('an unknown route falls back to the front door', async ({ page }) => {
+// This used to assert the opposite: the catch-all route bounced every unknown
+// address to the landing page, which told the reader their address was fine and
+// answered a crawler with a healthy 200 on a record that does not exist.
+test('an unknown route says so instead of bouncing to the front door', async ({ page }) => {
   await page.goto('/this-sector-is-uncharted')
-  await expect(page).toHaveURL('/')
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('ARCHIVES')
+
+  await expect(page).toHaveURL(/\/this-sector-is-uncharted/)
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    /NO SUCH RECORD|BÖYLE BİR KAYIT YOK/i,
+  )
+  // the address the reader asked for is shown back to them
+  await expect(page.getByText('/this-sector-is-uncharted')).toBeVisible()
+
+  // and the way back is a link they choose, not a silent redirect
+  await page.getByRole('link', { name: /Galaksiye dön|Back to the galaxy/i }).click()
+  await expect(page).toHaveURL(/\/galaxy/)
 })

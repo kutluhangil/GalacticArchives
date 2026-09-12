@@ -186,6 +186,15 @@ const STRINGS = {
   errorReload: { en: 'Reload', tr: 'Yeniden yükle' },
   errorHome: { en: 'Back to the galaxy', tr: 'Galaksiye dön' },
 
+  // not found
+  notFoundTitle: { en: 'No such record', tr: 'Böyle bir kayıt yok' },
+  notFoundBody: {
+    en: 'This address is not part of the archive. Nothing was lost — there was never a record here.',
+    tr: 'Bu adres arşivin parçası değil. Kaybolan bir şey yok — burada hiç kayıt olmadı.',
+  },
+  notFoundPath: { en: 'Requested address', tr: 'İstenen adres' },
+  notFoundHolocron: { en: 'Open the Holocron', tr: "Holocron'u aç" },
+
   // settings
   settings: { en: 'Settings', tr: 'Ayarlar' },
   quality: { en: 'Quality', tr: 'Kalite' },

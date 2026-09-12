@@ -115,6 +115,17 @@ tablosu `src/lib/ship-blueprints.ts`'e taşındı, üç yeni test her geminin ş
 etiketlerini koruyor. Siluetler gerçek tarayıcıda ekran görüntüsüyle denetlendi; Slave I, Venator
 ve Executor okunmadığı için yeniden çizildi. Test sayısı 283 → 286.
 
+Üçüncü kalem 404'tü: router'ın `*` rotası `Navigate to="/"` idi ve `vercel.json` her yolu kabuğa
+yazıyordu, yani yanlış adres landing sayfasını 200 ile döndürüyordu. Artık temalı bir `NotFound`
+rotası bulunamayan adresi gösteriyor, rewrite listesi uygulamanın kendi rotalarıyla sınırlandı ve
+build `dist/404.html` üretiyor (kabuk + `robots: noindex`), böylece bilinmeyen ilk yükleme gerçek
+404 statüsüyle dönüyor. Ön-üretilmiş dünya sayfaları dosya sisteminde rewrite'tan önce eşleştiği
+için `/planet/hoth` etkilenmedi. Statü kodu tarafı Vercel'e ait; `vite preview`'da böyle bir kural
+yok, o yüzden suite sayfayı doğruluyor, bütünlük testi de catch-all'ı artık yasaklıyor. Aynı turda
+iki yan hata düzeldi: service worker her gezinme yanıtını `/` altında app-shell olarak saklıyordu
+(404 dahil; artık yalnız kök ve yalnız `ok` yanıt, cache sürümü `ga-v3`), ve Türkçe `toUpperCase()`
+"BİR"i "BIR" yapıyordu (404 ve hata sınırı başlıkları `toLocaleUpperCase(lang)` kullanıyor).
+
 Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
 `jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.
 `vitest` 4 ve `@vitest/ui` 4 PR'ları artık gereksiz (5.0.0 yüklendi), Dependabot onları kendiliğinden kapatır.

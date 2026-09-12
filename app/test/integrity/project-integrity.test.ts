@@ -56,8 +56,32 @@ describe('vite config', () => {
 describe('vercel deployment config', () => {
   const vercel = readJson('vercel.json')
 
-  it('rewrites every path to the SPA shell', () => {
-    expect(vercel.rewrites).toContainEqual({ source: '/(.*)', destination: '/index.html' })
+  // The catch-all this used to assert answered 200 to every mistyped address,
+  // so "no such record" reached a crawler as a healthy page. Only the app's own
+  // routes are rewritten to the shell now; anything else falls through to the
+  // generated dist/404.html, which carries a real 404.
+  it('rewrites the app routes to the SPA shell', () => {
+    const sources = (vercel.rewrites as { source: string }[]).map((r) => r.source).sort()
+    expect(sources).toEqual([
+      '/compare',
+      '/force',
+      '/galaxy',
+      '/hangar',
+      '/holocron',
+      '/holocron/character/:id',
+      '/holocron/planet/:id',
+      '/planet/:id',
+      '/system/:id',
+      '/timeline',
+      '/watch-guide',
+    ])
+  })
+
+  it('carries no catch-all that would swallow an unknown address', () => {
+    for (const rewrite of vercel.rewrites as { source: string; destination: string }[]) {
+      expect(rewrite.source).not.toMatch(/\(\.\*\)|\/:path\*/)
+      expect(rewrite.destination).toBe('/index.html')
+    }
   })
 
   const headers: { key: string; value: string }[] = vercel.headers[0].headers

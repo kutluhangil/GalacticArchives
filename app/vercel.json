@@ -3,7 +3,19 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    { "source": "/galaxy", "destination": "/index.html" },
+    { "source": "/compare", "destination": "/index.html" },
+    { "source": "/timeline", "destination": "/index.html" },
+    { "source": "/force", "destination": "/index.html" },
+    { "source": "/watch-guide", "destination": "/index.html" },
+    { "source": "/hangar", "destination": "/index.html" },
+    { "source": "/holocron", "destination": "/index.html" },
+    { "source": "/planet/:id", "destination": "/index.html" },
+    { "source": "/system/:id", "destination": "/index.html" },
+    { "source": "/holocron/planet/:id", "destination": "/index.html" },
+    { "source": "/holocron/character/:id", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -3,7 +3,7 @@
 // on <Link> (the declarative <Routes> API does not wire it up).
 
 import { lazy, type ComponentType } from 'react'
-import { createBrowserRouter, Navigate } from 'react-router'
+import { createBrowserRouter } from 'react-router'
 import App from './App'
 
 const RELOAD_KEY = 'ga-chunk-reload'
@@ -44,6 +44,7 @@ const Timeline = lazyWithReload(() => import('./pages/Timeline'))
 const ForceLore = lazyWithReload(() => import('./pages/ForceLore'))
 const WatchGuide = lazyWithReload(() => import('./pages/WatchGuide'))
 const Hangar = lazyWithReload(() => import('./pages/Hangar'))
+const NotFound = lazyWithReload(() => import('./pages/NotFound'))
 
 export const router = createBrowserRouter([
   {
@@ -61,7 +62,7 @@ export const router = createBrowserRouter([
       { path: '/holocron', element: <Holocron /> },
       { path: '/holocron/planet/:id', element: <HolocronPlanet /> },
       { path: '/holocron/character/:id', element: <HolocronCharacter /> },
-      { path: '*', element: <Navigate to="/" replace /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ])

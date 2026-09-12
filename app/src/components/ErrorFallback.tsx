@@ -11,7 +11,7 @@ export default function ErrorFallback({ error }: { error: Error | null }) {
     <div className="flex h-full w-full items-center justify-center bg-space p-6">
       <div className="w-[420px] max-w-full rounded-lg border border-holo-cyan/20 bg-panel/80 p-6 text-center backdrop-blur-md">
         <h1 className="font-display text-xl tracking-[0.25em] text-slate-100">
-          {t('errorTitle', lang).toUpperCase()}
+          {t('errorTitle', lang).toLocaleUpperCase(lang)}
         </h1>
         <p className="mt-3 text-[13px] leading-relaxed text-slate-400">{t('errorBody', lang)}</p>
         {error?.message && (

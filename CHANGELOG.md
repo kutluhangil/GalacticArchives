@@ -2,6 +2,23 @@
 
 ## 2026-09-12
 
+- A mistyped address used to be answered with the landing page. The router's catch-all was
+  `<Navigate to="/" replace />` and `vercel.json` rewrote `/(.*)` to the shell, so `/not-a-record`
+  returned the front door with a 200: the reader was told their address was fine while what they
+  asked for vanished, and a crawler read every wrong URL as a healthy page. There is now a themed
+  `NotFound` route that names the address it could not find and offers the galaxy and the Holocron
+  as links rather than bouncing, and the rewrite list was narrowed to the app's own routes, so an
+  unknown first load falls through to a generated `dist/404.html` — the SPA shell plus
+  `robots: noindex`, which boots the same page under a real 404 status. Pre-rendered world pages
+  still win on the filesystem before any rewrite, so `/planet/hoth` is untouched. The status-code
+  half is Vercel's; `vite preview` has no such rule, so the suite asserts the page, and the
+  integrity test that used to require the catch-all now forbids it.
+- The service worker was storing every navigation response under `/` as the app shell — a
+  pre-rendered world page, and now a 404, could become the offline shell for the whole app. Only
+  the root navigation refreshes it, and only when the response is `ok`. Cache version `ga-v3`.
+- Turkish uppercase: `toUpperCase()` renders "bir" as "BIR", losing the dotted İ. The 404 heading
+  and the error boundary's heading now use `toLocaleUpperCase(lang)`.
+
 - The hangar drew three ships and faked the other seven. `ShipBlueprint` held silhouettes for the
   Millennium Falcon, an Imperial-class Star Destroyer and a T-65B X-wing; every other ship in
   `starships.json` fell through to a fallback that drew one generic triangle and captioned it

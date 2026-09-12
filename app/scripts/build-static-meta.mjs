@@ -261,6 +261,21 @@ ${urls.map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}
 `,
 )
 
+// Vercel serves this for any address that matches no file and no rewrite, with
+// a real 404 status. It is the SPA shell, so the router's catch-all renders the
+// themed NotFound page inside it — the status code and the page agree.
+writeFileSync(
+  join(DIST, '404.html'),
+  page({
+    title: 'No such record — Galactic Archives',
+    description: 'This address is not part of the archive.',
+    path: '/404',
+    image: '/og/default.png',
+  })
+    .replace(/[ \t]*<link\s+rel="canonical"[\s\S]*?\/>\n?/, '')
+    .replace('</head>', '  <meta name="robots" content="noindex" />\n  </head>'),
+)
+
 writeFileSync(join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`)
 
 console.log(`static meta: ${bodies.length} worlds, ${characters.length} characters, ${urls.length} urls`)
