@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-09-13
+
+- Seven points of interest carried no source article, so the archive pinned places on a canon
+  world that canon may never have written down. Five turned out to have an article and now cite
+  it: Peridea's `noti-caravan` cites `Noti` (the article that names the caravan), `bone-ring`
+  cites `Purrgil` (which states the planet's ring is the whales' bones), Scarif's `beach-landing`
+  cites `Battle of Scarif` — the same pattern Crait's `salt-plain` already uses — and Shakari's
+  `underworld-streets` cites `Unidentified city (Shakari)`, the article for the city Din Djarin
+  and Zeb Orrelios walked into. Ryloth's `gutkurr-caves` claimed "Twi'lek shelters through every
+  occupation, patrolled by gutkurrs"; canon has no such caves, so the pin now states what canon
+  does say — the gutkurr hunting grounds, and the Separatists who caged them at Nabat — and cites
+  `Gutkurr`. Two pins were removed: Alderaan's `castle-lands` exists only as a Legends article and
+  cannot sit on a canon body, and Felucia's `fungal-plains` rests on no article at all. All 172
+  remaining points of interest are cited; `validate-lore` warnings drop from 9 to 2, both of them
+  deliberate (lane stops canon gives no grid cell for).
+
 ## 2026-09-12
 
 - A mistyped address used to be answered with the landing page. The router's catch-all was

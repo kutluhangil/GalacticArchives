@@ -12,9 +12,9 @@ işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-ger
 | Alan | Durum | Kanıt |
 |---|---|---|
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
-| Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 174 POI (86/88 gövdede, 167'si kaynaklı), 23 hiperuzay hattı | `npm run validate` → 0 hata, 9 uyarı |
+| Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 172 POI (86/88 gövdede, **hepsi kaynaklı**), 23 hiperuzay hattı | `npm run validate` → 0 hata, 2 uyarı |
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
-| Test | 283 birim/bileşen + 31 uçtan uca geçti | `npm run verify` → 36 dosya / 283 test, `playwright` 31 passed |
+| Test | 287 birim/bileşen + 31 uçtan uca geçti | `npm run verify` → 36 dosya / 287 test, `playwright` 31 passed |
 | CI | Yeşil | GitHub Actions `CI / verify` |
 | Bağımlılık güvenliği | 0 açık | `npm audit` → `found 0 vulnerabilities` (5 açık 2026-08-28'de, 4'ü daha 2026-09-12'de kapatıldı) |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
@@ -125,6 +125,18 @@ yok, o yüzden suite sayfayı doğruluyor, bütünlük testi de catch-all'ı art
 iki yan hata düzeldi: service worker her gezinme yanıtını `/` altında app-shell olarak saklıyordu
 (404 dahil; artık yalnız kök ve yalnız `ok` yanıt, cache sürümü `ga-v3`), ve Türkçe `toUpperCase()`
 "BİR"i "BIR" yapıyordu (404 ve hata sınırı başlıkları `toLocaleUpperCase(lang)` kullanıyor).
+
+Dördüncü kalem kaynaksız yedi POI'ydi (13 Eylül). Beşi kanonda karşılığını buldu ve maddesini
+gösteriyor: Peridea `noti-caravan` → `Noti`, `bone-ring` → `Purrgil` (halkanın balina kemiği
+olduğunu yazan madde), Scarif `beach-landing` → `Battle of Scarif` (Crait'in `salt-plain`
+kaydıyla aynı desen), Shakari `underworld-streets` → `Unidentified city (Shakari)`. Ryloth'un
+`gutkurr-caves` kaydı "her işgalde Twi'lek sığınağı olmuş mağaralar" diyordu — kanonda böyle bir
+mağara yok; kayıt kanonun gerçekten yazdığına, gutkurrların av sahasına çevrildi (`Gutkurr`).
+İki POI silindi: Alderaan `castle-lands` yalnız Legends'ta var, kanon bir gövdeye iliştirilemez
+(kendi metni de bunu itiraf ediyordu), Felucia `fungal-plains` ise hiçbir maddeye dayanmıyordu —
+Felucia'nın kanon mekânları `Akira` ve `Tagata` köyleri, istersen biri yeni bir POI olabilir.
+`test/fixtures/poi-digest.json` beş yeni maddeyi aynı `resolve` çıktısıyla taşıyor. Uyarı sayısı
+9 → 2; kalan ikisi kanonda grid hücresi olmayan hat durakları (Salin, Wretch of Tayron).
 
 Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
 `jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.

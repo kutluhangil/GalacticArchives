@@ -31,8 +31,9 @@
     { "id": "syndulla-estate", "names": { "en": "Syndulla Homestead", "tr": "Syndulla Yurdu" }, "lat": 8, "lon": -26,
       "blurb": { "en": "Where a girl who loved flying grew into the Ghost's captain.", "tr": "Uçmayı seven bir kızın Ghost'un kaptanına dönüştüğü yer." },
       "source": "wookieepedia:Syndulla residence" },
-    { "id": "gutkurr-caves", "names": { "en": "Canyon Caves", "tr": "Kanyon Mağaraları" }, "lat": 3, "lon": -34,
-      "blurb": { "en": "Twi'lek shelters through every occupation, patrolled by gutkurrs.", "tr": "Her işgalde Twi'lek sığınağı olmuş, gutkurrların dolaştığı mağaralar." } }
+    { "id": "gutkurr-caves", "names": { "en": "Gutkurr Hunting Grounds", "tr": "Gutkurr Av Sahaları" }, "lat": 3, "lon": -34,
+      "blurb": { "en": "Home range of Ryloth's armored predators — the Separatists caged and starved them at Nabat, then loosed them on Ghost Company.", "tr": "Ryloth'un zırhlı yırtıcılarının yurdu — Ayrılıkçılar onları Nabat'ta kafese koyup aç bıraktı, sonra Ghost Company'nin üstüne saldı." },
+      "source": "wookieepedia:Gutkurr" }
   ],
   "funFacts": {
     "en": [

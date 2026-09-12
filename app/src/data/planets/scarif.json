@@ -31,7 +31,8 @@
       "blurb": { "en": "The single orbital door through Scarif's planetary shield.", "tr": "Scarif'in gezegensel kalkanındaki tek yörünge kapısı." },
       "source": "wookieepedia:Shield Gate" },
     { "id": "beach-landing", "names": { "en": "Landing Zone Beaches", "tr": "Çıkarma Plajları" }, "lat": -7, "lon": 20,
-      "blurb": { "en": "Where hope was born, at the cost of everyone who carried it.", "tr": "Umudun, onu taşıyan herkesin canı pahasına doğduğu yer." } }
+      "blurb": { "en": "Where hope was born, at the cost of everyone who carried it.", "tr": "Umudun, onu taşıyan herkesin canı pahasına doğduğu yer." },
+      "source": "wookieepedia:Battle of Scarif" }
   ],
   "funFacts": {
     "en": [

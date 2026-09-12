@@ -21,7 +21,8 @@
   "characters": ["din-djarin", "grogu"],
   "poi": [
     { "id": "underworld-streets", "names": { "en": "The Fluorescent Quarter", "tr": "Floresan Mahallesi" }, "lat": 8, "lon": 0,
-      "blurb": { "en": "Neon-dark streets where Din walked into a blaster fight beside a very unexpected face.", "tr": "Din'in hiç beklenmedik bir yüzün yanında blaster kavgasına daldığı neon-karanlık sokaklar." } }
+      "blurb": { "en": "Neon-dark streets where Din walked into a blaster fight beside a very unexpected face.", "tr": "Din'in hiç beklenmedik bir yüzün yanında blaster kavgasına daldığı neon-karanlık sokaklar." },
+      "source": "wookieepedia:Unidentified city (Shakari)" }
   ],
   "funFacts": {
     "en": [
