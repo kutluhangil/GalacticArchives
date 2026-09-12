@@ -223,8 +223,33 @@ describe('index.html world count', () => {
     const planetCount = readdirSync(join(ROOT, 'src/data/planets')).filter((f) =>
       f.endsWith('.json'),
     ).length
-    const claimed = read('index.html').match(/atlas of the Star Wars galaxy: (\d+) worlds/)?.[1]
+    const claimed = read('index.html').match(/3B atlası: (\d+) dünya/)?.[1]
     expect(Number(claimed)).toBe(planetCount)
+  })
+})
+
+// The language lives in localStorage, not in the URL: a first visit has nothing
+// stored and renders Turkish. The shell used to claim English in both its lang
+// attribute and its tags, so the served page described a language no first-time
+// reader saw.
+describe('shell language', () => {
+  const html = read('index.html')
+
+  it('declares the language the app actually renders first', () => {
+    expect(html).toContain('<html lang="tr">')
+    const fallbackLang = read('src/state/app.ts').match(/'ga-lang'\) as Lang \| null\) \?\? '(\w+)'/)?.[1]
+    expect(fallbackLang).toBe('tr')
+  })
+
+  it('states its locale and the one the same address also offers', () => {
+    expect(html).toContain('<meta property="og:locale" content="tr_TR" />')
+    expect(html).toContain('<meta property="og:locale:alternate" content="en_US" />')
+  })
+
+  // hreflang needs one URL per language; this app has one URL per record and
+  // switches language in place, so an hreflang pair here would be a lie.
+  it('claims no hreflang alternate it cannot serve', () => {
+    expect(html).not.toMatch(/hreflang/)
   })
 })
 

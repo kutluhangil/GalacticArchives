@@ -11,6 +11,13 @@
 // Vercel serves a matching file before applying the SPA rewrite, so a crawler
 // hitting /planet/hoth gets Hoth's tags while the router still takes over in
 // the browser.
+//
+// The tags are Turkish because the app renders Turkish: the language lives in
+// localStorage (src/state/app.ts), not in the URL, and a first visit has none
+// stored, so Turkish is what a crawler and a first-time reader actually get.
+// English is one switch away on the same address, which is what
+// og:locale:alternate says. hreflang is deliberately absent — it needs one URL
+// per language and there is one URL per record here.
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
@@ -22,6 +29,7 @@ const DIST = join(ROOT, 'dist')
 const PLANET_DIR = join(ROOT, 'src', 'data', 'planets')
 const STATIONS_FILE = join(ROOT, 'src', 'data', 'stations.json')
 const CHARACTERS_FILE = join(ROOT, 'src', 'data', 'characters.json')
+const SOURCES_FILE = join(ROOT, 'src', 'data', 'sources.json')
 const BRAND_DIR = join(ROOT, 'raw', 'brand')
 const PORTRAIT_DIR = join(ROOT, 'public', 'portraits')
 const SITE = process.env.SITE_URL ?? 'https://galactic-archives.vercel.app'
@@ -41,11 +49,34 @@ const planets = readdirSync(PLANET_DIR)
   .map((f) => JSON.parse(readFileSync(join(PLANET_DIR, f), 'utf8')))
 const stations = JSON.parse(readFileSync(STATIONS_FILE, 'utf8'))
 const characters = JSON.parse(readFileSync(CHARACTERS_FILE, 'utf8'))
+const sources = JSON.parse(readFileSync(SOURCES_FILE, 'utf8'))
+
+/** the Wookieepedia article a record was written from, as a url. For a
+ *  fictional thing that article is the one external identifier this archive can
+ *  honestly claim, so it is what `sameAs` points at. */
+function articleUrl(id) {
+  const entry = sources.entities?.[id]
+  if (!entry) throw new Error(`static meta: "${id}" has no entry in sources.json`)
+  return (
+    entry.url ??
+    `https://starwars.fandom.com/wiki/${entry.source.replace(/^wookieepedia:/, '').replace(/ /g, '_')}`
+  )
+}
 const bodies = [...planets, ...planets.flatMap((planet) => planet.moonsDetail ?? []), ...stations]
 const bodyIds = new Set()
 for (const body of bodies) {
   if (bodyIds.has(body.id)) throw new Error(`static meta: duplicate body id "${body.id}"`)
   bodyIds.add(body.id)
+}
+
+/** meta descriptions are cut to length, and a cut lands mid-word often enough
+ *  that "İmparatorluk yürüyücüleri sırtı aşa" was shipping as a description.
+ *  Trim on the last word boundary instead and say the sentence continues. */
+function clamp(text, max) {
+  if (text.length <= max) return text
+  const cut = text.slice(0, max)
+  const lastSpace = cut.lastIndexOf(' ')
+  return `${(lastSpace > 0 ? cut.slice(0, lastSpace) : cut).replace(/[ ,;:—-]+$/, '')}…`
 }
 
 const escape = (s) =>
@@ -68,12 +99,14 @@ function wrap(text, perLine, maxLines) {
   return lines
 }
 
-/** 1200x630 share card: the world's own palette, its name, its grid square */
+/** 1200x630 share card: the world's own palette, its name, its grid square.
+ *  Turkish, like the tags around it; `toLocaleUpperCase('tr')` because
+ *  `toUpperCase()` turns "İzole" into "IZOLE". */
 function ogCard(planet) {
   const { primary, secondary = primary } = planet.renderRecipe.palette
-  const name = escape(planet.names.en.toUpperCase())
+  const name = escape(planet.names.tr.toLocaleUpperCase('tr'))
   const grid = escape(planet.coordinates ?? '')
-  const blurb = wrap(planet.desc.en, 42, 2)
+  const blurb = wrap(planet.desc.tr, 42, 2)
   return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <defs>
     <radialGradient id="world" cx="35%" cy="32%" r="72%">
@@ -109,20 +142,77 @@ async function characterOgCard(character) {
   if (!existsSync(portrait)) {
     throw new Error(`static meta: required character portrait is missing: ${portrait}`)
   }
-  const name = escape(character.names.en.toUpperCase())
-  const bio = wrap(character.bio.en, 54, 2)
+  const name = escape(character.names.tr.toLocaleUpperCase('tr'))
+  const bio = wrap(character.bio.tr, 54, 2)
   const overlay = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <defs><linearGradient id="shade" x1="0" x2="1"><stop stop-color="#04060a" stop-opacity="0.98"/><stop offset="0.62" stop-color="#04060a" stop-opacity="0.72"/><stop offset="1" stop-color="#04060a" stop-opacity="0.06"/></linearGradient></defs>
   <rect width="1200" height="630" fill="url(#shade)"/>
   <text x="72" y="126" font-family="Helvetica, Arial, sans-serif" font-size="24" letter-spacing="9" fill="#FFE81F">GALACTIC ARCHIVES</text>
   <text x="72" y="254" font-family="Helvetica, Arial, sans-serif" font-size="64" letter-spacing="5" fill="#F1F5F9">${name}</text>
-  <text x="72" y="310" font-family="Helvetica, Arial, sans-serif" font-size="21" letter-spacing="4" fill="#66D9FF">CHARACTER RECORD</text>
+  <text x="72" y="310" font-family="Helvetica, Arial, sans-serif" font-size="21" letter-spacing="4" fill="#66D9FF">KARAKTER KAYDI</text>
   ${bio.map((line, i) => `<text x="72" y="${390 + i * 34}" font-family="Helvetica, Arial, sans-serif" font-size="23" fill="#CBD5E1">${line}</text>`).join('\n  ')}
 </svg>`)
   return sharp(portrait).resize(1200, 630, { fit: 'cover', position: 'right' }).composite([{ input: overlay }]).png()
 }
 
-function page({ title, description, path, image }) {
+const SITE_NAME = 'Galactic Archives'
+const SITE_DESCRIPTION =
+  'Star Wars galaksisinin etkileşimli 3B atlası: 81 dünya, gerçek zamanlı gezegen dönüşü, döneme duyarlı galaksi haritası. Resmî olmayan hayran projesi.'
+
+/** Structured data for one page.
+ *
+ *  A record here is a fictional thing, so `about` is typed `Thing` — never
+ *  `Place` or `Person`. Those types describe entities that exist, and telling a
+ *  crawler that Hoth is a real place is the kind of claim the rest of this
+ *  archive refuses to make. `sameAs` carries the Wookieepedia article the record
+ *  was written from, which is the identifier that is actually true.
+ */
+function structuredData({ title, description, path, image, about, breadcrumb }) {
+  const url = `${SITE}${path}`
+  const webPage = {
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name: title,
+    description,
+    inLanguage: 'tr',
+    isPartOf: { '@id': `${SITE}/#website` },
+    primaryImageOfPage: `${SITE}${image}`,
+  }
+  if (breadcrumb) webPage.breadcrumb = { '@id': `${url}#breadcrumb` }
+  if (about) webPage.about = { '@type': 'Thing', ...about }
+
+  const graph = [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE}/#website`,
+      url: `${SITE}/`,
+      name: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      inLanguage: ['tr', 'en'],
+    },
+    webPage,
+  ]
+  if (breadcrumb) {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${url}#breadcrumb`,
+      itemListElement: breadcrumb.map((crumb, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: crumb.name,
+        item: `${SITE}${crumb.path}`,
+      })),
+    })
+  }
+  return { '@context': 'https://schema.org', '@graph': graph }
+}
+
+function page({ title, description, path, image, about, breadcrumb }) {
+  // a literal `<` inside the JSON would end the script element early
+  const jsonLd = JSON.stringify(
+    structuredData({ title, description, path, image, about, breadcrumb }),
+  ).replace(/</g, '\\u003c')
   const tags = [
     `<title>${escape(title)}</title>`,
     `<meta name="description" content="${escape(description)}" />`,
@@ -132,7 +222,12 @@ function page({ title, description, path, image }) {
     `<meta property="og:description" content="${escape(description)}" />`,
     `<meta property="og:url" content="${SITE}${path}" />`,
     `<meta property="og:image" content="${SITE}${image}" />`,
+    // one address serves both languages — the reader switches in place — so the
+    // page states which language it is written in and which one it also offers
+    `<meta property="og:locale" content="tr_TR" />`,
+    `<meta property="og:locale:alternate" content="en_US" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
+    `<script type="application/ld+json">${jsonLd}</script>`,
   ].join('\n    ')
   // strip every tag this page is about to define; two og:image tags means the
   // crawler picks the site-wide card instead of the world's own
@@ -142,6 +237,7 @@ function page({ title, description, path, image }) {
     .replace(/[ \t]*<meta\s+property="og:(?!site_name)[\s\S]*?\/>\n?/g, '')
     .replace(/[ \t]*<meta\s+name="twitter:[\s\S]*?\/>\n?/g, '')
     .replace(/[ \t]*<link\s+rel="canonical"[\s\S]*?\/>\n?/, '')
+    .replace(/[ \t]*<script\s+type="application\/ld\+json">[\s\S]*?<\/script>\n?/g, '')
     .replace('</head>', `  ${tags}\n  </head>`)
 }
 
@@ -154,59 +250,108 @@ function writePage(routePath, html) {
   writeFileSync(join(DIST, `${relative}.html`), html)
 }
 
-const urls = ['/', '/galaxy', '/holocron', '/compare']
+const urls = []
+const ROOT_CRUMB = { name: SITE_NAME, path: '/' }
+
+// The front door is generated like every other page, so the structured data has
+// one shape written in one place.
+writeFileSync(
+  join(DIST, 'index.html'),
+  page({
+    title: 'GALACTIC ARCHIVES — Star Wars Galaksi Atlası',
+    description: SITE_DESCRIPTION,
+    path: '/',
+    image: '/og/default.png',
+  }),
+)
+urls.push('/')
 
 // The archive sections have no per-record page of their own, so they get one
 // static page each: without it a crawler sees only the SPA shell's site-wide
-// title and the routes are absent from the sitemap entirely.
+// title, and /galaxy, /holocron and /compare were in the sitemap while their
+// canonical still pointed at the front door.
 const sections = [
   {
-    path: '/timeline',
-    title: 'Timeline — Galactic Archives',
+    path: '/galaxy',
+    name: 'Galaksi Haritası',
     description:
-      'Canon events from the founding of the Republic to the battle of Exegol, each one linked to the world it happened on.',
+      '81 dünyanın gerçek zamanlı 3B haritası: hiperuzay hatları, döneme göre değişen bağlılıklar ve ızgara koordinatları.',
+  },
+  {
+    path: '/holocron',
+    name: 'Holocron',
+    description:
+      'Arşivin kayıt defteri: dünyalar, karakterler, gemiler, savaşlar ve Güç kayıtları; her biri yazıldığı Wookieepedia maddesini gösterir.',
+  },
+  {
+    path: '/compare',
+    name: 'Karşılaştırma',
+    description:
+      'Dört dünyayı yan yana koy — çap, nüfus, yönetim ve dönem bağlılıkları tek bağlantıdan okunur.',
+  },
+  {
+    path: '/timeline',
+    name: 'Zaman Çizelgesi',
+    description:
+      "Cumhuriyet'in kuruluşundan Exegol savaşına kanon olaylar; her biri geçtiği dünyaya bağlı.",
   },
   {
     path: '/force',
-    title: 'Force Vault — Galactic Archives',
+    name: 'Güç Kasası',
     description:
-      'The Force powers the archive documents, by tier and by side, each citing the article it was written from.',
+      'Arşivin belgelediği Güç yetenekleri: kademeye ve tarafa göre, her biri yazıldığı maddeyi göstererek.',
   },
   {
     path: '/watch-guide',
-    title: 'Watch Guide — Galactic Archives',
+    name: 'İzleme Rehberi',
     description:
-      'Every canon film and series in chronological or release order, linked to the worlds and characters it features.',
+      'Her kanon film ve dizi, kronolojik ya da yayın sırasıyla; içerdikleri dünyalara ve karakterlere bağlı.',
   },
   {
     path: '/hangar',
-    title: 'Hangar — Galactic Archives',
+    name: 'Hangar',
     description:
-      'Starships of the galaxy with their blueprints, scale against one another, and allegiance across the eras.',
+      'Galaksinin yıldız gemileri: şemaları, birbirlerine göre ölçekleri ve dönemler boyunca bağlılıkları.',
   },
 ]
 
 for (const section of sections) {
-  writePage(section.path, page({ ...section, image: '/og/default.png' }))
+  writePage(
+    section.path,
+    page({
+      title: `${section.name} — ${SITE_NAME}`,
+      description: section.description,
+      path: section.path,
+      image: '/og/default.png',
+      breadcrumb: [ROOT_CRUMB, { name: section.name, path: section.path }],
+    }),
+  )
   urls.push(section.path)
 }
 
 for (const body of bodies) {
-  const name = body.names.en
-  const description = body.desc.en.slice(0, 180)
+  const name = body.names.tr
+  const description = clamp(body.desc.tr, 180)
   const image = `/og/${body.id}.png`
+  const about = { name, description, sameAs: articleUrl(body.id) }
 
   mkdirSync(join(DIST, 'og'), { recursive: true })
   await sharp(ogCard(body)).png().toFile(join(DIST, 'og', `${body.id}.png`))
 
-  for (const route of [`/planet/${body.id}`, `/holocron/planet/${body.id}`]) {
+  // the same record under the map and under the wiki; each says where it sits
+  for (const [route, parent] of [
+    [`/planet/${body.id}`, { name: 'Galaksi Haritası', path: '/galaxy' }],
+    [`/holocron/planet/${body.id}`, { name: 'Holocron', path: '/holocron' }],
+  ]) {
     writePage(
       route,
       page({
-        title: `${name} — Galactic Archives`,
+        title: `${name} — ${SITE_NAME}`,
         description,
         path: route,
         image,
+        about,
+        breadcrumb: [ROOT_CRUMB, parent, { name, path: route }],
       }),
     )
     urls.push(route)
@@ -217,13 +362,17 @@ for (const character of characters) {
   const image = `/og/character-${character.id}.png`
   await (await characterOgCard(character)).toFile(join(DIST, 'og', `character-${character.id}.png`))
   const route = `/holocron/character/${character.id}`
+  const name = character.names.tr
+  const description = clamp(character.bio.tr, 180)
   writePage(
     route,
     page({
-      title: `${character.names.en} — Galactic Archives`,
-      description: character.bio.en.slice(0, 180),
+      title: `${name} — ${SITE_NAME}`,
+      description,
       path: route,
       image,
+      about: { name, description, sameAs: articleUrl(character.id) },
+      breadcrumb: [ROOT_CRUMB, { name: 'Holocron', path: '/holocron' }, { name, path: route }],
     }),
   )
   urls.push(route)
@@ -237,7 +386,7 @@ const defaultOgText = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width
   <text x="72" y="318" font-family="Helvetica, Arial, sans-serif"
         font-size="58" font-weight="700" letter-spacing="10" fill="#FFE81F">ARCHIVES</text>
   <text x="76" y="374" font-family="Helvetica, Arial, sans-serif"
-        font-size="24" letter-spacing="4" fill="#C8D1DC">AN INTERACTIVE GALACTIC ATLAS</text>
+        font-size="24" letter-spacing="4" fill="#C8D1DC">ETKİLEŞİMLİ BİR GALAKSİ ATLASI</text>
 </svg>`)
 await sharp(requiredAsset('og-default.png'))
   .composite([{ input: defaultOgText }])
@@ -267,8 +416,8 @@ ${urls.map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}
 writeFileSync(
   join(DIST, '404.html'),
   page({
-    title: 'No such record — Galactic Archives',
-    description: 'This address is not part of the archive.',
+    title: `Böyle bir kayıt yok — ${SITE_NAME}`,
+    description: 'Bu adres arşivin bir parçası değil.',
     path: '/404',
     image: '/og/default.png',
   })

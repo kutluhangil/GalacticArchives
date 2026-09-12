@@ -15,6 +15,22 @@
   cannot sit on a canon body, and Felucia's `fungal-plains` rests on no article at all. All 172
   remaining points of interest are cited; `validate-lore` warnings drop from 9 to 2, both of them
   deliberate (lane stops canon gives no grid cell for).
+- The served page claimed a language nobody saw. `index.html` said `lang="en"` and every static
+  page carried English tags, but language lives in `localStorage` (`src/state/app.ts`) with no
+  stored value on a first visit, so what actually rendered — for a reader and for a crawler — was
+  Turkish. The shell and every generated page now describe themselves in Turkish, share cards
+  included (`toLocaleUpperCase('tr')`, so "İzole" does not become "IZOLE"), and state
+  `og:locale: tr_TR` with `og:locale:alternate: en_US` for the English the same address offers.
+  There is deliberately no `hreflang`: it needs one URL per language and this app has one URL per
+  record, so an hreflang pair would point at two addresses that serve identical bytes.
+- Every static page now carries JSON-LD: a `WebSite` node, a `WebPage` node, and a
+  `BreadcrumbList`. A record is typed `Thing`, never `Place` or `Person` — those say the entity
+  exists — with `sameAs` pointing at the Wookieepedia article it was written from. `/galaxy`,
+  `/holocron` and `/compare` were in the sitemap while their canonical still named the front door;
+  they are generated pages now, as is `/` itself. Meta descriptions are cut on a word boundary
+  rather than mid-word ("İmparatorluk yürüyücüleri sırtı aşa" was shipping as a description).
+  Known limit: the document title is set once by the served HTML and never updated in the browser,
+  so switching to English leaves the Turkish title in the tab.
 
 ## 2026-09-12
 

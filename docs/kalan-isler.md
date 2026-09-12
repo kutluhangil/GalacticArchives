@@ -14,7 +14,7 @@ işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-ger
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
 | Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 172 POI (86/88 gövdede, **hepsi kaynaklı**), 23 hiperuzay hattı | `npm run validate` → 0 hata, 2 uyarı |
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
-| Test | 287 birim/bileşen + 31 uçtan uca geçti | `npm run verify` → 36 dosya / 287 test, `playwright` 31 passed |
+| Test | 290 birim/bileşen + 37 uçtan uca geçti | `npm run verify` → 36 dosya / 290 test, `playwright` 37 passed |
 | CI | Yeşil | GitHub Actions `CI / verify` |
 | Bağımlılık güvenliği | 0 açık | `npm audit` → `found 0 vulnerabilities` (5 açık 2026-08-28'de, 4'ü daha 2026-09-12'de kapatıldı) |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
@@ -137,6 +137,25 @@ mağara yok; kayıt kanonun gerçekten yazdığına, gutkurrların av sahasına 
 Felucia'nın kanon mekânları `Akira` ve `Tagata` köyleri, istersen biri yeni bir POI olabilir.
 `test/fixtures/poi-digest.json` beş yeni maddeyi aynı `resolve` çıktısıyla taşıyor. Uyarı sayısı
 9 → 2; kalan ikisi kanonda grid hücresi olmayan hat durakları (Salin, Wretch of Tayron).
+
+Beşinci kalem sunulan sayfanın dilini yanlış söylemesiydi. `index.html` `lang="en"` diyordu ve
+tüm statik sayfalar İngilizce etiket taşıyordu; oysa dil `localStorage`'da duruyor
+(`src/state/app.ts`), ilk ziyarette kayıt yok ve render edilen — hem okuyucuya hem crawler'a —
+Türkçe. Kabuk ve üretilen her sayfa artık kendini Türkçe anlatıyor; paylaşım kartları da
+(`toLocaleUpperCase('tr')`, yoksa "İzole" → "IZOLE"). `og:locale: tr_TR` +
+`og:locale:alternate: en_US` aynı adresin sunduğu İngilizceyi söylüyor. **`hreflang` bilinçli
+olarak yok:** dil başına bir URL ister, burada kayıt başına tek URL var — iki adres birebir aynı
+baytı döndürürdü.
+
+Aynı turda her statik sayfa JSON-LD aldı: `WebSite` + `WebPage` + `BreadcrumbList`. Kayıtlar
+`Thing` olarak işaretli, `Place`/`Person` değil — o tipler varlığın gerçekten var olduğunu söyler
+— ve `sameAs` yazıldıkları Wookieepedia maddesini gösteriyor. `/galaxy`, `/holocron` ve `/compare`
+sitemap'teydi ama canonical'ları hâlâ ön kapıyı gösteriyordu; artık kendi sayfaları var, `/` de
+aynı üreticiden geçiyor. Meta açıklamaları kelime sınırında kesiliyor (eskiden "İmparatorluk
+yürüyücüleri sırtı aşa" diye yayımlanıyordu). Yeni `e2e/static-meta.spec.ts` tarayıcı JavaScript
+çalıştırmadan ham HTML'i çekip bunları doğruluyor (6 test). **Bilinen sınır:** sayfa başlığı
+yalnız sunulan HTML'den geliyor, tarayıcıda güncellenmiyor — EN'e geçen okuyucunun sekmesinde
+Türkçe başlık kalıyor.
 
 Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
 `jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.
