@@ -1,6 +1,6 @@
 # Kalan işler — Galactic Archives
 
-**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-09-12
+**Canlı:** https://galactic-archives.vercel.app · **Branch:** `main` · **Güncelleme:** 2026-09-13
 
 Bu dosya durum kaynağı: neyin bittiği, neyin **sende**, neyin **bende** olduğu. Sende olan
 işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-gerekenler.md).
@@ -14,7 +14,7 @@ işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-ger
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
 | Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 172 POI (86/88 gövdede, **hepsi kaynaklı**), 23 hiperuzay hattı | `npm run validate` → 0 hata, 2 uyarı |
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
-| Test | 291 birim/bileşen + 37 uçtan uca geçti | `npm run verify` → 36 dosya / 291 test, `playwright` 37 passed |
+| Test | 309 birim/bileşen + 39 uçtan uca geçti | `npm run verify` → 39 dosya / 309 test, `playwright` 39 passed |
 | CI | Yeşil | GitHub Actions `CI / verify` |
 | Bağımlılık güvenliği | 0 açık | `npm audit` → `found 0 vulnerabilities` (5 açık 2026-08-28'de, 4'ü daha 2026-09-12'de kapatıldı) |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
@@ -153,9 +153,8 @@ Aynı turda her statik sayfa JSON-LD aldı: `WebSite` + `WebPage` + `BreadcrumbL
 sitemap'teydi ama canonical'ları hâlâ ön kapıyı gösteriyordu; artık kendi sayfaları var, `/` de
 aynı üreticiden geçiyor. Meta açıklamaları kelime sınırında kesiliyor (eskiden "İmparatorluk
 yürüyücüleri sırtı aşa" diye yayımlanıyordu). Yeni `e2e/static-meta.spec.ts` tarayıcı JavaScript
-çalıştırmadan ham HTML'i çekip bunları doğruluyor (6 test). **Bilinen sınır:** sayfa başlığı
-yalnız sunulan HTML'den geliyor, tarayıcıda güncellenmiyor — EN'e geçen okuyucunun sekmesinde
-Türkçe başlık kalıyor.
+çalıştırmadan ham HTML'i çekip bunları doğruluyor (6 test). Beşinci kalemin bıraktığı sınır
+yedinci turda kapandı (aşağıda).
 
 Altıncı kalem ekran görüntüleriydi: dört arşiv rotası, araç panelleri ve ilişki gezgini altı
 haftadır hiçbir yerde görünmüyordu. `scripts/capture-screenshots.mjs` (`npm run screenshots`)
@@ -179,6 +178,28 @@ beyanı doğru — bu kalem açık değildi, kapatacak bir şey çıkmadı.
 README bir bütün olarak gerçeğe çekildi: 196 birim / 16 e2e (artık 291 / 37), 174 POI'nin 167'si
 kaynaklı (artık 172, hepsi), 9 uyarı (artık 2), ilk boya ve vendor chunk bütçeleri ve "galaksi
 görüntüsü hiperuzay ağından önce çekildi" diyen altyazı — hatlar karede duruyor.
+
+Yedinci kalem service worker'ın doku iştahıydı: `public/sw.js` her şeyi tek sınırsız kovaya
+yazıyordu, dokular dahil — 90 dünya × 3 mip katmanı, 4K albedo başına ~1,5 MB, diskte 177 MB.
+Kaynak kotası dolduğunda tarayıcı cache yazımlarını sessizce reddediyor, yani tekrar ziyareti
+ucuzlatması gereken katman hiç haber vermeden çalışmayı bırakıyordu. Dokular artık kendi kovasında
+(`ga-v4-textures`) 64 MB bütçeyle duruyor ve en az kullanılan girdi tahliye ediliyor: cache hit
+girdiyi yeniden yazıyor (böylece `Cache.keys()` sırası tazelik sırası oluyor), yeni bir yazımdan
+sonra en eski uçtan bütçenin altına inene kadar siliniyor. Boyut `content-length`'ten, yoksa
+`blob().size`'dan geliyor — tahmin yok. `ok` olmayan yanıt cache'lenmiyor.
+`test/unit/service-worker.test.ts` gerçek `public/sw.js` kaynağını sahte worker global'leriyle
+koşuyor, yani tahliye yolunun kendisi test altında.
+
+Sekizinci kalem beşinci turun bıraktığı sınırdı: sekme başlığı yalnız sunulan HTML'den geliyordu ve
+tek sayfalık uygulama onu oturum boyunca koruyordu — İngilizce'ye geçen okuyucunun sekmesinde
+Türkçe başlık kalıyor, Hoth'tan Tatooine'e yürüyende ise Hoth'un adı duruyordu. Bölüm adları
+artık tek tabloda (`src/data/sections.json`): hem uygulama (`src/lib/sections.ts`) hem statik meta
+üreticisi aynı tabloyu okuyor, üst çubuğun arşiv menüsü de — eskiden aynı dört ad iki yerde
+yazılıydı, bir yeniden adlandırma menüye girip başlığa girmeyebilirdi. `useDocumentTitle` rotayı ve
+dili izliyor; kayıt sayfaları kendi adını veriyor ve kayıt yüklenene kadar `null` geçiyor, böylece
+sunulan başlık boş bir site adıyla değiştirilmiyor. Yedi yeni birim testi tabloyu ve `titleForPath`
+kararlarını, altı bileşen testi kancayı, iki uçtan uca test de gerçek tarayıcıda rota ve dil
+değişimini koruyor. Test sayısı 296 → 309, uçtan uca 37 → 39.
 
 Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
 `jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.

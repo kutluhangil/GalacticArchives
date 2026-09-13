@@ -7,6 +7,7 @@ import { loadAllPlanets, loadBody, L } from '../lib/lore'
 import { pushRecent } from '../lib/collections'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import TopBar from '../components/hud/TopBar'
 import PlanetPanel from '../components/hud/PlanetPanel'
 import TimeBar from '../components/hud/TimeBar'
@@ -37,6 +38,7 @@ export default function PlanetView() {
   // keyed by id, so a route change reads as "not loaded yet" without a reset
   const body = loaded?.id === id ? loaded.body : null
   const systemHost = loaded?.id === id ? loaded.systemHost : id
+  useDocumentTitle(body ? L(body.names, lang) : null)
 
   useEffect(() => {
     let cancelled = false

@@ -21,8 +21,8 @@ CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve
 üst çubuk 05 Ağustos'ta düzeltildi. Aynı gün codex kayıtlarının 64'ü de kaynak makalesine
 bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
-**Son doğrulama (2026-09-13):** `npm run verify` tam zincir geçti — 291 birim/bileşen ve
-37 uçtan uca test yeşil, `validate-lore` **0 hata / 2 uyarı**, `validate-assets` 0 hata, bütçe
+**Son doğrulama (2026-09-13):** `npm run verify` tam zincir geçti — 309 birim/bileşen ve
+39 uçtan uca test yeşil, `validate-lore` **0 hata / 2 uyarı**, `validate-assets` 0 hata, bütçe
 0 hata. Kaynaksız yedi POI kapandı: beşi maddesini gösteriyor, ikisi (Alderaan `castle-lands`
 Legends-only, Felucia `fungal-plains` kaynaksız) silindi; 172 POI'nin hepsi kaynaklı. Kalan iki
 uyarı kanonda grid hücresi olmayan hat durakları. Aynı gün statik meta katmanı uygulamanın

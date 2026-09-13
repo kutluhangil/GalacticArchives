@@ -3,9 +3,10 @@ import { useParams } from 'react-router'
 import type { CelestialBody } from '../types/lore'
 import { SystemEngine } from '../lib/engine/system-engine'
 import { simClock } from '../lib/sim-clock'
-import { loadBody } from '../lib/lore'
+import { L, loadBody } from '../lib/lore'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import TopBar from '../components/hud/TopBar'
 import TimeBar from '../components/hud/TimeBar'
 import { useFlyTo } from '../components/useFlyTo'
@@ -44,6 +45,7 @@ export default function SystemView() {
   )
 
   const body = loaded?.id === id ? loaded.body : null
+  useDocumentTitle(body ? L(body.names, lang) : null)
 
   useEffect(() => {
     let cancelled = false

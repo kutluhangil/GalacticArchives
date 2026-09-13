@@ -145,3 +145,28 @@ test('a character record follows a sourced archive connection to its world', asy
   await expect(page).toHaveURL(/\/holocron\/planet\/tatooine/)
   await expect(page.getByRole('heading', { name: 'TATOOINE', level: 1 })).toBeVisible()
 })
+
+// The tab title used to be whatever the served HTML said, for the whole
+// session: an English reader kept a Turkish title, and walking to another
+// record kept the first record's name above it.
+test('the tab title follows the route', async ({ page }) => {
+  await page.goto('/hangar')
+  await expect(page).toHaveTitle('Hangar — Galactic Archives')
+
+  await page.getByRole('button', { name: /Arşiv|Archive/ }).click()
+  await page.getByRole('button', { name: /Güç Kasası|Force Vault/ }).click()
+
+  await expect(page).toHaveTitle('Güç Kasası — Galactic Archives')
+})
+
+test('the tab title follows the language the reader chose', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('ga-lang', 'en'))
+  await page.goto('/hangar')
+
+  // the served HTML is Turkish, because a first visit has no language stored
+  const served = await page.request.get('/hangar')
+  expect(await served.text()).toContain('<title>Hangar — Galactic Archives</title>')
+
+  await page.goto('/force')
+  await expect(page).toHaveTitle('Force Vault — Galactic Archives')
+})

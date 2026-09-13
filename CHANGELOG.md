@@ -2,6 +2,13 @@
 
 ## 2026-09-13
 
+- The tab title came from the served HTML and then stayed there for the whole session: a reader
+  who switched to English kept a Turkish title, and walking from Hoth to Tatooine kept Hoth's name
+  above the record. Section names now live in one table (`src/data/sections.json`) that the app,
+  the top bar's archive menu and the static-meta build all read, and `useDocumentTitle` holds the
+  title on the current route and language. A record page supplies its own name and passes `null`
+  while the record loads, so the served title stays up instead of flashing the bare site name.
+
 - Planet textures were cached without any ceiling: 90 worlds times three mip levels, up to
   ~1.5 MB per 4K albedo, all kept forever. Once the origin's storage quota filled, the browser
   started rejecting cache writes silently. They now live in their own bucket with a 64 MB budget

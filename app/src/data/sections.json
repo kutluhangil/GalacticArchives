@@ -1,0 +1,52 @@
+{
+  "siteName": "Galactic Archives",
+  "home": {
+    "title": {
+      "tr": "GALACTIC ARCHIVES — Star Wars Galaksi Atlası",
+      "en": "GALACTIC ARCHIVES — A Star Wars Galaxy Atlas"
+    },
+    "description": "Star Wars galaksisinin etkileşimli 3B atlası: 81 dünya, gerçek zamanlı gezegen dönüşü, döneme duyarlı galaksi haritası. Resmî olmayan hayran projesi."
+  },
+  "notFound": {
+    "title": { "tr": "Böyle bir kayıt yok", "en": "No such record" },
+    "description": "Bu adres arşivin bir parçası değil."
+  },
+  "sections": [
+    {
+      "path": "/galaxy",
+      "name": { "tr": "Galaksi Haritası", "en": "Galaxy Map" },
+      "description": "81 dünyanın gerçek zamanlı 3B haritası: hiperuzay hatları, döneme göre değişen bağlılıklar ve ızgara koordinatları."
+    },
+    {
+      "path": "/holocron",
+      "name": { "tr": "Holocron", "en": "Holocron" },
+      "description": "Arşivin kayıt defteri: dünyalar, karakterler, gemiler, savaşlar ve Güç kayıtları; her biri yazıldığı Wookieepedia maddesini gösterir."
+    },
+    {
+      "path": "/compare",
+      "name": { "tr": "Karşılaştırma", "en": "Comparison" },
+      "description": "Dört dünyayı yan yana koy — çap, nüfus, yönetim ve dönem bağlılıkları tek bağlantıdan okunur."
+    },
+    {
+      "path": "/timeline",
+      "name": { "tr": "Zaman Çizelgesi", "en": "Timeline" },
+      "description": "Cumhuriyet'in kuruluşundan Exegol savaşına kanon olaylar; her biri geçtiği dünyaya bağlı."
+    },
+    {
+      "path": "/force",
+      "name": { "tr": "Güç Kasası", "en": "Force Vault" },
+      "description": "Arşivin belgelediği Güç yetenekleri: kademeye ve tarafa göre, her biri yazıldığı maddeyi göstererek."
+    },
+    {
+      "path": "/watch-guide",
+      "name": { "tr": "İzleme Rehberi", "en": "Watch Guide" },
+      "description": "Her kanon film ve dizi, kronolojik ya da yayın sırasıyla; içerdikleri dünyalara ve karakterlere bağlı."
+    },
+    {
+      "path": "/hangar",
+      "name": { "tr": "Hangar", "en": "Hangar" },
+      "description": "Galaksinin yıldız gemileri: şemaları, birbirlerine göre ölçekleri ve dönemler boyunca bağlılıkları."
+    }
+  ],
+  "recordPrefixes": ["/planet/", "/system/", "/holocron/planet/", "/holocron/character/"]
+}

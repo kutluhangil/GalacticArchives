@@ -23,6 +23,7 @@ import { relationshipItemsFor } from '../lib/archive-relationships'
 import { t } from '../lib/ui-strings'
 import { articleUrl, sourceFor } from '../lib/sources'
 import { useApp } from '../state/app'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import HoloPortrait from '../components/HoloPortrait'
 import HolocronChrome from '../components/HolocronChrome'
 import RelationshipExplorer from '../components/RelationshipExplorer'
@@ -58,6 +59,7 @@ export default function HolocronPlanet() {
   const body = current?.body ?? null
   const residents = current?.residents ?? []
   const missing = current !== null && current.body === null
+  useDocumentTitle(body ? L(body.names, lang) : null)
 
   useEffect(() => {
     let cancelled = false

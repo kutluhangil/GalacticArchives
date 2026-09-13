@@ -4,6 +4,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import TransitionVeil from './components/TransitionVeil'
 import TourPlayerHost from './components/TourPlayerHost'
 import CommandPaletteHost from './components/CommandPaletteHost'
+import { useDocumentTitle } from './hooks/useDocumentTitle'
 import { setQuality } from './lib/quality'
 import { t } from './lib/ui-strings'
 import { useApp } from './state/app'
@@ -30,6 +31,10 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = lang
   }, [lang])
+
+  // every route whose title is not a record name: sections, the front door and
+  // the catch-all. Record pages pass their own name to the same hook.
+  useDocumentTitle()
 
   // the engines read quality directly, so mirror the stored preference in
   useEffect(() => {

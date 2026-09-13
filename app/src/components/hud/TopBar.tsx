@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router'
 import type { CelestialBody } from '../../types/lore'
 import { useApp } from '../../state/app'
 import { eras, L, loadAllPlanets, regions } from '../../lib/lore'
+import { sectionName } from '../../lib/sections'
 import { ERA_SHORT, t } from '../../lib/ui-strings'
 import { OPEN_PALETTE_EVENT } from '../CommandPaletteHost'
 import SettingsMenu from '../SettingsMenu'
@@ -25,29 +26,27 @@ const GalacticIdGenerator = lazy(() => import('../GalacticIdGenerator'))
  * one menu because thirteen flat chips wrapped the header onto a second row,
  * which then covered the planet panel's own controls.
  */
+/** the names come from the shared section table, so the menu and the tab title
+ *  cannot drift apart */
 const ARCHIVE_ROUTES = [
   {
     path: '/timeline',
     icon: '📜',
-    label: { tr: 'Zaman Çizelgesi', en: 'Timeline' },
     blurb: { tr: 'Kanon olayları sırasıyla', en: 'Canon events in order' },
   },
   {
     path: '/force',
     icon: '⚡',
-    label: { tr: 'Güç Kasası', en: 'Force Vault' },
     blurb: { tr: 'Güç yetenekleri ve yolları', en: 'Force powers and their paths' },
   },
   {
     path: '/watch-guide',
     icon: '🎬',
-    label: { tr: 'İzleme Rehberi', en: 'Watch Guide' },
     blurb: { tr: 'Filmler ve diziler hangi sırayla', en: 'What to watch in which order' },
   },
   {
     path: '/hangar',
     icon: '🛸',
-    label: { tr: 'Hangar', en: 'Hangar' },
     blurb: { tr: 'Yıldız gemileri ve planları', en: 'Starships and their blueprints' },
   },
 ] as const
@@ -317,7 +316,7 @@ export default function TopBar() {
                   className="block w-full rounded px-2 py-1.5 text-left transition-colors hover:bg-white/5"
                 >
                   <span className="block text-[12px] text-slate-200">
-                    {entry.icon} {entry.label[lang]}
+                    {entry.icon} {sectionName(entry.path, lang)}
                   </span>
                   <span className="block text-[10.5px] leading-snug text-slate-500">
                     {entry.blurb[lang]}

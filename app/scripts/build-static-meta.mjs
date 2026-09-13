@@ -30,6 +30,7 @@ const PLANET_DIR = join(ROOT, 'src', 'data', 'planets')
 const STATIONS_FILE = join(ROOT, 'src', 'data', 'stations.json')
 const CHARACTERS_FILE = join(ROOT, 'src', 'data', 'characters.json')
 const SOURCES_FILE = join(ROOT, 'src', 'data', 'sources.json')
+const SECTIONS_FILE = join(ROOT, 'src', 'data', 'sections.json')
 const BRAND_DIR = join(ROOT, 'raw', 'brand')
 const PORTRAIT_DIR = join(ROOT, 'public', 'portraits')
 const SITE = process.env.SITE_URL ?? 'https://galactic-archives.vercel.app'
@@ -155,9 +156,13 @@ async function characterOgCard(character) {
   return sharp(portrait).resize(1200, 630, { fit: 'cover', position: 'right' }).composite([{ input: overlay }]).png()
 }
 
-const SITE_NAME = 'Galactic Archives'
-const SITE_DESCRIPTION =
-  'Star Wars galaksisinin etkileşimli 3B atlası: 81 dünya, gerçek zamanlı gezegen dönüşü, döneme duyarlı galaksi haritası. Resmî olmayan hayran projesi.'
+// One table for the archive's own sections, shared with the running app
+// (src/lib/sections.ts): a renamed section has to reach the menu and the tab
+// title together. The descriptions here are Turkish only — see the note at the
+// top of this file; the app never renders them.
+const SECTION_META = JSON.parse(readFileSync(SECTIONS_FILE, 'utf8'))
+const SITE_NAME = SECTION_META.siteName
+const SITE_DESCRIPTION = SECTION_META.home.description
 
 /** Structured data for one page.
  *
@@ -258,7 +263,7 @@ const ROOT_CRUMB = { name: SITE_NAME, path: '/' }
 writeFileSync(
   join(DIST, 'index.html'),
   page({
-    title: 'GALACTIC ARCHIVES — Star Wars Galaksi Atlası',
+    title: SECTION_META.home.title.tr,
     description: SITE_DESCRIPTION,
     path: '/',
     image: '/og/default.png',
@@ -270,50 +275,11 @@ urls.push('/')
 // static page each: without it a crawler sees only the SPA shell's site-wide
 // title, and /galaxy, /holocron and /compare were in the sitemap while their
 // canonical still pointed at the front door.
-const sections = [
-  {
-    path: '/galaxy',
-    name: 'Galaksi Haritası',
-    description:
-      '81 dünyanın gerçek zamanlı 3B haritası: hiperuzay hatları, döneme göre değişen bağlılıklar ve ızgara koordinatları.',
-  },
-  {
-    path: '/holocron',
-    name: 'Holocron',
-    description:
-      'Arşivin kayıt defteri: dünyalar, karakterler, gemiler, savaşlar ve Güç kayıtları; her biri yazıldığı Wookieepedia maddesini gösterir.',
-  },
-  {
-    path: '/compare',
-    name: 'Karşılaştırma',
-    description:
-      'Dört dünyayı yan yana koy — çap, nüfus, yönetim ve dönem bağlılıkları tek bağlantıdan okunur.',
-  },
-  {
-    path: '/timeline',
-    name: 'Zaman Çizelgesi',
-    description:
-      "Cumhuriyet'in kuruluşundan Exegol savaşına kanon olaylar; her biri geçtiği dünyaya bağlı.",
-  },
-  {
-    path: '/force',
-    name: 'Güç Kasası',
-    description:
-      'Arşivin belgelediği Güç yetenekleri: kademeye ve tarafa göre, her biri yazıldığı maddeyi göstererek.',
-  },
-  {
-    path: '/watch-guide',
-    name: 'İzleme Rehberi',
-    description:
-      'Her kanon film ve dizi, kronolojik ya da yayın sırasıyla; içerdikleri dünyalara ve karakterlere bağlı.',
-  },
-  {
-    path: '/hangar',
-    name: 'Hangar',
-    description:
-      'Galaksinin yıldız gemileri: şemaları, birbirlerine göre ölçekleri ve dönemler boyunca bağlılıkları.',
-  },
-]
+const sections = SECTION_META.sections.map((section) => ({
+  path: section.path,
+  name: section.name.tr,
+  description: section.description,
+}))
 
 for (const section of sections) {
   writePage(
@@ -416,8 +382,8 @@ ${urls.map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}
 writeFileSync(
   join(DIST, '404.html'),
   page({
-    title: `Böyle bir kayıt yok — ${SITE_NAME}`,
-    description: 'Bu adres arşivin bir parçası değil.',
+    title: `${SECTION_META.notFound.title.tr} — ${SITE_NAME}`,
+    description: SECTION_META.notFound.description,
     path: '/404',
     image: '/og/default.png',
   })
