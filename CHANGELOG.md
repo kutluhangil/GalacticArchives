@@ -2,6 +2,14 @@
 
 ## 2026-09-13
 
+- Planet textures were cached without any ceiling: 90 worlds times three mip levels, up to
+  ~1.5 MB per 4K albedo, all kept forever. Once the origin's storage quota filled, the browser
+  started rejecting cache writes silently. They now live in their own bucket with a 64 MB budget
+  and least-recently-used eviction — a hit re-inserts the entry so `Cache.keys()` order stays a
+  recency order, and a store trims the oldest entries until the total is back under budget.
+  Cache version `ga-v4`. `test/unit/service-worker.test.ts` runs the real `public/sw.js` against
+  stub worker globals, so the eviction path is tested rather than described.
+
 - Seven points of interest carried no source article, so the archive pinned places on a canon
   world that canon may never have written down. Five turned out to have an article and now cite
   it: Peridea's `noti-caravan` cites `Noti` (the article that names the caravan), `bone-ring`
