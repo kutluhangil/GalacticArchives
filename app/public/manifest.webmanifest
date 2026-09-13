@@ -1,7 +1,9 @@
 {
   "name": "Galactic Archives",
   "short_name": "Archives",
-  "description": "An interactive 3D atlas of the Star Wars galaxy. Unofficial fan project.",
+  "description": "Star Wars galaksisinin etkileşimli 3B atlası. Resmî olmayan hayran projesi.",
+  "lang": "tr",
+  "dir": "ltr",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

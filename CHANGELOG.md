@@ -31,6 +31,24 @@
   rather than mid-word ("İmparatorluk yürüyücüleri sırtı aşa" was shipping as a description).
   Known limit: the document title is set once by the served HTML and never updated in the browser,
   so switching to English leaves the Turkish title in the tab.
+- The four archive routes, the tool panels and the relationship explorer had shipped for six weeks
+  with no picture anywhere. `scripts/capture-screenshots.mjs` (`npm run screenshots`) drives the
+  built app through Playwright and writes `docs/screenshots/`, so a frame is reproducible rather
+  than staged by hand, and the README now shows the timeline, the watch guide, the Force vault, the
+  hangar with a blueprint open, a tool panel over the map and the archive-connection graph. The two
+  frames already in the repo that nothing referenced (the Tatoo system, Mustafar) now illustrate
+  the three-tier hierarchy.
+- Photographing the hangar turned up two defects. The blueprint's viewBox is square but its box was
+  full-width and fixed-height, so the schematic was scaled down to that height and the panel was
+  mostly empty; the box is square now. The lightsaber list printed "Form I - Form I: Shii-Cho" —
+  the form number and then a name that already opens with it — so the prefix and its now-unread
+  `formNumber` field are gone, with a test holding the label to one mention.
+- The web app manifest described itself in English and declared no language. It carries the Turkish
+  description and `lang`/`dir` now, matching what the app renders.
+- README numbers were stale across the board: 196 unit / 16 e2e tests (291 / 37), 174 points of
+  interest with 167 cited (172, all cited), 9 validation warnings (2), the first-paint and vendor
+  chunk budgets, and a caption claiming the galaxy screenshot predates the hyperlane network — it
+  does not, the lanes are in the frame.
 
 ## 2026-09-12
 

@@ -21,14 +21,17 @@ CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve
 üst çubuk 05 Ağustos'ta düzeltildi. Aynı gün codex kayıtlarının 64'ü de kaynak makalesine
 bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
-**Son doğrulama (2026-09-13):** `npm run verify` tam zincir geçti — 290 birim/bileşen ve
+**Son doğrulama (2026-09-13):** `npm run verify` tam zincir geçti — 291 birim/bileşen ve
 37 uçtan uca test yeşil, `validate-lore` **0 hata / 2 uyarı**, `validate-assets` 0 hata, bütçe
 0 hata. Kaynaksız yedi POI kapandı: beşi maddesini gösteriyor, ikisi (Alderaan `castle-lands`
 Legends-only, Felucia `fungal-plains` kaynaksız) silindi; 172 POI'nin hepsi kaynaklı. Kalan iki
 uyarı kanonda grid hücresi olmayan hat durakları. Aynı gün statik meta katmanı uygulamanın
 gerçekten render ettiği dile çekildi (Türkçe etiketler + `og:locale`/`og:locale:alternate`,
 `hreflang` yok — dil URL'de değil) ve her statik sayfa JSON-LD aldı (`WebSite`/`WebPage`/
-`BreadcrumbList`; kayıtlar `Thing` + `sameAs` → Wookieepedia).
+`BreadcrumbList`; kayıtlar `Thing` + `sameAs` → Wookieepedia). Ekran görüntüleri altı yeni kareyle
+tamamlandı ve `npm run screenshots` ile yeniden üretilebilir hale geldi; kare çekerken bulunan iki
+UI hatası (gemi şeması kutusu, ışın kılıcı etiketi) düzeltildi. Maskable ikon denetlendi —
+içerik yarıçapı 0,64 < 0,8 güvenli bölge, değişiklik gerekmedi.
 
 **Bir önceki doğrulama (2026-09-12):** `npm run verify` tam zincir geçti — 283 birim/bileşen ve
 31 uçtan uca test yeşil, `validate-lore` 0 hata / 9 uyarı, `validate-assets` 0 hata, bütçe 0 hata.

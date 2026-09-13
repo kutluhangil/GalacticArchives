@@ -32,9 +32,12 @@ export default function ShipBlueprint({
           every one of them has a named button in the legend below, which is the
           control a keyboard or screen reader uses. Exposing both would put the
           same hotspot in the reading order twice. */}
+      {/* The viewBox is square. A full-width, fixed-height box scaled the
+          drawing down to that height and left most of the panel empty, so the
+          box is square too. */}
       <svg
         viewBox="0 0 200 200"
-        className="h-48 w-full"
+        className="mx-auto aspect-square h-auto w-full max-w-sm"
         style={{ filter: `drop-shadow(0 0 12px ${spec.color}40)` }}
         aria-hidden="true"
         focusable="false"

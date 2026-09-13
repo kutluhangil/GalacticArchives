@@ -16,6 +16,7 @@
     "verify": "tsc -b && npm run lint && npm run validate && npm run validate:assets && npm run test && npm run build && npm run budget && npm run e2e",
     "preview": "vite preview",
     "textures": "node scripts/process-textures.mjs",
+    "screenshots": "node scripts/capture-screenshots.mjs",
     "tauri": "tauri",
     "desktop": "tauri build"
   },

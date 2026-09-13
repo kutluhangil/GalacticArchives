@@ -14,7 +14,7 @@ işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-ger
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
 | Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 172 POI (86/88 gövdede, **hepsi kaynaklı**), 23 hiperuzay hattı | `npm run validate` → 0 hata, 2 uyarı |
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
-| Test | 290 birim/bileşen + 37 uçtan uca geçti | `npm run verify` → 36 dosya / 290 test, `playwright` 37 passed |
+| Test | 291 birim/bileşen + 37 uçtan uca geçti | `npm run verify` → 36 dosya / 291 test, `playwright` 37 passed |
 | CI | Yeşil | GitHub Actions `CI / verify` |
 | Bağımlılık güvenliği | 0 açık | `npm audit` → `found 0 vulnerabilities` (5 açık 2026-08-28'de, 4'ü daha 2026-09-12'de kapatıldı) |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
@@ -156,6 +156,29 @@ yürüyücüleri sırtı aşa" diye yayımlanıyordu). Yeni `e2e/static-meta.spe
 çalıştırmadan ham HTML'i çekip bunları doğruluyor (6 test). **Bilinen sınır:** sayfa başlığı
 yalnız sunulan HTML'den geliyor, tarayıcıda güncellenmiyor — EN'e geçen okuyucunun sekmesinde
 Türkçe başlık kalıyor.
+
+Altıncı kalem ekran görüntüleriydi: dört arşiv rotası, araç panelleri ve ilişki gezgini altı
+haftadır hiçbir yerde görünmüyordu. `scripts/capture-screenshots.mjs` (`npm run screenshots`)
+derlenmiş uygulamayı Playwright ile sürüp `docs/screenshots/` altına yazıyor — kare elle
+sahnelenmiyor, yeniden üretilebiliyor. README artık zaman çizelgesini, izleme rehberini, Güç
+Kasası'nı, şeması açık hangarı, haritanın üstünde bir araç panelini ve arşiv bağlantı grafiğini
+gösteriyor; kimsenin referans vermediği iki eski kare (Tatoo sistemi, Mustafar) de üç kademeli
+hiyerarşiyi anlatmaya girdi.
+
+Fotoğraf çekmek iki hata ortaya çıkardı. Gemi şemasının `viewBox`'ı kare, kutusu ise tam genişlik
++ sabit yükseklikti; çizim o yüksekliğe küçülüyor, panelin çoğu boş kalıyordu — kutu da kare
+oldu. Işın kılıcı listesi "Form I - Form I: Shii-Cho" yazıyordu: form numarası, ardından zaten
+o numarayla başlayan ad. Ön ek ve artık okunmayan `formNumber` alanı silindi, bir test etiketi tek
+söyleyişte tutuyor. Manifest İngilizce anlatıyordu ve dil belirtmiyordu; Türkçe açıklama +
+`lang`/`dir` aldı.
+
+**Maskable ikon denetlendi, sorun yok.** İçerik yarıçapı ikonun yarı boyutunun 0,64'ü; maskable
+güvenli bölge 0,8. Yani `app-icon.png` kırpılmadan geçiyor, manifest'in `purpose: "maskable"`
+beyanı doğru — bu kalem açık değildi, kapatacak bir şey çıkmadı.
+
+README bir bütün olarak gerçeğe çekildi: 196 birim / 16 e2e (artık 291 / 37), 174 POI'nin 167'si
+kaynaklı (artık 172, hepsi), 9 uyarı (artık 2), ilk boya ve vendor chunk bütçeleri ve "galaksi
+görüntüsü hiperuzay ağından önce çekildi" diyen altyazı — hatlar karede duruyor.
 
 Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
 `jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.

@@ -8,6 +8,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import HolocronQuiz from '../../src/components/HolocronQuiz'
+import LightsaberChamber from '../../src/components/LightsaberChamber'
 import ShipBlueprint from '../../src/components/ShipBlueprint'
 import TransmissionPlayer from '../../src/components/TransmissionPlayer'
 import { useApp } from '../../src/state/app'
@@ -63,6 +64,16 @@ describe('ShipBlueprint', () => {
 
     expect(cockpit).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByText(/off-center cockpit pod/)).toBeInTheDocument()
+  })
+})
+
+describe('LightsaberChamber', () => {
+  // the list printed the form number and then the name, which already opens
+  // with it: "Form I - Form I: Shii-Cho"
+  it('names each form once', () => {
+    render(<LightsaberChamber onClose={vi.fn()} />)
+    const entry = screen.getByRole('button', { name: /Form I: Shii-Cho/ })
+    expect(entry.textContent).not.toMatch(/Form I.*Form I/)
   })
 })
 

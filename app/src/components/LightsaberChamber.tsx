@@ -7,7 +7,6 @@ import ModalShell from './ModalShell'
 interface FormSpec {
   id: string
   name: { en: string; tr: string }
-  formNumber: string
   archetype: { en: string; tr: string }
   notableUsers: string
   desc: { en: string; tr: string }
@@ -17,7 +16,6 @@ const forms: FormSpec[] = [
   {
     id: 'shii-cho',
     name: { en: 'Form I: Shii-Cho', tr: 'Form I: Shii-Cho' },
-    formNumber: 'Form I',
     archetype: { en: 'The Determination Form', tr: 'Kararlılık Formu' },
     notableUsers: 'Kit Fisto, Luke Skywalker, Younglings',
     desc: {
@@ -28,7 +26,6 @@ const forms: FormSpec[] = [
   {
     id: 'makashi',
     name: { en: 'Form II: Makashi', tr: 'Form II: Makashi' },
-    formNumber: 'Form II',
     archetype: { en: 'The Contention Form', tr: 'Mücadele / Düello Formu' },
     notableUsers: 'Count Dooku, Asajj Ventress, Ki-Adi-Mundi',
     desc: {
@@ -39,7 +36,6 @@ const forms: FormSpec[] = [
   {
     id: 'soresu',
     name: { en: 'Form III: Soresu', tr: 'Form III: Soresu' },
-    formNumber: 'Form III',
     archetype: { en: 'The Resilience Form', tr: 'Direniş / Savunma Formu' },
     notableUsers: 'Obi-Wan Kenobi, Kanan Jarrus',
     desc: {
@@ -50,7 +46,6 @@ const forms: FormSpec[] = [
   {
     id: 'ataru',
     name: { en: 'Form IV: Ataru', tr: 'Form IV: Ataru' },
-    formNumber: 'Form IV',
     archetype: { en: 'The Aggression Form', tr: 'Saldırı / Akrobasi Formu' },
     notableUsers: 'Yoda, Qui-Gon Jinn, Ahsoka Tano',
     desc: {
@@ -61,7 +56,6 @@ const forms: FormSpec[] = [
   {
     id: 'djem-so',
     name: { en: 'Form V: Shien / Djem So', tr: 'Form V: Shien / Djem So' },
-    formNumber: 'Form V',
     archetype: { en: 'The Perseverance Form', tr: 'Azim / Karşı Saldırı Formu' },
     notableUsers: 'Anakin Skywalker / Darth Vader, Ahsoka Tano',
     desc: {
@@ -72,7 +66,6 @@ const forms: FormSpec[] = [
   {
     id: 'niman',
     name: { en: 'Form VI: Niman', tr: 'Form VI: Niman' },
-    formNumber: 'Form VI',
     archetype: { en: 'The Moderation Form', tr: 'Denge Formu' },
     notableUsers: 'Darth Maul (dual-blade), Exar Kun',
     desc: {
@@ -83,7 +76,6 @@ const forms: FormSpec[] = [
   {
     id: 'vaapad',
     name: { en: 'Form VII: Juyo / Vaapad', tr: 'Form VII: Juyo / Vaapad' },
-    formNumber: 'Form VII',
     archetype: { en: 'The Ferocity Form', tr: 'Vahşet / Vaapad Formu' },
     notableUsers: 'Mace Windu, Darth Maul, Starkiller',
     desc: {
@@ -137,7 +129,7 @@ export default function LightsaberChamber({ onClose }: { onClose: () => void }) 
                     : 'border-white/10 bg-black/40 text-slate-300 hover:border-white/20'
                 }`}
               >
-                <div className="font-hud text-xs font-bold">{f.formNumber} - {L(f.name, lang)}</div>
+                <div className="font-hud text-xs font-bold">{L(f.name, lang)}</div>
                 <div className="text-[10px] text-slate-400">{L(f.archetype, lang)}</div>
               </button>
             ))}

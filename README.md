@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/three.js-r185-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="threejs" />
 <img src="https://img.shields.io/badge/Vite-7-646cff?style=for-the-badge&logo=vite&logoColor=white" alt="vite" />
 <img src="https://img.shields.io/badge/Tauri-2-24c8db?style=for-the-badge&logo=tauri&logoColor=black" alt="tauri" />
-<img src="https://img.shields.io/badge/Tests-196_unit_·_16_e2e-3ecf8e?style=for-the-badge&logoColor=white" alt="tests" />
+<img src="https://img.shields.io/badge/Tests-291_unit_·_37_e2e-3ecf8e?style=for-the-badge&logoColor=white" alt="tests" />
 <img src="https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel" />
 <img src="https://img.shields.io/badge/License-MIT_·_CC_BY--SA-22c55e?style=for-the-badge" alt="license" />
 
@@ -76,17 +76,25 @@ tıklanabilir ve uçulabilir.
 | 🧭 **Rota planlayıcı** | İki dünya seç, kurs hatlar üzerinden çizilsin, mesafe parsek olarak hesaplansın. |
 | 🕰️ **Dönem sistemi** | 3 kanon dönem + Legends açıkken Eski Cumhuriyet. Bağlılık, mevcudiyet ve gövde durumu döneme göre değişir. |
 | 📜 **Holocron wiki** | 121 kayıt — dünyalar ve figürler çapraz bağlı, bölge/medya filtreli. |
-| 📍 **174 ilgi noktası** | 86 gövdede işaretli yer; 167'si Wookieepedia makalesiyle kaynaklı, süreklilik uyumu derlemede doğrulanıyor. |
+| 📍 **172 ilgi noktası** | 86 gövdede işaretli yer; **hepsi** Wookieepedia makalesiyle kaynaklı, süreklilik uyumu derlemede doğrulanıyor. |
 | ⚖️ **Kıyaslama** | İki canlı küre yan yana + gerçek çap oranı şeridi + istatistik tablosu, URL ile paylaşılabilir. |
 | 🎬 **Rehberli turlar** | 6 elle yazılmış tur + her uçulabilir hattın kendi dünyalarının açıklamasından **üretilen** turu. |
 | ⌘ **Komut paleti** | ⌘K ile Türkçe-duyarlı bulanık arama; gezegen, karakter, bölge filtresi tek kutuda. |
 | ♿ **Klavye + ekran okuyucu** | Haritadaki dünyalar ve hatlar `sr-only` listelerle gezilebilir; `prefers-reduced-motion` gerçek bir dal. |
 | 🌍 **TR / EN** | Tüm arayüz ve tüm lore içeriği iki dilli — tip düzeyinde zorunlu, tek dilli anahtar derlemeyi keser. |
+| 📜 **Arşiv bölümleri** | Zaman Çizelgesi, Güç Kasası, İzleme Rehberi ve Hangar — dördü de kendi statik sayfasını ve yapılandırılmış verisini üretiyor. |
+| 🛠 **Araç panelleri** | Hiperuzay sıçrama süresi, ışın kılıcı formları, telsiz kayıtları, Aurebesh çevirici, holo-kimlik — hepsi tembel yüklenen birer dialog. |
 | 🖥️ **macOS uygulaması** | Tauri v2 · 12 MB `.dmg` · yüksek kalite katmanı varsayılan. |
 
 <div align="center">
 <img src="docs/screenshots/galaxy-map.jpg" alt="Galaksi haritası" width="100%" />
-<sub><i>Galaksi haritası — logaritmik sarmal kollar, nebula pusu, çubuklu çekirdek. (Görüntü hiperuzay ağından önce çekildi; yenilenecek.)</i></sub>
+<sub><i>Galaksi haritası — logaritmik sarmal kollar, nebula pusu, çubuklu çekirdek, 23 hiperuzay hattı.</i></sub>
+<br /><br />
+<img src="docs/screenshots/system-tatoo.jpg" alt="Tatoo sistemi" width="49%" />
+<img src="docs/screenshots/planet-mustafar.jpg" alt="Mustafar" width="49%" />
+<br />
+<sub><i>Hiyerarşinin diğer iki kademesi — sol: Tatoo sistemi, sağ: Mustafar yüzeyi. Kesme yok;
+kamera aradaki yolu uçuyor.</i></sub>
 </div>
 
 ---
@@ -105,14 +113,14 @@ derlemede reddeder — dijest repoda, yani CI aynı kontrolü tekrar üretebilir
 | **Prosedürel shader** | Tüm gezegen yüzeyleri, galaksi diski, yıldız alanları | 12 arketipli uber-shader + FBM gürültü | 🎨 |
 | **Holo-büst yer tutucusu** | Karakter portreleri | Prosedürel siluet + tarama çizgisi | 🟡 |
 
-**Son doğrulama:** `bodies=88 · points of interest=174 across 86/88 bodies, 167 cited · ERRORS: 0 · WARNINGS: 9`
+**Son doğrulama:** `bodies=88 · points of interest=172 across 86/88 bodies, 172 cited · ERRORS: 0 · WARNINGS: 2`
 (uyarıların hepsi "kanon bu durak için grid karesi vermiyor" gibi bilinçli boşluklar).
 
 ---
 
 ## 📊 Kapsam
 
-> **88 gök cismi** · 33 figür · 121 Holocron kaydı · 174 yer · 23 hiperuzay hattı · 308 durak · 12 yüzey arketipi · 4 dönem
+> **88 gök cismi** · 33 figür · 121 Holocron kaydı · 172 yer · 23 hiperuzay hattı · 308 durak · 12 yüzey arketipi · 4 dönem
 
 **Bölgeye göre** — merkezden dışa (81 gezegen dosyası)
 
@@ -138,6 +146,33 @@ derlemede reddeder — dijest repoda, yani CI aynı kontrolü tekrar üretebilir
 <img src="docs/screenshots/compare.jpg" alt="Kıyaslama" width="49%" />
 <br />
 <sub><i>Sol: Holocron, filtreli katalog. Sağ: Kıyaslama, iki canlı küre + gerçek çap oranı.</i></sub>
+</div>
+
+---
+
+## 📜 Arşiv bölümleri
+
+Haritanın dışındaki dört rota kendi sayfası: her kayıt geçtiği dünyaya bağlı, her kayıt
+yazıldığı Wookieepedia maddesini gösteriyor.
+
+<div align="center">
+<img src="docs/screenshots/timeline.jpg" alt="Zaman çizelgesi" width="49%" />
+<img src="docs/screenshots/watch-guide.jpg" alt="İzleme rehberi" width="49%" />
+<br />
+<img src="docs/screenshots/force.jpg" alt="Güç Kasası" width="49%" />
+<img src="docs/screenshots/hangar.jpg" alt="Hangar" width="49%" />
+<br />
+<sub><i>Üst sol: 25.000 BBY'den 35 ABY'ye zaman çizelgesi. Üst sağ: kronolojik/çıkış sırası izleme
+rehberi. Alt sol: Güç Kasası'nın 15 yeteneği, kademe ve taraf filtreli. Alt sağ: hangar, gemi
+şeması açık.</i></sub>
+</div>
+
+<div align="center">
+<img src="docs/screenshots/tool-lightsabers.jpg" alt="Işın kılıcı odası" width="49%" />
+<img src="docs/screenshots/relationships.jpg" alt="Arşiv bağlantıları" width="49%" />
+<br />
+<sub><i>Sol: araç panelleri — ışın kılıcı formları, haritanın üstünde bir dialog olarak. Sağ: arşiv
+bağlantıları — her bağlantının hangi kayıt alanından çıktığı yazılı.</i></sub>
 </div>
 
 ---
@@ -303,11 +338,11 @@ promptlar:** [`docs/gorsel-uretim-promptlari.md`](docs/gorsel-uretim-promptlari.
 
 | Ölçüm | Değer |
 |---|:-:|
-| İlk boya toplamı (bütçe 400 000) | **381 219 bayt** |
-| three vendor chunk | **634 976 bayt** |
-| Birim test | **196** (17 dosya) |
-| E2E test | **16** |
-| `validate-lore` | **0 hata**, 9 bilinçli uyarı |
+| İlk boya toplamı (bütçe 390 000) | **365 597 bayt** |
+| three vendor chunk | **638 275 bayt** |
+| Birim test | **291** (36 dosya) |
+| E2E test | **37** |
+| `validate-lore` | **0 hata**, 2 bilinçli uyarı |
 | Çalışma zamanı bağımlılığı | **9** (44 ölü paket söküldü) |
 | Galaksi haritası | **77 fps** (74 dünyalık ölçümde) |
 | Gezegen görünümü | **~115 fps** |
