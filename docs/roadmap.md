@@ -21,7 +21,7 @@ CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve
 üst çubuk 05 Ağustos'ta düzeltildi. Aynı gün codex kayıtlarının 64'ü de kaynak makalesine
 bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
-**Son doğrulama (2026-09-13):** `npm run verify` tam zincir geçti — 309 birim/bileşen ve
+**Son doğrulama (2026-09-13):** `npm run verify` tam zincir geçti — 312 birim/bileşen ve
 39 uçtan uca test yeşil, `validate-lore` **0 hata / 2 uyarı**, `validate-assets` 0 hata, bütçe
 0 hata. Kaynaksız yedi POI kapandı: beşi maddesini gösteriyor, ikisi (Alderaan `castle-lands`
 Legends-only, Felucia `fungal-plains` kaynaksız) silindi; 172 POI'nin hepsi kaynaklı. Kalan iki
@@ -117,7 +117,11 @@ rotalarının statik metasına ait denetim açıkları kapatıldı.
   program. Bloom kapalıyken composer'ı tümüyle atlamak denendi ve **geri alındı**: düşük katmanı
   8 → 7'ye indiriyor ama ışıklı yüzeyi gözle görülür biçimde koyulaştırıyor, çünkü özel gövde ve
   atmosfer shader'ları `colorspace_fragment` taşımıyor, kareyi sRGB'ye kodlayan tek yer
-  `OutputPass`. Kalan iş: bloom zincirinin 8 programı — görsel karar, ayrı ele alınacak.
+  `OutputPass`. **13 Eylül'de kapandı, görsel karar gerekmeden:** bloom zincirinin programları da
+  ısıtmaya girdi (kendi lineer half-float hedefine karşı, position+uv'lu kareyle — normal eklemek
+  `HAS_NORMAL` ile başka program derletiyor). Ölçüm: ilk karede derlenen program 9 → 1. Zinciri
+  kapatan `OutputPass` dışarıda, tanımlarını `render()` içinde kurduğu için. Bu makinenin
+  GPU'sunda iki sürüm de donmuyor (en kötü kare 24-36 ms / 33-55 ms); kazanç derlemelerin yerinde.
 - [x] **P2** Perf: **KTX2Loader lazy + three chunk'tan ayrıldı** (dynamic import + manualChunks
   istisnası) → three 634→622 kB, KTX2 kendi 14.5 kB async chunk'ında (dokular gelene dek hiç
   yüklenmez). **Landing'de galaxy route idle-prefetch** → atlas'a giriş anlık. three narrowing

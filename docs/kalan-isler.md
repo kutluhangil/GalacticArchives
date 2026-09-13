@@ -14,7 +14,7 @@ işlerin adım adım anlatımı ayrı dosyada: [senden-gerekenler.md](senden-ger
 | Görsel üretimi | **224/224 varlık teslim** | `npm run validate:assets` → `88 albedo, 12 night, 300 texture tiers, 88 cards, 33 portraits, 3 brand · ERRORS: 0` |
 | Veri | 81 gezegen + 2 istasyon + 5 detaylı ay, 172 POI (86/88 gövdede, **hepsi kaynaklı**), 23 hiperuzay hattı | `npm run validate` → 0 hata, 2 uyarı |
 | Codex | 64 kayıt (10 gemi, 8 savaş, 15 Güç yeteneği, 8 olay, 19 yapım, 4 telsiz), hepsi kaynak makalesini gösteriyor | `npm run validate` → `codex records=64, cited articles=60` |
-| Test | 309 birim/bileşen + 39 uçtan uca geçti | `npm run verify` → 39 dosya / 309 test, `playwright` 39 passed |
+| Test | 312 birim/bileşen + 39 uçtan uca geçti | `npm run verify` → 40 dosya / 312 test, `playwright` 39 passed |
 | CI | Yeşil | GitHub Actions `CI / verify` |
 | Bağımlılık güvenliği | 0 açık | `npm audit` → `found 0 vulnerabilities` (5 açık 2026-08-28'de, 4'ü daha 2026-09-12'de kapatıldı) |
 | Dağıtım | Vercel üretim canlı, Root Directory = `app` | `vercel ls galactic-archives` |
@@ -200,6 +200,32 @@ dili izliyor; kayıt sayfaları kendi adını veriyor ve kayıt yüklenene kadar
 sunulan başlık boş bir site adıyla değiştirilmiyor. Yedi yeni birim testi tabloyu ve `titleForPath`
 kararlarını, altı bileşen testi kancayı, iki uçtan uca test de gerçek tarayıcıda rota ve dil
 değişimini koruyor. Test sayısı 296 → 309, uçtan uca 37 → 39.
+
+Dokuzuncu kalem tur oynatıcısının hiç açılmamasıydı. "Bu hattı uç" tur durumunu kuruyor, host
+oynatıcının chunk'ını istiyor, modül geliyor — ve oynatıcı hiç mount olmuyordu: hata yok, gezinme
+yok, tıklama yok sayılmış gibi. Sebep `lazy` + `<Suspense>`: mount'u React'in yeniden deneme
+zamanlamasına bırakıyor, galaksiyi çizmekle meşgul bir sayfada o deneme keyfî kadar geç
+gelebiliyor — yazılım rasterleştiricisiyle koşan headless Chromium'da hiç gelmedi. Yayındaki
+üretim derlemesinde de üretildi; gerçek GPU'daki gerçek tarayıcıda normal başlıyor, bu yüzden
+gözden kaçmıştı. `TourPlayerHost` artık import'u bir effect'te çözüp oynatıcıyı sıradan state ile
+mount ediyor: chunk hâlâ ayrı (host'un var olma sebebi olan `lib/lore` tabloları ilk boyada değil),
+mount ise zamanlayıcıya bağlı değil. `flying a lane starts a tour at its first stop` uçtan uca
+testi yeniden geçiyor.
+
+Onuncu kalem roadmap §3'ün açık bıraktığı bloom programlarıydı. Döngü öncesi ısıtma yalnız sahnenin
+malzemelerini derliyordu; bloom zincirinin sekiz programı ile çıktı kodlaması ilk karede
+derlenmeye devam ediyordu — `compileAsync`'in kaldırmak için eklendiği donmanın kendisi. Ölçüm
+(`linkProgram` sayarak, gezegen rotası): önce 7 program ısıtmada + 9 ilk karede; sonra 15 ısıtmada
++ 1 ilk karede. Anahtarlama iki kez önemliydi: program hem ne çizdiğine (bu yüzden zincir
+composer'ın lineer half-float hedefine karşı ısıtılıyor) hem neyle çizdiğine bağlı (ısıtma karesi
+yalnız position + uv taşıyor; normal eklemek `HAS_NORMAL` tanımıyla başka bir program derletip
+sayıyı 16'dan 25'e çıkardı). Zinciri kapatan pass bilinçli olarak dışarıda: `OutputPass` tanımlarını
+`render()` içinde kuruyor, önceden ısıtmak ilk karenin hemen değiştirdiği bir programı derlemek
+olurdu. Bu makinenin GPU'sunda iki sürüm de ölçülebilir biçimde donmuyor (en kötü kare 24-36 ms'e
+karşı 33-55 ms) — kazanç derlemelerin nerede olduğunda, bu donanımın gösterebileceği bir sayıda
+değil; ilk profildeki ~8 sn'lik blok daha zayıf bir sürücünündü. `test/unit/pass-warmup.test.ts`
+sessizce çürüyebilecek kısmı koruyor: bir pass'in malzemelerini üç'ün sürümler arası yeniden
+adlandırdığı alan adlarına göre değil, değere göre bulan tarama.
 
 Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
 `jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.
