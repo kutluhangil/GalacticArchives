@@ -2,6 +2,21 @@
 
 ## 2026-09-13
 
+- Starting a guided tour could do nothing at all. The player is loaded on demand, and it was
+  loaded by suspending on the import, which hands the mount to React's retry scheduling: on a page
+  drawing the galaxy through a software rasteriser the module arrived and the player still never
+  mounted — no error, no tour, the click apparently ignored. `TourPlayerHost` now resolves the
+  import in an effect and mounts the player through ordinary state, so the chunk stays split and
+  the mount stays in the app's hands.
+
+- The first-frame warm-up covered the scene's own materials and nothing else, so the eight
+  programs of the bloom chain still compiled on the first frame — the stall `compileAsync` exists
+  to move off it. The warm-up now also compiles the post-processing passes, against the buffer they
+  draw into and with the attributes they draw with (a quad with a normal is a different program).
+  Measured by counting `linkProgram` calls: nine programs compiled at the first frame before, one
+  after. The pass that ends the chain is left out on purpose — `OutputPass` picks its defines
+  inside render(), so warming it beforehand adds a compile instead of removing one.
+
 - The tab title came from the served HTML and then stayed there for the whole session: a reader
   who switched to English kept a Turkish title, and walking from Hoth to Tatooine kept Hoth's name
   above the record. Section names now live in one table (`src/data/sections.json`) that the app,

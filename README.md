@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/three.js-r185-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="threejs" />
 <img src="https://img.shields.io/badge/Vite-7-646cff?style=for-the-badge&logo=vite&logoColor=white" alt="vite" />
 <img src="https://img.shields.io/badge/Tauri-2-24c8db?style=for-the-badge&logo=tauri&logoColor=black" alt="tauri" />
-<img src="https://img.shields.io/badge/Tests-309_unit_·_39_e2e-3ecf8e?style=for-the-badge&logoColor=white" alt="tests" />
+<img src="https://img.shields.io/badge/Tests-312_unit_·_39_e2e-3ecf8e?style=for-the-badge&logoColor=white" alt="tests" />
 <img src="https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel" />
 <img src="https://img.shields.io/badge/License-MIT_·_CC_BY--SA-22c55e?style=for-the-badge" alt="license" />
 
@@ -338,9 +338,9 @@ promptlar:** [`docs/gorsel-uretim-promptlari.md`](docs/gorsel-uretim-promptlari.
 
 | Ölçüm | Değer |
 |---|:-:|
-| İlk boya toplamı (bütçe 390 000) | **367 874 bayt** |
+| İlk boya toplamı (bütçe 390 000) | **367 893 bayt** |
 | three vendor chunk | **638 275 bayt** |
-| Birim test | **309** (39 dosya) |
+| Birim test | **312** (40 dosya) |
 | E2E test | **39** |
 | `validate-lore` | **0 hata**, 2 bilinçli uyarı |
 | Çalışma zamanı bağımlılığı | **9** (44 ölü paket söküldü) |

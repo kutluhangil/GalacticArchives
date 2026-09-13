@@ -19,6 +19,42 @@ export interface BaseCallbacks {
   onAssetError?: (error: Error) => void
 }
 
+/** A full-screen pass draws one quad, so warming its program only needs a quad
+ *  under an orthographic camera. The attributes have to match three's own
+ *  FullScreenQuad exactly — position and uv, no normal: a normal attribute adds
+ *  `HAS_NORMAL` to the shader, which is a different program, so the warm-up
+ *  would compile one set and the first frame would still compile the other. */
+const QUAD_CAMERA = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1)
+const QUAD_GEOMETRY = new THREE.BufferGeometry()
+QUAD_GEOMETRY.setAttribute(
+  'position',
+  new THREE.Float32BufferAttribute([-1, 3, 0, -1, -1, 0, 3, -1, 0], 3),
+)
+QUAD_GEOMETRY.setAttribute('uv', new THREE.Float32BufferAttribute([0, 2, 0, 0, 2, 0], 2))
+
+/** The shader materials a post-processing pass owns. They are found by scanning
+ *  the pass's own values rather than by field name: the bloom chain keeps some
+ *  of them in an array and some behind names three has renamed between
+ *  releases, and a warm-up that silently stopped finding them would look like
+ *  it still worked. */
+export function passMaterials(pass: object): THREE.ShaderMaterial[] {
+  const found: THREE.ShaderMaterial[] = []
+  for (const value of Object.values(pass)) {
+    if (value instanceof THREE.ShaderMaterial) found.push(value)
+    else if (Array.isArray(value)) {
+      for (const item of value) if (item instanceof THREE.ShaderMaterial) found.push(item)
+    }
+  }
+  return found
+}
+
+/** throwaway scene holding one quad per material, for compileAsync to walk */
+function quadScene(materials: THREE.ShaderMaterial[]): THREE.Scene {
+  const scene = new THREE.Scene()
+  for (const material of materials) scene.add(new THREE.Mesh(QUAD_GEOMETRY, material))
+  return scene
+}
+
 export abstract class EngineBase {
   protected renderer!: THREE.WebGLRenderer
   protected composer!: EffectComposer
@@ -237,16 +273,43 @@ export abstract class EngineBase {
    *  freezing; without the extension three resolves once compilation is done
    *  and behaviour matches the old path. */
   start() {
+    void this.warm().then(() => {
+      if (!this.disposed) this.runLoop()
+    })
+  }
+
+  /** Warms every program the first frame would otherwise compile. */
+  private async warm() {
     // A program is keyed partly by what it draws into, so warming up against
     // the canvas while the composer then draws into its own linear target had
     // three compile every material a second time on the first frame — the
     // stall this call exists to remove. Compile against the buffer the frames
     // will actually use.
     this.renderer.setRenderTarget(this.composer.renderTarget1)
-    void this.renderer.compileAsync(this.scene, this.camera).then(() => {
-      this.renderer.setRenderTarget(null)
-      if (!this.disposed) this.runLoop()
-    })
+    await this.renderer.compileAsync(this.scene, this.camera)
+
+    // The scene's own materials were only half of it: three compiles a
+    // post-processing pass's program the first time that pass draws, which is
+    // the first frame — the eight programs of the bloom chain plus the output
+    // encode landed there, after this warm-up had finished. Warming them the
+    // same way needs the same keying care: everything inside the chain draws
+    // into a linear half-float buffer, and only the pass that ends the chain
+    // draws to the canvas.
+    // The pass that ends the chain is left out on purpose. `OutputPass`
+    // chooses its own defines inside render() — the sRGB transfer and the tone
+    // mapping it was configured with — so warming it beforehand compiles a
+    // program the first frame immediately replaces, which is one compile added
+    // rather than removed. Every pass before it keeps its defines fixed and
+    // draws into a linear half-float buffer, which is what this warms.
+    const last = this.composer.passes.filter((pass) => pass.enabled).at(-1)
+    const buffered = this.composer.passes
+      .filter((pass) => pass !== last)
+      .flatMap((pass) => passMaterials(pass))
+    if (buffered.length > 0) {
+      this.renderer.setRenderTarget(this.composer.renderTarget1)
+      await this.renderer.compileAsync(quadScene(buffered), QUAD_CAMERA)
+    }
+    this.renderer.setRenderTarget(null)
   }
 
   private runLoop() {
