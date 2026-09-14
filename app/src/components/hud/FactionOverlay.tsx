@@ -108,7 +108,7 @@ export default function FactionOverlay({
   const visible = ZONES.filter((z) => z.eras.includes(era))
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-[5]">
+    <div className="pointer-events-none absolute inset-0 z-5">
       <svg
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid meet"
@@ -155,7 +155,7 @@ export default function FactionOverlay({
       </svg>
 
       {/* Legend */}
-      <div className="absolute bottom-20 right-4 flex flex-col gap-1.5 rounded-lg border border-white/10 bg-black/60 p-2.5 backdrop-blur-sm">
+      <div className="absolute bottom-20 right-4 flex flex-col gap-1.5 rounded-lg border border-white/10 bg-black/60 p-2.5 backdrop-blur-xs">
         <div className="mb-1 font-hud text-[8px] uppercase tracking-[0.3em] text-slate-500">
           {lang === 'tr' ? 'Nüfuz Bölgeleri' : 'Territory'}
         </div>

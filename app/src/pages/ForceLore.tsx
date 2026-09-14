@@ -83,7 +83,7 @@ function HolocronCube({ active, lang }: { active: boolean; lang: LangKey }) {
           }}
         >
           {/* front */}
-          <div className="absolute inset-0 rounded border border-holo-cyan/60 bg-holo-cyan/10 backdrop-blur-sm" style={{ transform: 'translateZ(40px)' }} />
+          <div className="absolute inset-0 rounded border border-holo-cyan/60 bg-holo-cyan/10 backdrop-blur-xs" style={{ transform: 'translateZ(40px)' }} />
           {/* back */}
           <div className="absolute inset-0 rounded border border-holo-cyan/60 bg-holo-cyan/10" style={{ transform: 'rotateY(180deg) translateZ(40px)' }} />
           {/* left */}

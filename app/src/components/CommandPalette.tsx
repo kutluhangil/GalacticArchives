@@ -46,7 +46,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-start justify-center bg-black/60 pt-[18vh] backdrop-blur-sm"
+      className="fixed inset-0 z-60 flex items-start justify-center bg-black/60 pt-[18vh] backdrop-blur-xs"
       onClick={onClose}
     >
       <div onClick={(e) => e.stopPropagation()} className="w-[560px] max-w-[calc(100vw-2rem)]">
@@ -57,7 +57,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
           <Command.Input
             autoFocus
             placeholder={t('searchPlaceholder', lang)}
-            className="w-full border-b border-white/10 bg-transparent px-4 py-3 text-[14px] text-slate-100 outline-none placeholder:text-slate-500"
+            className="w-full border-b border-white/10 bg-transparent px-4 py-3 text-[14px] text-slate-100 outline-hidden placeholder:text-slate-500"
           />
           <div className="flex gap-1 overflow-x-auto border-b border-white/5 px-2 py-1.5">
             <button
@@ -90,7 +90,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
             </Command.Empty>
             <Command.Group
               heading={t('planets', lang)}
-              className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-[10px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[0.25em] [&_[cmdk-group-heading]]:text-slate-500"
+              className="**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-[10px] **:[[cmdk-group-heading]]:uppercase **:[[cmdk-group-heading]]:tracking-[0.25em] **:[[cmdk-group-heading]]:text-slate-500"
             >
               {shownPlanets.map((p) => (
                 <Command.Item
@@ -116,7 +116,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
             {!region && (
               <Command.Group
                 heading={t('charactersGroup', lang)}
-                className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-[10px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[0.25em] [&_[cmdk-group-heading]]:text-slate-500"
+                className="**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-[10px] **:[[cmdk-group-heading]]:uppercase **:[[cmdk-group-heading]]:tracking-[0.25em] **:[[cmdk-group-heading]]:text-slate-500"
               >
                 {characters.map((c) => (
                   <Command.Item

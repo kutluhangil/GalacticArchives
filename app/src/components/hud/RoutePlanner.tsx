@@ -68,7 +68,7 @@ export default function RoutePlanner({ onCourse }: RoutePlannerProps) {
         aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded border border-white/10 bg-black/50 px-1.5 py-1 text-[12px] text-slate-200 outline-none focus:border-holo-cyan/60"
+        className="w-full rounded border border-white/10 bg-black/50 px-1.5 py-1 text-[12px] text-slate-200 outline-hidden focus:border-holo-cyan/60"
       >
         <option value="">{t('coursePick', lang)}</option>
         <optgroup label={t('stopsInArchive', lang)}>

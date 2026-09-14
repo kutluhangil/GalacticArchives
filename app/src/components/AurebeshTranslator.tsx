@@ -29,7 +29,7 @@ export default function AurebeshTranslator({ onClose }: { onClose: () => void })
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Type standard text..."
-            className="w-full rounded border border-white/10 bg-black/50 px-3 py-2 text-[14px] text-slate-100 outline-none transition-colors focus:border-holo-cyan/70"
+            className="w-full rounded border border-white/10 bg-black/50 px-3 py-2 text-[14px] text-slate-100 outline-hidden transition-colors focus:border-holo-cyan/70"
           />
         </div>
 
@@ -37,7 +37,7 @@ export default function AurebeshTranslator({ onClose }: { onClose: () => void })
           <div className="mb-1 text-[10px] uppercase tracking-[0.25em] text-holo-cyan/60">
             {lang === 'tr' ? 'Aurebesh Çıktısı' : 'Aurebesh Output'}
           </div>
-          <div className="min-h-[3rem] overflow-x-auto py-2">
+          <div className="min-h-12 overflow-x-auto py-2">
             <Aurebesh
               text={text || ' '}
               className="text-xl tracking-[0.25em] text-holo-cyan"

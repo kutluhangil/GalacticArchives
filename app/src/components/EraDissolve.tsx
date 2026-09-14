@@ -26,7 +26,7 @@ export default function EraDissolve({
       aria-hidden
       src={src}
       onTransitionEnd={onDone}
-      className="pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover"
+      className="pointer-events-none absolute inset-0 z-1 h-full w-full object-cover"
       style={{ opacity: fading ? 0 : 1, transition: 'opacity 600ms ease-out' }}
     />
   )

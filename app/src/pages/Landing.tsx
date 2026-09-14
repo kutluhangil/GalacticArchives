@@ -80,7 +80,7 @@ function WorldCard({ body, lang }: { body: CelestialBody; lang: 'en' | 'tr' }) {
   return (
     <Link
       to={`/planet/${body.id}`}
-      className="group relative block overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
+      className="group relative block overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
     >
       <img
         src={`/cards/${body.id}.webp`}
@@ -89,7 +89,7 @@ function WorldCard({ body, lang }: { body: CelestialBody; lang: 'en' | 'tr' }) {
         height={600}
         loading="lazy"
         decoding="async"
-        className="aspect-[2/1] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="aspect-2/1 w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <div className="flex items-baseline justify-between gap-2 bg-panel/90 px-3 py-2">
         <span className="font-display text-[13px] tracking-[0.18em] text-slate-100">
@@ -137,16 +137,16 @@ function OpeningCrawl({ lang, onDone }: { lang: 'en' | 'tr'; onDone: () => void 
       {step === 'scroll' && (
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 top-[8%] [perspective:320px]"
+          className="absolute inset-x-0 bottom-0 top-[8%] perspective-[320px]"
           style={{
             maskImage: 'linear-gradient(to top, black 46%, transparent 92%)',
             WebkitMaskImage: 'linear-gradient(to top, black 46%, transparent 92%)',
           }}
         >
-          <div className="relative h-full w-full [transform:rotateX(24deg)] [transform-origin:50%_100%]">
+          <div className="relative h-full w-full transform-[rotateX(24deg)] origin-[50%_100%]">
             <div
               onAnimationEnd={onDone}
-              className="absolute left-1/2 w-[min(760px,86vw)] -translate-x-1/2 animate-[crawl_22s_linear_forwards] text-center text-star-gold"
+              className="absolute left-1/2 w-[min(760px,86vw)] -translate-x-1/2 animate-crawl text-center text-star-gold"
             >
               <h2 className="mb-10 font-display text-[clamp(2.4rem,7vw,4rem)] font-black leading-[0.95] tracking-[0.14em] drop-shadow-[0_0_24px_rgba(255,232,31,0.25)]">
                 GALACTIC
@@ -156,7 +156,7 @@ function OpeningCrawl({ lang, onDone }: { lang: 'en' | 'tr'; onDone: () => void 
               {paragraphs.map((para, i) => (
                 <p
                   key={i}
-                  className="mb-8 text-justify font-display text-[clamp(1.05rem,2.6vw,1.7rem)] font-semibold leading-[1.5] tracking-[0.02em]"
+                  className="mb-8 text-justify font-display text-[clamp(1.05rem,2.6vw,1.7rem)] font-semibold leading-normal tracking-[0.02em]"
                 >
                   {para}
                 </p>
@@ -168,7 +168,7 @@ function OpeningCrawl({ lang, onDone }: { lang: 'en' | 'tr'; onDone: () => void 
 
       <button
         onClick={onDone}
-        className="absolute bottom-6 right-6 z-10 rounded border border-white/15 bg-black/40 px-3 py-1.5 font-hud text-[12px] uppercase tracking-[0.28em] text-slate-300 transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
+        className="absolute bottom-6 right-6 z-10 rounded border border-white/15 bg-black/40 px-3 py-1.5 font-hud text-[12px] uppercase tracking-[0.28em] text-slate-300 transition-colors hover:border-holo-cyan/50 hover:text-holo-cyan focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
       >
         {t('skipIntro', lang)} ↵
       </button>
@@ -251,7 +251,7 @@ export default function Landing() {
               {phase === 'wordmark' && (
                 <span
                   aria-hidden
-                  className="absolute inset-x-[-8%] top-0 h-full animate-[scan_1.3s_ease-out_1]"
+                  className="absolute inset-x-[-8%] top-0 h-full animate-scan"
                   style={{
                     background:
                       'linear-gradient(to bottom, transparent 0%, rgba(102,217,255,0.55) 48%, rgba(102,217,255,0.9) 50%, rgba(102,217,255,0.55) 52%, transparent 100%)',
@@ -272,13 +272,13 @@ export default function Landing() {
           >
             <Link
               to="/galaxy"
-              className="rounded border border-star-gold/60 bg-star-gold/10 px-6 py-2.5 font-hud text-[14px] tracking-[0.28em] text-star-gold transition-colors hover:bg-star-gold/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-star-gold"
+              className="rounded border border-star-gold/60 bg-star-gold/10 px-6 py-2.5 font-hud text-[14px] tracking-[0.28em] text-star-gold transition-colors hover:bg-star-gold/20 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-star-gold"
             >
               {t('exploreCta', lang)}
             </Link>
             <Link
               to="/holocron"
-              className="rounded border border-holo-cyan/40 bg-holo-cyan/5 px-6 py-2.5 font-hud text-[14px] tracking-[0.28em] text-holo-cyan transition-colors hover:bg-holo-cyan/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
+              className="rounded border border-holo-cyan/40 bg-holo-cyan/5 px-6 py-2.5 font-hud text-[14px] tracking-[0.28em] text-holo-cyan transition-colors hover:bg-holo-cyan/15 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
             >
               {t('holocronCta', lang)}
             </Link>

@@ -20,7 +20,7 @@ export default function RelevantTours({ bodyId, lang }: { bodyId: string; lang: 
           <button
             key={tour.id}
             onClick={() => startTour({ kind: 'authored', id: tour.id })}
-            className="rounded border border-star-gold/25 bg-star-gold/[0.04] px-2.5 py-1.5 text-left transition-colors hover:border-star-gold/50 hover:bg-star-gold/[0.08]"
+            className="rounded border border-star-gold/25 bg-star-gold/4 px-2.5 py-1.5 text-left transition-colors hover:border-star-gold/50 hover:bg-star-gold/8"
           >
             <span className="block text-[12px] text-star-gold/90">{L(tour.names, lang)}</span>
             <span className="mt-0.5 block max-w-xs text-[10px] leading-snug text-slate-500">{L(tour.blurb, lang)}</span>

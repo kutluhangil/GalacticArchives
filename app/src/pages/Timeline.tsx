@@ -193,7 +193,7 @@ export default function Timeline() {
           <div ref={listRef} className="pb-[45vh]">
             {sections.map((section) => (
               <section key={section.era} id={`era-${section.era}`} className="mb-10 scroll-mt-4">
-                <div className="sticky top-0 z-10 -mx-2 mb-4 bg-space/95 px-2 py-3 backdrop-blur-sm">
+                <div className="sticky top-0 z-10 -mx-2 mb-4 bg-space/95 px-2 py-3 backdrop-blur-xs">
                   <h2 className="font-hud text-[10px] uppercase tracking-[0.35em] text-slate-500">
                     {ERA_SHORT[section.era][lang]}
                     <span className="ml-2 text-slate-600">{section.range}</span>
@@ -207,7 +207,7 @@ export default function Timeline() {
                       <div id={`event-${evt.id}`} key={evt.id} data-event-id={evt.id} className="group relative scroll-mt-8">
                         {/* Timeline node marker */}
                         <div
-                          className={`absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 transition-all ${
+                          className={`absolute left-[-31px] top-1 h-3 w-3 rounded-full border-2 transition-all ${
                             active
                               ? 'scale-125 border-star-gold bg-star-gold'
                               : 'border-holo-cyan bg-space group-hover:bg-holo-cyan'

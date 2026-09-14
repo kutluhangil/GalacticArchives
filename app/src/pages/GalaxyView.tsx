@@ -240,7 +240,7 @@ export default function GalaxyView() {
               <button
                 data-roving-item
                 onClick={() => selectLane(route.id)}
-                className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-28 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-none focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
+                className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-28 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-hidden focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
               >
                 {L(route.names, lang)}
               </button>
@@ -264,7 +264,7 @@ export default function GalaxyView() {
                 <button
                   data-roving-item
                   onClick={() => dive(p.id)}
-                  className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-16 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-none focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
+                  className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-16 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-hidden focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
                 >
                   {L(p.names, lang)}
                 </button>
@@ -274,7 +274,7 @@ export default function GalaxyView() {
       </nav>
 
       {regionName && (
-        <div className="pointer-events-none absolute bottom-16 left-1/2 z-10 -translate-x-1/2 rounded border border-holo-cyan/20 bg-panel/80 px-3 py-1 text-[11px] uppercase tracking-[0.3em] text-holo-cyan backdrop-blur-sm">
+        <div className="pointer-events-none absolute bottom-16 left-1/2 z-10 -translate-x-1/2 rounded border border-holo-cyan/20 bg-panel/80 px-3 py-1 text-[11px] uppercase tracking-[0.3em] text-holo-cyan backdrop-blur-xs">
           {regionName}
         </div>
       )}

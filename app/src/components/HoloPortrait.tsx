@@ -26,9 +26,9 @@ export default function HoloPortrait({
         className="h-full w-full object-contain opacity-90 transition-opacity hover:opacity-100"
       />
       {/* Sci-fi holographic scanline overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,255,255,0.06)_50%)] bg-[length:100%_4px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,255,255,0.06)_50%)] bg-size-[100%_4px]" />
       {/* Top corner holo beam */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-holo-cyan/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-linear-to-r from-transparent via-holo-cyan/40 to-transparent" />
     </div>
   )
 }

@@ -161,13 +161,13 @@ export default function Holocron() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t('searchPlaceholder', lang)}
           aria-label={t('search', lang)}
-          className="min-w-[240px] flex-1 rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-100 outline-none transition-colors placeholder:text-slate-400 focus:border-holo-cyan/60"
+          className="min-w-[240px] flex-1 rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-100 outline-hidden transition-colors placeholder:text-slate-400 focus:border-holo-cyan/60"
         />
         <select
           value={region}
           onChange={(e) => setRegion(e.target.value)}
           aria-label={t('region', lang)}
-          className="rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-200 outline-none focus:border-holo-cyan/60"
+          className="rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-200 outline-hidden focus:border-holo-cyan/60"
         >
           <option value="">{t('allRegions', lang)}</option>
           {regions.map((r) => (
@@ -180,7 +180,7 @@ export default function Holocron() {
           value={sector}
           onChange={(e) => setSector(e.target.value)}
           aria-label={t('sector', lang)}
-          className="rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-200 outline-none focus:border-holo-cyan/60"
+          className="rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-200 outline-hidden focus:border-holo-cyan/60"
         >
           <option value="">{t('allSectors', lang)}</option>
           {sectors.map((s) => (
@@ -198,7 +198,7 @@ export default function Holocron() {
           value={mediaId}
           onChange={(e) => setMediaId(e.target.value)}
           aria-label={t('appearances', lang)}
-          className="rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-200 outline-none focus:border-holo-cyan/60"
+          className="rounded border border-white/10 bg-panel/80 px-3 py-2 text-[13px] text-slate-200 outline-hidden focus:border-holo-cyan/60"
         >
           <option value="">{t('allMedia', lang)}</option>
           {media.map((m) => (
@@ -238,7 +238,7 @@ export default function Holocron() {
                 to={`/holocron/planet/${body.id}`}
                 onClick={() => sfx.playHover()}
                 viewTransition
-                className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
+                className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
               >
                 <img
                   src={`/cards/${body.id}.webp`}
@@ -247,7 +247,7 @@ export default function Holocron() {
                   height={600}
                   loading="lazy"
                   decoding="async"
-                  className="aspect-[2/1] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="aspect-2/1 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="bg-panel/90 px-2.5 py-2">
                   <div className="font-display text-[12px] tracking-[0.16em] text-slate-100">
@@ -344,7 +344,7 @@ export default function Holocron() {
                 to={`/holocron/character/${character.id}`}
                 onClick={() => sfx.playHover()}
                 viewTransition
-                className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
+                className="group overflow-hidden rounded-lg border border-white/10 transition-colors hover:border-holo-cyan/50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
               >
                 <HoloPortrait
                   id={character.id}

@@ -1,6 +1,53 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* The theme is what this interface actually uses: the two HUD faces, the six
+   archive colours, and the two animations the landing page plays. The v3
+   config carried a full shadcn palette on top of that — card, popover,
+   sidebar, accordion keyframes, a radius scale — referencing CSS variables
+   that were never defined and classes no component ever used. Under v4 the
+   theme is emitted as CSS, so that scaffolding cost 28 kB of stylesheet. */
+@theme {
+  --font-display: 'Libre Franklin', system-ui, sans-serif;
+  --font-hud: 'Barlow Condensed', system-ui, sans-serif;
+  --font-aurebesh: Aurebesh, 'Barlow Condensed', sans-serif;
+
+  --color-space: #030509;
+  --color-panel: #0b0f17;
+  --color-star-gold: #ffe81f;
+  --color-holo-cyan: #66d9ff;
+  --color-sith-red: #e0312e;
+  --color-rebel-orange: #e8632c;
+
+  --animate-scan: scan 1.3s ease-out 1;
+  --animate-crawl: crawl 22s linear forwards;
+
+  /* holo scan sweep across the landing wordmark */
+  @keyframes scan {
+    from {
+      transform: translateY(-115%);
+      opacity: 0;
+    }
+    18% {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(115%);
+      opacity: 0;
+    }
+  }
+
+  /* Star Wars opening crawl: text climbs from the foreground and recedes
+     toward the vanishing point. Perspective and tilt live on the wrappers;
+     this only drives the vertical travel of the tilted plane. */
+  @keyframes crawl {
+    from {
+      top: 100%;
+    }
+    to {
+      top: -160%;
+    }
+  }
+}
 
 /* Optional in-universe face. The file is not bundled — drop an OFL-licensed
    aurebesh.woff2 into public/fonts/ and the <Aurebesh> decoration turns on by

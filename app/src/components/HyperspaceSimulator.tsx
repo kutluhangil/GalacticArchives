@@ -103,7 +103,7 @@ export default function HyperspaceSimulator({ onClose }: { onClose: () => void }
             <select
               value={origin}
               onChange={(e) => setOrigin(e.target.value)}
-              className="w-full rounded border border-white/15 bg-black/50 p-2 text-xs text-slate-200 outline-none"
+              className="w-full rounded border border-white/15 bg-black/50 p-2 text-xs text-slate-200 outline-hidden"
             >
               {planets.map((p) => (
                 <option key={p.id} value={p.id}>{L(p.names, lang)}</option>
@@ -118,7 +118,7 @@ export default function HyperspaceSimulator({ onClose }: { onClose: () => void }
             <select
               value={dest}
               onChange={(e) => setDest(e.target.value)}
-              className="w-full rounded border border-white/15 bg-black/50 p-2 text-xs text-slate-200 outline-none"
+              className="w-full rounded border border-white/15 bg-black/50 p-2 text-xs text-slate-200 outline-hidden"
             >
               {planets.map((p) => (
                 <option key={p.id} value={p.id}>{L(p.names, lang)}</option>

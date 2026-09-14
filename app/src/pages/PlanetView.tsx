@@ -134,7 +134,7 @@ export default function PlanetView() {
           >
             <span className="block h-2.5 w-2.5 rounded-full border border-holo-cyan bg-holo-cyan/25 shadow-[0_0_8px_rgba(102,217,255,0.8)] transition-transform hover:scale-150" />
             {activePoi?.id === poi.id && (
-              <span className="absolute left-3 top-0 z-20 w-56 rounded border border-holo-cyan/25 bg-panel/95 p-2 text-left backdrop-blur">
+              <span className="absolute left-3 top-0 z-20 w-56 rounded border border-holo-cyan/25 bg-panel/95 p-2 text-left backdrop-blur-sm">
                 <span className="block text-[11px] font-semibold tracking-wider text-holo-cyan">
                   {L(poi.names, lang)}
                 </span>
@@ -168,7 +168,7 @@ export default function PlanetView() {
       )}
 
       {textureError?.id === id && body && (
-        <div role="alert" className="absolute bottom-12 left-4 z-30 max-w-sm rounded border border-holo-red/40 bg-panel/95 p-3 text-xs text-slate-300 backdrop-blur">
+        <div role="alert" className="absolute bottom-12 left-4 z-30 max-w-sm rounded border border-holo-red/40 bg-panel/95 p-3 text-xs text-slate-300 backdrop-blur-sm">
           <span className="font-semibold text-holo-red">{t('textureErrorTitle', lang)}</span>{' '}
           {textureError.error.message}
         </div>

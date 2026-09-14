@@ -98,7 +98,7 @@ function ColumnPickers({
             value={id}
             aria-label={`${t('compare', lang)} ${String.fromCharCode(65 + index)}`}
             onChange={(e) => onChange(ids.map((v, i) => (i === index ? e.target.value : v)))}
-            className="rounded border border-white/10 bg-black/40 px-2 py-1 text-[12px] text-slate-200 outline-none"
+            className="rounded border border-white/10 bg-black/40 px-2 py-1 text-[12px] text-slate-200 outline-hidden"
           >
             {options.map((o) => (
               <option key={o.id} value={o.id}>
@@ -535,7 +535,7 @@ export default function Compare() {
                     </span>
                     <div className="h-3 flex-1 overflow-hidden rounded bg-black/50">
                       <div
-                        className="h-full bg-gradient-to-r from-holo-cyan to-star-gold transition-all duration-500"
+                        className="h-full bg-linear-to-r from-holo-cyan to-star-gold transition-all duration-500"
                         style={{ width: `${Math.max((shipScale[i] ?? 0) * 100, 2)}%` }}
                       />
                     </div>

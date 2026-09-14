@@ -169,7 +169,7 @@ export default function LightsaberChamber({ onClose }: { onClose: () => void }) 
                     }}
                   />
                   {/* Hilt */}
-                  <div className="h-16 w-5 rounded-b border border-slate-500 bg-gradient-to-b from-slate-400 via-slate-700 to-slate-900 shadow-md" />
+                  <div className="h-16 w-5 rounded-b border border-slate-500 bg-linear-to-b from-slate-400 via-slate-700 to-slate-900 shadow-md" />
                 </div>
               </div>
 

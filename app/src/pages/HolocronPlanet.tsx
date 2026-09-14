@@ -146,7 +146,7 @@ export default function HolocronPlanet() {
         width={1200}
         height={600}
         decoding="async"
-        className="mb-6 aspect-[2/1] w-full rounded-lg border border-white/10 object-cover"
+        className="mb-6 aspect-2/1 w-full rounded-lg border border-white/10 object-cover"
       />
 
       <div className="mb-2 flex flex-wrap items-baseline justify-between gap-3">
@@ -197,7 +197,7 @@ export default function HolocronPlanet() {
                 {facts.map((fact) => (
                   <li
                     key={fact}
-                    className="rounded border border-star-gold/15 bg-star-gold/[0.04] p-3 text-[13px] leading-relaxed text-slate-300"
+                    className="rounded border border-star-gold/15 bg-star-gold/4 p-3 text-[13px] leading-relaxed text-slate-300"
                   >
                     {fact}
                   </li>

@@ -64,7 +64,7 @@ export default function RelationshipExplorer({
           <li key={item.id}>
             <Link
               to={item.to}
-              className="group block rounded border border-white/8 bg-black/20 px-3 py-2 transition-colors hover:border-holo-cyan/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
+              className="group block rounded border border-white/8 bg-black/20 px-3 py-2 transition-colors hover:border-holo-cyan/45 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-holo-cyan"
             >
               <span className="block text-[10px] uppercase tracking-[0.2em] text-slate-500">
                 {t(relationKey[item.relation], lang)}
