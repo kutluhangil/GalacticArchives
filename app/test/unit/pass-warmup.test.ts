@@ -21,9 +21,12 @@ describe('passMaterials', () => {
     expect(materials).toContain(bloom.compositeMaterial)
     expect(materials).toContain(bloom.blendMaterial)
     for (const blur of bloom.separableBlurMaterials) expect(materials).toContain(blur)
-    // every blur mip is its own program: the kernel radius is a define
-    const radii = bloom.separableBlurMaterials.map((m) => m.defines.KERNEL_RADIUS)
-    expect(new Set(radii).size).toBe(radii.length)
+    // every blur mip is its own program, because its kernel is a define rather
+    // than a uniform. The define's name is three's to change — it was
+    // KERNEL_RADIUS until 0.186 and KERNEL_PAIRS after — so what is asserted is
+    // that the five differ, not what they are called.
+    const kernels = bloom.separableBlurMaterials.map((m) => JSON.stringify(m.defines))
+    expect(new Set(kernels).size).toBe(kernels.length)
     bloom.dispose()
   })
 
