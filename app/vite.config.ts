@@ -1,14 +1,13 @@
 import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
-import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
   // absolute base: relative './' breaks module resolution on deep SPA routes
   // like /planet/tatooine (assets would resolve to /planet/assets/...)
   base: '/',
-  plugins: [inspectAttr(), react()],
+  plugins: [react()],
   worker: {
     format: 'es',
   },
