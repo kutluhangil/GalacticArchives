@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-09-14
+
+- The pending major dependencies were taken, one at a time with the verify chain between them:
+  vite 8, @vitejs/plugin-react 6, eslint 10, jest-dom 7, globals 17, @types/node 26, jsdom 30,
+  three 0.186, react-router 8, tailwindcss 4, and the two GitHub Actions majors. vite 8 needed
+  `kimi-plugin-inspect-react` removed (its peer range stops at vite 7 and it only fed an editor
+  inspector), which also took ~32 kB of injected attributes out of the bundle. Tailwind 4 moved
+  the theme into `src/index.css` and cost ~28 kB of stylesheet, so that budget is now 84,000;
+  first paint is unchanged at 366,110 of 390,000. `typescript` 7 is the one that could not be
+  taken: typescript-eslint 8.70 refuses to run under it.
+
+- `react` and `react-dom` are pinned at exactly 19.2.8: 19.3.0 adds ~30 kB to the entry chunk.
+
 ## 2026-09-13
 
 - Starting a guided tour could do nothing at all. The player is loaded on demand, and it was

@@ -9,8 +9,8 @@
 <img src="https://img.shields.io/badge/Status-Live-facc15?style=for-the-badge&logoColor=black" alt="status" />
 <img src="https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=black" alt="react" />
 <img src="https://img.shields.io/badge/TypeScript-5.9-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="typescript" />
-<img src="https://img.shields.io/badge/three.js-r185-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="threejs" />
-<img src="https://img.shields.io/badge/Vite-7-646cff?style=for-the-badge&logo=vite&logoColor=white" alt="vite" />
+<img src="https://img.shields.io/badge/three.js-r186-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="threejs" />
+<img src="https://img.shields.io/badge/Vite-8-646cff?style=for-the-badge&logo=vite&logoColor=white" alt="vite" />
 <img src="https://img.shields.io/badge/Tauri-2-24c8db?style=for-the-badge&logo=tauri&logoColor=black" alt="tauri" />
 <img src="https://img.shields.io/badge/Tests-312_unit_·_39_e2e-3ecf8e?style=for-the-badge&logoColor=white" alt="tests" />
 <img src="https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel" />
@@ -180,12 +180,12 @@ bağlantıları — her bağlantının hangi kayıt alanından çıktığı yaz�
 ## 🛠️ Teknoloji
 
 ```
-Çatı         →  Vite 7 · React 19 · TypeScript 5.9 · React Router 7 (data router)
-Render       →  Ham three.js r185 · özel GLSL · WebGL2 (React Three Fiber kullanılmadı)
-Stil         →  Tailwind CSS 3 (shadcn/Radix katmanı söküldü — 44 ölü paket kaldırıldı)
+Çatı         →  Vite 8 · React 19 · TypeScript 5.9 · React Router 8 (data router)
+Render       →  Ham three.js r186 · özel GLSL · WebGL2 (React Three Fiber kullanılmadı)
+Stil         →  Tailwind CSS 4 (tema `src/index.css` içinde; shadcn/Radix katmanı söküldü)
 Durum        →  Zustand · localStorage (dil, dönem, kalite, favoriler, Legends, onboarding)
 Veri         →  Statik JSON · backend yok · API çağrısı yok · çalışma zamanı fetch'i yok
-Test         →  Vitest + Testing Library (283 test) · Playwright (31 e2e)
+Test         →  Vitest + Testing Library (312 test) · Playwright (39 e2e)
 CI           →  GitHub Actions: tsc -b · eslint · validate-lore · build
 Güvenlik     →  vercel.json sıkı CSP + HSTS/Referrer/Permissions · Tauri csp dolu · Dependabot
 Masaüstü     →  Tauri v2 (Rust + WKWebView) → aarch64 .dmg
@@ -318,7 +318,7 @@ npm run dev        # http://localhost:5173
 | `npm run lint` | ESLint |
 | `npm run validate` | Lore doğrulama (kaynak, koordinat, çap, süreklilik) |
 | `npm run validate:assets` | 224 görsel hedefte ID, boyut, format, dikiş ve manifest doğrulaması |
-| `npm test` | Vitest — 283 test |
+| `npm test` | Vitest — 312 test |
 | `npm run e2e` | Playwright — 31 test (ilk kez: `npx playwright install chromium`) |
 | `npm run budget` | Paket bütçesi kontrolü |
 | `npm run verify` | Hepsi sırayla — commit öncesi kapı |

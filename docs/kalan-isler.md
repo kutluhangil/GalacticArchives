@@ -227,9 +227,23 @@ değil; ilk profildeki ~8 sn'lik blok daha zayıf bir sürücünündü. `test/un
 sessizce çürüyebilecek kısmı koruyor: bir pass'in malzemelerini üç'ün sürümler arası yeniden
 adlandırdığı alan adlarına göre değil, değere göre bulan tarama.
 
-Hâlâ açık duran Dependabot PR'ları **major** oldukları için karar bekliyor: `typescript` 7.0.2,
-`jsdom` 30, `tailwindcss` 4, `react-router` 8, `actions/upload-artifact` 7, `actions/github-script` 9.
-`vitest` 4 ve `@vitest/ui` 4 PR'ları artık gereksiz (5.0.0 yüklendi), Dependabot onları kendiliğinden kapatır.
+On birinci kalem bekleyen major sürümlerdi; biri hariç hepsi alındı (14 Eylül):
+
+| Paket | Sonuç |
+|---|---|
+| `jsdom` 30 | Alındı, birim suite değişmeden geçiyor |
+| `actions/upload-artifact` 7, `actions/github-script` 9 | Alındı. Yerelde koşturulamaz — push'tan sonraki CI doğrular |
+| `vite` 8, `@vitejs/plugin-react` 6, `eslint` 10 + `@eslint/js` 10, `jest-dom` 7, `globals` 17, `@types/node` 26 | Alındı. vite 8 için `kimi-plugin-inspect-react` çıkarıldı: peer'i `vite ^7.2.0`'da duruyor, en son sürümünde (1.0.3) vite 8 desteği yok; eklenti yalnız editör inspector'ını besliyordu, ürün davranışı taşımıyordu. Enjekte ettiği attribute'lar da bundle'dan çıktı — ilk boya 369 307 → 337 391 bayt |
+| `three` + `@types/three` 0.186 | Alındı. Üç WebGL rotası gerçek GPU'da gözle denetlendi. `pass-warmup` testi artık `KERNEL_RADIUS` adını anmıyor (0.186 onu `KERNEL_PAIRS` yaptı), yalnız beş mip'in farklı olduğunu doğruluyor. three vendor chunk 638 293 → 656 799 bayt; 660 000 tavanına 3,2 kB kaldı |
+| `react-router` 8 | Alındı, kodda değişiklik gerekmedi (data router zaten kullanılıyordu). Gerçek tarayıcıda ⌘K dalışı, geri gezinme ve kayıt-kayıt bağlantısı denetlendi |
+| `tailwindcss` 4 | Alındı, resmî upgrade aracıyla. Config gitti, tema `src/index.css` içinde `@theme`. Ölü shadcn teması silindi (bu projede `ui/` yok, tek bir `bg-card` kullanımı yok). Tek görsel değişiklik markup'ın istediğinin nihayet olması: shadcn radius ölçeği `rounded-*`'ı tanımsız `--radius` üzerinden `calc()`'e bağlıyordu, yani geçersiz değer — köşeler hiç yuvarlanmıyordu; v4'ün ölçeğinde yuvarlanıyor. Stil bütçesi 56 000 → 84 000 (aynı utility'ler v4'te ~28 kB daha fazla CSS: her custom property için `@property`, modern renk fonksiyonları çevresinde `@supports`). İlk boya 366 110 / 390 000 |
+| `typescript` 7.0.2 | **Alınamadı.** `typescript-eslint` 8.70 "does not support TS 7.0" diyerek duruyor, yani lint koşmuyor. Ayrıca TS 7 `baseUrl`'ü reddediyor (TS5102); o iki tsconfig'den kaldırıldı, TS 5.9'da davranış aynı. typescript-eslint desteği gelince tekrar denenecek |
+
+`react` + `react-dom` **19.2.8'de sabit** (exact pin): 19.3.0 giriş yığınına ~30 kB ekliyor. Bütçe
+kararıyla alınacak; kimi eklentisi çıktıktan sonra ölçüm 366 324 / 390 000, yani artık tavanın
+altında kalıyor.
+
+`vitest` 4 ve `@vitest/ui` 4 PR'ları gereksiz (5.0.0 yüklendi), Dependabot onları kendiliğinden kapatır.
 
 Bilinçli olarak ertelendi, istersen sıraya alırım:
 

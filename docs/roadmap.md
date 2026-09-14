@@ -21,8 +21,11 @@ CI'ı üç commit boyunca kırmıştı; lint hatası, aşılan stil bütçesi ve
 üst çubuk 05 Ağustos'ta düzeltildi. Aynı gün codex kayıtlarının 64'ü de kaynak makalesine
 bağlandı. Açık kalan işler aşağıda kutusu boş duranlar; sırası `kalan-isler.md`'de.
 
-**Son doğrulama (2026-09-13):** `npm run verify` tam zincir geçti — 312 birim/bileşen ve
-39 uçtan uca test yeşil, `validate-lore` **0 hata / 2 uyarı**, `validate-assets` 0 hata, bütçe
+**Son doğrulama (2026-09-14):** `npm run verify` tam zincir geçti — 312 birim/bileşen ve
+39 uçtan uca test yeşil; aynı gün bekleyen major bağımlılıklar alındı (vite 8, eslint 10,
+plugin-react 6, jsdom 30, jest-dom 7, globals 17, @types/node 26, three 0.186, react-router 8,
+tailwindcss 4, iki GitHub Actions major'ı). Alınamayan tek kalem `typescript` 7: typescript-eslint
+8.70 onu desteklemiyor. `react`/`react-dom` 19.2.8'de sabit — 19.3.0 ilk boyaya ~30 kB ekliyor, `validate-lore` **0 hata / 2 uyarı**, `validate-assets` 0 hata, bütçe
 0 hata. Kaynaksız yedi POI kapandı: beşi maddesini gösteriyor, ikisi (Alderaan `castle-lands`
 Legends-only, Felucia `fungal-plains` kaynaksız) silindi; 172 POI'nin hepsi kaynaklı. Kalan iki
 uyarı kanonda grid hücresi olmayan hat durakları. Aynı gün statik meta katmanı uygulamanın
