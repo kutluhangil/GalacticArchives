@@ -6,7 +6,6 @@ import TopBar from '../components/hud/TopBar'
 import ShipBlueprint from '../components/ShipBlueprint'
 import { useApp } from '../state/app'
 import { factionById, L } from '../lib/lore'
-import { sfx } from '../lib/audio'
 import SourceLink from '../components/SourceLink'
 import starshipsData from '../data/starships.json'
 import type { Starship } from '../types/lore'
@@ -98,7 +97,6 @@ export default function Hangar() {
                     role="option"
                     aria-selected={selectedShip.id === ship.id}
                     onClick={() => {
-                      sfx.playSelect()
                       setSelectedShip(ship)
                       setBlueprintOpen(false)
                     }}
@@ -151,12 +149,11 @@ export default function Hangar() {
                   <button
                     type="button"
                     onClick={() => {
-                      sfx.playSelect()
                       setModalOpen(true)
                     }}
                     className="rounded border border-holo-cyan/60 bg-holo-cyan/15 px-3 py-1.5 font-hud text-[10px] uppercase tracking-wider text-holo-cyan transition-all hover:bg-holo-cyan/25 hover:shadow-[0_0_12px_rgba(0,240,255,0.4)]"
                   >
-                    🛸 {lang === 'tr' ? '3D Modeli İncele' : 'Inspect 3D Model'}
+                    📸 {lang === 'tr' ? 'Teknik Dosya & Fotoğraf' : 'Technical Dossier & Photo'}
                   </button>
 
                   <button
@@ -180,6 +177,32 @@ export default function Hangar() {
                   <ShipBlueprint shipId={selectedShip.id} lang={lang} />
                 </div>
               )}
+
+              {/* Ship photo visual showcase */}
+              <div
+                className="group relative mt-4 aspect-16/9 w-full max-h-[280px] cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-black/70 shadow-inner transition-all hover:border-holo-cyan/40"
+                onClick={() => setModalOpen(true)}
+              >
+                <img
+                  src={`/ships/${selectedShip.id}.webp`}
+                  alt={L(selectedShip.names, lang)}
+                  width={800}
+                  height={450}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                  <span className="rounded border border-holo-cyan/30 bg-black/70 px-2 py-0.5 font-hud text-[10px] text-holo-cyan backdrop-blur-xs">
+                    {selectedShip.model}
+                  </span>
+                  <span className="rounded border border-white/10 bg-black/70 px-2 py-0.5 font-hud text-[10px] text-slate-300 backdrop-blur-xs">
+                    {selectedShip.lengthMeters}m
+                  </span>
+                </div>
+                <div className="absolute bottom-3 right-3 rounded border border-holo-cyan/40 bg-holo-cyan/20 px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider text-holo-cyan backdrop-blur-xs">
+                  {lang === 'tr' ? '🔍 Büyüt & İncele' : '🔍 Enlarge & Inspect'}
+                </div>
+              </div>
 
               {/* Description */}
               <p className="mt-4 text-[13px] leading-relaxed text-slate-300">
@@ -252,7 +275,6 @@ export default function Hangar() {
                       <div key={ship.id} className="flex items-center gap-3">
                         <button
                           onClick={() => {
-                            sfx.playHover()
                             setSelectedShip(ship)
                           }}
                           className={`w-36 shrink-0 truncate text-right font-hud text-[10px] transition-colors ${

@@ -1,12 +1,12 @@
-// Starship Dossier & 3D Model Modal — interactive 360-degree tactical examination
+// Starship Dossier Modal — cinematic tactical photographic examination
 // with comprehensive canon technical specifications, armaments, and pilots.
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import type { Starship } from '../types/lore'
 import { L } from '../lib/lore'
 import Aurebesh from './Aurebesh'
 import StarshipClassIcon from './StarshipClassIcon'
-import Ship3DViewer from './Ship3DViewer'
+import ShipBlueprint from './ShipBlueprint'
 import SourceLink from './SourceLink'
 
 interface Props {
@@ -16,6 +16,8 @@ interface Props {
 }
 
 export default function StarshipModal({ starship, onClose, lang }: Props) {
+  const [viewMode, setViewMode] = useState<'photo' | 'blueprint'>('photo')
+
   useEffect(() => {
     if (!starship) return
     const onKey = (e: KeyboardEvent) => {
@@ -32,14 +34,14 @@ export default function StarshipModal({ starship, onClose, lang }: Props) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="ship-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-fade-in"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
     >
-      <div className="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-holo-cyan/40 bg-panel/95 shadow-[0_0_50px_rgba(0,240,255,0.15)] backdrop-blur-xl">
+      <div className="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-holo-cyan/40 bg-panel/95 shadow-[0_0_50px_rgba(0,240,255,0.18)] backdrop-blur-xl">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 bg-black/40">
+        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 bg-black/50">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-holo-cyan/30 bg-holo-cyan/10">
               <StarshipClassIcon
@@ -75,20 +77,90 @@ export default function StarshipModal({ starship, onClose, lang }: Props) {
 
         {/* Modal Scrollable Body */}
         <div className="overflow-y-auto p-4 sm:p-6 space-y-6">
-          {/* 3D Model Interactive Examination Viewer */}
+          {/* Tactical Visual Showcase with Mode Switcher */}
           <div>
-            <div className="mb-2 flex items-center justify-between">
-              <span className="font-hud text-xs uppercase tracking-widest text-slate-400">
-                {lang === 'tr' ? '🛸 3D Taktik İnceleme & Döndürme' : '🛸 3D Tactical Examination & Rotation'}
-              </span>
-              <span className="font-hud text-[11px] text-star-gold">
-                {starship.lengthMeters?.toLocaleString()}m
-              </span>
+            <div className="mb-2.5 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="font-hud text-xs uppercase tracking-widest text-slate-300">
+                  {lang === 'tr' ? '📸 Taktik Görsel İnceleme' : '📸 Tactical Visual Examination'}
+                </span>
+                <span className="hidden sm:inline rounded border border-holo-cyan/30 bg-holo-cyan/10 px-1.5 py-0.5 font-hud text-[9px] uppercase tracking-wider text-holo-cyan">
+                  {lang === 'tr' ? 'Kanonik Fotoğraf' : 'Canon Photography'}
+                </span>
+              </div>
+
+              {/* View Switcher: Photo / Blueprint */}
+              <div className="flex items-center rounded-lg border border-white/10 bg-black/60 p-0.5">
+                <button
+                  type="button"
+                  onClick={() => setViewMode('photo')}
+                  className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-colors ${
+                    viewMode === 'photo'
+                      ? 'border border-holo-cyan/40 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  📸 {lang === 'tr' ? 'Fotoğraf' : 'Photo'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('blueprint')}
+                  className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-colors ${
+                    viewMode === 'blueprint'
+                      ? 'border border-holo-cyan/40 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  📐 {lang === 'tr' ? 'Şema' : 'Blueprint'}
+                </button>
+              </div>
             </div>
-            <Ship3DViewer shipId={starship.id} shipName={L(starship.names, lang)} />
+
+            {viewMode === 'photo' ? (
+              <div className="group relative aspect-16/9 w-full overflow-hidden rounded-xl border border-white/15 bg-black/80 shadow-[0_0_30px_rgba(0,0,0,0.8)]">
+                <img
+                  src={`/ships/${starship.id}.webp`}
+                  alt={L(starship.names, lang)}
+                  width={800}
+                  height={450}
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
+
+                {/* Tactical HUD Overlays */}
+                <div className="pointer-events-none absolute inset-0 bg-radial-[at_center_center] from-transparent via-transparent to-black/60" />
+
+                {/* Top Overlay Badge */}
+                <div className="pointer-events-none absolute top-3 left-3 flex items-center gap-2 rounded border border-holo-cyan/30 bg-black/70 px-2.5 py-1 font-hud text-[10px] text-holo-cyan backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-holo-cyan animate-pulse" />
+                  <span>{starship.model}</span>
+                </div>
+
+                <div className="pointer-events-none absolute top-3 right-3 rounded border border-star-gold/40 bg-black/70 px-2.5 py-1 font-hud text-[11px] text-star-gold backdrop-blur-md">
+                  📏 {starship.lengthMeters?.toLocaleString()}m
+                </div>
+
+                {/* Bottom Overlay Telemetry */}
+                <div className="pointer-events-none absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-hud text-slate-300">
+                  <div className="rounded border border-white/10 bg-black/75 px-2.5 py-1 backdrop-blur-md">
+                    <span className="text-slate-400">{lang === 'tr' ? 'ÜRETİCİ:' : 'MFG:'} </span>
+                    <span className="text-slate-200">{L(starship.manufacturer, lang)}</span>
+                  </div>
+
+                  {starship.sublightMGLT && (
+                    <div className="rounded border border-holo-cyan/20 bg-black/75 px-2.5 py-1 text-holo-cyan backdrop-blur-md">
+                      ⚡ {starship.sublightMGLT} MGLT
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="overflow-hidden rounded-xl border border-holo-cyan/30 bg-black/70 p-4">
+                <ShipBlueprint shipId={starship.id} lang={lang} />
+              </div>
+            )}
           </div>
 
-          {/* Description */}
+          {/* Archive Summary & Lore */}
           <div className="rounded-xl border border-white/10 bg-black/40 p-4">
             <div className="mb-1 font-hud text-[10px] uppercase tracking-wider text-slate-500">
               {lang === 'tr' ? 'Arşiv Özeti & Tarihçe' : 'Archive Summary & History'}
@@ -176,7 +248,7 @@ export default function StarshipModal({ starship, onClose, lang }: Props) {
               </div>
             </div>
 
-            {/* Production & Logistics */}
+            {/* Production & Scale */}
             <div className="rounded-xl border border-white/10 bg-black/30 p-4">
               <div className="mb-2.5 flex items-center gap-2 font-hud text-xs uppercase tracking-wider text-slate-400">
                 <span>⚙️</span>
@@ -198,7 +270,7 @@ export default function StarshipModal({ starship, onClose, lang }: Props) {
               </div>
             </div>
 
-            {/* Cargo & Logistics */}
+            {/* Logistics & Cargo */}
             <div className="rounded-xl border border-white/10 bg-black/30 p-4">
               <div className="mb-2.5 flex items-center gap-2 font-hud text-xs uppercase tracking-wider text-slate-400">
                 <span>📦</span>

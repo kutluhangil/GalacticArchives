@@ -273,7 +273,7 @@ export default function Holocron() {
               🚀 {t('starships', lang)}
             </h2>
             <span className="font-hud text-[11px] text-holo-cyan/70">
-              {lang === 'tr' ? '3D Model & Teknik Dosya İçin Tıklayın' : 'Click for 3D Model & Technical Dossier'}
+              {lang === 'tr' ? 'Teknik Dosya & Detaylar İçin Tıklayın' : 'Click for Technical Dossier & Details'}
             </span>
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -282,7 +282,6 @@ export default function Holocron() {
                 key={starship.id}
                 type="button"
                 onClick={() => {
-                  sfx.playSelect()
                   setSelectedStarship(starship)
                 }}
                 className="group block w-full text-left overflow-hidden rounded-lg border border-white/10 bg-panel/90 transition-all hover:border-holo-cyan/60 hover:shadow-[0_0_25px_rgba(0,240,255,0.18)] focus:outline-none focus:ring-1 focus:ring-holo-cyan"
@@ -302,7 +301,7 @@ export default function Holocron() {
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <span className="rounded-lg border border-holo-cyan/60 bg-black/80 px-3 py-1 font-hud text-xs tracking-wider text-holo-cyan backdrop-blur-sm shadow-[0_0_12px_rgba(0,240,255,0.4)]">
-                      🛸 {lang === 'tr' ? '3D Modeli & Detayları Aç' : 'Open 3D Model & Dossier'}
+                      📋 {lang === 'tr' ? 'Teknik Dosya & Detayları Aç' : 'Open Technical Dossier & Details'}
                     </span>
                   </div>
                 </div>
