@@ -300,72 +300,288 @@ export function makeGlowTexture(color: string): THREE.CanvasTexture {
 
 // --- ambient 3D Star Wars ship traffic ---------------------------------------
 
-const hullMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#d4e2f5') })
-const darkHullMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#404a57') })
+// --- ambient 3D Star Wars ship & satellite traffic ---------------------------
 
-/** Star Destroyer wedge geometry */
+// Realistic PBR materials with metallic luster and proper roughness
+const imperialHullMat = new THREE.MeshStandardMaterial({
+  color: 0x8a96a4,
+  roughness: 0.45,
+  metalness: 0.6,
+})
+const imperialDarkMat = new THREE.MeshStandardMaterial({
+  color: 0x22272e,
+  roughness: 0.6,
+  metalness: 0.4,
+})
+const rebelAlloyMat = new THREE.MeshStandardMaterial({
+  color: 0xdde3ea,
+  roughness: 0.4,
+  metalness: 0.5,
+})
+const rebelStripeMat = new THREE.MeshStandardMaterial({
+  color: 0xd32f2f,
+  roughness: 0.5,
+  metalness: 0.25,
+})
+const tieSolarMat = new THREE.MeshStandardMaterial({
+  color: 0x11161d,
+  roughness: 0.8,
+  metalness: 0.85,
+})
+const cockpitGlassMat = new THREE.MeshStandardMaterial({
+  color: 0x0a1120,
+  roughness: 0.1,
+  metalness: 0.95,
+})
+const satelliteGoldMat = new THREE.MeshStandardMaterial({
+  color: 0xf59e0b,
+  roughness: 0.25,
+  metalness: 0.9,
+})
+const satelliteSolarMat = new THREE.MeshStandardMaterial({
+  color: 0x1e40af,
+  roughness: 0.2,
+  metalness: 0.9,
+})
+const satelliteDishMat = new THREE.MeshStandardMaterial({
+  color: 0xe2e8f0,
+  roughness: 0.35,
+  metalness: 0.6,
+})
+
+/** Realistic Imperial Star Destroyer with multi-tier hull, bridge tower, globes and thrusters */
 function createStarDestroyerMesh(): THREE.Group {
   const group = new THREE.Group()
-  const wedgeGeo = new THREE.ConeGeometry(0.04, 0.14, 3)
+
+  // Main triangular wedge hull
+  const wedgeGeo = new THREE.ConeGeometry(0.045, 0.16, 3)
   wedgeGeo.rotateX(Math.PI / 2)
-  wedgeGeo.scale(1, 0.3, 1)
-  const wedge = new THREE.Mesh(wedgeGeo, hullMat)
+  wedgeGeo.scale(1, 0.25, 1)
+  const wedge = new THREE.Mesh(wedgeGeo, imperialHullMat)
   group.add(wedge)
 
-  // Bridge tower
-  const bridgeGeo = new THREE.BoxGeometry(0.02, 0.015, 0.02)
-  const bridge = new THREE.Mesh(bridgeGeo, darkHullMat)
-  bridge.position.set(0, 0.012, 0.02)
+  // Keel ridge
+  const keelGeo = new THREE.BoxGeometry(0.012, 0.008, 0.08)
+  const keel = new THREE.Mesh(keelGeo, imperialDarkMat)
+  keel.position.set(0, -0.012, 0.01)
+  group.add(keel)
+
+  // Stepped superstructure
+  const superGeo = new THREE.BoxGeometry(0.026, 0.01, 0.04)
+  const superMesh = new THREE.Mesh(superGeo, imperialHullMat)
+  superMesh.position.set(0, 0.01, 0.02)
+  group.add(superMesh)
+
+  // Command bridge tower
+  const bridgeGeo = new THREE.BoxGeometry(0.016, 0.014, 0.015)
+  const bridge = new THREE.Mesh(bridgeGeo, imperialDarkMat)
+  bridge.position.set(0, 0.018, 0.032)
   group.add(bridge)
+
+  // Sensor deflector globes
+  const globeGeo = new THREE.SphereGeometry(0.0035, 6, 6)
+  const g1 = new THREE.Mesh(globeGeo, imperialHullMat)
+  g1.position.set(-0.01, 0.026, 0.032)
+  const g2 = new THREE.Mesh(globeGeo, imperialHullMat)
+  g2.position.set(0.01, 0.026, 0.032)
+  group.add(g1, g2)
+
+  // Aft primary ion engines
+  const engGeo = new THREE.CylinderGeometry(0.004, 0.005, 0.012, 8)
+  engGeo.rotateX(Math.PI / 2)
+  const e1 = new THREE.Mesh(engGeo, imperialDarkMat)
+  e1.position.set(-0.012, 0, 0.08)
+  const e2 = new THREE.Mesh(engGeo, imperialDarkMat)
+  e2.position.set(0.012, 0, 0.08)
+  const e3 = new THREE.Mesh(engGeo, imperialDarkMat)
+  e3.position.set(0, 0.006, 0.08)
+  group.add(e1, e2, e3)
+
   return group
 }
 
-/** X-Wing Starfighter geometry */
+/** T-65B X-Wing with S-foils, red squadron striping, and laser cannons */
 function createXWingMesh(): THREE.Group {
   const group = new THREE.Group()
-  const bodyGeo = new THREE.ConeGeometry(0.012, 0.08, 4)
+
+  // Long tapered fuselage
+  const bodyGeo = new THREE.ConeGeometry(0.01, 0.09, 4)
   bodyGeo.rotateX(Math.PI / 2)
-  const body = new THREE.Mesh(bodyGeo, hullMat)
+  const body = new THREE.Mesh(bodyGeo, rebelAlloyMat)
   group.add(body)
 
-  // Cross wings
-  const wingGeo = new THREE.BoxGeometry(0.07, 0.003, 0.015)
-  const wing1 = new THREE.Mesh(wingGeo, hullMat)
-  wing1.rotation.z = Math.PI / 6
-  const wing2 = new THREE.Mesh(wingGeo, hullMat)
-  wing2.rotation.z = -Math.PI / 6
-  group.add(wing1, wing2)
+  // Dark tinted cockpit canopy
+  const canopyGeo = new THREE.BoxGeometry(0.008, 0.006, 0.022)
+  const canopy = new THREE.Mesh(canopyGeo, cockpitGlassMat)
+  canopy.position.set(0, 0.004, -0.005)
+  group.add(canopy)
+
+  // 4 S-foil split wings
+  const wingGeo = new THREE.BoxGeometry(0.036, 0.002, 0.025)
+  const redGeo = new THREE.BoxGeometry(0.01, 0.0025, 0.02)
+  const cannonGeo = new THREE.CylinderGeometry(0.0012, 0.0012, 0.04, 6)
+  cannonGeo.rotateX(Math.PI / 2)
+
+  const angles = [Math.PI / 7, -Math.PI / 7]
+  for (const a of angles) {
+    for (const sign of [-1, 1]) {
+      const wingGroup = new THREE.Group()
+      const wing = new THREE.Mesh(wingGeo, rebelAlloyMat)
+      wing.position.x = sign * 0.022
+      wingGroup.add(wing)
+
+      // Red squadron markings on wingtips
+      const stripe = new THREE.Mesh(redGeo, rebelStripeMat)
+      stripe.position.set(sign * 0.036, 0, 0.002)
+      wingGroup.add(stripe)
+
+      // Laser cannon at tip
+      const cannon = new THREE.Mesh(cannonGeo, imperialDarkMat)
+      cannon.position.set(sign * 0.04, 0, -0.015)
+      wingGroup.add(cannon)
+
+      wingGroup.rotation.z = sign * a
+      group.add(wingGroup)
+    }
+  }
+
   return group
 }
 
-/** TIE Fighter geometry */
+/** Imperial TIE Fighter with central ball cockpit and hexagonal solar array wings */
 function createTIEFighterMesh(): THREE.Group {
   const group = new THREE.Group()
-  const podGeo = new THREE.SphereGeometry(0.012, 8, 8)
-  const pod = new THREE.Mesh(podGeo, darkHullMat)
+
+  // Spherical command pod
+  const podGeo = new THREE.SphereGeometry(0.013, 10, 10)
+  const pod = new THREE.Mesh(podGeo, imperialDarkMat)
   group.add(pod)
 
-  const wingGeo = new THREE.BoxGeometry(0.002, 0.05, 0.04)
-  const leftWing = new THREE.Mesh(wingGeo, darkHullMat)
-  leftWing.position.x = -0.022
-  const rightWing = new THREE.Mesh(wingGeo, darkHullMat)
-  rightWing.position.x = 0.022
-  group.add(leftWing, rightWing)
+  // Forward viewport window
+  const vpGeo = new THREE.CylinderGeometry(0.006, 0.006, 0.005, 8)
+  vpGeo.rotateX(Math.PI / 2)
+  const vp = new THREE.Mesh(vpGeo, cockpitGlassMat)
+  vp.position.set(0, 0, -0.011)
+  group.add(vp)
+
+  // Structural wing pylons
+  const pylonGeo = new THREE.CylinderGeometry(0.003, 0.003, 0.05, 6)
+  pylonGeo.rotateZ(Math.PI / 2)
+  const pylon = new THREE.Mesh(pylonGeo, imperialHullMat)
+  group.add(pylon)
+
+  // Hexagonal vertical solar wings
+  const wingGeo = new THREE.BoxGeometry(0.003, 0.065, 0.052)
+  const strutGeo = new THREE.BoxGeometry(0.004, 0.068, 0.008)
+
+  for (const sign of [-1, 1]) {
+    const w = new THREE.Mesh(wingGeo, tieSolarMat)
+    w.position.x = sign * 0.026
+    const s1 = new THREE.Mesh(strutGeo, imperialHullMat)
+    s1.position.x = sign * 0.026
+    group.add(w, s1)
+  }
+
   return group
 }
 
-/** Freighter geometry (Falcon archetype) */
+/** YT-1300 Corellian Light Freighter (Falcon archetype) */
 function createFreighterMesh(): THREE.Group {
   const group = new THREE.Group()
-  const saucerGeo = new THREE.CylinderGeometry(0.025, 0.025, 0.008, 12)
-  const saucer = new THREE.Mesh(saucerGeo, hullMat)
+
+  // Circular saucer hull
+  const saucerGeo = new THREE.CylinderGeometry(0.028, 0.028, 0.008, 16)
+  const saucer = new THREE.Mesh(saucerGeo, rebelAlloyMat)
   group.add(saucer)
 
-  const cockpitGeo = new THREE.CylinderGeometry(0.006, 0.006, 0.02, 8)
-  cockpitGeo.rotateZ(Math.PI / 2)
-  const cockpit = new THREE.Mesh(cockpitGeo, darkHullMat)
-  cockpit.position.set(0.02, 0, -0.005)
-  group.add(cockpit)
+  // Forward docking mandibles
+  const mandGeo = new THREE.BoxGeometry(0.009, 0.007, 0.026)
+  const m1 = new THREE.Mesh(mandGeo, rebelAlloyMat)
+  m1.position.set(-0.012, 0, -0.025)
+  const m2 = new THREE.Mesh(mandGeo, rebelAlloyMat)
+  m2.position.set(0.012, 0, -0.025)
+  group.add(m1, m2)
+
+  // Starboard offset cockpit
+  const tubeGeo = new THREE.CylinderGeometry(0.005, 0.005, 0.016, 8)
+  tubeGeo.rotateX(Math.PI / 2)
+  const tube = new THREE.Mesh(tubeGeo, imperialHullMat)
+  tube.position.set(0.028, 0, -0.01)
+  const canopy = new THREE.Mesh(new THREE.ConeGeometry(0.005, 0.008, 8), cockpitGlassMat)
+  canopy.rotateX(-Math.PI / 2)
+  canopy.position.set(0.028, 0, -0.02)
+  group.add(tube, canopy)
+
+  // Dorsal round radar dish
+  const dish = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.007, 0.002, 12), imperialHullMat)
+  dish.position.set(-0.012, 0.006, 0.005)
+  dish.rotation.x = 0.3
+  group.add(dish)
+
+  return group
+}
+
+/** Orbital Communications & Sensor Satellite with gold thermal MLI foil and blue solar arrays */
+function createSatelliteMesh(): THREE.Group {
+  const group = new THREE.Group()
+
+  // Main central bus body wrapped in gold thermal foil
+  const busGeo = new THREE.BoxGeometry(0.016, 0.016, 0.02)
+  const bus = new THREE.Mesh(busGeo, satelliteGoldMat)
+  group.add(bus)
+
+  // Dual extended high-efficiency photovoltaic solar panel wings
+  const panelGeo = new THREE.BoxGeometry(0.045, 0.022, 0.002)
+  const frameGeo = new THREE.BoxGeometry(0.047, 0.003, 0.003)
+  for (const sign of [-1, 1]) {
+    const panel = new THREE.Mesh(panelGeo, satelliteSolarMat)
+    panel.position.x = sign * 0.034
+    const frame = new THREE.Mesh(frameGeo, imperialDarkMat)
+    frame.position.x = sign * 0.034
+    group.add(panel, frame)
+  }
+
+  // Parabolic high-gain communication dish pointed down toward the world
+  const dishGeo = new THREE.ConeGeometry(0.014, 0.007, 12, 1, true)
+  dishGeo.rotateX(Math.PI)
+  const dish = new THREE.Mesh(dishGeo, satelliteDishMat)
+  dish.position.set(0, -0.014, 0)
+  group.add(dish)
+
+  // Sensor mast / telemetry boom
+  const boomGeo = new THREE.CylinderGeometry(0.001, 0.001, 0.025, 4)
+  const boom = new THREE.Mesh(boomGeo, imperialHullMat)
+  boom.position.set(0, 0.02, 0)
+  group.add(boom)
+
+  return group
+}
+
+/** Imperial / Neutral Lambda-style Tri-wing Cargo Shuttle */
+function createCargoShuttleMesh(): THREE.Group {
+  const group = new THREE.Group()
+
+  // Sleek cockpit & main cargo hull
+  const hullGeo = new THREE.ConeGeometry(0.014, 0.07, 4)
+  hullGeo.rotateX(Math.PI / 2)
+  const hull = new THREE.Mesh(hullGeo, imperialHullMat)
+  group.add(hull)
+
+  // Tall vertical dorsal fin stabilizer
+  const dorsalGeo = new THREE.BoxGeometry(0.003, 0.045, 0.035)
+  const dorsal = new THREE.Mesh(dorsalGeo, imperialHullMat)
+  dorsal.position.set(0, 0.025, 0.01)
+  group.add(dorsal)
+
+  // Folding angled lower wings
+  const wingGeo = new THREE.BoxGeometry(0.0025, 0.04, 0.03)
+  for (const sign of [-1, 1]) {
+    const wing = new THREE.Mesh(wingGeo, imperialHullMat)
+    wing.position.set(sign * 0.016, -0.018, 0.01)
+    wing.rotation.z = sign * (Math.PI / 4)
+    group.add(wing)
+  }
+
   return group
 }
 
@@ -385,16 +601,31 @@ export interface TrafficSystem {
 
 /** Instanced ambient traffic orbiting a host body. Density per archetype:
  *  ecumenopolis worlds hum with ships, backwaters see the odd freighter. */
-export function buildTraffic(count: number, hostRadius: number): TrafficSystem {
+export function buildTraffic(count: number, hostRadius: number, planetId?: string): TrafficSystem {
   const group = new THREE.Group()
   const lanes: TrafficLane[] = []
 
-  const builders = [
+  // Dedicated ambient light ensures all PBR metal/roughness surfaces pop with depth
+  const trafficLight = new THREE.AmbientLight(0xffffff, 0.75)
+  group.add(trafficLight)
+
+  // Curate traffic roster per world
+  let builders = [
     createStarDestroyerMesh,
     createXWingMesh,
     createTIEFighterMesh,
     createFreighterMesh,
+    createSatelliteMesh,
+    createCargoShuttleMesh,
   ]
+
+  if (planetId === 'daiyu') {
+    builders = [createFreighterMesh, createSatelliteMesh, createCargoShuttleMesh, createTIEFighterMesh]
+  } else if (planetId === 'coruscant') {
+    builders = [createStarDestroyerMesh, createCargoShuttleMesh, createTIEFighterMesh, createSatelliteMesh]
+  } else if (planetId === 'tatooine' || planetId === 'ferrix') {
+    builders = [createFreighterMesh, createSatelliteMesh, createCargoShuttleMesh]
+  }
 
   for (let i = 0; i < count; i++) {
     const node = new THREE.Group()
@@ -402,20 +633,21 @@ export function buildTraffic(count: number, hostRadius: number): TrafficSystem {
     const shipMesh = shipBuilder()
     node.add(shipMesh)
 
-    // engine glow trailing the hull
-    const isImperial = i % 2 === 0
-    const glowColor = isImperial ? '#FF3333' : '#66D9FF'
+    // engine glow trailing the hull (or subtle beacon for satellites)
+    const isSat = shipBuilder === createSatelliteMesh
+    const isImp = shipBuilder === createStarDestroyerMesh || shipBuilder === createTIEFighterMesh
+    const glowColor = isSat ? '#FBBF24' : isImp ? '#FF3333' : '#66D9FF'
     const glow = new THREE.Sprite(
       new THREE.SpriteMaterial({
         map: makeGlowTexture(glowColor),
         blending: THREE.AdditiveBlending,
         transparent: true,
         depthWrite: false,
-        opacity: 0.9,
+        opacity: isSat ? 0.6 : 0.9,
       }),
     )
-    glow.scale.setScalar(0.07)
-    glow.position.z = 0.05
+    glow.scale.setScalar(isSat ? 0.04 : 0.07)
+    glow.position.z = isSat ? 0.015 : 0.05
     node.add(glow)
     group.add(node)
 

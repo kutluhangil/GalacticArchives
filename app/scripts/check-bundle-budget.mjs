@@ -22,7 +22,8 @@ if (!existsSync(ASSETS)) {
 // were set. A deliberate increase means moving the number here in the same
 // commit, which is the point: the budget change becomes reviewable.
 const BUDGETS = [
-  { name: 'three vendor chunk', pattern: /^three-.*\.js$/, max: 660_000 },
+  // adjusted to 665,000 for interactive 3D starship tactical inspection models
+  { name: 'three vendor chunk', pattern: /^three-.*\.js$/, max: 665_000 },
   // dropped from 360,000 when the tour player moved behind its own host: it
   // reached lib/lore for names, which statically carries the station, era,
   // region, faction and production tables, none of which a first paint needs
@@ -30,11 +31,8 @@ const BUDGETS = [
   // raised from 48,000 when the Timeline, Force, Watch Guide and Hangar routes
   // landed: five new pages' Tailwind utilities are a real, wanted increase, and
   // first paint stays inside its own 400,000 ceiling. Raised again to 84,000
-  // for Tailwind 4: the same utilities compile to ~28 kB more CSS (@property
-  // declarations for every custom property, and @supports fallbacks around
-  // modern colour functions). Measured, not guessed — the dead shadcn theme
-  // the v3 config carried was deleted first, which bought 1 kB of it back.
-  { name: 'entry stylesheet', pattern: /^index-.*\.css$/, max: 84_000 },
+  // for Tailwind 4, and 86,000 for 3D starship tactical dossier modal styling.
+  { name: 'entry stylesheet', pattern: /^index-.*\.css$/, max: 86_000 },
   { name: 'KTX2 transcoder chunk', pattern: /^KTX2Loader-.*\.js$/, max: 40_000 },
   // rides along on every route, so it is the easiest place to accidentally put
   // a panel nobody opened — the five tool modals are lazy for that reason

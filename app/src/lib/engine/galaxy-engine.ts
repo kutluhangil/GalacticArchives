@@ -8,6 +8,7 @@ import { GALAXY_R, MANUAL_POS, gridToPos } from '../galaxy-grid'
 import { EngineBase, type BaseCallbacks } from './engine-base'
 import { makeBodyMaterial } from './body-material'
 import { makeGlowTexture } from './effects'
+import { getPlanetRotationHours } from '../../data/planet-rotations'
 import { HAZE_FRAG, HAZE_VERT, STAR_FRAG, STAR_VERT } from './planet-shaders'
 
 /** node globe radius in disk units — small enough to read as a point from the
@@ -864,8 +865,11 @@ export class GalaxyEngine extends EngineBase {
     // near-imperceptible rotation keeps the whole disk alive as one body
     this.diskGroup.rotation.y = this.wallSec * 0.004
 
-    // worlds turn on their own axes even at overview scale
-    for (const globe of this.nodeGlobes.values()) globe.rotation.y = this.wallSec * 0.05
+    // worlds turn on their own axes calibrated to their canon rotational periods
+    for (const [id, globe] of this.nodeGlobes) {
+      const rotHours = getPlanetRotationHours(id)
+      globe.rotation.y = this.wallSec * (0.05 * (24 / rotHours))
+    }
 
     // clear the disk out of the way once a dive starts
     const wanted = this.diving ? 0 : 1

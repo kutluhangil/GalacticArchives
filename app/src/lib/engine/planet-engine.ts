@@ -19,6 +19,7 @@ import {
   type TrafficSystem,
 } from './effects'
 import { makeBodyMaterial, seedFrom } from './body-material'
+import { getPlanetRotationHours } from '../../data/planet-rotations'
 import {
   ATMO_FRAG,
   ATMO_VERT,
@@ -139,6 +140,15 @@ export class PlanetEngine extends EngineBase {
       sprite.position.copy(dir.clone().multiplyScalar(240))
       this.scene.add(sprite)
     })
+
+    // Ambient space light + directional sunlight for standard material objects (ships, satellites)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7)
+    this.scene.add(ambientLight)
+    if (this.sunDirs.length > 0) {
+      const sunLight = new THREE.DirectionalLight(this.sunDirs[0].color, 1.8)
+      sunLight.position.copy(this.sunDirs[0].dir.clone().multiplyScalar(50))
+      this.scene.add(sunLight)
+    }
   }
 
   private bodyMaterial(body: CelestialBody): THREE.ShaderMaterial {
@@ -151,7 +161,10 @@ export class PlanetEngine extends EngineBase {
   private buildPlanet() {
     const recipe = this.body.renderRecipe
     const seed = seedFrom(this.body.id)
-    this.rotationHours = this.body.stats?.diameterKm ? 20 + (seedFrom(this.body.id) % 12) : 24
+    this.rotationHours = getPlanetRotationHours(this.body.id)
+    if (!this.isStation) {
+      this.planetGroup.rotation.z = 0.12 // realistic natural axial tilt
+    }
 
     const segments = this.quality.planetSegments
     const geo = new THREE.SphereGeometry(1, segments, segments)
@@ -374,8 +387,8 @@ export class PlanetEngine extends EngineBase {
     }
 
     if (effects.includes('traffic')) {
-      const count = this.body.id === 'coruscant' ? 14 : 10
-      this.traffic = buildTraffic(count, 1.15)
+      const count = this.body.id === 'coruscant' ? 16 : 10
+      this.traffic = buildTraffic(count, 1.15, this.body.id)
       this.scene.add(this.traffic.group)
     }
   }
@@ -385,13 +398,13 @@ export class PlanetEngine extends EngineBase {
     const dt = Math.min(this.wallSec - this.lastWall, 0.1)
     this.lastWall = this.wallSec
 
-    // Planets spin on sim time, so the terminator tracks the real clock.
-    // A station instead starts at a fixed heading — anchoring its spin to the
-    // wall clock keeps the superlaser dish facing the camera on arrival
-    // instead of landing on a random angle set by today's date.
+    // Planets rotate with visible real-time prograde spin calibrated to canon rotation hours.
+    // Baseline (24h) rotates at 0.035 rad/s; fast planets like Bespin (12h) spin 2x faster,
+    // slow worlds like Mustafar (36h) spin slower.
+    const rotSpeed = (24 / this.rotationHours) * 0.035
     this.planetGroup.rotation.y = this.isStation
       ? this.wallSec * 0.03
-      : ((simSec / 3600 / this.rotationHours) * Math.PI * 2) % (Math.PI * 2)
+      : (this.wallSec * rotSpeed) % (Math.PI * 2)
 
     for (const m of this.moonOrbiters) {
       const ang = m.phase + ((simSec / 86400) / m.periodDays) * Math.PI * 2

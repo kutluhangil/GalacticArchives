@@ -28,7 +28,25 @@
       "tr": "Kaçakçılar Han Solo ve Chewbacca tarafından ünlü yapılan, ağır şekilde modifiye edilmiş bir Corellian kargo gemisi. Kessel Rotası'nı 12 parsekten az sürede tamamlamasıyla bilinir."
     },
     "appearances": ["ep4", "ep5", "ep6", "ep7", "ep8", "ep9", "solo"],
-    "source": "wookieepedia:Millennium Falcon"
+    "source": "wookieepedia:Millennium Falcon",
+    "maxSpeed": "1,050 km/h (Atmosfer) / 75 MGLT",
+    "sublightMGLT": 75,
+    "shieldsAndArmor": {
+      "en": "Military-grade Torplex deflector shields, Kuat Drive Yards durasteel armor plating",
+      "tr": "Askeri sınıf Torplex saptırıcı kalkanlar, Kuat Drive Yards durasteel zırh kaplaması"
+    },
+    "armament": {
+      "en": "2 Corellian quad laser cannons, 2 Concussion missile tubes, concealed ventral anti-personnel blaster",
+      "tr": "2 Corellian dörtlü lazer topu, 2 Sarsıntı füze tüpü, gizlenebilir gövde altı personel karşıtı blaster"
+    },
+    "engineSystems": "2 Girodyne SRB42 sublight engines (heavily modified)",
+    "builtYear": "60 BBY",
+    "notablePilots": {
+      "en": "Han Solo, Chewbacca, Lando Calrissian, Rey",
+      "tr": "Han Solo, Chewbacca, Lando Calrissian, Rey"
+    },
+    "cargoCapacity": "100 metric tons",
+    "consumables": "2 months"
   },
   {
     "id": "imperial-star-destroyer",
@@ -57,7 +75,25 @@
       "tr": "Galaktik İmparatorluk'un kama şeklindeki ana savaş gemisi. Turbolazerler ve çekim ışınlarıyla donatılmış, İmparatorluk askeri gücünün belkemiğidir."
     },
     "appearances": ["ep4", "ep5", "ep6", "rogue-one"],
-    "source": "wookieepedia:Imperial I-class Star Destroyer"
+    "source": "wookieepedia:Imperial I-class Star Destroyer",
+    "maxSpeed": "975 km/h (Atmosfer) / 60 MGLT",
+    "sublightMGLT": 60,
+    "shieldsAndArmor": {
+      "en": "Dual KDY deflector shield generator domes, reinforced heavy titanium-durasteel naval armor",
+      "tr": "Çift KDY saptırıcı kalkan kubbesi, titanyum takviyeli ağır durasteel zırh kaplaması"
+    },
+    "armament": {
+      "en": "60 Heavy turbolaser batteries, 60 Ion cannon batteries, 10 Phylon Q7 tractor beam projectors",
+      "tr": "60 Ağır turbolazer bataryası, 60 İyon topu bataryası, 10 Phylon Q7 çekim ışını projektörü"
+    },
+    "engineSystems": "3 KDY Destroyer-I ion engines, 4 Cygnus Gemon-4 backup ion engines",
+    "builtYear": "19 BBY",
+    "notablePilots": {
+      "en": "Grand Moff Tarkin, Admiral Firmus Piett, Captain Lorth Needa",
+      "tr": "Grand Moff Tarkin, Amiral Firmus Piett, Kaptan Lorth Needa"
+    },
+    "cargoCapacity": "36,000 metric tons",
+    "consumables": "6 years"
   },
   {
     "id": "t-65b-x-wing",
@@ -87,7 +123,25 @@
       "tr": "Asi İttifakı'nın açılır kanat yapısı, dört lazer topu ve proton torpidolarına sahip ikonik ve çok yönlü yıldız savaşçısı."
     },
     "appearances": ["ep4", "ep5", "ep6", "rogue-one"],
-    "source": "wookieepedia:T-65B X-wing starfighter"
+    "source": "wookieepedia:T-65B X-wing starfighter",
+    "maxSpeed": "1,050 km/h (Atmosfer) / 100 MGLT",
+    "sublightMGLT": 100,
+    "shieldsAndArmor": {
+      "en": "Chempat 'Defender' deflector screen generator, titanium alloy hull plating",
+      "tr": "Chempat 'Defender' saptırıcı perde jeneratörü, titanyum alaşımlı gövde zırhı"
+    },
+    "armament": {
+      "en": "4 Taim & Bak KX9 laser cannons, 2 Krupx MG7 proton torpedo launchers (6 torpedoes total)",
+      "tr": "4 Taim & Bak KX9 lazer topu, 2 Krupx MG7 proton torpido fırlatıcı (toplam 6 torpido)"
+    },
+    "engineSystems": "4 Incom 4L4 fusial thrust engines",
+    "builtYear": "0 BBY",
+    "notablePilots": {
+      "en": "Luke Skywalker, Wedge Antilles, Jek Porkins, Biggs Darklighter",
+      "tr": "Luke Skywalker, Wedge Antilles, Jek Porkins, Biggs Darklighter"
+    },
+    "cargoCapacity": "110 kg",
+    "consumables": "1 week"
   },
   {
     "id": "slave-i",
@@ -118,7 +172,25 @@
       "tr": "Ödül avcıları Jango Fett ve Boba Fett tarafından kullanılan modifiye devriye gemisi. Sismik bombalar ve gizli silah kapsülleri ile donatılmıştır."
     },
     "appearances": ["ep2", "ep5", "mandalorian", "book-of-boba-fett"],
-    "source": "wookieepedia:Slave I"
+    "source": "wookieepedia:Slave I",
+    "maxSpeed": "1,000 km/h (Atmosfer) / 70 MGLT",
+    "sublightMGLT": 70,
+    "shieldsAndArmor": {
+      "en": "Military-spec deflector shields, reinforced layered armor with sensor-masking coating",
+      "tr": "Askeri sınıf saptırıcı kalkanlar, sensör karartma kaplamalı katmanlı zırh"
+    },
+    "armament": {
+      "en": "2 Twin blaster cannons, 2 Proton torpedo tubes, seismic charge dispenser, ion cannon",
+      "tr": "2 Çift namlulu blaster topu, 2 Proton torpido tüpü, sismik bomba bırakıcı, iyon topu"
+    },
+    "engineSystems": "3 F-31 ion drive engines",
+    "builtYear": "32 BBY",
+    "notablePilots": {
+      "en": "Jango Fett, Boba Fett",
+      "tr": "Jango Fett, Boba Fett"
+    },
+    "cargoCapacity": "70 metric tons",
+    "consumables": "1 month"
   },
   {
     "id": "venator-star-destroyer",
@@ -147,7 +219,25 @@
       "tr": "Klon Savaşları sırasında Galaktik Cumhuriyet Donanması'nın ana savaş gemisi. Cumhuriyet savaşçıları için devasa bir üst hangar güvertesine sahiptir."
     },
     "appearances": ["ep3", "clone-wars", "bad-batch"],
-    "source": "wookieepedia:Venator-class Star Destroyer"
+    "source": "wookieepedia:Venator-class Star Destroyer",
+    "maxSpeed": "975 km/h (Atmosfer) / 65 MGLT",
+    "sublightMGLT": 65,
+    "shieldsAndArmor": {
+      "en": "Republic Navy deflector shields, reinforced durasteel naval plating",
+      "tr": "Cumhuriyet Donanması saptırıcı kalkanları, güçlendirilmiş durasteel zırh kaplama"
+    },
+    "armament": {
+      "en": "8 Heavy DBY-827 dual turbolasers, 2 Medium dual turbolasers, 52 Point-defense laser cannons, 4 Proton torpedo tubes",
+      "tr": "8 Ağır DBY-827 çiftli turbolazer tareti, 2 Orta çiftli turbolazer, 52 Nokta savunma lazer topu, 4 Proton torpido tüpü"
+    },
+    "engineSystems": "4 Primary ion engines, 2 Secondary ion engines",
+    "builtYear": "22 BBY",
+    "notablePilots": {
+      "en": "Anakin Skywalker, Admiral Wullf Yularen, Obi-Wan Kenobi",
+      "tr": "Anakin Skywalker, Amiral Wullf Yularen, Obi-Wan Kenobi"
+    },
+    "cargoCapacity": "20,000 metric tons",
+    "consumables": "2 years"
   },
   {
     "id": "razor-crest",
@@ -176,7 +266,25 @@
       "tr": "Din Djarin (Mandaloryalı) tarafından Dış Bölge'deki ödül avcılığı operasyonlarında kullanılan zırhlı İmparatorluk öncesi saldırı gemisi."
     },
     "appearances": ["mandalorian"],
-    "source": "wookieepedia:Razor Crest"
+    "source": "wookieepedia:Razor Crest",
+    "maxSpeed": "950 km/h (Atmosfer) / 65 MGLT",
+    "sublightMGLT": 65,
+    "shieldsAndArmor": {
+      "en": "Standard deflector shield array, heavy blaster-resistant durasteel hull plating",
+      "tr": "Standart saptırıcı kalkan dizisi, blaster atışlarına dayanıklı ağır durasteel zırh"
+    },
+    "armament": {
+      "en": "2 Forward-facing heavy laser cannons, ventral weapons locker, carbonite freezing chamber",
+      "tr": "2 İleri yönlü ağır lazer topu, alt gövde silah kasası, karbonit dondurma odası"
+    },
+    "engineSystems": "Dual sublight ion turbine engines",
+    "builtYear": "30 BBY (Pre-Imperial Era)",
+    "notablePilots": {
+      "en": "Din Djarin (The Mandalorian)",
+      "tr": "Din Djarin (Mandaloryalı)"
+    },
+    "cargoCapacity": "40 metric tons",
+    "consumables": "2 months"
   },
   {
     "id": "executor-star-dreadnought",
@@ -205,7 +313,25 @@
       "tr": "Darth Vader'ın kişisel amiral gemisi ve İmparatorluk Ölüm Filosu'nun komuta merkezi. 19 kilometre uzunluğunda ve 5.000'den fazla turbolazere sahiptir."
     },
     "appearances": ["ep5", "ep6"],
-    "source": "wookieepedia:Executor"
+    "source": "wookieepedia:Executor",
+    "maxSpeed": "Atmospheric flight prohibited (Sublight: 40 MGLT)",
+    "sublightMGLT": 40,
+    "shieldsAndArmor": {
+      "en": "Multiple overlapping ISD-scale deflector domes, titanium-reinforced armored citadel",
+      "tr": "Çok katmanlı devasa saptırıcı kalkan kubbeleri, titanyum takviyeli zırhlı hisar gövde"
+    },
+    "armament": {
+      "en": "Over 5,000 Turbolasers and Ion cannons, 250 Concussion missile tubes, 40 Phylon tractor beam projectors",
+      "tr": "5.000'den fazla Turbolazer ve İyon topu bataryası, 250 Sarsıntı füzesi tüpü, 40 Phylon çekim ışını projektörü"
+    },
+    "engineSystems": "Battery of 13 Kuat Drive Yards ion engines",
+    "builtYear": "3 ABY",
+    "notablePilots": {
+      "en": "Darth Vader, Admiral Kendal Ozzel, Admiral Firmus Piett",
+      "tr": "Darth Vader, Amiral Kendal Ozzel, Amiral Firmus Piett"
+    },
+    "cargoCapacity": "250,000 metric tons",
+    "consumables": "6 years"
   },
   {
     "id": "ghost-vcx-100",
@@ -235,7 +361,25 @@
       "tr": "Hera Syndulla'nın Spectre asi hücresi için üs görevi gören modifiye kargo gemisi. 'Phantom' adlı yardımcı mekik yuvasına sahiptir."
     },
     "appearances": ["rebels", "rogue-one", "ahsoka"],
-    "source": "wookieepedia:Ghost"
+    "source": "wookieepedia:Ghost",
+    "maxSpeed": "1,025 km/h (Atmosfer) / 70 MGLT",
+    "sublightMGLT": 70,
+    "shieldsAndArmor": {
+      "en": "Upgraded military deflector shields, baffle scrambler sensor-dampening stealth hull",
+      "tr": "Geliştirilmiş askeri saptırıcı kalkanlar, sensör gizleme özellikli gizli gövde zırhı"
+    },
+    "armament": {
+      "en": "1 Dorsal 360-degree dual laser turret, 1 Nose-mounted dual laser cannon, auxiliary shuttle dock ('Phantom')",
+      "tr": "1 Üst 360 derece çiftli lazer tareti, 1 Burun monteli çiftli lazer topu, yardımcı mekik yuvası ('Phantom')"
+    },
+    "engineSystems": "3 Corellian sublight engines with baffle dampeners",
+    "builtYear": "5 BBY",
+    "notablePilots": {
+      "en": "Hera Syndulla, Kanan Jarrus, Sabine Wren, Chopper",
+      "tr": "Hera Syndulla, Kanan Jarrus, Sabine Wren, Chopper"
+    },
+    "cargoCapacity": "80 metric tons",
+    "consumables": "6 months"
   },
   {
     "id": "tantive-iv",
@@ -265,7 +409,25 @@
       "tr": "Prenses Leia Organa'nın Scarif'ten çalınan Ölüm Yıldızı planlarını taşıyan ve Tatooine üzerinde Darth Vader tarafından yakalanan diplomatik korveti."
     },
     "appearances": ["ep3", "ep4", "rogue-one"],
-    "source": "wookieepedia:Tantive IV"
+    "source": "wookieepedia:Tantive IV",
+    "maxSpeed": "950 km/h (Atmosfer) / 60 MGLT",
+    "sublightMGLT": 60,
+    "shieldsAndArmor": {
+      "en": "Reinforced diplomatic deflector shields, high-durability Corellian alloy hull",
+      "tr": "Güçlendirilmiş diplomatik saptırıcı kalkanlar, yüksek dayanımlı Corellian alaşımlı gövde"
+    },
+    "armament": {
+      "en": "2 Dual turbolaser cannons, 4 Quad laser cannons",
+      "tr": "2 Çiftli turbolazer topu, 4 Dörtlü lazer topu"
+    },
+    "engineSystems": "11 Girodyne sublight engines",
+    "builtYear": "32 BBY",
+    "notablePilots": {
+      "en": "Princess Leia Organa, Captain Raymus Antilles, Senator Bail Organa",
+      "tr": "Prenses Leia Organa, Kaptan Raymus Antilles, Senatör Bail Organa"
+    },
+    "cargoCapacity": "3,000 metric tons",
+    "consumables": "1 year"
   },
   {
     "id": "tie-interceptor",
@@ -294,6 +456,24 @@
       "tr": "Asi İttifakı'nın üstün X-wing'lerine karşı Sienar Fleet Systems tarafından geliştirilen hızlı, kama kanatlı önleyici savaşçı."
     },
     "appearances": ["ep6", "mandalorian"],
-    "source": "wookieepedia:TIE/IN interceptor"
+    "source": "wookieepedia:TIE/IN interceptor",
+    "maxSpeed": "1,250 km/h (Atmosfer) / 110 MGLT",
+    "sublightMGLT": 110,
+    "shieldsAndArmor": {
+      "en": "Unshielded high-speed titanium alloy hull with carbon-composite solar array wings",
+      "tr": "Kalkansız yüksek hızlı titanyum alaşımlı gövde ve karbon kompozit güneş paneli kanatları"
+    },
+    "armament": {
+      "en": "4 L-s9.3 Laser cannons on wingtip daggers, 2 Chin-mounted laser cannons",
+      "tr": "Kanat ucu kamalarında 4 L-s9.3 Lazer topu, gövde altında 2 Lazer topu"
+    },
+    "engineSystems": "Sienar P-s5.6 twin ion engines",
+    "builtYear": "4 ABY",
+    "notablePilots": {
+      "en": "Baron Soontir Fel, Major Turr Phennir, 181st Imperial Fighter Wing Aces",
+      "tr": "Baron Soontir Fel, Binbaşı Turr Phennir, 181. İmparatorluk Filosu Asları"
+    },
+    "cargoCapacity": "75 kg",
+    "consumables": "2 days"
   }
 ]

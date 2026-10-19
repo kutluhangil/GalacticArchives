@@ -16,6 +16,8 @@ const STRINGS = {
   system: { en: 'System', tr: 'Sistem' },
   grid: { en: 'Grid', tr: 'Grid' },
   diameter: { en: 'Diameter', tr: 'Çap' },
+  rotationalPeriod: { en: 'Day Length', tr: 'Gün Uzunluğu' },
+  orbitalPeriod: { en: 'Year Length', tr: 'Yıl Uzunluğu' },
   population: { en: 'Population', tr: 'Nüfus' },
   government: { en: 'Government', tr: 'Yönetim' },
   climate: { en: 'Climate', tr: 'İklim' },

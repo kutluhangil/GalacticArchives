@@ -8,6 +8,7 @@ import { useApp } from '../../state/app'
 import { destroyedInEra, L, LL, factionById, mediaById, regions, type Lang } from '../../lib/lore'
 import { provenance, sourceFor, type TrackedField } from '../../lib/sources'
 import { t } from '../../lib/ui-strings'
+import { getPlanetRotationHours, getPlanetOrbitalDays } from '../../data/planet-rotations'
 
 function Row({ label, value }: { label: string; value: string | undefined }) {
   if (!value) return null
@@ -161,6 +162,16 @@ export default function PlanetPanel({ body }: { body: CelestialBody }) {
           lang={lang}
           value={body.stats?.diameterKm ? `${body.stats?.diameterKm.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US')} km` : undefined}
         />
+        <Row
+          label={t('rotationalPeriod', lang)}
+          value={`${getPlanetRotationHours(body.id)} ${lang === 'tr' ? 'standart saat' : 'standard hours'}`}
+        />
+        {getPlanetOrbitalDays(body.id) && (
+          <Row
+            label={t('orbitalPeriod', lang)}
+            value={`${getPlanetOrbitalDays(body.id)!.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US')} ${lang === 'tr' ? 'standart gün' : 'standard days'}`}
+          />
+        )}
         <FactRow
           bodyId={body.id}
           field="population"

@@ -24,9 +24,9 @@ import HoloPortrait from '../components/HoloPortrait'
 import HolocronChrome from '../components/HolocronChrome'
 import HolocronQuiz from '../components/HolocronQuiz'
 import StarshipClassIcon from '../components/StarshipClassIcon'
+import StarshipModal from '../components/StarshipModal'
 import { useRovingFocus } from '../hooks/useRovingFocus'
 import { sfx } from '../lib/audio'
-
 
 type Entry =
   | { kind: 'body'; id: string; body: CelestialBody }
@@ -48,6 +48,7 @@ export default function Holocron() {
   const [characters, setCharacters] = useState<Character[]>([])
   const [starships, setStarships] = useState<Starship[]>([])
   const [battles, setBattles] = useState<Battle[]>([])
+  const [selectedStarship, setSelectedStarship] = useState<Starship | null>(null)
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('')
   const [sector, setSector] = useState('')
@@ -267,14 +268,24 @@ export default function Holocron() {
 
       {ships.length > 0 && (
         <section className="mb-12">
-          <h2 className="mb-3 font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
-            🚀 {t('starships', lang)}
-          </h2>
+          <div className="mb-3 flex items-center justify-between">
+            <h2 className="font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
+              🚀 {t('starships', lang)}
+            </h2>
+            <span className="font-hud text-[11px] text-holo-cyan/70">
+              {lang === 'tr' ? '3D Model & Teknik Dosya İçin Tıklayın' : 'Click for 3D Model & Technical Dossier'}
+            </span>
+          </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {ships.map(({ starship }) => (
-              <div
+              <button
                 key={starship.id}
-                className="group overflow-hidden rounded-lg border border-white/10 bg-panel/90 transition-all hover:border-holo-cyan/50"
+                type="button"
+                onClick={() => {
+                  sfx.playSelect()
+                  setSelectedStarship(starship)
+                }}
+                className="group block w-full text-left overflow-hidden rounded-lg border border-white/10 bg-panel/90 transition-all hover:border-holo-cyan/60 hover:shadow-[0_0_25px_rgba(0,240,255,0.18)] focus:outline-none focus:ring-1 focus:ring-holo-cyan"
               >
                 <div className="relative aspect-16/9 w-full overflow-hidden bg-black/60">
                   <img
@@ -289,10 +300,15 @@ export default function Holocron() {
                   <div className="absolute top-2 right-2 rounded border border-holo-cyan/30 bg-black/70 px-2 py-0.5 font-hud text-[9px] text-holo-cyan backdrop-blur-xs">
                     {starship.hyperdriveRating}
                   </div>
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="rounded-lg border border-holo-cyan/60 bg-black/80 px-3 py-1 font-hud text-xs tracking-wider text-holo-cyan backdrop-blur-sm shadow-[0_0_12px_rgba(0,240,255,0.4)]">
+                      🛸 {lang === 'tr' ? '3D Modeli & Detayları Aç' : 'Open 3D Model & Dossier'}
+                    </span>
+                  </div>
                 </div>
                 <div className="p-3.5">
                   <div className="flex items-center justify-between gap-2">
-                    <div className="font-display text-[14px] tracking-[0.14em] text-holo-cyan">
+                    <div className="font-display text-[14px] tracking-[0.14em] text-holo-cyan group-hover:text-white transition-colors">
                       {L(starship.names, lang)}
                     </div>
                     <StarshipClassIcon
@@ -303,7 +319,7 @@ export default function Holocron() {
                   <div className="mt-1 text-[11px] text-slate-400">
                     {starship.model} · {L(starship.starshipClass, lang)}
                   </div>
-                  <p className="mt-2 text-[12px] leading-relaxed text-slate-300">
+                  <p className="mt-2 text-[12px] leading-relaxed text-slate-300 line-clamp-2">
                     {L(starship.desc, lang)}
                   </p>
                   <div className="mt-3 flex justify-between border-t border-white/5 pt-2 text-[11px] text-slate-400">
@@ -311,7 +327,7 @@ export default function Holocron() {
                     <span className="shrink-0 font-hud text-star-gold">{starship.lengthMeters}m</span>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </section>
@@ -400,6 +416,14 @@ export default function Holocron() {
             ))}
           </div>
         </section>
+      )}
+
+      {selectedStarship && (
+        <StarshipModal
+          starship={selectedStarship}
+          onClose={() => setSelectedStarship(null)}
+          lang={lang}
+        />
       )}
     </HolocronChrome>
   )

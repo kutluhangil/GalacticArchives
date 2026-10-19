@@ -22,6 +22,7 @@ const ERA_LABEL: Record<string, { en: string; tr: string }> = {
 }
 
 import StarshipClassIcon from '../components/StarshipClassIcon'
+import StarshipModal from '../components/StarshipModal'
 
 // Maximum ship length for scale bar (the Executor at 19,000m)
 const MAX_LENGTH = 19000
@@ -32,6 +33,7 @@ export default function Hangar() {
   const [eraFilter, setEraFilter] = useState<string>('all')
   const [selectedShip, setSelectedShip] = useState<Starship>(ships[0])
   const [blueprintOpen, setBlueprintOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
 
   const filtered = useMemo(() => {
     if (eraFilter === 'all') return ships
@@ -145,18 +147,31 @@ export default function Hangar() {
                   )}
                 </div>
 
-                <button
-                  onClick={() => setBlueprintOpen(!blueprintOpen)}
-                  className={`rounded border px-3 py-1.5 font-hud text-[10px] uppercase tracking-wider transition-all ${
-                    blueprintOpen
-                      ? 'border-holo-cyan/60 bg-holo-cyan/20 text-holo-cyan'
-                      : 'border-white/20 bg-white/5 text-slate-300 hover:bg-white/10'
-                  }`}
-                >
-                  {blueprintOpen
-                    ? (lang === 'tr' ? '✕ Şemayı Kapat' : '✕ Close Blueprint')
-                    : (lang === 'tr' ? '📐 Şema Görüntüle' : '📐 View Blueprint')}
-                </button>
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      sfx.playSelect()
+                      setModalOpen(true)
+                    }}
+                    className="rounded border border-holo-cyan/60 bg-holo-cyan/15 px-3 py-1.5 font-hud text-[10px] uppercase tracking-wider text-holo-cyan transition-all hover:bg-holo-cyan/25 hover:shadow-[0_0_12px_rgba(0,240,255,0.4)]"
+                  >
+                    🛸 {lang === 'tr' ? '3D Modeli İncele' : 'Inspect 3D Model'}
+                  </button>
+
+                  <button
+                    onClick={() => setBlueprintOpen(!blueprintOpen)}
+                    className={`rounded border px-3 py-1.5 font-hud text-[10px] uppercase tracking-wider transition-all ${
+                      blueprintOpen
+                        ? 'border-holo-cyan/60 bg-holo-cyan/20 text-holo-cyan'
+                        : 'border-white/20 bg-white/5 text-slate-300 hover:bg-white/10'
+                    }`}
+                  >
+                    {blueprintOpen
+                      ? (lang === 'tr' ? '✕ Şemayı Kapat' : '✕ Close Blueprint')
+                      : (lang === 'tr' ? '📐 Şema Görüntüle' : '📐 View Blueprint')}
+                  </button>
+                </div>
               </div>
 
               {/* Blueprint */}
@@ -179,6 +194,10 @@ export default function Hangar() {
                     value: `${selectedShip.lengthMeters?.toLocaleString()}m`,
                   },
                   {
+                    label: { en: 'Max Speed', tr: 'Azami Hız' },
+                    value: selectedShip.maxSpeed,
+                  },
+                  {
                     label: { en: 'Hyperdrive', tr: 'Hiperürücü' },
                     value: selectedShip.hyperdriveRating,
                   },
@@ -191,12 +210,20 @@ export default function Hangar() {
                     value: selectedShip.passengers,
                   },
                   {
+                    label: { en: 'Notable Pilots', tr: 'Önemli Pilotlar' },
+                    value: selectedShip.notablePilots ? L(selectedShip.notablePilots, lang) : undefined,
+                  },
+                  {
                     label: { en: 'Manufacturer', tr: 'Üretici' },
                     value: L(selectedShip.manufacturer, lang),
                   },
                   {
                     label: { en: 'Ship Class', tr: 'Gemi Sınıfı' },
                     value: L(selectedShip.starshipClass, lang),
+                  },
+                  {
+                    label: { en: 'Cargo Capacity', tr: 'Kargo Kapasitesi' },
+                    value: selectedShip.cargoCapacity,
                   },
                 ].map((stat) => (
                   <div key={stat.label.en} className="rounded-lg border border-white/8 bg-black/30 p-3">
@@ -276,6 +303,14 @@ export default function Hangar() {
           </div>
         </div>
       </main>
+
+      {modalOpen && (
+        <StarshipModal
+          starship={selectedShip}
+          onClose={() => setModalOpen(false)}
+          lang={lang}
+        />
+      )}
     </div>
   )
 }

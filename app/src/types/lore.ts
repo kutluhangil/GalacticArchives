@@ -241,6 +241,15 @@ export interface Starship {
   appearances: string[]
   hologram?: string
   source: Citation
+  maxSpeed?: string
+  sublightMGLT?: number
+  shieldsAndArmor?: Localized
+  armament?: Localized
+  engineSystems?: string
+  builtYear?: string
+  notablePilots?: Localized
+  cargoCapacity?: string
+  consumables?: string
 }
 
 export interface TimelineEvent {
