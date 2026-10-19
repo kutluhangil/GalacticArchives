@@ -22,6 +22,7 @@ const ERA_LABEL: Record<string, { en: string; tr: string }> = {
 
 import StarshipClassIcon from '../components/StarshipClassIcon'
 import StarshipModal from '../components/StarshipModal'
+import CockpitHUDModal from '../components/CockpitHUDModal'
 
 // Maximum ship length for scale bar (the Executor at 19,000m)
 const MAX_LENGTH = 19000
@@ -33,6 +34,7 @@ export default function Hangar() {
   const [selectedShip, setSelectedShip] = useState<Starship>(ships[0])
   const [blueprintOpen, setBlueprintOpen] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
+  const [cockpitOpen, setCockpitOpen] = useState(false)
 
   const filtered = useMemo(() => {
     if (eraFilter === 'all') return ships
@@ -146,6 +148,14 @@ export default function Hangar() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setCockpitOpen(true)}
+                    className="rounded border border-emerald-500/60 bg-emerald-500/15 px-3 py-1.5 font-hud text-[10px] uppercase tracking-wider text-emerald-400 transition-all hover:bg-emerald-500/25 hover:shadow-[0_0_12px_rgba(16,185,129,0.4)]"
+                  >
+                    🎯 {lang === 'tr' ? 'Uçuş Kokpiti & HUD' : 'Cockpit HUD Mode'}
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => {
@@ -330,6 +340,14 @@ export default function Hangar() {
         <StarshipModal
           starship={selectedShip}
           onClose={() => setModalOpen(false)}
+          lang={lang}
+        />
+      )}
+
+      {cockpitOpen && (
+        <CockpitHUDModal
+          starship={selectedShip}
+          onClose={() => setCockpitOpen(false)}
           lang={lang}
         />
       )}

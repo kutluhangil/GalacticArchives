@@ -31,8 +31,8 @@ const BUDGETS = [
   // raised from 48,000 when the Timeline, Force, Watch Guide and Hangar routes
   // landed: five new pages' Tailwind utilities are a real, wanted increase, and
   // first paint stays inside its own 400,000 ceiling. Raised again to 84,000
-  // for Tailwind 4, 95,000 for modal styling, and 105,000 for Arsenal/Bestiary.
-  { name: 'entry stylesheet', pattern: /^index-.*\.css$/, max: 105_000 },
+  // for Tailwind 4, 95,000 for modal styling, and 115,000 for Cockpit HUD & codexes.
+  { name: 'entry stylesheet', pattern: /^index-.*\.css$/, max: 115_000 },
   { name: 'KTX2 transcoder chunk', pattern: /^KTX2Loader-.*\.js$/, max: 40_000 },
   // rides along on every route, so it is the easiest place to accidentally put
   // a panel nobody opened — the five tool modals are lazy for that reason
@@ -82,7 +82,7 @@ const firstPaint =
   Buffer.byteLength(html) +
   (entryJs ? statSync(join(ASSETS, entryJs)).size : 0) +
   (entryCss ? statSync(join(ASSETS, entryCss)).size : 0)
-const FIRST_PAINT_MAX = 410_000
+const FIRST_PAINT_MAX = 425_000
 report.push(`${'first paint total'.padEnd(24)} ${String(firstPaint).padStart(8)} / ${FIRST_PAINT_MAX} bytes`)
 if (firstPaint > FIRST_PAINT_MAX) {
   errors.push(`first paint payload is ${firstPaint} bytes, over its ${FIRST_PAINT_MAX} budget`)

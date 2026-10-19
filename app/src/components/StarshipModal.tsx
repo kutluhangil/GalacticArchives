@@ -8,6 +8,7 @@ import Aurebesh from './Aurebesh'
 import StarshipClassIcon from './StarshipClassIcon'
 import ShipBlueprint from './ShipBlueprint'
 import SourceLink from './SourceLink'
+import CockpitHUDModal from './CockpitHUDModal'
 
 interface Props {
   starship: Starship | null
@@ -17,6 +18,7 @@ interface Props {
 
 export default function StarshipModal({ starship, onClose, lang }: Props) {
   const [viewMode, setViewMode] = useState<'photo' | 'blueprint'>('photo')
+  const [cockpitOpen, setCockpitOpen] = useState(false)
 
   useEffect(() => {
     if (!starship) return
@@ -89,29 +91,39 @@ export default function StarshipModal({ starship, onClose, lang }: Props) {
                 </span>
               </div>
 
-              {/* View Switcher: Photo / Blueprint */}
-              <div className="flex items-center rounded-lg border border-white/10 bg-black/60 p-0.5">
+              {/* View Switcher: Photo / Blueprint / Cockpit */}
+              <div className="flex items-center gap-1.5">
+                <div className="flex items-center rounded-lg border border-white/10 bg-black/60 p-0.5">
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('photo')}
+                    className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-colors ${
+                      viewMode === 'photo'
+                        ? 'border border-holo-cyan/40 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    📸 {lang === 'tr' ? 'Fotoğraf' : 'Photo'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('blueprint')}
+                    className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-colors ${
+                      viewMode === 'blueprint'
+                        ? 'border border-holo-cyan/40 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    📐 {lang === 'tr' ? 'Şema' : 'Blueprint'}
+                  </button>
+                </div>
+
                 <button
                   type="button"
-                  onClick={() => setViewMode('photo')}
-                  className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-colors ${
-                    viewMode === 'photo'
-                      ? 'border border-holo-cyan/40 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
-                      : 'text-slate-400 hover:text-slate-200'
-                  }`}
+                  onClick={() => setCockpitOpen(true)}
+                  className="rounded border border-emerald-500/50 bg-emerald-500/15 px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider text-emerald-400 hover:bg-emerald-500/25 transition-colors shadow-[0_0_10px_rgba(16,185,129,0.3)]"
                 >
-                  📸 {lang === 'tr' ? 'Fotoğraf' : 'Photo'}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setViewMode('blueprint')}
-                  className={`rounded px-2.5 py-1 font-hud text-[10px] uppercase tracking-wider transition-colors ${
-                    viewMode === 'blueprint'
-                      ? 'border border-holo-cyan/40 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
-                      : 'text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  📐 {lang === 'tr' ? 'Şema' : 'Blueprint'}
+                  🎯 {lang === 'tr' ? 'Kokpit HUD' : 'Cockpit HUD'}
                 </button>
               </div>
             </div>
@@ -313,6 +325,14 @@ export default function StarshipModal({ starship, onClose, lang }: Props) {
           </div>
         </div>
       </div>
+
+      {cockpitOpen && (
+        <CockpitHUDModal
+          starship={starship}
+          onClose={() => setCockpitOpen(false)}
+          lang={lang}
+        />
+      )}
     </div>
   )
 }
