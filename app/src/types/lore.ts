@@ -327,3 +327,21 @@ export interface WatchGuideEntry {
   era: EraId
   source: Citation
 }
+
+export interface Species {
+  id: string
+  names: Localized
+  homeworldPlanetId?: string
+  homeworldName: Localized
+  language: Localized
+  classification: Localized
+  averageHeight: string
+  averageLifespan: string
+  skinHairColors: Localized
+  distinctions: Localized
+  forceSensitivity: 'rare' | 'moderate' | 'high' | 'common'
+  desc: Localized
+  notableMembers: Localized
+  appearances: string[]
+  source: Citation
+}

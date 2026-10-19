@@ -13,6 +13,7 @@ import type {
   SunSpec,
   TimelineEvent,
   Transmission,
+  Species,
 } from '../types/lore'
 import erasJson from '../data/meta/eras.json'
 import regionsJson from '../data/meta/regions.json'
@@ -221,5 +222,14 @@ export async function loadTransmissions(): Promise<Transmission[]> {
     transmissionsCache = mod.default as Transmission[]
   }
   return transmissionsCache
+}
+
+let speciesCache: Species[] | null = null
+export async function loadSpecies(): Promise<Species[]> {
+  if (!speciesCache) {
+    const mod = await import('../data/species.json')
+    speciesCache = mod.default as Species[]
+  }
+  return speciesCache
 }
 

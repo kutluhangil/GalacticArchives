@@ -5,12 +5,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import Fuse from 'fuse.js'
-import type { Battle, CelestialBody, Character, Starship } from '../types/lore'
+import type { Battle, CelestialBody, Character, Species, Starship } from '../types/lore'
 import {
   L,
   loadAllPlanets,
   loadBattles,
   loadCharacters,
+  loadSpecies,
   loadStarships,
   media,
   regions,
@@ -25,6 +26,7 @@ import HolocronChrome from '../components/HolocronChrome'
 import HolocronQuiz from '../components/HolocronQuiz'
 import StarshipClassIcon from '../components/StarshipClassIcon'
 import StarshipModal from '../components/StarshipModal'
+import SpeciesModal from '../components/SpeciesModal'
 import { useRovingFocus } from '../hooks/useRovingFocus'
 import { sfx } from '../lib/audio'
 
@@ -33,6 +35,7 @@ type Entry =
   | { kind: 'character'; id: string; character: Character }
   | { kind: 'starship'; id: string; starship: Starship }
   | { kind: 'battle'; id: string; battle: Battle }
+  | { kind: 'species'; id: string; species: Species }
 
 function bodyEntries(bodies: CelestialBody[]): Entry[] {
   return bodies.map((body) => ({ kind: 'body', id: body.id, body }))
@@ -48,7 +51,9 @@ export default function Holocron() {
   const [characters, setCharacters] = useState<Character[]>([])
   const [starships, setStarships] = useState<Starship[]>([])
   const [battles, setBattles] = useState<Battle[]>([])
+  const [speciesList, setSpeciesList] = useState<Species[]>([])
   const [selectedStarship, setSelectedStarship] = useState<Starship | null>(null)
+  const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null)
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('')
   const [sector, setSector] = useState('')
@@ -63,6 +68,7 @@ export default function Holocron() {
     loadCharacters().then(setCharacters)
     loadStarships().then(setStarships)
     loadBattles().then(setBattles)
+    loadSpecies().then(setSpeciesList)
   }, [])
 
   const entries = useMemo<Entry[]>(
@@ -71,8 +77,9 @@ export default function Holocron() {
       ...characters.map((character) => ({ kind: 'character' as const, id: character.id, character })),
       ...starships.map((starship) => ({ kind: 'starship' as const, id: starship.id, starship })),
       ...battles.map((battle) => ({ kind: 'battle' as const, id: battle.id, battle })),
+      ...speciesList.map((species) => ({ kind: 'species' as const, id: species.id, species })),
     ],
-    [bodies, characters, starships, battles],
+    [bodies, characters, starships, battles, speciesList],
   )
 
   const fuse = useMemo(
@@ -89,6 +96,8 @@ export default function Holocron() {
           { name: 'starship.names.tr', weight: 3 },
           { name: 'battle.names.en', weight: 3 },
           { name: 'battle.names.tr', weight: 3 },
+          { name: 'species.names.en', weight: 3 },
+          { name: 'species.names.tr', weight: 3 },
         ],
       }),
     [entries],
@@ -115,7 +124,15 @@ export default function Holocron() {
       }
       if (mediaId) {
         const appearances =
-          entry.kind === 'body' ? entry.body.appearances : entry.kind === 'character' ? entry.character.appearances : entry.kind === 'starship' ? entry.starship.appearances : entry.battle.appearances
+          entry.kind === 'body'
+            ? entry.body.appearances
+            : entry.kind === 'character'
+              ? entry.character.appearances
+              : entry.kind === 'starship'
+                ? entry.starship.appearances
+                : entry.kind === 'species'
+                  ? entry.species.appearances
+                  : entry.battle.appearances
         if (!appearances.includes(mediaId)) return false
       }
       return true
@@ -132,6 +149,7 @@ export default function Holocron() {
   const figures = results.filter((e): e is Extract<Entry, { kind: 'character' }> => e.kind === 'character')
   const ships = results.filter((e): e is Extract<Entry, { kind: 'starship' }> => e.kind === 'starship')
   const conflictList = results.filter((e): e is Extract<Entry, { kind: 'battle' }> => e.kind === 'battle')
+  const speciesEntries = results.filter((e): e is Extract<Entry, { kind: 'species' }> => e.kind === 'species')
 
   return (
     <HolocronChrome>
@@ -417,10 +435,65 @@ export default function Holocron() {
         </section>
       )}
 
+      {/* Sentient Species & Xenobiology Section */}
+      {speciesEntries.length > 0 && (
+        <section className="mb-12">
+          <div className="mb-3 flex items-center justify-between">
+            <h2 className="font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
+              🧬 {lang === 'tr' ? 'Galaktik Irklar & Ksenobiyoloji' : 'Sentient Species & Xenobiology'}
+            </h2>
+            <span className="font-hud text-[11px] text-holo-cyan/70">
+              {lang === 'tr' ? 'Ksenobiyoloji Dosyası İçin Tıklayın' : 'Click for Xenobiology Dossier'}
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            {speciesEntries.map(({ species }) => (
+              <button
+                key={species.id}
+                type="button"
+                onClick={() => setSelectedSpecies(species)}
+                className="group block w-full text-left overflow-hidden rounded-lg border border-white/10 bg-panel/90 transition-all hover:border-holo-cyan/60 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] focus:outline-none focus:ring-1 focus:ring-holo-cyan"
+              >
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-black/60">
+                  <img
+                    src={`/species/${species.id}.webp`}
+                    alt={L(species.names, lang)}
+                    width={400}
+                    height={500}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-2 right-2 rounded border border-white/10 bg-black/70 px-1.5 py-0.5 font-hud text-[8px] text-slate-300 backdrop-blur-xs">
+                    {L(species.classification, lang).split(' ')[0]}
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 rounded border border-holo-cyan/30 bg-black/75 px-2 py-1 backdrop-blur-xs">
+                    <div className="font-display text-[12px] tracking-wide text-slate-100 truncate">
+                      {L(species.names, lang)}
+                    </div>
+                    <div className="text-[10px] text-holo-cyan truncate">
+                      🪐 {L(species.homeworldName, lang)}
+                    </div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
       {selectedStarship && (
         <StarshipModal
           starship={selectedStarship}
           onClose={() => setSelectedStarship(null)}
+          lang={lang}
+        />
+      )}
+
+      {selectedSpecies && (
+        <SpeciesModal
+          species={selectedSpecies}
+          onClose={() => setSelectedSpecies(null)}
           lang={lang}
         />
       )}

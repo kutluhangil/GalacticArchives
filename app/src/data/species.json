@@ -1,0 +1,494 @@
+[
+  {
+    "id": "wookiee",
+    "names": {
+      "en": "Wookiee",
+      "tr": "Wookiee"
+    },
+    "homeworldPlanetId": "kashyyyk",
+    "homeworldName": {
+      "en": "Kashyyyk",
+      "tr": "Kashyyyk"
+    },
+    "language": {
+      "en": "Shyriiwook, Thykarann, Xaczik",
+      "tr": "Shyriiwook, Thykarann, Xaczik"
+    },
+    "classification": {
+      "en": "Mammalian",
+      "tr": "Memeli"
+    },
+    "averageHeight": "2.1 – 2.3 m",
+    "averageLifespan": "400 standard years",
+    "skinHairColors": {
+      "en": "Thick dense coat of brown, black, white, or red-gold fur",
+      "tr": "Kahverengi, siyah, beyaz veya kızıl-altın kalın kürk"
+    },
+    "distinctions": {
+      "en": "Immense physical strength, retractable climbing claws, acute sense of smell",
+      "tr": "Muazzam fiziksel güç, tırmanma pençeleri, keskin koku duyusu"
+    },
+    "forceSensitivity": "rare",
+    "desc": {
+      "en": "Wookiees are tall, hirsute humanoids originating from the arboreal world of Kashyyyk. Renowned for their fierce loyalty, engineering aptitude, honor codes, and physical strength, they are capable of ripping the arms off battle droids with ease.",
+      "tr": "Wookiee'ler, ormanlarla kaplı Kashyyyk gezegeninden gelen uzun boylu, tüylü insansı bir türdür. Sarsılmaz sadakatleri, üstün mühendislik yetenekleri, onur yasaları ve savaş droidlerinin kollarını kolayca koparabilecek güçleriyle bilinirler."
+    },
+    "notableMembers": {
+      "en": "Chewbacca, Tarfful, Black Krrsantan, Gungi",
+      "tr": "Chewbacca, Tarfful, Kara Krrsantan, Gungi"
+    },
+    "appearances": ["ep3", "ep4", "ep5", "ep6", "ep7", "ep8", "ep9", "solo", "clone-wars", "bad-batch"],
+    "source": "wookieepedia:Wookiee"
+  },
+  {
+    "id": "twilek",
+    "names": {
+      "en": "Twi'lek",
+      "tr": "Twi'lek"
+    },
+    "homeworldPlanetId": "ryloth",
+    "homeworldName": {
+      "en": "Ryloth",
+      "tr": "Ryloth"
+    },
+    "language": {
+      "en": "Twi'leki (Ryl) & subtle Lekku gestural language",
+      "tr": "Twi'leki (Ryl) ve Lekku jest dili"
+    },
+    "classification": {
+      "en": "Near-Human",
+      "tr": "İnsansı (Near-Human)"
+    },
+    "averageHeight": "1.6 – 2.1 m",
+    "averageLifespan": "80 standard years",
+    "skinHairColors": {
+      "en": "Wide range: blue (rutian), green, red (lethan), yellow, white, purple",
+      "tr": "Geniş yelpaze: mavi (rutian), yeşil, kırmızı (lethan), sarı, beyaz, mor"
+    },
+    "distinctions": {
+      "en": "Twin prehensile head-tails (Lekku) serving as sensory and communication organs",
+      "tr": "Duyu ve iletişim organı işlevi gören çift baş uzantısı (Lekku)"
+    },
+    "forceSensitivity": "common",
+    "desc": {
+      "en": "Twi'leks are omnivorous humanoids native to Ryloth. Their most distinguishing trait is the pair of tentacle-like head-tails called lekku, used for both non-verbal subtle communication and enhanced cognitive-sensory functions.",
+      "tr": "Twi'lek'ler Ryloth kökenli zeki bir insansı türdür. En ayırt edici özellikleri, hem gizli sözel olmayan iletişimde hem de duyusal algıda hayati rol oynayan 'lekku' adlı ikiz kafa uzantılarıdır."
+    },
+    "notableMembers": {
+      "en": "Hera Syndulla, Cham Syndulla, Aayla Secura, Bib Fortuna",
+      "tr": "Hera Syndulla, Cham Syndulla, Aayla Secura, Bib Fortuna"
+    },
+    "appearances": ["ep1", "ep2", "ep3", "ep6", "rebels", "bad-batch", "mandalorian", "ahsoka"],
+    "source": "wookieepedia:Twi'lek"
+  },
+  {
+    "id": "zabrak",
+    "names": {
+      "en": "Zabrak",
+      "tr": "Zabrak"
+    },
+    "homeworldPlanetId": "dathomir",
+    "homeworldName": {
+      "en": "Iridonia & Dathomir",
+      "tr": "Iridonia ve Dathomir"
+    },
+    "language": {
+      "en": "Zabraki & Galactic Basic",
+      "tr": "Zabraki ve Temel Galaktik Dil"
+    },
+    "classification": {
+      "en": "Near-Human Carnivorous",
+      "tr": "İnsansı (Near-Human Etçil)"
+    },
+    "averageHeight": "1.7 – 2.0 m",
+    "averageLifespan": "85 standard years",
+    "skinHairColors": {
+      "en": "Cream, tan, peach, red, yellow; elaborate ceremonial facial tattoos",
+      "tr": "Krem, bronz, şeftali, kırmızı, sarı; karmaşık törensel yüz dövmeleri"
+    },
+    "distinctions": {
+      "en": "Crown of vestigial cranial horns, dual hearts, extraordinary pain tolerance",
+      "tr": "Kafatası boynuz tacı, çift kalp sistemi, olağanüstü acı toleransı"
+    },
+    "forceSensitivity": "moderate",
+    "desc": {
+      "en": "Zabrak are a determined humanoid species split between the harsh colony worlds of Iridonia and the dark magical crags of Dathomir. Their resilience, double hearts, and fierce warrior culture produce formidable duelists and Force wielders.",
+      "tr": "Zabrak'lar Iridonia'nın çetin koşulları ve Dathomir'in gizemli dağlarında yaşayan dirençli bir savaşçı türdür. Çift kalpleri, başlarındaki boynuz tacı ve yüksek acı eşikleri onları galaksinin en korkulan dövüşçülerinden yapar."
+    },
+    "notableMembers": {
+      "en": "Darth Maul, Savage Opress, Agen Kolar, Eeth Koth",
+      "tr": "Darth Maul, Savage Opress, Agen Kolar, Eeth Koth"
+    },
+    "appearances": ["ep1", "ep2", "ep3", "clone-wars", "rebels", "solo"],
+    "source": "wookieepedia:Zabrak"
+  },
+  {
+    "id": "mon-calamari",
+    "names": {
+      "en": "Mon Calamari",
+      "tr": "Mon Calamari"
+    },
+    "homeworldPlanetId": "mon-cala",
+    "homeworldName": {
+      "en": "Mon Cala (Dac)",
+      "tr": "Mon Cala (Dac)"
+    },
+    "language": {
+      "en": "Mon Calamarian & Galactic Basic",
+      "tr": "Mon Calamari Dili ve Galaktik Temel"
+    },
+    "classification": {
+      "en": "Aquatic Amphibian Humanoid",
+      "tr": "Sucul Amfibik İnsansı"
+    },
+    "averageHeight": "1.6 – 1.8 m",
+    "averageLifespan": "80 standard years",
+    "skinHairColors": {
+      "en": "Salmon, blue, green, brown, orange-ochre mottled skin",
+      "tr": "Somon rengi, mavi, yeşil, kahverengi veya turuncu benekli deri"
+    },
+    "distinctions": {
+      "en": "High-domed fish-like heads, large bulbous independent eyes, webbed hands",
+      "tr": "Yüksek kubbeli balık benzeri baş, bağımsız dönebilen gözler, perdeli eller"
+    },
+    "forceSensitivity": "rare",
+    "desc": {
+      "en": "Mon Calamari are an amphibious sentient species renowned across the galaxy for their majestic organic starship architecture, tactical naval genius, and unwavering allegiance to the Rebel Alliance and Galactic Republic.",
+      "tr": "Mon Calamari'ler okyanus dünyası Mon Cala kökenli amfibik bir türdür. Galaktik donanma mimarisindeki organik tasarımları, dahi filo komutanları ve İsyancı İttifakı'na sağladıkları dev yıldız kruvazörleriyle bilinirler."
+    },
+    "notableMembers": {
+      "en": "Admiral Gial Ackbar, Admiral Raddus, Quarrie, Nahdar Vebb",
+      "tr": "Amiral Gial Ackbar, Amiral Raddus, Quarrie, Nahdar Vebb"
+    },
+    "appearances": ["ep6", "ep7", "ep8", "rogue-one", "clone-wars"],
+    "source": "wookieepedia:Mon_Calamari"
+  },
+  {
+    "id": "chiss",
+    "names": {
+      "en": "Chiss",
+      "tr": "Chiss"
+    },
+    "homeworldPlanetId": "csilla",
+    "homeworldName": {
+      "en": "Csilla (Unknown Regions)",
+      "tr": "Csilla (Bilinmeyen Bölgeler)"
+    },
+    "language": {
+      "en": "Cheunh",
+      "tr": "Cheunh"
+    },
+    "classification": {
+      "en": "Near-Human",
+      "tr": "İnsansı (Near-Human)"
+    },
+    "averageHeight": "1.7 – 2.0 m",
+    "averageLifespan": "80 standard years",
+    "skinHairColors": {
+      "en": "Striking blue skin, jet-black hair, glowing crimson-red eyes",
+      "tr": "Çarpıcı mavi ten, simsiyah saçlar, parlayan yakut kırmızısı gözler"
+    },
+    "distinctions": {
+      "en": "Infrared vision, mathematical and tactical intellect, rigid Aristocra society",
+      "tr": "Kızılötesi görüş, olağanüstü matematiksel/stratejik zeka, aristokratik düzen"
+    },
+    "forceSensitivity": "rare",
+    "desc": {
+      "en": "Hailing from the frozen tundras of Csilla in the Unknown Regions, the Chiss are an enigmatic, highly disciplined species. Their glowing red eyes allow them to see into the infrared spectrum, and their Chiss Ascendancy remains a formidable superpower.",
+      "tr": "Bilinmeyen Bölgeler'deki buz dünyası Csilla kökenli Chiss'ler, gizemli ve son derece disiplinli bir türdür. Parlayan kırmızı gözleri kızılötesi dalgaboylarını algılayabilir; Chiss Yükselişi galaksinin en gelişmiş donanmalarından birini yönetir."
+    },
+    "notableMembers": {
+      "en": "Grand Admiral Thrawn (Mitth'raw'nuruodo), Ar'alani",
+      "tr": "Büyük Amiral Thrawn (Mitth'raw'nuruodo), Ar'alani"
+    },
+    "appearances": ["rebels", "ahsoka"],
+    "source": "wookieepedia:Chiss"
+  },
+  {
+    "id": "togruta",
+    "names": {
+      "en": "Togruta",
+      "tr": "Togruta"
+    },
+    "homeworldPlanetId": "shili",
+    "homeworldName": {
+      "en": "Shili",
+      "tr": "Shili"
+    },
+    "language": {
+      "en": "Togruti & Galactic Basic",
+      "tr": "Togruti ve Galaktik Temel"
+    },
+    "classification": {
+      "en": "Carnivorous Humanoid",
+      "tr": "Etçil İnsansı"
+    },
+    "averageHeight": "1.7 – 1.9 m",
+    "averageLifespan": "90 standard years",
+    "skinHairColors": {
+      "en": "Red, orange, or white skin with distinctive facial pigmentation stripes",
+      "tr": "Kırmızı, turuncu veya beyaz ten üzerinde kabilevi beyaz pigment çizgileri"
+    },
+    "distinctions": {
+      "en": "Hollow cranial horns (montrals) for echolocation, three striped lekku",
+      "tr": "Ekolokasyon sağlayan içi boş boynuzlar (montral) ve üç çizgili lekku"
+    },
+    "forceSensitivity": "high",
+    "desc": {
+      "en": "Togruta are a predatory, pack-oriented humanoid species from Shili. Their hollow montral horns act as natural echolocation radar, allowing them to sense ultrasonic movements within dozens of meters.",
+      "tr": "Togruta'lar Shili'nin bozkırlarından gelen avcı ve sürü odaklı insansı bir türdür. Başlarındaki içi boş montral boynuzları, ultrasonik ekolokasyon radarı gibi çalışarak çevredeki titreşimleri metrelerce öteden hissetmelerini sağlar."
+    },
+    "notableMembers": {
+      "en": "Ahsoka Tano, Shaak Ti, Kirana Ti",
+      "tr": "Ahsoka Tano, Shaak Ti, Kirana Ti"
+    },
+    "appearances": ["ep2", "ep3", "clone-wars", "rebels", "mandalorian", "ahsoka"],
+    "source": "wookieepedia:Togruta"
+  },
+  {
+    "id": "rodian",
+    "names": {
+      "en": "Rodian",
+      "tr": "Rodian"
+    },
+    "homeworldPlanetId": "rodia",
+    "homeworldName": {
+      "en": "Rodia",
+      "tr": "Rodia"
+    },
+    "language": {
+      "en": "Rodese & Huttese",
+      "tr": "Rodese ve Huttese"
+    },
+    "classification": {
+      "en": "Reptilian Humanoid",
+      "tr": "Sürüngenimsi İnsansı"
+    },
+    "averageHeight": "1.5 – 1.8 m",
+    "averageLifespan": "75 standard years",
+    "skinHairColors": {
+      "en": "Emerald-green, teal, olive-spotted pebbled hide",
+      "tr": "Zümrüt yeşili, deniz mavisi, zeytin benekli pütürlü zırh derisi"
+    },
+    "distinctions": {
+      "en": "Facet-covered compound eyes, dish-shaped antenna ears, flexible tapir snout",
+      "tr": "Çok yönlü petek gözler, çanak anten biçimli kulaklar, esnek hortumsu burun"
+    },
+    "forceSensitivity": "rare",
+    "desc": {
+      "en": "Rodians are green-skinned reptilian humanoids from the sweltering jungle world of Rodia. Highly prized as bounty hunters, scouts, and gladiators due to their keen sensory antennas and compound vision.",
+      "tr": "Rodian'lar Rodia'nın tehlikeli yağmur ormanlarında evrimleşmiş yeşil derili bir sürüngen türdür. Çanak biçimli kulakları ve geniş petek gözleri sayesinde ödül avcılığı ve iz sürücülükte galaksinin en yetenekli türleri arasındadırlar."
+    },
+    "notableMembers": {
+      "en": "Greedo, Onaconda Farr, Wald, Tsoklo",
+      "tr": "Greedo, Onaconda Farr, Wald, Tsoklo"
+    },
+    "appearances": ["ep4", "ep1", "ep2", "clone-wars", "mandalorian"],
+    "source": "wookieepedia:Rodian"
+  },
+  {
+    "id": "hutt",
+    "names": {
+      "en": "Hutt",
+      "tr": "Hutt"
+    },
+    "homeworldPlanetId": "nal-hutta",
+    "homeworldName": {
+      "en": "Nal Hutta & Varl",
+      "tr": "Nal Hutta ve Varl"
+    },
+    "language": {
+      "en": "Huttese",
+      "tr": "Huttese"
+    },
+    "classification": {
+      "en": "Large Gastropod Slugoid",
+      "tr": "Büyük Karındanbacaklı (Gastropod Slugoid)"
+    },
+    "averageHeight": "3.0 – 4.0 m length",
+    "averageLifespan": "1,000 standard years",
+    "skinHairColors": {
+      "en": "Oily green, brown, tan or purplish mucus-coated leathery hide",
+      "tr": "Yağlı yeşil, kahverengi veya morumsu mukus kaplı kalın deri"
+    },
+    "distinctions": {
+      "en": "Massive bulbous slug-like tail, immense blubber, chemical resistance, immune to Force mind tricks",
+      "tr": "Devasa sülüklü kuyruk, kalın yağ tabakası, zehir direnci, Güç zihin oyunlarına bağışıklık"
+    },
+    "forceSensitivity": "rare",
+    "desc": {
+      "en": "Hutts are large, slug-like sentient beings controlling Hutt Space through crime syndicates, spice smuggling, and ruthless economics. Living for over a millennium, their thick hide and unique nervous system make them naturally resistant to Jedi mind manipulation.",
+      "tr": "Hutt'lar, Hutt Uzayı'nı ve yeraltı suç imparatorluğunu binlerce yıldır yöneten dev karındanbacaklı bir türdür. Bin yıla varan ömürleri ve kalın derileri vardır; benzersiz sinir sistemleri sayesinde Jedi zihin oyunlarından neredeyse hiç etkilenmezler."
+    },
+    "notableMembers": {
+      "en": "Jabba Desilijic Tiure, Gardulla the Hutt, Rotta, Gorga",
+      "tr": "Jabba the Hutt, Gardulla the Hutt, Rotta, Gorga"
+    },
+    "appearances": ["ep4", "ep6", "ep1", "clone-wars", "book-of-boba-fett"],
+    "source": "wookieepedia:Hutt"
+  },
+  {
+    "id": "trandoshan",
+    "names": {
+      "en": "Trandoshan",
+      "tr": "Trandoshan"
+    },
+    "homeworldPlanetId": "kashyyyk",
+    "homeworldName": {
+      "en": "Trandosha (Dosha)",
+      "tr": "Trandosha (Dosha)"
+    },
+    "language": {
+      "en": "Dosh",
+      "tr": "Dosh"
+    },
+    "classification": {
+      "en": "Saurian Reptilian",
+      "tr": "Sauropod Sürüngen"
+    },
+    "averageHeight": "1.8 – 2.1 m",
+    "averageLifespan": "60 standard years",
+    "skinHairColors": {
+      "en": "Tough scaley hide of green, bronze, or terracotta orange",
+      "tr": "Yeşil, bronz veya terakota rengi sert pullu zırh derisi"
+    },
+    "distinctions": {
+      "en": "Regenerative limbs, infrared thermal vision, razor-sharp claws, Scorekeeper cult",
+      "tr": "Yenilenebilen uzuvlar, termal kızılötesi görüş, keskin pençeler, Puan Tutucu inancı"
+    },
+    "forceSensitivity": "rare",
+    "desc": {
+      "en": "Trandoshans are warlike saurian reptiles from the Kashyyyk system. They worship the Scorekeeper deity, earning divine points (Jagannath) through hunting. They are able to regenerate severed limbs up until physical maturity.",
+      "tr": "Trandoshan'lar Kashyyyk sistemindeki Trandosha gezegeninden gelen savaşçı bir sürüngen türdür. 'Puan Tutucu' adlı tanrıçalarına tapar ve avladıkları hedeflerle cennet puanı toplarlar. Kopan uzuvlarını yeniden büyütebilme yeteneğine sahiptirler."
+    },
+    "notableMembers": {
+      "en": "Bossk, Garnac, Dokk Strassi, Qyzen Fess",
+      "tr": "Bossk, Garnac, Dokk Strassi, Qyzen Fess"
+    },
+    "appearances": ["ep5", "ep6", "clone-wars", "mandalorian", "book-of-boba-fett"],
+    "source": "wookieepedia:Trandoshan"
+  },
+  {
+    "id": "kaminoan",
+    "names": {
+      "en": "Kaminoan",
+      "tr": "Kaminoan"
+    },
+    "homeworldPlanetId": "kamino",
+    "homeworldName": {
+      "en": "Kamino (Wild Space)",
+      "tr": "Kamino (Vahşi Uzay)"
+    },
+    "language": {
+      "en": "Kaminoan",
+      "tr": "Kaminoan"
+    },
+    "classification": {
+      "en": "Piscine / Cetacean Descent Humanoid",
+      "tr": "Sucul / Balinamsı Kökenli İnsansı"
+    },
+    "averageHeight": "2.2 – 2.6 m",
+    "averageLifespan": "80 standard years",
+    "skinHairColors": {
+      "en": "Alabaster chalk-white skin, hairless, large dark almond eyes",
+      "tr": "Kaymak beyazı ten, tamamen tüysüz, büyük badem biçimli gözler"
+    },
+    "distinctions": {
+      "en": "Extremely slender elongated necks, towering stature, master bio-cloning technologists",
+      "tr": "İnce uzun boyunlar, çok uzun boy, galaksinin en ileri genetik klonlama bilimi"
+    },
+    "forceSensitivity": "rare",
+    "desc": {
+      "en": "Kaminoans are tall, elegant aquatic humanoids from the tempestuous oceanic world of Kamino. They survived their world's Great Melt through genetic engineering, becoming the galaxy's supreme bio-cloning masters and creators of the Grand Army of the Republic.",
+      "tr": "Kaminoan'lar fırtınalı okyanus gezegeni Kamino'da yaşayan uzun, zarif ve sakin bir türdür. Gezegenlerindeki küresel erimeden genetik bilimle kurtulmuş; Galaktik Cumhuriyet'in Büyük Klon Ordusu'nu üreterek galaksinin kaderini değiştirmişlerdir."
+    },
+    "notableMembers": {
+      "en": "Prime Minister Lama Su, Taun We, Nala Se, Halle Burtoni",
+      "tr": "Başbakan Lama Su, Taun We, Nala Se, Halle Burtoni"
+    },
+    "appearances": ["ep2", "clone-wars", "bad-batch"],
+    "source": "wookieepedia:Kaminoan"
+  },
+  {
+    "id": "kel-dor",
+    "names": {
+      "en": "Kel Dor",
+      "tr": "Kel Dor"
+    },
+    "homeworldPlanetId": "dorin",
+    "homeworldName": {
+      "en": "Dorin (Expansion Region)",
+      "tr": "Dorin (Genişleme Bölgesi)"
+    },
+    "language": {
+      "en": "Kel Dor & Galactic Basic",
+      "tr": "Kel Dor ve Galaktik Temel"
+    },
+    "classification": {
+      "en": "Humanoid",
+      "tr": "İnsansı"
+    },
+    "averageHeight": "1.7 – 1.9 m",
+    "averageLifespan": "70 standard years",
+    "skinHairColors": {
+      "en": "Orange, peach, or terracotta leathery skin",
+      "tr": "Turuncu, şeftali veya terakota rengi deri"
+    },
+    "distinctions": {
+      "en": "Requires antiox breath masks and specialized protective goggles in oxygen atmospheres",
+      "tr": "Oksijenli atmosferlerde antiox solunum maskesi ve koruyucu gözlük takma zorunluluğu"
+    },
+    "forceSensitivity": "high",
+    "desc": {
+      "en": "Kel Dors originate from Dorin, whose atmosphere consists mostly of helium and a unique dorin gas. In oxygen-rich environments like Coruscant, they must wear antiox breathing filters and protective eye visors. They have a proud heritage of Force-wielding Baran Do Sages.",
+      "tr": "Kel Dor'lar helyum ve dorin gazıyla kaplı Dorin gezegeninden gelirler. Oksijen onlar için ölümcül olduğundan yabancı atmosferlerde özel antiox solunum filtreleri ve gözlükler takarlar. Kadim 'Baran Do Bilgeleri' sayesinde Güç ile derin bağlara sahiptirler."
+    },
+    "notableMembers": {
+      "en": "Plo Koon, Sha Koon, Tol Braga",
+      "tr": "Plo Koon, Sha Koon, Tol Braga"
+    },
+    "appearances": ["ep1", "ep2", "ep3", "clone-wars"],
+    "source": "wookieepedia:Kel_Dor"
+  },
+  {
+    "id": "ewok",
+    "names": {
+      "en": "Ewok",
+      "tr": "Ewok"
+    },
+    "homeworldPlanetId": "endor",
+    "homeworldName": {
+      "en": "Endor (Forest Moon)",
+      "tr": "Endor (Orman Ayı)"
+    },
+    "language": {
+      "en": "Ewokese",
+      "tr": "Ewokese"
+    },
+    "classification": {
+      "en": "Sentient Teddy-Mammal",
+      "tr": "Duyarlı Ayımsı Memeli"
+    },
+    "averageHeight": "0.9 – 1.0 m",
+    "averageLifespan": "60 standard years",
+    "skinHairColors": {
+      "en": "Thick wooly fur in brown, black, white, and striped patterns",
+      "tr": "Kahverengi, siyah, beyaz ve kırçıllı kalın yün kürk"
+    },
+    "distinctions": {
+      "en": "Diminutive stature, arboreal canopy living, tribal ingenuity, primitive traps defeating stormtroopers",
+      "tr": "Kısa boy, ağaç tepelerinde köyler, kabile zekası, İmparatorluk ordusunu alt eden tuzaklar"
+    },
+    "forceSensitivity": "rare",
+    "desc": {
+      "en": "Ewoks are diminutive, fur-covered bipedal humanoids native to the forest moon of Endor. Living in high arboreal villages, their primitive technology and master camouflage proved instrumental in defeating the Galactic Empire during the Battle of Endor.",
+      "tr": "Ewok'lar Endor'un orman uydusunda yaşayan küçük boylu, kalın kürklü sevimli fakat cesur bir türdür. Yüksek ağaç köylerinde yaşarlar; kabile zekaları ve doğayı kullanma ustalıkları, Endor Savaşı'nda İmparatorluk Lejyonu'nun yenilmesinde kritik rol oynamıştır."
+    },
+    "notableMembers": {
+      "en": "Wicket W. Warrick, Chief Chirpa, Logray, Teebo",
+      "tr": "Wicket W. Warrick, Şef Chirpa, Logray, Teebo"
+    },
+    "appearances": ["ep6", "ep9", "forces-of-destiny"],
+    "source": "wookieepedia:Ewok"
+  }
+]
