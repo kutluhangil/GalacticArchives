@@ -44,7 +44,9 @@
       "debugApplicationIdSuffix": ".debug"
     },
     "macOS": {
-      "minimumSystemVersion": "11.0"
+      "minimumSystemVersion": "11.0",
+      "hardenedRuntime": true,
+      "entitlements": "Entitlements.plist"
     },
     "copyright": "Unofficial fan project. Not affiliated with Lucasfilm or Disney.",
     "category": "Education",
