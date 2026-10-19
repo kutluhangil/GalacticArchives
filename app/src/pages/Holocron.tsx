@@ -23,6 +23,7 @@ import { useApp } from '../state/app'
 import HoloPortrait from '../components/HoloPortrait'
 import HolocronChrome from '../components/HolocronChrome'
 import HolocronQuiz from '../components/HolocronQuiz'
+import StarshipClassIcon from '../components/StarshipClassIcon'
 import { useRovingFocus } from '../hooks/useRovingFocus'
 import { sfx } from '../lib/audio'
 
@@ -273,20 +274,42 @@ export default function Holocron() {
             {ships.map(({ starship }) => (
               <div
                 key={starship.id}
-                className="rounded-lg border border-white/10 bg-panel/90 p-4 transition-colors hover:border-holo-cyan/50"
+                className="group overflow-hidden rounded-lg border border-white/10 bg-panel/90 transition-all hover:border-holo-cyan/50"
               >
-                <div className="font-display text-[14px] tracking-[0.14em] text-holo-cyan">
-                  {L(starship.names, lang)}
+                <div className="relative aspect-16/9 w-full overflow-hidden bg-black/60">
+                  <img
+                    src={`/ships/${starship.id}.webp`}
+                    alt={L(starship.names, lang)}
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-2 right-2 rounded border border-holo-cyan/30 bg-black/70 px-2 py-0.5 font-hud text-[9px] text-holo-cyan backdrop-blur-xs">
+                    {starship.hyperdriveRating}
+                  </div>
                 </div>
-                <div className="mt-1 text-[11px] text-slate-400">
-                  {starship.model} · {L(starship.starshipClass, lang)}
-                </div>
-                <p className="mt-2 text-[12px] leading-relaxed text-slate-300">
-                  {L(starship.desc, lang)}
-                </p>
-                <div className="mt-3 flex justify-between border-t border-white/5 pt-2 text-[11px] text-slate-400">
-                  <span>{L(starship.manufacturer, lang)}</span>
-                  <span className="text-star-gold">{starship.hyperdriveRating}</span>
+                <div className="p-3.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="font-display text-[14px] tracking-[0.14em] text-holo-cyan">
+                      {L(starship.names, lang)}
+                    </div>
+                    <StarshipClassIcon
+                      starshipClass={starship.starshipClass?.en}
+                      className="h-3.5 w-3.5 text-holo-cyan/80 shrink-0"
+                    />
+                  </div>
+                  <div className="mt-1 text-[11px] text-slate-400">
+                    {starship.model} · {L(starship.starshipClass, lang)}
+                  </div>
+                  <p className="mt-2 text-[12px] leading-relaxed text-slate-300">
+                    {L(starship.desc, lang)}
+                  </p>
+                  <div className="mt-3 flex justify-between border-t border-white/5 pt-2 text-[11px] text-slate-400">
+                    <span className="truncate">{L(starship.manufacturer, lang)}</span>
+                    <span className="shrink-0 font-hud text-star-gold">{starship.lengthMeters}m</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -303,20 +326,33 @@ export default function Holocron() {
             {conflictList.map(({ battle }) => (
               <div
                 key={battle.id}
-                className="rounded-lg border border-sith-red/30 bg-panel/90 p-4 transition-colors hover:border-sith-red/60"
+                className="group overflow-hidden rounded-lg border border-sith-red/30 bg-panel/90 transition-all hover:border-sith-red/60"
               >
-                <div className="flex items-baseline justify-between">
+                <div className="relative aspect-16/9 w-full overflow-hidden bg-black/60">
+                  <img
+                    src={`/battles/${battle.id}.webp`}
+                    alt={L(battle.names, lang)}
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute top-2 right-2 rounded border border-star-gold/40 bg-black/80 px-2 py-0.5 font-hud text-[10px] text-star-gold backdrop-blur-xs">
+                    {battle.yearLabel}
+                  </span>
+                </div>
+                <div className="p-3.5">
                   <div className="font-display text-[14px] tracking-[0.14em] text-red-400">
                     {L(battle.names, lang)}
                   </div>
-                  <span className="font-hud text-[10px] text-star-gold">{battle.yearLabel}</span>
+                  <div className="mt-1 text-[11px] text-slate-400">
+                    📍 {L(battle.locationName, lang)}
+                  </div>
+                  <p className="mt-2 text-[12px] leading-relaxed text-slate-300">
+                    {L(battle.desc, lang)}
+                  </p>
                 </div>
-                <div className="mt-1 text-[11px] text-slate-400">
-                  📍 {L(battle.locationName, lang)}
-                </div>
-                <p className="mt-2 text-[12px] leading-relaxed text-slate-300">
-                  {L(battle.desc, lang)}
-                </p>
               </div>
             ))}
           </div>

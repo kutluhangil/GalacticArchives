@@ -21,17 +21,7 @@ const ERA_LABEL: Record<string, { en: string; tr: string }> = {
   'new-republic': { en: 'New Republic', tr: 'Yeni Cumhuriyet' },
 }
 
-const CLASS_ICONS: Record<string, string> = {
-  Starfighter: '✈',
-  'Light Freighter': '🚛',
-  'Capital Ship / Star Destroyer': '⛴',
-  'Super Star Destroyer': '🛸',
-  'Star Cruiser / Carrier': '🚢',
-  'Corvette / Blockade Runner': '⛵',
-  'Gunship / Transport': '🚁',
-  'Patrol & Attack Craft': '🔫',
-  'Interceptor Starfighter': '🏹',
-}
+import StarshipClassIcon from '../components/StarshipClassIcon'
 
 // Maximum ship length for scale bar (the Executor at 19,000m)
 const MAX_LENGTH = 19000
@@ -117,8 +107,9 @@ export default function Hangar() {
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-display text-[12px] tracking-wide text-slate-100">
-                        {CLASS_ICONS[ship.starshipClass?.en ?? ''] ?? '🚀'} {L(ship.names, lang)}
+                      <span className="flex items-center gap-1.5 font-display text-[12px] tracking-wide text-slate-100">
+                        <StarshipClassIcon starshipClass={ship.starshipClass?.en} className="h-3.5 w-3.5 text-holo-cyan shrink-0" />
+                        <span>{L(ship.names, lang)}</span>
                       </span>
                       {shipFaction && (
                         <span
