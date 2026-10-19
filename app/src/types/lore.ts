@@ -365,3 +365,20 @@ export interface Droid {
   appearances: string[]
   source: Citation
 }
+
+export type ArsenalCategory = 'blaster' | 'heavy-weapon' | 'melee-exotic' | 'material-armor' | 'superweapon'
+
+export interface ArsenalItem {
+  id: string
+  names: Localized
+  category: ArsenalCategory
+  categoryName: Localized
+  manufacturerOrOrigin: Localized
+  era: EraId | 'all-eras'
+  rangeYield: Localized
+  primaryUsers: Localized
+  technicalSpecs: Localized
+  desc: Localized
+  appearances: string[]
+  source: Citation
+}

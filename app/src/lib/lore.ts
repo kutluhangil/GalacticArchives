@@ -15,6 +15,7 @@ import type {
   Transmission,
   Species,
   Droid,
+  ArsenalItem,
 } from '../types/lore'
 import erasJson from '../data/meta/eras.json'
 import regionsJson from '../data/meta/regions.json'
@@ -242,5 +243,15 @@ export async function loadDroids(): Promise<Droid[]> {
   }
   return droidsCache
 }
+
+let arsenalCache: ArsenalItem[] | null = null
+export async function loadArsenal(): Promise<ArsenalItem[]> {
+  if (!arsenalCache) {
+    const mod = await import('../data/arsenal.json')
+    arsenalCache = mod.default as ArsenalItem[]
+  }
+  return arsenalCache
+}
+
 
 

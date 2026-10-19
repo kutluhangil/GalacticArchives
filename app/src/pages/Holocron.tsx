@@ -5,10 +5,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import Fuse from 'fuse.js'
-import type { Battle, CelestialBody, Character, Droid, Species, Starship } from '../types/lore'
+import type { ArsenalItem, Battle, CelestialBody, Character, Droid, Species, Starship } from '../types/lore'
 import {
   L,
   loadAllPlanets,
+  loadArsenal,
   loadBattles,
   loadCharacters,
   loadDroids,
@@ -29,6 +30,7 @@ import StarshipClassIcon from '../components/StarshipClassIcon'
 import StarshipModal from '../components/StarshipModal'
 import SpeciesModal from '../components/SpeciesModal'
 import DroidModal from '../components/DroidModal'
+import ArsenalModal from '../components/ArsenalModal'
 import { useRovingFocus } from '../hooks/useRovingFocus'
 import { sfx } from '../lib/audio'
 
@@ -39,6 +41,7 @@ type Entry =
   | { kind: 'battle'; id: string; battle: Battle }
   | { kind: 'species'; id: string; species: Species }
   | { kind: 'droid'; id: string; droid: Droid }
+  | { kind: 'arsenal'; id: string; item: ArsenalItem }
 
 function bodyEntries(bodies: CelestialBody[]): Entry[] {
   return bodies.map((body) => ({ kind: 'body', id: body.id, body }))
@@ -56,10 +59,13 @@ export default function Holocron() {
   const [battles, setBattles] = useState<Battle[]>([])
   const [speciesList, setSpeciesList] = useState<Species[]>([])
   const [droids, setDroids] = useState<Droid[]>([])
+  const [arsenalList, setArsenalList] = useState<ArsenalItem[]>([])
   const [selectedStarship, setSelectedStarship] = useState<Starship | null>(null)
   const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null)
   const [selectedDroid, setSelectedDroid] = useState<Droid | null>(null)
+  const [selectedArsenalItem, setSelectedArsenalItem] = useState<ArsenalItem | null>(null)
   const [droidClassFilter, setDroidClassFilter] = useState<string>('')
+  const [arsenalCategoryFilter, setArsenalCategoryFilter] = useState<string>('')
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('')
   const [sector, setSector] = useState('')
@@ -76,6 +82,7 @@ export default function Holocron() {
     loadBattles().then(setBattles)
     loadSpecies().then(setSpeciesList)
     loadDroids().then(setDroids)
+    loadArsenal().then(setArsenalList)
   }, [])
 
   const entries = useMemo<Entry[]>(
@@ -86,8 +93,9 @@ export default function Holocron() {
       ...battles.map((battle) => ({ kind: 'battle' as const, id: battle.id, battle })),
       ...speciesList.map((species) => ({ kind: 'species' as const, id: species.id, species })),
       ...droids.map((droid) => ({ kind: 'droid' as const, id: droid.id, droid })),
+      ...arsenalList.map((item) => ({ kind: 'arsenal' as const, id: item.id, item })),
     ],
-    [bodies, characters, starships, battles, speciesList, droids],
+    [bodies, characters, starships, battles, speciesList, droids, arsenalList],
   )
 
   const fuse = useMemo(
@@ -109,6 +117,9 @@ export default function Holocron() {
           { name: 'droid.names.en', weight: 3 },
           { name: 'droid.names.tr', weight: 3 },
           { name: 'droid.model', weight: 2 },
+          { name: 'item.names.en', weight: 3 },
+          { name: 'item.names.tr', weight: 3 },
+          { name: 'item.categoryName.en', weight: 2 },
         ],
       }),
     [entries],
@@ -145,7 +156,9 @@ export default function Holocron() {
                   ? entry.species.appearances
                   : entry.kind === 'droid'
                     ? entry.droid.appearances
-                    : entry.battle.appearances
+                    : entry.kind === 'arsenal'
+                      ? entry.item.appearances
+                      : entry.battle.appearances
         if (!appearances.includes(mediaId)) return false
       }
       return true
@@ -166,6 +179,10 @@ export default function Holocron() {
   const droidEntries = results.filter(
     (e): e is Extract<Entry, { kind: 'droid' }> =>
       e.kind === 'droid' && (!droidClassFilter || e.droid.droidClass === droidClassFilter),
+  )
+  const arsenalEntries = results.filter(
+    (e): e is Extract<Entry, { kind: 'arsenal' }> =>
+      e.kind === 'arsenal' && (!arsenalCategoryFilter || e.item.category === arsenalCategoryFilter),
   )
 
   return (
@@ -590,10 +607,109 @@ export default function Holocron() {
         />
       )}
 
+      {/* Galactic Arsenal & Superweapons Section */}
+      {arsenalEntries.length > 0 && (
+        <section className="mb-12">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h2 className="font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
+                ⚔️ {lang === 'tr' ? 'Galaktik Cephanelik & Süper Silahlar' : 'Galactic Arsenal & Superweapons'}
+              </h2>
+              <span className="font-hud text-[11px] text-holo-cyan/70">
+                {lang === 'tr' ? 'Teknik Dosya & Detaylar İçin Tıklayın' : 'Click for Technical Dossier & Details'}
+              </span>
+            </div>
+
+            {/* Category Filter Badges */}
+            <div className="flex flex-wrap gap-1 text-[10px] font-hud">
+              {[
+                { id: '', label: lang === 'tr' ? 'Tümü' : 'All' },
+                { id: 'blaster', label: lang === 'tr' ? 'Blasterlar' : 'Blasters' },
+                { id: 'heavy-weapon', label: lang === 'tr' ? 'Ağır Silahlar' : 'Heavy' },
+                { id: 'melee-exotic', label: lang === 'tr' ? 'Egzotik / Kılıç' : 'Melee/Exotic' },
+                { id: 'material-armor', label: lang === 'tr' ? 'Maden / Zırh' : 'Armor & Ore' },
+                { id: 'superweapon', label: lang === 'tr' ? 'Süper Silahlar' : 'Superweapons' },
+              ].map((c) => (
+                <button
+                  key={c.id}
+                  type="button"
+                  onClick={() => setArsenalCategoryFilter(c.id)}
+                  className={`rounded px-2 py-0.5 transition-colors ${
+                    arsenalCategoryFilter === c.id
+                      ? 'border border-holo-cyan/50 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
+                      : 'border border-white/10 bg-black/40 text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {c.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {arsenalEntries.map(({ item }) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setSelectedArsenalItem(item)}
+                className="group block w-full text-left overflow-hidden rounded-lg border border-white/10 bg-panel/90 transition-all hover:border-holo-cyan/60 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] focus:outline-none focus:ring-1 focus:ring-holo-cyan"
+              >
+                <div className="relative aspect-16/9 w-full overflow-hidden bg-black/60">
+                  <img
+                    src={`/arsenal/${item.id}.webp`}
+                    alt={L(item.names, lang)}
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-2 right-2 rounded border border-white/10 bg-black/70 px-1.5 py-0.5 font-hud text-[8px] text-star-gold backdrop-blur-xs">
+                    {L(item.categoryName, lang)}
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 rounded border border-holo-cyan/30 bg-black/75 px-2.5 py-1.5 backdrop-blur-xs">
+                    <div className="font-display text-[13px] tracking-wide text-slate-100 truncate">
+                      {L(item.names, lang)}
+                    </div>
+                    <div className="text-[10px] text-holo-cyan truncate">
+                      ⚡ {L(item.manufacturerOrOrigin, lang)}
+                    </div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {selectedStarship && (
+        <StarshipModal
+          starship={selectedStarship}
+          onClose={() => setSelectedStarship(null)}
+          lang={lang}
+        />
+      )}
+
+      {selectedSpecies && (
+        <SpeciesModal
+          species={selectedSpecies}
+          onClose={() => setSelectedSpecies(null)}
+          lang={lang}
+        />
+      )}
+
       {selectedDroid && (
         <DroidModal
           droid={selectedDroid}
           onClose={() => setSelectedDroid(null)}
+          lang={lang}
+        />
+      )}
+
+      {selectedArsenalItem && (
+        <ArsenalModal
+          item={selectedArsenalItem}
+          onClose={() => setSelectedArsenalItem(null)}
           lang={lang}
         />
       )}

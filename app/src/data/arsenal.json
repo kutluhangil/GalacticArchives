@@ -1,0 +1,422 @@
+[
+  {
+    "id": "dl-44-heavy-blaster",
+    "names": {
+      "en": "DL-44 Heavy Blaster Pistol",
+      "tr": "DL-44 Ağır Blaster Tabancası"
+    },
+    "category": "blaster",
+    "categoryName": {
+      "en": "Heavy Blaster Pistol",
+      "tr": "Ağır Blaster Tabancası"
+    },
+    "manufacturerOrOrigin": {
+      "en": "BlasTech Industries",
+      "tr": "BlasTech Industries"
+    },
+    "era": "all-eras",
+    "rangeYield": {
+      "en": "Optimum: 50 m / Maximum: 75 m (Stun & Lethal)",
+      "tr": "Optimum: 50 m / Maksimum: 75 m (Şok & Ölümcül)"
+    },
+    "primaryUsers": {
+      "en": "Han Solo, Tobias Beckett, Smugglers, Rebel Commanders",
+      "tr": "Han Solo, Tobias Beckett, Kaçakçılar, İsyancı Komutanları"
+    },
+    "technicalSpecs": {
+      "en": "Custom flash suppressor, motion-sensitive scope, XCiter power cell, extreme recoil",
+      "tr": "Özel alev gizleyen, harekete duyarlı optik dürbün, XCiter güç hücresi, yüksek geri tepme"
+    },
+    "desc": {
+      "en": "The DL-44 is regarded as one of the most powerful blaster pistols in the galaxy, delivering damage comparable to a full-sized blaster rifle without sacrificing one-handed agility. Famously modified by Han Solo, who removed the flash suppressor for faster draw speed.",
+      "tr": "DL-44, bir tüfekle eşdeğer yıkıcı gücü tek elle kullanılabilen kompakt bir tabancada birleştiren efsanevi bir silahtır. Han Solo tarafından hızlı kılıf çekişi için modifiye edilmiş ve 'İlk ateş eden Solo oldu' deyişini doğurmuştur."
+    },
+    "appearances": ["ep4", "ep5", "ep6", "ep7", "solo"],
+    "source": "wookieepedia:DL-44_heavy_blaster_pistol"
+  },
+  {
+    "id": "e-11-blaster-rifle",
+    "names": {
+      "en": "E-11 Blaster Rifle",
+      "tr": "E-11 Blaster Tüfeği"
+    },
+    "category": "blaster",
+    "categoryName": {
+      "en": "Standard Military Rifle",
+      "tr": "Standart Askeri Piyade Tüfeği"
+    },
+    "manufacturerOrOrigin": {
+      "en": "BlasTech Industries",
+      "tr": "BlasTech Industries"
+    },
+    "era": "empire",
+    "rangeYield": {
+      "en": "Optimum: 100 m / Maximum: 300 m (Semi/Full-Auto)",
+      "tr": "Optimum: 100 m / Maksimum: 300 m (Yarı/Tam Otomatik)"
+    },
+    "primaryUsers": {
+      "en": "Imperial Stormtrooper Corps, Imperial Navy Troopers",
+      "tr": "İmparatorluk Stormtrooper Kolordusu, Donanma Muhafızları"
+    },
+    "technicalSpecs": {
+      "en": "Folding metal wire stock, telescopic optical scope, cooling shroud, plasma gas cartridge",
+      "tr": "Katlanabilir tel dipçik, teleskopik optik dürbün, soğutma ızgarası, plazma gaz kartuşu"
+    },
+    "desc": {
+      "en": "The iconic standard-issue infantry rifle of the Galactic Empire's stormtroopers. Highly versatile, it features semi-automatic, fully automatic, and stun settings. Its compact frame allows for swift urban and starship corridor clearance.",
+      "tr": "Galaktik İmparatorluk'un korkulan Stormtrooper birliklerinin standart piyade tüfeğidir. Katlanabilir dipçiği, çok modlu atış seçeneği ve kompakt gövdesi sayesinde hem açık arazide hem de dar yıldız gemisi koridorlarında kullanılmıştır."
+    },
+    "appearances": ["ep4", "ep5", "ep6", "rogue-one", "andor", "rebels", "mandalorian"],
+    "source": "wookieepedia:E-11_blaster_rifle"
+  },
+  {
+    "id": "dc-15a-blaster-rifle",
+    "names": {
+      "en": "DC-15A Blaster Rifle",
+      "tr": "DC-15A Blaster Tüfeği"
+    },
+    "category": "blaster",
+    "categoryName": {
+      "en": "Heavy Military Plasma Rifle",
+      "tr": "Ağır Askeri Plazma Tüfeği"
+    },
+    "manufacturerOrOrigin": {
+      "en": "BlasTech Industries",
+      "tr": "BlasTech Industries"
+    },
+    "era": "clone-wars",
+    "rangeYield": {
+      "en": "Effective: 500 m / Maximum: 10 km on high-power elevation",
+      "tr": "Etkili: 500 m / Maksimum: 10 km (yüksek açılı ağır atış)"
+    },
+    "primaryUsers": {
+      "en": "Grand Army of the Republic Clone Troopers",
+      "tr": "Galaktik Cumhuriyet Klon Askerleri"
+    },
+    "technicalSpecs": {
+      "en": "Tibanna-gas enriched blue plasma bolts, heavy durasteel alloy frame, tripod mountable",
+      "tr": "Tibanna gazıyla zenginleştirilmiş mavi plazma mermileri, ağır durasteel gövde"
+    },
+    "desc": {
+      "en": "The primary service longarm of the Republic's clone troopers during the Clone Wars. Firing superheated ionizing blue plasma bolts powered by refined Tibanna gas, its bolts could puncture thick droid chassis and armored vehicles with devastating force.",
+      "tr": "Klon Savaşları boyunca Galaktik Cumhuriyet'in klon askerlerinin ana uzun namlulu silahıdır. Arıtılmış Tibanna gazıyla ateşlenen iyonlaştırıcı mavi plazması, Ayrılıkçı savaş droidlerinin zırhlarını ve araçlarını kolayca delebiliyordu."
+    },
+    "appearances": ["ep2", "ep3", "clone-wars", "bad-batch"],
+    "source": "wookieepedia:DC-15A_blaster_rifle"
+  },
+  {
+    "id": "wookiee-bowcaster",
+    "names": {
+      "en": "Wookiee Bowcaster",
+      "tr": "Wookiee Bowcaster"
+    },
+    "category": "heavy-weapon",
+    "categoryName": {
+      "en": "Magnetic Bow Accelerator",
+      "tr": "Manyetik Yaylı Parçacık Hızlandırıcı"
+    },
+    "manufacturerOrOrigin": {
+      "en": "Kashyyyk Artisan Guilds",
+      "tr": "Kashyyyk Zanaatkarları"
+    },
+    "era": "all-eras",
+    "rangeYield": {
+      "en": "50 m (Explosive energy quarrel impact)",
+      "tr": "50 m (Patlayıcı enerji zırh delici ok etkisi)"
+    },
+    "primaryUsers": {
+      "en": "Chewbacca, Wookiee Honor Guards",
+      "tr": "Chewbacca, Wookiee Onur Muhafızları"
+    },
+    "technicalSpecs": {
+      "en": "Twin polarizing magnetic orbs, metal quarrel enveloped in plasma envelope, massive cocking spring",
+      "tr": "Çift polarize edici manyetik küre, plazma kılıflı metal ok, yüksek gerilimli yay mekanizması"
+    },
+    "desc": {
+      "en": "A handcrafted traditional Wookiee weapon combining ancient crossbow aesthetics with magnetic accelerator technology. The bowcaster launches a solid metal quarrel sheathed in explosive plasma energy. Its recoil is so extreme that standard humans cannot fire it without injury.",
+      "tr": "Kadim tatar yayı mekaniğini manyetik hızlandırıcı kürelerle birleştiren el yapımı geleneksel bir Wookiee silahıdır. Plazmayla sarılmış metal okları patlayıcı bir darbeyle fırlatır. Geri tepmesi o kadar şiddetlidir ki sıradan bir insanın omzunu kırabilir."
+    },
+    "appearances": ["ep3", "ep4", "ep5", "ep6", "ep7", "solo"],
+    "source": "wookieepedia:Bowcaster"
+  },
+  {
+    "id": "amban-phase-pulse",
+    "names": {
+      "en": "Amban Phase-Pulse Disintegrator Rifle",
+      "tr": "Amban Faz-Darbe Parçalayıcı Tüfek"
+    },
+    "category": "heavy-weapon",
+    "categoryName": {
+      "en": "Disruptor Sniper Rifle",
+      "tr": "Parçalayıcı Keskin Nişancı Tüfeği"
+    },
+    "manufacturerOrOrigin": {
+      "en": "Amban Arms Guild",
+      "tr": "Amban Silah Loncası"
+    },
+    "era": "all-eras",
+    "rangeYield": {
+      "en": "Extreme sniper range / Instant molecular disintegration",
+      "tr": "Aşırı uzun menzil / Anında moleküler buharlaşma"
+    },
+    "primaryUsers": {
+      "en": "Din Djarin (The Mandalorian)",
+      "tr": "Din Djarin (Mandalorian)"
+    },
+    "technicalSpecs": {
+      "en": "Breech-loading single cartridge, electro-shock prong bayonet, long-range thermal scope",
+      "tr": "Arkadan tek mermi yüklemeli mekanizma, ikiz elektroşok çatal ucu, termal dürbün"
+    },
+    "desc": {
+      "en": "A rare disintegrator rifle wielded by bounty hunter Din Djarin. Banned by Imperial treaties due to its brutal molecular dissolution of living targets, the weapon also features a high-voltage electrified prong bayonet for subduing monsters and beasts.",
+      "tr": "Ödül avcısı Din Djarin'in kullandığı nadir parçalayıcı bir tüfektir. Canlı hedefleri moleküler düzeyde tamamen buharlaştırdığı için İmparatorluk antlaşmalarınca yasaklanmıştır. Ucundaki çift çatallı elektroşok ucu dev canavarları dize getirebilir."
+    },
+    "appearances": ["mandalorian"],
+    "source": "wookieepedia:Amban_phase-pulse_blaster"
+  },
+  {
+    "id": "thermal-detonator",
+    "names": {
+      "en": "Class-A Thermal Detonator",
+      "tr": "A-Sınıfı Termal Detonatör"
+    },
+    "category": "heavy-weapon",
+    "categoryName": {
+      "en": "Fusion Grenade",
+      "tr": "Füzyon Bombası"
+    },
+    "manufacturerOrOrigin": {
+      "en": "Merr-Sonn Munitions, Inc.",
+      "tr": "Merr-Sonn Munitions, Inc."
+    },
+    "era": "all-eras",
+    "rangeYield": {
+      "en": "5 m total molecular disintegration / 20 m thermal shockwave",
+      "tr": "5 m tam moleküler yok oluş / 20 m termal şok dalgası"
+    },
+    "primaryUsers": {
+      "en": "Imperial Stormtroopers, Bounty Hunters, Leia Organa (as Boushh)",
+      "tr": "Stormtrooperlar, Ödül Avcıları, Leia Organa (Boushh kılığında)"
+    },
+    "technicalSpecs": {
+      "en": "Baradium core, collapsible particle field envelope, sliding arming trigger, dead-man fail-safe",
+      "tr": "Baradium çekirdeği, parçacık alanı muhafazası, kademeli kurma mandalı"
+    },
+    "desc": {
+      "en": "The most dreaded grenade in the galaxy. Encased in a metallic sphere, its unstable Baradium core triggers an expanding thermonuclear fusion field that disintegrates all matter inside its blast radius without damaging exterior structures beyond the perimeter.",
+      "tr": "Galaksinin en korkulan el bombasıdır. İçindeki kararsız Baradium çekirdeği etkinleştirildiğinde hızla genişleyen bir termonükleer füzyon alanı oluşturarak etki alanı içindeki her şeyi anında atomlarına ayırır."
+    },
+    "appearances": ["ep6", "ep1", "clone-wars", "rebels", "andor"],
+    "source": "wookieepedia:Thermal_detonator"
+  },
+  {
+    "id": "darksaber",
+    "names": {
+      "en": "The Darksaber",
+      "tr": "Darksaber (Karanlık Kılıç)"
+    },
+    "category": "melee-exotic",
+    "categoryName": {
+      "en": "Unique Mandalorian Lightsaber",
+      "tr": "Kadim Mandalor Işın Kılıcı"
+    },
+    "manufacturerOrOrigin": {
+      "en": "Tarre Vizsla (First Mandalorian Jedi)",
+      "tr": "Tarre Vizsla (İlk Mandalor Jedi)"
+    },
+    "era": "all-eras",
+    "rangeYield": {
+      "en": "Melee (Flat obsidian blade edged with white-hot crackling lightning)",
+      "tr": "Yakın Dövüş (Beyaz kıvılcımlarla parlayan yassı obsidyen plazma bıçağı)"
+    },
+    "primaryUsers": {
+      "en": "Tarre Vizsla, Pre Vizsla, Darth Maul, Sabine Wren, Bo-Katan Kryze, Din Djarin",
+      "tr": "Tarre Vizsla, Pre Vizsla, Darth Maul, Sabine Wren, Bo-Katan Kryze, Din Djarin"
+    },
+    "technicalSpecs": {
+      "en": "Flattop angular beskar hilt, sound-attuned black plasma emitter, weight fluctuates with wielder's emotional state",
+      "tr": "Açılı beskar kabza, ses frekansına duyarlı siyah plazma yayıcı, kullanıcının zihnine göre ağırlaşan bıçak"
+    },
+    "desc": {
+      "en": "An ancient, one-of-a-kind black-bladed lightsaber created over a thousand years ago by Tarre Vizsla, the first Mandalorian inducted into the Jedi Order. It became the legendary ancestral symbol of the Mand'alor; whoever claims it in martial combat holds the right to rule all of Mandalore.",
+      "tr": "Bin yıldan uzun süre önce Jedi Düzeni'ne katılan ilk Mandalor olan Tarre Vizsla tarafından dövülen tek ve eşsiz siyah bıçaklı ışıltılı kılıçtır. Mand'alor liderliğinin kutsal sembolüdür; onu adil bir düelloda kazanan kişi tüm Mandalore klanlarına hükmetme hakkını elde eder."
+    },
+    "appearances": ["clone-wars", "rebels", "mandalorian", "book-of-boba-fett"],
+    "source": "wookieepedia:Darksaber"
+  },
+  {
+    "id": "beskar-ingot",
+    "names": {
+      "en": "Beskar (Mandalorian Iron)",
+      "tr": "Beskar (Mandalor Demiri)"
+    },
+    "category": "material-armor",
+    "categoryName": {
+      "en": "Legendary Armored Ore",
+      "tr": "Efsanevi Zırh Madeni"
+    },
+    "manufacturerOrOrigin": {
+      "en": "Mandalore & Concordia mines",
+      "tr": "Mandalore ve Concordia madenleri"
+    },
+    "era": "all-eras",
+    "rangeYield": {
+      "en": "Invulnerable to standard blaster fire, deflected direct lightsaber strikes",
+      "tr": "Standart blaster ateşine karşı geçirimsiz, doğrudan ışın kılıcı darbelerini sektirir"
+    },
+    "primaryUsers": {
+      "en": "Mandalorian Warriors, Armorer, Imperial Remnant (plunder)",
+      "tr": "Mandalor Savaşçıları, Zırhçı, İmparatorluk Kalıntıları"
+    },
+    "technicalSpecs": {
+      "en": "Damascus-style folded molecular grain structure, Imperial imperial stamp on ingots, extremely dense melting point",
+      "tr": "Şam çeliği benzeri dalgalı moleküler katmanlar, son derece yüksek erime noktası"
+    },
+    "desc": {
+      "en": "A rare metallic alloy found almost exclusively on the world of Mandalore and its moon Concordia. Renowned as the toughest alloy in the galaxy, pure Beskar can deflect point-blank blaster bolts and withstand sustained strikes from lightsabers. Its forging secrets are guarded zealously by Mandalorian Armorers.",
+      "tr": "Yalnızca Mandalore ve uydusu Concordia'da bulunan olağanüstü dayanıklı nadir bir metaldir. Saf beskar zırhlar, doğrudan blaster ateşini sektirebilir ve bir ışın kılıcının darbesine erimeden dayanabilir. Dövülme sırları yalnızca Mandalor Zırhçıları tarafından bilinir."
+    },
+    "appearances": ["mandalorian", "book-of-boba-fett", "clone-wars", "rebels"],
+    "source": "wookieepedia:Beskar"
+  },
+  {
+    "id": "cortosis-ore",
+    "names": {
+      "en": "Cortosis",
+      "tr": "Cortosis"
+    },
+    "category": "material-armor",
+    "categoryName": {
+      "en": "Lightsaber-Deactivating Mineral",
+      "tr": "Işın Kılıcı Kısa Devre Yaptıran Maden"
+    },
+    "manufacturerOrOrigin": {
+      "en": "Mokivj, Bal'demnic & Outer Rim asteroids",
+      "tr": "Mokivj, Bal'demnic ve Dış Halka asteroitleri"
+    },
+    "era": "all-eras",
+    "rangeYield": {
+      "en": "Energy feedback loop immediately extinguishes lightsaber blades upon contact",
+      "tr": "Temas anında ışın kılıcı plazmasını saniyelerce söndüren enerji geri beslemesi"
+    },
+    "primaryUsers": {
+      "en": "The Stranger (Qimir), Cortosis Battle Droids, Sith Infiltrators",
+      "tr": "Yabancı / Qimir (The Acolyte), Cortosis Savaş Droidleri, Sith Ajanları"
+    },
+    "technicalSpecs": {
+      "en": "High energy absorption matrix, brittle crystalline fibrous texture, prone to kinetic shattering",
+      "tr": "Yüksek enerji emme matrisi, kırılgan kristalimsi lifli yapı, kinetik darbelere karşı zayıf"
+    },
+    "desc": {
+      "en": "A rare, fibrous mineral with extraordinary energy-absorption properties. When struck by a lightsaber, cortosis creates a violent energy feedback loop that instantly deactivates the lightsaber blade for several minutes, though the material itself is brittle and shatters under blunt kinetic force.",
+      "tr": "Olağanüstü enerji emme özelliklerine sahip son derece nadir lifli bir mineraldir. Bir ışın kılıcı cortosis'e çarptığında kılıcın plazma döngüsünü kısa devre yaptırarak bıçağı geçici olarak söndürür; ancak kaba kinetik darbelere karşı kırılgandır."
+    },
+    "appearances": ["the-acolyte", "kotor", "thrawn-alliances"],
+    "source": "wookieepedia:Cortosis"
+  },
+  {
+    "id": "death-star-i",
+    "names": {
+      "en": "DS-1 Orbital Battle Station (Death Star I)",
+      "tr": "DS-1 Yörüngesel Savaş İstasyonu (Ölüm Yıldızı I)"
+    },
+    "category": "superweapon",
+    "categoryName": {
+      "en": "Kyber-Powered Planet-Killer",
+      "tr": "Kyber Odaklı Gezegen Yok Edici"
+    },
+    "manufacturerOrOrigin": {
+      "en": "Imperial Department of Military Research / Geonosis",
+      "tr": "İmparatorluk Askeri Araştırma Departmanı / Geonosis"
+    },
+    "era": "empire",
+    "rangeYield": {
+      "en": "Superlaser: Total planetary core detonation (single blast obliterates worlds)",
+      "tr": "Süper Lazer: Gezegensel çekirdek infilakı (tek atışta tüm dünyayı yok eder)"
+    },
+    "primaryUsers": {
+      "en": "Grand Moff Wilhuff Tarkin, Galactic Empire",
+      "tr": "Grand Moff Wilhuff Tarkin, Galaktik İmparatorluk"
+    },
+    "technicalSpecs": {
+      "en": "160 km diameter, 8 Kyber crystal tributary laser arrays converging into single beam, hyperdrive Class 4",
+      "tr": "160 km çap, tek odakta birleşen 8 kyber kristal lazer kanalı, hiperürücü Sınıf 4"
+    },
+    "desc": {
+      "en": "The ultimate instrument of terror created by the Galactic Empire to enforce the Tarkin Doctrine. Spanning 160 kilometers in diameter, its prime weapon—powered by massive harvested kyber crystals—fired an emerald beam capable of shattering entire inhabited planets, demonstrated tragically on Alderaan.",
+      "tr": "Tarkin Doktrini'ni galaksiye zorla kabul ettirmek amacıyla İmparatorluk tarafından inşa edilen 160 km çapındaki devasa süper silahtır. Kyber kristalleriyle güçlendirilen yeşil süper lazeri, Alderaan gezegenini saniyeler içinde paramparça ederek galaksiyi dehşete düşürmüştür."
+    },
+    "appearances": ["ep4", "rogue-one"],
+    "source": "wookieepedia:DS-1_Orbital_Battle_Station"
+  },
+  {
+    "id": "starkiller-base",
+    "names": {
+      "en": "Starkiller Base",
+      "tr": "Starkiller Üssü"
+    },
+    "category": "superweapon",
+    "categoryName": {
+      "en": "Solar Quintessence Planet-Killer",
+      "tr": "Yıldız Enerjisi Emen Gezegensel Süper Silah"
+    },
+    "manufacturerOrOrigin": {
+      "en": "First Order (Carved into the sacred world of Ilum)",
+      "tr": "İlk Düzen (Kadim Ilum gezegeninin çekirdeğine oyuldu)"
+    },
+    "era": "new-republic",
+    "rangeYield": {
+      "en": "Sub-hyperspace phantom energy beam targeting multiple worlds simultaneously across the galaxy",
+      "tr": "Alt-hiperuzay hayalet enerji huzmesi ile galaksinin öbür ucundaki çoklu dünyaları aynı anda vurma"
+    },
+    "primaryUsers": {
+      "en": "General Armitage Hux, Supreme Leader Snoke, First Order",
+      "tr": "General Armitage Hux, Yüce Lider Snoke, İlk Düzen"
+    },
+    "technicalSpecs": {
+      "en": "660 km planetary diameter, thermal oscillator containment field, consumes whole suns for fuel",
+      "tr": "660 km gezegen çapı, termal osilatör koruma alanı, yakıt olarak bütün bir yıldızı yutar"
+    },
+    "desc": {
+      "en": "Constructed inside the hollowed crust of the ancient Jedi kyber world of Ilum, Starkiller Base drew dark energy from stars until they collapsed. It fired a split phantom-energy beam through hyperspace that eradicated the Hosnian Prime system and the New Republic senate in a single cataclysmic strike.",
+      "tr": "Kadim Jedi kyber dünyası Ilum'un çekirdeğine gizlice oyulan Starkiller Üssü, yakındaki yıldızların tüm enerjisini emerek beslenirdi. Hiperuzay yarıklarından fırlattığı ölümcül ışın demetiyle Hosnian Prime ve Yeni Cumhuriyet Senatosu'nu tek atışta haritadan silmiştir."
+    },
+    "appearances": ["ep7"],
+    "source": "wookieepedia:Starkiller_Base"
+  },
+  {
+    "id": "malevolence-superweapon",
+    "names": {
+      "en": "The Malevolence (Mega-Ion Flagship)",
+      "tr": "Malevolence (Mega-İyon Amiral Gemisi)"
+    },
+    "category": "superweapon",
+    "categoryName": {
+      "en": "Mega-Ion Pulse Dreadnought",
+      "tr": "Mega-İyon Darbeli Ağır Savaş Gemisi"
+    },
+    "manufacturerOrOrigin": {
+      "en": "Free Dac Volunteers Engineering Corp / Separatists",
+      "tr": "Free Dac Gönüllüleri Mühendislik Kolordusu / Ayrılıkçılar"
+    },
+    "era": "clone-wars",
+    "rangeYield": {
+      "en": "Massive spherical ion wave deactivating entire fleets of Star Destroyers simultaneously",
+      "tr": "Aynı anda tüm bir Venator filosunun enerjisini kesen devasa küresel iyon dalgası"
+    },
+    "primaryUsers": {
+      "en": "General Grievous, Count Dooku, Separatist Navy",
+      "tr": "General Grievous, Kont Dooku, Ayrılıkçı Donanması"
+    },
+    "technicalSpecs": {
+      "en": "4,845 m length, port and starboard twin mega-ion cannons, internal railway rapid-transit system",
+      "tr": "4.845 metre uzunluk, iskele ve sancakta ikiz mega-iyon topları, iç tramvay raylı taşıma sistemi"
+    },
+    "desc": {
+      "en": "A gargantuan 4.8-kilometer dreadnought commanded by General Grievous during the early Clone Wars. Armed with port and starboard mega-ion pulse cannons, the Malevolence wiped out three Republic task forces without leaving a single survivor before being sabotaged by Anakin Skywalker.",
+      "tr": "Klon Savaşları'nın başında General Grievous tarafından komuta edilen 4.8 kilometre uzunluğundaki korkunç dreadnought savaş gemisidir. Yan cephelerindeki ikiz mega-iyon toplarıyla fırlattığı elektromanyetik şok dalgaları, Cumhuriyet kruvazörlerini savunmasız bırakarak filoları tamamen yok etmiştir."
+    },
+    "appearances": ["clone-wars"],
+    "source": "wookieepedia:Malevolence"
+  }
+]
