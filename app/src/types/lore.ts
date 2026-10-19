@@ -407,3 +407,23 @@ export interface TerritoryZone {
   glowColor: string
 }
 
+export type DangerLevel = 'low' | 'moderate' | 'high' | 'extreme' | 'lethal'
+
+export interface BestiaryCreature {
+  id: string
+  names: Localized
+  classification: Localized
+  homeworld: Localized
+  homeworldPlanetId?: string
+  diet: Localized
+  averageSize: string
+  dangerLevel: DangerLevel
+  traits: LocalizedList
+  temperament: Localized
+  notableEncounters: Localized
+  desc: Localized
+  appearances: string[]
+  source: Citation
+}
+
+

@@ -5,12 +5,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import Fuse from 'fuse.js'
-import type { ArsenalItem, Battle, CelestialBody, Character, Droid, Species, Starship } from '../types/lore'
+import type { ArsenalItem, Battle, BestiaryCreature, CelestialBody, Character, Droid, Species, Starship } from '../types/lore'
 import {
   L,
   loadAllPlanets,
   loadArsenal,
   loadBattles,
+  loadBestiary,
   loadCharacters,
   loadDroids,
   loadSpecies,
@@ -31,6 +32,7 @@ import StarshipModal from '../components/StarshipModal'
 import SpeciesModal from '../components/SpeciesModal'
 import DroidModal from '../components/DroidModal'
 import ArsenalModal from '../components/ArsenalModal'
+import BestiaryModal from '../components/BestiaryModal'
 import { useRovingFocus } from '../hooks/useRovingFocus'
 import { sfx } from '../lib/audio'
 
@@ -42,6 +44,7 @@ type Entry =
   | { kind: 'species'; id: string; species: Species }
   | { kind: 'droid'; id: string; droid: Droid }
   | { kind: 'arsenal'; id: string; item: ArsenalItem }
+  | { kind: 'bestiary'; id: string; creature: BestiaryCreature }
 
 function bodyEntries(bodies: CelestialBody[]): Entry[] {
   return bodies.map((body) => ({ kind: 'body', id: body.id, body }))
@@ -60,12 +63,15 @@ export default function Holocron() {
   const [speciesList, setSpeciesList] = useState<Species[]>([])
   const [droids, setDroids] = useState<Droid[]>([])
   const [arsenalList, setArsenalList] = useState<ArsenalItem[]>([])
+  const [bestiaryList, setBestiaryList] = useState<BestiaryCreature[]>([])
   const [selectedStarship, setSelectedStarship] = useState<Starship | null>(null)
   const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null)
   const [selectedDroid, setSelectedDroid] = useState<Droid | null>(null)
   const [selectedArsenalItem, setSelectedArsenalItem] = useState<ArsenalItem | null>(null)
+  const [selectedCreature, setSelectedCreature] = useState<BestiaryCreature | null>(null)
   const [droidClassFilter, setDroidClassFilter] = useState<string>('')
   const [arsenalCategoryFilter, setArsenalCategoryFilter] = useState<string>('')
+  const [threatFilter, setThreatFilter] = useState<string>('')
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('')
   const [sector, setSector] = useState('')
@@ -83,6 +89,7 @@ export default function Holocron() {
     loadSpecies().then(setSpeciesList)
     loadDroids().then(setDroids)
     loadArsenal().then(setArsenalList)
+    loadBestiary().then(setBestiaryList)
   }, [])
 
   const entries = useMemo<Entry[]>(
@@ -94,8 +101,9 @@ export default function Holocron() {
       ...speciesList.map((species) => ({ kind: 'species' as const, id: species.id, species })),
       ...droids.map((droid) => ({ kind: 'droid' as const, id: droid.id, droid })),
       ...arsenalList.map((item) => ({ kind: 'arsenal' as const, id: item.id, item })),
+      ...bestiaryList.map((creature) => ({ kind: 'bestiary' as const, id: creature.id, creature })),
     ],
-    [bodies, characters, starships, battles, speciesList, droids, arsenalList],
+    [bodies, characters, starships, battles, speciesList, droids, arsenalList, bestiaryList],
   )
 
   const fuse = useMemo(
@@ -120,6 +128,10 @@ export default function Holocron() {
           { name: 'item.names.en', weight: 3 },
           { name: 'item.names.tr', weight: 3 },
           { name: 'item.categoryName.en', weight: 2 },
+          { name: 'creature.names.en', weight: 3 },
+          { name: 'creature.names.tr', weight: 3 },
+          { name: 'creature.classification.en', weight: 2 },
+          { name: 'creature.homeworld.en', weight: 2 },
         ],
       }),
     [entries],
@@ -158,7 +170,9 @@ export default function Holocron() {
                     ? entry.droid.appearances
                     : entry.kind === 'arsenal'
                       ? entry.item.appearances
-                      : entry.battle.appearances
+                      : entry.kind === 'bestiary'
+                        ? entry.creature.appearances
+                        : entry.battle.appearances
         if (!appearances.includes(mediaId)) return false
       }
       return true
@@ -184,6 +198,11 @@ export default function Holocron() {
     (e): e is Extract<Entry, { kind: 'arsenal' }> =>
       e.kind === 'arsenal' && (!arsenalCategoryFilter || e.item.category === arsenalCategoryFilter),
   )
+  const bestiaryEntries = results.filter(
+    (e): e is Extract<Entry, { kind: 'bestiary' }> =>
+      e.kind === 'bestiary' && (!threatFilter || e.creature.dangerLevel === threatFilter),
+  )
+
 
   return (
     <HolocronChrome>
@@ -710,6 +729,98 @@ export default function Holocron() {
         <ArsenalModal
           item={selectedArsenalItem}
           onClose={() => setSelectedArsenalItem(null)}
+          lang={lang}
+        />
+      )}
+
+      {/* Galactic Bestiary & Apex Wildlife Section */}
+      {bestiaryEntries.length > 0 && (
+        <section className="mb-12">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h2 className="font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
+                🐾 {lang === 'tr' ? 'Galaktik Yaratıklar & Vahşi Yaşam' : 'Galactic Bestiary & Wildlife'}
+              </h2>
+              <span className="font-hud text-[11px] text-holo-cyan/70">
+                {lang === 'tr' ? 'Biyolojik Dosya & Ekolojik Veriler İçin Tıklayın' : 'Click for Biological Dossier & Ecology'}
+              </span>
+            </div>
+
+            {/* Threat Level Filter Badges */}
+            <div className="flex flex-wrap gap-1 text-[10px] font-hud">
+              {[
+                { id: '', label: lang === 'tr' ? 'Tümü' : 'All' },
+                { id: 'lethal', label: lang === 'tr' ? 'Ölümcül' : 'Lethal' },
+                { id: 'high', label: lang === 'tr' ? 'Yüksek Tehdit' : 'High Threat' },
+                { id: 'moderate', label: lang === 'tr' ? 'Orta Tehdit' : 'Moderate' },
+                { id: 'low', label: lang === 'tr' ? 'Düşük / Uysal' : 'Low / Docile' },
+              ].map((t) => (
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => setThreatFilter(t.id)}
+                  className={`rounded px-2 py-0.5 transition-colors ${
+                    threatFilter === t.id
+                      ? 'border border-holo-cyan/50 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
+                      : 'border border-white/10 bg-black/40 text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {bestiaryEntries.map(({ creature }) => (
+              <button
+                key={creature.id}
+                type="button"
+                onClick={() => setSelectedCreature(creature)}
+                className="group block w-full text-left overflow-hidden rounded-lg border border-white/10 bg-panel/90 transition-all hover:border-holo-cyan/60 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] focus:outline-none focus:ring-1 focus:ring-holo-cyan"
+              >
+                <div className="relative aspect-16/9 w-full overflow-hidden bg-black/60">
+                  <img
+                    src={`/bestiary/${creature.id}.webp`}
+                    alt={L(creature.names, lang)}
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    className={`absolute top-2 right-2 rounded border px-1.5 py-0.5 font-hud text-[8.5px] uppercase font-bold backdrop-blur-xs ${
+                      creature.dangerLevel === 'lethal'
+                        ? 'border-red-500/50 bg-red-950/80 text-red-400'
+                        : creature.dangerLevel === 'high'
+                          ? 'border-orange-500/50 bg-orange-950/80 text-orange-400'
+                          : creature.dangerLevel === 'moderate'
+                            ? 'border-yellow-500/50 bg-yellow-950/80 text-yellow-400'
+                            : 'border-emerald-500/50 bg-emerald-950/80 text-emerald-400'
+                    }`}
+                  >
+                    {creature.dangerLevel}
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 rounded border border-holo-cyan/30 bg-black/75 px-2.5 py-1.5 backdrop-blur-xs">
+                    <div className="font-display text-[13px] tracking-wide text-slate-100 truncate">
+                      {L(creature.names, lang)}
+                    </div>
+                    <div className="text-[10px] text-holo-cyan truncate">
+                      🪐 {L(creature.homeworld, lang)} · {L(creature.classification, lang)}
+                    </div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {selectedCreature && (
+        <BestiaryModal
+          creature={selectedCreature}
+          onClose={() => setSelectedCreature(null)}
           lang={lang}
         />
       )}

@@ -1,0 +1,642 @@
+[
+  {
+    "id": "rancor",
+    "names": {
+      "en": "Rancor",
+      "tr": "Rancor"
+    },
+    "classification": {
+      "en": "Semi-sentient Reptilian Carnivore",
+      "tr": "Yarı-Bilinçli Sürüngen Etobur"
+    },
+    "homeworld": {
+      "en": "Dathomir / Lehon",
+      "tr": "Dathomir / Lehon"
+    },
+    "homeworldPlanetId": "dathomir",
+    "diet": {
+      "en": "Carnivorous",
+      "tr": "Etobur"
+    },
+    "averageSize": "5 – 10 meters height",
+    "dangerLevel": "lethal",
+    "traits": {
+      "en": [
+        "Thick armored hide impervious to standard blaster fire",
+        "Enormous muscular forearms capable of crushing speeders",
+        "Deep emotional bonding with handlers (e.g. Malakili)",
+        "Nightsister mounts on Dathomir"
+      ],
+      "tr": [
+        "Standart blaster ateşine dirençli kalın zırhlı deri",
+        "Speeder'ları ezebilecek güçte devasa kaslı ön kollar",
+        "Eğitmenleriyle derin duygusal bağ kurabilme yeteneği (ör. Malakili)",
+        "Dathomir'de Gece Kızkardeşleri binekleri"
+      ]
+    },
+    "temperament": {
+      "en": "Territorial, savage when threatened, yet deeply loyal to compassionate trainers.",
+      "tr": "Bölgeci, tehdit edildiğinde vahşi, ancak şefkatli eğiticilerine son derece sadık."
+    },
+    "notableEncounters": {
+      "en": "Jabba the Hutt's bull rancor Pateesa executed prisoners beneath the palace throne room until slain by Luke Skywalker in 4 ABY. Boba Fett also rode a calf into battle at Mos Espa.",
+      "tr": "Jabba the Hutt'ın erkek rancor'ı Pateesa, 4 ABY'de Luke Skywalker tarafından alt edilene dek taht odasının altında mahkumları infaz etti. Boba Fett de Mos Espa savaşında genç bir rancor'a bindi."
+    },
+    "desc": {
+      "en": "Native to the fog-shrouded swamps of Dathomir, rancors are towering apex predators with disproportionately elongated arms and skin tough enough to deflect handheld blasters. Captured across the galaxy as war beasts and underworld executioners, they possess surprising social intelligence.",
+      "tr": "Dathomir'in sislerle kaplı bataklıklarına özgü olan rancor'lar, orantısız uzun kollar ve elde taşınan blasterları saptıracak kadar sert deriye sahip devasa avcılardır. Galakside savaş canavarı ve yeraltı infazcısı olarak yakalansalar da şaşırtıcı bir sosyal zekaya sahiptirler."
+    },
+    "appearances": [
+      "Star Wars: Episode VI Return of the Jedi",
+      "The Bad Batch",
+      "The Book of Boba Fett",
+      "The Clone Wars"
+    ],
+    "source": "wookieepedia:Rancor"
+  },
+  {
+    "id": "krayt-dragon",
+    "names": {
+      "en": "Greater Krayt Dragon",
+      "tr": "Büyük Krayt Ejderhası"
+    },
+    "classification": {
+      "en": "Colossal Subterranean Carnivore",
+      "tr": "Devasa Yeraltı Etoburu"
+    },
+    "homeworld": {
+      "en": "Tatooine",
+      "tr": "Tatooine"
+    },
+    "homeworldPlanetId": "tatooine",
+    "diet": {
+      "en": "Carnivorous (Banthas, Sarlaccs, Humanoids)",
+      "tr": "Etobur (Bantha'lar, Sarlacc'lar, İnsansılar)"
+    },
+    "averageSize": "100+ meters length",
+    "dangerLevel": "lethal",
+    "traits": {
+      "en": [
+        "Burrows through solid rock and sand dune strata effortlessly",
+        "Projects concentrated corrosive gastric acid from throat sac",
+        "Forms precious, highly resonating Krayt dragon pearls in gizzard",
+        "Apex predator of the Tatooine Dune Sea"
+      ],
+      "tr": [
+        "Sert kaya ve kum tepesi katmanlarını zahmetsizce kazar",
+        "Boğaz kesesinden yoğun aşındırıcı mide asidi püskürtür",
+        "Taşlığında değerli ve yüksek rezonanslı Krayt ejderha incileri üretir",
+        "Tatooine Kum Denizi'nin zirve avcısı"
+      ]
+    },
+    "temperament": {
+      "en": "Insatiably ravenous, destructive force of nature driven by territorial hunger.",
+      "tr": "Doymak bilmez açlıkta, bölgesel av dürtüsüyle hareket eden yıkıcı bir doğa gücü."
+    },
+    "notableEncounters": {
+      "en": "A colossal greater krayt dragon terrorized the mining settlement of Mos Pelgo until Din Djarin, Cobb Vanth, and allied Tusken Raiders detonated seismics inside its gullet in 9 ABY.",
+      "tr": "Devasa bir krayt ejderhası, 9 ABY'de Din Djarin, Cobb Vanth ve müttefik Tusken Akıncıları boğazının içinde sismik patlayıcı patlatana kadar Mos Pelgo maden kasabasını terörize etti."
+    },
+    "desc": {
+      "en": "The apex predator of Tatooine, the greater krayt dragon swims through desert sand like water, devouring entire herds of banthas and even evicting dormant sarlaccs from their pits. In their bellies, grinding stones compress into radiant pearls coveted across the galaxy for lightsaber crystals.",
+      "tr": "Tatooine'in zirve avcısı olan büyük krayt ejderhası, çöl kumunda su gibi yüzer, koca bantha sürülerini yutar ve hatta uykudaki sarlacc'ları çukurlarından söküp atar. Midelerinde öğütülen taşlar, galaksi genelinde ışın kılıcı kristalleri için arzulanan ışıltılı incilere dönüşür."
+    },
+    "appearances": [
+      "The Mandalorian",
+      "Star Wars: Episode IV A New Hope (Skeleton)",
+      "Star Wars: Knights of the Old Republic"
+    ],
+    "source": "wookieepedia:Krayt_dragon"
+  },
+  {
+    "id": "purrgil",
+    "names": {
+      "en": "Purrgil",
+      "tr": "Purrgil"
+    },
+    "classification": {
+      "en": "Bio-Hyperdrive Spacefaring Cetacean",
+      "tr": "Biyo-Hiperuzay Seyahatçisi Uzay Balinası"
+    },
+    "homeworld": {
+      "en": "Deep Space / Intergalactic Voids",
+      "tr": "Derin Uzay / Galaksiler Arası Boşluklar"
+    },
+    "diet": {
+      "en": "Clouzon-36 gas and hyperdrive fuels (coaxium)",
+      "tr": "Clouzon-36 gazı ve hiperuzay yakıtları (koaksiyum)"
+    },
+    "averageSize": "30 meters (Purrgil) – 1+ kilometer (Purrgil Ultra)",
+    "dangerLevel": "moderate",
+    "traits": {
+      "en": [
+        "Naturally capable of opening and navigating hyperspace simu-tunnels",
+        "Inspiration for early sentient hyperspace travel technology",
+        "Tendrils capable of crushing Capital Star Destroyers",
+        "Navigate trans-galactic migration routes across galaxies (e.g. to Peridea)"
+      ],
+      "tr": [
+        "Doğal olarak hiperuzay simu-tünelleri açma ve yön bulma yeteneği",
+        "Bilinçli türlerin erken hiperuzay seyahat teknolojisine ilham kaynağı",
+        "Yıldız Muhriplerini ezebilecek güçte dokunaçlar",
+        "Galaksiler arası göç yollarında seyahat (ör. Peridea'ya)"
+      ]
+    },
+    "temperament": {
+      "en": "Peaceful celestial migrators, highly protective of young calves and breeding pods.",
+      "tr": "Barışçıl göksel göçebeler; yavrularını ve üreme sürülerini şiddetle korurlar."
+    },
+    "notableEncounters": {
+      "en": "Ezra Bridger connected through the Force with a pod of Purrgil Ultra to snare Grand Admiral Thrawn's flagship Chimaera and leap into the extragalactic void during the Liberation of Lothal.",
+      "tr": "Ezra Bridger, Lothal'ın Kurtuluşu sırasında Güç aracılığıyla bir Purrgil Ultra sürüsüyle bağ kurarak Büyük Amiral Thrawn'ın sancak gemisi Chimaera'yı yakalayıp galaksi dışı boşluğa sıçradı."
+    },
+    "desc": {
+      "en": "Purrgil are sentient-sized to star dreadnought-sized space whales capable of metabolizing volatile Clouzon-36 gas to jump into hyperspace. Ancient explorers learned the secret of hyperdrive technology by observing the celestial migration lanes plotted by ancient purrgil pods.",
+      "tr": "Purrgil'ler, uçucu Clouzon-36 gazını metabolize ederek hiperuzaya sıçrayabilen devasa uzay balinalarıdır. Antik kaşifler, kadim purrgil sürülerinin çizdiği göksel göç yollarını gözlemleyerek hiperuzay motoru teknolojisinin sırrını keşfetmişlerdir."
+    },
+    "appearances": [
+      "Star Wars Rebels",
+      "The Mandalorian",
+      "Ahsoka"
+    ],
+    "source": "wookieepedia:Purrgil"
+  },
+  {
+    "id": "sarlacc",
+    "names": {
+      "en": "Sarlacc",
+      "tr": "Sarlacc"
+    },
+    "classification": {
+      "en": "Subterranean Omnivorous Xerocole",
+      "tr": "Yeraltı Çöl Hepçili (Kserokol)"
+    },
+    "homeworld": {
+      "en": "Tatooine / Felucia / D'Qar",
+      "tr": "Tatooine / Felucia / D'Qar"
+    },
+    "homeworldPlanetId": "tatooine",
+    "diet": {
+      "en": "Omnivorous (absorbs nutrients through acidic neurotoxin dissolution)",
+      "tr": "Hepçil (asidik nörotoksin eritmesiyle besin emer)"
+    },
+    "averageSize": "100 meters rooted subterranean body",
+    "dangerLevel": "lethal",
+    "traits": {
+      "en": [
+        "Digests prey over a thousand years using consciousness-preserving toxins",
+        "Scores of multi-jointed barbed tentacles dragging victims down",
+        "Sensory tentacles and beaked inner pharynx",
+        "Deeply anchored root network extending kilometers subterranean"
+      ],
+      "tr": [
+        "Bilinç koruyucu toksinler kullanarak avını bin yıl boyunca sindirir",
+        "Kurbanları aşağı çeken çok eklemli kancalı düzinelerce dokunaç",
+        "Duyusal dokunaçlar ve gagalı iç yutak organı",
+        "Yeraltında kilometrelerce uzanan derin kök ağı"
+      ]
+    },
+    "temperament": {
+      "en": "Stationary ambush predator with relentless feeding instincts.",
+      "tr": "Acımasız beslenme içgüdülerine sahip sabit pusu avcısı."
+    },
+    "notableEncounters": {
+      "en": "The Great Pit of Carkoon held Jabba's favored sarlacc. In 4 ABY, Boba Fett was swallowed into its maw, later burning his way out with flamethrower and beskar armor.",
+      "tr": "Carkoon Büyük Çukuru Jabba'nın en sevdiği sarlacc'a ev sahipliği yapıyordu. 4 ABY'de Boba Fett ağzına düştü ve daha sonra alev makinesi ve beskar zırhıyla dışarı çıkarak kurtuldu."
+    },
+    "desc": {
+      "en": "Beginning as spores capable of drifting through vacuum, the sarlacc burrows deep into planetary crusts. Its beak and writhing tentacles drag victims into a cavernous acidic stomach that keeps prey alive in agonizing suspended animation for centuries while leeching sustenance.",
+      "tr": "Vakumda sürüklenebilen sporlar olarak hayata başlayan sarlacc, gezegen kabuğunun derinliklerine gömülür. Gagası ve kıvrılan dokunaçları kurbanları içeri çekerek, yüzyıllar boyunca acı verici bir yarı-canlılık durumunda tutarak yavaşça besinlerini emer."
+    },
+    "appearances": [
+      "Star Wars: Episode VI Return of the Jedi",
+      "The Book of Boba Fett",
+      "The Clone Wars"
+    ],
+    "source": "wookieepedia:Sarlacc"
+  },
+  {
+    "id": "loth-wolf",
+    "names": {
+      "en": "Loth-wolf",
+      "tr": "Loth-kurt"
+    },
+    "classification": {
+      "en": "Force-Sensitive Canine Apex Predator",
+      "tr": "Güce Duyarlı Köpeksi Zirve Avcısı"
+    },
+    "homeworld": {
+      "en": "Lothal",
+      "tr": "Lothal"
+    },
+    "homeworldPlanetId": "lothal",
+    "diet": {
+      "en": "Carnivorous",
+      "tr": "Etobur"
+    },
+    "averageSize": "2.5 – 5 meters shoulder height",
+    "dangerLevel": "high",
+    "traits": {
+      "en": [
+        "Intrinsically connected to the cosmic Force and planetary ley lines",
+        "Capable of phasing through space via planetary hyper-tunnels",
+        "Telepathic speech in deep resonance with Jedi (e.g. Kanan Jarrus / Dume)",
+        "Guardian spirits of the ancient Lothal Jedi Temple"
+      ],
+      "tr": [
+        "Kozmik Güç ve gezegensel ley hatlarıyla içsel bağlantılı",
+        "Gezegensel hiper-tüneller aracılığıyla uzayda faz atlama yeteneği",
+        "Jedi ile derin rezonansta telepatik iletişim (ör. Kanan Jarrus / Dume)",
+        "Kadim Lothal Jedi Tapınağı'nın koruyucu ruhları"
+      ]
+    },
+    "temperament": {
+      "en": "Wise, elusive, hostile toward Imperial polluters, protective of the Force balance.",
+      "tr": "Bilge, gizemli, İmparatorluk kirleticilerine karşı düşmanca, Güç dengesinin koruyucusu."
+    },
+    "notableEncounters": {
+      "en": "A giant white Loth-wolf named Dume guided Ezra Bridger and the Spectres across Lothal's magnetic poles to bypass Imperial blockade garrisons and unlock the Jedi Temple.",
+      "tr": "Dume adlı dev beyaz bir Loth-kurdu, İmparatorluk abluka garnizonlarını atlatmak ve Jedi Tapınağı'nı açmak için Ezra Bridger ve Spectre ekibine Lothal kutupları boyunca rehberlik etti."
+    },
+    "desc": {
+      "en": "Long believed mythical or extinct by the citizens of Lothal, Loth-wolves are massive, highly intelligent pack hunters intimately attuned to the Living Force. They act as guardians of Lothal's natural spirit, capaz of instant translocation across planetary distances.",
+      "tr": "Lothal sakinlerince uzun süre efsanevi veya soyu tükenmiş sanılan Loth-kurtları, Yaşayan Güç ile derinden uyumlu, devasa ve son derece zeki sürü avcılarıdır. Lothal'ın doğal ruhunun koruyucuları olarak gezegen mesafelerinde anında yer değiştirme yeteneğine sahiptirler."
+    },
+    "appearances": [
+      "Star Wars Rebels"
+    ],
+    "source": "wookieepedia:Loth-wolf"
+  },
+  {
+    "id": "exogorth",
+    "names": {
+      "en": "Exogorth (Space Slug)",
+      "tr": "Exogorth (Uzay Sümüklüböceği)"
+    },
+    "classification": {
+      "en": "Silicon-based Vacuum Gastropod",
+      "tr": "Silikon Esaslı Vakum Karındanbacaklısı"
+    },
+    "homeworld": {
+      "en": "Deep Space Asteroids (Anoat Sector)",
+      "tr": "Derin Uzay Asteroitleri (Anoat Sektörü)"
+    },
+    "diet": {
+      "en": "Silicon, metallic ores, starship drive emissions, Mynocks",
+      "tr": "Silikon, metal cevherleri, yıldız gemisi motor emisyonları, Mynock'lar"
+    },
+    "averageSize": "10 meters to over 900 meters length",
+    "dangerLevel": "lethal",
+    "traits": {
+      "en": [
+        "Thrives in the zero-atmosphere, hard vacuum of space",
+        "Hosts complex parasitic ecosystems inside gullet (Mynocks)",
+        "Jaws capable of bisecting star cruisers and freighters",
+        "Reproduces by asexual budding when asteroid collisions occur"
+      ],
+      "tr": [
+        "Uzayın sıfır atmosferli sert vakum ortamında gelişir",
+        "Midesinde paraziter ekosistemler barındırır (Mynock'lar)",
+        "Yıldız kruvazörlerini ve kargo gemilerini ikiye bölebilecek çeneler",
+        "Asteroit çarpışmalarında eşeysiz tomurcuklanmayla ürer"
+      ]
+    },
+    "temperament": {
+      "en": "Passive ambush dweller snapping shut on any foreign body entering its maw.",
+      "tr": "Ağzına giren her yabancı cisme kapanan pasif pusu avcısı."
+    },
+    "notableEncounters": {
+      "en": "The Millennium Falcon hid inside a crater cave on an asteroid in the Hoth asteroid field, unaware the cave was the gullet of an 800-meter Exogorth.",
+      "tr": "Millennium Falcon, Hoth asteroit kuşağında bir krater mağarasına saklandı; mağaranın 800 metrelik bir Exogorth'un midesi olduğundan habersizdiler."
+    },
+    "desc": {
+      "en": "Silicon-based behemoths capable of surviving the vacuum of open space, exogorths burrow inside asteroids and planetary debris rings. Growing indefinitely so long as food is abundant, ancient specimens reach hundreds of meters in length and swallow transport vessels whole.",
+      "tr": "Açık uzayın dondurucu vakumunda hayatta kalabilen silikon bazlı devler olan exogorth'lar, asteroitlerin ve gezegen enkaz halkalarının içine yuvalanırlar. Yiyecek bol olduğu sürece büyümeye devam ederler ve en büyük örnekleri yüzlerce metreye ulaşıp taşıma gemilerini bütün halinde yutabilir."
+    },
+    "appearances": [
+      "Star Wars: Episode V The Empire Strikes Back",
+      "Star Wars: Squadrons"
+    ],
+    "source": "wookieepedia:Exogorth"
+  },
+  {
+    "id": "acklay",
+    "names": {
+      "en": "Acklay",
+      "tr": "Acklay"
+    },
+    "classification": {
+      "en": "Six-legged Crustacean Apex Carnivore",
+      "tr": "Altı Bacaklı Kabuklu Zirve Etoburu"
+    },
+    "homeworld": {
+      "en": "Vendaxa / Geonosis Arena",
+      "tr": "Vendaxa / Geonosis Arenası"
+    },
+    "homeworldPlanetId": "geonosis",
+    "diet": {
+      "en": "Carnivorous",
+      "tr": "Etobur"
+    },
+    "averageSize": "3.05 meters height, 6 meters length",
+    "dangerLevel": "lethal",
+    "traits": {
+      "en": [
+        "Three razor-sharp scythe forelegs capable of piercing armor plate",
+        "Leathery dorsal carapaces protecting neck and organs",
+        "Amphibious gills combined with terrestrial lungs",
+        "High agility despite massive carapace frame"
+      ],
+      "tr": [
+        "Zırh plakasını delebilecek keskinlikte üç tırpan ön bacak",
+        "Boyun ve hayati organları koruyan sert sırt kabuğu",
+        "Karada akciğerle birleşen amfibi solungaçlar",
+        "Ağır kabuklu gövdesine rağmen yüksek çeviklik"
+      ]
+    },
+    "temperament": {
+      "en": "Hyper-aggressive, hyper-focused hunter executing immediate piercing strikes.",
+      "tr": "Aşırı agresif, kurbanına anında delici vuruşlar yapan odaklanmış avcı."
+    },
+    "notableEncounters": {
+      "en": "Unleashed in the Petranaki Arena on Geonosis to execute Obi-Wan Kenobi. Kenobi sheared its claws and dispatched it with his recovered lightsaber.",
+      "tr": "Geonosis'teki Petranaki Arenası'nda Obi-Wan Kenobi'yi infaz etmek için salındı. Kenobi kıskaçlarını kesti ve geri aldığı ışın kılıcıyla onu alt etti."
+    },
+    "desc": {
+      "en": "Hailing from the hyper-competitive ecosystems of Vendaxa, acklays are armored hexapedal horrors equipped with bone-cracking sickle claws and needles of serrated teeth. Highly prize across the Petranaki gladiatorial circuits for their sheer ferocity.",
+      "tr": "Vendaxa'nın aşırı rekabetçi ekosistemlerinden gelen acklay'ler, kemik kıran orak pençeler ve tırtıklı iğne dişlerle donatılmış altı bacaklı zırhlı dehşetlerdir. Vahşilikleri nedeniyle Petranaki gladyatör arenalarında büyük rağbet görürler."
+    },
+    "appearances": [
+      "Star Wars: Episode II Attack of the Clones",
+      "The Clone Wars"
+    ],
+    "source": "wookieepedia:Acklay"
+  },
+  {
+    "id": "reek",
+    "names": {
+      "en": "Reek",
+      "tr": "Reek"
+    },
+    "classification": {
+      "en": "Massive Quadrupedal Horned Herbivore / Carnivore",
+      "tr": "Devasa Dört Bacaklı Boynuzlu Otobur / Etobur"
+    },
+    "homeworld": {
+      "en": "Ylesia / Geonosis Arena",
+      "tr": "Ylesia / Geonosis Arenası"
+    },
+    "homeworldPlanetId": "geonosis",
+    "diet": {
+      "en": "Naturally herbivorous; turns red and aggressively carnivorous when fed meat",
+      "tr": "Doğal olarak otobur; etle beslendiğinde derisi kızarır ve saldırgan etobur olur"
+    },
+    "averageSize": "2.24 meters height, 4 meters length, 1.1 metric tons",
+    "dangerLevel": "high",
+    "traits": {
+      "en": [
+        "Central forward nasal horn backed by cheek stabbing horns",
+        "Crushing charging velocity exceeding speeder bikes",
+        "Color pigmentation changes to crimson when fed meat and agitated",
+        "Thick hide impenetrable to standard light projectiles"
+      ],
+      "tr": [
+        "Yanak delici boynuzlarıyla desteklenen merkezi burun boynuzu",
+        "Speeder motorlarını aşan ezici hücum hızı",
+        "Etle beslenip hiddetlendiğinde rengi kızıla dönen deri pigmentasyonu",
+        "Standart hafif mermilerin delemediği kalın post"
+      ]
+    },
+    "temperament": {
+      "en": "Volatile, temperamental charge-and-trample juggernaut.",
+      "tr": "Dengesiz, öfkeli, hücum edip ezerek ilerleyen devasa güç."
+    },
+    "notableEncounters": {
+      "en": "Set upon Anakin Skywalker in the Geonosis execution arena. Anakin soothed the beast using the Force, mounting it to charge Separatist battle droids before Jango Fett killed it.",
+      "tr": "Geonosis infaz arenasında Anakin Skywalker'ın üzerine salındı. Anakin Güç'ü kullanarak canavarı sakinleştirdi ve Jango Fett onu vurana kadar üzerine binip Ayrılıkçı savaş droidlerine hücum etti."
+    },
+    "desc": {
+      "en": "Native to Ylesia, reeks are normally peaceful grazers. When captured for gladiatorial games, handlers starve them and feed them meat, transforming their golden-brown hides into furious crimson and driving them into frenzied, unstoppable charging rampages.",
+      "tr": "Ylesia'ya özgü olan reek'ler normalde barışçıl otlayıcılardır. Gladyatör oyunları için yakalandıklarında, bakıcılar onları aç bırakıp etle besler; bu da altın-kahverengi derilerini öfkeli kızıla çevirir ve onları durdurulamaz bir hücum çılgınlığına iter."
+    },
+    "appearances": [
+      "Star Wars: Episode II Attack of the Clones",
+      "The Clone Wars"
+    ],
+    "source": "wookieepedia:Reek"
+  },
+  {
+    "id": "nexu",
+    "names": {
+      "en": "Nexu",
+      "tr": "Nexu"
+    },
+    "classification": {
+      "en": "Agile Arboreal Predatory Feline",
+      "tr": "Çevik Ağaçcıl Yırtıcı Kedigil"
+    },
+    "homeworld": {
+      "en": "Cholganna / Geonosis Arena",
+      "tr": "Cholganna / Geonosis Arenası"
+    },
+    "homeworldPlanetId": "geonosis",
+    "diet": {
+      "en": "Carnivorous",
+      "tr": "Etobur"
+    },
+    "averageSize": "0.94 meters height, 4.51 meters length (with tail)",
+    "dangerLevel": "high",
+    "traits": {
+      "en": [
+        "Four eyes providing both infrared thermal vision and wide-angle perception",
+        "Flexible spine and razor claws designed for forest canopy ambush",
+        "Dorsal quill quills warning rivals of defensive aggression",
+        "Bifurcated tail assisting in agile balancing maneuvers"
+      ],
+      "tr": [
+        "Kızılötesi termal görüş ve geniş açı algısı sağlayan dört göz",
+        "Orman örtüsü pusuları için tasarlanmış esnek omurga ve jilet pençeler",
+        "Rakipleri uyaran savunma amaçlı sırt dikenleri",
+        "Çevik denge manevralarına yardımcı olan çatallı kuyruk"
+      ]
+    },
+    "temperament": {
+      "en": "Cunning, stealthy, lightning-fast ambush tactician.",
+      "tr": "Kurnaz, sinsi, şimşek hızında pusu taktikçisi."
+    },
+    "notableEncounters": {
+      "en": "Assigned to execute Senator Padmé Amidala in the Petranaki Arena. Padmé unhooked her shackles, scaled a stone pillar, and struck the stalking nexu with her chains.",
+      "tr": "Petranaki Arenası'nda Senatör Padmé Amidala'yı infaz etmekle görevlendirildi. Padmé prangalarını çözüp taş bir sütuna tırmandı ve sinsice yaklaşan nexu'ya zincirleriyle vurdu."
+    },
+    "desc": {
+      "en": "Prowling the fungal bark forests of Cholganna, nexu are agile predatory felines with wide-gaping mouths lined with needle-sharp teeth. Their secondary pair of eyes detects infrared signatures, allowing them to stalk warm-blooded prey in absolute jungle darkness.",
+      "tr": "Cholganna'nın mantar kabuklu ormanlarında dolaşan nexu'lar, iğne keskinliğinde dişlerle kaplı geniş ağızlara sahip çevik yırtıcı kedigillerdir. İkincil göz çiftleri kızılötesi termal izleri tespit ederek zifiri orman karanlığında sıcakkanlı avları sinsice izlemelerini sağlar."
+    },
+    "appearances": [
+      "Star Wars: Episode II Attack of the Clones",
+      "The Clone Wars",
+      "The Bad Batch"
+    ],
+    "source": "wookieepedia:Nexu"
+  },
+  {
+    "id": "varactyl",
+    "names": {
+      "en": "Varactyl",
+      "tr": "Varactyl"
+    },
+    "classification": {
+      "en": "Avian-Reptilian Herbivorous Mount",
+      "tr": "Kuş-Sürüngen Otobur Binek Hayvanı"
+    },
+    "homeworld": {
+      "en": "Utapau",
+      "tr": "Utapau"
+    },
+    "homeworldPlanetId": "utapau",
+    "diet": {
+      "en": "Herbivorous (Cliff moss, subterranean lichen)",
+      "tr": "Otobur (Uçurum yosunu, yeraltı likeni)"
+    },
+    "averageSize": "4 meters height, 15 meters length",
+    "dangerLevel": "low",
+    "traits": {
+      "en": [
+        "Five-toed splayed talons providing suction and grip on sheer 90-degree cliffs",
+        "Iridescent greenish-blue plumage framing armored saurian scales",
+        "High-pitched avian mating warble echoing across sinkhole walls",
+        "Extreme loyalty to skilled equestrian riders"
+      ],
+      "tr": [
+        "90 derecelik dik uçurumlarda tutunma sağlayan beş parmaklı vantuzlu pençeler",
+        "Zırhlı sürüngen pullarını çevreleyen yanardöner yeşilimsi mavi tüyler",
+        "Obruk duvarlarında yankılanan tiz kuş ötüşü çağrısı",
+        "Usta binicilere karşı aşırı sadakat"
+      ]
+    },
+    "temperament": {
+      "en": "Gentle, agile, fearless climber with enduring stamina.",
+      "tr": "Uysal, çevik, yorulmaz dayanıklılığa sahip korkusuz tırmanıcı."
+    },
+    "notableEncounters": {
+      "en": "Obi-Wan Kenobi rode the loyal female varactyl Boga down the sheer sinkholes of Pau City during his pursuit and duel with General Grievous in 19 BBY.",
+      "tr": "Obi-Wan Kenobi, 19 BBY'de General Grievous'u kovalayıp düello yaptığı sırada Pau Şehri'nin dik obruklarında sadık dişi varactyl Boga'ya bindi."
+    },
+    "desc": {
+      "en": "Varactyls are magnificent reptavian herbivores indigenous to the sinkholes of Utapau. Blending bird-like feathers and saurian scales, their specialized multi-toed feet allow them to sprint vertically along vertical cliffs at breakneck speed.",
+      "tr": "Varactyl'ler, Utapau'nun obruklarına özgü muhteşem kuş-sürüngen otoburlardır. Kuş benzeri tüyleri ve sürüngen pullarını birleştiren özel çok parmaklı ayakları, dikey uçurumlarda baş döndürücü hızla dikey olarak koşmalarını sağlar."
+    },
+    "appearances": [
+      "Star Wars: Episode III Revenge of the Sith"
+    ],
+    "source": "wookieepedia:Varactyl"
+  },
+  {
+    "id": "bantha",
+    "names": {
+      "en": "Bantha",
+      "tr": "Bantha"
+    },
+    "classification": {
+      "en": "Shaggy Mammalian Pack Herbivore",
+      "tr": "Uzun Tüylü Memeli Otobur Yük Hayvanı"
+    },
+    "homeworld": {
+      "en": "Tatooine (Spread galaxy-wide)",
+      "tr": "Tatooine (Tüm galaksiye yayılmış)"
+    },
+    "homeworldPlanetId": "tatooine",
+    "diet": {
+      "en": "Herbivorous (Desert shrubs, vaporator grass)",
+      "tr": "Otobur (Çöl çalıları, buharlaştırıcı otları)"
+    },
+    "averageSize": "2.5 – 3 meters height, up to 4,000 kg",
+    "dangerLevel": "low",
+    "traits": {
+      "en": [
+        "Enormous spiral ram horns indicating age and herd hierarchy",
+        "Dense shaggy wool protecting against extreme desert heat and night freezing",
+        "Sacred life-long bond with Tusken Raiders (Sand People)",
+        "Blue milk and leather primary commodity across frontier systems"
+      ],
+      "tr": [
+        "Yaş ve sürü hiyerarşisini gösteren devasa spiral koç boynuzları",
+        "Gündüz çöl sıcağına ve gece donmasına karşı koruyan yoğun kürk",
+        "Tusken Akıncıları (Kum Halkı) ile kutsal ömür boyu bağ",
+        "Sınır sistemlerinde temel emtia olan mavi süt ve dayanıklı deri"
+      ]
+    },
+    "temperament": {
+      "en": "Placid, social herd animals, fiercely protective when calves are threatened.",
+      "tr": "Sakin, sosyal sürü hayvanları; yavruları tehdit edildiğinde şiddetle koruyucu."
+    },
+    "notableEncounters": {
+      "en": "Boba Fett was gifted a bantha after being accepted into a Tusken Raider tribe, learning to ride and commune with it across the Dune Sea.",
+      "tr": "Boba Fett bir Tusken Akıncısı kabilesine kabul edildikten sonra kendisine bir bantha hediye edildi ve Kum Denizi boyunca ona binmeyi ve onunla bağ kurmayı öğrendi."
+    },
+    "desc": {
+      "en": "The iconic beasts of burden of Tatooine, banthas are massive quadrupeds recognized by their spiraling horns and thick, shaggy coats. Revered by Tusken Raiders who treat their personal mounts as family members, banthas are central to desert survival.",
+      "tr": "Tatooine'in ikonik yük hayvanları olan bantha'lar, spiral boynuzları ve kalın, tüylü kürkleriyle tanınan devasa dört ayaklılardır. Kişisel bineklerine aile üyesi gibi davranan Tusken Akıncıları tarafından saygı gören bantha'lar, çölün zorlu koşullarında hayatta kalmanın merkezindedir."
+    },
+    "appearances": [
+      "Star Wars: Episode IV A New Hope",
+      "Star Wars: Episode VI Return of the Jedi",
+      "The Book of Boba Fett",
+      "The Mandalorian"
+    ],
+    "source": "wookieepedia:Bantha"
+  },
+  {
+    "id": "tauntaun",
+    "names": {
+      "en": "Tauntaun",
+      "tr": "Tauntaun"
+    },
+    "classification": {
+      "en": "Arctic Reptomammalian Bipedal Mount",
+      "tr": "Kutup Sürüngen-Memelisi İki Ayaklı Binek"
+    },
+    "homeworld": {
+      "en": "Hoth",
+      "tr": "Hoth"
+    },
+    "homeworldPlanetId": "hoth",
+    "diet": {
+      "en": "Herbivorous (Sub-glacial lichen and ice fungi)",
+      "tr": "Otobur (Buzul altı liken ve buz mantarları)"
+    },
+    "averageSize": "1.3 – 2.5 meters height, 1.3 – 2 meters length",
+    "dangerLevel": "low",
+    "traits": {
+      "en": [
+        "Warm insulated layers of fat and thick white fleece against sub-zero blizzards",
+        "Curved horns used in herd dominance clashes and ice digging",
+        "Spits pungent blinding saliva when startled",
+        "Primary patrol mount for the Rebel Alliance's Echo Base"
+      ],
+      "tr": [
+        "Sıfırın altındaki kar fırtınalarına karşı yalıtımlı yağ katmanları ve kalın beyaz kürk",
+        "Sürü hakimiyeti çatışmalarında ve buz kazmada kullanılan kavisli boynuzlar",
+        "Korktuğunda keskin kör edici tükürük fırlatma",
+        "İsyan İttifakı'nın Echo Üssü için birincil devriye bineği"
+      ]
+    },
+    "temperament": {
+      "en": "Hardy, nervous, skittish around wampa predators, resilient cold-weather mounts.",
+      "tr": "Dayanıklı, ürkek, wampa avcılarının yakınında telaşlı, soğuğa dirençli binekler."
+    },
+    "notableEncounters": {
+      "en": "Han Solo used his fallen tauntaun's internal warmth to shelter a frostbitten Luke Skywalker during a sub-zero blizzard on the frozen wastes of Hoth in 3 ABY.",
+      "tr": "Han Solo, 3 ABY'de Hoth'un donmuş ovalarındaki dondurucu kar fırtınasında donmak üzere olan Luke Skywalker'ı korumak için ölen tauntaun'unun iç sıcaklığını kullandı."
+    },
+    "desc": {
+      "en": "Indigenous to the sub-zero ice planet Hoth, tauntauns are bipedal reptomammals with thick white fur and fat reserves capable of enduring freezing blizzards. Domesticated by Echo Base personnel, they served as reliable mounts when speeders froze in extreme temperatures.",
+      "tr": "Sıfırın altındaki buz gezegeni Hoth'a özgü olan tauntaun'lar, dondurucu kar fırtınalarına dayanabilen kalın beyaz kürk ve yağ rezervlerine sahip iki ayaklı sürüngen-memelilerdir. Echo Üssü personeli tarafından evcilleştirilerek, aşırı soğukta speeder'lar donduğunda güvenilir binekler olarak hizmet ettiler."
+    },
+    "appearances": [
+      "Star Wars: Episode V The Empire Strikes Back",
+      "Forces of Destiny"
+    ],
+    "source": "wookieepedia:Tauntaun"
+  }
+]

@@ -17,6 +17,7 @@ import type {
   Droid,
   ArsenalItem,
   TerritoryZone,
+  BestiaryCreature,
 } from '../types/lore'
 import erasJson from '../data/meta/eras.json'
 import regionsJson from '../data/meta/regions.json'
@@ -257,6 +258,16 @@ export async function loadArsenal(): Promise<ArsenalItem[]> {
   }
   return arsenalCache
 }
+
+let bestiaryCache: BestiaryCreature[] | null = null
+export async function loadBestiary(): Promise<BestiaryCreature[]> {
+  if (!bestiaryCache) {
+    const mod = await import('../data/bestiary.json')
+    bestiaryCache = mod.default as BestiaryCreature[]
+  }
+  return bestiaryCache
+}
+
 
 
 
