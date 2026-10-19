@@ -218,7 +218,7 @@ export default function GalaxyView() {
   return (
     <div className="relative h-full w-full overflow-hidden bg-space">
       <canvas ref={canvasRef} className="h-full w-full" />
-      {territory && <FactionOverlay era={era} lang={lang} />}
+      {territory && <FactionOverlay era={era} lang={lang} onSelectPlanet={dive} />}
       <TopBar />
       <OnboardingHint />
       <RoutePlanner onCourse={showCourse} />

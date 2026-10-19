@@ -16,12 +16,17 @@ import type {
   Species,
   Droid,
   ArsenalItem,
+  TerritoryZone,
 } from '../types/lore'
 import erasJson from '../data/meta/eras.json'
 import regionsJson from '../data/meta/regions.json'
 import factionsJson from '../data/meta/factions.json'
 import mediaJson from '../data/meta/media.json'
 import stationsJson from '../data/stations.json'
+import territoriesJson from '../data/territories.json'
+
+export const territories = territoriesJson as TerritoryZone[]
+
 
 export const eras = erasJson as Era[]
 export const regions = regionsJson as Region[]

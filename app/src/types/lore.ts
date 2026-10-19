@@ -382,3 +382,28 @@ export interface ArsenalItem {
   appearances: string[]
   source: Citation
 }
+
+export interface TerritoryZone {
+  id: string
+  factionId: FactionId
+  era: EraId
+  name: Localized
+  shortName: Localized
+  leader: Localized
+  capital: Localized
+  capitalCoordinates?: string
+  militaryPower: Localized
+  doctrine: Localized
+  controlPercent: number
+  keySystems: LocalizedList
+  geometry: {
+    cx: number
+    cy: number
+    rx: number
+    ry: number
+    rotation: number
+  }
+  color: string
+  glowColor: string
+}
+

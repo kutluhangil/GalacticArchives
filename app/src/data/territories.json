@@ -1,0 +1,618 @@
+[
+  {
+    "id": "or-republic",
+    "factionId": "republic",
+    "era": "old-republic",
+    "name": {
+      "en": "Old Galactic Republic",
+      "tr": "Eski Galaktik Cumhuriyet"
+    },
+    "shortName": {
+      "en": "Galactic Republic",
+      "tr": "Galaktik Cumhuriyet"
+    },
+    "leader": {
+      "en": "Supreme Chancellor & Jedi High Council",
+      "tr": "Yüce Şansölye ve Jedi Yüksek Konseyi"
+    },
+    "capital": {
+      "en": "Coruscant (Galactic City)",
+      "tr": "Coruscant (Galaktik Şehir)"
+    },
+    "capitalCoordinates": "L-9",
+    "militaryPower": {
+      "en": "Republic Defense Armada & Jedi Knight Protectors",
+      "tr": "Cumhuriyet Savunma Filosu ve Jedi Şövalye Muhafızları"
+    },
+    "doctrine": {
+      "en": "Democratic unity, defensive fleet deployments, and diplomatic arbitration under Jedi guardianship.",
+      "tr": "Demokratik birlik, savunma amaçlı filo konuşlandırmaları ve Jedi koruyuculuğunda diplomatik uzlaşı."
+    },
+    "controlPercent": 48,
+    "keySystems": {
+      "en": ["Coruscant", "Corellia", "Alderaan", "Chandrila", "Tython"],
+      "tr": ["Coruscant", "Corellia", "Alderaan", "Chandrila", "Tython"]
+    },
+    "geometry": {
+      "cx": 50,
+      "cy": 50,
+      "rx": 26,
+      "ry": 26,
+      "rotation": 0
+    },
+    "color": "#3B82F6",
+    "glowColor": "rgba(59, 130, 246, 0.4)"
+  },
+  {
+    "id": "or-sith",
+    "factionId": "sith",
+    "era": "old-republic",
+    "name": {
+      "en": "Resurgent Sith Empire",
+      "tr": "Yeniden Doğan Sith İmparatorluğu"
+    },
+    "shortName": {
+      "en": "Sith Empire",
+      "tr": "Sith İmparatorluğu"
+    },
+    "leader": {
+      "en": "Sith Emperor & Dark Council",
+      "tr": "Sith İmparatoru ve Karanlık Konsey"
+    },
+    "capital": {
+      "en": "Dromund Kaas / Korriban",
+      "tr": "Dromund Kaas / Korriban"
+    },
+    "capitalCoordinates": "R-5",
+    "militaryPower": {
+      "en": "Imperial Dreadnought Armada & Sith Battlemeditation Legions",
+      "tr": "İmparatorluk Dreadnought Filosu ve Sith Savaş Meditasyonu Lejyonları"
+    },
+    "doctrine": {
+      "en": "Total dark side dominance, subjugation of the Outer Rim, and eradication of the Jedi Order.",
+      "tr": "Tam karanlık taraf hakimiyeti, Dış Halka'nın boyunduruk altına alınması ve Jedi Düzeni'nin yok edilmesi."
+    },
+    "controlPercent": 38,
+    "keySystems": {
+      "en": ["Korriban", "Dromund Kaas", "Ziost", "Taris", "Malachor V"],
+      "tr": ["Korriban", "Dromund Kaas", "Ziost", "Taris", "Malachor V"]
+    },
+    "geometry": {
+      "cx": 74,
+      "cy": 38,
+      "rx": 24,
+      "ry": 18,
+      "rotation": 25
+    },
+    "color": "#DC2626",
+    "glowColor": "rgba(220, 38, 38, 0.45)"
+  },
+  {
+    "id": "or-mandalorian",
+    "factionId": "mandalorian",
+    "era": "old-republic",
+    "name": {
+      "en": "Mandalorian Neo-Crusaders",
+      "tr": "Mandalorlu Yeni Haçlılar"
+    },
+    "shortName": {
+      "en": "Mandalorian Clans",
+      "tr": "Mandalor Klanları"
+    },
+    "leader": {
+      "en": "Mandalore the Ultimate",
+      "tr": "Nihai Mandalore (Mandalore the Ultimate)"
+    },
+    "capital": {
+      "en": "Mandalore (Keldabe)",
+      "tr": "Mandalore (Keldabe)"
+    },
+    "capitalCoordinates": "O-7",
+    "militaryPower": {
+      "en": "Basilisk War Droid Cavalry & Beskar Shock Troops",
+      "tr": "Basilisk Savaş Droidi Süvarileri ve Beskar Taarruz Birlikleri"
+    },
+    "doctrine": {
+      "en": "Honor through conquest, rapid blitzkrieg strikes, and cultural absorption of worthy combatants.",
+      "tr": "Fetih yoluyla şeref, hızlı taarruz baskınları ve değerli savaşçıların kültürel entegrasyonu."
+    },
+    "controlPercent": 14,
+    "keySystems": {
+      "en": ["Mandalore", "Dxun", "Ordo", "Concord Dawn"],
+      "tr": ["Mandalore", "Dxun", "Ordo", "Concord Dawn"]
+    },
+    "geometry": {
+      "cx": 44,
+      "cy": 26,
+      "rx": 13,
+      "ry": 9,
+      "rotation": -15
+    },
+    "color": "#14B8A6",
+    "glowColor": "rgba(20, 184, 166, 0.4)"
+  },
+  {
+    "id": "cw-republic",
+    "factionId": "republic",
+    "era": "clone-wars",
+    "name": {
+      "en": "Galactic Republic",
+      "tr": "Galaktik Cumhuriyet"
+    },
+    "shortName": {
+      "en": "Republic",
+      "tr": "Cumhuriyet"
+    },
+    "leader": {
+      "en": "Supreme Chancellor Palpatine",
+      "tr": "Yüce Şansölye Palpatine"
+    },
+    "capital": {
+      "en": "Coruscant",
+      "tr": "Coruscant"
+    },
+    "capitalCoordinates": "L-9",
+    "militaryPower": {
+      "en": "Grand Army of the Republic (Clones) & Venator Star Destroyers",
+      "tr": "Cumhuriyet Büyük Ordusu (Klonlar) ve Venator Yıldız Muhripleri"
+    },
+    "doctrine": {
+      "en": "Preservation of galactic integrity through centralized clone legions commanded by Jedi Generals.",
+      "tr": "Jedi Generalleri komutasındaki merkezi klon lejyonları ile galaktik bütünlüğün korunması."
+    },
+    "controlPercent": 54,
+    "keySystems": {
+      "en": ["Coruscant", "Kamino", "Kuat", "Naboo", "Alderaan", "Christophsis"],
+      "tr": ["Coruscant", "Kamino", "Kuat", "Naboo", "Alderaan", "Christophsis"]
+    },
+    "geometry": {
+      "cx": 49,
+      "cy": 49,
+      "rx": 29,
+      "ry": 29,
+      "rotation": 0
+    },
+    "color": "#3B82F6",
+    "glowColor": "rgba(59, 130, 246, 0.4)"
+  },
+  {
+    "id": "cw-separatists",
+    "factionId": "separatist",
+    "era": "clone-wars",
+    "name": {
+      "en": "Confederacy of Independent Systems",
+      "tr": "Bağımsız Sistemler Konfederasyonu"
+    },
+    "shortName": {
+      "en": "Separatist Alliance",
+      "tr": "Ayrılıkçı İttifak"
+    },
+    "leader": {
+      "en": "Count Dooku & General Grievous",
+      "tr": "Kont Dooku ve General Grievous"
+    },
+    "capital": {
+      "en": "Raxus Secundus",
+      "tr": "Raxus Secundus"
+    },
+    "capitalCoordinates": "U-7",
+    "militaryPower": {
+      "en": "Separatist Droid Army & Munificent/Providence Fleet",
+      "tr": "Ayrılıkçı Droid Ordusu ve Munificent/Providence Filosu"
+    },
+    "doctrine": {
+      "en": "Overwhelming numerical droid attrition, corporate corporate-backed blockades, and Outer Rim sieges.",
+      "tr": "Sayısal üstünlüğe dayalı droid yıpratma savaşı, şirket destekli ablukalar ve Dış Halka kuşatmaları."
+    },
+    "controlPercent": 36,
+    "keySystems": {
+      "en": ["Geonosis", "Utapau", "Mustafar", "Cato Neimoidia", "Ryloth", "Saleucami"],
+      "tr": ["Geonosis", "Utapau", "Mustafar", "Cato Neimoidia", "Ryloth", "Saleucami"]
+    },
+    "geometry": {
+      "cx": 73,
+      "cy": 61,
+      "rx": 23,
+      "ry": 17,
+      "rotation": -18
+    },
+    "color": "#EF4444",
+    "glowColor": "rgba(239, 68, 68, 0.45)"
+  },
+  {
+    "id": "cw-hutt",
+    "factionId": "hutt",
+    "era": "clone-wars",
+    "name": {
+      "en": "Hutt Space Syndicate Realm",
+      "tr": "Hutt Uzayı Sendika Bölgesi"
+    },
+    "shortName": {
+      "en": "Hutt Space",
+      "tr": "Hutt Uzayı"
+    },
+    "leader": {
+      "en": "Grand Hutt Council (Jabba Desilijic Tiure)",
+      "tr": "Büyük Hutt Konseyi (Jabba Desilijic Tiure)"
+    },
+    "capital": {
+      "en": "Nal Hutta",
+      "tr": "Nal Hutta"
+    },
+    "capitalCoordinates": "S-12",
+    "militaryPower": {
+      "en": "Mercenary Fleets, Bounty Hunter Networks, and Kajidic Enforcers",
+      "tr": "Paralı Asker Filoları, Ödül Avcısı Ağları ve Kajidic Muhafızları"
+    },
+    "doctrine": {
+      "en": "Lucrative neutrality, taxing hyperspace bypass routes, and underworld commerce.",
+      "tr": "Kârlı tarafsızlık, hiperuzay geçiş yollarını vergilendirme ve yeraltı ticareti."
+    },
+    "controlPercent": 10,
+    "keySystems": {
+      "en": ["Nal Hutta", "Nar Shaddaa", "Tatooine", "Sriluur"],
+      "tr": ["Nal Hutta", "Nar Shaddaa", "Tatooine", "Sriluur"]
+    },
+    "geometry": {
+      "cx": 67,
+      "cy": 39,
+      "rx": 14,
+      "ry": 11,
+      "rotation": 12
+    },
+    "color": "#A855F7",
+    "glowColor": "rgba(168, 85, 247, 0.4)"
+  },
+  {
+    "id": "emp-empire",
+    "factionId": "empire",
+    "era": "empire",
+    "name": {
+      "en": "Galactic Empire",
+      "tr": "Galaktik İmparatorluk"
+    },
+    "shortName": {
+      "en": "The Empire",
+      "tr": "İmparatorluk"
+    },
+    "leader": {
+      "en": "Emperor Palpatine & Darth Vader",
+      "tr": "İmparator Palpatine ve Darth Vader"
+    },
+    "capital": {
+      "en": "Imperial Center (Coruscant)",
+      "tr": "İmparatorluk Merkezi (Coruscant)"
+    },
+    "capitalCoordinates": "L-9",
+    "militaryPower": {
+      "en": "Imperial Starfleet, 25,000 Star Destroyers, Stormtrooper Corps, Death Star",
+      "tr": "İmparatorluk Donanması, 25.000 Yıldız Muhribi, Stormtrooper Kolordusu, Ölüm Yıldızı"
+    },
+    "doctrine": {
+      "en": "Tarkin Doctrine: governance through fear of technological superweapons and overwhelming force.",
+      "tr": "Tarkin Doktrini: teknolojik süper silahlar ve karşı konulamaz güç korkusuyla yönetim."
+    },
+    "controlPercent": 74,
+    "keySystems": {
+      "en": ["Coruscant", "Kuat", "Fondor", "Corellia", "Lothal", "Scarif", "Carida"],
+      "tr": ["Coruscant", "Kuat", "Fondor", "Corellia", "Lothal", "Scarif", "Carida"]
+    },
+    "geometry": {
+      "cx": 50,
+      "cy": 50,
+      "rx": 34,
+      "ry": 34,
+      "rotation": 0
+    },
+    "color": "#64748B",
+    "glowColor": "rgba(100, 116, 139, 0.45)"
+  },
+  {
+    "id": "emp-rebels",
+    "factionId": "rebel",
+    "era": "empire",
+    "name": {
+      "en": "Alliance to Restore the Republic",
+      "tr": "Cumhuriyeti Yeniden Kurma İttifakı"
+    },
+    "shortName": {
+      "en": "Rebel Alliance",
+      "tr": "Asi İttifakı"
+    },
+    "leader": {
+      "en": "Mon Mothma & General Leia Organa",
+      "tr": "Mon Mothma ve General Leia Organa"
+    },
+    "capital": {
+      "en": "Mobile Fleet (Home One) / Yavin 4 Base",
+      "tr": "Gezici Filo (Home One) / Yavin 4 Üssü"
+    },
+    "capitalCoordinates": "P-6",
+    "militaryPower": {
+      "en": "Starfighter Corps (X-Wing/Y-Wing squadrons) & Mon Calamari Cruisers",
+      "tr": "Yıldız Avcısı Birlikleri (X-Wing/Y-Wing filoları) ve Mon Calamari Kruvazörleri"
+    },
+    "doctrine": {
+      "en": "Asymmetric hit-and-fade strikes, grassroots partisan uprisings, and precision decapitation attacks.",
+      "tr": "Asimetrik vur-kaç baskınları, taban partizan ayaklanmaları ve nokta atışı operasyonlar."
+    },
+    "controlPercent": 14,
+    "keySystems": {
+      "en": ["Yavin 4", "Hoth", "Dantooine", "Mon Cala", "Dagobah"],
+      "tr": ["Yavin 4", "Hoth", "Dantooine", "Mon Cala", "Dagobah"]
+    },
+    "geometry": {
+      "cx": 77,
+      "cy": 67,
+      "rx": 13,
+      "ry": 9,
+      "rotation": -12
+    },
+    "color": "#F97316",
+    "glowColor": "rgba(249, 115, 22, 0.45)"
+  },
+  {
+    "id": "emp-hutt",
+    "factionId": "hutt",
+    "era": "empire",
+    "name": {
+      "en": "Hutt Syndicate Territories",
+      "tr": "Hutt Sendika Toprakları"
+    },
+    "shortName": {
+      "en": "Hutt Cartels",
+      "tr": "Hutt Kartelleri"
+    },
+    "leader": {
+      "en": "Jabba the Hutt",
+      "tr": "Jabba the Hutt"
+    },
+    "capital": {
+      "en": "Tatooine / Nal Hutta",
+      "tr": "Tatooine / Nal Hutta"
+    },
+    "capitalCoordinates": "R-16",
+    "militaryPower": {
+      "en": "Desert skiffs, gunbarges, and guild-contracted bounty hunters",
+      "tr": "Çöl yelkenlileri, silahlı mavnalar ve lonca sözleşmeli ödül avcıları"
+    },
+    "doctrine": {
+      "en": "Bribery of Imperial moffs, illicit spice trafficking, and planetary criminal fiefdoms.",
+      "tr": "İmparatorluk mofflarına rüşvet, yasadışı baharat kaçakçılığı ve gezegensel suç feodalizmi."
+    },
+    "controlPercent": 8,
+    "keySystems": {
+      "en": ["Tatooine", "Nal Hutta", "Nar Shaddaa", "Kessel"],
+      "tr": ["Tatooine", "Nal Hutta", "Nar Shaddaa", "Kessel"]
+    },
+    "geometry": {
+      "cx": 66,
+      "cy": 39,
+      "rx": 13,
+      "ry": 9,
+      "rotation": 14
+    },
+    "color": "#A855F7",
+    "glowColor": "rgba(168, 85, 247, 0.4)"
+  },
+  {
+    "id": "emp-mandalore",
+    "factionId": "mandalorian",
+    "era": "empire",
+    "name": {
+      "en": "Imperial Sector Mandalore",
+      "tr": "İmparatorluk Mandalore Sektörü"
+    },
+    "shortName": {
+      "en": "Mandalorian Space",
+      "tr": "Mandalorya Uzayı"
+    },
+    "leader": {
+      "en": "Viceroy Gar Saxon / Imperial Super Commandos",
+      "tr": "Genel Vali Gar Saxon / İmparatorluk Süper Komandoları"
+    },
+    "capital": {
+      "en": "Sundari (Mandalore)",
+      "tr": "Sundari (Mandalore)"
+    },
+    "capitalCoordinates": "O-7",
+    "militaryPower": {
+      "en": "Beskar armored garrisons & ARC Pulse Generators (The Duchess)",
+      "tr": "Beskar zırhlı garnizonlar ve ARC Darbe Üreteçleri (The Duchess)"
+    },
+    "doctrine": {
+      "en": "Imperial puppet governorship enforced until the devastating Great Purge (Night of a Thousand Tears).",
+      "tr": "Korkunç Büyük Temizlik'e (Bin Gözyaşı Gecesi) kadar süren kukla İmparatorluk yönetimi."
+    },
+    "controlPercent": 4,
+    "keySystems": {
+      "en": ["Mandalore", "Concord Dawn", "Krownest"],
+      "tr": ["Mandalore", "Concord Dawn", "Krownest"]
+    },
+    "geometry": {
+      "cx": 42,
+      "cy": 27,
+      "rx": 8,
+      "ry": 6,
+      "rotation": 8
+    },
+    "color": "#14B8A6",
+    "glowColor": "rgba(20, 184, 166, 0.4)"
+  },
+  {
+    "id": "nr-new-republic",
+    "factionId": "new-republic",
+    "era": "new-republic",
+    "name": {
+      "en": "The New Republic",
+      "tr": "Yeni Cumhuriyet"
+    },
+    "shortName": {
+      "en": "New Republic",
+      "tr": "Yeni Cumhuriyet"
+    },
+    "leader": {
+      "en": "Chancellor Lanever Villecham & Galactic Senate",
+      "tr": "Şansölye Lanever Villecham ve Galaktik Senato"
+    },
+    "capital": {
+      "en": "Hosnian Prime (Rotating Senate)",
+      "tr": "Hosnian Prime (Dönüşümlü Senato)"
+    },
+    "capitalCoordinates": "M-12",
+    "militaryPower": {
+      "en": "New Republic Starfleet (Demilitarized under Military Disarmament Act)",
+      "tr": "Yeni Cumhuriyet Yıldız Filosu (Askeri Silahsızlanma Yasası ile küçültülmüş)"
+    },
+    "doctrine": {
+      "en": "Decentralization, planetary self-defense compacts, and political anti-authoritarianism.",
+      "tr": "Yetki devri, gezegensel öz savunma paktları ve siyasi anti-otoriterlik."
+    },
+    "controlPercent": 52,
+    "keySystems": {
+      "en": ["Hosnian Prime", "Chandrila", "Coruscant", "Naboo", "Kashyyyk", "Takodana"],
+      "tr": ["Hosnian Prime", "Chandrila", "Coruscant", "Naboo", "Kashyyyk", "Takodana"]
+    },
+    "geometry": {
+      "cx": 48,
+      "cy": 50,
+      "rx": 27,
+      "ry": 27,
+      "rotation": 0
+    },
+    "color": "#22C55E",
+    "glowColor": "rgba(34, 197, 94, 0.4)"
+  },
+  {
+    "id": "nr-first-order",
+    "factionId": "first-order",
+    "era": "new-republic",
+    "name": {
+      "en": "The First Order",
+      "tr": "First Order"
+    },
+    "shortName": {
+      "en": "First Order",
+      "tr": "First Order"
+    },
+    "leader": {
+      "en": "Supreme Leader Snoke & Kylo Ren",
+      "tr": "Yüce Lider Snoke ve Kylo Ren"
+    },
+    "capital": {
+      "en": "Supremacy (Mega-class Star Dreadnought) / Starkiller Base",
+      "tr": "Supremacy (Mega-sınıf Yıldız Dreadnought'u) / Starkiller Üssü"
+    },
+    "capitalCoordinates": "G-8",
+    "militaryPower": {
+      "en": "Resurgent-class Star Destroyers, Fanatic Stormtrooper Corps, Starkiller Planet-Weapon",
+      "tr": "Resurgent-sınıfı Yıldız Muhripleri, Fanatik Stormtrooper Birlikleri, Starkiller Gezegen-Silahı"
+    },
+    "doctrine": {
+      "en": "Militaristic revanchism, hyper-puritanical imperial orthodoxy, and stellar-yield annihilation.",
+      "tr": "Militarist revanşizm, hiper-püriten imparatorluk doktrini ve yıldız enerjili yok edicilik."
+    },
+    "controlPercent": 34,
+    "keySystems": {
+      "en": ["Ilum (Starkiller)", "Exegol", "Cantonica", "Kijimi"],
+      "tr": ["Ilum (Starkiller)", "Exegol", "Cantonica", "Kijimi"]
+    },
+    "geometry": {
+      "cx": 29,
+      "cy": 22,
+      "rx": 15,
+      "ry": 11,
+      "rotation": 14
+    },
+    "color": "#DC2626",
+    "glowColor": "rgba(220, 38, 38, 0.45)"
+  },
+  {
+    "id": "nr-resistance",
+    "factionId": "resistance",
+    "era": "new-republic",
+    "name": {
+      "en": "The Resistance",
+      "tr": "Direniş"
+    },
+    "shortName": {
+      "en": "Resistance",
+      "tr": "Direniş"
+    },
+    "leader": {
+      "en": "General Leia Organa & Poe Dameron",
+      "tr": "General Leia Organa ve Poe Dameron"
+    },
+    "capital": {
+      "en": "D'Qar Command Bunker / Ajan Kloss",
+      "tr": "D'Qar Komuta Sığınağı / Ajan Kloss"
+    },
+    "capitalCoordinates": "O-17",
+    "militaryPower": {
+      "en": "T-70 X-Wing Starfighters & Underground Partisan Networks",
+      "tr": "T-70 X-Wing Yıldız Avcıları ve Yeraltı Partizan Ağları"
+    },
+    "doctrine": {
+      "en": "Privately organized paramilitary sentinel force warning the galaxy of the First Order menace.",
+      "tr": "Galaksiyi First Order tehdidine karşı uyaran özel paramiliter öncü savunma gücü."
+    },
+    "controlPercent": 8,
+    "keySystems": {
+      "en": ["D'Qar", "Ajan Kloss", "Crait", "Batuu"],
+      "tr": ["D'Qar", "Ajan Kloss", "Crait", "Batuu"]
+    },
+    "geometry": {
+      "cx": 75,
+      "cy": 71,
+      "rx": 8,
+      "ry": 6,
+      "rotation": -8
+    },
+    "color": "#F59E0B",
+    "glowColor": "rgba(245, 158, 11, 0.45)"
+  },
+  {
+    "id": "nr-syndicates",
+    "factionId": "neutral",
+    "era": "new-republic",
+    "name": {
+      "en": "Outer Rim Syndicate Remnants",
+      "tr": "Dış Halka Sendika Kalıntıları"
+    },
+    "shortName": {
+      "en": "Syndicate Space",
+      "tr": "Sendika Uzayı"
+    },
+    "leader": {
+      "en": "Pyke Syndicate / Crimson Dawn Enclaves",
+      "tr": "Pyke Sendikası / Crimson Dawn Enklavları"
+    },
+    "capital": {
+      "en": "Oba Diah / Kessel",
+      "tr": "Oba Diah / Kessel"
+    },
+    "capitalCoordinates": "T-10",
+    "militaryPower": {
+      "en": "Smuggler armadas, Pyke enforcers, and underworld spice cartels",
+      "tr": "Kaçakçı filoları, Pyke muhafızları ve yeraltı baharat kartelleri"
+    },
+    "doctrine": {
+      "en": "Exploiting the New Republic power vacuum across the lawless Outer Rim frontiers.",
+      "tr": "Kanunsuz Dış Halka sınırlarında Yeni Cumhuriyet'in otorite boşluğunu sömürme."
+    },
+    "controlPercent": 6,
+    "keySystems": {
+      "en": ["Kessel", "Nevarro", "Jakku", "Ferrix"],
+      "tr": ["Kessel", "Nevarro", "Jakku", "Ferrix"]
+    },
+    "geometry": {
+      "cx": 68,
+      "cy": 43,
+      "rx": 13,
+      "ry": 9,
+      "rotation": 18
+    },
+    "color": "#8B5CF6",
+    "glowColor": "rgba(139, 92, 246, 0.4)"
+  }
+]
