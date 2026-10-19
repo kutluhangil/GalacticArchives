@@ -345,3 +345,23 @@ export interface Species {
   appearances: string[]
   source: Citation
 }
+
+export type DroidClassId = 'class-1' | 'class-2' | 'class-3' | 'class-4' | 'class-5'
+
+export interface Droid {
+  id: string
+  names: Localized
+  model: string
+  droidClass: DroidClassId
+  droidClassName: Localized
+  manufacturer: Localized
+  primaryFunction: Localized
+  height: string
+  platingSensorColor: Localized
+  armamentEquip: Localized
+  affiliations: Localized
+  soundType: 'astromech' | 'protocol' | 'battledroid' | 'gonk' | 'mouse' | 'assassin' | 'medical'
+  desc: Localized
+  appearances: string[]
+  source: Citation
+}

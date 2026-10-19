@@ -1,0 +1,494 @@
+[
+  {
+    "id": "2-1b-surgical",
+    "names": {
+      "en": "2-1B Surgical Droid",
+      "tr": "2-1B Cerrahi Droid"
+    },
+    "model": "2-1B-series Medical Droid",
+    "droidClass": "class-1",
+    "droidClassName": {
+      "en": "Class I (Medical & Physical Sciences)",
+      "tr": "Sınıf I (Tıbbi & Fizik Bilimleri)"
+    },
+    "manufacturer": {
+      "en": "Geentech / Industrial Automaton",
+      "tr": "Geentech / Industrial Automaton"
+    },
+    "primaryFunction": {
+      "en": "Surgical procedures, cybernetic prosthetics, bacta treatment",
+      "tr": "Cerrahi operasyonlar, sibernetik protez montajı, bakta tedavisi"
+    },
+    "height": "1.63 m",
+    "platingSensorColor": {
+      "en": "Translucent cyan chest casing, metallic blue plating",
+      "tr": "Yarı saydam camgöbeği gövde, metalik mavi kaplama"
+    },
+    "armamentEquip": {
+      "en": "Precision hypodermic injectors, surgical lasers, diagnostic sensors",
+      "tr": "Hassas hipodermik enjektörler, cerrahi lazerler, teşhis sensörleri"
+    },
+    "affiliations": {
+      "en": "Galactic Republic, Rebel Alliance, New Republic",
+      "tr": "Galaktik Cumhuriyet, İsyancı İttifakı, Yeni Cumhuriyet"
+    },
+    "soundType": "medical",
+    "desc": {
+      "en": "The 2-1B is the galaxy's gold standard in robotic medicine and trauma surgery. Possessing encyclopedic medical databanks across millions of sentient species, 2-1B successfully saved Luke Skywalker's life following the Wampa attack and attached his cybernetic hand.",
+      "tr": "2-1B, robotik tıp ve travma cerrahisinde galaksinin en gelişmiş modelidir. Milyonlarca türün anatomisini içeren devasa bir tıbbi veritabanına sahiptir. Hoth'taki Wampa saldırısı sonrası Luke Skywalker'ı bakta tankında tedavi etmiş ve ona sibernetik elini takmıştır."
+    },
+    "appearances": ["ep3", "ep5", "ep6", "bad-batch"],
+    "source": "wookieepedia:2-1B-series_surgical_droid"
+  },
+  {
+    "id": "r2-d2-astromech",
+    "names": {
+      "en": "R2-D2",
+      "tr": "R2-D2"
+    },
+    "model": "R2-series Astromech Droid",
+    "droidClass": "class-2",
+    "droidClassName": {
+      "en": "Class II (Engineering & Technical Sciences)",
+      "tr": "Sınıf II (Mühendislik & Teknik Bilimler)"
+    },
+    "manufacturer": {
+      "en": "Industrial Automaton",
+      "tr": "Industrial Automaton"
+    },
+    "primaryFunction": {
+      "en": "Starship maintenance, astrogation, computer interface slicing",
+      "tr": "Yıldız gemisi bakımı, hiperuzay rotası hesaplama, bilgisayar hackleme"
+    },
+    "height": "1.09 m",
+    "platingSensorColor": {
+      "en": "White and royal blue durasteel, brushed silver dome",
+      "tr": "Beyaz ve kraliyet mavisi durasteel, fırçalanmış gümüş kubbe"
+    },
+    "armamentEquip": {
+      "en": "Fusion welder, scomplink data arm, rocket boosters, shock prod, periscope",
+      "tr": "Füzyon kaynakçısı, scomplink veri kolu, roket iticiler, elektroşok ucu, periskop"
+    },
+    "affiliations": {
+      "en": "Naboo Royal Fleet, Galactic Republic, Rebel Alliance, Resistance",
+      "tr": "Naboo Kraliyet Filosu, Galaktik Cumhuriyet, İsyancı İttifakı, Direniş"
+    },
+    "soundType": "astromech",
+    "desc": {
+      "en": "A legendary resourceful astromech droid who served Padmé Amidala, Anakin Skywalker, and Luke Skywalker across countless defining battles. Known for never undergoing memory wipes, giving him an eccentric, courageous personality and unmatched tactical cunning.",
+      "tr": "Padmé Amidala, Anakin Skywalker ve Luke Skywalker'a sayısız tarihi savaşta hizmet etmiş efsanevi bir astromek droiddir. Hafızası hiçbir zaman silinmediği için kendine has cesur, sadık ve zeki bir kişiliğe ve benzersiz taktik dehasına sahiptir."
+    },
+    "appearances": ["ep1", "ep2", "ep3", "ep4", "ep5", "ep6", "ep7", "ep8", "ep9", "clone-wars", "rebels", "mandalorian"],
+    "source": "wookieepedia:R2-D2"
+  },
+  {
+    "id": "bb-8-astromech",
+    "names": {
+      "en": "BB-8",
+      "tr": "BB-8"
+    },
+    "model": "BB-series Astromech Droid",
+    "droidClass": "class-2",
+    "droidClassName": {
+      "en": "Class II (Engineering & Technical Sciences)",
+      "tr": "Sınıf II (Mühendislik & Teknik Bilimler)"
+    },
+    "manufacturer": {
+      "en": "Industrial Automaton",
+      "tr": "Industrial Automaton"
+    },
+    "primaryFunction": {
+      "en": "T-70 X-wing flight support, mechanical maintenance, courier",
+      "tr": "T-70 X-wing uçuş desteği, mekanik onarım, kurye"
+    },
+    "height": "0.67 m",
+    "platingSensorColor": {
+      "en": "Spherical white body with orange circular patterns and silver accents",
+      "tr": "Turuncu dairesel desenler ve gümüş detaylara sahip beyaz küresel gövde"
+    },
+    "armamentEquip": {
+      "en": "Magnetic grappling cables, welding torch, holo-projector, arc welder",
+      "tr": "Manyetik fırlatma kabloları, kaynak torcu, holo-projektör, ark kaynakçısı"
+    },
+    "affiliations": {
+      "en": "New Republic, Resistance",
+      "tr": "Yeni Cumhuriyet, Direniş"
+    },
+    "soundType": "astromech",
+    "desc": {
+      "en": "BB-8 is a spherical BB-series astromech droid loyal to Resistance commander Poe Dameron. Operating on a free-rolling gyroscopic sphere, BB-8 carried the crucial star map fragment leading to Luke Skywalker across Jakku.",
+      "tr": "BB-8, Direniş komutanı Poe Dameron'un sadık küresel astromek droididir. Jiroskopik küre sistemi sayesinde her türlü arazide hızla hareket edebilir; Jakku çölünde Luke Skywalker'a giden gizli harita parçasını korumuştur."
+    },
+    "appearances": ["ep7", "ep8", "ep9", "resistance"],
+    "source": "wookieepedia:BB-8"
+  },
+  {
+    "id": "chopper-c1-10p",
+    "names": {
+      "en": "C1-10P (Chopper)",
+      "tr": "C1-10P (Chopper)"
+    },
+    "model": "C1-series Astromech Droid",
+    "droidClass": "class-2",
+    "droidClassName": {
+      "en": "Class II (Engineering & Technical Sciences)",
+      "tr": "Sınıf II (Mühendislik & Teknik Bilimler)"
+    },
+    "manufacturer": {
+      "en": "Industrial Automaton (Customized)",
+      "tr": "Industrial Automaton (Özel Modifiye)"
+    },
+    "primaryFunction": {
+      "en": "Starship maintenance for the Ghost, combat sabotage, slicing",
+      "tr": "Ghost yıldız gemisi bakımı, muharebe sabotajı, veri ele geçirme"
+    },
+    "height": "0.88 m",
+    "platingSensorColor": {
+      "en": "Mismatched orange, yellow, and metallic gray spare parts",
+      "tr": "Uyumsuz turuncu, sarı ve metalik gri yedek parçalar"
+    },
+    "armamentEquip": {
+      "en": "Electro-shock prod, dual cranial manipulator arms, rocket thruster, blaster mount",
+      "tr": "Elektroşok probu, kafa üstü çift manipülatör kol, roket itici, blaster yuvası"
+    },
+    "affiliations": {
+      "en": "Galactic Republic (Clone Wars), Phoenix Cell, Rebel Alliance, New Republic",
+      "tr": "Galaktik Cumhuriyet, Anka Hücresi, İsyancı İttifakı, Yeni Cumhuriyet"
+    },
+    "soundType": "astromech",
+    "desc": {
+      "en": "A Clone Wars veteran astromech pieced together from spare parts by Hera Syndulla. Chopper is famously cantankerous, irritable, and aggressive, with an astonishing confirmed kill count against Imperial forces.",
+      "tr": "Hera Syndulla tarafından hurda parçalarla yeniden toplanan Klon Savaşları gazisi bir astromek droiddir. Huysuz, inatçı ve kavgacı kişiliğiyle bilinir; İmparatorluk güçlerine karşı şaşırtıcı derecede yüksek bir imha kaydına sahiptir."
+    },
+    "appearances": ["rebels", "bad-batch", "rogue-one", "ahsoka"],
+    "source": "wookieepedia:C1-10P"
+  },
+  {
+    "id": "c-3po-protocol",
+    "names": {
+      "en": "C-3PO",
+      "tr": "C-3PO"
+    },
+    "model": "3PO-series Protocol Droid",
+    "droidClass": "class-3",
+    "droidClassName": {
+      "en": "Class III (Social Sciences & Service)",
+      "tr": "Sınıf III (Sosyal Bilimler & Protokol)"
+    },
+    "manufacturer": {
+      "en": "Cybot Galactica (Reassembled by Anakin Skywalker)",
+      "tr": "Cybot Galactica (Anakin Skywalker tarafından toplandı)"
+    },
+    "primaryFunction": {
+      "en": "Etiquette, protocol, translation in over six million forms of communication",
+      "tr": "Görgü, diplomatik protokol, 6 milyondan fazla iletişim biçiminde çeviri"
+    },
+    "height": "1.75 m",
+    "platingSensorColor": {
+      "en": "Polished golden plating with one silver lower leg (later red arm)",
+      "tr": "Parlak altın kaplama, gümüş sağ alt bacak (sonradan kırmızı sol kol)"
+    },
+    "armamentEquip": {
+      "en": "TranLang III communications module, broadband antenna, vocabulator",
+      "tr": "TranLang III iletişim modülü, geniş bant anteni, vokabülatör"
+    },
+    "affiliations": {
+      "en": "Galactic Republic, House of Organa, Rebel Alliance, Resistance",
+      "tr": "Galaktik Cumhuriyet, Organa Hanedanı, İsyancı İttifakı, Direniş"
+    },
+    "soundType": "protocol",
+    "desc": {
+      "en": "Built from spare scrap parts by young Anakin Skywalker on Tatooine, C-3PO is fluent in over six million forms of communication. Despite his neurosis, worry, and strict adherence to protocol, he has witnessed and translated through galactic history.",
+      "tr": "Tatooine'de genç Anakin Skywalker tarafından hurdalardan birleştirilen C-3PO, altı milyondan fazla iletişim formunu akıcı şekilde konuşabilir. Evhamlı ve protokol takıntılı yapısına rağmen galaksinin en kritik anlarına bizzat şahitlik etmiştir."
+    },
+    "appearances": ["ep1", "ep2", "ep3", "ep4", "ep5", "ep6", "ep7", "ep8", "ep9", "clone-wars", "rebels", "rogue-one"],
+    "source": "wookieepedia:C-3PO"
+  },
+  {
+    "id": "k-2so-security",
+    "names": {
+      "en": "K-2SO",
+      "tr": "K-2SO"
+    },
+    "model": "KX-series Security Droid",
+    "droidClass": "class-4",
+    "droidClassName": {
+      "en": "Class IV (Military & Security Sciences)",
+      "tr": "Sınıf IV (Askeri & Güvenlik Bilimleri)"
+    },
+    "manufacturer": {
+      "en": "Arakyd Industries (Reprogrammed by Cassian Andor)",
+      "tr": "Arakyd Industries (Cassian Andor tarafından yeniden programlandı)"
+    },
+    "primaryFunction": {
+      "en": "Tactical security, infiltration, bodyguard, statistical computation",
+      "tr": "Taktik güvenlik, sızma, yakın koruma, istatistiksel olasılık hesaplama"
+    },
+    "height": "2.16 m",
+    "platingSensorColor": {
+      "en": "Matte black reinforced durasteel with imperial insignia scuffs",
+      "tr": "Mat siyah güçlendirilmiş durasteel, aşınmış İmparatorluk amblemi"
+    },
+    "armamentEquip": {
+      "en": "Superhuman hydraulic crushing strength, SE-14r light repeating blaster",
+      "tr": "İnsanüstü hidrolik ezme gücü, SE-14r seri blaster tabancası"
+    },
+    "affiliations": {
+      "en": "Galactic Empire (formerly), Alliance to Restore the Republic (Rogue One)",
+      "tr": "Galaktik İmparatorluk (eski), İsyancı İttifakı (Rogue One)"
+    },
+    "soundType": "security",
+    "desc": {
+      "en": "A towering Imperial KX-series security enforcer reprogrammed by Alliance intelligence captain Cassian Andor. K-2SO lacks a social verbal filter, frequently sharing bleak odds of death while demonstrating immense combat prowess and ultimate loyalty.",
+      "tr": "İsyancı istihbarat yüzbaşısı Cassian Andor tarafından yeniden programlanan devasa bir İmparatorluk güvenlik droididir. Filtresiz ve iğneleyici konuşma tarzıyla ölüm olasılıklarını sürekli yüzlere vururken, Scarif'te canını feda ederek Ölüm Yıldızı planlarının iletilmesini sağlamıştır."
+    },
+    "appearances": ["rogue-one", "andor"],
+    "source": "wookieepedia:K-2SO"
+  },
+  {
+    "id": "ig-11-assassin",
+    "names": {
+      "en": "IG-11",
+      "tr": "IG-11"
+    },
+    "model": "IG-series Assassin Droid",
+    "droidClass": "class-4",
+    "droidClassName": {
+      "en": "Class IV (Military & Security Sciences)",
+      "tr": "Sınıf IV (Askeri & Güvenlik Bilimleri)"
+    },
+    "manufacturer": {
+      "en": "Holowan Laboratories (Reprogrammed by Kuiil)",
+      "tr": "Holowan Laboratories (Kuiil tarafından yeniden programlandı)"
+    },
+    "primaryFunction": {
+      "en": "Bounty hunting & assassination (formerly), nurse & protector droid",
+      "tr": "Ödül avcılığı ve suikast (eski), bakıcı ve koruyucu droid"
+    },
+    "height": "1.96 m",
+    "platingSensorColor": {
+      "en": "Cylindrical weathered dark grey and oxidized brass metal",
+      "tr": "Silindirik yıpranmış koyu gri ve oksitlenmiş pirinç metal"
+    },
+    "armamentEquip": {
+      "en": "DKR-44 blaster rifle, E-web heavy repeating blaster, self-destruct thermal core",
+      "tr": "DKR-44 blaster tüfeği, E-web ağır blaster, göğüste kendini imha termal çekirdeği"
+    },
+    "affiliations": {
+      "en": "Bounty Hunters' Guild, Din Djarin's Clan of Two, Nevarro High Magistrate",
+      "tr": "Ödül Avcıları Loncası, Din Djarin'in İkili Klanı, Nevarro Yüksek Yargıçlığı"
+    },
+    "soundType": "assassin",
+    "desc": {
+      "en": "Built as a ruthless assassin and hunter, IG-11 was destroyed and rebuilt by ugnaught engineer Kuiil into a fiercely protective nurse droid for Grogu. His 360-degree joint rotation makes him a lethal gunslinger from any angle.",
+      "tr": "Acımasız bir suikast ve ödül avcısı olarak üretilen IG-11, Kuiil tarafından sabırla yeniden programlanarak Grogu'nun fedakar koruyucu dadısına dönüşmüştür. 360 derece dönebilen eklemleri sayesinde her yöne aynı anda ölümcül atışlar yapabilir."
+    },
+    "appearances": ["mandalorian"],
+    "source": "wookieepedia:IG-11"
+  },
+  {
+    "id": "b1-battle-droid",
+    "names": {
+      "en": "B1 Battle Droid",
+      "tr": "B1 Savaş Droidi"
+    },
+    "model": "B1-series Battle Droid",
+    "droidClass": "class-4",
+    "droidClassName": {
+      "en": "Class IV (Military & Security Sciences)",
+      "tr": "Sınıf IV (Askeri & Güvenlik Bilimleri)"
+    },
+    "manufacturer": {
+      "en": "Baktoid Combat Automata",
+      "tr": "Baktoid Combat Automata"
+    },
+    "primaryFunction": {
+      "en": "Mass front-line infantry, siege warfare, tactical swarming",
+      "tr": "Toplu ön hat piyadesi, kuşatma harekatı, sürü taktiği"
+    },
+    "height": "1.91 m",
+    "platingSensorColor": {
+      "en": "Tan/sand-colored durasteel chassis (colored ranks for commanders/security)",
+      "tr": "Kumlu bronz durasteel gövde (komutanlar ve güvenlik için renkli rütbeler)"
+    },
+    "armamentEquip": {
+      "en": "E-5 blaster rifle, thermal detonators, integrated comlink vocoder",
+      "tr": "E-5 blaster tüfeği, termal detonatörler, entegre telsiz vokoderi"
+    },
+    "affiliations": {
+      "en": "Trade Federation, Confederacy of Independent Systems (Separatists)",
+      "tr": "Ticaret Federasyonu, Bağımsız Sistemler Konfederasyonu (Ayrılıkçılar)"
+    },
+    "soundType": "battledroid",
+    "desc": {
+      "en": "The backbone of the Separatist Droid Army during the Clone Wars. Designed to overwhelm enemies through numerical superiority, their quirky personalities and famous 'Roger Roger' acknowledgments emerged after switching from central control computers to independent processing units.",
+      "tr": "Klon Savaşları sırasında Ayrılıkçı Droid Ordusu'nun omurgasını oluşturan piyade birliğidir. Düşmanı sayısal üstünlükle ezmek üzere tasarlanmıştır; merkezi kontrolden bağımsız işlemcilere geçtikten sonra geliştirdikleri geveze yapıları ve ikonik 'Roger Roger' onayları efsaneleşmiştir."
+    },
+    "appearances": ["ep1", "ep2", "ep3", "clone-wars", "rebels", "mandalorian"],
+    "source": "wookieepedia:B1-series_battle_droid"
+  },
+  {
+    "id": "droideka-destroyer",
+    "names": {
+      "en": "Droideka (Destroyer Droid)",
+      "tr": "Droideka (Yok Edici Droid)"
+    },
+    "model": "Q-series Droideka",
+    "droidClass": "class-4",
+    "droidClassName": {
+      "en": "Class IV (Military & Security Sciences)",
+      "tr": "Sınıf IV (Askeri & Güvenlik Bilimleri)"
+    },
+    "manufacturer": {
+      "en": "Colicoid Creation Nest",
+      "tr": "Colicoid Creation Nest"
+    },
+    "primaryFunction": {
+      "en": "Heavy frontline assault, defensive suppression, Jedi containment",
+      "tr": "Ağır ön hat taarruzu, savunma baskılama, Jedi kuşatması"
+    },
+    "height": "1.83 m (walking) / 0.8 m (wheel roll)",
+    "platingSensorColor": {
+      "en": "Bronze and dark copper curved carapace plating",
+      "tr": "Bronz ve koyu bakır rengi kavisli kabuk zırhı"
+    },
+    "armamentEquip": {
+      "en": "Twin twin-blaster cannons, miniature deflector shield generator, rolling wheel form",
+      "tr": "İkiz çift blaster topu, minyatür saptırıcı kalkan jeneratörü, tekerlek formu"
+    },
+    "affiliations": {
+      "en": "Trade Federation, Confederacy of Independent Systems",
+      "tr": "Ticaret Federasyonu, Bağımsız Sistemler Konfederasyonu"
+    },
+    "soundType": "battledroid",
+    "desc": {
+      "en": "Designed by the carnivorous Colicoids in their own likeness, Droidekas roll into combat at high speeds before unfolding into deadly tripods encased in personal deflector shields. Even Jedi Knights often choose retreat over facing a pair of deployed Droidekas in enclosed corridors.",
+      "tr": "Etçil Colicoid ırkı tarafından kendi anatomilerinden esinlenerek tasarlanan Droideka'lar, tekerlek formunda savaş alanına hızla girip açılır ve kişisel deflektör kalkanları arkasından aralıksız ikiz blaster ateşi açarlar. Jedi Şövalyeleri bile dar koridorlarda Droideka'larla karşılaşınca geri çekilmeyi tercih eder."
+    },
+    "appearances": ["ep1", "ep2", "ep3", "clone-wars", "mandalorian"],
+    "source": "wookieepedia:Droideka"
+  },
+  {
+    "id": "hk-47-assassin",
+    "names": {
+      "en": "HK-47",
+      "tr": "HK-47"
+    },
+    "model": "HK-series Assassin Droid",
+    "droidClass": "class-4",
+    "droidClassName": {
+      "en": "Class IV (Military & Security Sciences)",
+      "tr": "Sınıf IV (Askeri & Güvenlik Bilimleri)"
+    },
+    "manufacturer": {
+      "en": "Czerka Corporation (Constructed by Darth Revan)",
+      "tr": "Czerka Corporation (Darth Revan tarafından üretildi)"
+    },
+    "primaryFunction": {
+      "en": "Political assassination, interrogation, psychological warfare",
+      "tr": "Siyasi suikast, sorgulama, psikolojik harp"
+    },
+    "height": "1.80 m",
+    "platingSensorColor": {
+      "en": "Rusty oxidized bronze and crimson durasteel plating",
+      "tr": "Paslı oksitlenmiş bronz ve koyu kırmızı durasteel gövde"
+    },
+    "armamentEquip": {
+      "en": "Heavy repeating blaster rifle, sniper rifle, sonic disruptor, flamethrower",
+      "tr": "Ağır seri blaster tüfeği, keskin nişancı tüfeği, sonik parçalayıcı, alev püskürtücü"
+    },
+    "affiliations": {
+      "en": "Sith Empire (Revan), Czerka Corporation, The Exile (Meetra Surik)",
+      "tr": "Sith İmparatorluğu (Revan), Czerka Corporation, Sürgün (Meetra Surik)"
+    },
+    "soundType": "assassin",
+    "desc": {
+      "en": "Constructed nearly 4,000 years before Yavin by the Sith Lord Revan, HK-47 is an infamous protocol-masked hunter. Notorious for referring to all organic sentients as 'meatbags', his combat algorithms are specifically calibrated to counter and eliminate Jedi Knights.",
+      "tr": "Yavin Savaşı'ndan yaklaşık 4.000 yıl önce Sith Lordu Revan tarafından inşa edilen HK-47, tüm organik canlıları 'et torbası' (meatbag) olarak adlandırmasıyla ünlüdür. Protokol kılığına girmiş algoritmaları, Jedi Şövalyelerini avlamak ve ortadan kaldırmak üzere optimize edilmiştir."
+    },
+    "appearances": ["kotor", "kotor-2", "galaxy-of-heroes"],
+    "source": "wookieepedia:HK-47"
+  },
+  {
+    "id": "gnk-power-droid",
+    "names": {
+      "en": "GNK Power Droid (Gonk)",
+      "tr": "GNK Güç Droidi (Gonk)"
+    },
+    "model": "GNK-series Power Droid",
+    "droidClass": "class-5",
+    "droidClassName": {
+      "en": "Class V (Manual Labor & Energy Utilities)",
+      "tr": "Sınıf V (Ağır İş & Enerji Altyapısı)"
+    },
+    "manufacturer": {
+      "en": "Industrial Automaton",
+      "tr": "Industrial Automaton"
+    },
+    "primaryFunction": {
+      "en": "Mobile fusion power generator, vehicle and starship recharging",
+      "tr": "Mobil füzyon güç jeneratörü, araç ve yıldız gemisi şarj istasyonu"
+    },
+    "height": "1.10 m",
+    "platingSensorColor": {
+      "en": "Industrial rectangular armored casing in gray, tan, or matte green",
+      "tr": "Gri, kum sarısı veya mat yeşil endüstriyel zırhlı kutu gövde"
+    },
+    "armamentEquip": {
+      "en": "Heavy shielded micro-fusion reactor, universal power couplings",
+      "tr": "Ağır korumalı mikro-füzyon reaktörü, evrensel güç bağlantı soketleri"
+    },
+    "affiliations": {
+      "en": "Galactic Republic, Galactic Empire, Rebel Alliance, Underworld",
+      "tr": "Galaktik Cumhuriyet, Galaktik İmparatorluk, İsyancı İttifakı, Yeraltı Dünyası"
+    },
+    "soundType": "gonk",
+    "desc": {
+      "en": "Essentially a walking fusion generator battery with low-level intelligence, the GNK droid lumbers slowly across starports and military bases, emitting a signature low-frequency 'gonk' honk. They are indispensable for military fleets and desert outposts.",
+      "tr": "Özünde yürüyen bir mikro-füzyon bataryası olan GNK droidi, kendine has düşük frekanslı 'gonk' sesiyle yıldız üslerinde ve çöl karakollarında enerji ihtiyacını karşılar. Galaksinin en dayanıklı ve yaygın iş gücü enerji ünitesidir."
+    },
+    "appearances": ["ep4", "ep5", "ep6", "ep1", "mandalorian", "bad-batch"],
+    "source": "wookieepedia:GNK-series_power_droid"
+  },
+  {
+    "id": "mse-6-mouse",
+    "names": {
+      "en": "MSE-6 Repair Droid (Mouse Droid)",
+      "tr": "MSE-6 Bakım Droidi (Fare Droid)"
+    },
+    "model": "MSE-6-series Repair Droid",
+    "droidClass": "class-5",
+    "droidClassName": {
+      "en": "Class V (Manual Labor & General Maintenance)",
+      "tr": "Sınıf V (Ağır İş & Genel Bakım)"
+    },
+    "manufacturer": {
+      "en": "Rebaxian Columni",
+      "tr": "Rebaxian Columni"
+    },
+    "primaryFunction": {
+      "en": "Guidance, military message courier, sub-floor maintenance",
+      "tr": "Kılavuzluk, askeri mesaj kuryeliği, döşeme altı teknik bakım"
+    },
+    "height": "0.25 m",
+    "platingSensorColor": {
+      "en": "High-gloss black aerodynamic shell casing",
+      "tr": "Parlak siyah aerodinamik kabuk gövde"
+    },
+    "armamentEquip": {
+      "en": "High-frequency auditory sensors, micro-manipulator, tread wheels",
+      "tr": "Yüksek frekanslı işitme sensörleri, mikro manipülatör, tekerlek sistemi"
+    },
+    "affiliations": {
+      "en": "Galactic Empire, First Order",
+      "tr": "Galaktik İmparatorluk, İlk Düzen"
+    },
+    "soundType": "mouse",
+    "desc": {
+      "en": "The diminutive MSE-6 'mouse droid' scurries across the polished floors of Imperial Star Destroyers and Death Stars carrying technical readouts and guiding personnel. Skittish by nature, they famously flee at loud noises like Chewbacca's roar.",
+      "tr": "İmparatorluk Yıldız Yok Edicileri ve Ölüm Yıldızı'nın parlatılmış koridorlarında koşturan küçük 'fare droid' MSE-6, teknik veri taşır ve personeli yönlendirir. Ürkek yapılarıyla bilinir; Chewbacca'nın bir kükremesiyle panikleyip kaçmaları Star Wars tarihinin en neşeli anlarındandır."
+    },
+    "appearances": ["ep4", "ep5", "ep6", "rogue-one", "andor"],
+    "source": "wookieepedia:MSE-6-series_repair_droid"
+  }
+]

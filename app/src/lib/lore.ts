@@ -14,6 +14,7 @@ import type {
   TimelineEvent,
   Transmission,
   Species,
+  Droid,
 } from '../types/lore'
 import erasJson from '../data/meta/eras.json'
 import regionsJson from '../data/meta/regions.json'
@@ -232,4 +233,14 @@ export async function loadSpecies(): Promise<Species[]> {
   }
   return speciesCache
 }
+
+let droidsCache: Droid[] | null = null
+export async function loadDroids(): Promise<Droid[]> {
+  if (!droidsCache) {
+    const mod = await import('../data/droids.json')
+    droidsCache = mod.default as Droid[]
+  }
+  return droidsCache
+}
+
 
