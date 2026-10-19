@@ -5,7 +5,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import Fuse from 'fuse.js'
-import type { ArsenalItem, Battle, BestiaryCreature, CelestialBody, Character, Droid, Species, Starship } from '../types/lore'
+import type { ArsenalItem, Battle, BestiaryCreature, CelestialBody, Character, Droid, Organization, Species, Starship } from '../types/lore'
 import {
   L,
   loadAllPlanets,
@@ -14,6 +14,7 @@ import {
   loadBestiary,
   loadCharacters,
   loadDroids,
+  loadOrganizations,
   loadSpecies,
   loadStarships,
   media,
@@ -33,6 +34,7 @@ import SpeciesModal from '../components/SpeciesModal'
 import DroidModal from '../components/DroidModal'
 import ArsenalModal from '../components/ArsenalModal'
 import BestiaryModal from '../components/BestiaryModal'
+import OrganizationModal from '../components/OrganizationModal'
 import { useRovingFocus } from '../hooks/useRovingFocus'
 import { sfx } from '../lib/audio'
 
@@ -45,6 +47,7 @@ type Entry =
   | { kind: 'droid'; id: string; droid: Droid }
   | { kind: 'arsenal'; id: string; item: ArsenalItem }
   | { kind: 'bestiary'; id: string; creature: BestiaryCreature }
+  | { kind: 'organization'; id: string; org: Organization }
 
 function bodyEntries(bodies: CelestialBody[]): Entry[] {
   return bodies.map((body) => ({ kind: 'body', id: body.id, body }))
@@ -64,14 +67,17 @@ export default function Holocron() {
   const [droids, setDroids] = useState<Droid[]>([])
   const [arsenalList, setArsenalList] = useState<ArsenalItem[]>([])
   const [bestiaryList, setBestiaryList] = useState<BestiaryCreature[]>([])
+  const [orgList, setOrgList] = useState<Organization[]>([])
   const [selectedStarship, setSelectedStarship] = useState<Starship | null>(null)
   const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null)
   const [selectedDroid, setSelectedDroid] = useState<Droid | null>(null)
   const [selectedArsenalItem, setSelectedArsenalItem] = useState<ArsenalItem | null>(null)
   const [selectedCreature, setSelectedCreature] = useState<BestiaryCreature | null>(null)
+  const [selectedOrg, setSelectedOrg] = useState<Organization | null>(null)
   const [droidClassFilter, setDroidClassFilter] = useState<string>('')
   const [arsenalCategoryFilter, setArsenalCategoryFilter] = useState<string>('')
   const [threatFilter, setThreatFilter] = useState<string>('')
+  const [orgTypeFilter, setOrgTypeFilter] = useState<string>('')
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('')
   const [sector, setSector] = useState('')
@@ -90,6 +96,7 @@ export default function Holocron() {
     loadDroids().then(setDroids)
     loadArsenal().then(setArsenalList)
     loadBestiary().then(setBestiaryList)
+    loadOrganizations().then(setOrgList)
   }, [])
 
   const entries = useMemo<Entry[]>(
@@ -102,8 +109,9 @@ export default function Holocron() {
       ...droids.map((droid) => ({ kind: 'droid' as const, id: droid.id, droid })),
       ...arsenalList.map((item) => ({ kind: 'arsenal' as const, id: item.id, item })),
       ...bestiaryList.map((creature) => ({ kind: 'bestiary' as const, id: creature.id, creature })),
+      ...orgList.map((org) => ({ kind: 'organization' as const, id: org.id, org })),
     ],
-    [bodies, characters, starships, battles, speciesList, droids, arsenalList, bestiaryList],
+    [bodies, characters, starships, battles, speciesList, droids, arsenalList, bestiaryList, orgList],
   )
 
   const fuse = useMemo(
@@ -132,6 +140,10 @@ export default function Holocron() {
           { name: 'creature.names.tr', weight: 3 },
           { name: 'creature.classification.en', weight: 2 },
           { name: 'creature.homeworld.en', weight: 2 },
+          { name: 'org.names.en', weight: 3 },
+          { name: 'org.names.tr', weight: 3 },
+          { name: 'org.typeName.en', weight: 2 },
+          { name: 'org.headquarters.en', weight: 2 },
         ],
       }),
     [entries],
@@ -172,7 +184,9 @@ export default function Holocron() {
                       ? entry.item.appearances
                       : entry.kind === 'bestiary'
                         ? entry.creature.appearances
-                        : entry.battle.appearances
+                        : entry.kind === 'organization'
+                          ? entry.org.appearances
+                          : entry.battle.appearances
         if (!appearances.includes(mediaId)) return false
       }
       return true
@@ -202,6 +216,11 @@ export default function Holocron() {
     (e): e is Extract<Entry, { kind: 'bestiary' }> =>
       e.kind === 'bestiary' && (!threatFilter || e.creature.dangerLevel === threatFilter),
   )
+  const orgEntries = results.filter(
+    (e): e is Extract<Entry, { kind: 'organization' }> =>
+      e.kind === 'organization' && (!orgTypeFilter || e.org.type === orgTypeFilter),
+  )
+
 
 
   return (
@@ -821,6 +840,88 @@ export default function Holocron() {
         <BestiaryModal
           creature={selectedCreature}
           onClose={() => setSelectedCreature(null)}
+          lang={lang}
+        />
+      )}
+
+      {/* Galactic Organizations, Clans & Syndicates Section */}
+      {orgEntries.length > 0 && (
+        <section className="mb-12">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h2 className="font-hud text-[12px] uppercase tracking-[0.35em] text-slate-400">
+                🏛️ {lang === 'tr' ? 'Teşkilatlar, Klanlar & Sendikalar' : 'Organizations, Clans & Syndicates'}
+              </h2>
+              <span className="font-hud text-[11px] text-holo-cyan/70">
+                {lang === 'tr' ? 'Felsefe, Karargâh & Amentü Dosyası İçin Tıklayın' : 'Click for Creed, Doctrine & Headquarters'}
+              </span>
+            </div>
+
+            {/* Type Filter Badges */}
+            <div className="flex flex-wrap gap-1 text-[10px] font-hud">
+              {[
+                { id: '', label: lang === 'tr' ? 'Tümü' : 'All' },
+                { id: 'force-tradition', label: lang === 'tr' ? 'Güç Düzenleri' : 'Force Orders' },
+                { id: 'military-clan', label: lang === 'tr' ? 'Savaşçı Klanlar' : 'Warrior Clans' },
+                { id: 'crime-syndicate', label: lang === 'tr' ? 'Suç Sendikaları' : 'Syndicates' },
+                { id: 'guild', label: lang === 'tr' ? 'Loncalar' : 'Guilds' },
+              ].map((t) => (
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => setOrgTypeFilter(t.id)}
+                  className={`rounded px-2 py-0.5 transition-colors ${
+                    orgTypeFilter === t.id
+                      ? 'border border-holo-cyan/50 bg-holo-cyan/20 text-holo-cyan shadow-[0_0_8px_rgba(0,240,255,0.3)]'
+                      : 'border border-white/10 bg-black/40 text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {orgEntries.map(({ org }) => (
+              <button
+                key={org.id}
+                type="button"
+                onClick={() => setSelectedOrg(org)}
+                className="group block w-full text-left overflow-hidden rounded-lg border border-white/10 bg-panel/90 transition-all hover:border-holo-cyan/60 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] focus:outline-none focus:ring-1 focus:ring-holo-cyan"
+              >
+                <div className="relative aspect-16/9 w-full overflow-hidden bg-black/60">
+                  <img
+                    src={`/organizations/${org.id}.webp`}
+                    alt={L(org.names, lang)}
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-2 right-2 rounded border border-white/10 bg-black/70 px-1.5 py-0.5 font-hud text-[8.5px] uppercase font-bold text-holo-cyan backdrop-blur-xs">
+                    {L(org.typeName, lang)}
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 rounded border border-holo-cyan/30 bg-black/75 px-2.5 py-1.5 backdrop-blur-xs">
+                    <div className="font-display text-[13px] tracking-wide text-slate-100 truncate">
+                      {L(org.names, lang)}
+                    </div>
+                    <div className="text-[10px] text-slate-400 truncate">
+                      🏛️ {L(org.headquarters, lang)}
+                    </div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {selectedOrg && (
+        <OrganizationModal
+          organization={selectedOrg}
+          onClose={() => setSelectedOrg(null)}
           lang={lang}
         />
       )}

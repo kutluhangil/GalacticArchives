@@ -1,0 +1,481 @@
+[
+  {
+    "id": "jedi-order",
+    "names": {
+      "en": "The Jedi Order",
+      "tr": "Jedi Düzeni"
+    },
+    "type": "force-tradition",
+    "typeName": {
+      "en": "Monastic Force Order",
+      "tr": "Manastır Güç Düzeni"
+    },
+    "leader": {
+      "en": "Grand Master (Yoda / Luke Skywalker) & Jedi High Council",
+      "tr": "Büyük Usta (Yoda / Luke Skywalker) ve Jedi Yüksek Konseyi"
+    },
+    "headquarters": {
+      "en": "Jedi Temple, Coruscant (Historical: Ahch-To / Tython)",
+      "tr": "Jedi Tapınağı, Coruscant (Tarihsel: Ahch-To / Tython)"
+    },
+    "headquartersPlanetId": "coruscant",
+    "activeEras": {
+      "en": "Old Republic, High Republic, Fall of the Republic, New Republic",
+      "tr": "Eski Cumhuriyet, Yüksek Cumhuriyet, Cumhuriyet'in Düşüşü, Yeni Cumhuriyet"
+    },
+    "creedOrMotto": {
+      "en": "There is no emotion, there is peace. There is no ignorance, there is knowledge. There is no passion, there is serenity. There is no chaos, there is harmony. There is no death, there is the Force.",
+      "tr": "Duygu yoktur, barış vardır. Cehalet yoktur, bilgi vardır. Tutku yoktur, dinginlik vardır. Kaos yoktur, uyum vardır. Ölüm yoktur, Güç vardır."
+    },
+    "philosophyOrPurpose": {
+      "en": "Servants of the light side of the Force, dedicated to peace, knowledge, and justice without personal attachment or lust for power.",
+      "tr": "Kişisel bağlılık veya güç şehveti gütmeksizin, barışa, bilgiye ve adalete adanmış Yaşayan Güç'ün aydınlık tarafının hizmetkârları."
+    },
+    "notableMembers": {
+      "en": ["Yoda", "Mace Windu", "Obi-Wan Kenobi", "Anakin Skywalker", "Ahsoka Tano", "Luke Skywalker", "Qui-Gon Jinn"],
+      "tr": ["Yoda", "Mace Windu", "Obi-Wan Kenobi", "Anakin Skywalker", "Ahsoka Tano", "Luke Skywalker", "Qui-Gon Jinn"]
+    },
+    "desc": {
+      "en": "An ancient monastic peacekeeping organization that served the Galactic Republic for over twenty-five thousand years. Wielding lightsabers and harnessing the light side of the Force, Jedi Knights acted as diplomats, scholars, and guardians until their near-extinction during the Great Jedi Purge (Order 66).",
+      "tr": "Galaktik Cumhuriyet'e yirmi beş bin yıldan fazla hizmet etmiş kadim manastır tipi bir barış koruma teşkilatı. Işın kılıçları kuşanan ve Güç'ün aydınlık tarafını kullanan Jedi Şövalyeleri, Büyük Jedi Temizliği (Emir 66) sırasında neredeyse yok olana dek diplomat, bilgin ve muhafız olarak hizmet ettiler."
+    },
+    "appearances": [
+      "Star Wars: Episode I – IX",
+      "The Clone Wars",
+      "Star Wars Rebels",
+      "Ahsoka",
+      "The Mandalorian",
+      "Tales of the Jedi"
+    ],
+    "source": "wookieepedia:Jedi_Order"
+  },
+  {
+    "id": "sith-order",
+    "names": {
+      "en": "The Sith Order (Order of the Sith Lords)",
+      "tr": "Sith Düzeni (Sith Lordları Düzeni)"
+    },
+    "type": "force-tradition",
+    "typeName": {
+      "en": "Dark Side Force Sect",
+      "tr": "Karanlık Taraf Güç Tarikatı"
+    },
+    "leader": {
+      "en": "Dark Lord of the Sith (Darth Bane / Darth Sidious)",
+      "tr": "Sith'in Karanlık Lordu (Darth Bane / Darth Sidious)"
+    },
+    "headquarters": {
+      "en": "Exegol Citadel / Moraband (Korriban) / Imperial Palace",
+      "tr": "Exegol Hisarı / Moraband (Korriban) / İmparatorluk Sarayı"
+    },
+    "headquartersPlanetId": "coruscant",
+    "activeEras": {
+      "en": "Old Republic to the Galactic Civil War & First Order era",
+      "tr": "Eski Cumhuriyet'ten Galaktik İç Savaş ve First Order dönemine kadar"
+    },
+    "creedOrMotto": {
+      "en": "Peace is a lie, there is only passion. Through passion, I gain strength. Through strength, I gain power. Through power, I gain victory. Through victory, my chains are broken. The Force shall free me.",
+      "tr": "Barış bir yalandır, yalnızca tutku vardır. Tutkuyla güç kazanırım. Güçle iktidar kazanırım. İktidarla zafer kazanırım. Zaferle zincirlerim kırılır. Güç beni özgür kılacaktır."
+    },
+    "philosophyOrPurpose": {
+      "en": "Rule of Two: 'Two there should be; no more, no less. One to embody power, the other to crave it.' Absolute supremacy through passion, fear, and dark side mastery.",
+      "tr": "İkili Kural: 'İki kişi olmalı; ne fazla, ne eksik. Biri gücü temsil edecek, diğeri onu arzulayacak.' Tutku, korku ve karanlık taraf ustalığıyla mutlak galaktik egemenlik."
+    },
+    "notableMembers": {
+      "en": ["Darth Bane", "Darth Plagueis", "Darth Sidious (Palpatine)", "Darth Maul", "Darth Tyranus (Dooku)", "Darth Vader"],
+      "tr": ["Darth Bane", "Darth Plagueis", "Darth Sidious (Palpatine)", "Darth Maul", "Darth Tyranus (Dooku)", "Darth Vader"]
+    },
+    "desc": {
+      "en": "The ancient antithesis of the Jedi Order, the Sith pursued unchecked dominion through passion, pain, anger, and the dark side of the Force. Restructured by Darth Bane under the Rule of Two to operate from the shadows, they successfully orchestrated the fall of the Republic and the rise of the Galactic Empire.",
+      "tr": "Jedi Düzeni'nin kadim antitezi olan Sith'ler; tutku, acı, öfke ve Güç'ün karanlık tarafı aracılığıyla dizginsiz bir egemenlik peşinde koştular. Darth Bane tarafından gölgelerden hareket etmek üzere İkili Kural ile yeniden yapılandırılan tarikat, Cumhuriyet'in çöküşünü ve Galaktik İmparatorluk'un yükselişini planladı."
+    },
+    "appearances": [
+      "Star Wars: Episode I – IX",
+      "The Clone Wars",
+      "Star Wars Rebels",
+      "The Acolyte",
+      "Obi-Wan Kenobi"
+    ],
+    "source": "wookieepedia:Sith"
+  },
+  {
+    "id": "mandalorian-clans",
+    "names": {
+      "en": "Mandalorian Clans & Coverts",
+      "tr": "Mandalor Klanları ve Gizli Hücreleri"
+    },
+    "type": "military-clan",
+    "typeName": {
+      "en": "Warrior Clan Society",
+      "tr": "Savaşçı Klan Topluluğu"
+    },
+    "leader": {
+      "en": "The Mand'alor (Wielder of the Darksaber) / The Armorer / Bo-Katan Kryze",
+      "tr": "Mand'alor (Darksaber Taşıyıcısı) / Silah Ustası / Bo-Katan Kryze"
+    },
+    "headquarters": {
+      "en": "Sundari, Mandalore (Exile: Concordia / Nevarro Covert / Glavis Ring)",
+      "tr": "Sundari, Mandalore (Sürgün: Concordia / Nevarro Hücresi / Glavis Halkası)"
+    },
+    "headquartersPlanetId": "mandalore",
+    "activeEras": {
+      "en": "Old Republic through the New Republic era",
+      "tr": "Eski Cumhuriyet'ten Yeni Cumhuriyet dönemine kadar"
+    },
+    "creedOrMotto": {
+      "en": "This is the Way. Weapons are part of my religion.",
+      "tr": "Yol budur (This is the Way). Silahlar dinimin bir parçasıdır."
+    },
+    "philosophyOrPurpose": {
+      "en": "The Resol'nare (Six Actions): Wearing armor, speaking the language, defending oneself and family, raising children as warriors, supporting the clan, and rallying to the Mand'alor.",
+      "tr": "Resol'nare (Altı İlke): Zırh giymek, dili konuşmak, aileyi savunmak, çocukları savaşçı yetiştirmek, klanı desteklemek ve Mand'alor'un çağrısına uymak."
+    },
+    "notableMembers": {
+      "en": ["Din Djarin", "Bo-Katan Kryze", "The Armorer", "Paz Vizsla", "Tarre Vizsla", "Jango Fett", "Sabine Wren"],
+      "tr": ["Din Djarin", "Bo-Katan Kryze", "Silah Ustası (The Armorer)", "Paz Vizsla", "Tarre Vizsla", "Jango Fett", "Sabine Wren"]
+    },
+    "desc": {
+      "en": "A proud creed-bound warrior civilization renowned across the galaxy for their bespoke beskar armor, vambrace wrist arsenals, and jetpacks. Despite devastating catastrophic events like the Great Purge (Night of a Thousand Tears), the clans reunited to reclaim Mandalore and rekindle the Great Forge.",
+      "tr": "Özel beskar zırhları, bileklik cephanelikleri ve jetpack'leriyle galaksi çapında ün salmış, ilkelerine bağlı gururlu bir savaşçı medeniyeti. Büyük Temizlik (Bin Gözyaşı Gecesi) gibi yıkımlara rağmen klanlar, Mandalore'u geri almak ve Büyük Ocağı yeniden yakmak için birleşti."
+    },
+    "appearances": [
+      "The Mandalorian",
+      "The Book of Boba Fett",
+      "The Clone Wars",
+      "Star Wars Rebels"
+    ],
+    "source": "wookieepedia:Mandalorian"
+  },
+  {
+    "id": "bounty-hunters-guild",
+    "names": {
+      "en": "The Bounty Hunters' Guild",
+      "tr": "Ödül Avcıları Loncası"
+    },
+    "type": "guild",
+    "typeName": {
+      "en": "Professional Mercenary Syndicate",
+      "tr": "Profesyonel Paralı Asker Loncası"
+    },
+    "leader": {
+      "en": "Guild Master / Magistrate Greef Karga (Nevarro Guild House)",
+      "tr": "Lonca Ustası / Yargıç Greef Karga (Nevarro Lonca Evi)"
+    },
+    "headquarters": {
+      "en": "Nevarro City Guild House / Trandosha",
+      "tr": "Nevarro Şehri Lonca Evi / Trandosha"
+    },
+    "headquartersPlanetId": "nevarro",
+    "activeEras": {
+      "en": "Galactic Republic, Imperial Era, New Republic",
+      "tr": "Galaktik Cumhuriyet, İmparatorluk Dönemi, Yeni Cumhuriyet"
+    },
+    "creedOrMotto": {
+      "en": "A bounty hunter takes no side, only credits. Deliver the puck warm or cold.",
+      "tr": "Bir ödül avcısı taraf tutmaz, yalnızca kredi tutar. Hedefi sıcak veya soğuk teslim et."
+    },
+    "philosophyOrPurpose": {
+      "en": "The Bounty Hunter Creed: Never aid a fugitive, never kill another Guild member on contract, and never poach another hunter's mark.",
+      "tr": "Ödül Avcısı Amentüsü: Asla bir kaçağa yardım etme, asla sözleşmeli lonca üyesini öldürme ve başkasının avını çalma."
+    },
+    "notableMembers": {
+      "en": ["Boba Fett", "Din Djarin", "Bossk", "IG-11", "Dengar", "Cad Bane", "Fennec Shand"],
+      "tr": ["Boba Fett", "Din Djarin", "Bossk", "IG-11", "Dengar", "Cad Bane", "Fennec Shand"]
+    },
+    "desc": {
+      "en": "An ancient galaxy-spanning professional organization regulating freelance capture contracts, tracker fobs, and bounty pucks. Maintaining neutrality among factions, the Guild provided licensed enforcers to the Republic, the Empire, and independent planetary governments.",
+      "tr": "Serbest sözleşmeleri, takip cihazlarını ve ödül disklerini düzenleyen kadim, galaksi çapında profesyonel bir lonca. Taraflar arasında tarafsız kalan Lonca, Cumhuriyet'e, İmparatorluk'a ve bağımsız hükümetlere lisanslı infazcılar temin etti."
+    },
+    "appearances": [
+      "The Mandalorian",
+      "Star Wars: Episode V The Empire Strikes Back",
+      "The Clone Wars",
+      "The Book of Boba Fett"
+    ],
+    "source": "wookieepedia:Bounty_Hunters'_Guild"
+  },
+  {
+    "id": "pyke-syndicate",
+    "names": {
+      "en": "The Pyke Syndicate",
+      "tr": "Pyke Sendikası"
+    },
+    "type": "crime-syndicate",
+    "typeName": {
+      "en": "Spice Cartel Monopoly",
+      "tr": "Baharat Karteli Tekeli"
+    },
+    "leader": {
+      "en": "Minister Lom Pyke / Marg Krim",
+      "tr": "Bakan Lom Pyke / Marg Krim"
+    },
+    "headquarters": {
+      "en": "Oba Diah / Spice Mines of Kessel",
+      "tr": "Oba Diah / Kessel Baharat Madenleri"
+    },
+    "headquartersPlanetId": "kessel",
+    "activeEras": {
+      "en": "Clone Wars, Galactic Empire, New Republic Era",
+      "tr": "Klon Savaşları, Galaktik İmparatorluk, Yeni Cumhuriyet Dönemi"
+    },
+    "creedOrMotto": {
+      "en": "Spice must flow without interruption.",
+      "tr": "Baharat akışı asla kesintiye uğramamalıdır."
+    },
+    "philosophyOrPurpose": {
+      "en": "Total monopoly over the extraction, transport, and distribution of unrefined sansanna and glitterstim spice throughout civilized and Outer Rim space.",
+      "tr": "Medeni ve Dış Halka uzayı genelinde sansanna ve glitterstim baharatının çıkarılması, sevkiyatı ve dağıtımında mutlak tekel."
+    },
+    "notableMembers": {
+      "en": ["Lom Pyke", "Marg Krim", "Fife"],
+      "tr": ["Lom Pyke", "Marg Krim", "Fife"]
+    },
+    "desc": {
+      "en": "One of the most ruthless criminal enterprises in the galaxy, the Pykes ruled the spice production of Kessel with enslaved subterranean miners. During the Clone Wars, they allied with Maul's Shadow Collective and later clashed violently with Boba Fett on Tatooine.",
+      "tr": "Galaksinin en acımasız suç örgütlerinden biri olan Pyke'lar, Kessel'deki baharat üretimini köleleştirilmiş madencilerle yönettiler. Klon Savaşları sırasında Maul'un Gölge Kolektifi ile ittifak kurdular ve daha sonra Tatooine'de Boba Fett ile kanlı bir savaşa tutuştular."
+    },
+    "appearances": [
+      "The Clone Wars",
+      "Solo: A Star Wars Story",
+      "The Book of Boba Fett",
+      "The Bad Batch"
+    ],
+    "source": "wookieepedia:Pyke_Syndicate"
+  },
+  {
+    "id": "crimson-dawn",
+    "names": {
+      "en": "Crimson Dawn",
+      "tr": "Crimson Dawn (Kızıl Şafak)"
+    },
+    "type": "crime-syndicate",
+    "typeName": {
+      "en": "Subversive Underground Cartel",
+      "tr": "Yeraltı Gölge Sendikası"
+    },
+    "leader": {
+      "en": "Maul (Secret Shadow Lord) / Dryden Vos / Qi'ra",
+      "tr": "Maul (Gizli Gölge Lordu) / Dryden Vos / Qi'ra"
+    },
+    "headquarters": {
+      "en": "Yacht First Light / Mobile Star Fleet",
+      "tr": "First Light Lüks Yatı / Gezici Yıldız Filosu"
+    },
+    "activeEras": {
+      "en": "Imperial Era (19 BBY – 4 ABY)",
+      "tr": "İmparatorluk Dönemi (19 BBY – 4 ABY)"
+    },
+    "creedOrMotto": {
+      "en": "Nothing dies in the dark that doesn't bleed in the dawn.",
+      "tr": "Şafakta kanamayan hiçbir şey karanlıkta ölmez."
+    },
+    "philosophyOrPurpose": {
+      "en": "Operating under the facade of refined underworld sophistication to amass wealth, steal coaxium, and ultimately spark war between the syndicates and the Sith Lords.",
+      "tr": "Zenginlik biriktirmek, koaksiyum çalmak ve nihayetinde sendikalar ile Sith Lordları arasında savaş başlatmak için rafine yeraltı aristokrasisi kisvesi altında operasyon yürütmek."
+    },
+    "notableMembers": {
+      "en": ["Maul", "Dryden Vos", "Qi'ra", "Margo"],
+      "tr": ["Maul", "Dryden Vos", "Qi'ra", "Margo"]
+    },
+    "desc": {
+      "en": "Founded by the rogue Sith Lord Maul following the Clone Wars, Crimson Dawn was a terrifying criminal syndicate known for operating through charismatic public figureheads while ruthlessly extorting worlds for coaxium and black market wealth.",
+      "tr": "Klon Savaşları'nın ardından kaçak Sith Lordu Maul tarafından kurulan Crimson Dawn; karizmatik kukla liderler aracılığıyla hareket eden, dünyaları koaksiyum ve karaborsa zenginlikleri için acımasızca haraca bağlayan korkutucu bir suç sendikasıydı."
+    },
+    "appearances": [
+      "Solo: A Star Wars Story",
+      "Star Wars: The Clone Wars",
+      "Star Wars: War of the Bounty Hunters",
+      "Star Wars Outlaws"
+    ],
+    "source": "wookieepedia:Crimson_Dawn"
+  },
+  {
+    "id": "black-sun",
+    "names": {
+      "en": "Black Sun",
+      "tr": "Black Sun (Kara Güneş)"
+    },
+    "type": "crime-syndicate",
+    "typeName": {
+      "en": "Intergalactic Crime Syndicate",
+      "tr": "Galaksiler Arası Suç Karteli"
+    },
+    "leader": {
+      "en": "Prince Xizor (Falleen Cabal) / Ziton Moj",
+      "tr": "Prens Xizor (Falleen Kabali) / Ziton Moj"
+    },
+    "headquarters": {
+      "en": "Mustafar Fortresses / Coruscant Lower Levels",
+      "tr": "Mustafar Kaleleri / Coruscant Alt Seviyeleri"
+    },
+    "headquartersPlanetId": "mustafar",
+    "activeEras": {
+      "en": "Old Republic, Clone Wars, Galactic Empire",
+      "tr": "Eski Cumhuriyet, Klon Savaşları, Galaktik İmparatorluk"
+    },
+    "creedOrMotto": {
+      "en": "Influence is forged in the shadows of the Core.",
+      "tr": "Nüfuz, Çekirdek'in gölgelerinde dövülür."
+    },
+    "philosophyOrPurpose": {
+      "en": "Wielding financial blackmail, Falleen pheromonal manipulation, and mercenary enforcers to manipulate high Imperial politicians and dominate shipping lanes.",
+      "tr": "Yüksek İmparatorluk politikacılarını manipüle etmek ve nakliye yollarını ele geçirmek için finansal şantaj, Falleen feromonları ve paralı askerler kullanmak."
+    },
+    "notableMembers": {
+      "en": ["Prince Xizor", "Ziton Moj", "Xomit Grun"],
+      "tr": ["Prens Xizor", "Ziton Moj", "Xomit Grun"]
+    },
+    "desc": {
+      "en": "Dominated by the cold-blooded reptilian Falleen aristocracy, Black Sun was an ancient syndicate with reach extending into the highest political circles of Coruscant. Operating legitimate transport shipping conglomerates to mask widespread illicit arms smuggling and slave trafficking.",
+      "tr": "Soğukkanlı sürüngen Falleen aristokrasisinin hakim olduğu Black Sun, Coruscant'ın en yüksek siyasi çevrelerine kadar uzanan kadim bir sendikaydı. Yasadışı silah kaçakçılığı ve köle ticaretini maskelemek için yasal nakliye holdingleri işletiyordu."
+    },
+    "appearances": [
+      "The Clone Wars",
+      "Shadows of the Empire",
+      "Star Wars Outlaws"
+    ],
+    "source": "wookieepedia:Black_Sun"
+  },
+  {
+    "id": "inquisitorius",
+    "names": {
+      "en": "The Inquisitorius (Order of Inquisitors)",
+      "tr": "Engizisyon Teşkilatı (Inquisitorius)"
+    },
+    "type": "military-clan",
+    "typeName": {
+      "en": "Imperial Force-Hunter Directorate",
+      "tr": "İmparatorluk Güç-Avcısı Teşkilatı"
+    },
+    "leader": {
+      "en": "The Grand Inquisitor / Lord Darth Vader",
+      "tr": "Büyük Engizitör (Grand Inquisitor) / Lord Darth Vader"
+    },
+    "headquarters": {
+      "en": "Fortress Inquisitorius, Nur (Mustafar System)",
+      "tr": "Fortress Inquisitorius, Nur (Mustafar Sistemi)"
+    },
+    "headquartersPlanetId": "mustafar",
+    "activeEras": {
+      "en": "Imperial Era (19 BBY – 0 BBY)",
+      "tr": "İmparatorluk Dönemi (19 BBY – 0 BBY)"
+    },
+    "creedOrMotto": {
+      "en": "There are some things far more frightening than death.",
+      "tr": "Ölümden çok daha korkutucu şeyler vardır."
+    },
+    "philosophyOrPurpose": {
+      "en": "Hunting down surviving Jedi of Order 66, capturing Force-sensitive infants for Project Harvester, and suppressing anti-Imperial insurgencies.",
+      "tr": "Emir 66'dan sağ kurtulan Jedi'ları avlamak, Biçici Projesi için Güce duyarlı bebekleri kaçırmak ve İsyan hareketlerini ezmek."
+    },
+    "notableMembers": {
+      "en": ["The Grand Inquisitor", "Second Sister (Trilla Suduri)", "Third Sister (Reva Sevander)", "Fifth Brother", "Seventh Sister"],
+      "tr": ["Büyük Engizitör", "İkinci Kızkardeş (Trilla Suduri)", "Üçüncü Kızkardeş (Reva Sevander)", "Beşinci Kardeş", "Yedinci Kızkardeş"]
+    },
+    "desc": {
+      "en": "A lethal military wing of former Jedi Knights fallen or tortured into the dark side, commanded by the Grand Inquisitor under Darth Vader's fist. Equipped with double-bladed spinning lightsabers and TIE Advanced v1 starfighters, they stalked the galaxy eradicating Force survivors.",
+      "tr": "Darth Vader'ın yumruğu altında Büyük Engizitör tarafından komuta edilen, karanlık tarafa düşmüş veya işkenceyle boyun eğdirilmiş eski Jedi'lardan oluşan ölümcül bir askeri kanat. Çift taraflı dönen ışın kılıçları ve TIE Advanced v1 avcılarıyla galakside Güç taşıyıcılarını avladılar."
+    },
+    "appearances": [
+      "Star Wars Rebels",
+      "Obi-Wan Kenobi",
+      "Star Wars Jedi: Fallen Order",
+      "Star Wars Jedi: Survivor",
+      "Tales of the Empire"
+    ],
+    "source": "wookieepedia:Inquisitorius"
+  },
+  {
+    "id": "hutt-cartels",
+    "names": {
+      "en": "The Grand Hutt Council (Kajidics)",
+      "tr": "Büyük Hutt Konseyi (Kajidic'ler)"
+    },
+    "type": "crime-syndicate",
+    "typeName": {
+      "en": "Feudal Crime Dynasty",
+      "tr": "Feodal Suç Hanedanlığı"
+    },
+    "leader": {
+      "en": "Grand Hutt Council / Jabba Desilijic Tiure",
+      "tr": "Büyük Hutt Konseyi / Jabba Desilijic Tiure"
+    },
+    "headquarters": {
+      "en": "Nal Hutta / Jabba's Palace, Tatooine",
+      "tr": "Nal Hutta / Jabba'nın Sarayı, Tatooine"
+    },
+    "headquartersPlanetId": "tatooine",
+    "activeEras": {
+      "en": "Old Republic through the New Republic era",
+      "tr": "Eski Cumhuriyet'ten Yeni Cumhuriyet dönemine kadar"
+    },
+    "creedOrMotto": {
+      "en": "Everything has a price, and every soul has a debt.",
+      "tr": "Her şeyin bir fiyatı, her canın bir borcu vardır."
+    },
+    "philosophyOrPurpose": {
+      "en": "Ancient family clans (kajidics) ruling Hutt Space through debt slavery, gladiatorial spectacles, spice trafficking, and extortion of hyperspace tariffs.",
+      "tr": "Borç köleliği, gladyatör gösterileri, baharat ticareti ve hiperuzay gümrük haracı yoluyla Hutt Uzayı'nı yöneten kadim aile klanları (kajidic'ler)."
+    },
+    "notableMembers": {
+      "en": ["Jabba the Hutt", "Gorga the Hutt", "Gardulla the Hutt", "Rotta the Huttlet"],
+      "tr": ["Jabba the Hutt", "Gorga the Hutt", "Gardulla the Hutt", "Rotta the Huttlet"]
+    },
+    "desc": {
+      "en": "A ruthless oligarchic syndicate of gargantuan gastropod crime lords governing Hutt Space for millennia. Even Supreme Chancellor Palpatine and the Galactic Empire trod carefully around the Hutts, securing military transit treaties rather than provoking their limitless mercenary armies.",
+      "tr": "Hutt Uzayı'nı binlerce yıldır yöneten devasa karındanbacaklı suç lordlarından oluşan acımasız oligarşik bir sendika. Yüce Şansölye Palpatine ve Galaktik İmparatorluk dahi Hutt'lara karşı temkinli yaklaşmış, sınırsız paralı asker ordularını kışkırtmak yerine transit anlaşmaları yapmıştır."
+    },
+    "appearances": [
+      "Star Wars: Episode I, IV, VI",
+      "The Clone Wars",
+      "The Book of Boba Fett"
+    ],
+    "source": "wookieepedia:Hutt_Clan"
+  },
+  {
+    "id": "knights-of-ren",
+    "names": {
+      "en": "The Knights of Ren",
+      "tr": "Ren Şövalyeleri (Knights of Ren)"
+    },
+    "type": "force-tradition",
+    "typeName": {
+      "en": "Dark Side Marauder Cult",
+      "tr": "Karanlık Taraf Yağmacı Kültü"
+    },
+    "leader": {
+      "en": "Ren / Kylo Ren (Supreme Leader)",
+      "tr": "Ren / Kylo Ren (Yüce Lider)"
+    },
+    "headquarters": {
+      "en": "The Night Buzzard (Mobile Dreadnought) / Exegol",
+      "tr": "Night Buzzard (Gezici Savaş Gemisi) / Exegol"
+    },
+    "activeEras": {
+      "en": "Age of Resistance / Sequels Era (30 ABY – 35 ABY)",
+      "tr": "Direniş Çağı / Yeni Dönem (30 ABY – 35 ABY)"
+    },
+    "creedOrMotto": {
+      "en": "The Ren does not judge, it simply burns.",
+      "tr": "Ren yargılamaz, yalnızca yakar."
+    },
+    "philosophyOrPurpose": {
+      "en": "Adoration of the 'Ren'—the crimson plasma blade of dark side instinct—consuming life without moral compunction or dogma.",
+      "tr": "Karanlık taraf içgüdüsünün kızıl plazma kılıcı olan 'Ren'e tapınmak; ahlaki vicdan veya dogma olmaksızın hayatı yakıp kül etmek."
+    },
+    "notableMembers": {
+      "en": ["Kylo Ren", "Ren (Founder)", "Vicrul", "Cardo", "Trudgen", "Kuruk", "Ushar", "Ap'lek"],
+      "tr": ["Kylo Ren", "Ren (Kurucu)", "Vicrul", "Cardo", "Trudgen", "Kuruk", "Ushar", "Ap'lek"]
+    },
+    "desc": {
+      "en": "An elusive enclave of mask-wearing, dark-side attuned warriors who roamed the Unknown Regions before swearing allegiance to Kylo Ren and Supreme Leader Snoke. Wielding brutal kinetic weapons and crude Force abilities, they served as the personal vanguard of the Supreme Leader.",
+      "tr": "Kylo Ren ve Yüce Lider Snoke'a bağlılık yemini etmeden önce Bilinmeyen Bölgeler'de dolaşan, maskeli ve karanlık tarafla uyumlu savaşçılardan oluşan gizemli bir tarikat. Vahşi kinetik silahlar ve ham Güç yetenekleri kullanarak Yüce Lider'in kişisel öncü muhafızları olarak hizmet ettiler."
+    },
+    "appearances": [
+      "Star Wars: Episode VII The Force Awakens",
+      "Star Wars: Episode IX The Rise of Skywalker",
+      "The Rise of Kylo Ren (Comic)"
+    ],
+    "source": "wookieepedia:Knights_of_Ren"
+  }
+]

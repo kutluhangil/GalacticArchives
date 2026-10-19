@@ -426,4 +426,24 @@ export interface BestiaryCreature {
   source: Citation
 }
 
+export type OrganizationType = 'force-tradition' | 'military-clan' | 'crime-syndicate' | 'guild'
+
+export interface Organization {
+  id: string
+  names: Localized
+  type: OrganizationType
+  typeName: Localized
+  leader: Localized
+  headquarters: Localized
+  headquartersPlanetId?: string
+  activeEras: Localized
+  creedOrMotto: Localized
+  philosophyOrPurpose: Localized
+  notableMembers: LocalizedList
+  desc: Localized
+  appearances: string[]
+  source: Citation
+}
+
+
 

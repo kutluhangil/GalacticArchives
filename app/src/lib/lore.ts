@@ -18,6 +18,7 @@ import type {
   ArsenalItem,
   TerritoryZone,
   BestiaryCreature,
+  Organization,
 } from '../types/lore'
 import erasJson from '../data/meta/eras.json'
 import regionsJson from '../data/meta/regions.json'
@@ -267,6 +268,16 @@ export async function loadBestiary(): Promise<BestiaryCreature[]> {
   }
   return bestiaryCache
 }
+
+let organizationsCache: Organization[] | null = null
+export async function loadOrganizations(): Promise<Organization[]> {
+  if (!organizationsCache) {
+    const mod = await import('../data/organizations.json')
+    organizationsCache = mod.default as Organization[]
+  }
+  return organizationsCache
+}
+
 
 
 
