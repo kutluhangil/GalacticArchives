@@ -272,7 +272,7 @@ console.log(
 console.log(
   hasMasters
     ? `masters: ${bodyIds.length + nightIds.length} checked for size and seam`
-    : `masters: not in this checkout; ${bodyIds.length + nightIds.length} live size/seam checks unavailable, committed provenance validated (see docs/kalan-isler.md)`,
+    : `masters: not in this checkout; ${bodyIds.length + nightIds.length} live size/seam checks unavailable, committed provenance validated (see CHANGELOG.md)`,
 )
 console.log(`ERRORS: ${errors.length}`)
 for (const error of errors) console.log(`  ✗ ${error}`)

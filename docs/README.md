@@ -1,17 +1,12 @@
-# docs/ — Galactic Archives belgeleri
+# docs/
 
-Projenin tüm belgeleri burada. Kökte yalnız üçü duruyor: `README.md` (GitHub vitrini),
-`CHANGELOG.md` (sürüm günlüğü) ve `LICENSE`.
+Yalnız açık işler. Biten madde ilgili dosyadan silinir; geçmiş `CHANGELOG.md` ve git'te.
 
-| Dosya | Ne işe yarar |
+| Dosya | İçerik |
 |---|---|
-| [kalan-isler.md](kalan-isler.md) | **Önce buraya bak.** Ne bitti, ne sende, ne bende, ne kapsam dışı. |
-| [senden-gerekenler.md](senden-gerekenler.md) | Yalnız proje sahibinin yapabileceği işler: Apple Developer ID imzalama/notarization adımları, GitHub secret'ları, yeni görsel üretimi akışı, kanon nöbeti kararları. |
-| [roadmap.md](roadmap.md) | Ölçüme dayalı öncelikli iş listesi (P0/P1/P2/P3), kutuları işaretlenerek ilerler. |
-| [gorsel-uretim-promptlari.md](gorsel-uretim-promptlari.md) | 224 görsel varlığın tek tek üretim promptu + STYLE BIBLE. Üretim bitti; yeni gövde eklenince kalıp buradan alınır. |
-| [gemini-image-prompts.md](gemini-image-prompts.md) | Yukarıdakinin öncülü (5 gezegen + şablonlar). **Devri geçti**, tarihsel kayıt olarak duruyor. |
-| [proje-denetim-raporu-2026-08-01.md](proje-denetim-raporu-2026-08-01.md) | Kod, veri, test ve yapılandırmanın tam denetimi. |
-| [2026-08-01-yol-haritasi-ve-tasarim.md](2026-08-01-yol-haritasi-ve-tasarim.md) | Hiperuzay fazından sonraki yol haritası ve tasarım değerlendirmesi. |
-| [superpowers/](superpowers/) | Faz spec'leri ve uygulama planları. |
-| [brand/](brand/) | README afişi gibi marka görselleri. |
-| [screenshots/](screenshots/) | README'de kullanılan uygulama ekran görüntüleri. |
+| [senden-gerekenler.md](senden-gerekenler.md) | **Önce buraya bak.** Senin yapacağın ya da karar vereceğin işler, sırayla ve adım adım. |
+| [roadmap.md](roadmap.md) | Kod tarafında açık kalan işler. |
+| [gorsel-uretim-promptlari.md](gorsel-uretim-promptlari.md) | Henüz üretilmemiş görsellerin promptları + STYLE BIBLE. |
+
+`brand/` (README'nin animasyonlu SVG'leri — `app/scripts/build-readme-art.mjs` üretir — ve `validate:assets`'in aradığı afiş) ve `screenshots/` (kök README'deki görüntüler)
+kullanımda, dokunma.

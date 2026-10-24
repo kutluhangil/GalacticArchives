@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 70" width="1200" height="70" role="img" aria-label="Ayırıcı: çarpışan iki ışın kılıcı">
+<style>
+.b{transform-box:fill-box;stroke-linecap:round;animation:ign 9s cubic-bezier(.2,.9,.3,1) infinite}
+.l{transform-origin:0% 50%}.r{transform-origin:100% 50%}
+@keyframes ign{0%,6%{transform:scaleX(0)}16%,78%{transform:scaleX(1)}86%,100%{transform:scaleX(0)}}
+.hum{animation:hum .11s steps(2) infinite}
+@keyframes hum{50%{opacity:.82}}
+.clash{opacity:0;transform-box:fill-box;transform-origin:center;animation:clash 9s ease-out infinite}
+@keyframes clash{0%,15%{opacity:0;transform:scale(.3)}16.5%{opacity:1;transform:scale(1.4)}22%{opacity:.25;transform:scale(1)}40%{opacity:0}46%{opacity:.9;transform:scale(1.1)}52%,100%{opacity:0;transform:scale(.6)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+@media (prefers-reduced-motion: reduce){.b{transform:scaleX(1)}}
+</style>
+<defs>
+<filter id="g" filterUnits="userSpaceOnUse" x="0" y="0" width="1200" height="70"><feGaussianBlur stdDeviation="5"/></filter>
+<radialGradient id="sp"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#ffe7b0" stop-opacity=".8"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient>
+</defs>
+<g transform="translate(62 35)"><rect x="-58" y="-6" width="58" height="12" rx="2" fill="#9aa4ad"/><rect x="-52" y="-7.5" width="8" height="15" rx="1.5" fill="#2b3138"/><rect x="-34" y="-7" width="14" height="14" rx="1.5" fill="#3a424b"/><rect x="-14" y="-8" width="10" height="16" rx="2" fill="#c9d1d8"/><circle cx="-27" cy="0" r="2.4" fill="#66d9ff"/></g>
+<g transform="translate(1138 35)"><rect x="0" y="-6" width="58" height="12" rx="2" fill="#9aa4ad"/><rect x="6" y="-7.5" width="8" height="15" rx="1.5" fill="#2b3138"/><rect x="20" y="-7" width="14" height="14" rx="1.5" fill="#3a424b"/><rect x="4" y="-8" width="10" height="16" rx="2" fill="#c9d1d8"/><circle cx="31" cy="0" r="2.4" fill="#e0312e"/></g>
+<g class="hum">
+<line class="b l" x1="64" x2="604" y1="35" y2="35" stroke="#66d9ff" stroke-width="14" filter="url(#g)"/>
+<line class="b l" x1="64" x2="604" y1="35" y2="35" stroke="#eafaff" stroke-width="4"/>
+<line class="b r" x1="596" x2="1136" y1="35" y2="35" stroke="#e0312e" stroke-width="14" filter="url(#g)"/>
+<line class="b r" x1="596" x2="1136" y1="35" y2="35" stroke="#ffe9e6" stroke-width="4"/>
+</g>
+<ellipse class="clash" cx="600" cy="35" rx="34" ry="22" fill="url(#sp)"/>
+</svg>
