@@ -5,6 +5,7 @@ import { useState, useCallback } from 'react'
 import { useApp } from '../state/app'
 import { sfx } from '../lib/audio'
 import ModalShell from './ModalShell'
+import { useLater } from '../hooks/useLater'
 
 type LangKey = 'en' | 'tr'
 
@@ -266,6 +267,7 @@ export default function GalacticIdGenerator({ onClose }: { onClose: () => void }
   const [selectedArchetype, setSelectedArchetype] = useState<Archetype>(ARCHETYPES[0])
   const [generatedId, setGeneratedId] = useState<GeneratedId | null>(null)
   const [copied, setCopied] = useState(false)
+  const later = useLater()
 
   const generate = useCallback(() => {
     sfx.playSelect()
@@ -283,10 +285,15 @@ export default function GalacticIdGenerator({ onClose }: { onClose: () => void }
       `Trait: ${generatedId.trait}`,
       `ID: ${generatedId.idNumber}`,
     ].join('\n')
-    navigator.clipboard.writeText(text)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }, [generatedId, lang])
+    // the clipboard can refuse (permission, insecure context): only claim a copy that landed
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        setCopied(true)
+        later(() => setCopied(false), 2000)
+      })
+      .catch(() => {})
+  }, [generatedId, lang, later])
 
   return (
     <ModalShell

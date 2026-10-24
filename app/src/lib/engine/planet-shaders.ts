@@ -26,13 +26,39 @@ varying vec2 vUv;
 varying vec3 vNormalW;
 varying vec3 vPosW;
 varying vec3 vPosObj;
+// east (+u) and north (+v) on the sphere, in world space: the relief gradient
+// is measured in object space but must tilt the world-space normal
+varying vec3 vTanW;
+varying vec3 vBitW;
 void main() {
   vUv = uv;
   vPosObj = normalize(position);
   vec4 wp = modelMatrix * vec4(position, 1.0);
   vPosW = wp.xyz;
-  vNormalW = normalize(mat3(modelMatrix) * normal);
+  mat3 m = mat3(modelMatrix);
+  vNormalW = normalize(m * normal);
+  vec3 tObj = normalize(cross(vec3(0.0, 1.0, 0.0), vPosObj) + vec3(1e-4));
+  vTanW = normalize(m * tObj);
+  vBitW = normalize(m * cross(vPosObj, tObj));
   gl_Position = projectionMatrix * viewMatrix * wp;
+}
+`
+
+// Ring opacity as a function of radial position 0..1. Shared by the ring
+// surface and by the planet shader, which looks it up to cast the ring's shadow.
+const RING_DENSITY_GLSL = /* glsl */ `
+float ringDensity(float r, float seed, float bone) {
+  float bands = fbm3(vec3(r * 26.0 + seed, seed, 0.0)) * 0.5 + 0.5;
+  float fine = snoise(vec3(r * 140.0, seed * 2.0, 0.0)) * 0.5 + 0.5;
+  float density = smoothstep(0.12, 0.5, bands) * (0.55 + fine * 0.45);
+  density *= smoothstep(0.0, 0.08, r) * smoothstep(1.0, 0.86, r); // soft edges
+  if (bone > 0.5) {
+    // Peridea's ring is purrgil bone: coarse debris with real gaps, not dust
+    float chunks = smoothstep(0.45, 0.8, fbm3(vec3(r * 34.0, seed, 1.7)));
+    float gaps = smoothstep(0.35, 0.6, fbm3(vec3(r * 9.0, seed * 3.0, 5.1)) * 0.5 + 0.5);
+    density = chunks * gaps * 0.95;
+  }
+  return density;
 }
 `
 
@@ -54,12 +80,66 @@ uniform sampler2D uAlbedo;
 uniform float uUseAlbedo;
 uniform sampler2D uNight;
 uniform float uUseNight;
+uniform float uAtmoAmount;  // 0 airless .. 1 thick: how much grazing light reddens
+uniform float uCityLights;  // procedural settlement lights where no night map ships
+uniform float uCloudCover;  // 0 = no cloud deck; else the deck's density (shadows)
+uniform float uCloudSpeed;
+uniform float uCloudSeed;
+uniform vec2 uRingRadii;    // inner, outer; outer 0 = no rings
+uniform vec3 uRingNormal;
+uniform float uRingBone;
+uniform vec4 uMoons[4];     // xyz world centre, w radius — eclipse casters
+uniform int uMoonCount;
 varying vec2 vUv;
 varying vec3 vNormalW;
 varying vec3 vPosW;
 varying vec3 vPosObj;
+varying vec3 vTanW;
+varying vec3 vBitW;
 
 ${NOISE_GLSL}
+${RING_DENSITY_GLSL}
+
+float luma(vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
+
+/** fraction of direct sunlight blocked on its way to this point: the ring
+ *  plane, eclipsing moons and the drifting cloud deck */
+float sunOcclusion(vec3 sunDir) {
+  float block = 0.0;
+  if (uRingRadii.y > 0.0) {
+    float denom = dot(sunDir, uRingNormal);
+    if (abs(denom) > 1e-3) {
+      float t = -dot(vPosW, uRingNormal) / denom;
+      if (t > 0.0) {
+        float r = length(vPosW + sunDir * t);
+        float rr = (r - uRingRadii.x) / (uRingRadii.y - uRingRadii.x);
+        if (rr > 0.0 && rr < 1.0) block = max(block, ringDensity(rr, uSeed, uRingBone) * 0.85);
+      }
+    }
+  }
+  for (int i = 0; i < 4; i++) {
+    if (i >= uMoonCount) break;
+    vec3 toC = uMoons[i].xyz - vPosW;
+    float t = dot(toC, sunDir);
+    if (t > 0.0) {
+      float d = length(toC - sunDir * t);
+      float r = uMoons[i].w;
+      block = max(block, 1.0 - smoothstep(r * 0.8, r * 1.3, d)); // umbra + soft penumbra
+    }
+  }
+  if (uCloudCover > 0.0) {
+    // same field CLOUD_FRAG draws, sampled a step toward the sun so the shadow
+    // falls beside its cloud instead of hiding underneath it
+    vec3 tObj = normalize(cross(vec3(0.0, 1.0, 0.0), vPosObj) + vec3(1e-4));
+    vec3 q = vPosObj + (dot(sunDir, vTanW) * tObj + dot(sunDir, vBitW) * cross(vPosObj, tObj)) * 0.018;
+    vec3 c = q * 3.2 + vec3(uCloudSeed);
+    c.xz += uTime * uCloudSpeed;
+    float cover = fbm(c) * 0.5 + 0.5;
+    float a = smoothstep(1.0 - uCloudCover - 0.18, 1.0 - uCloudCover + 0.22, cover * 0.72 + 0.14);
+    block = max(block, a * 0.42);
+  }
+  return block;
+}
 
 // --- procedural surface per archetype; p = seeded unit-sphere position ---
 vec3 surfaceColor(vec3 p, float rim, out float emissiveMask, out vec3 emissiveColor, out float specMask) {
@@ -155,11 +235,6 @@ vec3 surfaceColor(vec3 p, float rim, out float emissiveMask, out vec3 emissiveCo
     float caps = smoothstep(0.78, 0.9, abs(lat) + fbm3(p * 4.0) * 0.05);
     col = mix(col, vec3(0.92, 0.95, 0.97), caps);
     specMask = (1.0 - landMask) * 0.7;
-    // shadow of the drifting cloud deck (mirrors CLOUD_FRAG's field)
-    vec3 pc = p * 3.2 + vec3(uSeed + 3.7);
-    pc.xz += uTime * 0.0045;
-    float cover = fbm(pc) * 0.5 + 0.5;
-    col *= 1.0 - smoothstep(0.55, 0.8, cover) * 0.22;
   } else if (uArchetype == 7) { // swamp-fog: murky lowlands, slow churn
     float murk = fbm(p * 3.4 + vec3(uTime * 0.003, 0.0, 0.0)) * 0.5 + 0.5;
     float channels = smoothstep(0.6, 0.85, ridged(p * 5.0));
@@ -233,20 +308,31 @@ void main() {
   vec3 p = vPosObj + vec3(uSeed * 0.37);
   float rim = pow(1.0 - max(dot(n, v), 0.0), 3.2);
 
-  // perturb the normal along the surface gradient (two tangent samples)
+  // perturb the normal along the surface gradient (east, north)
   float relief = reliefStrength() * uRelief;
   if (relief > 0.0) {
-    vec3 tangent = normalize(cross(vec3(0.0, 1.0, 0.0), vPosObj) + vec3(1e-4));
-    vec3 bitangent = cross(vPosObj, tangent);
-    float eps = 0.014;
-    float h0 = surfaceHeight(p);
-    float ht = surfaceHeight(p + tangent * eps);
-    float hb = surfaceHeight(p + bitangent * eps);
-    vec3 grad = ((ht - h0) * tangent + (hb - h0) * bitangent) / eps;
+    vec2 g;
+    if (uUseAlbedo > 0.5) {
+      // the painted map carries the real landforms; procedural noise would
+      // raise ridges the texture does not have, so bump from its luminance.
+      // Divided by the texel's arc length so 1k/2k/4k tiers bite the same.
+      vec2 texel = 1.0 / vec2(textureSize(uAlbedo, 0));
+      float hl = luma(texture2D(uAlbedo, vUv - vec2(texel.x, 0.0)).rgb);
+      float hr = luma(texture2D(uAlbedo, vUv + vec2(texel.x, 0.0)).rgb);
+      float hd = luma(texture2D(uAlbedo, vUv - vec2(0.0, texel.y)).rgb);
+      float hu = luma(texture2D(uAlbedo, vUv + vec2(0.0, texel.y)).rgb);
+      g = vec2((hr - hl) / (texel.x * 12.566), (hu - hd) / (texel.y * 6.283)) * 0.35;
+    } else {
+      vec3 tangent = normalize(cross(vec3(0.0, 1.0, 0.0), vPosObj) + vec3(1e-4));
+      vec3 bitangent = cross(vPosObj, tangent);
+      float eps = 0.014;
+      float h0 = surfaceHeight(p);
+      g = vec2(surfaceHeight(p + tangent * eps) - h0, surfaceHeight(p + bitangent * eps) - h0) / eps;
+    }
     // clamped: an unbounded gradient tips normals past the terminator and the
     // surface breaks into hard black speckle
-    grad = clamp(grad, vec3(-8.0), vec3(8.0));
-    n = normalize(n - grad * relief * 0.012);
+    g = clamp(g, vec2(-8.0), vec2(8.0));
+    n = normalize(n - (g.x * vTanW + g.y * vBitW) * relief * 0.012);
   }
 
   float em;
@@ -260,11 +346,16 @@ void main() {
 
   float d1 = dot(n, uSun1Dir);
   float d2 = dot(n, uSun2Dir);
-  float lit1 = clamp(d1 * 1.1, 0.0, 1.0);
+  float lit1 = clamp(d1 * 1.1, 0.0, 1.0) * (1.0 - sunOcclusion(uSun1Dir));
   float lit2 = clamp(d2 * 1.1, 0.0, 1.0) * uHasSun2;
+  if (uHasSun2 > 0.5) lit2 *= 1.0 - sunOcclusion(uSun2Dir);
   float dayMix = smoothstep(-0.08, 0.18, max(d1, mix(-1.0, d2, uHasSun2)));
 
-  vec3 col = base * (uSun1Color * lit1 * 0.85 + uSun2Color * lit2 * 0.55);
+  // sunlight grazing through an atmosphere reddens toward the terminator
+  vec3 graze = vec3(1.0, 0.6, 0.36);
+  vec3 tint1 = mix(vec3(1.0), mix(graze, vec3(1.0), smoothstep(0.0, 0.32, d1)), uAtmoAmount);
+  vec3 tint2 = mix(vec3(1.0), mix(graze, vec3(1.0), smoothstep(0.0, 0.32, d2)), uAtmoAmount);
+  vec3 col = base * (uSun1Color * tint1 * lit1 * 0.85 + uSun2Color * tint2 * lit2 * 0.55);
   // deep-space ambient floor + faint cool starlight on the night side
   col += base * 0.022;
   col += base * vec3(0.38, 0.48, 0.72) * 0.055 * (1.0 - dayMix);
@@ -273,6 +364,30 @@ void main() {
   if (spec > 0.01) {
     vec3 h = normalize(uSun1Dir + v);
     col += uSun1Color * pow(max(dot(n, h), 0.0), 48.0) * spec * lit1 * 0.5;
+    if (uArchetype == 3) {
+      // snow-crystal glitter: sparse facets that catch the sun, reshuffled as
+      // the view angle changes so the field twinkles while you orbit
+      float facet = step(0.9975, hash31(floor(p * 420.0) + floor(dot(v, n) * 40.0)));
+      col += uSun1Color * facet * pow(max(dot(n, h), 0.0), 6.0) * lit1 * 0.9;
+    }
+  }
+
+  // night lights on every other world: the painted night map where one ships
+  // (only the ecumenopolis branch below used to read it), else procedural
+  // settlement clusters on populous worlds
+  if (uArchetype != 1 && (uUseNight > 0.5 || uCityLights > 0.0)) {
+    vec3 lights;
+    if (uUseNight > 0.5) {
+      lights = texture2D(uNight, vUv).rgb * 1.2;
+    } else {
+      float clusters = smoothstep(0.3, 0.75, fbm(p * 3.0 + 17.0) * 0.5 + 0.5);
+      float towns = smoothstep(0.55, 0.95, fbm3(p * 28.0) * 0.5 + 0.5);
+      float sparks = step(0.982, hash31(floor(p * 160.0)));
+      lights = vec3(1.0, 0.78, 0.45) * clusters * (towns * 0.9 + sparks * 0.6) * uCityLights;
+      // painted seas are blue-dominant: keep the oceans dark
+      if (uUseAlbedo > 0.5) lights *= 1.0 - smoothstep(-0.02, 0.06, base.b - max(base.r, base.g));
+    }
+    col += lights * (1.0 - dayMix) * 1.1;
   }
 
   // night side: city lights + flowing traffic lanes for ecumenopolis
@@ -309,12 +424,6 @@ void main() {
   if (uArchetype == 8) {
     vec3 shift = 0.5 + 0.5 * cos(6.28318 * dot(n, v) * 1.6 + vec3(0.0, 2.1, 4.2) + uSeed);
     col = mix(col, col * (0.6 + shift * 1.1), 0.24);
-  }
-
-  // golden dawn band on temperate worlds
-  if (uArchetype == 6) {
-    float dawn = smoothstep(0.02, 0.16, dayMix) * (1.0 - smoothstep(0.16, 0.42, dayMix));
-    col += vec3(1.0, 0.68, 0.3) * dawn * 0.22 * (0.4 + base.g);
   }
 
   // atmosphere rim
@@ -360,9 +469,14 @@ void main() {
 
 export const ATMO_VERT = /* glsl */ `
 varying vec3 vN;
+varying vec3 vNW;
+varying vec3 vPosW;
 void main() {
   vN = normalize(normalMatrix * normal);
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  vNW = normalize(mat3(modelMatrix) * normal);
+  vec4 wp = modelMatrix * vec4(position, 1.0);
+  vPosW = wp.xyz;
+  gl_Position = projectionMatrix * viewMatrix * wp;
 }
 `
 
@@ -370,11 +484,28 @@ export const ATMO_FRAG = /* glsl */ `
 uniform vec3 uColor;
 uniform float uDensity;
 uniform float uTime;
+uniform vec3 uSun1Dir;
+uniform vec3 uSun1Color;
+uniform vec3 uSun2Dir;
+uniform float uHasSun2;
+uniform vec3 uGlow; // night-side self-glow (lava worlds light their own sky)
 varying vec3 vN;
+varying vec3 vNW;
+varying vec3 vPosW;
 void main() {
   float intensity = pow(max(0.62 - dot(normalize(vN), vec3(0.0, 0.0, 1.0)), 0.0), 4.2);
+  vec3 nw = normalize(vNW);
+  float s = max(dot(nw, uSun1Dir), mix(-1.0, dot(nw, uSun2Dir), uHasSun2));
+  // the lit limb scatters sunlight; the night limb keeps only a faint airglow
+  float day = smoothstep(-0.25, 0.4, s);
+  // sunset band where the terminator meets the limb
+  float dusk = smoothstep(-0.3, -0.02, s) * (1.0 - smoothstep(-0.02, 0.3, s));
+  // forward scattering: a sun behind the world lights the whole rim
+  float forward = pow(max(dot(normalize(vPosW - cameraPosition), uSun1Dir), 0.0), 6.0);
+  vec3 col = uColor * (0.1 + day * 0.9) + vec3(1.0, 0.52, 0.26) * dusk * 0.7 + uSun1Color * forward * 0.8;
+  col += uGlow * (1.0 - day);
   float breath = 1.0 + 0.05 * sin(uTime * 0.55); // slow atmospheric breathing
-  gl_FragColor = vec4(uColor, 1.0) * intensity * (1.1 + uDensity * 1.3) * breath;
+  gl_FragColor = vec4(col, 1.0) * intensity * (1.1 + uDensity * 1.3) * breath;
 }
 `
 
@@ -398,21 +529,19 @@ varying vec2 vUv;
 varying vec3 vPosW;
 
 ${NOISE_GLSL}
+${RING_DENSITY_GLSL}
 
 void main() {
   // vUv.x: 0 inner edge -> 1 outer edge (RingGeometry radial axis after remap)
   float r = vUv.x;
+  float density = ringDensity(r, uSeed, uBone);
   float bands = fbm3(vec3(r * 26.0 + uSeed, uSeed, 0.0)) * 0.5 + 0.5;
-  float fine = snoise(vec3(r * 140.0, uSeed * 2.0, 0.0)) * 0.5 + 0.5;
-  float density = smoothstep(0.12, 0.5, bands) * (0.55 + fine * 0.45);
-  density *= smoothstep(0.0, 0.08, r) * smoothstep(1.0, 0.86, r); // soft edges
-  if (uBone > 0.5) {
-    // Peridea's ring is purrgil bone: coarse debris with real gaps, not dust
-    float chunks = smoothstep(0.45, 0.8, fbm3(vec3(r * 34.0, uSeed, 1.7)));
-    float gaps = smoothstep(0.35, 0.6, fbm3(vec3(r * 9.0, uSeed * 3.0, 5.1)) * 0.5 + 0.5);
-    density = chunks * gaps * 0.95;
-  }
   vec3 col = uColor * (0.5 + bands * 0.6);
+  // the globe (unit sphere at the origin) shadows the ring behind it
+  float b = dot(vPosW, uSun1Dir);
+  float disc = b * b - (dot(vPosW, vPosW) - 1.0);
+  float shadow = smoothstep(-0.03, 0.06, disc) * step(b, 0.0);
+  col *= 1.0 - shadow * 0.88;
   gl_FragColor = vec4(col, density * 0.85);
 }
 `

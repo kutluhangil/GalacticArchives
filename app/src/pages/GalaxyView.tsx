@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { CelestialBody, RegionId } from '../types/lore'
+import type { Battle, CelestialBody, RegionId } from '../types/lore'
 import { GalaxyEngine, type GalaxyLane, type GalaxyNode } from '../lib/engine/galaxy-engine'
 import { gridToPos, MANUAL_POS } from '../lib/galaxy-grid'
 import { simClock } from '../lib/sim-clock'
-import { factionById, L, loadAllPlanets, regions, rendersAsRubble } from '../lib/lore'
+import { factionById, L, loadAllPlanets, loadBattles, regions, rendersAsRubble } from '../lib/lore'
 import { routes } from '../lib/routes'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
@@ -14,6 +14,7 @@ import LanePanel from '../components/hud/LanePanel'
 import OnboardingHint from '../components/OnboardingHint'
 import { useFlyTo } from '../components/useFlyTo'
 import FactionOverlay from '../components/hud/FactionOverlay'
+import HoloNetTicker from '../components/HoloNetTicker'
 import { useRovingFocus } from '../hooks/useRovingFocus'
 import WebGLUnavailable from '../components/WebGLUnavailable'
 import { detectRenderCompatibility, type RenderCompatibility } from '../lib/render-compatibility'
@@ -126,6 +127,23 @@ export default function GalaxyView() {
   useEffect(() => {
     loadAllPlanets().then(setPlanets)
   }, [])
+
+  const [battles, setBattles] = useState<Battle[]>([])
+  useEffect(() => {
+    void loadBattles().then(setBattles)
+  }, [])
+
+  // the era's battles keyed by the world drawn on the map: a battle fought on
+  // a moon (Yavin 4, the forest moon) marks its host planet
+  const battleAt = useMemo(() => {
+    const host = new Map<string, string>()
+    for (const p of planets) for (const m of p.moonsDetail ?? []) host.set(m.id, p.id)
+    const out = new Map<string, Battle>()
+    for (const b of battles.filter((b) => b.era === era)) {
+      out.set(host.get(b.locationPlanetId) ?? b.locationPlanetId, b)
+    }
+    return out
+  }, [battles, planets, era])
 
   // canon is always shown; Legends worlds only when the layer is switched on.
   // Shared by the WebGL nodes and the keyboard-accessible planet list.
@@ -264,6 +282,9 @@ export default function GalaxyView() {
                 <button
                   data-roving-item
                   onClick={() => dive(p.id)}
+                  aria-description={
+                    battleAt.has(p.id) ? `${t('battleHere', lang)}: ${L(battleAt.get(p.id)!.names, lang)}` : undefined
+                  }
                   className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-16 focus:z-40 focus:rounded focus:border focus:border-holo-cyan/50 focus:bg-panel/95 focus:px-3 focus:py-1.5 focus:text-[12px] focus:tracking-[0.15em] focus:text-holo-cyan focus:outline-hidden focus:ring-2 focus:ring-holo-cyan/60 focus:backdrop-blur-md"
                 >
                   {L(p.names, lang)}
@@ -297,9 +318,16 @@ export default function GalaxyView() {
             >
               {label.name.toUpperCase()}
               {label.destroyed && ' ⌀'}
+              {battleAt.has(label.id) && (
+                <span className="ml-1 text-sith-red" title={L(battleAt.get(label.id)!.names, lang)}>
+                  ⚔
+                </span>
+              )}
             </button>
           ),
       )}
+
+      <HoloNetTicker era={era} lang={lang} onGo={dive} />
 
       <div className="pointer-events-none absolute bottom-4 left-4 z-10 text-[10px] tracking-wider text-slate-600">
         {t('clickSystemHint', lang)} · {Math.round(fps)} fps

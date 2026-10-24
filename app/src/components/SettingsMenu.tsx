@@ -53,7 +53,7 @@ function Toggle({
 }
 
 export default function SettingsMenu() {
-  const { lang, quality, setQuality, legends, setLegends, lanes, setLanes, sfx, setSfx } =
+  const { lang, quality, setQuality, legends, setLegends, lanes, setLanes, sfx, setSfx, ambience, setAmbience } =
     useApp()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -121,6 +121,12 @@ export default function SettingsMenu() {
             hint={t('sfxHint', lang)}
             checked={sfx}
             onChange={setSfx}
+          />
+          <Toggle
+            label={t('ambience', lang)}
+            hint={t('ambienceHint', lang)}
+            checked={ambience}
+            onChange={setAmbience}
           />
         </div>
       )}

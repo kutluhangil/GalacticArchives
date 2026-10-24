@@ -23,6 +23,7 @@ export default function PlanetView() {
   const { id = 'tatooine' } = useParams()
   const lang = useApp((s) => s.lang)
   const era = useApp((s) => s.era)
+  const ambience = useApp((s) => s.ambience)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const engineRef = useRef<PlanetEngine | null>(null)
   const pending = useRef<number | null>(null)
@@ -39,6 +40,24 @@ export default function PlanetView() {
   const body = loaded?.id === id ? loaded.body : null
   const systemHost = loaded?.id === id ? loaded.systemHost : id
   useDocumentTitle(body ? L(body.names, lang) : null)
+
+  // the soundscape follows the world on screen; the synthesiser only loads
+  // once someone has switched ambience on
+  const archetype = body?.renderRecipe.archetype
+  useEffect(() => {
+    if (!ambience || !archetype) return
+    let stop: (() => void) | undefined
+    let live = true
+    void import('../lib/ambience').then((m) => {
+      if (!live) return
+      m.startAmbience(archetype)
+      stop = m.stopAmbience
+    })
+    return () => {
+      live = false
+      stop?.()
+    }
+  }, [ambience, archetype])
 
   useEffect(() => {
     let cancelled = false

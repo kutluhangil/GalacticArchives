@@ -2830,6 +2830,50 @@ Bunlar görsel üretimi değil, uygulamanın kendi çıktısı — ben tarayıc�
 
 ---
 
+## Bölüm H — Yeni savaş görselleri (7) — 2026-10-24
+
+Savaş kayıtları 8 → 15 oldu. Görseli gelene kadar Holocron'daki kart, konum adıyla tema
+uyumlu bir ⚔ plakası gösteriyor; dosya diske düştüğü an otomatik devreye girer, kod
+değişikliği gerekmez.
+
+**Teknik:** 16:9, en az 1600 × 900 üret; `app/public/battles/<id>.webp` olarak
+**800 × 450 webp** kaydet (mevcut sekiz görselle aynı boyut). Kadraj geniş açı, savaşın
+mekânı okunur olsun; karakter yüzü yok.
+
+### H01 — `battle-of-christophsis.webp`
+Wide establishing shot of a city of tall faceted crystal towers on a cold blue world, smoke rising
+between the spires, distant artillery flashes, rows of white-armoured infantry silhouettes holding a
+street barricade at dusk. [STYLE BIBLE]
+
+### H02 — `battle-of-utapau.webp`
+Enormous sinkhole city carved into the walls of a pale rocky crater, landing platforms stacked down
+its sides, laser fire crossing the abyss, small figures riding a large lizard mount along a ledge.
+Late afternoon dust haze. [STYLE BIBLE]
+
+### H03 — `battle-of-kashyyyk.webp`
+Beach at the foot of colossal wroshyr trees, a lagoon full of beached assault craft, tall furred
+warriors and white-armoured troops holding the shoreline against a wave of spindly battle droids,
+catamarans on the water. [STYLE BIBLE]
+
+### H04 — `liberation-of-lothal.webp`
+Grassland plains at night, a domed imperial headquarters exploding into a column of fire, giant
+space-whale creatures with glowing markings rising into the sky above a wedge-shaped warship.
+[STYLE BIBLE]
+
+### H05 — `battle-of-starkiller-base.webp`
+A snow-and-forest planet hollowed into a weapon, a vast trench glowing red with collected starlight,
+small fighters diving through flak toward a cylindrical oscillator, the sky darkening as the sun is
+drained. [STYLE BIBLE]
+
+### H06 — `battle-of-crait.webp`
+White salt flat with red crystalline soil kicked up in long scarlet trails behind small ski-speeders,
+heavy armoured walkers advancing on a mine door in a cliff face, overcast sky. [STYLE BIBLE]
+
+### H07 — `battle-of-exegol.webp`
+Storm-lashed black world, lightning-filled sky crowded with hundreds of mismatched civilian ships
+fighting a fleet of dark wedge-shaped destroyers, a jagged citadel on the ground below.
+[STYLE BIBLE]
+
 ## İş akışı
 
 1. Promptu görsel modele ver (`[STYLE BIBLE]` yerine yukarıdaki bloğu yapıştır), PNG indir.

@@ -4,7 +4,13 @@
   "Battle meditation": {
    "continuity": "canon"
   },
+  "Battle of Christophsis": {
+   "continuity": "canon"
+  },
   "Battle of Coruscant": {
+   "continuity": "canon"
+  },
+  "Battle of Crait": {
    "continuity": "canon"
   },
   "Battle of Endor": {
@@ -19,7 +25,16 @@
   "Battle of Jakku": {
    "continuity": "canon"
   },
+  "Battle of Kashyyyk": {
+   "continuity": "canon"
+  },
   "Battle of Scarif": {
+   "continuity": "canon"
+  },
+  "Battle of Starkiller Base": {
+   "continuity": "canon"
+  },
+  "Battle of Utapau": {
    "continuity": "canon"
   },
   "Battle of Yavin": {
@@ -34,7 +49,13 @@
   "Destruction of Alderaan": {
    "continuity": "canon"
   },
+  "Din Grogu": {
+   "continuity": "canon"
+  },
   "Executor": {
+   "continuity": "canon"
+  },
+  "Fennec Shand": {
    "continuity": "canon"
   },
   "First Battle of Geonosis": {
@@ -70,10 +91,22 @@
   "Ghost": {
    "continuity": "canon"
   },
+  "Han Solo": {
+   "continuity": "canon"
+  },
+  "Hosnian Cataclysm": {
+   "continuity": "canon"
+  },
   "Imperial I-class Star Destroyer": {
    "continuity": "canon"
   },
+  "Invasion of Naboo": {
+   "continuity": "canon"
+  },
   "Jedi beacon": {
+   "continuity": "canon"
+  },
+  "Liberation of Lothal": {
    "continuity": "canon"
   },
   "Millennium Falcon": {
@@ -179,6 +212,9 @@
    "continuity": "legends"
   },
   "Venator-class Star Destroyer": {
+   "continuity": "canon"
+  },
+  "Zam Wesell": {
    "continuity": "canon"
   }
  }

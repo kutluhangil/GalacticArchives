@@ -5,6 +5,7 @@ import type { CelestialBody } from '../types/lore'
 import { useApp } from '../state/app'
 import { sfx } from '../lib/audio'
 import ModalShell from './ModalShell'
+import { useLater } from '../hooks/useLater'
 
 export default function HyperspaceSimulator({ onClose }: { onClose: () => void }) {
   const lang = useApp((s) => s.lang)
@@ -14,6 +15,7 @@ export default function HyperspaceSimulator({ onClose }: { onClose: () => void }
   const [warping, setWarping] = useState<boolean>(false)
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const later = useLater()
 
   useEffect(() => {
     loadAllPlanets().then(setPlanets)
@@ -24,9 +26,7 @@ export default function HyperspaceSimulator({ onClose }: { onClose: () => void }
   const startWarp = () => {
     sfx.playHyperspace()
     setWarping(true)
-    setTimeout(() => {
-      setWarping(false)
-    }, 2800)
+    later(() => setWarping(false), 2800)
   }
 
   // Fullscreen Hyperspace Particles Canvas Animation

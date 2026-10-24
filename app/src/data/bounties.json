@@ -1,0 +1,67 @@
+[
+  {
+    "id": "padme-amidala",
+    "target": { "en": "Senator Padmé Amidala", "tr": "Senatör Padmé Amidala" },
+    "client": { "en": "Viceroy Nute Gunray (Trade Federation)", "tr": "Genel Vali Nute Gunray (Ticaret Federasyonu)" },
+    "hunters": { "en": "Jango Fett, Zam Wesell", "tr": "Jango Fett, Zam Wesell" },
+    "yearLabel": "22 BBY",
+    "era": "clone-wars",
+    "planetId": "coruscant",
+    "status": "failed",
+    "desc": {
+      "en": "The viceroy wanted dead the senator who had cost him Naboo. Jango Fett passed the job to the changeling Zam Wesell; after a bombed landing pad and kouhuns in the bedroom, the Jedi ran Wesell down over Coruscant, and Jango silenced her with a toxic dart before she could name him.",
+      "tr": "Genel vali, ona Naboo'yu kaybettiren senatörü ölü istiyordu. Jango Fett işi şekil değiştiren Zam Wesell'e devretti; bombalanan iniş pisti ve yatak odasına salınan kouhunların ardından Jedi'lar Wesell'i Coruscant semalarında yakaladı, Jango da onu adını veremeden zehirli bir dartla susturdu."
+    },
+    "appearances": ["aotc"],
+    "source": "wookieepedia:Zam Wesell"
+  },
+  {
+    "id": "han-solo",
+    "target": { "en": "Han Solo", "tr": "Han Solo" },
+    "client": { "en": "Jabba the Hutt", "tr": "Hutt Jabba" },
+    "hunters": { "en": "Boba Fett", "tr": "Boba Fett" },
+    "yearLabel": "3 ABY",
+    "era": "empire",
+    "planetId": "bespin",
+    "status": "delivered",
+    "desc": {
+      "en": "Jabba put a price on the smuggler who dumped his spice. Boba Fett tracked the Millennium Falcon to Cloud City, where Darth Vader froze Solo in carbonite and handed him over; Fett delivered the slab to Jabba's palace on Tatooine.",
+      "tr": "Jabba, baharat yükünü uzaya atan kaçakçının başına ödül koydu. Boba Fett, Millennium Falcon'u Bulut Şehri'ne kadar izledi; orada Darth Vader, Solo'yu karbonite dondurup Fett'e teslim etti, Fett de bloğu Tatooine'deki Jabba'nın sarayına götürdü."
+    },
+    "appearances": ["esb", "rotj"],
+    "source": "wookieepedia:Han Solo"
+  },
+  {
+    "id": "din-grogu",
+    "target": { "en": "The Child (Grogu)", "tr": "Çocuk (Grogu)" },
+    "client": { "en": "The Client (Imperial remnant)", "tr": "Müşteri (İmparatorluk kalıntısı)" },
+    "hunters": { "en": "Din Djarin, IG-11", "tr": "Din Djarin, IG-11" },
+    "yearLabel": "9 ABY",
+    "era": "new-republic",
+    "planetId": "arvala-7",
+    "status": "abandoned",
+    "reward": { "en": "A camtono of beskar steel", "tr": "Bir camtono dolusu beskar çeliği" },
+    "desc": {
+      "en": "An off-book Imperial contract passed through the Bounty Hunters' Guild for a fifty-year-old target. Din Djarin found the infant on Arvala-7 and handed him to the Client on Nevarro for beskar — then went back for him, breaking the Guild's code.",
+      "tr": "Ödül Avcıları Loncası üzerinden geçen kayıt dışı bir İmparatorluk sözleşmesi, elli yaşındaki bir hedef arıyordu. Din Djarin bebeği Arvala-7'de buldu ve beskar karşılığında Nevarro'daki Müşteri'ye teslim etti — sonra Lonca kuralını çiğneyip onu geri almaya döndü."
+    },
+    "appearances": ["mandalorian"],
+    "source": "wookieepedia:Din Grogu"
+  },
+  {
+    "id": "fennec-shand",
+    "target": { "en": "Fennec Shand", "tr": "Fennec Shand" },
+    "client": { "en": "Bounty Hunters' Guild", "tr": "Ödül Avcıları Loncası" },
+    "hunters": { "en": "Toro Calican, Din Djarin", "tr": "Toro Calican, Din Djarin" },
+    "yearLabel": "9 ABY",
+    "era": "new-republic",
+    "planetId": "tatooine",
+    "status": "failed",
+    "desc": {
+      "en": "The rookie Toro Calican wanted the elite assassin as his ticket into the Guild and brought Din Djarin along across the Dune Sea. He shot her rather than share the prize and died for the double-cross; Fennec survived, saved by Boba Fett.",
+      "tr": "Çaylak Toro Calican, Lonca'ya giriş bileti olarak bu seçkin suikastçıyı istedi ve Din Djarin'i de Kumul Denizi'ne götürdü. Ödülü paylaşmak yerine onu vurdu ve ihanetinin bedelini canıyla ödedi; Fennec ise Boba Fett sayesinde hayatta kaldı."
+    },
+    "appearances": ["mandalorian", "bobf"],
+    "source": "wookieepedia:Fennec Shand"
+  }
+]

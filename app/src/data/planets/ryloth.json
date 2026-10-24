@@ -52,6 +52,6 @@
     "palette": { "primary": "#B87E4E", "secondary": "#6E4E38" },
     "atmosphere": { "color": "#E0B080", "density": 0.65 },
     "textures": { "albedo": "planets/ryloth/albedo" },
-    "effects": ["canyon-shadows"]
+    "effects": ["canyon-shadows", "city-glow"]
   }
 }

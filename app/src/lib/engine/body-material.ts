@@ -26,6 +26,7 @@ export function makeBodyMaterial(
   relief = 1,
 ): THREE.ShaderMaterial {
   const recipe = body.renderRecipe
+  const effects = [...(recipe.effects ?? []), ...(recipe.variantsByEra?.[era]?.effects ?? [])]
   const s1 = suns[0]
   const s2 = suns[1] ?? suns[0]
   return new THREE.ShaderMaterial({
@@ -49,6 +50,18 @@ export function makeBodyMaterial(
       uUseAlbedo: { value: 0 },
       uNight: { value: null },
       uUseNight: { value: 0 },
+      // a night map, when one loads, takes over from these procedural lights
+      uAtmoAmount: { value: recipe.atmosphere ? Math.min(recipe.atmosphere.density, 1) * 0.8 : 0 },
+      uCityLights: { value: effects.includes('city-glow') ? 1 : 0 },
+      // the planet view fills these in; system and galaxy thumbnails leave them off
+      uCloudCover: { value: 0 },
+      uCloudSpeed: { value: 0 },
+      uCloudSeed: { value: 0 },
+      uRingRadii: { value: new THREE.Vector2(0, 0) },
+      uRingNormal: { value: new THREE.Vector3(0, 1, 0) },
+      uRingBone: { value: 0 },
+      uMoons: { value: [0, 1, 2, 3].map(() => new THREE.Vector4()) },
+      uMoonCount: { value: 0 },
     },
   })
 }

@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react'
 import { t } from '../lib/ui-strings'
 import { useApp } from '../state/app'
+import { useLater } from '../hooks/useLater'
 
 /** how long one loop of the Maw takes */
 const RUN_MS = 6400
@@ -72,12 +73,13 @@ export function KesselRun() {
 /** A porg perched on the HUD. Poke it. */
 export function Porg() {
   const [startled, setStartled] = useState(false)
+  const later = useLater()
   return (
     <button
       aria-label="porg"
       onClick={() => {
         setStartled(true)
-        window.setTimeout(() => setStartled(false), 420)
+        later(() => setStartled(false), 420)
       }}
       className={`pointer-events-auto absolute bottom-16 right-6 z-20 transition-transform duration-200 ${
         startled ? '-translate-y-2 scale-110' : ''

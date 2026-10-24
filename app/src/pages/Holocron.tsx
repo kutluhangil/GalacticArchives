@@ -434,6 +434,17 @@ export default function Holocron() {
                 className="group overflow-hidden rounded-lg border border-sith-red/30 bg-panel/90 transition-all hover:border-sith-red/60"
               >
                 <div className="relative aspect-16/9 w-full overflow-hidden bg-black/60">
+                  {/* shown when a newer battle has no painting yet: the image
+                      hides itself on error and leaves this plate behind it */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-[radial-gradient(circle_at_50%_40%,rgba(196,30,58,0.25),transparent_70%)]"
+                  >
+                    <span className="text-3xl text-sith-red/70">⚔</span>
+                    <span className="font-display text-[12px] tracking-[0.3em] text-slate-400">
+                      {L(battle.locationName, lang).toUpperCase()}
+                    </span>
+                  </div>
                   <img
                     src={`/battles/${battle.id}.webp`}
                     alt={L(battle.names, lang)}
@@ -441,7 +452,10 @@ export default function Holocron() {
                     height={450}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none'
+                    }}
+                    className="relative h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <span className="absolute top-2 right-2 rounded border border-star-gold/40 bg-black/80 px-2 py-0.5 font-hud text-[10px] text-star-gold backdrop-blur-xs">
                     {battle.yearLabel}

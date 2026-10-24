@@ -2,6 +2,7 @@
 
 import type {
   Battle,
+  Bounty,
   CelestialBody,
   Character,
   Era,
@@ -213,6 +214,15 @@ export async function loadBattles(): Promise<Battle[]> {
     battlesCache = mod.default as Battle[]
   }
   return battlesCache
+}
+
+let bountiesCache: Bounty[] | null = null
+export async function loadBounties(): Promise<Bounty[]> {
+  if (!bountiesCache) {
+    const mod = await import('../data/bounties.json')
+    bountiesCache = mod.default as Bounty[]
+  }
+  return bountiesCache
 }
 
 let timelineCache: TimelineEvent[] | null = null

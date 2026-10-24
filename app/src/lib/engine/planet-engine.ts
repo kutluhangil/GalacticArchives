@@ -16,6 +16,7 @@ import {
   buildMistShell,
   buildSparks,
   buildTraffic,
+  makeGlowTexture,
   type TrafficSystem,
 } from './effects'
 import { makeBodyMaterial, seedFrom } from './body-material'
@@ -74,7 +75,9 @@ export class PlanetEngine extends EngineBase {
   private era: EraId = 'empire'
   private planetGroup = new THREE.Group()
   private planetMesh?: THREE.Mesh
-  private moonOrbiters: { obj: THREE.Object3D; radius: number; periodDays: number; phase: number }[] = []
+  /** `size` is the body's own radius: moons and stations both cast eclipses */
+  private moonOrbiters: { obj: THREE.Object3D; radius: number; periodDays: number; phase: number; size: number }[] = []
+  private flare: { sprite: THREE.Sprite; along: number; size: number; opacity: number }[] = []
   private sunDirs: { dir: THREE.Vector3; color: THREE.Color }[] = []
   private poiLocal: { id: string; pos: THREE.Vector3 }[] = []
   private poiCb?: (p: PoiScreenPos[]) => void
@@ -112,6 +115,7 @@ export class PlanetEngine extends EngineBase {
       this.buildArchetypeEffects()
     }
 
+    this.buildFlare()
     if (!this.reducedMotion) this.introStart = performance.now()
     this.start()
   }
@@ -168,10 +172,13 @@ export class PlanetEngine extends EngineBase {
 
     const segments = this.quality.planetSegments
     const geo = new THREE.SphereGeometry(1, segments, segments)
-    this.planetMesh = new THREE.Mesh(geo, this.bodyMaterial(this.body))
+    const surface = this.bodyMaterial(this.body)
+    this.planetMesh = new THREE.Mesh(geo, surface)
     this.planetGroup.add(this.planetMesh)
     this.scene.add(this.planetGroup)
     const [s1, s2] = [this.sunDirs[0], this.sunDirs[1] ?? this.sunDirs[0]]
+    const hasSun2 = this.sunDirs.length > 1 ? 1 : 0
+    const effects = recipe.effects ?? []
 
     // atmosphere shell
     if (recipe.atmosphere) {
@@ -182,6 +189,17 @@ export class PlanetEngine extends EngineBase {
           uColor: { value: new THREE.Color(recipe.atmosphere.color) },
           uDensity: { value: recipe.atmosphere.density },
           uTime: { value: 0 },
+          uSun1Dir: { value: s1.dir },
+          uSun1Color: { value: s1.color },
+          uSun2Dir: { value: s2.dir },
+          uHasSun2: { value: hasSun2 },
+          // lava worlds light their own sky from below on the night side
+          uGlow: {
+            value:
+              recipe.archetype === 'lava' || effects.includes('lava-glow')
+                ? new THREE.Color('#ff5a1f').multiplyScalar(0.55)
+                : new THREE.Color(0, 0, 0),
+          },
         },
         blending: THREE.AdditiveBlending,
         side: THREE.BackSide,
@@ -220,6 +238,10 @@ export class PlanetEngine extends EngineBase {
       })
       this.timedMats.push(cloudMat)
       this.planetGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.014, 96, 96), cloudMat))
+      // the surface casts the deck's shadow from the same field
+      surface.uniforms.uCloudCover.value = cloudMat.uniforms.uDensity.value
+      surface.uniforms.uCloudSpeed.value = cloudMat.uniforms.uSpeed.value
+      surface.uniforms.uCloudSeed.value = cloudMat.uniforms.uSeed.value
     }
 
     // rings
@@ -251,6 +273,10 @@ export class PlanetEngine extends EngineBase {
       const ring = new THREE.Mesh(ringGeo, ringMat)
       ring.rotation.x = Math.PI / 2 + THREE.MathUtils.degToRad(tilt)
       this.scene.add(ring)
+      // and the ring shadows the globe
+      surface.uniforms.uRingRadii.value.set(innerRadius, outerRadius)
+      surface.uniforms.uRingNormal.value.set(0, 0, 1).applyEuler(ring.rotation)
+      surface.uniforms.uRingBone.value = kind === 'bone' ? 1 : 0
     }
 
     // POI anchor points in planet-local space
@@ -299,7 +325,8 @@ export class PlanetEngine extends EngineBase {
       } else {
         mesh = new THREE.Mesh(
           new THREE.SphereGeometry(size, 24, 24),
-          new THREE.MeshBasicMaterial({ color: new THREE.Color('#9a938c') }),
+          // lit, so the moon shows a phase instead of a flat grey disc
+          new THREE.MeshStandardMaterial({ color: new THREE.Color('#9a938c'), roughness: 1, metalness: 0 }),
         )
       }
       this.scene.add(mesh)
@@ -309,6 +336,7 @@ export class PlanetEngine extends EngineBase {
         radius,
         periodDays: 4 + i * 6,
         phase: (i * Math.PI * 2) / Math.max(total, 1) + seedFrom(this.body.id),
+        size,
       })
       this.addOrbitLine(radius)
     }
@@ -332,6 +360,7 @@ export class PlanetEngine extends EngineBase {
         radius,
         periodDays: 18 + i * 7,
         phase: 1.1 + i,
+        size: 0.2,
       })
       this.addOrbitLine(radius)
     })
@@ -348,6 +377,69 @@ export class PlanetEngine extends EngineBase {
       new THREE.LineBasicMaterial({ color: 0x2a3648, transparent: true, opacity: 0.35 }),
     )
     this.scene.add(line)
+  }
+
+  /** Lens flare for the primary sun: ghosts strung along the line from the
+   *  sun through the screen centre, faded when the globe or the screen edge
+   *  hides the sun. Plain sprites, so it costs no post-processing pass. */
+  private buildFlare() {
+    const sun = '#' + this.sunDirs[0].color.getHexString()
+    // along: 1 = on the sun, 0 = screen centre, negative = mirrored past it
+    const ghosts: [number, number, string, number][] = [
+      [0.62, 0.05, sun, 0.28],
+      [0.25, 0.022, '#9fe8ff', 0.22],
+      [-0.18, 0.06, '#66d9ff', 0.12],
+      [-0.5, 0.11, '#9f7bff', 0.08],
+      [-0.85, 0.035, sun, 0.2],
+    ]
+    for (const [along, size, color, opacity] of ghosts) {
+      const sprite = new THREE.Sprite(
+        new THREE.SpriteMaterial({
+          map: makeGlowTexture(color),
+          blending: THREE.AdditiveBlending,
+          depthTest: false,
+          depthWrite: false,
+          transparent: true,
+          opacity: 0,
+        }),
+      )
+      sprite.renderOrder = 10
+      this.scene.add(sprite)
+      this.flare.push({ sprite, along, size, opacity })
+    }
+  }
+
+  private updateFlare() {
+    if (!this.flare.length) return
+    const dir = this.sunDirs[0].dir
+    const cam = this.camera.position
+    const ndc = FLARE_NDC.copy(dir).multiplyScalar(240).project(this.camera)
+    // the globe (unit sphere at the origin) between camera and sun eclipses it
+    const b = cam.dot(dir)
+    const disc = b * b - (cam.lengthSq() - 1)
+    const occluded = b < 0 ? THREE.MathUtils.smoothstep(disc, 0, 0.12) : 0
+    const edge = 1 - THREE.MathUtils.smoothstep(Math.max(Math.abs(ndc.x), Math.abs(ndc.y)), 1, 1.4)
+    const visible = ndc.z < 1 ? edge * (1 - occluded) : 0
+    const depth = 2
+    const screenH = 2 * depth * Math.tan(THREE.MathUtils.degToRad(this.camera.fov / 2))
+    for (const g of this.flare) {
+      const p = FLARE_P.set(ndc.x * g.along, ndc.y * g.along, 0.5).unproject(this.camera)
+      g.sprite.position.copy(cam).add(p.sub(cam).normalize().multiplyScalar(depth))
+      g.sprite.scale.setScalar(g.size * screenH)
+      ;(g.sprite.material as THREE.SpriteMaterial).opacity = g.opacity * visible
+    }
+  }
+
+  /** eclipse casters for the surface shader: moons and orbiting stations */
+  private updateEclipses() {
+    const mat = this.planetMesh?.material as THREE.ShaderMaterial | undefined
+    if (!mat) return
+    const casters = this.moonOrbiters.slice(0, 4)
+    casters.forEach((m, i) => {
+      const p = m.obj.position
+      ;(mat.uniforms.uMoons.value as THREE.Vector4[])[i].set(p.x, p.y, p.z, m.size)
+    })
+    mat.uniforms.uMoonCount.value = casters.length
   }
 
   /** liveliness pass: per-archetype ambient effects */
@@ -411,8 +503,10 @@ export class PlanetEngine extends EngineBase {
       m.obj.position.set(Math.cos(ang) * m.radius, 0, Math.sin(ang) * m.radius)
     }
 
+    this.updateEclipses()
     this.asteroidUpdate?.(dt)
     this.traffic?.update(this.wallSec, ORIGIN)
+    this.updateFlare()
 
     // dive-in / depart camera animation along the current view direction
     if (this.introStart >= 0) {
@@ -452,3 +546,6 @@ export class PlanetEngine extends EngineBase {
 }
 
 const ORIGIN = new THREE.Vector3()
+// per-frame scratch for the flare, so the render loop allocates nothing
+const FLARE_NDC = new THREE.Vector3()
+const FLARE_P = new THREE.Vector3()

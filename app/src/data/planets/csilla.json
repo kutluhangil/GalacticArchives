@@ -78,6 +78,7 @@
   },
   "renderRecipe": {
     "archetype": "ice",
+    "effects": ["city-glow"],
     "palette": {
       "primary": "#C7D6E6",
       "secondary": "#8FA6BE"

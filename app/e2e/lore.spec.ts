@@ -54,6 +54,33 @@ test('a tool panel opens as a dialog and Escape closes it', async ({ page }) => 
   await expect(dialog).toBeHidden()
 })
 
+// The panels render inside the top bar's pointer-events-none header. Keyboard
+// tests passed while every mouse click fell through the panel onto the map
+// canvas behind it, so these click, over the live map.
+test('a tool panel over the map takes mouse clicks', async ({ page }) => {
+  await page.goto('/galaxy')
+  await page.getByRole('button', { name: /Araçlar|Tools/ }).click()
+  await page.getByRole('button', { name: /Sabacc/ }).click()
+
+  const dialog = page.getByRole('dialog', { name: /SABACC/ })
+  const hand = dialog.getByRole('region', { name: /Senin elin|Your hand/ })
+  await expect(hand.locator('div.h-20, button.h-20')).toHaveCount(2)
+  await dialog.getByRole('button', { name: /Kart çek|Gain/ }).click()
+  // a sabacc shift redeals at the same size, so three cards either way
+  await expect(hand.locator('div.h-20, button.h-20')).toHaveCount(3)
+})
+
+test('the bounty board sends the reader to the world a contract turned on', async ({ page }) => {
+  await page.goto('/galaxy')
+  await page.getByRole('button', { name: /Araçlar|Tools/ }).click()
+  await page.getByRole('button', { name: /Ödül Panosu|Bounty Board/ }).click()
+
+  const dialog = page.getByRole('dialog', { name: /ÖDÜL PANOSU|BOUNTY BOARD/ })
+  await expect(dialog.getByRole('heading', { name: 'Han Solo' })).toBeVisible()
+  await dialog.getByRole('listitem').filter({ hasText: 'Han Solo' }).getByRole('button', { name: /Dünyaya git|Go to world/ }).click()
+  await expect(page).toHaveURL(/\/planet\/bespin/)
+})
+
 // The four lore routes shipped inside a `min-h-screen` wrapper while `#root` is
 // a fixed-height, overflow-hidden box: the wrapper grew past the root, so every
 // record below the first screen was clipped and unreachable. Nothing in the

@@ -246,5 +246,222 @@
     },
     "appearances": ["ep7"],
     "source": "wookieepedia:Battle of Jakku"
+  },
+  {
+    "id": "battle-of-christophsis",
+    "names": {
+      "en": "Battle of Christophsis",
+      "tr": "Christophsis Savaşı"
+    },
+    "yearLabel": "22 BBY",
+    "era": "clone-wars",
+    "locationPlanetId": "christophsis",
+    "locationName": {
+      "en": "Christophsis",
+      "tr": "Christophsis"
+    },
+    "combatants": [
+      {
+        "factionId": "republic",
+        "commander": { "en": "Anakin Skywalker / Obi-Wan Kenobi", "tr": "Anakin Skywalker / Obi-Wan Kenobi" }
+      },
+      {
+        "factionId": "separatist",
+        "commander": { "en": "General Whorm Loathsom", "tr": "General Whorm Loathsom" }
+      }
+    ],
+    "victorFactionId": "republic",
+    "desc": {
+      "en": "Early in the Clone Wars, Skywalker and Kenobi broke a Separatist blockade and siege of the crystal world; Ahsoka Tano arrived here as Anakin’s new Padawan.",
+      "tr": "Klon Savaşları’nın başında Skywalker ve Kenobi, bu kristal dünyadaki Ayrılıkçı abluka ve kuşatmayı kırdı; Ahsoka Tano, Anakin’in yeni Padawan’ı olarak burada geldi."
+    },
+    "appearances": ["tcw"],
+    "source": "wookieepedia:Battle of Christophsis"
+  },
+  {
+    "id": "battle-of-utapau",
+    "names": {
+      "en": "Battle of Utapau",
+      "tr": "Utapau Savaşı"
+    },
+    "yearLabel": "19 BBY",
+    "era": "clone-wars",
+    "locationPlanetId": "utapau",
+    "locationName": {
+      "en": "Utapau / Pau City",
+      "tr": "Utapau / Pau Şehri"
+    },
+    "combatants": [
+      {
+        "factionId": "republic",
+        "commander": { "en": "Obi-Wan Kenobi / Commander Cody", "tr": "Obi-Wan Kenobi / Komutan Cody" }
+      },
+      {
+        "factionId": "separatist",
+        "commander": { "en": "General Grievous", "tr": "General Grievous" }
+      }
+    ],
+    "victorFactionId": "republic",
+    "desc": {
+      "en": "Kenobi tracked General Grievous to the sinkhole world and killed him, while the 212th took Pau City — then Cody received Order 66 and opened fire on his general.",
+      "tr": "Kenobi, General Grievous’u bu obruk dünyasında buldu ve öldürdü; 212. Kolordu Pau Şehri’ni aldı — ardından Cody Emir 66’yı aldı ve kendi generaline ateş açtı."
+    },
+    "appearances": ["rots"],
+    "source": "wookieepedia:Battle of Utapau"
+  },
+  {
+    "id": "battle-of-kashyyyk",
+    "names": {
+      "en": "Battle of Kashyyyk",
+      "tr": "Kashyyyk Savaşı"
+    },
+    "yearLabel": "19 BBY",
+    "era": "clone-wars",
+    "locationPlanetId": "kashyyyk",
+    "locationName": {
+      "en": "Kashyyyk / Kachirho",
+      "tr": "Kashyyyk / Kachirho"
+    },
+    "combatants": [
+      {
+        "factionId": "republic",
+        "commander": { "en": "Grand Master Yoda / Chieftain Tarfful", "tr": "Büyük Usta Yoda / Reis Tarfful" }
+      },
+      {
+        "factionId": "separatist",
+        "commander": { "en": "Separatist Droid Army", "tr": "Ayrılıkçı Droid Ordusu" }
+      }
+    ],
+    "victorFactionId": "republic",
+    "desc": {
+      "en": "Clones and Wookiees held Kachirho’s beaches against a droid invasion until Order 66 turned the clones on Yoda, who escaped with the help of Chewbacca and Tarfful.",
+      "tr": "Klonlar ve Wookieeler, Kachirho kıyılarını droid istilasına karşı tuttu; ta ki Emir 66 klonları Yoda’ya çevirene dek — Yoda, Chewbacca ve Tarfful’un yardımıyla kaçtı."
+    },
+    "appearances": ["rots"],
+    "source": "wookieepedia:Battle of Kashyyyk"
+  },
+  {
+    "id": "liberation-of-lothal",
+    "names": {
+      "en": "Liberation of Lothal",
+      "tr": "Lothal’ın Kurtuluşu"
+    },
+    "yearLabel": "1 ABY",
+    "era": "empire",
+    "locationPlanetId": "lothal",
+    "locationName": {
+      "en": "Lothal / Capital City",
+      "tr": "Lothal / Başkent"
+    },
+    "combatants": [
+      {
+        "factionId": "rebel",
+        "commander": { "en": "Ezra Bridger / Hera Syndulla", "tr": "Ezra Bridger / Hera Syndulla" }
+      },
+      {
+        "factionId": "empire",
+        "commander": { "en": "Grand Admiral Thrawn / Governor Arihnda Pryce", "tr": "Büyük Amiral Thrawn / Vali Arihnda Pryce" }
+      }
+    ],
+    "victorFactionId": "rebel",
+    "desc": {
+      "en": "Lothal’s rebels destroyed the Imperial Dome and freed their world; Ezra Bridger called the purrgil, which carried him and Thrawn’s Chimaera off into hyperspace.",
+      "tr": "Lothal’in asileri İmparatorluk Kubbesi’ni yıkıp dünyalarını kurtardı; Ezra Bridger purrgilleri çağırdı ve onlar, Ezra’yı ve Thrawn’ın Chimaera’sını hiperuzaya sürükledi."
+    },
+    "appearances": ["rebels"],
+    "source": "wookieepedia:Liberation of Lothal"
+  },
+  {
+    "id": "battle-of-starkiller-base",
+    "names": {
+      "en": "Battle of Starkiller Base",
+      "tr": "Starkiller Üssü Savaşı"
+    },
+    "yearLabel": "34 ABY",
+    "era": "new-republic",
+    "locationPlanetId": "ilum",
+    "locationName": {
+      "en": "Starkiller Base (Ilum)",
+      "tr": "Starkiller Üssü (Ilum)"
+    },
+    "combatants": [
+      {
+        "factionId": "resistance",
+        "commander": { "en": "Poe Dameron / Han Solo", "tr": "Poe Dameron / Han Solo" }
+      },
+      {
+        "factionId": "first-order",
+        "commander": { "en": "General Armitage Hux / Kylo Ren", "tr": "General Armitage Hux / Kylo Ren" }
+      }
+    ],
+    "victorFactionId": "resistance",
+    "desc": {
+      "en": "Hours after the superweapon erased the Hosnian system, Resistance X-wings struck its thermal oscillator and Starkiller Base collapsed into a star — the day Kylo Ren killed his father.",
+      "tr": "Süper silah Hosnian sistemini sildikten saatler sonra Direniş X-wingleri termal osilatörü vurdu ve Starkiller Üssü bir yıldıza dönüşerek çöktü — Kylo Ren’in babasını öldürdüğü gün."
+    },
+    "appearances": ["tfa"],
+    "source": "wookieepedia:Battle of Starkiller Base"
+  },
+  {
+    "id": "battle-of-crait",
+    "names": {
+      "en": "Battle of Crait",
+      "tr": "Crait Savaşı"
+    },
+    "yearLabel": "34 ABY",
+    "era": "new-republic",
+    "locationPlanetId": "crait",
+    "locationName": {
+      "en": "Crait / Rebel outpost",
+      "tr": "Crait / Asi karakolu"
+    },
+    "combatants": [
+      {
+        "factionId": "resistance",
+        "commander": { "en": "General Leia Organa / Luke Skywalker", "tr": "General Leia Organa / Luke Skywalker" }
+      },
+      {
+        "factionId": "first-order",
+        "commander": { "en": "Supreme Leader Kylo Ren / General Hux", "tr": "Yüce Lider Kylo Ren / General Hux" }
+      }
+    ],
+    "victorFactionId": "first-order",
+    "desc": {
+      "en": "The cornered Resistance made its stand in an old Rebel mine on the salt flats; Luke Skywalker’s projection held Kylo Ren long enough for the last survivors to escape aboard the Falcon.",
+      "tr": "Köşeye sıkışan Direniş, tuz düzlüklerindeki eski bir Asi madeninde direndi; Luke Skywalker’ın yansıması Kylo Ren’i, son hayatta kalanlar Falcon’la kaçana dek oyaladı."
+    },
+    "appearances": ["tlj"],
+    "source": "wookieepedia:Battle of Crait"
+  },
+  {
+    "id": "battle-of-exegol",
+    "names": {
+      "en": "Battle of Exegol",
+      "tr": "Exegol Savaşı"
+    },
+    "yearLabel": "35 ABY",
+    "era": "new-republic",
+    "locationPlanetId": "exegol",
+    "locationName": {
+      "en": "Exegol / Sith Citadel",
+      "tr": "Exegol / Sith Kalesi"
+    },
+    "combatants": [
+      {
+        "factionId": "resistance",
+        "commander": { "en": "Poe Dameron / Lando Calrissian", "tr": "Poe Dameron / Lando Calrissian" }
+      },
+      {
+        "factionId": "sith",
+        "commander": { "en": "Darth Sidious / Allegiant General Pryde", "tr": "Darth Sidious / Bağlı General Pryde" }
+      }
+    ],
+    "victorFactionId": "resistance",
+    "desc": {
+      "en": "The Resistance and a citizens’ fleet answered Lando’s call against the Final Order’s Star Destroyers, while Rey turned Palpatine’s own lightning back on him in the Sith Citadel.",
+      "tr": "Direniş ve Lando’nun çağrısına uyan sivil filo Son Emir’in Yıldız Destroyerleriyle çarpıştı; Rey ise Sith Kalesi’nde Palpatine’in şimşeklerini ona geri çevirdi."
+    },
+    "appearances": ["tros"],
+    "source": "wookieepedia:Battle of Exegol"
   }
 ]

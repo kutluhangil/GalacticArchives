@@ -82,6 +82,7 @@
   },
   "renderRecipe": {
     "archetype": "desert",
+    "effects": ["city-glow"],
     "palette": {
       "primary": "#C8A87A",
       "secondary": "#7E6A4B"

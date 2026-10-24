@@ -7,6 +7,7 @@
 
 import { describe, expect, it } from 'vitest'
 import battles from '../../src/data/battles.json'
+import bounties from '../../src/data/bounties.json'
 import forcePowers from '../../src/data/force-powers.json'
 import starships from '../../src/data/starships.json'
 import timeline from '../../src/data/timeline.json'
@@ -20,6 +21,7 @@ const articles = digest.articles as Record<string, { missing?: boolean; continui
 const datasets: [string, { id: string; source?: string }[]][] = [
   ['starships', starships],
   ['battles', battles],
+  ['bounties', bounties],
   ['force-powers', forcePowers],
   ['timeline', timeline],
   ['watch-guide', watchGuide],

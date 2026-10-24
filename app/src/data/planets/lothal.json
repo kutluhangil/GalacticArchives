@@ -48,6 +48,7 @@
   },
   "renderRecipe": {
     "archetype": "verdant",
+    "effects": ["city-glow"],
     "palette": { "primary": "#C8A855", "secondary": "#6E8E5E" },
     "atmosphere": { "color": "#E8D8A8", "density": 0.7 },
     "textures": { "albedo": "planets/lothal/albedo", "clouds": "temperate" }

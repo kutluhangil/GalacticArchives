@@ -29,6 +29,7 @@ const UA = 'GalacticArchives-research/1.0 (non-commercial fan project; data veri
 export const CODEX_FILES = [
   'starships.json',
   'battles.json',
+  'bounties.json',
   'force-powers.json',
   'timeline.json',
   'watch-guide.json',

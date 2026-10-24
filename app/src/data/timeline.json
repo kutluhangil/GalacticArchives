@@ -17,6 +17,23 @@
     "source": "wookieepedia:Galactic Republic"
   },
   {
+    "id": "invasion-of-naboo",
+    "yearLabel": "32 BBY",
+    "yearBBYABY": -32,
+    "era": "clone-wars",
+    "category": "battle",
+    "titles": {
+      "en": "Invasion of Naboo",
+      "tr": "Naboo İstilası"
+    },
+    "desc": {
+      "en": "The Trade Federation blockaded and occupied Naboo; Queen Amidala, the Gungans and two Jedi broke the occupation, and Darth Maul fell to Obi-Wan Kenobi in Theed.",
+      "tr": "Ticaret Federasyonu Naboo’yu abluka altına alıp işgal etti; Kraliçe Amidala, Gunganlar ve iki Jedi işgali kırdı, Darth Maul ise Theed’de Obi-Wan Kenobi’nin elinde düştü."
+    },
+    "planetId": "naboo",
+    "source": "wookieepedia:Invasion of Naboo"
+  },
+  {
     "id": "construction-of-death-star-begins",
     "yearLabel": "22 BBY",
     "yearBBYABY": -22,
@@ -35,6 +52,24 @@
     "source": "wookieepedia:Death Star"
   },
   {
+    "id": "battle-of-geonosis",
+    "yearLabel": "22 BBY",
+    "yearBBYABY": -22,
+    "era": "clone-wars",
+    "category": "battle",
+    "titles": {
+      "en": "First Battle of Geonosis",
+      "tr": "Birinci Geonosis Savaşı"
+    },
+    "desc": {
+      "en": "Jedi and the newly revealed clone army stormed the Geonosian arena to rescue Kenobi, Skywalker and Amidala — the opening battle of the Clone Wars.",
+      "tr": "Jedi’ler ve yeni ortaya çıkan klon ordusu, Kenobi, Skywalker ve Amidala’yı kurtarmak için Geonosis arenasına daldı — Klon Savaşları’nın açılış muharebesi."
+    },
+    "planetId": "geonosis",
+    "battleId": "battle-of-geonosis",
+    "source": "wookieepedia:First Battle of Geonosis"
+  },
+  {
     "id": "order-66-and-rise-of-empire",
     "yearLabel": "19 BBY",
     "yearBBYABY": -19,
@@ -51,6 +86,24 @@
     "planetId": "coruscant",
     "characterIds": ["palpatine", "anakin-skywalker", "obi-wan-kenobi"],
     "source": "wookieepedia:Order 66"
+  },
+  {
+    "id": "battle-of-scarif",
+    "yearLabel": "0 BBY",
+    "yearBBYABY": 0,
+    "era": "empire",
+    "category": "battle",
+    "titles": {
+      "en": "Battle of Scarif",
+      "tr": "Scarif Savaşı"
+    },
+    "desc": {
+      "en": "Rogue One stole the Death Star plans from the Citadel archive; the Rebellion’s first fleet action carried them off-world before the Death Star erased the base.",
+      "tr": "Rogue One, Ölüm Yıldızı planlarını Kale arşivinden çaldı; Asilerin ilk filo harekâtı planları gezegenden çıkardı, ardından Ölüm Yıldızı üssü sildi."
+    },
+    "planetId": "scarif",
+    "battleId": "battle-of-scarif",
+    "source": "wookieepedia:Battle of Scarif"
   },
   {
     "id": "destruction-of-alderaan",
@@ -90,6 +143,24 @@
     "source": "wookieepedia:Battle of Yavin"
   },
   {
+    "id": "liberation-of-lothal",
+    "yearLabel": "1 ABY",
+    "yearBBYABY": 1,
+    "era": "empire",
+    "category": "battle",
+    "titles": {
+      "en": "Liberation of Lothal",
+      "tr": "Lothal’ın Kurtuluşu"
+    },
+    "desc": {
+      "en": "Lothal’s rebel cell freed its world from the Empire; Ezra Bridger vanished into hyperspace with Grand Admiral Thrawn.",
+      "tr": "Lothal’in asi hücresi dünyasını İmparatorluk’tan kurtardı; Ezra Bridger, Büyük Amiral Thrawn’la birlikte hiperuzayda kayboldu."
+    },
+    "planetId": "lothal",
+    "battleId": "liberation-of-lothal",
+    "source": "wookieepedia:Liberation of Lothal"
+  },
+  {
     "id": "battle-of-hoth",
     "yearLabel": "3 ABY",
     "yearBBYABY": 3,
@@ -126,6 +197,77 @@
     "battleId": "battle-of-endor",
     "characterIds": ["luke-skywalker", "anakin-skywalker", "palpatine"],
     "source": "wookieepedia:Battle of Endor"
+  },
+  {
+    "id": "battle-of-jakku",
+    "yearLabel": "5 ABY",
+    "yearBBYABY": 5,
+    "era": "new-republic",
+    "category": "battle",
+    "titles": {
+      "en": "Battle of Jakku",
+      "tr": "Jakku Savaşı"
+    },
+    "desc": {
+      "en": "The Empire’s last great fleet fell over Jakku; the Galactic Concordance signed afterwards ended the Galactic Civil War.",
+      "tr": "İmparatorluğun son büyük filosu Jakku semalarında düştü; ardından imzalanan Galaktik Uzlaşma, Galaktik İç Savaş’ı sona erdirdi."
+    },
+    "planetId": "jakku",
+    "battleId": "battle-of-jakku",
+    "source": "wookieepedia:Battle of Jakku"
+  },
+  {
+    "id": "hosnian-cataclysm",
+    "yearLabel": "34 ABY",
+    "yearBBYABY": 34,
+    "era": "new-republic",
+    "category": "battle",
+    "titles": {
+      "en": "Hosnian Cataclysm",
+      "tr": "Hosnian Felaketi"
+    },
+    "desc": {
+      "en": "Starkiller Base fired across the galaxy and destroyed the Hosnian system, the New Republic’s capital, with its Senate and much of its fleet.",
+      "tr": "Starkiller Üssü galaksinin öbür ucuna ateş açtı ve Yeni Cumhuriyet’in başkenti Hosnian sistemini, Senatosu ve filosunun büyük kısmıyla birlikte yok etti."
+    },
+    "planetId": "hosnian-prime",
+    "source": "wookieepedia:Hosnian Cataclysm"
+  },
+  {
+    "id": "battle-of-starkiller-base",
+    "yearLabel": "34 ABY",
+    "yearBBYABY": 34,
+    "era": "new-republic",
+    "category": "battle",
+    "titles": {
+      "en": "Battle of Starkiller Base",
+      "tr": "Starkiller Üssü Savaşı"
+    },
+    "desc": {
+      "en": "The Resistance destroyed the First Order’s planet-sized superweapon; Han Solo died on its bridge at his son’s hand.",
+      "tr": "Direniş, Birinci Düzen’in gezegen büyüklüğündeki süper silahını yok etti; Han Solo, oğlunun elinde köprüde can verdi."
+    },
+    "planetId": "ilum",
+    "battleId": "battle-of-starkiller-base",
+    "source": "wookieepedia:Battle of Starkiller Base"
+  },
+  {
+    "id": "battle-of-crait",
+    "yearLabel": "34 ABY",
+    "yearBBYABY": 34,
+    "era": "new-republic",
+    "category": "battle",
+    "titles": {
+      "en": "Battle of Crait",
+      "tr": "Crait Savaşı"
+    },
+    "desc": {
+      "en": "A handful of Resistance survivors escaped the First Order on Crait while Luke Skywalker faced Kylo Ren and became one with the Force.",
+      "tr": "Birkaç Direniş üyesi Crait’te Birinci Düzen’den kaçtı; Luke Skywalker ise Kylo Ren’le yüzleşti ve Güç’le bir oldu."
+    },
+    "planetId": "crait",
+    "battleId": "battle-of-crait",
+    "source": "wookieepedia:Battle of Crait"
   },
   {
     "id": "battle-of-exegol",

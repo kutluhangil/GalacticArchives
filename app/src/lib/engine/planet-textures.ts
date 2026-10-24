@@ -28,7 +28,9 @@ export interface SurfaceTextureLease {
 
 const cache = new Map<string, CacheEntry>()
 const pendingLoads = new Map<string, Promise<void>>()
-let ktx2Loader: KTX2Loader | null = null
+// the promise, not the loader: albedo, night and moon maps ask in parallel, and
+// each await gap used to start its own transcoder worker pool and WASM compile
+let ktx2Loader: Promise<KTX2Loader> | null = null
 
 function loadManifest(): Promise<Manifest> {
   if (!manifestPromise) {
@@ -59,10 +61,9 @@ function tierFor(available: Record<string, string>): string | null {
 
 async function loaderFor(file: string, renderer: THREE.WebGLRenderer) {
   if (!file.endsWith('.ktx2')) return new THREE.TextureLoader()
-  if (!ktx2Loader) {
-    const { KTX2Loader } = await import('three/examples/jsm/loaders/KTX2Loader.js')
-    ktx2Loader = new KTX2Loader().setTranscoderPath('/basis/').detectSupport(renderer)
-  }
+  ktx2Loader ??= import('three/examples/jsm/loaders/KTX2Loader.js').then(({ KTX2Loader }) =>
+    new KTX2Loader().setTranscoderPath('/basis/').detectSupport(renderer),
+  )
   return ktx2Loader
 }
 

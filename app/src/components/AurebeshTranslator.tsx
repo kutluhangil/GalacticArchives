@@ -3,18 +3,25 @@ import { useApp } from '../state/app'
 import Aurebesh from './Aurebesh'
 import { sfx } from '../lib/audio'
 import ModalShell from './ModalShell'
+import { useLater } from '../hooks/useLater'
 
 
 export default function AurebeshTranslator({ onClose }: { onClose: () => void }) {
   const lang = useApp((s) => s.lang)
   const [text, setText] = useState('May the Force be with you')
   const [copied, setCopied] = useState(false)
+  const later = useLater()
 
   const handleCopy = () => {
     sfx.playSelect()
-    navigator.clipboard.writeText(text)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    // the clipboard can refuse (permission, insecure context): only claim a copy that landed
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        setCopied(true)
+        later(() => setCopied(false), 2000)
+      })
+      .catch(() => {})
   }
 
   return (

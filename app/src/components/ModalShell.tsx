@@ -70,8 +70,10 @@ export default function ModalShell({
   }, [onClose])
 
   return (
+    // pointer-events-auto: the top bar renders these inside its pointer-events-none
+    // header, and without it every click fell through the panel onto the map
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
+      className="pointer-events-auto fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}

@@ -7,6 +7,7 @@ import { L } from '../lib/lore'
 import Aurebesh from './Aurebesh'
 import SourceLink from './SourceLink'
 import { playDroidVocabulator } from '../lib/droid-audio'
+import { useLater } from '../hooks/useLater'
 
 interface Props {
   droid: Droid | null
@@ -16,6 +17,7 @@ interface Props {
 
 export default function DroidModal({ droid, onClose, lang }: Props) {
   const [isPlayingAudio, setIsPlayingAudio] = useState(false)
+  const later = useLater()
 
   useEffect(() => {
     if (!droid) return
@@ -31,7 +33,7 @@ export default function DroidModal({ droid, onClose, lang }: Props) {
   const handlePlayAudio = () => {
     setIsPlayingAudio(true)
     playDroidVocabulator(droid.soundType)
-    setTimeout(() => setIsPlayingAudio(false), 500)
+    later(() => setIsPlayingAudio(false), 500)
   }
 
   const classColorMap = {

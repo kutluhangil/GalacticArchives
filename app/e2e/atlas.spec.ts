@@ -163,8 +163,10 @@ test('flying a lane starts a tour at its first stop', async ({ page }) => {
   await page.goto('/galaxy?lane=corellian-run')
   await page.getByRole('button', { name: /Bu hattı uç|Fly this lane/ }).click()
 
-  // the player owns the route: it navigates to the first stop by itself
-  await expect(page).toHaveURL(/\/planet\/coruscant/)
+  // the player owns the route: it navigates to the first stop by itself. The
+  // galaxy flight runs first, and under a loaded software-GL runner it alone
+  // can take most of the default five seconds
+  await expect(page).toHaveURL(/\/planet\/coruscant/, { timeout: 15_000 })
   const player = page.getByRole('region', { name: /Corellia Koşusu|Corellian Run/ })
   await expect(player.getByText('1 / 4')).toBeVisible()
 

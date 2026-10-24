@@ -21,6 +21,8 @@ const HyperspaceSimulator = lazy(() => import('../HyperspaceSimulator'))
 const LightsaberChamber = lazy(() => import('../LightsaberChamber'))
 const TransmissionPlayer = lazy(() => import('../TransmissionPlayer'))
 const GalacticIdGenerator = lazy(() => import('../GalacticIdGenerator'))
+const SabaccTable = lazy(() => import('../SabaccTable'))
+const BountyBoard = lazy(() => import('../BountyBoard'))
 /**
  * Routes that read as archive sections rather than map controls. They live in
  * one menu because thirteen flat chips wrapped the header onto a second row,
@@ -266,6 +268,8 @@ export default function TopBar() {
   const [lightsabersOpen, setLightsabersOpen] = useState(false)
   const [transmissionsOpen, setTransmissionsOpen] = useState(false)
   const [idGenOpen, setIdGenOpen] = useState(false)
+  const [sabaccOpen, setSabaccOpen] = useState(false)
+  const [bountiesOpen, setBountiesOpen] = useState(false)
 
   // the Old Republic era belongs to the Legends layer; hide it otherwise
   const shownEras = eras.filter((e) => e.id !== 'old-republic' || legends)
@@ -278,6 +282,10 @@ export default function TopBar() {
         {lightsabersOpen && <LightsaberChamber onClose={() => setLightsabersOpen(false)} />}
         {transmissionsOpen && <TransmissionPlayer onClose={() => setTransmissionsOpen(false)} />}
         {idGenOpen && <GalacticIdGenerator onClose={() => setIdGenOpen(false)} />}
+        {sabaccOpen && <SabaccTable onClose={() => setSabaccOpen(false)} />}
+        {bountiesOpen && (
+          <BountyBoard onClose={() => setBountiesOpen(false)} onGo={(id) => jump(`/planet/${id}`)} />
+        )}
       </Suspense>
 
       <div className="pointer-events-auto">
@@ -362,6 +370,20 @@ export default function TopBar() {
                     label: { tr: 'Holo-Kimlik', en: 'Holo-ID' },
                     blurb: { tr: 'Kendine galaktik kimlik üret', en: 'Generate a galactic identity' },
                     open: () => setIdGenOpen(true),
+                    sound: () => sfx.playSelect(),
+                  },
+                  {
+                    icon: '🎯',
+                    label: { tr: 'Ödül Panosu', en: 'Bounty Board' },
+                    blurb: { tr: 'Loncanın kanon sözleşmeleri', en: 'Canon contracts from the Guild' },
+                    open: () => setBountiesOpen(true),
+                    sound: () => sfx.playSelect(),
+                  },
+                  {
+                    icon: '🎴',
+                    label: { tr: 'Sabacc', en: 'Sabacc' },
+                    blurb: { tr: 'Krupiye droide karşı Corellian Spike', en: 'Corellian Spike against the dealer droid' },
+                    open: () => setSabaccOpen(true),
                     sound: () => sfx.playSelect(),
                   },
                 ] as const

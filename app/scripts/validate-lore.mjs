@@ -267,6 +267,7 @@ const codexDigest = JSON.parse(
 const CODEX_FILES = {
   'starships.json': 'in-universe',
   'battles.json': 'in-universe',
+  'bounties.json': 'in-universe',
   'force-powers.json': 'in-universe',
   'timeline.json': 'in-universe',
   'transmissions.json': 'in-universe',

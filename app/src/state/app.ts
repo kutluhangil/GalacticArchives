@@ -32,6 +32,8 @@ interface AppState {
   territory: boolean
   /** interface sound effects; the engine keeps the same value in storage */
   sfx: boolean
+  /** looping per-world soundscape on planet pages; opt-in, unlike the clicks */
+  ambience: boolean
   veil: VeilPhase
   tour: TourState | null
   clockSpeed: number
@@ -43,6 +45,7 @@ interface AppState {
   setLanes: (v: boolean) => void
   setTerritory: (v: boolean) => void
   setSfx: (v: boolean) => void
+  setAmbience: (v: boolean) => void
   setVeil: (v: VeilPhase) => void
   startTour: (source: TourSource) => void
   setTourStep: (step: number) => void
@@ -61,6 +64,8 @@ const storedLanes = localStorage.getItem('ga-lanes') !== '0'
 const storedTerritory = localStorage.getItem('ga-territory') === '1'
 // sound is part of the console feel, so it is on until switched off
 const storedSfx = localStorage.getItem('ga-sfx') !== '0'
+// a continuous sound nobody asked for is a reason to close the tab: off until chosen
+const storedAmbience = localStorage.getItem('ga-ambience') === '1'
 // never boot into the Legends-only era with the layer off
 const bootEra: EraId = storedEra === 'old-republic' && !storedLegends ? 'empire' : storedEra
 
@@ -72,6 +77,7 @@ export const useApp = create<AppState>((set, get) => ({
   lanes: storedLanes,
   territory: storedTerritory,
   sfx: storedSfx,
+  ambience: storedAmbience,
   veil: 'open',
   tour: null,
   clockSpeed: 1,
@@ -115,6 +121,10 @@ export const useApp = create<AppState>((set, get) => ({
     localStorage.setItem('ga-sfx', sfxOn ? '1' : '0')
     void import('../lib/audio').then((m) => m.sfx.setMuted(!sfxOn))
     set({ sfx: sfxOn })
+  },
+  setAmbience: (ambience) => {
+    localStorage.setItem('ga-ambience', ambience ? '1' : '0')
+    set({ ambience })
   },
   setVeil: (veil) => set({ veil }),
   startTour: (source) => set({ tour: { source, step: 0, playing: true } }),

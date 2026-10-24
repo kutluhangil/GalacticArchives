@@ -2,10 +2,11 @@
 // Wireframe targeting vectors, sublight throttle control, deflector shield balancing,
 // and hyperdrive jump simulation.
 
-import { useEffect, useState, useRef } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import type { Starship } from '../types/lore'
 import { L } from '../lib/lore'
 import Aurebesh from './Aurebesh'
+import { useLater } from '../hooks/useLater'
 
 interface Props {
   starship: Starship | null
@@ -21,7 +22,12 @@ export default function CockpitHUDModal({ starship, onClose, lang }: Props) {
   const [targetLocked, setTargetLocked] = useState(false)
   const [isFiring, setIsFiring] = useState(false)
   const [isJumping, setIsJumping] = useState(false)
-  const animationFrameRef = useRef<number | null>(null)
+  const later = useLater()
+
+  const triggerFire = useCallback(() => {
+    setIsFiring(true)
+    later(() => setIsFiring(false), 200)
+  }, [later])
 
   useEffect(() => {
     if (!starship) return
@@ -36,32 +42,21 @@ export default function CockpitHUDModal({ starship, onClose, lang }: Props) {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [starship, onClose])
+  }, [starship, onClose, triggerFire])
 
-  // Countdown target distance loop
+  // Countdown target distance. 10 Hz is plenty for a whole-metre readout; the
+  // old per-frame rAF loop re-rendered the entire HUD 60 times a second.
   useEffect(() => {
     if (!starship) return
-    let lastTime = performance.now()
-    const loop = (time: number) => {
-      const dt = (time - lastTime) / 1000
-      lastTime = time
+    const TICK = 0.1
+    const id = window.setInterval(() => {
       setTargetDistance((dist) => {
-        const speed = (throttle / 100) * 400
-        const next = dist - speed * dt
-        if (next <= 120) {
-          setTargetLocked(true)
-        }
-        if (next <= 10) {
-          return 2500
-        }
-        return next
+        const next = dist - (throttle / 100) * 400 * TICK
+        if (next <= 120) setTargetLocked(true)
+        return next <= 10 ? 2500 : next
       })
-      animationFrameRef.current = requestAnimationFrame(loop)
-    }
-    animationFrameRef.current = requestAnimationFrame(loop)
-    return () => {
-      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
-    }
+    }, TICK * 1000)
+    return () => clearInterval(id)
   }, [starship, throttle])
 
   if (!starship) return null
@@ -75,15 +70,10 @@ export default function CockpitHUDModal({ starship, onClose, lang }: Props) {
   const currentSpeedKmH = Math.round((throttle / 100) * (starship.maxSpeed ? parseInt(starship.maxSpeed) || 1050 : 1050))
   const currentMGLT = Math.round((throttle / 100) * maxSublight)
 
-  const triggerFire = () => {
-    setIsFiring(true)
-    setTimeout(() => setIsFiring(false), 200)
-  }
-
   const triggerHyperdrive = () => {
     if (isJumping) return
     setIsJumping(true)
-    setTimeout(() => {
+    later(() => {
       setIsJumping(false)
       setTargetDistance(3200)
       setTargetLocked(false)

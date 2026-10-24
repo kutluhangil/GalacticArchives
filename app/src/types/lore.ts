@@ -299,6 +299,24 @@ export interface Battle {
   source: Citation
 }
 
+/** A Guild-board posting: a canon contract, who took it and how it ended. */
+export interface Bounty {
+  id: string
+  target: Localized
+  client: Localized
+  hunters: Localized
+  yearLabel: string
+  era: EraId
+  /** where the hunt turned; links to the body page */
+  planetId: string
+  status: 'delivered' | 'failed' | 'abandoned'
+  /** only when the cited article states one */
+  reward?: Localized
+  desc: Localized
+  appearances: string[]
+  source: Citation
+}
+
 export interface ForcePower {
   id: string
   names: Localized

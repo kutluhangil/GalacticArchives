@@ -1,5 +1,46 @@
 # Changelog
 
+## 2026-10-24
+
+- Every top-bar tool panel was unusable with a mouse. `ModalShell` renders inside the header,
+  which is `pointer-events-none`, and the overlay inherited it: clicks went straight through the
+  panel to the map canvas. The keyboard test passed because it never clicked. The shell now opts
+  back in, and two new e2e tests click inside a panel over the live galaxy map.
+
+- Seven worlds (Cato Neimoidia, Chandrila, Corellia, Ferrix, Kijimi, Nal Hutta, Nar Shaddaa)
+  downloaded a night map, up to 4K, that the shader never drew: only the ecumenopolis branch read
+  it. Night maps now light any archetype, and populous worlds without one (`city-glow`) get
+  procedural settlement lights that stay off painted oceans.
+
+- Parallel albedo, night and moon loads each built their own `KTX2Loader` (and transcoder worker
+  pool) in the gap of a dynamic import. The promise is memoised now; the "Multiple active KTX2
+  loaders" warning is gone.
+
+- `CockpitHUDModal` re-rendered the whole HUD every animation frame for a whole-metre readout; it
+  ticks at 10 Hz now. Flash timeouts in seven panels could write state after the panel closed;
+  they go through `useLater`, which cancels on unmount. The copy buttons only say "copied" when
+  the clipboard accepted it.
+
+- Planet rendering: the atmosphere shell is lit by the sun (bright day limb, dark night limb,
+  sunset band at the terminator, forward-scattering halo when backlit; lava worlds glow from below).
+  Clouds cast offset shadows on every cloudy world (the old verdant-only shadow vanished once the
+  albedo map loaded). With an albedo map loaded, relief comes from the map's own luminance instead
+  of unrelated noise, in a world-space tangent frame. Rings and the globe shadow each other, moons
+  and orbiting stations cast eclipses, ice worlds glitter, the primary sun throws a sprite lens
+  flare, and grazing light reddens near the terminator in place of the additive dawn band that
+  painted a glowing stripe into the night side. Plain moons are lit and show a phase.
+
+- New: Corellian Spike sabacc against a dealer droid, a Guild bounty board of four sourced canon
+  contracts, a HoloNet headline band and ⚔ battle markers on the galaxy map, a Jedi/Sith path and
+  tour at the end of the Holocron trial, and opt-in synthesised world ambience per archetype.
+
+- Codex: battles 8 → 15 and timeline 8 → 16, each citing a canon Wookieepedia article
+  (`codex records=83, cited articles=72`). The new battles have no painting yet; their cards show
+  a themed plate until one lands (prompts in `docs/gorsel-uretim-promptlari.md`, section H).
+
+- Dev dependencies: `npm audit` 9 → 0 (vite, zod, undici, vitest 5.0.5). The security-review
+  workflow's action is pinned to a commit.
+
 ## 2026-09-14
 
 - The pending major dependencies were taken, one at a time with the verify chain between them:

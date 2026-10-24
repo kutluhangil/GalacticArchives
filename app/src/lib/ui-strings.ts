@@ -63,6 +63,7 @@ const STRINGS = {
   dragHint: { en: 'drag to rotate · scroll to zoom', tr: 'çevirmek için sürükle · yakınlaşmak için kaydır' },
   clickPlanetHint: { en: 'click a body to approach', tr: 'yaklaşmak için bir gök cismine tıkla' },
   clickSystemHint: { en: 'click a system to jump', tr: 'sıçramak için bir sisteme tıkla' },
+  battleHere: { en: 'battle in this era', tr: 'bu dönemde savaş' },
   loading: { en: 'Accessing archives...', tr: 'Arşivlere erişiliyor...' },
   destroyedTag: { en: 'DESTROYED', tr: 'YOK EDİLDİ' },
   kmSuffix: { en: 'km', tr: 'km' },
@@ -113,6 +114,11 @@ const STRINGS = {
   sfxHint: {
     en: 'Synthesised clicks and chimes for panels and jumps. The choice is remembered.',
     tr: 'Paneller ve sıçramalar için sentezlenmiş tık ve ton sesleri. Seçim hatırlanır.',
+  },
+  ambience: { en: 'World ambience', tr: 'Ortam sesi' },
+  ambienceHint: {
+    en: 'A quiet synthesised soundscape on planet pages: wind, surf, city hum. Off until you turn it on.',
+    tr: 'Gezegen sayfalarında sentezlenmiş sessiz bir ortam: rüzgâr, dalga, şehir uğultusu. Sen açana kadar kapalı.',
   },
 
   resultCount: { en: 'records', tr: 'kayıt' },
