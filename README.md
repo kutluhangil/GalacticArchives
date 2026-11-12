@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/media/hero.svg" alt="Galactic Archives — a navigable 3D atlas of a galaxy far, far away" width="100%">
+<img src="docs/media/hero.svg" alt="Galactic Archives — a holographic galaxy disc, a route plotted along hyperlanes and a lava world" — a navigable 3D atlas of a galaxy far, far away" width="100%">
 
 <p>
   <a href="https://galactic-archives.vercel.app/galaxy"><img alt="Live demo" src="https://img.shields.io/badge/live%20demo-jump%20to%20hyperspace-ffd23f?style=for-the-badge&labelColor=050506"></a>
@@ -60,6 +60,66 @@ Galactic Archives turns the galaxy into a navigable atlas. The planets are lit b
 
 <img src="docs/media/divider.svg" width="100%" alt="">
 
+## Seven more rooms
+
+<table>
+  <tr>
+    <td width="33%"><img src="docs/screenshots/timeline.jpg" alt="Timeline of battles and political events"></td>
+    <td width="33%"><img src="docs/screenshots/hangar.jpg" alt="The hangar with ship blueprints"></td>
+    <td width="33%"><img src="docs/screenshots/force.jpg" alt="Force lore, from intermediate to master"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>/timeline</code> · battles, politics, Jedi &amp; Sith</td>
+    <td align="center"><code>/hangar</code> · blueprints by era</td>
+    <td align="center"><code>/force</code> · powers by level</td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/watch-guide.jpg" alt="Watch guide"></td>
+    <td><img src="docs/screenshots/compare.jpg" alt="Compare globes at true size"></td>
+    <td><img src="docs/screenshots/relationships.jpg" alt="Relationship explorer"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>/watch-guide</code> · live action, animation</td>
+    <td align="center"><code>/compare</code> · true diameter ratio</td>
+    <td align="center">relationship explorer</td>
+  </tr>
+</table>
+
+| Route | Room |
+|---|---|
+| `/galaxy` · `/system/:id` · `/planet/:id` | The three-level atlas, joined by camera flights |
+| `/holocron` · `/holocron/planet/:id` · `/holocron/character/:id` | The bilingual, cross-linked wiki |
+| `/timeline` | Battles, political events and the Jedi &amp; Sith story on one axis |
+| `/hangar` | Starships by era, each with an SVG blueprint and clickable component hotspots |
+| `/force` | Force powers from intermediate to master |
+| `/watch-guide` | Live action, animation and the Clone Wars era in watching order |
+| `/compare` | Two to four live globes at true diameter ratio, shareable by URL |
+
+<img src="docs/media/divider.svg" width="100%" alt="">
+
+## Tools in the archive
+
+| Tool | What it does |
+|---|---|
+| **Guided tours** | Narrated routes through the galaxy. The player owns navigation: each stop swaps the planet and the arriving view plays its flight. Six lane tours fly a hyperlane end to end. |
+| **Holocron trial** | A quiz whose verdict picks a path, and each path is an authored tour. Right and wrong are announced, not shown by colour alone. |
+| **Cockpit HUD** | Flight telemetry and a targeting computer: wireframe vectors, sublight throttle and deflector balance. |
+| **Hyperspace jump** | A full-screen particle jump between worlds. |
+| **Galactic ID** | Generates a character identity (archetype, homeworld, name) and a downloadable holo-ID card drawn with the Canvas API. |
+| **Aurebesh translator** | Type and read the galaxy's script; copying only reports success when the clipboard really accepted it. |
+| **Lightsaber chamber** | The seven classic combat forms with their history. |
+| **Bounty board · Sabacc** | Canon contracts tied to their worlds, and a three-round Corellian Spike game against a dealer droid. |
+| **Droid voice** | A droid vocabulator synthesised live with Web Audio. |
+| **Favourites and recents** | Saved worlds, recent records and saved tours, kept in the browser. |
+
+<img src="docs/media/divider.svg" width="100%" alt="">
+
+## Every line has a source
+
+Lore is the part of a fan project that rots fastest, so provenance is built in. Every body and character records the Wookieepedia article it came from and which infobox fields were taken from it (`lib/sources.ts`, with a generation date). Every starship, battle, Force power, timeline event, watch-guide entry and transmission ends in a citation line that links back to its article. If a field is not sourced, it is not shown.
+
+<img src="docs/media/divider.svg" width="100%" alt="">
+
 ## The planet foundry
 
 ```mermaid
@@ -108,5 +168,5 @@ Code is **MIT**. Lore text is sourced from **Wookieepedia (CC BY-SA)** and share
 <div align="center">
 <br>
 <a href="https://github.com/kutluhangil"><img src="docs/media/signature.svg" width="100%" alt="Built by kutluhangil"></a>
-<sub>Made for a galaxy far, far away.</sub>
+<sub>Made for a galaxy far, far away · unofficial fan project · the banner is original artwork.</sub>
 </div>
